@@ -1,0 +1,419 @@
+{
+  "method": "Saved ~0.5s observations; recovery duration estimated by next sample interval capped0.75s. Cluster repeated recovery when gap<=2s. Visible-wall distance only for actual trajectory; no estimated map coordinates used.",
+  "limits": "Sampling misses intervening transitions; wall motion is measured relative to one fixed wall and not full2D path length. Growth over cluster not causal. Randomized runs unpaired.",
+  "runs": [
+    {
+      "folder": "goalwall-abba-20261113",
+      "run": 1,
+      "variant": "A",
+      "estimated_recovery_seconds": 4.07,
+      "clusters": [
+        {
+          "start": 101.001,
+          "end": 104.571,
+          "span_s": 3.57,
+          "recovery_samples": 5,
+          "all_samples": 8,
+          "growth": 1,
+          "wall": 3,
+          "visible_wall_samples": 8,
+          "wall_distance_range": 80.0,
+          "net_wall_distance": 6.67,
+          "wall_total_variation": 400.0,
+          "wall_reversals": 5
+        },
+        {
+          "start": 107.107,
+          "end": 110.157,
+          "span_s": 3.05,
+          "recovery_samples": 4,
+          "all_samples": 7,
+          "growth": 0,
+          "wall": 3,
+          "visible_wall_samples": 7,
+          "wall_distance_range": 96.67,
+          "net_wall_distance": 10.0,
+          "wall_total_variation": 343.33,
+          "wall_reversals": 5
+        }
+      ]
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "run": 2,
+      "variant": "B",
+      "estimated_recovery_seconds": 0.51,
+      "clusters": [
+        {
+          "start": 62.906,
+          "end": 62.906,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 3,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        }
+      ]
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "run": 3,
+      "variant": "B",
+      "estimated_recovery_seconds": 2.02,
+      "clusters": [
+        {
+          "start": 31.644,
+          "end": 31.644,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 3,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        },
+        {
+          "start": 36.723,
+          "end": 36.723,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 3,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0,
+          "net_wall_distance": 0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        },
+        {
+          "start": 87.776,
+          "end": 87.776,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 0,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        },
+        {
+          "start": 96.918,
+          "end": 96.918,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 0,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        }
+      ]
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "run": 4,
+      "variant": "A",
+      "estimated_recovery_seconds": 0,
+      "clusters": []
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "run": 5,
+      "variant": "A",
+      "estimated_recovery_seconds": 4.59,
+      "clusters": [
+        {
+          "start": 51.044,
+          "end": 51.044,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 2,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        },
+        {
+          "start": 56.117,
+          "end": 56.117,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 2,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        },
+        {
+          "start": 64.83,
+          "end": 65.842,
+          "span_s": 1.01,
+          "recovery_samples": 3,
+          "all_samples": 3,
+          "growth": 1,
+          "wall": 2,
+          "visible_wall_samples": 3,
+          "wall_distance_range": 13.33,
+          "net_wall_distance": 13.33,
+          "wall_total_variation": 13.33,
+          "wall_reversals": 0
+        },
+        {
+          "start": 81.62,
+          "end": 83.147,
+          "span_s": 1.53,
+          "recovery_samples": 3,
+          "all_samples": 4,
+          "growth": 0,
+          "wall": 2,
+          "visible_wall_samples": 4,
+          "wall_distance_range": 83.33,
+          "net_wall_distance": 10.0,
+          "wall_total_variation": 156.67,
+          "wall_reversals": 1
+        },
+        {
+          "start": 93.86,
+          "end": 93.86,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 2,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        }
+      ]
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "run": 6,
+      "variant": "B",
+      "estimated_recovery_seconds": 19.34,
+      "clusters": [
+        {
+          "start": 69.707,
+          "end": 69.707,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 1,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0,
+          "net_wall_distance": 0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        },
+        {
+          "start": 71.788,
+          "end": 82.456,
+          "span_s": 10.67,
+          "recovery_samples": 12,
+          "all_samples": 22,
+          "growth": 1,
+          "wall": 1,
+          "visible_wall_samples": 22,
+          "wall_distance_range": 113.33,
+          "net_wall_distance": 20.0,
+          "wall_total_variation": 926.67,
+          "wall_reversals": 17
+        },
+        {
+          "start": 84.496,
+          "end": 84.496,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 1,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        },
+        {
+          "start": 87.035,
+          "end": 90.084,
+          "span_s": 3.05,
+          "recovery_samples": 4,
+          "all_samples": 7,
+          "growth": 9,
+          "wall": 1,
+          "visible_wall_samples": 7,
+          "wall_distance_range": 146.67,
+          "net_wall_distance": -43.33,
+          "wall_total_variation": 476.67,
+          "wall_reversals": 3
+        },
+        {
+          "start": 94.714,
+          "end": 110.498,
+          "span_s": 15.78,
+          "recovery_samples": 21,
+          "all_samples": 32,
+          "growth": 6,
+          "wall": 2,
+          "visible_wall_samples": 32,
+          "wall_distance_range": 290.0,
+          "net_wall_distance": -216.67,
+          "wall_total_variation": 1336.67,
+          "wall_reversals": 17
+        }
+      ]
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "run": 7,
+      "variant": "B",
+      "estimated_recovery_seconds": 9.11,
+      "clusters": [
+        {
+          "start": 77.995,
+          "end": 77.995,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 1,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0.0,
+          "net_wall_distance": 0.0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        },
+        {
+          "start": 80.577,
+          "end": 96.312,
+          "span_s": 15.73,
+          "recovery_samples": 16,
+          "all_samples": 32,
+          "growth": 15,
+          "wall": 1,
+          "visible_wall_samples": 32,
+          "wall_distance_range": 146.67,
+          "net_wall_distance": 46.67,
+          "wall_total_variation": 1326.67,
+          "wall_reversals": 26
+        },
+        {
+          "start": 109.551,
+          "end": 109.551,
+          "span_s": 0.0,
+          "recovery_samples": 1,
+          "all_samples": 1,
+          "growth": 0,
+          "wall": 2,
+          "visible_wall_samples": 1,
+          "wall_distance_range": 0,
+          "net_wall_distance": 0,
+          "wall_total_variation": 0,
+          "wall_reversals": 0
+        }
+      ]
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "run": 8,
+      "variant": "A",
+      "estimated_recovery_seconds": 28.03,
+      "clusters": [
+        {
+          "start": 48.508,
+          "end": 77.083,
+          "span_s": 28.57,
+          "recovery_samples": 32,
+          "all_samples": 57,
+          "growth": 1,
+          "wall": 0,
+          "visible_wall_samples": 57,
+          "wall_distance_range": 123.33,
+          "net_wall_distance": 13.33,
+          "wall_total_variation": 2673.33,
+          "wall_reversals": 47
+        },
+        {
+          "start": 83.241,
+          "end": 89.335,
+          "span_s": 6.09,
+          "recovery_samples": 5,
+          "all_samples": 13,
+          "growth": 0,
+          "wall": 0,
+          "visible_wall_samples": 13,
+          "wall_distance_range": 140,
+          "net_wall_distance": 20.0,
+          "wall_total_variation": 660.0,
+          "wall_reversals": 7
+        },
+        {
+          "start": 92.955,
+          "end": 93.982,
+          "span_s": 1.03,
+          "recovery_samples": 2,
+          "all_samples": 3,
+          "growth": 0,
+          "wall": 0,
+          "visible_wall_samples": 3,
+          "wall_distance_range": 56.67,
+          "net_wall_distance": 3.33,
+          "wall_total_variation": 110.0,
+          "wall_reversals": 1
+        },
+        {
+          "start": 99.572,
+          "end": 110.273,
+          "span_s": 10.7,
+          "recovery_samples": 17,
+          "all_samples": 22,
+          "growth": 4,
+          "wall": 0,
+          "visible_wall_samples": 22,
+          "wall_distance_range": 326.67,
+          "net_wall_distance": -226.67,
+          "wall_total_variation": 606.67,
+          "wall_reversals": 7
+        }
+      ]
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 6,
+      "variant": "success_reference",
+      "estimated_recovery_seconds": 0,
+      "clusters": []
+    }
+  ],
+  "food_feasibility_interventions": {
+    "method": "One-step H21 counterfactual choices against unchanged saved states; positive normal goes away from nearest visible wall. Next recovery belongs to original run, not simulated candidate.",
+    "changes_with_visible_wall": 45,
+    "outward_to_nonoutward": 19,
+    "nonrecovering_outward_to_nonoutward": 19,
+    "nonrecovering_outward_to_nonoutward_then_original_recovers_within2s": 18
+  }
+}
