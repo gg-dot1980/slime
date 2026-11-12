@@ -1,0 +1,150 @@
+{
+  "hypothesis": "H10 earlier minimap exploration",
+  "valid_runs": 8,
+  "invalid_runs": [
+    {
+      "run": 3,
+      "variant": "B",
+      "outcome": "controller-stopped",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 0.001,
+      "end_size": null,
+      "title": null,
+      "description": null,
+      "source_sha256": "c94d77e425f9fea8b1c6f86741bf47019878143dd7928cdeb545d764b61cab4a",
+      "samples": 1
+    }
+  ],
+  "replacement": "explore-replacement3-20261112",
+  "sequence_note": "Original ABBAABBA run3 had no game HUD/decision at0.001s; excluded as infrastructure-invalid and replaced once after remaining valid trials. Original evidence preserved.",
+  "variants": {
+    "A": {
+      "pass": 0,
+      "completed": 4,
+      "mean_end_size": 94.25
+    },
+    "B": {
+      "pass": 0,
+      "completed": 4,
+      "mean_end_size": 98.25
+    }
+  },
+  "runs": [
+    {
+      "run": 1,
+      "variant": "A",
+      "outcome": "timeout",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 110.222,
+      "end_size": "80",
+      "title": "Eat smart. Stay alive.",
+      "description": "Reach size 200 within 5 minutes. Eat food and smaller slimes; avoid the bigger ones chasing you.",
+      "source_sha256": "b44f64182c9286c0cccb5310f578893c6ad1c1491f270d6a02262a197a1503de",
+      "samples": 217
+    },
+    {
+      "run": 2,
+      "variant": "B",
+      "outcome": "timeout",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 110.245,
+      "end_size": "122",
+      "title": "Eat smart. Stay alive.",
+      "description": "Reach size 200 within 5 minutes. Eat food and smaller slimes; avoid the bigger ones chasing you.",
+      "source_sha256": "c94d77e425f9fea8b1c6f86741bf47019878143dd7928cdeb545d764b61cab4a",
+      "samples": 217
+    },
+    {
+      "run": 4,
+      "variant": "A",
+      "outcome": "timeout",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 110.254,
+      "end_size": "92",
+      "title": "Eat smart. Stay alive.",
+      "description": "Reach size 200 within 5 minutes. Eat food and smaller slimes; avoid the bigger ones chasing you.",
+      "source_sha256": "b44f64182c9286c0cccb5310f578893c6ad1c1491f270d6a02262a197a1503de",
+      "samples": 217
+    },
+    {
+      "run": 5,
+      "variant": "A",
+      "outcome": "timeout",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 110.218,
+      "end_size": "75",
+      "title": "Eat smart. Stay alive.",
+      "description": "Reach size 200 within 5 minutes. Eat food and smaller slimes; avoid the bigger ones chasing you.",
+      "source_sha256": "b44f64182c9286c0cccb5310f578893c6ad1c1491f270d6a02262a197a1503de",
+      "samples": 217
+    },
+    {
+      "run": 6,
+      "variant": "B",
+      "outcome": "timeout",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 110.133,
+      "end_size": "95",
+      "title": "Eat smart. Stay alive.",
+      "description": "Reach size 200 within 5 minutes. Eat food and smaller slimes; avoid the bigger ones chasing you.",
+      "source_sha256": "c94d77e425f9fea8b1c6f86741bf47019878143dd7928cdeb545d764b61cab4a",
+      "samples": 217
+    },
+    {
+      "run": 7,
+      "variant": "B",
+      "outcome": "timeout",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 110.176,
+      "end_size": "92",
+      "title": "Eat smart. Stay alive.",
+      "description": "Reach size 200 within 5 minutes. Eat food and smaller slimes; avoid the bigger ones chasing you.",
+      "source_sha256": "c94d77e425f9fea8b1c6f86741bf47019878143dd7928cdeb545d764b61cab4a",
+      "samples": 217
+    },
+    {
+      "run": 8,
+      "variant": "A",
+      "outcome": "timeout",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 110.456,
+      "end_size": "130",
+      "title": "Eat smart. Stay alive.",
+      "description": "Reach size 200 within 5 minutes. Eat food and smaller slimes; avoid the bigger ones chasing you.",
+      "source_sha256": "b44f64182c9286c0cccb5310f578893c6ad1c1491f270d6a02262a197a1503de",
+      "samples": 217
+    },
+    {
+      "run": "3-replacement",
+      "variant": "B",
+      "outcome": "timeout",
+      "success": false,
+      "won": false,
+      "game_seconds": null,
+      "wall_seconds": 110.353,
+      "end_size": "84",
+      "title": "Eat smart. Stay alive.",
+      "description": "Reach size 200 within 5 minutes. Eat food and smaller slimes; avoid the bigger ones chasing you.",
+      "source_sha256": "c94d77e425f9fea8b1c6f86741bf47019878143dd7928cdeb545d764b61cab4a",
+      "samples": 217,
+      "original_invalid_run": 3
+    }
+  ],
+  "limits": "Random unpaired starts; small exploratory batch, no stable win-rate inference."
+}
