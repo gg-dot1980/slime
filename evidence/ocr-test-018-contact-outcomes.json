@@ -1,0 +1,20 @@
+{
+  "method": "Group consecutive alternateContact observations into episodes. Compare initial2s prediction to maximum HUD gain within2.5s.",
+  "limits": "Not target attribution; food/otherNPC growth can contribute. Model assumes direction held2s but controller replans every~0.1s; stored telemetry samples~0.5s, so actual intervening directions unknown. Overlapping episodes correlated.",
+  "summary": {
+    "samples": 34,
+    "episodes": 22,
+    "episodes_any_growth": 6,
+    "episodes_growth3plus": 2,
+    "next_observation_direction_changed": 16,
+    "median_predicted_gain": 1.4561384160033768,
+    "median_observed_growth": 0.0,
+    "full_followup_episodes": 21,
+    "right_censored_episodes": 1,
+    "full_followup_any_growth": 6,
+    "full_followup_growth3plus": 2,
+    "full_followup_next_direction_changed": 16
+  },
+  "next_step": "H18 candidate: execute alternate contact as short bounded maneuver <=0.3s, re-evaluate collision/wall constraints each tick and abort immediately if unsafe; not blind2s hold. First instrument actual controller-cadence direction and contact ETA, because0.5s observation cannot determine sub-tick persistence.",
+  "source_check": "Game acceleration factor min(1,dt*4.2); planner0.35 per0.1s is close to continuous1-exp(-.42)=.343, so no evidence for large acceleration constant mismatch. Current alternate choice retains original target and no maneuver continuity."
+}
