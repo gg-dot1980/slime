@@ -1,0 +1,11 @@
+--- controller-explore.js
++++ controller-uncertain.js
+@@ -112,7 +112,7 @@
+  const margin=260+.75*r,wallMeal=false,recovering=!!walls?.some(x=>x<margin);
+  let target=null,best=0;
+  for(const o of meals){const dist=Math.hypot(o.x,o.y),gain=o.npc?.75*(Math.sqrt(r*r+.55*o.r*o.r)-r):.45,eta=Math.max(.12,(dist-(o.npc?.7*(r+o.r):r))/speed),score=gain/(eta+.4)*(o.npc?2:1)*(old.target&&old.target.npc===o.npc&&Math.hypot(old.target.x-o.x,old.target.y-o.y)<100?1.2:1);if(score>best){best=score;target=o;}}
+- if(map&&(!target||r>=60&&!target.npc))for(const dot of map.opportunities||[]){const x=(dot.x-map.player.x)/map.width*10400,y=(dot.y-map.player.y)/map.height*7200,dist=Math.hypot(x,y);if(dist<300||map.viewWidth&&Math.abs(x)<map.viewWidth*.5-40&&Math.abs(y)<map.viewHeight*.5-40)continue;const area=dot.area/(map.pixelRatio||1)**2,body=area<6?Math.min(20,r*.75):Math.min(r*.85,Math.sqrt(area/Math.PI)*38),gain=.75*(Math.sqrt(r*r+.55*body*body)-r),score=gain/(dist/speed+.7)*1.2;if(score>best){best=score;target={x,y,r:body,npc:true,mapOnly:true,vx:0,vy:0};}}
++ if(map&&(!target||r>=60&&!target.npc))for(const dot of map.opportunities||[]){const x=(dot.x-map.player.x)/map.width*10400,y=(dot.y-map.player.y)/map.height*7200,dist=Math.hypot(x,y);if(dist<300||map.viewWidth&&Math.abs(x)<map.viewWidth*.5-40&&Math.abs(y)<map.viewHeight*.5-40)continue;const score=.45/(dist/speed+.7);if(score>best){best=score;target={x,y,r:null,npc:true,mapOnly:true,uncertainSize:true,explorationOnly:true,expectedGrowth:0,vx:0,vy:0};}}
+  const lead=target?Math.min(1.2,Math.hypot(target.x,target.y)/speed):0,tx=target?target.x+target.vx*lead:old.x*speed,ty=target?target.y+target.vy*lead:old.y*speed;
+  const candidates=dirs.map(d=>{let x=0,y=0,vx=v.x,vy=v.y,clearance=1e6,risk=0,gain=0,projectedR=r;const picked=new Set();
+  for(let k=1;k<=20;k++){const t=k*.1;vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
