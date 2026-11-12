@@ -1,0 +1,178 @@
+{
+  "method": "Saved test016 observations; actual chosen direction checked against original inward>=.25 and revised tangent>=0 boundary tests. Adjacent observations correlated, randomized runs unpaired.",
+  "runs": [
+    {
+      "run": 1,
+      "variant": "A",
+      "samples": 216,
+      "visible_prey_target": 125,
+      "near_prey_target": 67,
+      "wall_recovery_samples": 39,
+      "matched_near": 24,
+      "near_low_closing": 15,
+      "median_near_closing": -20.58021394127789
+    },
+    {
+      "run": 2,
+      "variant": "B",
+      "samples": 216,
+      "visible_prey_target": 102,
+      "near_prey_target": 43,
+      "wall_recovery_samples": 29,
+      "actual_tangent_samples": 23,
+      "matched_near": 10,
+      "near_low_closing": 2,
+      "median_near_closing": 38.28640694185971
+    },
+    {
+      "run": 3,
+      "variant": "B",
+      "samples": 216,
+      "visible_prey_target": 106,
+      "near_prey_target": 45,
+      "wall_recovery_samples": 14,
+      "actual_tangent_samples": 8,
+      "matched_near": 8,
+      "near_low_closing": 3,
+      "median_near_closing": 203.54571225307768
+    },
+    {
+      "run": 4,
+      "variant": "A",
+      "samples": 216,
+      "visible_prey_target": 71,
+      "near_prey_target": 31,
+      "wall_recovery_samples": 11,
+      "matched_near": 2,
+      "near_low_closing": 0,
+      "median_near_closing": 234.24539654038335
+    },
+    {
+      "run": 5,
+      "variant": "A",
+      "samples": 216,
+      "visible_prey_target": 82,
+      "near_prey_target": 30,
+      "matched_near": 3,
+      "near_low_closing": 0,
+      "median_near_closing": 236.85231466400103
+    },
+    {
+      "run": 6,
+      "variant": "B",
+      "samples": 217,
+      "visible_prey_target": 111,
+      "near_prey_target": 48,
+      "wall_recovery_samples": 42,
+      "actual_tangent_samples": 30,
+      "matched_near": 6,
+      "near_low_closing": 1,
+      "median_near_closing": 264.58394535021995
+    },
+    {
+      "run": 7,
+      "variant": "B",
+      "samples": 216,
+      "visible_prey_target": 86,
+      "near_prey_target": 27,
+      "wall_recovery_samples": 15,
+      "actual_tangent_samples": 12,
+      "matched_near": 3,
+      "near_low_closing": 0,
+      "median_near_closing": 252.08087021239584
+    },
+    {
+      "run": 8,
+      "variant": "A",
+      "samples": 216,
+      "visible_prey_target": 100,
+      "near_prey_target": 44,
+      "wall_recovery_samples": 33,
+      "matched_near": 7,
+      "near_low_closing": 1,
+      "median_near_closing": 84.44892524550727
+    }
+  ],
+  "variants": {
+    "A": {
+      "samples": 864,
+      "wall_recovery_samples": 83,
+      "actual_tangent_samples": 0,
+      "visible_prey_target": 378,
+      "near_prey_target": 172,
+      "matched_near": 36,
+      "near_low_closing": 16,
+      "median_near_closing": 38.65355591045994
+    },
+    "B": {
+      "samples": 865,
+      "wall_recovery_samples": 100,
+      "actual_tangent_samples": 73,
+      "visible_prey_target": 405,
+      "near_prey_target": 163,
+      "matched_near": 27,
+      "near_low_closing": 6,
+      "median_near_closing": 95.19276359043458
+    }
+  },
+  "near_growth_screen": [
+    {
+      "run": 1,
+      "variant": "A",
+      "near100_samples": 21,
+      "without_growth_compatible_1_5s": 19,
+      "growth_compatible_1_5s": 2
+    },
+    {
+      "run": 2,
+      "variant": "B",
+      "near100_samples": 30,
+      "without_growth_compatible_1_5s": 15,
+      "growth_compatible_1_5s": 15
+    },
+    {
+      "run": 3,
+      "variant": "B",
+      "near100_samples": 32,
+      "growth_compatible_1_5s": 20,
+      "without_growth_compatible_1_5s": 12
+    },
+    {
+      "run": 4,
+      "variant": "A",
+      "near100_samples": 20,
+      "growth_compatible_1_5s": 10,
+      "without_growth_compatible_1_5s": 10
+    },
+    {
+      "run": 5,
+      "variant": "A",
+      "near100_samples": 23,
+      "growth_compatible_1_5s": 10,
+      "without_growth_compatible_1_5s": 13
+    },
+    {
+      "run": 6,
+      "variant": "B",
+      "near100_samples": 26,
+      "growth_compatible_1_5s": 12,
+      "without_growth_compatible_1_5s": 14
+    },
+    {
+      "run": 7,
+      "variant": "B",
+      "near100_samples": 22,
+      "growth_compatible_1_5s": 15,
+      "without_growth_compatible_1_5s": 7
+    },
+    {
+      "run": 8,
+      "variant": "A",
+      "near100_samples": 19,
+      "growth_compatible_1_5s": 10,
+      "without_growth_compatible_1_5s": 9
+    }
+  ],
+  "growth_limits": "Overlapping windows; growth can be food or a different NPC, so not verified captures. 0.5-second telemetry and10-second screenshots cannot resolve every collision/occlusion.",
+  "next_step": "Audit near-contact classification/occlusion using existing synchronized pixel sequence; if insufficient, one short diagnostic capture at controller cadence with pixel frame + objects + HUD paired, no policy change. Do not start another random 8-run strategy batch without evidence."
+}
