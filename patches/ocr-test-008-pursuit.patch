@@ -1,0 +1,26 @@
+--- controller-wallguard.js
++++ controller-pursuit.js
+@@ -106,6 +106,14 @@
+ }
+ function hudSpeed(r,text){const values=/RGB\s*(\d+)\s*·\s*(\d+)\s*·\s*(\d+)/.exec(text||''),color=values?values.slice(1).map(Number):[98,218,169],brightness=(.2126*color[0]+.7152*color[1]+.0722*color[2])/255;return Math.max(92,260-Math.max(0,r-25)*.65)*(.72+brightness*.58)*1.38;}
+ const dirs=Array.from({length:8},(_,i)=>({x:Math.cos(i*Math.PI/4),y:Math.sin(i*Math.PI/4),name:['東','東南','南','西南','西','西北','北','東北'][i]}));
++function pursuitDistance(o,x,y,t,r){
++ const linearX=o.x+o.vx*t,linearY=o.y+o.vy*t;
++ const speed=Math.hypot(o.vx,o.vy);
++ if(o.clipped||o.r<r*1.05||speed<20)return Math.hypot(linearX-x,linearY-y);
++ let px=o.x,py=o.y,vx=o.vx,vy=o.vy;
++ for(let s=.1;s<=t+.001;s+=.1){const fx=x*s/t,fy=y*s/t,dx=fx-px,dy=fy-py,len=Math.max(1,Math.hypot(dx,dy)),a=1-Math.exp(-2*.1);vx+=(dx/len*speed-vx)*a;vy+=(dy/len*speed-vy)*a;px+=vx*.1;py+=vy*.1;}
++ return Math.min(Math.hypot(linearX-x,linearY-y),Math.hypot(px-x,py-y));
++}
+ function plan(objects,r,map,speed,v,old,splitGuard=true){
+  const meals=objects.filter(o=>!o.clipped&&!o.blocked&&(!o.npc||!o.isRed&&o.r<r*.91));
+  const estimatedWalls=map?.player?[map.player.x/map.width*10400,(1-map.player.x/map.width)*10400,map.player.y/map.height*7200,(1-map.player.y/map.height)*7200]:null,walls=map?.visibleWalls?map.visibleWalls.map((v,i)=>v??estimatedWalls?.[i]??Infinity):estimatedWalls;
+@@ -117,7 +125,7 @@
+  const candidates=dirs.map(d=>{let x=0,y=0,vx=v.x,vy=v.y,clearance=1e6,risk=0,gain=0,projectedR=r;const picked=new Set();
+  for(let k=1;k<=20;k++){const t=k*.1;vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
+  for(const o of objects){if(o.clipped||o.blocked||picked.has(o)||o.npc&&(o.isRed||o.r>=projectedR*.91))continue;if(Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)<(o.npc?.7*(projectedR+o.r):projectedR+o.r*.5)){picked.add(o);const g=o.npc?.75*(Math.sqrt(projectedR*projectedR+.55*o.r*o.r)-projectedR):.45;gain+=g/(t+.3);projectedR+=g;}}
+- if(t<=1.1)for(const o of objects){if(!o.npc||picked.has(o)||!o.clipped&&!o.isRed&&o.r<projectedR*.98)continue;const body=o.clipped?o.dangerRadius:o.isRed?Math.max(o.r,r*1.1):o.r, gap=Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)-.75*(projectedR+body)-12;clearance=Math.min(clearance,gap);risk+=Math.max(0,1-gap/100)**2/11;}
++ if(t<=1.1)for(const o of objects){if(!o.npc||picked.has(o)||!o.clipped&&!o.isRed&&o.r<projectedR*.98)continue;const body=o.clipped?o.dangerRadius:o.isRed?Math.max(o.r,r*1.1):o.r, gap=pursuitDistance(o,x,y,t,r)-.75*(projectedR+body)-12;clearance=Math.min(clearance,gap);risk+=Math.max(0,1-gap/100)**2/11;}
+  }
+  const alignment=(d.x*tx+d.y*ty)/Math.max(1,Math.hypot(tx,ty)),inward=walls&&!wallMeal?[d.x,-d.x,d.y,-d.y].reduce((s,a,i)=>s+Math.max(0,(margin-walls[i])/margin)*a,0):0;
+  return {...d,target,clearance,risk,gain,projectedR,recovering,score:alignment*Math.max(2,best)*4+gain*4-risk*12+inward*50+(d.x*old.x+d.y*old.y)*.15};});
