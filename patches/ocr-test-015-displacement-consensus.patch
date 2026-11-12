@@ -1,0 +1,30 @@
+--- controller-camera.js
++++ controller-consensus.js
+@@ -90,6 +90,14 @@
+  function lines(counts,opposite){const groups=[];for(let i=0;i<counts.length;i++)if(counts[i]/opposite>=.55){const x=i*s,g=groups.at(-1);if(g&&x-g.at(-1)<=s)g.push(x);else groups.push([x]);}return groups.filter(g=>g.at(-1)-g[0]<=20).map(g=>g.reduce((a,b)=>a+b,0)/g.length);}
+  const result=[null,null,null,null];for(const x of lines(cols,ny)){const k=x<w/2?0:1,v=Math.abs(x-w/2)/ratio;result[k]=result[k]===null?v:Math.min(result[k],v);}for(const y of lines(rows,nx)){const k=y<h/2?2:3,v=Math.abs(y-h/2)/ratio;result[k]=result[k]===null?v:Math.min(result[k],v);}return result.some(v=>v!==null)?result:null;
+ }
++function independentFoodShifts(parts,previous,ratio,w,h,dt){
++ const candidates=[],bins=new Map(),points=parts.filter(p=>p.r<=20*ratio),old=previous.filter(q=>!q.npc),limit=Math.max(50,450*dt);
++ for(let i=0;i<points.length;i++){const p=points[i],x=(p.x-w/2)/ratio,y=(p.y-h/2)/ratio;for(let j=0;j<old.length;j++){const q=old[j],dx=q.x-x,dy=q.y-y;if(Math.abs(q.r-p.r/ratio)>=3||Math.hypot(dx,dy)>limit)continue;const bx=Math.round(dx/8),by=Math.round(dy/8),key=bx+','+by;bins.set(key,(bins.get(key)||0)+1);candidates.push({i,j,dx,dy,bx,by});}}
++ let center=null,best=0;for(const [key,count] of bins)if(count>best){best=count;center=key.split(',').map(Number)}if(!center)return null;
++ const near=candidates.map(p=>({...p,error:Math.hypot(p.dx-center[0]*8,p.dy-center[1]*8)})).filter(p=>p.error<12).sort((a,b)=>a.error-b.error),usedI=new Set(),usedJ=new Set(),result=[];
++ for(const p of near)if(!usedI.has(p.i)&&!usedJ.has(p.j)){usedI.add(p.i);usedJ.add(p.j);result.push({x:p.dx/dt,y:p.dy/dt})}
++ return result.length>=6?result:null;
++}
+ function readImage(source,radius,now,predictedVelocity=null){
+  const scale=Math.min(1,1200/source.width),w=Math.round(source.width*scale),h=Math.round(source.height*scale);if(!w||!h)throw Error('遊戲畫面尚未就緒');
+  if(out.width!==w)out.width=w;if(out.height!==h)out.height=h;ctx.drawImage(source,0,0,w,h);const image=ctx.getImageData(0,0,w,h),pixels=new Uint32Array(image.data.buffer,image.data.byteOffset,image.data.byteLength/4),ratio=w/(source.clientWidth||w);
+@@ -99,10 +107,11 @@
+  const dt=Math.max(.04,Math.min(.4,(now-(prior?.timestamp??now-100))/1000)),previous=prior?.objects||[];let camera=predictedVelocity?{...predictedVelocity}:{x:0,y:0};
+  if(!predictedVelocity&&map?.player&&prior?.analysis.map?.player){const old=prior.analysis.map;camera={x:(map.player.x/map.width-old.player.x/old.width)*10400/dt,y:(map.player.y/map.height-old.player.y/old.height)*7200/dt};}
+  const shifts=[];for(const p of parts.filter(p=>p.r<=20*ratio)){const x=(p.x-w/2)/ratio,y=(p.y-h/2)/ratio;let best=null,error=35;for(const q of previous.filter(q=>!q.npc)){const dist=Math.hypot(q.x-x-(prior.analysis.velocity.x||0)*dt,q.y-y-(prior.analysis.velocity.y||0)*dt);if(Math.abs(q.r-p.r/ratio)<3&&dist<error){error=dist;best=q;}}if(best)shifts.push({x:(best.x-x)/dt,y:(best.y-y)/dt});}
++ const independent=independentFoodShifts(parts,previous,ratio,w,h,dt);const cameraMatch={mode:independent?'independent-consensus':'legacy-fallback',matches:independent?.length||shifts.length};if(independent)shifts.splice(0,shifts.length,...independent);
+  let measuredCamera=null;if(shifts.length>=3){const median=k=>shifts.map(p=>p[k]).sort((a,b)=>a-b)[shifts.length>>1];measuredCamera={x:median('x'),y:median('y')};camera=predictedVelocity?{x:predictedVelocity.x*.6+median('x')*.4,y:predictedVelocity.y*.6+median('y')*.4}:{x:median('x'),y:median('y')};}
+  camera.x=Math.max(-400,Math.min(400,camera.x));camera.y=Math.max(-400,Math.min(400,camera.y));const oldVelocity=prior?.analysis.velocity||{x:0,y:0},velocity=predictedVelocity?{...camera}:{x:oldVelocity.x*.75+camera.x*.25,y:oldVelocity.y*.75+camera.y*.25};
+  const used=new Set(),objects=parts.map(p=>{const x=(p.x-w/2)/ratio,y=(p.y-h/2)/ratio,visualR=p.r/ratio,npc=hasSlimeLabel(image,w,h,p)||visualR>20,r=npc?highlightRadius(image,w,h,p)/ratio:visualR;let match=null,error=100;for(const q of previous){if(used.has(q)||q.npc!==npc||Math.abs(q.r-r)>Math.max(6,r*.2))continue;const dist=Math.hypot(q.x+(q.vx-camera.x)*dt-x,q.y+(q.vy-camera.y)*dt-y);if(dist<error){error=dist;match=q;}}if(match)used.add(match);const clamp=v=>Math.max(-200,Math.min(200,v));const stalled=npc&&Math.hypot(x,y)<(radius+r)*.74&&prior?.radius===radius?(match?.stalled||0)+dt:0;return {x,y,r,npc,stalled,blocked:stalled>.5,isRed:npc&&hasDangerLabel(image,w,h,p,ratio),clipped:p.clipped,dangerRadius:p.clipped?r+50:r,vx:npc&&match?clamp((match.vx||0)*.65+((x-match.x)/dt+(measuredCamera?.x??camera.x))*.35):0,vy:npc&&match?clamp((match.vy||0)*.65+((y-match.y)/dt+(measuredCamera?.y??camera.y))*.35):0};});
+- const analysis={objects,map,velocity};imageState={radius,width:w,height:h,pixels:new Uint32Array(pixels),timestamp:now,objects,analysis};return analysis;
++ const analysis={objects,map,velocity,cameraMatch};imageState={radius,width:w,height:h,pixels:new Uint32Array(pixels),timestamp:now,objects,analysis};return analysis;
+ }
+ function hudSpeed(r,text){const values=/RGB\s*(\d+)\s*·\s*(\d+)\s*·\s*(\d+)/.exec(text||''),color=values?values.slice(1).map(Number):[98,218,169],brightness=(.2126*color[0]+.7152*color[1]+.0722*color[2])/255;return Math.max(92,260-Math.max(0,r-25)*.65)*(.72+brightness*.58)*1.38;}
+ const dirs=Array.from({length:8},(_,i)=>({x:Math.cos(i*Math.PI/4),y:Math.sin(i*Math.PI/4),name:['東','東南','南','西南','西','西北','北','東北'][i]}));
