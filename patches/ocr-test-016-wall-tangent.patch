@@ -1,0 +1,11 @@
+--- controller-camera.js
++++ controller-tangent.js
+@@ -121,7 +121,7 @@
+  }
+  const alignment=(d.x*tx+d.y*ty)/Math.max(1,Math.hypot(tx,ty)),inward=walls&&!wallMeal?[d.x,-d.x,d.y,-d.y].reduce((s,a,i)=>s+Math.max(0,(margin-walls[i])/margin)*a,0):0;
+  return {...d,target,clearance,risk,gain,projectedR,recovering,score:alignment*Math.max(2,best)*4+gain*4-risk*12+inward*50+(d.x*old.x+d.y*old.y)*.15};});
+- const safe=candidates.filter(d=>d.clearance>3),bounded=safe.filter(d=>!walls||walls.every((distance,i)=>distance>=margin||[d.x,-d.x,d.y,-d.y][i]>=.25)),pool=bounded.length?bounded:safe.length?safe:candidates;pool.sort((a,b)=>safe.length?b.score-a.score:b.clearance-a.clearance);return {...pool[0],escaping:!safe.length,threats:objects.filter(o=>o.npc&&(o.clipped||o.isRed||o.r>=r*.98)).length};
++ const safe=candidates.filter(d=>d.clearance>3),bounded=safe.filter(d=>!walls||walls.every((distance,i)=>distance>=margin||[d.x,-d.x,d.y,-d.y][i]>=-1e-9)),pool=bounded.length?bounded:safe.length?safe:candidates;pool.sort((a,b)=>safe.length?b.score-a.score:b.clearance-a.clearance);return {...pool[0],escaping:!safe.length,threats:objects.filter(o=>o.npc&&(o.clipped||o.isRed||o.r>=r*.98)).length};
+ }
+ let lastVision=0;
+ function showVision(analysis,r,d,now){if(!$('diagnostics').open||now-lastVision<1000)return;lastVision=now;const canvas=$('vision');canvas.width=out.width;canvas.height=out.height;const v=canvas.getContext('2d'),ratio=out.width/(game.contentDocument.querySelector('canvas').clientWidth||out.width);v.drawImage(out,0,0);v.lineWidth=2;for(const o of analysis.objects){v.strokeStyle=o.clipped||o.isRed||o.npc&&o.r>=r*.95?'#ff796e':o.npc?'#7dff9b':'#5bdbea';v.beginPath();v.arc(out.width/2+o.x*ratio,out.height/2+o.y*ratio,o.r*ratio,0,Math.PI*2);v.stroke();}v.strokeStyle='#ffffff';v.beginPath();v.moveTo(out.width/2,out.height/2);v.lineTo(out.width/2+d.x*90,out.height/2+d.y*90);v.stroke();$('visionText').textContent=JSON.stringify({target:d.target&&{radius:Math.round(d.target.r),distance:Math.round(Math.hypot(d.target.x,d.target.y)),npc:d.target.npc},map:analysis.map&&analysis.map.player,npcs:analysis.objects.filter(o=>o.npc).map(o=>({r:Math.round(o.r),x:Math.round(o.x),y:Math.round(o.y),red:o.isRed,clipped:o.clipped}))},null,1);}
