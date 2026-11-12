@@ -1,0 +1,961 @@
+{
+  "phase_audit": {
+    "method": "Medium prey: visible recognized edible NPC radius50%-91% of player, not clipped/blocked/red; near contact gap<300 world units. Nonwall excludes recovery. Capture toast lower bounds; opportunities are repeated observations not independent NPCs.",
+    "limits": "Recognition not ground truth, selected target need not be captured NPC. Unpaired randomized runs.",
+    "runs": [
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 1,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 43,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 20,
+            "nonwall_near_mid_visible": 5,
+            "nonwall_mid_target": 20,
+            "nonwall_near_mid_target": 5,
+            "captures": 2,
+            "capture_gain": 5.1,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 43,
+            "r_end": 59,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 2,
+            "nonwall_near_mid_visible": 0,
+            "nonwall_mid_target": 2,
+            "nonwall_near_mid_target": 0,
+            "captures": 2,
+            "capture_gain": 5.0,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 59,
+            "r_end": 108,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 8,
+            "nonwall_near_mid_visible": 2,
+            "nonwall_mid_target": 8,
+            "nonwall_near_mid_target": 2,
+            "captures": 4,
+            "capture_gain": 28.5,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 40,
+            "r_start": 108,
+            "r_end": 128,
+            "nonwall_samples": 37,
+            "nonwall_mid_visible": 6,
+            "nonwall_near_mid_visible": 2,
+            "nonwall_mid_target": 6,
+            "nonwall_near_mid_target": 2,
+            "captures": 2,
+            "capture_gain": 4.9,
+            "large_captures": 0
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 2,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 45,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 16,
+            "nonwall_near_mid_visible": 7,
+            "nonwall_mid_target": 16,
+            "nonwall_near_mid_target": 7,
+            "captures": 3,
+            "capture_gain": 7.9,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 46,
+            "r_end": 65,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 0,
+            "nonwall_near_mid_visible": 0,
+            "nonwall_mid_target": 0,
+            "nonwall_near_mid_target": 0,
+            "captures": 1,
+            "capture_gain": 1.9,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 65,
+            "r_end": 93,
+            "nonwall_samples": 57,
+            "nonwall_mid_visible": 7,
+            "nonwall_near_mid_visible": 0,
+            "nonwall_mid_target": 4,
+            "nonwall_near_mid_target": 0,
+            "captures": 7,
+            "capture_gain": 12.8,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 40,
+            "r_start": 93,
+            "r_end": 112,
+            "nonwall_samples": 40,
+            "nonwall_mid_visible": 3,
+            "nonwall_near_mid_visible": 2,
+            "nonwall_mid_target": 3,
+            "nonwall_near_mid_target": 2,
+            "captures": 2,
+            "capture_gain": 7.2,
+            "large_captures": 0
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 3,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 54,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 29,
+            "nonwall_near_mid_visible": 8,
+            "nonwall_mid_target": 29,
+            "nonwall_near_mid_target": 8,
+            "captures": 5,
+            "capture_gain": 15.3,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 54,
+            "r_end": 83,
+            "nonwall_samples": 54,
+            "nonwall_mid_visible": 18,
+            "nonwall_near_mid_visible": 9,
+            "nonwall_mid_target": 9,
+            "nonwall_near_mid_target": 2,
+            "captures": 3,
+            "capture_gain": 12.4,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 89,
+            "r_end": 109,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 5,
+            "nonwall_near_mid_visible": 3,
+            "nonwall_mid_target": 5,
+            "nonwall_near_mid_target": 3,
+            "captures": 4,
+            "capture_gain": 16.1,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 40,
+            "r_start": 109,
+            "r_end": 115,
+            "nonwall_samples": 40,
+            "nonwall_mid_visible": 6,
+            "nonwall_near_mid_visible": 0,
+            "nonwall_mid_target": 6,
+            "nonwall_near_mid_target": 0,
+            "captures": 3,
+            "capture_gain": 2.8,
+            "large_captures": 0
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 4,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 48,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 35,
+            "nonwall_near_mid_visible": 22,
+            "nonwall_mid_target": 35,
+            "nonwall_near_mid_target": 22,
+            "captures": 4,
+            "capture_gain": 14.3,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 48,
+            "r_end": 67,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 4,
+            "nonwall_near_mid_visible": 1,
+            "nonwall_mid_target": 1,
+            "nonwall_near_mid_target": 1,
+            "captures": 3,
+            "capture_gain": 2.7,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 67,
+            "r_end": 99,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 7,
+            "nonwall_near_mid_visible": 3,
+            "nonwall_mid_target": 7,
+            "nonwall_near_mid_target": 3,
+            "captures": 1,
+            "capture_gain": 6.9,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 40,
+            "r_start": 100,
+            "r_end": 110,
+            "nonwall_samples": 40,
+            "nonwall_mid_visible": 0,
+            "nonwall_near_mid_visible": 0,
+            "nonwall_mid_target": 0,
+            "nonwall_near_mid_target": 0,
+            "captures": 1,
+            "capture_gain": 0.3,
+            "large_captures": 0
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 5,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 57,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 14,
+            "nonwall_near_mid_visible": 3,
+            "nonwall_mid_target": 14,
+            "nonwall_near_mid_target": 3,
+            "captures": 4,
+            "capture_gain": 14.1,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 57,
+            "r_end": 100,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 18,
+            "nonwall_near_mid_visible": 6,
+            "nonwall_mid_target": 18,
+            "nonwall_near_mid_target": 6,
+            "captures": 8,
+            "capture_gain": 27.3,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 100,
+            "r_end": 127,
+            "nonwall_samples": 45,
+            "nonwall_mid_visible": 8,
+            "nonwall_near_mid_visible": 4,
+            "nonwall_mid_target": 8,
+            "nonwall_near_mid_target": 4,
+            "captures": 2,
+            "capture_gain": 18.4,
+            "large_captures": 1
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 40,
+            "r_start": 127,
+            "r_end": 154,
+            "nonwall_samples": 40,
+            "nonwall_mid_visible": 6,
+            "nonwall_near_mid_visible": 2,
+            "nonwall_mid_target": 6,
+            "nonwall_near_mid_target": 2,
+            "captures": 3,
+            "capture_gain": 23.8,
+            "large_captures": 1
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 6,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 43,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 33,
+            "nonwall_near_mid_visible": 15,
+            "nonwall_mid_target": 33,
+            "nonwall_near_mid_target": 15,
+            "captures": 4,
+            "capture_gain": 12.0,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 43,
+            "r_end": 64,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 5,
+            "nonwall_near_mid_visible": 0,
+            "nonwall_mid_target": 5,
+            "nonwall_near_mid_target": 0,
+            "captures": 1,
+            "capture_gain": 1.5,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 64,
+            "r_end": 99,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 8,
+            "nonwall_near_mid_visible": 5,
+            "nonwall_mid_target": 8,
+            "nonwall_near_mid_target": 5,
+            "captures": 4,
+            "capture_gain": 20.8,
+            "large_captures": 1
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 40,
+            "r_start": 99,
+            "r_end": 113,
+            "nonwall_samples": 31,
+            "nonwall_mid_visible": 12,
+            "nonwall_near_mid_visible": 8,
+            "nonwall_mid_target": 0,
+            "nonwall_near_mid_target": 0,
+            "captures": 2,
+            "capture_gain": 10.0,
+            "large_captures": 0
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 7,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 56,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 21,
+            "nonwall_near_mid_visible": 9,
+            "nonwall_mid_target": 18,
+            "nonwall_near_mid_target": 9,
+            "captures": 4,
+            "capture_gain": 16.1,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 56,
+            "r_end": 80,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 5,
+            "nonwall_near_mid_visible": 2,
+            "nonwall_mid_target": 5,
+            "nonwall_near_mid_target": 2,
+            "captures": 5,
+            "capture_gain": 10.6,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 81,
+            "r_end": 108,
+            "nonwall_samples": 57,
+            "nonwall_mid_visible": 11,
+            "nonwall_near_mid_visible": 4,
+            "nonwall_mid_target": 11,
+            "nonwall_near_mid_target": 4,
+            "captures": 3,
+            "capture_gain": 19.3,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 40,
+            "r_start": 108,
+            "r_end": 131,
+            "nonwall_samples": 40,
+            "nonwall_mid_visible": 0,
+            "nonwall_near_mid_visible": 0,
+            "nonwall_mid_target": 0,
+            "nonwall_near_mid_target": 0,
+            "captures": 1,
+            "capture_gain": 0.5,
+            "large_captures": 0
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 8,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 35,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 17,
+            "nonwall_near_mid_visible": 7,
+            "nonwall_mid_target": 17,
+            "nonwall_near_mid_target": 7,
+            "captures": 1,
+            "capture_gain": 2.2,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 35,
+            "r_end": 45,
+            "nonwall_samples": 56,
+            "nonwall_mid_visible": 11,
+            "nonwall_near_mid_visible": 3,
+            "nonwall_mid_target": 7,
+            "nonwall_near_mid_target": 1,
+            "captures": 0,
+            "capture_gain": 0,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 45,
+            "r_end": 57,
+            "nonwall_samples": 57,
+            "nonwall_mid_visible": 0,
+            "nonwall_near_mid_visible": 0,
+            "nonwall_mid_target": 0,
+            "nonwall_near_mid_target": 0,
+            "captures": 1,
+            "capture_gain": 0.9,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 40,
+            "r_start": 57,
+            "r_end": 90,
+            "nonwall_samples": 40,
+            "nonwall_mid_visible": 10,
+            "nonwall_near_mid_visible": 5,
+            "nonwall_mid_target": 10,
+            "nonwall_near_mid_target": 5,
+            "captures": 2,
+            "capture_gain": 8.0,
+            "large_captures": 0
+          }
+        ]
+      },
+      {
+        "folder": "camera-abba-20261112",
+        "run": 6,
+        "phases": [
+          {
+            "phase": [
+              0,
+              30
+            ],
+            "samples": 58,
+            "r_start": 25,
+            "r_end": 46,
+            "nonwall_samples": 58,
+            "nonwall_mid_visible": 13,
+            "nonwall_near_mid_visible": 2,
+            "nonwall_mid_target": 13,
+            "nonwall_near_mid_target": 2,
+            "captures": 2,
+            "capture_gain": 7.8,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "samples": 59,
+            "r_start": 46,
+            "r_end": 76,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 10,
+            "nonwall_near_mid_visible": 5,
+            "nonwall_mid_target": 10,
+            "nonwall_near_mid_target": 5,
+            "captures": 4,
+            "capture_gain": 21.2,
+            "large_captures": 0
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "samples": 59,
+            "r_start": 76,
+            "r_end": 169,
+            "nonwall_samples": 59,
+            "nonwall_mid_visible": 33,
+            "nonwall_near_mid_visible": 15,
+            "nonwall_mid_target": 33,
+            "nonwall_near_mid_target": 15,
+            "captures": 11,
+            "capture_gain": 89.7,
+            "large_captures": 3
+          },
+          {
+            "phase": [
+              90,
+              111
+            ],
+            "samples": 38,
+            "r_start": 169,
+            "r_end": 196,
+            "nonwall_samples": 38,
+            "nonwall_mid_visible": 7,
+            "nonwall_near_mid_visible": 4,
+            "nonwall_mid_target": 7,
+            "nonwall_near_mid_target": 4,
+            "captures": 5,
+            "capture_gain": 31.4,
+            "large_captures": 1
+          }
+        ]
+      }
+    ]
+  },
+  "coverage": {
+    "method": "Coarse minimap player coordinate path;400-world-unit grid. Noise affects total path; not independent ground truth.",
+    "runs": [
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 1,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 8194,
+            "net": 1880,
+            "grid400_cells": 19
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 8085,
+            "net": 2102,
+            "grid400_cells": 20
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 2,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 8241,
+            "net": 2180,
+            "grid400_cells": 16
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 8189,
+            "net": 3621,
+            "grid400_cells": 19
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 3,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 7411,
+            "net": 2899,
+            "grid400_cells": 21
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 7064,
+            "net": 602,
+            "grid400_cells": 16
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 4,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 7942,
+            "net": 3579,
+            "grid400_cells": 22
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 8006,
+            "net": 2973,
+            "grid400_cells": 18
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 5,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 8602,
+            "net": 2481,
+            "grid400_cells": 21
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 4867,
+            "net": 1280,
+            "grid400_cells": 12
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 6,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 8013,
+            "net": 3398,
+            "grid400_cells": 18
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 7737,
+            "net": 807,
+            "grid400_cells": 23
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 7,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 8557,
+            "net": 2769,
+            "grid400_cells": 18
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 7487,
+            "net": 3972,
+            "grid400_cells": 21
+          }
+        ]
+      },
+      {
+        "folder": "foodwall-abba-20261113",
+        "run": 8,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 7561,
+            "net": 4045,
+            "grid400_cells": 18
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 7951,
+            "net": 2434,
+            "grid400_cells": 16
+          }
+        ]
+      },
+      {
+        "folder": "camera-abba-20261112",
+        "run": 6,
+        "phases": [
+          {
+            "phase": [
+              30,
+              60
+            ],
+            "path": 7800,
+            "net": 2716,
+            "grid400_cells": 20
+          },
+          {
+            "phase": [
+              60,
+              90
+            ],
+            "path": 7966,
+            "net": 2102,
+            "grid400_cells": 18
+          }
+        ]
+      }
+    ]
+  },
+  "radius_matched": [
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 1,
+      "samples_radius60_90_nonwall": 21,
+      "mid_available": 6,
+      "mid_selected": 6
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 2,
+      "samples_radius60_90_nonwall": 67,
+      "mid_available": 5,
+      "mid_selected": 2
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 3,
+      "samples_radius60_90_nonwall": 45,
+      "mid_available": 18,
+      "mid_selected": 9
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 4,
+      "samples_radius60_90_nonwall": 58,
+      "mid_available": 9,
+      "mid_selected": 7
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 5,
+      "samples_radius60_90_nonwall": 41,
+      "mid_available": 14,
+      "mid_selected": 14
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 6,
+      "samples_radius60_90_nonwall": 49,
+      "mid_available": 8,
+      "mid_selected": 8
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 7,
+      "samples_radius60_90_nonwall": 52,
+      "mid_available": 10,
+      "mid_selected": 10
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 8,
+      "samples_radius60_90_nonwall": 24,
+      "mid_available": 5,
+      "mid_selected": 5
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 6,
+      "samples_radius60_90_nonwall": 28,
+      "mid_available": 21,
+      "mid_selected": 21
+    }
+  ],
+  "conclusion": "Reject simple increased prey bonus and more movement as currently unsupported. Success had substantially more recognized medium-prey opportunities even conditioning radius60-90; this may reflect encounter density, tracking/recognition, or scene selection. Need visual validation of matched-radius scenes before new gameplay strategy."
+}
