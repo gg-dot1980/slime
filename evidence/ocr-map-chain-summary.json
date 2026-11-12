@@ -1,0 +1,25 @@
+{
+  "episodes": 105,
+  "single_sample": 77,
+  "median_selected_duration": 0.0,
+  "reduced_300": 66,
+  "entered_view": 55,
+  "visible_npc_match": 34,
+  "edible_match": 18,
+  "limits": "Minimap quantization ~120worldpx/pixel; nearest-dot tracking may switch identities. NPC proximity is candidate association, NOT proven capture. Followup windows overlap. All uses saved pixels/HUD-derived telemetry.",
+  "source_checks": {
+    "game_source_sha256": "e60a0455d46702a038742d9dc23bb3028f31dfb44d8f224118bf5f8c2d8852ca",
+    "minimap_red_rule": "s.r > player.r * 1.12",
+    "actual_edible_rule": "player.r >= s.r * 1.08",
+    "controller_map_assumption": "body = min(r*.85, sqrt(area/pi)*38) for larger dots; synthetic prey size always capped as edible",
+    "counterexample": {
+      "player_r": 100,
+      "npc_r": 110,
+      "minimap_white": true,
+      "actually_edible": false,
+      "old_capped_body_max": 85
+    },
+    "interpretation": "Non-red means not obviously dangerous, not edible. Original controller assigns edible reward to uncertain map points. Dot size rasterization and cap add uncertainty."
+  },
+  "next_hypothesis": "Do not equate non-red minimap dots with edible prey; retain size uncertainty and require visible reacquisition before assigning edible reward. First calibrate minimap size against visible candidates; do not increase chase persistence blindly."
+}
