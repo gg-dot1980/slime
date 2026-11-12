@@ -1,0 +1,53 @@
+{
+  "method": "Manually inspected original saved full-browser PNG screenshots, matched using visible HUD size rather than nearest JSON event radius. Nonwall primary subset four screenshots sizes72-76. Additional larger-size and contextual frames inspected.",
+  "images": [
+    {
+      "path": "camera-abba-20261112/run6-060.png",
+      "hud_size": 76,
+      "observed": "Player center; small Jelly lower right, large/clipped NPCs bottom and right; no clear medium edible NPC in this exact frame."
+    },
+    {
+      "path": "foodwall-abba-20261113/run3-050.png",
+      "hud_size": 76,
+      "observed": "Large Berry left with danger label and tiny Boba lower right; no clear medium edible NPC."
+    },
+    {
+      "path": "foodwall-abba-20261113/run7-050.png",
+      "hud_size": 74,
+      "observed": "Only player and colored food visible; no obvious NPC to be missed."
+    },
+    {
+      "path": "foodwall-abba-20261113/run2-070.png",
+      "hud_size": 73,
+      "observed": "Large danger Jelly upper right and clipped large NPC top; no clear medium edible NPC."
+    },
+    {
+      "path": "foodwall-abba-20261113/run2-060.png",
+      "hud_size": 65,
+      "observed": "Danger Orange below player, danger Berry lower left and clipped large NPC bottom."
+    },
+    {
+      "path": "camera-abba-20261112/run6-070.png",
+      "hud_size": 100,
+      "observed": "Large Jelly above, small Orange lower; screenshot HUD100 versus nearby JSON96, confirming timestamps not exact."
+    },
+    {
+      "path": "camera-abba-20261112/run6-080.png",
+      "hud_size": 110,
+      "observed": "Real medium Berry left and Jelly below; not merely contour false positives. Cannot assign exact radii from browser-rescaled screenshot."
+    },
+    {
+      "path": "foodwall-abba-20261113/run3-100.png",
+      "hud_size": 112,
+      "observed": "Multiple large danger NPCs, no obvious medium edible NPC."
+    },
+    {
+      "path": "foodwall-abba-20261113/run6-100.png",
+      "hud_size": 104,
+      "observed": "Edible Orange against right wall; known wall constrained case, excluded from nonwall conclusion."
+    }
+  ],
+  "conclusion": "No confirmed medium-NPC false negative in four matched-size frames. Successful later frame has genuine medium NPCs whereas comparable failure frame mostly threats. Supports encounter/opportunity difference in this small sample, not proof detector fully correct.",
+  "limits": "Screenshots every10s can miss brief opportunities; browser-rescaled pixels differ from controller input. Nearby JSON decision and screenshot are asynchronous; cannot claim exact component correspondence or detector recall.",
+  "next": "Use existing original-canvas calibration frames and same-frame detector overlays to verify radius/label classification around opportunity onset before deciding new strategy. Do not retune score or loosen safety on these screenshots alone."
+}
