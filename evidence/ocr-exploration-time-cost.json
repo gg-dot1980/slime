@@ -1,0 +1,246 @@
+{
+  "method": "Offline feasibility check, not counterfactual win test. Current visual velocity norm with floor92 used only for rough ETA.",
+  "proposal": "H12 bounded information probe: size>=60, growth<3 in previous8s, no visible safely edible NPC reachable<=2s; choose a map dot that can ENTER view<=2s. Follow safety planner, stop on visible reacquisition or2s, cooldown6s. Do not assume map NPC edible. Do not start after108s so2s budget fits110s gate.",
+  "limits": "Telemetry replay cannot show resulting path/outcome. Direction/acceleration/walls may increase ETA; safety planner always retains veto. Candidate budget2s is a declared test parameter, not proven optimum.",
+  "rows": [
+    {
+      "source": "camera-abba-20261112",
+      "run": 2,
+      "map_samples": 0,
+      "median_prey_eta_s": null,
+      "p90_prey_eta_s": null,
+      "bounded_probe_triggers": 1,
+      "probe_max_cost_s": 2,
+      "triggers": [
+        {
+          "t": 87.0,
+          "size": 90,
+          "growth_previous8s": 1,
+          "entry_eta": 0.24
+        }
+      ]
+    },
+    {
+      "source": "camera-abba-20261112",
+      "run": 3,
+      "map_samples": 0,
+      "median_prey_eta_s": null,
+      "p90_prey_eta_s": null,
+      "bounded_probe_triggers": 3,
+      "probe_max_cost_s": 6,
+      "triggers": [
+        {
+          "t": 64.0,
+          "size": 62,
+          "growth_previous8s": 1,
+          "entry_eta": 0.66
+        },
+        {
+          "t": 75.7,
+          "size": 82,
+          "growth_previous8s": 2,
+          "entry_eta": 1.45
+        },
+        {
+          "t": 83.8,
+          "size": 84,
+          "growth_previous8s": 2,
+          "entry_eta": 0.86
+        }
+      ]
+    },
+    {
+      "source": "camera-abba-20261112",
+      "run": 6,
+      "map_samples": 7,
+      "median_prey_eta_s": 9.01,
+      "p90_prey_eta_s": 19.45,
+      "bounded_probe_triggers": 0,
+      "probe_max_cost_s": 0,
+      "triggers": []
+    },
+    {
+      "source": "camera-abba-20261112",
+      "run": 7,
+      "map_samples": 0,
+      "median_prey_eta_s": null,
+      "p90_prey_eta_s": null,
+      "bounded_probe_triggers": 1,
+      "probe_max_cost_s": 2,
+      "triggers": [
+        {
+          "t": 99.0,
+          "size": 120,
+          "growth_previous8s": 1,
+          "entry_eta": 0.63
+        }
+      ]
+    },
+    {
+      "source": "explore-abba-20261112",
+      "run": 2,
+      "map_samples": 48,
+      "median_prey_eta_s": 6.24,
+      "p90_prey_eta_s": 21.14,
+      "bounded_probe_triggers": 2,
+      "probe_max_cost_s": 4,
+      "triggers": [
+        {
+          "t": 85.8,
+          "size": 105,
+          "growth_previous8s": 1,
+          "entry_eta": 0.24
+        },
+        {
+          "t": 107.7,
+          "size": 122,
+          "growth_previous8s": 1,
+          "entry_eta": 0.53
+        }
+      ]
+    },
+    {
+      "source": "explore-abba-20261112",
+      "run": 6,
+      "map_samples": 16,
+      "median_prey_eta_s": 8.91,
+      "p90_prey_eta_s": 13.39,
+      "bounded_probe_triggers": 2,
+      "probe_max_cost_s": 4,
+      "triggers": [
+        {
+          "t": 78.0,
+          "size": 76,
+          "growth_previous8s": 2,
+          "entry_eta": 0.82
+        },
+        {
+          "t": 104.6,
+          "size": 94,
+          "growth_previous8s": 0,
+          "entry_eta": 1.8
+        }
+      ]
+    },
+    {
+      "source": "explore-abba-20261112",
+      "run": 7,
+      "map_samples": 49,
+      "median_prey_eta_s": 6.53,
+      "p90_prey_eta_s": 16.55,
+      "bounded_probe_triggers": 3,
+      "probe_max_cost_s": 6,
+      "triggers": [
+        {
+          "t": 86.8,
+          "size": 89,
+          "growth_previous8s": 2,
+          "entry_eta": 0.39
+        },
+        {
+          "t": 95.5,
+          "size": 91,
+          "growth_previous8s": 2,
+          "entry_eta": 1.53
+        },
+        {
+          "t": 103.6,
+          "size": 91,
+          "growth_previous8s": 0,
+          "entry_eta": 0.84
+        }
+      ]
+    },
+    {
+      "source": "uncertain-abba-20261112",
+      "run": 2,
+      "map_samples": 0,
+      "median_prey_eta_s": null,
+      "p90_prey_eta_s": null,
+      "bounded_probe_triggers": 3,
+      "probe_max_cost_s": 6,
+      "triggers": [
+        {
+          "t": 52.3,
+          "size": 64,
+          "growth_previous8s": 0,
+          "entry_eta": 0.81
+        },
+        {
+          "t": 93.2,
+          "size": 96,
+          "growth_previous8s": 1,
+          "entry_eta": 0.97
+        },
+        {
+          "t": 107.9,
+          "size": 96,
+          "growth_previous8s": 0,
+          "entry_eta": 0.34
+        }
+      ]
+    },
+    {
+      "source": "uncertain-abba-20261112",
+      "run": 3,
+      "map_samples": 0,
+      "median_prey_eta_s": null,
+      "p90_prey_eta_s": null,
+      "bounded_probe_triggers": 1,
+      "probe_max_cost_s": 2,
+      "triggers": [
+        {
+          "t": 96.0,
+          "size": 72,
+          "growth_previous8s": 1,
+          "entry_eta": 0.54
+        }
+      ]
+    },
+    {
+      "source": "uncertain-abba-20261112",
+      "run": 6,
+      "map_samples": 0,
+      "median_prey_eta_s": null,
+      "p90_prey_eta_s": null,
+      "bounded_probe_triggers": 4,
+      "probe_max_cost_s": 8,
+      "triggers": [
+        {
+          "t": 52.6,
+          "size": 62,
+          "growth_previous8s": 2,
+          "entry_eta": 0.7
+        },
+        {
+          "t": 71.4,
+          "size": 71,
+          "growth_previous8s": 2,
+          "entry_eta": 0.24
+        },
+        {
+          "t": 83.7,
+          "size": 76,
+          "growth_previous8s": 2,
+          "entry_eta": 1.4
+        },
+        {
+          "t": 93.9,
+          "size": 81,
+          "growth_previous8s": 2,
+          "entry_eta": 0.45
+        }
+      ]
+    },
+    {
+      "source": "uncertain-abba-20261112",
+      "run": 7,
+      "map_samples": 1,
+      "median_prey_eta_s": 7.57,
+      "p90_prey_eta_s": 7.57,
+      "bounded_probe_triggers": 0,
+      "probe_max_cost_s": 0,
+      "triggers": []
+    }
+  ]
+}
