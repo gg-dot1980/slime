@@ -1,0 +1,242 @@
+{
+  "method": "Review no-growth samples using same-tick captures; exclude capture-tick/adjacent and near-player tiny components as unresolved artifacts, not confirmed genuine failures. Manually inspect savedframe071 to confirm Boba prey at left wall.",
+  "classified_samples": [
+    {
+      "i": 189,
+      "t": 38.133,
+      "r": 47,
+      "prey_r": 11.666666666666668,
+      "gap": 5.164875511092973,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u5357",
+      "category": "outline_like_unconfirmed_excluded"
+    },
+    {
+      "i": 199,
+      "t": 40.159,
+      "r": 47,
+      "prey_r": 11.666666666666668,
+      "gap": 5.8628989655393795,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u897f\u5317",
+      "category": "outline_like_unconfirmed_excluded"
+    },
+    {
+      "i": 209,
+      "t": 42.207,
+      "r": 49,
+      "prey_r": 18.333333333333336,
+      "gap": 8.872096430436216,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u897f",
+      "category": "capture_tick_or_adjacent_excluded"
+    },
+    {
+      "i": 210,
+      "t": 42.407,
+      "r": 49,
+      "prey_r": 11.666666666666668,
+      "gap": 7.0096877524851635,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u5357",
+      "category": "capture_tick_or_adjacent_excluded"
+    },
+    {
+      "i": 340,
+      "t": 68.718,
+      "r": 84,
+      "prey_r": 42.231077682862775,
+      "gap": 94.68327308474049,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u897f",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 341,
+      "t": 68.918,
+      "r": 84,
+      "prey_r": 43.68378444872504,
+      "gap": 50.80499899134077,
+      "recovery": true,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u6771\u5357",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 342,
+      "t": 69.118,
+      "r": 84,
+      "prey_r": 40.41640579461553,
+      "gap": 34.20734559887498,
+      "recovery": true,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u6771\u5357",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 343,
+      "t": 69.318,
+      "r": 84,
+      "prey_r": 40.95439378626407,
+      "gap": 52.6239518611399,
+      "recovery": true,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u6771\u5317",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 344,
+      "t": 69.518,
+      "r": 84,
+      "prey_r": 40.68992231541521,
+      "gap": 85.48194301371817,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u897f",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 345,
+      "t": 69.719,
+      "r": 84,
+      "prey_r": 39.7249503283729,
+      "gap": 85.1406773349207,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u897f",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 346,
+      "t": 69.918,
+      "r": 84,
+      "prey_r": 40.39168591500259,
+      "gap": 48.80512808643246,
+      "recovery": true,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u6771\u5317",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 347,
+      "t": 70.118,
+      "r": 84,
+      "prey_r": 42.21067625385044,
+      "gap": 34.920148974444814,
+      "recovery": true,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u6771\u5357",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 348,
+      "t": 70.318,
+      "r": 84,
+      "prey_r": 40.58411762947874,
+      "gap": 57.87989326194588,
+      "recovery": true,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u6771\u5357",
+      "category": "confirmed_wall_episode"
+    },
+    {
+      "i": 382,
+      "t": 77.167,
+      "r": 90,
+      "prey_r": 18.333333333333336,
+      "gap": 8.039396660935381,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u6771",
+      "category": "outline_like_unconfirmed_excluded"
+    },
+    {
+      "i": 516,
+      "t": 104.446,
+      "r": 120,
+      "prey_r": 13.333333333333334,
+      "gap": 41.43685418725536,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u5357",
+      "category": "outline_like_unconfirmed_excluded"
+    },
+    {
+      "i": 518,
+      "t": 104.861,
+      "r": 120,
+      "prey_r": 15,
+      "gap": 18.282081342133395,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u897f\u5317",
+      "category": "outline_like_unconfirmed_excluded"
+    },
+    {
+      "i": 520,
+      "t": 105.266,
+      "r": 120,
+      "prey_r": 16.666666666666668,
+      "gap": 33.36156917368247,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u897f",
+      "category": "outline_like_unconfirmed_excluded"
+    },
+    {
+      "i": 524,
+      "t": 106.076,
+      "r": 120,
+      "prey_r": 13.333333333333334,
+      "gap": 36.18253372598903,
+      "recovery": false,
+      "growth2s": 0,
+      "npc_toast2s": false,
+      "heading": "\u897f",
+      "category": "outline_like_unconfirmed_excluded"
+    }
+  ],
+  "verified_wall_episode": {
+    "indices": [
+      338,
+      351
+    ],
+    "player_radius": 84,
+    "prey_radius_range": [
+      39.7,
+      43.7
+    ],
+    "left_wall_distance_range": [
+      286.6666666666667,
+      353.33333333333337
+    ],
+    "wall_margin": 323.0,
+    "recovery_transitions": 6,
+    "fixed_trace_hysteresis_transitions": 0,
+    "hypothesis": "Enter recovery below existingmargin323; release only above403. Fixed-observation hysteresis replay, not simulated counterfactual motion.",
+    "visible_evidence": "frame-071.png: actual Boba between player andleftwall; largerthreats above-right/below-left. Do not removeNPCsafety."
+  },
+  "limits": "Artifact exclusions conservative, not classification accuracy. Hysteresis changes future movement, so fixedtrace transition count does not prove faster capture or gamepass."
+}
