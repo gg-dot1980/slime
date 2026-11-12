@@ -1,0 +1,139 @@
+{
+  "hypothesis": "For visible NPC only, exclude before target ranking if even nearest contact point cannot stay outside original wall margin. Preserve direction safety/wall filters and all other behavior.",
+  "limits": "Static one-step replay with estimated radii/positions, not future trajectory or win-rate test. Map targets unchanged; clipped NPCs already excluded. Existing NPC safety untouched.",
+  "runs": [
+    {
+      "folder": "hysteresis-abba-20261113",
+      "n": 1,
+      "total": 216,
+      "changed": 0,
+      "targetChanged": 0,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "hysteresis-abba-20261113",
+      "n": 2,
+      "total": 216,
+      "changed": 33,
+      "targetChanged": 50,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 9
+    },
+    {
+      "folder": "hysteresis-abba-20261113",
+      "n": 3,
+      "total": 216,
+      "changed": 6,
+      "targetChanged": 13,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 1
+    },
+    {
+      "folder": "hysteresis-abba-20261113",
+      "n": 4,
+      "total": 216,
+      "changed": 0,
+      "targetChanged": 0,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "hysteresis-abba-20261113",
+      "n": 5,
+      "total": 216,
+      "changed": 29,
+      "targetChanged": 52,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 16
+    },
+    {
+      "folder": "hysteresis-abba-20261113",
+      "n": 6,
+      "total": 216,
+      "changed": 50,
+      "targetChanged": 80,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 23
+    },
+    {
+      "folder": "hysteresis-abba-20261113",
+      "n": 7,
+      "total": 217,
+      "changed": 7,
+      "targetChanged": 21,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 3
+    },
+    {
+      "folder": "hysteresis-abba-20261113",
+      "n": 8,
+      "total": 216,
+      "changed": 44,
+      "targetChanged": 92,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 25
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 2,
+      "total": 215,
+      "changed": 44,
+      "targetChanged": 73,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 30
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 3,
+      "total": 216,
+      "changed": 2,
+      "targetChanged": 5,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 1
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 6,
+      "total": 214,
+      "changed": 1,
+      "targetChanged": 8,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 7,
+      "total": 216,
+      "changed": 14,
+      "targetChanged": 23,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 9
+    }
+  ],
+  "totals": {
+    "total": 2590,
+    "changed": 230,
+    "targetChanged": 417,
+    "noAlternateTarget": 0,
+    "safetyRegression": 0,
+    "higherProjectedGain": 117
+  },
+  "unit_checks": {
+    "prey_inside_prohibited_band": true,
+    "prey_contact_outside_band": true,
+    "no_wall_no_exclusion": true
+  }
+}
