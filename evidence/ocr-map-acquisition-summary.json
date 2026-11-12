@@ -1,0 +1,187 @@
+{
+  "acquisition": {
+    "method": "Same-frame minimap white dots map to world-relative viewport. Interior160unit guard; nearest NPC within180; world-position tracks<=200/step and ambiguous margin40 rejected. No ground-truth IDs.",
+    "limits": "One minimap pixel approx120 world units. White means <=1.12player, not guaranteed edible; tiny dot area saturates. Nearest association can be wrong. Diagnostic captures one random run40.95s only.",
+    "inner_view_observations": 92,
+    "matched_npc_observations": 66,
+    "medium_npc_observations": 8,
+    "unmatched_examples": [
+      {
+        "seq": 2,
+        "t": 64263,
+        "x": 7222.2222222222235,
+        "y": 4273.148148148149,
+        "inside": true,
+        "matched": false,
+        "radius": null,
+        "player": 62,
+        "mid": false,
+        "area": 2
+      },
+      {
+        "seq": 3,
+        "t": 64665,
+        "x": 7222.2222222222235,
+        "y": 4273.148148148149,
+        "inside": true,
+        "matched": false,
+        "radius": null,
+        "player": 63,
+        "mid": false,
+        "area": 2
+      },
+      {
+        "seq": 4,
+        "t": 65065,
+        "x": 7222.2222222222235,
+        "y": 4273.148148148149,
+        "inside": true,
+        "matched": false,
+        "radius": null,
+        "player": 63,
+        "mid": false,
+        "area": 2
+      },
+      {
+        "seq": 9,
+        "t": 67068,
+        "x": 6740.740740740742,
+        "y": 4333.333333333334,
+        "inside": true,
+        "matched": false,
+        "radius": null,
+        "player": 64,
+        "mid": false,
+        "area": 1
+      },
+      {
+        "seq": 22,
+        "t": 72495,
+        "x": 7342.592592592593,
+        "y": 3611.1111111111113,
+        "inside": true,
+        "matched": false,
+        "radius": null,
+        "player": 69,
+        "mid": false,
+        "area": 1
+      },
+      {
+        "seq": 27,
+        "t": 74507,
+        "x": 6740.740740740742,
+        "y": 3370.370370370371,
+        "inside": true,
+        "matched": false,
+        "radius": null,
+        "player": 73,
+        "mid": false,
+        "area": 1
+      },
+      {
+        "seq": 27,
+        "t": 74507,
+        "x": 7101.851851851853,
+        "y": 3611.1111111111113,
+        "inside": true,
+        "matched": false,
+        "radius": null,
+        "player": 73,
+        "mid": false,
+        "area": 1
+      },
+      {
+        "seq": 28,
+        "t": 74911,
+        "x": 7101.851851851853,
+        "y": 3310.185185185185,
+        "inside": true,
+        "matched": false,
+        "radius": null,
+        "player": 73,
+        "mid": false,
+        "area": 2
+      }
+    ],
+    "outside_to_inside_tracks": [
+      {
+        "first": 1,
+        "entry": 35,
+        "track_observations": 36,
+        "matched_in_first_three": true,
+        "mid_in_first_three": false,
+        "max_visible_radius": 31.970895612231658,
+        "player_at_entry": 74,
+        "entry_area": 1
+      },
+      {
+        "first": 5,
+        "entry": 7,
+        "track_observations": 3,
+        "matched_in_first_three": true,
+        "mid_in_first_three": false,
+        "max_visible_radius": 10,
+        "player_at_entry": 64,
+        "entry_area": 1
+      },
+      {
+        "first": 8,
+        "entry": 12,
+        "track_observations": 6,
+        "matched_in_first_three": true,
+        "mid_in_first_three": false,
+        "max_visible_radius": 31.839377397085592,
+        "player_at_entry": 64,
+        "entry_area": 2
+      },
+      {
+        "first": 50,
+        "entry": 87,
+        "track_observations": 51,
+        "matched_in_first_three": true,
+        "mid_in_first_three": false,
+        "max_visible_radius": 94.22569731492364,
+        "player_at_entry": 90,
+        "entry_area": 8
+      },
+      {
+        "first": 82,
+        "entry": 85,
+        "track_observations": 9,
+        "matched_in_first_three": true,
+        "mid_in_first_three": false,
+        "max_visible_radius": 136.41910835237474,
+        "player_at_entry": 89,
+        "entry_area": 6
+      },
+      {
+        "first": 94,
+        "entry": 95,
+        "track_observations": 7,
+        "matched_in_first_three": true,
+        "mid_in_first_three": false,
+        "max_visible_radius": 21.666666666666668,
+        "player_at_entry": 93,
+        "entry_area": 1
+      }
+    ]
+  },
+  "pixel_center": {
+    "hypothesis": "Opportunity centroids omit pixel-center +0.5 whereas player and red centroids include it. Normalize dot centers only; no radius, reward or safety changes.",
+    "source_evidence": "detectMinimap opportunities.push x:sx/area,y:sy/area vs player xx+.5,yy+.5 and threats sx/area+.5,sy/area+.5",
+    "pairs": 41,
+    "median_dx": -52.07594148770629,
+    "median_dy": -42.325800376647805,
+    "median_error_before": 93.46151701777198,
+    "median_error_after_half_pixel": 66.47822812467476,
+    "improved": 31,
+    "limits": "Nearest associations not ground truth; stable low-speed objects repeated. This tests geometric consistency only,not gameplay benefit."
+  },
+  "prior_experiment_distinction": {
+    "H10": "Earlier activation of map exploration;failed.",
+    "H11": "Unknown map-dot size/reward;failed.",
+    "H12": "Timed exploration probe;failed.",
+    "new": "Coordinate convention consistency: opportunity centroid uses integer pixel corner while player/red usepixel center. No change to activation/reward/probe duration."
+  },
+  "next": "Validate +0.5 centroid correction on an independent saved image set and replay chosen headings before considering live batch. Six tracks are tentative associations,not six verified NPC identities;one oversized match demonstrates ambiguity."
+}
