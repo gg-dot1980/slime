@@ -1,0 +1,145 @@
+{
+  "method": "Disjoint5s windows with>=400world displacement;white minimap dots300\u20132100fromstart,behind actualtravel;unique nearest dotwithin180 atwindowend. Pixelcenter+0.5 normalization applied analytically.",
+  "limits": "White dots not guaranteed edible/medium. No groundtruthIDs;5s allows motion/respawn identity errors. Persistent behind isopportunityproxy,notproof of missedgain. Windowevents withinrun correlated.",
+  "runs": [
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 1,
+      "windows": 17,
+      "windows_with_2persistent_behind": 4,
+      "food_windows_with_2persistent_behind": 2
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 2,
+      "windows": 17,
+      "windows_with_2persistent_behind": 4,
+      "food_windows_with_2persistent_behind": 3
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 3,
+      "windows": 19,
+      "windows_with_2persistent_behind": 4,
+      "food_windows_with_2persistent_behind": 1
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 4,
+      "windows": 16,
+      "windows_with_2persistent_behind": 4,
+      "food_windows_with_2persistent_behind": 3
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 5,
+      "windows": 16,
+      "windows_with_2persistent_behind": 5,
+      "food_windows_with_2persistent_behind": 1
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 6,
+      "windows": 17,
+      "windows_with_2persistent_behind": 7,
+      "food_windows_with_2persistent_behind": 5
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 7,
+      "windows": 18,
+      "windows_with_2persistent_behind": 7,
+      "food_windows_with_2persistent_behind": 3
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 8,
+      "windows": 17,
+      "windows_with_2persistent_behind": 0,
+      "food_windows_with_2persistent_behind": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 6,
+      "windows": 16,
+      "windows_with_2persistent_behind": 5,
+      "food_windows_with_2persistent_behind": 0
+    }
+  ],
+  "food_conditioned": [
+    {
+      "run": 1,
+      "folder": "foodwall-abba-20261113",
+      "food_windows": 8,
+      "food_leaving": 2,
+      "mean_growth_food_leaving": 2.5,
+      "mean_growth_food_other": 4.166666666666667
+    },
+    {
+      "run": 2,
+      "folder": "foodwall-abba-20261113",
+      "food_windows": 12,
+      "food_leaving": 3,
+      "mean_growth_food_leaving": 3.6666666666666665,
+      "mean_growth_food_other": 3
+    },
+    {
+      "run": 3,
+      "folder": "foodwall-abba-20261113",
+      "food_windows": 9,
+      "food_leaving": 1,
+      "mean_growth_food_leaving": 2,
+      "mean_growth_food_other": 3.875
+    },
+    {
+      "run": 4,
+      "folder": "foodwall-abba-20261113",
+      "food_windows": 11,
+      "food_leaving": 3,
+      "mean_growth_food_leaving": 4.666666666666667,
+      "mean_growth_food_other": 4
+    },
+    {
+      "run": 5,
+      "folder": "foodwall-abba-20261113",
+      "food_windows": 9,
+      "food_leaving": 1,
+      "mean_growth_food_leaving": 4,
+      "mean_growth_food_other": 5
+    },
+    {
+      "run": 6,
+      "folder": "foodwall-abba-20261113",
+      "food_windows": 13,
+      "food_leaving": 5,
+      "mean_growth_food_leaving": 1.8,
+      "mean_growth_food_other": 4.125
+    },
+    {
+      "run": 7,
+      "folder": "foodwall-abba-20261113",
+      "food_windows": 10,
+      "food_leaving": 3,
+      "mean_growth_food_leaving": 5.333333333333333,
+      "mean_growth_food_other": 4.571428571428571
+    },
+    {
+      "run": 8,
+      "folder": "foodwall-abba-20261113",
+      "food_windows": 8,
+      "food_leaving": 0,
+      "mean_growth_food_leaving": null,
+      "mean_growth_food_other": 4.75
+    },
+    {
+      "run": 6,
+      "folder": "camera-abba-20261112",
+      "food_windows": 5,
+      "food_leaving": 0,
+      "mean_growth_food_leaving": null,
+      "mean_growth_food_other": 4
+    }
+  ],
+  "conclusion": "Leaving persistent white dots isnot failure-specific:success5/16windows,failures35/137. Food-conditioned subgroup isinteresting butsingle successfulrun andunknownpreysize cannot supportreturn/orbit patch. Need known visiblemedium prey identity beforevaluing behinddots.",
+  "next": "Restrict further tracing to previously visible medium edible NPCs with known image-derived radius, thencheck offscreen/minimap persistence after leaving. Do not treatallwhite dots asreward orimplementreturnstrategy."
+}
