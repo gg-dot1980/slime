@@ -1,0 +1,11 @@
+--- controller-camera.js
++++ controller-margin.js
+@@ -109,7 +109,7 @@
+ function plan(objects,r,map,speed,v,old,splitGuard=true){
+  const meals=objects.filter(o=>!o.clipped&&!o.blocked&&(!o.npc||!o.isRed&&o.r<r*.91));
+  const estimatedWalls=map?.player?[map.player.x/map.width*10400,(1-map.player.x/map.width)*10400,map.player.y/map.height*7200,(1-map.player.y/map.height)*7200]:null,walls=map?.visibleWalls?map.visibleWalls.map((v,i)=>v??estimatedWalls?.[i]??Infinity):estimatedWalls;
+- const margin=260+.75*r,wallMeal=false,recovering=!!walls?.some(x=>x<margin);
++ const margin=r+90,wallMeal=false,recovering=!!walls?.some(x=>x<margin);
+  let target=null,best=0;
+  for(const o of meals){const dist=Math.hypot(o.x,o.y),gain=o.npc?.75*(Math.sqrt(r*r+.55*o.r*o.r)-r):.45,eta=Math.max(.12,(dist-(o.npc?.7*(r+o.r):r))/speed),score=gain/(eta+.4)*(o.npc?2:1)*(old.target&&old.target.npc===o.npc&&Math.hypot(old.target.x-o.x,old.target.y-o.y)<100?1.2:1);if(score>best){best=score;target=o;}}
+  if(map&&(!target||r>=140&&!target.npc))for(const dot of map.opportunities||[]){const x=(dot.x-map.player.x)/map.width*10400,y=(dot.y-map.player.y)/map.height*7200,dist=Math.hypot(x,y);if(dist<300||map.viewWidth&&Math.abs(x)<map.viewWidth*.5-40&&Math.abs(y)<map.viewHeight*.5-40)continue;const area=dot.area/(map.pixelRatio||1)**2,body=area<6?Math.min(20,r*.75):Math.min(r*.85,Math.sqrt(area/Math.PI)*38),gain=.75*(Math.sqrt(r*r+.55*body*body)-r),score=gain/(dist/speed+.7)*1.2;if(score>best){best=score;target={x,y,r:body,npc:true,mapOnly:true,vx:0,vy:0};}}
