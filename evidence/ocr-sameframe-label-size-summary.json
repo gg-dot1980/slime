@@ -1,0 +1,27 @@
+{
+  "frames": 148,
+  "canvas_dimensions": [
+    1200,
+    698
+  ],
+  "player_radius_range": [
+    25,
+    48
+  ],
+  "nonplayer_nonnested_nonclipped_label_components": 162,
+  "unmatched_saved_objects": [],
+  "highlight_radius_adjustments_gt2": 58,
+  "edibility_threshold_crossings_body_vs_highlight": 0,
+  "nested_label_review": [
+    {
+      "frame": "frame-0064.png",
+      "finding": "Edge Orange is clipped; not a confirmed fully-visible missed edible NPC."
+    },
+    {
+      "frame": "frame-0101.png",
+      "finding": "Interior Boba label component belongs to already detected larger body; duplicate rejection correct."
+    }
+  ],
+  "limits": "These are detector-generated components, not independently annotated NPC ground truth. Zero unmatched does not prove zero label false negatives. Existing same-frame calibration covers early sizes25-48 only, not implicated60-110 phase. Known outline false positives from prior audit remain; this audit does not remove them.",
+  "next": "Need narrowly scoped diagnostic capturing original canvas and same-decision metadata in size60-110, while leaving policy unchanged. Existing early calibration insufficient to justify new radius or label patch."
+}
