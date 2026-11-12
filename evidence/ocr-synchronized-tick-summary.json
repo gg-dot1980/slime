@@ -1,0 +1,15 @@
+{
+  "ticks": 555,
+  "median_interval_ms": 200.0,
+  "median_decision_ms": 15,
+  "radius_hud_mismatches": 0,
+  "observed_npc_captures": 15,
+  "observed_npc_gain": 42.1,
+  "near_samples": 80,
+  "near_no_capture_toast2s": 51,
+  "near_no_growth2s": 18,
+  "no_growth_in_recovery": 6,
+  "limits": "One110s diagnostic, not validation. Counts are overlapping observations, not independent opportunities. Exact same-tick HUD synchronization, still no ground-truth NPC IDs or guarantee all toasts observed.",
+  "render_caveat": "Game update runs each requestAnimationFrame but draw runs every second frame. Same-tick HUD and decision eliminates external read offset, but canvas may still depict previous game frame. Do not treat an NPC visible on capture tick as a second failed opportunity.",
+  "next_step": "Use synchronized observations and exclude capture-tick stale canvas/confirmed outline fragments before auditing no-growth episodes. Keep instrumentation for future experiments, no policy patch yet."
+}
