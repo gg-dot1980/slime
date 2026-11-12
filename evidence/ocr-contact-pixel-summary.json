@@ -1,0 +1,134 @@
+{
+  "frames": 148,
+  "labelled_nonplayer_near_components": 6,
+  "thin_near_player_rejections": 7,
+  "selected_false_prey_frames": [
+    "frame-0127.png",
+    "frame-0146.png"
+  ],
+  "examples": [
+    {
+      "frame": "frame-0068.png",
+      "component": {
+        "hue": 195,
+        "x": 579,
+        "y": 353,
+        "r": 7,
+        "area": 7,
+        "bw": 2,
+        "bh": 14,
+        "clipped": false,
+        "label": false,
+        "isPlayer": false
+      }
+    },
+    {
+      "frame": "frame-0077.png",
+      "component": {
+        "hue": 193,
+        "x": 579,
+        "y": 353,
+        "r": 7,
+        "area": 7,
+        "bw": 2,
+        "bh": 14,
+        "clipped": false,
+        "label": false,
+        "isPlayer": false
+      }
+    },
+    {
+      "frame": "frame-0093.png",
+      "component": {
+        "hue": 195,
+        "x": 601,
+        "y": 327,
+        "r": 7,
+        "area": 7,
+        "bw": 14,
+        "bh": 2,
+        "clipped": false,
+        "label": false,
+        "isPlayer": false
+      }
+    },
+    {
+      "frame": "frame-0105.png",
+      "component": {
+        "hue": 195,
+        "x": 593,
+        "y": 377,
+        "r": 7,
+        "area": 7,
+        "bw": 14,
+        "bh": 2,
+        "clipped": false,
+        "label": false,
+        "isPlayer": false
+      }
+    },
+    {
+      "frame": "frame-0127.png",
+      "component": {
+        "hue": 193,
+        "x": 609,
+        "y": 321,
+        "r": 7,
+        "area": 7,
+        "bw": 14,
+        "bh": 2,
+        "clipped": false,
+        "label": true,
+        "isPlayer": false
+      }
+    },
+    {
+      "frame": "frame-0130.png",
+      "component": {
+        "hue": 196,
+        "x": 573,
+        "y": 342,
+        "r": 8,
+        "area": 8,
+        "bw": 2,
+        "bh": 16,
+        "clipped": false,
+        "label": false,
+        "isPlayer": false
+      }
+    },
+    {
+      "frame": "frame-0146.png",
+      "component": {
+        "hue": 195,
+        "x": 591,
+        "y": 319,
+        "r": 7,
+        "area": 7,
+        "bw": 14,
+        "bh": 2,
+        "clipped": false,
+        "label": true,
+        "isPlayer": false
+      }
+    }
+  ],
+  "confirmed_real_capture_examples": [
+    {
+      "frames": "0030->0031",
+      "HUD": "27->29",
+      "prey_component": "22x24; disappears with growth"
+    },
+    {
+      "frames": "0052->0053",
+      "HUD": "33->37",
+      "prey_component": "22x20; disappears with growth"
+    }
+  ],
+  "pixel_verified_false_examples": [
+    "0127:14x2 outline fragment at609,321; no NPC there; HUD47 unchanged",
+    "0146:14x2 outline fragment at591,319; no NPC there; HUD48 unchanged"
+  ],
+  "hypothesis": "H16 reject only thin components aspect<0.25 within1.3player radii before label classification; retain round adjacent real prey, other policy unchanged.",
+  "limits": "148 frames cover only30 seconds one older wallguard diagnostic. Two confirmed false targets show mechanism, not its full prevalence or effect on win rate. No live policy test or publication yet."
+}
