@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.sites-runtime/
+.wrangler/
+.env*
+.dev.vars*
+*.tar
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+wrangler.jsonc

@@ -1,0 +1,14 @@
+{
+  "name": "slime-arena",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "db:generate": "drizzle-kit generate",
+    "dev": "node scripts/preview.mjs"
+  },
+  "devDependencies": {
+    "drizzle-kit": "0.31.4",
+    "drizzle-orm": "0.44.5"
+  }
+}

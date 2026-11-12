@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10191d">
+<title>Slime 畫面辨識</title>
+<style>
+:root{color-scheme:dark;--bg:#10191d;--panel:#18272d;--line:#344a50;--ink:#eef8f5;--muted:#a8bfba;--mint:#9df0cb;--warn:#ff9b8e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.layout{max-width:1440px;margin:auto;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px}.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden}.stage{position:relative;min-height:60vh;background:#111a1f;display:grid;place-items:center}iframe{width:100%;height:min(82vh,850px);border:0;background:#111a1f}.side{padding:18px;align-self:start;position:sticky;top:16px}.side h1{font-size:21px;margin:0 0 4px}.muted{color:var(--muted);font-size:14px}.actions{display:grid;gap:9px;margin:16px 0}button{padding:12px;border:1px solid #57716f;border-radius:10px;background:#20343a;color:var(--ink);font:700 15px system-ui;cursor:pointer}button.primary{background:var(--mint);color:#10231b;border:0}button:focus-visible{outline:3px solid white;outline-offset:2px}button:disabled{opacity:.55;cursor:wait}.status{padding:12px;border:1px solid var(--line);border-radius:10px;min-height:50px}.status.ok{color:var(--mint)}.status.err{color:var(--warn)}.legend{display:grid;gap:7px;margin-top:14px;color:var(--muted);font-size:14px}.sample{position:relative;max-width:100%;max-height:82vh}.sample canvas{display:block;max-width:100%;max-height:82vh;object-fit:contain}.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay circle{fill:none;stroke-width:3;vector-effect:non-scaling-stroke}.overlay .player{stroke:var(--mint)}.overlay .npc{stroke:#ffca6e}.overlay .food{stroke:#62dce0}.overlay .route{stroke:var(--mint);stroke-width:5;vector-effect:non-scaling-stroke;marker-end:url(#arrow)}.overlay text{fill:white;font:700 13px system-ui;paint-order:stroke;stroke:#10191d;stroke-width:4px}.readout{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{padding:10px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}.metric b{display:block;color:var(--ink);font-size:20px}.decision{padding:13px;border:1px solid #45645d;border-radius:12px;background:#142522;margin-top:12px}.decision strong{font-size:19px;color:var(--mint)}.decision p{margin:5px 0 0;font-size:14px;color:var(--muted)}.how{font-size:14px;color:var(--muted);margin-top:16px}.back{color:var(--mint);font-size:14px;text-decoration:none;display:inline-block;margin-bottom:12px}@media(max-width:850px){.layout{grid-template-columns:1fr;padding:8px;gap:8px}.stage{min-height:52vh}.side{position:static}.stage iframe{height:62vh}.sample,.sample canvas{max-height:62vh}}
+.titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 4px}.titlebar h1{margin:0}.version{flex:none;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--mint);font-size:12px;font-weight:700;letter-spacing:.03em}.status{height:76px;min-height:76px;display:flex;align-items:center;overflow:auto}.decision{height:154px;display:flex;flex-direction:column;overflow:hidden}.decision strong{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.decision p{flex:1;min-height:0;overflow:auto}.url-picker{display:grid;gap:8px;margin-top:16px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#122025}.url-picker label{font-size:13px;font-weight:700}.url-picker select,.url-picker input{width:100%;min-width:0;padding:10px;border:1px solid #57716f;border-radius:9px;background:#10191d;color:var(--ink);font:inherit}.url-picker input[hidden]{display:none}.url-picker p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+</style>
+</head>
+<body>
+<main class="layout">
+ <section class="card stage" aria-label="遊戲畫面">
+  <iframe id="game" src="/" title="Slime 遊戲畫面"></iframe>
+  <div id="result" class="sample" hidden><canvas id="frame" aria-label="擷取的遊戲畫面"></canvas><svg id="overlay" class="overlay" aria-hidden="true"></svg></div>
+ </section>
+ <aside class="card side">
+  <a class="back" href="/ocr">所有 OCR</a>
+  <div class="titlebar"><h1>畫面辨識</h1><span class="version">OCR1 控制器 v86</span></div>
+  <p class="muted">辨識目前遊戲畫面上的玩家和可見史萊姆。只分析畫素，不讀取遊戲變數。</p>
+  <div class="url-picker"><label for="gameChoice">遊戲版本或網址</label><select id="gameChoice" disabled><option value="/">正在讀取版本…</option></select><span id="versionStatus" role="status"></span><input id="customUrl" type="url" inputmode="url" placeholder="https://slime.gameson.cc/遊戲路徑" aria-label="自訂遊戲網址" hidden><button id="loadGame" class="primary">載入遊戲</button><p>載入後再開始遊戲或自動控制。自訂網址需與 OCR 頁面同網域，瀏覽器才允許讀取畫面及送出控制鍵。</p></div><div class="actions"><button id="start" class="primary" disabled>開始／繼續遊戲</button><button id="analyze" disabled>擷取並辨識畫面</button><button id="autoStart" class="primary" disabled>開始自動辨識與控制</button><button id="autoStop" disabled>停止自動控制</button></div>
+  <div id="status" class="status" role="status" aria-live="polite">開始遊戲後可單次辨識，或啟動自動辨識與持續方向控制。</div>
+  <div class="readout"><div class="metric">玩家估計半徑<b id="playerRadius">—</b></div><div class="metric">較大 NPC 候選<b id="npcCount">—</b></div><div class="metric">實際辨識 FPS<b id="recognitionFps">—</b><span>最近 2 秒的新畫面</span></div><div class="metric">擷取與辨識平均<b id="recognitionTime">—</b><span id="recognitionLatest">最近 —</span></div><div class="metric" style="grid-column:1/-1">小地圖危險紅點群<b id="minimapCount">—</b><span id="minimapStatus">等待辨識</span></div><div class="metric" style="grid-column:1/-1">新影格追蹤佇列<b id="frameQueueCount">0 / 20</b><span id="frameStats">辨識 0 張 · 跳過重複 0 張</span></div></div>
+  <section class="decision" aria-live="polite"><strong id="decisionTitle">等待辨識</strong><p id="decisionDetail">先評估並避開較大威脅，再從安全方向中尋找小型史萊姆或食物前進。</p></section>
+  <div class="legend"><span>綠框：玩家輪廓；黃框：較大目標候選；青框：較小色塊候選</span><span>影像中的箭頭是建議方向。色塊不一定都是 NPC。</span></div>
+  <p class="how">靠近的大型威脅與邊界立即避讓。小地圖近敵範圍為地圖寬 8%，連續確認最近紅點距離達 10% 且密度降低後恢復追食；減少過早撤離與長距離繞路。小地圖辨識玩家綠點與危險紅點，評估周圍 360 度的威脅與出口，預測前進後的包圍風險，提早繞開聚集區與牆角；重疊紅點算一群。小地圖會搜尋聚集區外的空曠出口，持續撤離；撤離期間暫停追食，靠近的敵人或邊界只改變避讓路線，不取消撤離。連續 3 張新畫面確認遠離危險紅點後才恢復追食。依畫面估計半徑，目標不超過玩家的 95%（小至少 5%）即列為可吞食候選，以最新影格立即更新大小分類。離開聚集區後，食物權重 4、小史萊姆權重 64；安全方向中的追食加分同步提高。追小史萊姆時縮小安全路線的預留間距，近身威脅仍優先避讓。近處目標立即追食，較遠目標需連續 2 張新畫面確認。最多保留 20 張新影格；重複畫面不累積確認。每次循環以 0.1 秒為目標，包含擷取與辨識耗時。小地圖或玩家綠點無法辨識時，依主畫面避敵。遮擋或相近顏色仍可能影響辨識。擷取失敗只停止控制，遊戲繼續；手動停止會暫停遊戲。</p>
+ </aside>
+</main>
+<script>
+(()=>{
+const $=id=>document.getElementById(id),game=$('game'),out=$('frame'),ctx=out.getContext('2d',{willReadFrequently:true}),status=$('status'),gameChoice=$('gameChoice'),customUrl=$('customUrl');let gameReady=false;
+function setGameReady(ready){gameReady=ready;for(const id of ['start','analyze','autoStart'])$(id).disabled=!ready}
+function handleGameLoad(){try{const d=game.contentDocument;if(!d)throw Error();void game.contentWindow.location.href;setGameReady(true);say('遊戲已載入。可開始遊戲或啟動自動辨識。','ok')}catch{setGameReady(false);say('無法讀取此網址的遊戲畫面；請使用與 OCR 頁面同網域的網址。','err')}}
+gameChoice.addEventListener('change',()=>{customUrl.hidden=gameChoice.value!=='custom';if(gameChoice.value==='custom')customUrl.focus()});
+$('loadGame').addEventListener('click',()=>{if(autoRunning)stopAuto('正在切換遊戲。',false);releaseKeys();const raw=gameChoice.value==='custom'?customUrl.value.trim():gameChoice.value;if(!raw){say('請輸入要載入的遊戲網址。','err');return}let target;try{target=new URL(raw,location.href)}catch{say('網址格式無效，請檢查後再試。','err');return}if(!['http:','https:'].includes(target.protocol)){say('只支援 HTTP 或 HTTPS 網址。','err');return}if(target.origin!==location.origin){say('自訂網址必須與 OCR 頁面同網域，瀏覽器才允許辨識及控制遊戲。','err');return}setGameReady(false);resetVision();$('result').hidden=true;game.hidden=false;say('正在載入所選遊戲…','');game.src=target.href});
+function say(text,kind=''){status.textContent=text;status.className='status '+kind}
+$('start').addEventListener('click',()=>{try{const d=game.contentDocument;if(!d)throw Error();const buttons=[...d.querySelectorAll('button')].filter(visibleButton),resume=buttons.find(x=>/^(resume|繼續遊戲)$/i.test((x.textContent||'').trim())),play=buttons.find(x=>/^(play|開始遊戲|play again|再玩一次)$/i.test((x.textContent||'').trim()));if(resume)resume.click();else if(play)play.click();else say('遊戲已載入；目前沒有可開始或繼續的按鈕。','');game.contentWindow.focus()}catch{say('遊戲畫面尚未載入，請稍候再試。','err')}});
+function isPlayerComponent(p,radius,cx,cy){if(!radius)return false;const offset=Math.hypot(p.x-cx,p.y-cy);return offset<=radius*.65&&p.r>=radius*.45&&p.r<=radius*1.55}
+function components(data,w,h,scale,uiMasks=[]){
+ const W=Math.ceil(w/scale),H=Math.ceil(h/scale),n=W*H,mask=new Uint8Array(n),seen=new Uint8Array(n),hues=new Uint16Array(n),rgb=data.data,sqrt3=Math.sqrt(3);
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+  if(uiMasks.some(rect=>x*scale>=rect.x&&x*scale<=rect.x+rect.w&&y*scale>=rect.y&&y*scale<=rect.y+rect.h))continue;
+  const p=((y*scale)*w+x*scale)*4,r=rgb[p],g=rgb[p+1],b=rgb[p+2],max=Math.max(r,g,b),min=Math.min(r,g,b),i=y*W+x;
+  if(max>64){mask[i]=1;hues[i]=max-min<8?65535:Math.round((Math.atan2(sqrt3*(g-b),2*r-g-b)*180/Math.PI+360)%360)%360}
+ }
+ const found=[],queue=new Int32Array(n);
+ for(let i=0;i<n;i++){
+  if(!mask[i]||seen[i])continue;
+  const seedHue=hues[i],sameColor=j=>{if(seedHue===65535||hues[j]===65535)return seedHue===hues[j];const delta=Math.abs(hues[j]-seedHue);return delta<=22||delta>=338};
+  let head=0,tail=0;queue[tail++]=i;seen[i]=1;let area=0,minX=W,minY=H,maxX=0,maxY=0,sx=0,sy=0;
+  while(head<tail){
+   const q=queue[head++],x=q%W,y=(q/W)|0;area++;sx+=x;sy+=y;if(x<minX)minX=x;if(x>maxX)maxX=x;if(y<minY)minY=y;if(y>maxY)maxY=y;
+   let j;if(x>0){j=q-1;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(x+1<W){j=q+1;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(y>0){j=q-W;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(y+1<H){j=q+W;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}
+  }
+  const bw=maxX-minX+1,bh=maxY-minY+1,diam=Math.max(bw,bh)*scale,cx=(sx/area+.5)*scale,cy=(sy/area+.5)*scale;
+  const aspect=Math.max(bw,bh)/Math.min(bw,bh),density=area/(bw*bh),textLike=aspect>2.4&&density<.55;
+  if(area>=7&&diam>=9&&density>=.28&&aspect<=12&&!textLike)found.push({x:cx,y:cy,r:diam/2,area,bw:bw*scale,bh:bh*scale});
+ }
+ return found
+}
+function canvasUiMasks(w,h,pixelRatio=1){
+ // The supported game versions paint only the minimap into this canvas. Other HUD panels are DOM overlays and must not hide arena pixels.
+ const miniWidth=Math.min(144*pixelRatio,w*.26),miniHeight=miniWidth*9/13;
+ return [{x:w-miniWidth-27*pixelRatio,y:58*pixelRatio,w:miniWidth+27*pixelRatio,h:miniHeight+42*pixelRatio}]
+}
+function detectMinimap(image,w,h,pixelRatio=1){
+ const width=Math.min(144*pixelRatio,w*.26),height=width*9/13,x=w-width-15*pixelRatio,y=70*pixelRatio;
+ if(width<40||x<0||y+height>h)return null;
+ const data=image.data,W=Math.ceil(width),H=Math.ceil(height),red=new Uint8Array(W*H),green=new Uint8Array(W*H),seen=new Uint8Array(W*H),queue=new Int32Array(W*H),threats=[];
+ let mapBackground=0;
+ for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){
+  const px=Math.floor(x+xx),py=Math.floor(y+yy);if(px>=w||py>=h)continue;
+  const i=(py*w+px)*4,r=data[i],g=data[i+1],b=data[i+2],j=yy*W+xx;
+  if(Math.abs(r-32)<=2&&Math.abs(g-50)<=2&&Math.abs(b-56)<=2)mapBackground++;
+  red[j]=r>205&&r-g>55&&r-b>65&&g<185?1:0;
+  green[j]=r>110&&r<200&&g>190&&g-r>35&&g-b>15?1:0;
+ }
+ if(mapBackground<W*H*.25)return null;
+ // Separate red islands; overlapping dots remain one group with greater area/weight.
+ for(let i=0;i<red.length;i++)if(red[i]&&!seen[i]){
+  let head=0,tail=0,area=0,sx=0,sy=0;queue[tail++]=i;seen[i]=1;
+  while(head<tail){const j=queue[head++],xx=j%W,yy=(j/W)|0;area++;sx+=xx;sy+=yy;
+   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=xx+dx,ny=yy+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;const k=ny*W+nx;if(red[k]&&!seen[k]){seen[k]=1;queue[tail++]=k}}
+  }
+  if(area>=Math.max(2,pixelRatio*pixelRatio*1.5))threats.push({x:sx/area+.5,y:sy/area+.5,area,weight:1+Math.min(2,Math.max(0,Math.sqrt(area/Math.PI)/pixelRatio-1.2))*.4})
+ }
+ // A filled green disk identifies the player; the thin camera rectangle must not qualify.
+ const disk=[],ring=[],coreRadius=2.2*pixelRatio,outerRadius=4.4*pixelRatio;
+ for(let dy=-Math.ceil(outerRadius);dy<=Math.ceil(outerRadius);dy++)for(let dx=-Math.ceil(outerRadius);dx<=Math.ceil(outerRadius);dx++){const d=Math.hypot(dx,dy);if(d<=coreRadius)disk.push([dx,dy]);else if(d>=3.7*pixelRatio&&d<=outerRadius)ring.push([dx,dy])}
+ let player=null,best=-Infinity;
+ for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++)if(green[yy*W+xx]){
+  const coverage=offsets=>{let hits=0,total=0;for(const [dx,dy] of offsets){const nx=xx+dx,ny=yy+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;total++;hits+=green[ny*W+nx]}return total?hits/total:0},filled=coverage(disk),score=filled-coverage(ring)*.25;
+  if(filled>=.82&&score>best){best=score;player={x:xx+.5,y:yy+.5}}
+ }
+ return player?{x,y,width,height,player,threats}:null
+}
+function minimapSurrounding(minimap,point=minimap?.player){
+ if(!point)return {enclosed:false,risk:0,count:0,sectors:0,gap:Math.PI*2,escape:null};
+ const range=minimap.width*.08,angles=[],sectors=new Set();
+ for(const t of minimap.threats){const dx=t.x-point.x,dy=t.y-point.y;if(Math.hypot(dx,dy)>range)continue;const angle=(Math.atan2(dy,dx)+Math.PI*2)%(Math.PI*2);angles.push(angle);sectors.add(Math.floor((angle+Math.PI/8)%(Math.PI*2)/(Math.PI/4)))}
+ const count=angles.length,wallRange=range*.35;
+ if(point.x<wallRange)angles.push(Math.PI);if(minimap.width-point.x<wallRange)angles.push(0);
+ if(point.y<wallRange)angles.push(Math.PI*1.5);if(minimap.height-point.y<wallRange)angles.push(Math.PI*.5);
+ angles.sort((a,b)=>a-b);let gap=0,middle=0;
+ for(let i=0;i<angles.length;i++){const next=i+1<angles.length?angles[i+1]:angles[0]+Math.PI*2,opening=next-angles[i];if(opening>gap){gap=opening;middle=angles[i]+opening/2}}
+ if(!angles.length)gap=Math.PI*2;
+ const enclosed=count>=2&&angles.length>=3&&gap<=Math.PI*1.08,risk=count>=2?Math.max(0,1-gap/(Math.PI*1.2))*Math.min(1,angles.length/5):0;
+ return {enclosed,risk,count,sectors:sectors.size,gap,escape:angles.length?{x:Math.cos(middle),y:Math.sin(middle)}:null}
+}
+function minimapRouteAssessment(minimap,dir){
+ if(!minimap?.player||!dir)return {risk:0,entersEnclosure:false};
+ const range=minimap.width*.05,step=minimap.width*.035;
+ let risk=0,entersEnclosure=false;
+ for(const f of [.25,.5,.75,1]){
+  const x=minimap.player.x+dir.x*step*f,y=minimap.player.y+dir.y*step*f;
+  for(const t of minimap.threats){const closeness=Math.max(0,1-Math.hypot(t.x-x,t.y-y)/range);risk+=(t.weight??1)*closeness*closeness/4}
+  const surrounding=minimapSurrounding(minimap,{x,y});risk+=surrounding.risk*.9/4;if(f>=.5&&surrounding.enclosed)entersEnclosure=true;
+  const outside=Math.max(0,-x,x-minimap.width,-y,y-minimap.height);risk+=Math.min(1,outside/step);
+ }
+ return {risk,entersEnclosure}
+}
+function minimapDirectionRisk(minimap,dir){return minimapRouteAssessment(minimap,dir).risk}
+function minimapClusterState(minimap,point=minimap?.player){
+ if(!point)return {nearby:0,nearest:Infinity,density:0,clustered:false,clear:false};
+ let nearby=0,nearest=Infinity,density=0,merged=false;
+ for(const t of minimap.threats){const distance=Math.hypot(t.x-point.x,t.y-point.y),weight=t.weight??1;nearest=Math.min(nearest,distance);if(distance<=minimap.width*.08)nearby++;if(weight>=1.45&&distance<minimap.width*.06)merged=true;const close=Math.max(0,1-distance/(minimap.width*.115));density+=weight*close*close}
+ return {nearby,nearest,density,clustered:nearby>=2||merged,clear:nearest>=minimap.width*.1&&density<=.12}
+}
+function minimapEscapePlan(minimap,previousGoal=null){
+ const columns=21,rows=15,margin=minimap.width*.045,nodes=[];
+ for(let row=0;row<rows;row++)for(let col=0;col<columns;col++){const point={x:margin+col*(minimap.width-margin*2)/(columns-1),y:margin+row*(minimap.height-margin*2)/(rows-1)},area=minimapClusterState(minimap,point);nodes.push({...point,...area,cost:Infinity,parent:-1,visited:false})}
+ let start=0;for(let i=1;i<nodes.length;i++)if(Math.hypot(nodes[i].x-minimap.player.x,nodes[i].y-minimap.player.y)<Math.hypot(nodes[start].x-minimap.player.x,nodes[start].y-minimap.player.y))start=i;
+ nodes[start].cost=0;
+ // Plan beyond the nearby turn: weighted shortest paths to genuinely clear cells across the whole minimap.
+ for(let iteration=0;iteration<nodes.length;iteration++){
+  let at=-1;for(let i=0;i<nodes.length;i++)if(!nodes[i].visited&&(at<0||nodes[i].cost<nodes[at].cost))at=i;
+  if(at<0||!Number.isFinite(nodes[at].cost))break;
+  const from=nodes[at];from.visited=true;const row=Math.floor(at/columns),col=at%columns;
+  for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){if(!dx&&!dy)continue;const rr=row+dy,cc=col+dx;if(rr<0||rr>=rows||cc<0||cc>=columns)continue;const next=rr*columns+cc,to=nodes[next];if(to.visited)continue;const separation=Math.min(from.nearest,to.nearest),crowding=(from.density+to.density)*.5,nearDot=Math.max(0,1-separation/(minimap.width*.035)),cost=from.cost+Math.hypot(to.x-from.x,to.y-from.y)*(1+crowding*12+nearDot*18);if(cost<to.cost){to.cost=cost;to.parent=at}}
+ }
+ const previous=previousGoal?{x:previousGoal.x*minimap.width,y:previousGoal.y*minimap.height}:null;
+ let destination=-1;
+ if(previous&&minimapClusterState(minimap,previous).clear){for(let i=0;i<nodes.length;i++)if(destination<0||Math.hypot(nodes[i].x-previous.x,nodes[i].y-previous.y)<Math.hypot(nodes[destination].x-previous.x,nodes[destination].y-previous.y))destination=i}
+ if(destination<0||!nodes[destination].clear){const clear=nodes.map((p,i)=>({...p,index:i})).filter(p=>p.clear),pool=clear.length?clear:nodes.map((p,i)=>({...p,index:i}));pool.sort((a,b)=>{const score=p=>p.cost+(clear.length?0:p.density*minimap.width*8)+Math.max(0,minimap.width*.08-Math.min(p.x,minimap.width-p.x,p.y,minimap.height-p.y));return score(a)-score(b)});destination=pool[0].index}
+ const goal=nodes[destination],path=[];for(let at=destination;at>=0;at=nodes[at].parent){path.unshift({x:nodes[at].x,y:nodes[at].y});if(at===start)break}
+ const waypoint=path.find(p=>Math.hypot(p.x-minimap.player.x,p.y-minimap.player.y)>=minimap.width*.045)??goal,dx=waypoint.x-minimap.player.x,dy=waypoint.y-minimap.player.y,length=Math.max(.001,Math.hypot(dx,dy));
+ return {goal:{x:goal.x/minimap.width,y:goal.y/minimap.height},direction:{x:dx/length,y:dy/length},remaining:Math.hypot(goal.x-minimap.player.x,goal.y-minimap.player.y)/minimap.width,clearDestination:goal.clear,path}
+}
+let minimapEvacuation=null;
+function updateMinimapEvacuation(minimap,routeDanger=false){
+ if(!minimap?.player){if(minimapEvacuation)minimapEvacuation.clearFrames=0;return null}
+ const area=minimapClusterState(minimap),surrounding=minimapSurrounding(minimap),enter=area.clustered||surrounding.enclosed||(routeDanger&&!area.clear);
+ if(!minimapEvacuation&&!enter)return null;
+ if(!minimapEvacuation)minimapEvacuation={goal:null,clearFrames:0};
+ minimapEvacuation.clearFrames=area.clear?minimapEvacuation.clearFrames+1:0;
+ if(minimapEvacuation.clearFrames>=3){minimapEvacuation=null;return null}
+ const plan=minimapEscapePlan(minimap,minimapEvacuation.goal);minimapEvacuation={...plan,clearFrames:minimapEvacuation.clearFrames,area};return minimapEvacuation
+}
+function hasSlimeLabel(image,w,h,p){
+ if(p.r<11)return false;
+ const data=image.data,halfWidth=Math.min(40,p.r*.65),halfHeight=Math.min(7,p.r*.25);
+ let bright=0;
+ for(let y=Math.max(0,Math.floor(p.y-halfHeight));y<=Math.min(h-1,p.y+halfHeight);y+=2)
+  for(let x=Math.max(0,Math.floor(p.x-halfWidth));x<=Math.min(w-1,p.x+halfWidth);x+=2){
+   const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2];
+   if(Math.min(r,g,b)>200&&Math.max(r,g,b)-Math.min(r,g,b)<40)bright++;
+  }
+ return bright>=3
+}
+const FOOD_GROWTH_WEIGHT=4,SMALL_SLIME_GROWTH_WEIGHT=64,EDIBLE_RATIO=.95;
+function isEdibleRatio(ratio){return ratio<=EDIBLE_RATIO}
+function classifySize(p,ratio){return {...p,ratio,isThreat:!isEdibleRatio(ratio)}}
+function preyGrowthScore(p,playerRadius){return p.r*p.r*(p.hasLabel?SMALL_SLIME_GROWTH_WEIGHT:FOOD_GROWTH_WEIGHT)/Math.max(playerRadius*2,p.dist)}
+function preyDirectionWeight(p){return p.hasLabel?SMALL_SLIME_GROWTH_WEIGHT/8:FOOD_GROWTH_WEIGHT}
+function playerEdge(image,w,h){const d=image.data,cx=Math.round(w/2),cy=Math.round(h/2),maxR=Math.min(w,h)*.48,steps=180,hit=[],sample=(x,y)=>{if(x<0||x>=w||y<0||y>=h)return null;const i=(y*w+x)*4;return [d[i],d[i+1],d[i+2]]},base=[];for(let k=0;k<32;k++){const a=k*Math.PI*2/32,p=sample(Math.round(cx+Math.cos(a)*8),Math.round(cy+Math.sin(a)*8));if(p)base.push(p)}if(base.length<16)return null;const med=i=>{const v=base.map(c=>c[i]).sort((a,b)=>a-b);return v[v.length>>1]},ref=[med(0),med(1),med(2)];for(let k=0;k<steps;k++){const a=k*Math.PI*2/steps;let first=0;for(let r=9;r<maxR;r+=1.5){const p=sample(Math.round(cx+Math.cos(a)*r),Math.round(cy+Math.sin(a)*r));if(!p)break;const delta=Math.hypot(p[0]-ref[0],p[1]-ref[1],p[2]-ref[2]);if(delta>72){first=r;break}}if(first)hit.push(first)}if(hit.length<steps*.55)return null;hit.sort((a,b)=>a-b);return hit[Math.floor(hit.length*.5)]}
+function detectBoundaries(image,w,h,radius){const data=image.data,isWall=(x,y)=>{const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2];return g>70&&g-r>20&&g-b>4&&r<125&&b<155},findLine=vertical=>{const across=vertical?w:h,along=vertical?h:w,start=Math.floor(along*.06),end=Math.ceil(along*.94),validLength=Math.ceil((end-start)/2),candidates=[];for(let pos=8;pos<across-8;pos+=2){let count=0,longest=0,run=0;for(let p=start;p<end;p+=2){let hit=false;for(let off=-2;off<=2;off+=2){const x=vertical?pos+off:p,y=vertical?p:pos+off;if(x>=0&&x<w&&y>=0&&y<h&&isWall(x,y)){hit=true;break}}if(hit){count++;run++;longest=Math.max(longest,run)}else run=0}if(count>=validLength*.58&&longest>=validLength*.2)candidates.push({pos,count})}if(!candidates.length)return null;candidates.sort((a,b)=>b.count-a.count);return candidates[0].pos},lineX=findLine(true),lineY=findLine(false),limit=Math.max(60,(radius||20)*10),cx=w/2,cy=h/2;return {left:lineX!==null&&lineX<cx&&cx-lineX<=limit,right:lineX!==null&&lineX>cx&&lineX-cx<=limit,top:lineY!==null&&lineY<cy&&cy-lineY<=limit,bottom:lineY!==null&&lineY>cy&&lineY-cy<=limit}}
+
+let visionTracks=[],nextTrackId=1,targetTrackId=null,frameQueue=[];const FRAME_QUEUE_LIMIT=20,CAPTURE_INTERVAL_MS=100;
+function trackDetections(parts,radius,cx,cy){
+ const now=performance.now(),pr=radius||20,detections=parts.map(p=>({...p,ratio:p.r/pr})),pairs=[];
+ for(const t of visionTracks)t.missedFrames=(t.missedFrames||0)+1;
+ for(const t of visionTracks){const age=(now-t.lastSeen)/1000;if(t.missedFrames>3)continue;const dt=Math.max(.035,Math.min(.7,age));for(let i=0;i<detections.length;i++){const p=detections[i],px=t.x+t.vx*dt,py=t.y+t.vy*dt,dist=Math.hypot(p.x-px,p.y-py),gate=Math.max(pr*1.7,Math.min(pr*3.8,pr*1.25+Math.hypot(t.vx,t.vy)*dt*.7)),sizeCost=Math.abs(Math.log(Math.max(.2,p.r/t.r))),cost=dist/gate+sizeCost*.35;if(dist<gate&&cost<1.5)pairs.push({t,p,i,cost})}}
+ pairs.sort((a,b)=>a.cost-b.cost);const usedTracks=new Set(),usedDetections=new Set();
+ for(const m of pairs){if(usedTracks.has(m.t.id)||usedDetections.has(m.i))continue;const t=m.t,p=m.p,dt=Math.max(.035,Math.min(.7,(now-t.lastSeen)/1000)),rawVx=(p.x-t.x)/dt,rawVy=(p.y-t.y)/dt,maxV=pr*5,speed=Math.hypot(rawVx,rawVy),scale=speed>maxV?maxV/speed:1;t.vx=t.vx*.58+rawVx*scale*.42;t.vy=t.vy*.58+rawVy*scale*.42;t.x=t.x*.62+p.x*.38;t.y=t.y*.62+p.y*.38;t.r=t.r*.62+p.r*.38;t.ratio=t.r/pr;t.observedX=p.x;t.observedY=p.y;t.observedR=p.r;t.observedRatio=p.ratio;t.missedFrames=0;t.labelConfidence=p.hasLabel?Math.min(3,(t.labelConfidence||0)+1):Math.max(0,(t.labelConfidence||0)-1);t.hasLabel=t.labelConfidence>0;t.lastSeen=now;t.hits++;t.isThreat=!isEdibleRatio(p.ratio);usedTracks.add(t.id);usedDetections.add(m.i)}
+ for(let i=0;i<detections.length;i++)if(!usedDetections.has(i)){const p=detections[i];visionTracks.push({id:nextTrackId++,x:p.x,y:p.y,r:p.r,ratio:p.ratio,observedX:p.x,observedY:p.y,observedR:p.r,observedRatio:p.ratio,hasLabel:Boolean(p.hasLabel),labelConfidence:p.hasLabel?2:0,missedFrames:0,vx:0,vy:0,lastSeen:now,hits:1,isThreat:!isEdibleRatio(p.ratio)})}
+ visionTracks=visionTracks.filter(t=>t.missedFrames<=3);const out=[];for(const t of visionTracks){const age=(now-t.lastSeen)/1000,keepFrames=t.isThreat?2:1;if(t.missedFrames>keepFrames)continue;const dt=Math.min(age,.22),x=t.x+t.vx*dt,y=t.y+t.vy*dt;out.push({...t,x,y,age,seen:t.missedFrames===0,dx:x-cx,dy:y-cy,dist:Math.hypot(x-cx,y-cy),ratio:t.ratio,isThreat:t.isThreat})}return out
+}
+function aggregateFrameTracks(queue){
+ const grouped=new Map();for(const frame of queue)for(const p of frame.tracks){const previous=grouped.get(p.id);grouped.set(p.id,{...p,queueHits:(previous?.queueHits??0)+1})}
+ return [...grouped.values()].map(p=>({...p,queueRatio:p.queueHits/queue.length}))
+}
+function latestFrameTracks(tracked){
+ return tracked.map(p=>{const latest=p.seen?{...p,x:p.observedX??p.x,y:p.observedY??p.y,r:p.observedR??p.r,ratio:p.observedRatio??p.ratio}:p;return classifySize(latest,latest.ratio)})
+}
+function decideFromQueue(tracked,radius,cx,cy,previousDirection,boundaries,minimap=null){
+ const latest=latestFrameTracks(tracked),frame={tracks:latest.map(p=>({...p})),boundaries:{...boundaries}};
+ frameQueue.push(frame);if(frameQueue.length>FRAME_QUEUE_LIMIT)frameQueue.shift();
+ $('frameQueueCount').textContent=`${frameQueue.length} / ${FRAME_QUEUE_LIMIT}`;
+ // History supplies tracking confidence only. It never suppresses a current detection or replaces its latest position/classification.
+ const history=new Map(aggregateFrameTracks(frameQueue).map(p=>[p.id,p]));
+ return decide(latest.map(p=>({...p,queueHits:history.get(p.id)?.queueHits??1})),radius,cx,cy,previousDirection,boundaries,minimap)
+}
+function decide(parts,radius,cx,cy,previousDirection,boundaries={},minimap=null){
+ const pr=radius||20,objects=parts.map(p=>({...classifySize(p,p.ratio??p.r/pr),dx:p.x-cx,dy:p.y-cy,dist:Math.hypot(p.x-cx,p.y-cy)})).filter(p=>!isPlayerComponent(p,radius,cx,cy)&&(p.dist>pr*.15||p.r>pr*1.05)),prey=objects.filter(p=>!p.isThreat).map(p=>({...p,growthScore:preyGrowthScore(p,pr)})).sort((a,b)=>b.growthScore-a.growthScore).slice(0,20),threats=objects.filter(p=>p.isThreat),dirs=[{name:'↑ 北',x:0,y:-1},{name:'↗ 東北',x:Math.SQRT1_2,y:-Math.SQRT1_2},{name:'→ 東',x:1,y:0},{name:'↘ 東南',x:Math.SQRT1_2,y:Math.SQRT1_2},{name:'↓ 南',x:0,y:1},{name:'↙ 西南',x:-Math.SQRT1_2,y:Math.SQRT1_2},{name:'← 西',x:-1,y:0},{name:'↖ 西北',x:-Math.SQRT1_2,y:-Math.SQRT1_2}];
+ const directionTo=p=>dirs.map(d=>({...d,score:(d.x*p.dx+d.y*p.dy)/Math.max(1,p.dist)})).sort((a,b)=>b.score-a.score)[0];
+ const surrounding=minimapSurrounding(minimap),regionDirections=dirs.map(d=>({...d,...minimapRouteAssessment(minimap,d)})),regionByName=new Map(regionDirections.map(d=>[d.name,d])),regionRisk=d=>regionByName.get(d?.name)?.risk??0,bestRegionRisk=Math.min(...regionDirections.map(d=>d.risk)),worstRegionRisk=Math.max(...regionDirections.map(d=>d.risk)),regionDanger=Boolean(minimap?.threats.length&&(surrounding.enclosed||regionDirections.some(d=>d.entersEnclosure)||(worstRegionRisk>=.5&&worstRegionRisk-bestRegionRisk>=.22)));
+ const evacuation=updateMinimapEvacuation(minimap,regionDanger);
+ const quickPickup=p=>p.dist<=pr*3;
+ const safeRoute=(dir,distance,margin=3)=>threats.every(t=>{const along=Math.max(0,Math.min(distance,t.dx*dir.x+t.dy*dir.y));return Math.hypot(t.dx-dir.x*along,t.dy-dir.y*along)>pr*margin+t.r});
+ const localSafePrey=prey.filter(p=>safeRoute(directionTo(p),p.dist,p.hasLabel?2:3)),safePrey=localSafePrey.filter(p=>!evacuation&&(quickPickup(p)||!regionDanger||(!regionByName.get(directionTo(p).name).entersEnclosure&&regionRisk(directionTo(p))<=bestRegionRisk+.3))).map(p=>({...p,growthScore:p.growthScore/(1+regionRisk(directionTo(p))*(quickPickup(p)?.5:3))})).sort((a,b)=>b.growthScore-a.growthScore),bestTarget=safePrey[0],previousTarget=safePrey.find(p=>p.id===targetTrackId);
+ const target=previousTarget&&previousTarget.growthScore>=(bestTarget?.growthScore??0)*.8?previousTarget:bestTarget,blockedFood=prey.length>0&&!localSafePrey.length&&threats.length>0;targetTrackId=target?.id??null;
+ const approaching=threats.filter(t=>{const gap=t.dist-pr-t.r,closingSpeed=-(t.dx*(t.vx||0)+t.dy*(t.vy||0))/Math.max(1,t.dist),largeCandidate=t.isThreat,insideSafetyRange=t.dist<=pr*4.5+t.r,closingRange=t.dist<=pr*10+t.r;return gap<=pr*3||(insideSafetyRange&&largeCandidate)||(closingRange&&t.hits>=2&&closingSpeed>pr*.08)});
+ const boundaryActive=Boolean(boundaries.left||boundaries.right||boundaries.top||boundaries.bottom),inward=boundaryActive?dirs.filter(d=>(!boundaries.left||d.x>.15)&&(!boundaries.right||d.x<-.15)&&(!boundaries.top||d.y>.15)&&(!boundaries.bottom||d.y<-.15)):[];
+ if(approaching.length||blockedFood){
+  const step=pr*6,candidates=(inward.length?inward:dirs).map(d=>({...d,clearance:Math.min(...threats.map(t=>Math.min(...[.25,.5,.75,1].map(f=>Math.hypot(t.dx-d.x*step*f,t.dy-d.y*step*f)-pr-t.r))))})),bestClearance=Math.max(...candidates.map(d=>d.clearance)),safeEscape=candidates.filter(d=>d.clearance>=Math.max(pr,bestClearance-pr)),canFeed=Boolean(!evacuation&&target&&safeEscape.length),pool=safeEscape.length?safeEscape:candidates;
+  const dir=pool.map(d=>{const keepDirection=previousDirection?.name===d.name?pr*.02:0,foodAlignment=canFeed?(d.x*target.dx+d.y*target.dy)/Math.max(1,target.dist)*pr*1.5*preyDirectionWeight(target):0;return {...d,score:d.clearance+foodAlignment+(evacuation&&safeEscape.length?(d.x*evacuation.direction.x+d.y*evacuation.direction.y)*pr*1.5:0)+keepDirection-Math.min(pr,Math.max(0,d.clearance))*.25*Math.min(2,regionRisk(d))}}).sort((a,b)=>b.score-a.score)[0];
+  return {urgent:true,reason:'threat',title:evacuation?'避敵並持續撤離聚集區':canFeed?'避敵並順路追食':'避開靠近的大型史萊姆',detail:`${approaching.length?`偵測到 ${approaching.length} 個靠近的大型史萊姆`:'附近小型目標的路線會進入大型史萊姆的避讓範圍'}；比較八個方向上 ${Math.round(step)} px 前進路徑的多個位置，以及所有可見大型史萊姆的距離${canFeed?`；在保有逃生空間的方向中，優先朝${target.hasLabel?'小史萊姆':'食物'}移動`:''}${inward.length?'，並避開已偵測到的場地邊界':''}${evacuation?'；暫停追食，避讓後繼續朝小地圖空曠出口撤離':minimap?'；安全路線再參考小地圖的密度與包圍風險':''}。`,dir,prey,threats,evacuation}
+ }
+ if(inward.length){const targetScore=d=>evacuation?(d.x*evacuation.direction.x+d.y*evacuation.direction.y)-regionRisk(d):(target?(d.x*target.dx/target.dist+d.y*target.dy/target.dist)*preyDirectionWeight(target):0)-regionRisk(d),dir=[...inward].sort((a,b)=>(targetScore(b)-targetScore(a))||((previousDirection?.name===b.name?1:0)-(previousDirection?.name===a.name?1:0)))[0],edges=Object.entries(boundaries).filter(([,v])=>v).map(([k])=>({left:'左',right:'右',top:'上',bottom:'下'})[k]);return {urgent:true,reason:'boundary',title:evacuation?'避開邊界並持續撤離':'避開場地邊界',detail:`偵測到${edges.join('、')}側邊界；先往場地內側移動${evacuation?'，持續朝空曠出口撤離':target?'，並在安全方向中朝小型目標前進':''}。`,dir,prey,threats,evacuation}}
+ if(evacuation){
+  const corridors=dirs.filter(d=>safeRoute(d,pr*6)),pool=corridors.length?corridors:dirs,score=d=>(d.x*evacuation.direction.x+d.y*evacuation.direction.y)-regionRisk(d)*.45+(previousDirection?.name===d.name?.03:0),dir=[...pool].sort((a,b)=>score(b)-score(a))[0],encirclement=surrounding.enclosed||regionDirections.some(d=>d.entersEnclosure);
+  return {urgent:true,reason:encirclement?'surrounding':'minimap',title:'持續撤離大型史萊姆聚集區',detail:`${evacuation.clearDestination?'已在整張小地圖找到聚集區外的空曠出口':'暫無完全空曠出口，先往威脅較少區域撤離'}，約在小地圖 ${Math.round(evacuation.goal.x*100)}%、${Math.round(evacuation.goal.y*100)}% 的位置；尚距約 ${Math.round(evacuation.remaining*100)}% 地圖寬。撤離期間不追食；連續 3 張新畫面確認已遠離危險紅點後，才恢復吞食。離開確認 ${evacuation.clearFrames}/3。`,dir,prey,threats,evacuation}
+ }
+ if(target){const dir=directionTo(target);return {confirmationFrames:quickPickup(target)?1:2,title:target.hasLabel?'優先吞食較小史萊姆':'前往食物或小史萊姆',detail:`選擇路線安全、成長收益較高的${target.hasLabel?`小史萊姆候選（權重 ${SMALL_SLIME_GROWTH_WEIGHT}）`:`食物候選（權重 ${FOOD_GROWTH_WEIGHT}）`}，約玩家 ${target.ratio.toFixed(2)} 倍、距離 ${Math.round(target.dist)} px。${quickPickup(target)?'目標在近處，依最新畫面立即轉向追食；吃到後重新評估逃生方向。':'兩張新畫面確認後追食，收益明顯較好時取代原目標。'}`,dir,prey,threats}}
+ return {title:'維持目前方向',detail:'目前沒有辨識到靠近的大型史萊姆或附近小型目標；保持上一個方向，持續辨識。',dir:null,prey,threats}
+}
+let previousPixels=null,previousWidth=0,previousHeight=0,lastAnalysis=null;
+let performanceStart=0,processedFrames=0,repeatedFrames=0,frameTimes=[],processingTimes=[];
+function isFreshFrame(image,w,h){
+ const pixels=new Uint32Array(image.data.buffer,image.data.byteOffset,image.data.byteLength/4);
+ let same=previousWidth===w&&previousHeight===h&&previousPixels?.length===pixels.length;
+ if(same)for(let i=0;i<pixels.length;i++)if(pixels[i]!==previousPixels[i]){same=false;break}
+ if(same)return false;
+ if(!previousPixels||previousPixels.length!==pixels.length)previousPixels=new Uint32Array(pixels.length);
+ previousPixels.set(pixels);previousWidth=w;previousHeight=h;return true
+}
+function recordPerformance(started,fresh){
+ const now=performance.now(),elapsed=now-started;if(!performanceStart)performanceStart=started;
+ if(fresh){processedFrames++;frameTimes.push(now);processingTimes.push(elapsed);if(processingTimes.length>30)processingTimes.shift()}else repeatedFrames++;
+ frameTimes=frameTimes.filter(t=>t>now-2000);
+ const seconds=Math.max(.5,Math.min(2,(now-performanceStart)/1000));
+ $('recognitionFps').textContent=`${(frameTimes.length/seconds).toFixed(1)} fps`;
+ if(processingTimes.length){$('recognitionTime').textContent=`${(processingTimes.reduce((sum,t)=>sum+t,0)/processingTimes.length).toFixed(1)} ms`;if(fresh)$('recognitionLatest').textContent=`最近 ${elapsed.toFixed(1)} ms`}
+ $('frameStats').textContent=`辨識 ${processedFrames} 張 · 跳過重複 ${repeatedFrames} 張`
+}
+function resetVision(){
+ visionTracks=[];nextTrackId=1;targetTrackId=null;minimapEvacuation=null;frameQueue=[];previousPixels=null;previousWidth=0;previousHeight=0;lastAnalysis=null;
+ performanceStart=performance.now();processedFrames=0;repeatedFrames=0;frameTimes=[];processingTimes=[];
+ $('frameQueueCount').textContent=`0 / ${FRAME_QUEUE_LIMIT}`;$('recognitionFps').textContent='—';$('recognitionTime').textContent='—';$('recognitionLatest').textContent='最近 —';$('frameStats').textContent='辨識 0 張 · 跳過重複 0 張';$('minimapCount').textContent='—';$('minimapStatus').textContent='等待辨識'
+}
+function renderOverlay(analysis){
+ const {w,h,radius,small,npc,decision}=analysis,cx=w/2,cy=h/2,svg=$('overlay'),ns='http://www.w3.org/2000/svg';
+ svg.setAttribute('viewBox',`0 0 ${w} ${h}`);svg.replaceChildren();
+ const defs=document.createElementNS(ns,'defs'),marker=document.createElementNS(ns,'marker');
+ marker.setAttribute('id','arrow');marker.setAttribute('markerWidth','8');marker.setAttribute('markerHeight','8');marker.setAttribute('refX','6');marker.setAttribute('refY','3');marker.setAttribute('orient','auto');
+ const head=document.createElementNS(ns,'path');head.setAttribute('d','M0,0 L0,6 L7,3 z');head.setAttribute('fill','#9df0cb');marker.append(head);defs.append(marker);svg.append(defs);
+ const circle=(p,kind)=>{const c=document.createElementNS(ns,'circle');c.setAttribute('class',kind);c.setAttribute('cx',p.x);c.setAttribute('cy',p.y);c.setAttribute('r',Math.max(p.r,kind==='food'?5:7));svg.append(c)};
+ if(radius)circle({x:cx,y:cy,r:radius},'player');
+ for(const p of small){circle(p,'food');if(p.hasLabel){const t=document.createElementNS(ns,'text');t.setAttribute('x',p.x+7);t.setAttribute('y',p.y-7);t.textContent='小史萊姆';svg.append(t)}}
+ for(const p of npc){circle(p,'npc');const t=document.createElementNS(ns,'text');t.setAttribute('x',p.x+7);t.setAttribute('y',p.y-7);t.textContent=`#${p.id} ${(p.ratio??p.r/(radius||20)).toFixed(2)}×`;svg.append(t)}
+ if(decision.dir){const len=Math.min(Math.min(w,h)*.25,Math.max(70,(radius||20)*3)),line=document.createElementNS(ns,'line');line.setAttribute('class','route');line.setAttribute('x1',cx);line.setAttribute('y1',cy);line.setAttribute('x2',cx+decision.dir.x*len);line.setAttribute('y2',cy+decision.dir.y*len);svg.append(line)}
+}
+function analyze(auto=false){
+ const started=performance.now();
+ try{
+  const d=game.contentDocument;if(!d)throw Error('iframe 尚未載入');const source=d.querySelector('canvas');if(!source||!source.width||!source.height)throw Error('找不到已繪製的遊戲畫面；請先開始遊戲');
+  if(out.width!==source.width)out.width=source.width;if(out.height!==source.height)out.height=source.height;
+  ctx.drawImage(source,0,0);const w=out.width,h=out.height,img=ctx.getImageData(0,0,w,h),fresh=isFreshFrame(img,w,h);
+  if(!fresh&&lastAnalysis){if(!auto){renderOverlay(lastAnalysis);const decision=lastAnalysis.decision;$('decisionTitle').textContent=decision.dir?`${decision.title}　${decision.dir.name}`:decision.title;$('decisionDetail').textContent=decision.detail;$('result').hidden=false;game.hidden=true}recordPerformance(started,false);return {...lastAnalysis.decision,fresh:false}}
+  const pixelRatio=w/(source.clientWidth||w),radius=playerEdge(img,w,h),parts=components(img,w,h,Math.max(2,Math.ceil(Math.max(w,h)/700)),canvasUiMasks(w,h,pixelRatio)),cx=w/2,cy=h/2,minimap=detectMinimap(img,w,h,pixelRatio);
+  const nearby=parts.filter(p=>!isPlayerComponent(p,radius,cx,cy)&&(Math.hypot(p.x-cx,p.y-cy)>(radius||20)*.15||p.r>(radius||20)*1.05)&&p.r>=6);
+  for(const p of nearby)p.hasLabel=isEdibleRatio(p.r/(radius||20))&&hasSlimeLabel(img,w,h,p);
+  const tracked=trackDetections(nearby,radius,cx,cy),latest=latestFrameTracks(tracked),npc=latest.filter(p=>p.isThreat).sort((a,b)=>b.r-a.r).slice(0,80),small=latest.filter(p=>!p.isThreat);
+  const boundaries=detectBoundaries(img,w,h,radius),decision=decideFromQueue(tracked,radius,cx,cy,currentDirection,boundaries,minimap);
+  const surrounding=minimapSurrounding(minimap),area=minimapClusterState(minimap);$('minimapCount').textContent=minimap?`${minimap.threats.length} 群`:'未判定';$('minimapStatus').textContent=minimap?`${minimapEvacuation?'撤離中':area.clear?'已離開聚集區，可追食':'已定位玩家綠點'}；附近 ${area.nearby} 群，最近危險群距離 ${Number.isFinite(area.nearest)?Math.round(area.nearest/minimap.width*100)+'% 地圖寬':'無'}${minimapEvacuation?`；離開確認 ${minimapEvacuation.clearFrames}/3`:''}`:'未辨識到玩家綠點；依主畫面避敵';
+  lastAnalysis={w,h,radius,small,npc,decision,minimap};if(!auto)renderOverlay(lastAnalysis);
+  $('playerRadius').textContent=radius?`${Math.round(radius)} px`:'未判定';$('npcCount').textContent=String(npc.length);$('decisionTitle').textContent=decision.dir?`${decision.title}　${decision.dir.name}`:decision.title;$('decisionDetail').textContent=decision.detail;
+  $('result').hidden=auto;game.hidden=!auto;say(radius?`完成：估計玩家半徑 ${Math.round(radius)} px；追蹤 ${tracked.length} 個候選：${npc.length} 個較大、${small.length} 個較小；新影格 ${frameQueue.length}/${FRAME_QUEUE_LIMIT}。`:'完成：有標出候選色塊，但未能可靠判定玩家輪廓。',radius?'ok':'err');
+  recordPerformance(started,true);return {...decision,fresh:true}
+ }catch(e){previousPixels=null;lastAnalysis=null;say(e.message||'擷取失敗。請確認此頁與遊戲同源，並在開始遊戲後再試。','err');return null}
+}
+let autoRunning=false,currentDirection=null,pendingDirectionName=null,pendingDirectionFrames=0;
+const heldKeys=new Set(),sleep=ms=>new Promise(resolve=>setTimeout(resolve,ms));
+function directionConfirmation(decision,current,pendingName=null,pendingFrames=0){
+ if(decision.fresh===false)return {dir:null,pendingName,pendingFrames};
+ if(!decision.dir||decision.dir.name===current?.name)return {dir:null,pendingName:null,pendingFrames:0};
+ const required=decision.urgent?1:(decision.confirmationFrames??2),frames=pendingName===decision.dir.name?pendingFrames+1:1;
+ return frames>=required?{dir:decision.dir,pendingName:null,pendingFrames:0,required}:{dir:null,pendingName:decision.dir.name,pendingFrames:frames,required}
+}
+function captureDelay(started,now=performance.now()){return Math.max(0,CAPTURE_INTERVAL_MS-(now-started))}
+const directionOptions=[{name:'↑ 北',x:0,y:-1},{name:'↗ 東北',x:Math.SQRT1_2,y:-Math.SQRT1_2},{name:'→ 東',x:1,y:0},{name:'↘ 東南',x:Math.SQRT1_2,y:Math.SQRT1_2},{name:'↓ 南',x:0,y:1},{name:'↙ 西南',x:-Math.SQRT1_2,y:Math.SQRT1_2},{name:'← 西',x:-1,y:0},{name:'↖ 西北',x:-Math.SQRT1_2,y:-Math.SQRT1_2}];
+function dispatchKey(type,key){try{const win=game.contentWindow;if(!win)return;win.focus();win.dispatchEvent(new win.KeyboardEvent(type,{key,code:key,bubbles:true,cancelable:true}))}catch{}}
+function releaseKeys(){for(const key of heldKeys)dispatchKey('keyup',key);heldKeys.clear();currentDirection=null}
+function holdDirection(dir){const keys=[];if(dir.x<-.25)keys.push('ArrowLeft');if(dir.x>.25)keys.push('ArrowRight');if(dir.y<-.25)keys.push('ArrowUp');if(dir.y>.25)keys.push('ArrowDown');const before=[...heldKeys].sort().join('+'),after=[...keys].sort().join('+');if(before===after&&currentDirection?.name===dir.name)return;releaseKeys();currentDirection=dir;for(const key of keys){dispatchKey('keydown',key);heldKeys.add(key)}}
+function visibleButton(button){return button.getClientRects().length>0&&game.contentWindow.getComputedStyle(button).visibility!=='hidden'}
+async function waitForGameReady(){for(let attempt=0;attempt<20&&autoRunning;attempt++){try{const d=game.contentDocument;if(d){const buttons=[...d.querySelectorAll('button')].filter(visibleButton),resume=buttons.find(b=>/^(resume|繼續遊戲)$/i.test((b.textContent||'').trim())),play=buttons.find(b=>/^(play|play again|開始遊戲|再玩一次)$/i.test((b.textContent||'').trim())),pause=buttons.find(b=>/^(pause|暫停)$/i.test((b.textContent||'').trim())&&!b.disabled);if(resume)resume.click();else if(play)play.click();else if(pause){game.contentWindow.focus();return true}if(resume||play)game.contentWindow.focus()}}catch{}await sleep(250)}return false}
+async function runAuto(){
+ if(autoRunning)return;
+ autoRunning=true;pendingDirectionName=null;pendingDirectionFrames=0;resetVision();game.hidden=false;$('result').hidden=true;$('autoStart').disabled=true;$('autoStop').disabled=false;$('analyze').disabled=true;say('正在啟動遊戲…','ok');
+ if(!await waitForGameReady()){stopAuto('遊戲尚未開始或畫面未就緒，已停止，未送出方向鍵。');return}
+ currentDirection=directionOptions[0];holdDirection(currentDirection);say('遊戲開始；先沿初始方向移動並立即辨識畫面…','ok');
+ while(autoRunning){
+  const started=performance.now();
+  try{const ended=[...game.contentDocument.querySelectorAll('button')].some(b=>visibleButton(b)&&/^(play again|再玩一次)$/i.test((b.textContent||'').trim()));if(ended){stopAuto('偵測到本局結束，已停止方向控制。',false);break}}catch{}
+  const decision=analyze(true);
+  if(!decision){stopAuto('畫面擷取或辨識失敗；已停止方向控制，遊戲繼續。',false);break}
+  if(decision.fresh){
+   const confirmation=directionConfirmation(decision,currentDirection,pendingDirectionName,pendingDirectionFrames);
+   pendingDirectionName=confirmation.pendingName;pendingDirectionFrames=confirmation.pendingFrames;
+   if(confirmation.dir){holdDirection(confirmation.dir);say(`自動控制：${decision.title} ${currentDirection.name}；${decision.urgent?'依最新畫面立即避讓':confirmation.required===1?'近處目標立即追食':`連續 ${confirmation.required} 張新畫面確認後轉向`}。`,'ok')}
+   else if(pendingDirectionFrames){const hold=currentDirection?`暫維持 ${currentDirection.name}`:'等待方向確認';$('decisionTitle').textContent=`方向確認 ${pendingDirectionFrames}/${confirmation.required} · ${hold}`;$('decisionDetail').textContent=`新建議為 ${decision.dir.name}；連續 ${confirmation.required} 張新畫面一致後切換，相同畫面不累積確認。`}
+   else if(decision.dir)say(`自動控制：${decision.title} ${currentDirection.name}；持續移動並辨識新畫面。`,'ok');
+   else{const hold=currentDirection?`維持上一方向 ${currentDirection.name}`:'沒有前一方向，暫不送出方向鍵';$('decisionTitle').textContent=hold;$('decisionDetail').textContent=`${decision.detail} ${hold}。`;say(`${hold}；持續辨識新畫面。`,'ok')}
+  }
+  await sleep(captureDelay(started))
+ }
+}
+function stopAuto(message='自動控制已停止。',pauseGame=true){autoRunning=false;pendingDirectionName=null;pendingDirectionFrames=0;releaseKeys();$('analyze').disabled=false;$('autoStart').disabled=false;$('autoStop').disabled=true;if(pauseGame){try{const d=game.contentDocument,b=[...d.querySelectorAll('button')].filter(visibleButton).find(x=>/^(pause|暫停)$/i.test((x.textContent||'').trim())&&!x.disabled);if(b)b.click()}catch{}}if(message)say(message,'')}
+$('autoStart').addEventListener('click',runAuto);$('autoStop').addEventListener('click',()=>stopAuto());
+$('analyze').addEventListener('click',()=>analyze());game.addEventListener('load',handleGameLoad);if(game.contentDocument?.readyState==='complete')handleGameLoad();
+})();
+async function loadGameVersions(){const select=document.getElementById('gameChoice'),load=document.getElementById('loadGame'),custom=document.getElementById('customUrl');const preferred=new URL(document.getElementById('game').src,location.href).pathname;select.disabled=true;load.disabled=true;try{const response=await fetch('/api/versions',{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!response.ok)throw Error('版本清單讀取失敗');const data=await response.json();if(!Array.isArray(data.versions)||!data.versions.length||!data.currentVersion)throw Error('版本清單無效');const options=[new Option('目前版本（'+data.currentVersion+'）',data.currentPath)];for(const item of data.versions){if(typeof item.version!=='string'||typeof item.path!=='string'||!item.path.startsWith('/'))throw Error('版本清單無效');options.push(new Option(item.version+(item.current?'（目前版本）':''),item.path));}options.push(new Option('自行輸入網址','custom'));select.replaceChildren(...options);select.value=options.some(option=>option.value===preferred)?preferred:data.currentPath;custom.hidden=true;}catch(error){select.replaceChildren(new Option('目前版本（首頁）','/'),new Option('自行輸入網址','custom'));document.getElementById('versionStatus').textContent='版本清單讀取失敗，仍可載入首頁或自行輸入網址。';}finally{select.disabled=false;load.disabled=false;}}
+loadGameVersions();
+</script>
+</body>
+</html>

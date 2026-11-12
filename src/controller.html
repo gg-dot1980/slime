@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slime Cloud Controller</title>
+<style>
+:root{color-scheme:dark;--bg:#0d1519;--panel:#16242b;--line:#33464e;--ink:#eaf5f2;--muted:#9ab1ad;--mint:#a3f3d1}
+*{box-sizing:border-box}html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;font-size:16px}
+body{padding:14px}.wrap{max-width:1500px;margin:auto;display:grid;grid-template-columns:minmax(0,1fr) 350px;gap:14px}
+.viewer,.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;overflow:hidden}.viewer{position:relative;align-self:start;background:#101820}
+iframe{display:block;width:100%;height:min(82vh,850px);border:0;background:#101820}.panel{padding:14px}.panel h1{font-size:18px;margin:0 0 6px}
+.sub,.note{color:var(--muted);font-size:14px;line-height:1.5;margin:8px 0}.status{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin:12px 0}.chip{padding:8px;border:1px solid var(--line);border-radius:10px;font-size:14px}.chip b{display:block;color:var(--mint);font-size:14px;margin-top:2px}
+.row{display:flex;gap:7px;margin:8px 0}.row>*{flex:1;min-width:0}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin:10px 0}
+button,select{border:1px solid #ffffff2b;border-radius:10px;background:#21343b;color:var(--ink);padding:10px;font:inherit;font-size:14px;font-weight:700;cursor:pointer}button:hover{border-color:var(--mint)}button:focus-visible,select:focus-visible,a:focus-visible{outline:2px solid var(--mint);outline-offset:2px}button:disabled{opacity:.45;cursor:default}button.primary{background:var(--mint);color:#10211b}.wide{width:100%}.grid button{font-size:22px;min-height:46px}.danger{border-color:#ff8a7e88}
+.setting{display:grid;grid-template-columns:1fr 1.35fr;gap:7px;align-items:center;margin:8px 0;font-size:14px;color:var(--muted)}.check{display:flex;align-items:flex-start;gap:8px;font-size:14px;line-height:1.45;color:var(--muted);margin:10px 0}.check input{margin-top:3px;accent-color:var(--mint)}.rec{color:#ff8a7e!important}.ok{color:var(--mint)}
+#observation{position:absolute;inset:0;display:flex;align-items:center;background:#101820}#observation[hidden]{display:none}.scene{position:relative;width:100%}#sceneCanvas{display:block;width:100%;height:auto}.scene-top{position:absolute;top:12px;left:12px;right:12px;display:flex;justify-content:space-between;gap:8px;align-items:flex-start}.scene-label,.scene-stats{padding:9px 12px;border:1px solid #ffffff25;border-radius:12px;background:#111d22ed;font-size:14px}.scene-label{color:var(--mint)}.scene-stats{display:flex;gap:14px;color:var(--muted)}.scene-stats b{display:block;color:var(--ink);font-size:16px}.scene-hint{position:absolute;left:12px;bottom:12px;padding:6px 10px;border-radius:8px;background:#111d22ed;font-size:14px;color:var(--mint)}
+details{border-top:1px solid var(--line);margin-top:12px;padding-top:10px}summary{font-size:14px;cursor:pointer}.clips{display:grid;gap:8px;margin-top:10px}.clip{padding:10px;border:1px solid var(--line);border-radius:10px;font-size:14px;line-height:1.5}.clip a{display:block;color:var(--mint);font-weight:700;text-decoration:none}.clip small{display:block;color:var(--muted);font-size:13px}.empty{color:var(--muted);font-size:14px}
+.panel{position:sticky;top:14px;max-height:calc(100vh - 28px);overflow:auto}.quick button[aria-pressed="true"],button[data-mark][aria-pressed="true"]{background:var(--mint);color:#10211b}.marks{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.scene.marking{cursor:crosshair;touch-action:none}.marks circle{fill:none;stroke-width:3;vector-effect:non-scaling-stroke}.marks .target{stroke:#a3f3d1}.marks .hazard{stroke:#ff8a7e;fill:#ff8a7e18;stroke-dasharray:9 6}.marks text{font:16px system-ui;fill:#eaf5f2;paint-order:stroke;stroke:#10211b;stroke-width:4px}.inspect-tools,.inspect-directions{display:none}
+button[data-duration][aria-pressed="true"]{background:var(--mint);color:#10211b}button[data-escape][aria-pressed="true"]{background:#ff8a7e;color:#291411}
+#observation.inspect{position:fixed;inset:12px;z-index:20;border:1px solid var(--line);border-radius:16px;justify-content:center;padding:64px 10px 72px;background:#0d1519}#observation.inspect .scene{width:min(100%,calc((100vh - 164px)*var(--scene-ratio,1.72)))}#observation.inspect .inspect-tools{display:flex;position:absolute;top:12px;left:12px;right:12px;gap:7px;flex-wrap:wrap}#observation.inspect .inspect-directions{display:flex;position:absolute;bottom:12px;left:12px;right:12px;gap:5px;justify-content:center}.inspect-directions button{min-width:44px;font-size:20px;padding:8px}.viewer:has(#observation.inspect:not([hidden]))~.panel{visibility:hidden}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}iframe{height:58vh}.scene-stats{gap:9px;font-size:13px}.scene-top{top:8px;left:8px;right:8px}.panel{padding:12px}}
+@media(max-width:600px){.panel{position:static;max-height:none}#observation.inspect{inset:4px;padding:110px 4px 66px}#observation.inspect .scene{width:min(100%,calc((100vh - 190px)*var(--scene-ratio,1.72)))}.inspect-directions{gap:2px!important}.inspect-directions button{min-width:0;flex:1;padding:8px 2px;font-size:18px}.inspect-tools button{padding:8px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section class="viewer" aria-label="遊戲畫面">
+    <iframe id="gameFrame" src="./" title="Slime Arena"></iframe>
+    <div id="observation" hidden>
+      <div class="scene">
+        <canvas id="sceneCanvas" role="img" aria-label="本次移動後的遊戲畫面與縮小地圖"></canvas>
+        <svg id="marks" class="marks" aria-hidden="true"></svg>
+        <div class="scene-top">
+          <span class="scene-label" id="sceneLabel">已暫停 · 等待方向</span>
+          <div class="scene-stats"><span>體型<b id="sceneSize">—</b></span><span>吞食<b id="sceneEaten">—</b></span><span>剩餘<b id="sceneTime">—</b></span></div>
+        </div>
+        <span class="scene-hint" id="sceneHint">點方向移動一段，再觀察</span>
+      </div>
+      <div class="inspect-tools">
+        <button data-duration="100">微調 0.1 秒</button><button data-duration="250">短步 0.25 秒</button><button data-duration="500">短步 0.5 秒</button><button data-escape aria-pressed="false">逃離模式：關</button>
+        <button data-mark="target" aria-pressed="false">標記目標</button><button data-mark="hazard" aria-pressed="false">標記危險區</button><button data-clear-marks>清除標記</button><button id="closeInspect">縮回畫面</button>
+      </div>
+      <div class="inspect-directions">
+        <button data-keys="ArrowUp,ArrowLeft" aria-label="左上 ↖">↖</button><button data-keys="ArrowUp" aria-label="上 ↑">↑</button><button data-keys="ArrowUp,ArrowRight" aria-label="右上 ↗">↗</button><button data-keys="ArrowLeft" aria-label="左 ←">←</button><button data-observe aria-label="停止並觀察">■</button><button data-keys="ArrowRight" aria-label="右 →">→</button><button data-keys="ArrowDown,ArrowLeft" aria-label="左下 ↙">↙</button><button data-keys="ArrowDown" aria-label="下 ↓">↓</button><button data-keys="ArrowDown,ArrowRight" aria-label="右下 ↘">↘</button>
+      </div>
+    </div>
+  </section>
+  <aside class="panel">
+    <h1>Slime Cloud Controller</h1>
+    <p class="sub">先看畫面，再選方向。步進時間以遊戲動畫更新為準；畫面更新較慢時，會等待本步完成再暫停。</p>
+    <div class="status" aria-live="polite">
+      <div class="chip">頁面<b id="pageStatus">載入中</b></div>
+      <div class="chip">移動<b id="inputStatus">停止</b></div>
+      <div class="chip">錄影<b id="recStatus">未開始</b></div>
+      <div class="chip">影片時間<b id="recTime">00:00</b></div>
+    </div>
+    <p class="note" id="renderStatus" role="status">等待遊戲畫面更新</p>
+    <details><summary>控制診斷</summary><p class="note" id="stepDiagnostic">尚未移動</p><p class="note" id="stopDiagnostic">尚未停止</p></details>
+    <button class="primary wide" id="startGame">開始／再玩一次</button>
+    <label class="setting" for="mode">控制模式<select id="mode"><option value="step" selected>步進觀察</option><option value="continuous">連續移動</option></select></label>
+    <label class="setting" for="duration">每次步進時間<select id="duration"><option value="100">0.1 秒</option><option value="250" selected>0.25 秒</option><option value="500">0.5 秒</option><option value="1000">1.0 秒</option></select></label>
+    <div class="row quick"><button data-duration="100" aria-pressed="false">微調 0.1 秒</button><button data-duration="250" aria-pressed="true">短步 0.25 秒</button><button data-duration="500" aria-pressed="false">短步 0.5 秒</button></div>
+    <button class="wide danger" data-escape aria-pressed="false">逃離模式：關</button>
+    <div class="grid">
+      <button data-keys="ArrowUp,ArrowLeft" aria-label="左上 ↖">↖</button><button data-keys="ArrowUp" aria-label="上 ↑">↑</button><button data-keys="ArrowUp,ArrowRight" aria-label="右上 ↗">↗</button>
+      <button data-keys="ArrowLeft" aria-label="左 ←">←</button><button id="stop" class="danger" aria-label="停止並觀察">■</button><button data-keys="ArrowRight" aria-label="右 →">→</button>
+      <button data-keys="ArrowDown,ArrowLeft" aria-label="左下 ↙">↙</button><button data-keys="ArrowDown" aria-label="下 ↓">↓</button><button data-keys="ArrowDown,ArrowRight" aria-label="右下 ↘">↘</button>
+    </div>
+    <div class="row"><button id="boostToggle" aria-pressed="false">加速：關</button><button id="boostMove">依上次方向加速</button></div>
+    <p class="note" id="modeHint">平常 0.25 秒，接近 NPC 用 0.1 秒。危險時手動開啟逃離模式；連續兩次觀察確認距離拉開，再手動關閉。0／1／2 鍵切換 0.1／0.25／0.5 秒，R 切換逃離，QWE／AD／ZXC 選八方向。</p>
+    <button class="wide" id="enlarge">放大觀察畫面</button>
+    <div class="row"><button data-mark="target" aria-pressed="false">標記目標</button><button data-mark="hazard" aria-pressed="false">標記危險區</button><button data-clear-marks>清除標記</button></div>
+    <p class="note" id="markStatus" aria-live="polite">先暫停，再點畫面標記；危險區可拖曳調整範圍。移動後清除。</p>
+    <div class="row"><button id="record">開始錄影</button><button id="stopRecord">停止錄影</button></div>
+    <label class="check"><input id="keepVideo" type="checkbox"><span>已目視確認體型超過 100，保留本局影片</span></label>
+    <div class="note" id="downloadStatus" aria-live="polite">新的一局會自動錄影。暫停思考的時間不計入影片。</div>
+    <details open><summary>本機影片</summary><div id="clips" class="clips"><span id="emptyClips" class="empty">尚無影片</span></div></details>
+    <details><summary>控制與錄影方式</summary><p class="note">控制只使用原遊戲的開始、暫停、恢復按鈕及方向／空白鍵。觀察畫面複製遊戲 Canvas；體型與時間取自玩家可見的 HUD。沒有讀取玩家或 NPC 的內部變數，也沒有自動選方向。</p><p class="note">每秒擷取畫面，每次步進也擷取結束畫面。各局影片保留獨立下載連結；勾選保留後才存至此瀏覽器。未勾選的影片在此頁關閉後消失。</p></details>
+    <button class="wide" id="reload" style="margin-top:12px">重新載入遊戲</button>
+  </aside>
+</div>
+<script>
+(()=>{
+'use strict';
+const $=id=>document.getElementById(id), frame=$('gameFrame');
+const directionNames={ArrowUp:'上',ArrowDown:'下',ArrowLeft:'左',ArrowRight:'右'};
+let held=new Set(),moveTimer=null,lastDirection=['ArrowRight'],boost=false,started=false,observer=null,escapeMode=false,normalDuration=250;
+let animationRequest=null,animationWindow=null,step=null;
+let recorder=null,recordingStream=null,captureCanvas=null,captureContext=null,captureTrack=null,captureTimer=null,recTicker=null;
+let activeMs=0,activeSince=null,stopPromise=null,clipSequence=0,latestClip=null,dbPromise=null;
+const clips=new Map(),urls=[];
+let markMode=null,markDrag=null,targetMark=null,hazardMarks=[];
+const scene=$('sceneCanvas').parentElement;
+function setMarkMode(value){
+  markMode=value;markDrag=null;scene.classList.toggle('marking',!!value);
+  document.querySelectorAll('[data-mark]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.mark===value)));
+  const message=value==='target'?'點一下畫面標記目標':value==='hazard'?'點下危險區中心，可拖曳調整範圍':'點方向移動一段，再觀察';
+  $('sceneHint').textContent=message;
+}
+function renderMarks(){
+  const svg=$('marks'),canvas=$('sceneCanvas');svg.setAttribute('viewBox','0 0 '+canvas.width+' '+canvas.height);svg.replaceChildren();
+  for(const [kind,mark] of [...hazardMarks.map(m=>['hazard',m]),...(targetMark?[['target',targetMark]]:[])]){
+    const c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('class',kind);c.setAttribute('cx',mark.x);c.setAttribute('cy',mark.y);c.setAttribute('r',mark.r);svg.append(c);
+    const label=document.createElementNS('http://www.w3.org/2000/svg','text');label.setAttribute('x',Math.max(8,Math.min(canvas.width-76,mark.x)));label.setAttribute('y',Math.max(20,mark.y-mark.r-8));label.textContent=kind==='target'?'目標':'危險區';svg.append(label);
+  }
+  $('markStatus').textContent=(targetMark?'已標記目標。':'')+(hazardMarks.length?'危險區 '+hazardMarks.length+' 個。':'')+'標記只適用此畫面，下一次移動會清除。';
+}
+function clearMarks(){targetMark=null;hazardMarks=[];setMarkMode(null);renderMarks()}
+function markPoint(event){const box=$('sceneCanvas').getBoundingClientRect();return {x:(event.clientX-box.left)*$('sceneCanvas').width/box.width,y:(event.clientY-box.top)*$('sceneCanvas').height/box.height}}
+scene.addEventListener('pointerdown',event=>{
+  if(!markMode||$('observation').hidden)return;
+  event.preventDefault();const point=markPoint(event),mark={...point,r:$('sceneCanvas').width*(markMode==='target'?.025:.065)};
+  if(markMode==='target')targetMark=mark;else hazardMarks.push(mark);
+  markDrag={mark,kind:markMode,pointer:event.pointerId};scene.setPointerCapture(event.pointerId);renderMarks();
+});
+scene.addEventListener('pointermove',event=>{if(!markDrag||markDrag.kind!=='hazard'||event.pointerId!==markDrag.pointer)return;const p=markPoint(event);markDrag.mark.r=Math.max(12,Math.hypot(p.x-markDrag.mark.x,p.y-markDrag.mark.y));renderMarks()});
+function finishMark(){if(!markDrag)return;markDrag=null;setMarkMode(null)}
+scene.addEventListener('pointerup',finishMark);scene.addEventListener('pointercancel',finishMark);
+function doc(){try{return frame.contentDocument}catch{return null}}
+function visible(el){return !!el && el.getClientRects().length>0 && frame.contentWindow.getComputedStyle(el).visibility!=='hidden'}
+function gameAvailable(){const b=doc()?.getElementById('pauseButton');return !!b&&!b.disabled}
+function isPaused(){return visible(doc()?.getElementById('pauseScreen'))}
+function hud(id){const el=doc()?.getElementById(id);return el?el.innerText.trim():'—'}
+function dispatch(type,key){frame.contentWindow.dispatchEvent(new KeyboardEvent(type,{key,code:key===' '?'Space':key,bubbles:true,cancelable:true}))}
+function releaseKeys(){clearTimeout(moveTimer);moveTimer=null;if(animationRequest!==null)animationWindow?.cancelAnimationFrame(animationRequest);animationRequest=null;step=null;for(const key of held)dispatch('keyup',key);held.clear()}
+function displayLive(){frame.inert=false;$('observation').hidden=true}
+function showObservation(){frame.inert=true;$('observation').hidden=false}
+function copyScene(){
+  const source=doc()?.getElementById('world');if(!source||!source.width||!source.height)return false;
+  const canvas=$('sceneCanvas');if(canvas.width!==source.width||canvas.height!==source.height){canvas.width=source.width;canvas.height=source.height}
+  canvas.getContext('2d').drawImage(source,0,0);$('observation').style.setProperty('--scene-ratio',String(source.width/source.height));$('sceneSize').textContent=hud('size');$('sceneEaten').textContent=hud('eaten');$('sceneTime').textContent=hud('time');return true;
+}
+function observe(reason='手動停止'){
+  if(typeof reason!=='string')reason='手動停止';
+  if(step)updateStepDiagnostic(step);
+  releaseKeys();
+  $('stopDiagnostic').textContent='停止原因：'+reason;
+  if(gameAvailable()){
+    if(!isPaused())doc().getElementById('pauseButton').click();captureFrame();pauseRecording();
+    if(copyScene())showObservation();
+    $('inputStatus').textContent='已暫停 · 等待方向';
+  }else{displayLive();$('inputStatus').textContent=started?'本局已結束':'停止'}
+}
+function updateStepDiagnostic(current){
+  const wall=Math.round(performance.now()-current.wallStart);
+  $('stepDiagnostic').textContent='本步收到 '+current.frames+' 幀；動畫步進 '+Math.round(current.elapsed)+'／'+current.target+' 毫秒；實際等待 '+wall+' 毫秒；頁面 '+doc().visibilityState+'；焦點 '+(document.activeElement===frame?'遊戲':'控制面板');
+}
+function trackStep(current,timestamp){
+  if(step!==current)return;
+  current.frames++;
+  // The original game caps each animation update at 40 ms. Count browser
+  // animation callbacks instead of ending a step before the game can render.
+  if(current.previous!==null)current.elapsed+=Math.min(40,Math.max(0,timestamp-current.previous));
+  current.previous=timestamp;
+  updateStepDiagnostic(current);
+  if(current.elapsed>=current.target){
+    const slow=performance.now()-current.wallStart>Math.max(300,current.target*3);
+    observe('動畫步進完成');
+    $('renderStatus').textContent=slow?'畫面更新較慢；本步已等待動畫完成':'畫面更新正常；本步已完成';
+    return;
+  }
+  animationRequest=animationWindow.requestAnimationFrame(t=>trackStep(current,t));
+}
+function move(keys,useBoost=boost){
+  if(!gameAvailable()){$('inputStatus').textContent='請先開始遊戲';return}
+  releaseKeys();clearMarks();
+  displayLive();
+  frame.focus({preventScroll:true});
+  // Resume clears the game's keys. Send the next direction only AFTER resuming.
+  if(isPaused())doc().getElementById('resumeButton').click();
+  lastDirection=[...keys];
+  for(const key of [...keys,...(useBoost?[' ']:[])]){dispatch('keydown',key);held.add(key)}
+  $('inputStatus').textContent=keys.map(k=>directionNames[k]).join('')+(useBoost?' + 加速':'');
+  resumeRecording();captureFrame();
+  if(escapeMode||$('mode').value==='step'){
+    step={frames:0,elapsed:0,previous:null,wallStart:performance.now(),target:escapeMode?Math.min(250,Number($('duration').value)):Number($('duration').value)};
+    const current=step;animationWindow=frame.contentWindow;
+    $('renderStatus').textContent='等待本步動畫完成';
+    animationRequest=animationWindow.requestAnimationFrame(t=>trackStep(current,t));
+    moveTimer=setTimeout(()=>{if(step!==current)return;observe('15 秒內動畫未完成');$('renderStatus').textContent='畫面更新停滯；已停止移動，請保持頁面在前景';},15000);
+  }else{moveTimer=setTimeout(()=>observe('連續移動安全停止'),15000)}
+}
+function setBoost(value){boost=value;$('boostToggle').textContent='加速：'+(boost?'開':'關');$('boostToggle').setAttribute('aria-pressed',String(boost))}
+function timeText(ms){const s=Math.floor(ms/1000);return String(Math.floor(s/60)).padStart(2,'0')+':'+String(s%60).padStart(2,'0')}
+function recordedMs(){return activeMs+(activeSince===null?0:performance.now()-activeSince)}
+function pauseRecording(){if(recorder?.state!=='recording')return;activeMs=recordedMs();activeSince=null;recorder.pause();$('recStatus').textContent='錄影暫停 · 等待移動'}
+function resumeRecording(){if(!recorder||recorder.state==='inactive'||stopPromise)return;if(recorder.state==='paused')recorder.resume();if(activeSince===null)activeSince=performance.now();$('recStatus').textContent='錄影中'}
+function captureFrame(){
+  const source=doc()?.getElementById('world');if(!captureContext||!source?.isConnected)return;
+  const w=captureCanvas.width,h=captureCanvas.height;
+  captureContext.drawImage(source,0,0,w,h);
+  // These captions are the same text a player can see in the HUD.
+  captureContext.fillStyle='rgba(13,21,25,.9)';captureContext.fillRect(10,10,Math.min(w-20,520),40);
+  captureContext.fillStyle='#eaf5f2';captureContext.font='18px system-ui';captureContext.fillText('Size '+hud('size')+'   Eaten '+hud('eaten')+'   Time '+hud('time'),22,36);
+  captureTrack?.requestFrame?.();
+}
+function cleanupRecording(){clearInterval(captureTimer);clearInterval(recTicker);recordingStream?.getTracks().forEach(t=>t.stop());recordingStream=null;captureTrack=null;captureContext=null;captureCanvas=null;activeSince=null}
+function mime(){return ['video/webm;codecs=vp8','video/webm;codecs=vp9','video/webm'].find(t=>MediaRecorder.isTypeSupported(t))||''}
+function startRecording(){
+  if(recorder&&recorder.state!=='inactive')return;
+  const source=doc()?.getElementById('world');
+  if(!source?.captureStream||typeof MediaRecorder==='undefined'){$('recStatus').textContent='此瀏覽器無法錄影';return}
+  const chunks=[];activeMs=0;activeSince=null;stopPromise=null;
+  captureCanvas=document.createElement('canvas');captureCanvas.width=Math.min(source.width,1280);captureCanvas.height=Math.round(captureCanvas.width*source.height/source.width);captureContext=captureCanvas.getContext('2d');
+  try{
+    recordingStream=captureCanvas.captureStream(0);captureTrack=recordingStream.getVideoTracks()[0];
+    if(typeof captureTrack?.requestFrame!=='function'){recordingStream.getTracks().forEach(t=>t.stop());recordingStream=captureCanvas.captureStream(1);captureTrack=recordingStream.getVideoTracks()[0]}
+    const mt=mime(),localRecorder=new MediaRecorder(recordingStream,mt?{mimeType:mt}:undefined);recorder=localRecorder;
+    localRecorder.ondataavailable=e=>{if(e.data?.size)chunks.push(e.data)};
+    localRecorder.onstop=async()=>{
+      const duration=recordedMs(),blob=new Blob(chunks,{type:localRecorder.mimeType||'video/webm'}),keep=$('keepVideo').checked;
+      cleanupRecording();$('recTime').textContent=timeText(duration);
+      if(!blob.size){$('recStatus').textContent='錄影檔為空';$('downloadStatus').textContent='請重新錄影。';return}
+      const id=Date.now()+'-'+(++clipSequence),clip={id,blob,duration,created:Date.now(),name:'slime_run_'+new Date().toISOString().replace(/[:.]/g,'-')+'.webm',saved:false};latestClip=clip;addClip(clip);
+      $('recStatus').textContent='影片已就緒';$('recStatus').className='ok';
+      $('downloadStatus').textContent='影片 '+timeText(duration)+' · '+(blob.size/1024/1024).toFixed(2)+' MB。'+(keep?'正在保留影片。':'未達保留條件時，可保留此頁的暫存連結。');
+      if(keep)await saveClip(clip);
+    };
+    localRecorder.onerror=()=>{cleanupRecording();$('recStatus').textContent='錄影失敗';$('downloadStatus').textContent='請重新開始錄影。'};
+    localRecorder.start(1000);activeSince=performance.now();captureFrame();
+    $('recStatus').className='rec';$('recStatus').textContent='錄影中';$('recTime').textContent='00:00';
+    if(isPaused()||!gameAvailable())pauseRecording();
+    captureTimer=setInterval(()=>{if(recorder?.state==='recording')captureFrame()},1000);
+    recTicker=setInterval(()=>{$('recTime').textContent=timeText(recordedMs())},250);
+  }catch{cleanupRecording();$('recStatus').textContent='錄影失敗';$('downloadStatus').textContent='瀏覽器無法開始錄影。'}
+}
+function stopRecording(){
+  if(stopPromise)return stopPromise;
+  if(!recorder||recorder.state==='inactive')return Promise.resolve();
+  clearInterval(captureTimer);captureFrame();
+  const localRecorder=recorder;
+  stopPromise=new Promise(resolve=>{
+    localRecorder.addEventListener('stop',resolve,{once:true});localRecorder.addEventListener('error',resolve,{once:true});
+    // Flush the last requested video frame before stopping.
+    setTimeout(()=>{if(localRecorder.state!=='inactive')localRecorder.stop();else resolve()},100);
+  }).finally(()=>{stopPromise=null});return stopPromise;
+}
+function addClip(clip){
+  if(clips.has(clip.id))return;clips.set(clip.id,clip);$('emptyClips').hidden=true;
+  const row=document.createElement('div'),a=document.createElement('a'),info=document.createElement('small');row.className='clip';row.dataset.clip=clip.id;
+  const url=URL.createObjectURL(clip.blob);urls.push(url);a.href=url;a.download=clip.name;a.textContent='下載影片 · '+timeText(clip.duration)+' · '+(clip.blob.size/1024/1024).toFixed(2)+' MB';
+  info.textContent=clip.saved?'已保留 · 重新載入後仍可下載':'暫存 · 此頁關閉後會消失';row.append(a,info);$('clips').prepend(row);clip.row=row;
+}
+function database(){
+  if(dbPromise)return dbPromise;
+  dbPromise=new Promise((resolve,reject)=>{const request=indexedDB.open('slime-controller-clips',1);request.onupgradeneeded=()=>request.result.createObjectStore('clips',{keyPath:'id'});request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});return dbPromise;
+}
+async function saveClip(clip){
+  if(clip.saved)return;
+  try{
+    const db=await database();await new Promise((resolve,reject)=>{const tx=db.transaction('clips','readwrite');tx.objectStore('clips').put({id:clip.id,blob:clip.blob,duration:clip.duration,created:clip.created,name:clip.name,saved:true});tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error)});
+    clip.saved=true;clip.row.querySelector('small').textContent='已保留 · 重新載入後仍可下載';$('downloadStatus').textContent='本局影片已保留，可下載或稍後回來查看。';
+  }catch{$('downloadStatus').textContent='瀏覽器無法保留影片，請點下載連結保存。'}
+}
+async function restoreClips(){try{const db=await database();const list=await new Promise((resolve,reject)=>{const request=db.transaction('clips').objectStore('clips').getAll();request.onsuccess=()=>resolve(request.result);request.onerror=()=>reject(request.error)});for(const clip of list.sort((a,b)=>a.created-b.created))addClip(clip)}catch{/* Downloads remain available for this session. */}}
+function syncGameUI(){
+  if(!started)return;
+  if(!gameAvailable()){releaseKeys();displayLive();$('inputStatus').textContent='本局已結束';void stopRecording();started=false}
+  else if(isPaused()){if(step){updateStepDiagnostic(step);$('stopDiagnostic').textContent='停止原因：原遊戲自動暫停'}releaseKeys();pauseRecording();if(copyScene())showObservation();$('inputStatus').textContent='已暫停 · 等待方向'}
+  else if(!held.size){displayLive();resumeRecording()}
+}
+frame.addEventListener('load',()=>{
+  releaseKeys();displayLive();started=false;observer?.disconnect();
+  const d=doc();if(!d){$('pageStatus').textContent='無法存取遊戲';return}
+  $('pageStatus').textContent='已載入';observer=new MutationObserver(syncGameUI);observer.observe(d.body,{subtree:true,attributes:true,attributeFilter:['class','disabled']});
+});
+document.querySelectorAll('[data-keys]').forEach(button=>button.addEventListener('click',()=>move(button.dataset.keys.split(','))));
+function updateControlHint(){
+  $('modeHint').textContent=escapeMode?'逃離中：每步最多 0.25 秒，可用 0.1 秒微調。連續兩次看畫面確認距離拉開，再手動關閉逃離模式。':$('mode').value==='step'?'平常 0.25 秒，接近 NPC 用 0.1 秒。危險時手動開啟逃離模式；連續兩次觀察確認距離拉開，再手動關閉。0／1／2 鍵切換 0.1／0.25／0.5 秒，R 切換逃離，QWE／AD／ZXC 選八方向。':'方向會持續到下一次操作；15 秒沒有新操作就自動暫停。危險時手動開啟逃離模式。';
+  $('mode').disabled=escapeMode;$('duration').disabled=$('mode').value!=='step';
+  for(const option of $('duration').options)option.disabled=escapeMode&&Number(option.value)>250;
+  document.querySelectorAll('[data-duration]').forEach(b=>{b.disabled=escapeMode&&Number(b.dataset.duration)>250;b.setAttribute('aria-pressed',String(b.dataset.duration===$('duration').value))});
+  document.querySelectorAll('[data-escape]').forEach(b=>{b.textContent='逃離模式：'+(escapeMode?'開':'關');b.setAttribute('aria-pressed',String(escapeMode))});
+}
+function setDuration(value){value=Number(value);value=escapeMode?Math.min(250,value):value;$('duration').value=String(value);if(!escapeMode)normalDuration=value;$('mode').value='step';updateControlHint()}
+function setEscapeMode(value){
+  if(value===escapeMode)return;
+  if(started&&gameAvailable()&&!isPaused())observe();
+  escapeMode=value;setDuration(value?Math.min(250,Number($('duration').value)):normalDuration);
+}
+document.querySelectorAll('[data-duration]').forEach(button=>button.addEventListener('click',()=>setDuration(button.dataset.duration)));
+document.querySelectorAll('[data-escape]').forEach(button=>button.addEventListener('click',()=>setEscapeMode(!escapeMode)));
+$('duration').onchange=()=>setDuration($('duration').value);
+document.querySelectorAll('[data-mark]').forEach(button=>button.addEventListener('click',()=>{if($('observation').hidden){$('markStatus').textContent='請先開始遊戲並停止觀察。';return}setMarkMode(markMode===button.dataset.mark?null:button.dataset.mark)}));
+document.querySelectorAll('[data-clear-marks]').forEach(button=>button.addEventListener('click',clearMarks));
+document.querySelectorAll('[data-observe]').forEach(button=>button.addEventListener('click',observe));
+$('enlarge').onclick=()=>{if($('observation').hidden){$('markStatus').textContent='請先開始遊戲並停止觀察。';return}$('observation').classList.add('inspect')};
+$('closeInspect').onclick=()=>{$('observation').classList.remove('inspect');setMarkMode(null)};
+$('stop').onclick=observe;
+$('boostToggle').onclick=()=>{setBoost(!boost);if(held.size)move(lastDirection,boost)};
+$('boostMove').onclick=()=>move(lastDirection,true);
+$('mode').onchange=()=>{observe();if(escapeMode)$('mode').value='step';updateControlHint()};
+$('startGame').onclick=async()=>{
+  $('startGame').disabled=true;releaseKeys();clearMarks();await stopRecording();displayLive();$('keepVideo').checked=false;setBoost(false);setEscapeMode(false);setDuration(250);
+  const button=doc()?.getElementById('start');if(button){button.click();started=gameAvailable();if(started){observe();startRecording()}}
+  $('startGame').disabled=false;
+};
+$('record').onclick=startRecording;$('stopRecord').onclick=()=>void stopRecording();
+$('keepVideo').onchange=()=>{if($('keepVideo').checked&&(!recorder||recorder.state==='inactive')&&latestClip)void saveClip(latestClip)};
+$('reload').onclick=async()=>{observe();await stopRecording();frame.src='./?controller_reload='+Date.now()};
+const nativeKeys={q:['ArrowUp','ArrowLeft'],w:['ArrowUp'],e:['ArrowUp','ArrowRight'],a:['ArrowLeft'],s:['ArrowDown'],d:['ArrowRight'],z:['ArrowDown','ArrowLeft'],x:['ArrowDown'],c:['ArrowDown','ArrowRight'],ArrowUp:['ArrowUp'],ArrowLeft:['ArrowLeft'],ArrowDown:['ArrowDown'],ArrowRight:['ArrowRight']};
+document.addEventListener('keydown',event=>{
+  if(event.target.matches('input,select,textarea')||event.altKey||event.ctrlKey||event.metaKey)return;
+  const keys=nativeKeys[event.key.length===1?event.key.toLowerCase():event.key];
+  if(keys){event.preventDefault();if(!event.repeat)move(keys)}else if(event.key==='0'||event.key==='1'||event.key==='2'){event.preventDefault();setDuration(event.key==='0'?100:event.key==='1'?250:500)}else if(event.key.toLowerCase()==='r'){event.preventDefault();if(!event.repeat)setEscapeMode(!escapeMode)}else if(event.key==='Escape'){event.preventDefault();observe()}
+});
+window.addEventListener('blur',()=>queueMicrotask(()=>{if(started&&document.activeElement!==frame)observe('控制頁失去焦點')}));document.addEventListener('visibilitychange',()=>{if(document.hidden&&started)observe('控制頁移至背景')});
+window.addEventListener('beforeunload',()=>{releaseKeys();for(const url of urls)URL.revokeObjectURL(url)});
+setDuration(250);restoreClips();
+})();
+</script>
+</body>
+</html>

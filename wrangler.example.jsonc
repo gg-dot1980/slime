@@ -1,0 +1,11 @@
+{
+  "name": "slime-local-or-staging",
+  "main": "dist/server/index.js",
+  "compatibility_date": "2026-11-12",
+  "d1_databases": [{
+    "binding": "DB",
+    "database_name": "slime-local-or-staging",
+    "database_id": "REPLACE_WITH_YOUR_NEW_D1_DATABASE_ID",
+    "migrations_dir": "drizzle"
+  }]
+}

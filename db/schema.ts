@@ -1,0 +1,6 @@
+import { sqliteTable, text, integer, real, primaryKey, index } from 'drizzle-orm/sqlite-core';
+export const devices=sqliteTable('devices',{id:text('id').primaryKey(),nickname:text('nickname').notNull(),created:integer('created').notNull()});
+export const runs=sqliteTable('runs',{id:text('id').primaryKey(),device:text('device').notNull(),day:text('day').notNull(),version:text('version').notNull().default('unknown'),started:integer('started').notNull(),completed:integer('completed').notNull().default(0)});
+export const scores=sqliteTable('daily_scores',{day:text('day').notNull(),device:text('device').notNull(),size:integer('size').notNull(),eaten:integer('eaten').notNull(),seconds:real('seconds').notNull(),updated:integer('updated').notNull()},t=>[primaryKey({columns:[t.day,t.device]}),index('idx_daily_scores_order').on(t.day,t.size,t.eaten,t.seconds)]);
+
+export const versionScores=sqliteTable('daily_version_scores',{day:text('day').notNull(),device:text('device').notNull(),version:text('version').notNull(),size:integer('size').notNull(),eaten:integer('eaten').notNull(),seconds:real('seconds').notNull(),updated:integer('updated').notNull()},t=>[primaryKey({columns:[t.day,t.device,t.version]})]);

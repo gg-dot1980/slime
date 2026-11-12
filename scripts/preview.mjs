@@ -1,0 +1,3 @@
+import http from 'node:http';
+import worker from '../dist/server/index.js';
+http.createServer(async(req,res)=>{try{if(req.url.startsWith('/api/')&&!req.url.startsWith('/api/versions')){res.writeHead(503,{'content-type':'application/json'});res.end(JSON.stringify({error:'Local validation: production scores disabled'}));return;}const result=await worker.fetch(new Request('http://localhost'+req.url),{});res.writeHead(result.status,Object.fromEntries(result.headers));res.end(Buffer.from(await result.arrayBuffer()));}catch(e){res.writeHead(500);res.end(String(e));}}).listen(Number(process.env.PORT||process.argv[process.argv.indexOf('--port')+1])||4173,'0.0.0.0');
