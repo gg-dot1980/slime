@@ -1,0 +1,15 @@
+{
+  "method": "For visible successful NPC toast gain>=3, select prior0.3-1.2s NPC-target observation; match latest failed-run observations by player radius\u00b115, target radius\u00b1max8/20%, contact gap\u00b160, with no observed capture toast from0.6s before through2s after, and no HUD increase>=3 in next2s. Distinct comparison sample per pair.",
+  "limits": "Prior selected NPC may not be the NPC actually captured. No-toast is not proof no capture due0.5s sampling. Match excludes neither threats nor wall differences; explanatory comparison only, no causal effect estimate.",
+  "summary": {
+    "matched_pairs": 8,
+    "comparison_wall_recovery": 4,
+    "comparison_alignment_below0_7": 5
+  },
+  "synchronization_correction": {
+    "example": "hold run8 t88.796 has decision radius99 with current toast Ate Bubble+6.3; next decision105. Initial no-future-toast classification incorrectly treated this as failed encounter.",
+    "cause": "window.__ocrDecision is last controller tick; outer Selenium HUD/toast read is later. Up to one200ms tick phase offset, plus0.5s sample cadence.",
+    "action": "Exclude current/recent capture toast and next2s HUDgrowth>=3 from failed-scene pool; preserve initial output as superseded. Future diagnostics must store timestamp and visible HUD/toast inside same controller tick."
+  },
+  "next_step": "Four matched failures show wall recovery and opposite steering, others require per-tick synchronized evidence; no universal new policy change justified. Add diagnostic-only same-tick HUD/toast/timestamp, then replay these specific failure patterns rather than another random patch."
+}
