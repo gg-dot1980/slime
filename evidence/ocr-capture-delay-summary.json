@@ -1,0 +1,128 @@
+{
+  "method": "Optical static-food consensus, uniquely associated radius-compatible NPC retained as target in adjacent observations; analyze radial movement and steering.",
+  "limits": "Association and radii are image estimates, not ground truth. Adjacent samples not independent. No causality or capture-rate claim.",
+  "runs": [
+    {
+      "folder": "consensus-abba-20261112",
+      "run": 1,
+      "retained": 27,
+      "near": 17,
+      "near_not_closing": 7,
+      "near_misaligned": 11,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "consensus-abba-20261112",
+      "run": 2,
+      "retained": 32,
+      "near": 4,
+      "near_not_closing": 0,
+      "near_misaligned": 2,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "consensus-abba-20261112",
+      "run": 3,
+      "retained": 39,
+      "near": 1,
+      "near_not_closing": 0,
+      "near_misaligned": 0,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "consensus-abba-20261112",
+      "run": 4,
+      "retained": 104,
+      "near": 60,
+      "near_not_closing": 31,
+      "near_misaligned": 33,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "consensus-abba-20261112",
+      "run": 5,
+      "retained": 84,
+      "near": 49,
+      "near_not_closing": 21,
+      "near_misaligned": 29,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "consensus-abba-20261112",
+      "run": 6,
+      "retained": 89,
+      "near": 11,
+      "near_not_closing": 1,
+      "near_misaligned": 0,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "consensus-abba-20261112",
+      "run": 7,
+      "retained": 72,
+      "near": 20,
+      "near_not_closing": 11,
+      "near_misaligned": 13,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "consensus-abba-20261112",
+      "run": 8,
+      "retained": 32,
+      "near": 9,
+      "near_not_closing": 5,
+      "near_misaligned": 5,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 2,
+      "retained": 101,
+      "near": 61,
+      "near_not_closing": 40,
+      "near_misaligned": 37,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 3,
+      "retained": 15,
+      "near": 2,
+      "near_not_closing": 0,
+      "near_misaligned": 0,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 6,
+      "retained": 47,
+      "near": 6,
+      "near_not_closing": 1,
+      "near_misaligned": 0,
+      "near_predicted_fast": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 7,
+      "retained": 42,
+      "near": 3,
+      "near_not_closing": 0,
+      "near_misaligned": 0,
+      "near_predicted_fast": 0
+    }
+  ],
+  "near_summary": {
+    "n": 243,
+    "not_closing": 117,
+    "misaligned": 130,
+    "median_closing": 21.827704631043634,
+    "median_alignment": -0.11042016246132405
+  },
+  "recovery_partition": {
+    "near_total": 243,
+    "near_recovering": 128,
+    "misaligned_while_recovering": 127,
+    "not_closing_while_recovering": 109
+  },
+  "next_hypothesis": "H15: permit tangential directions near boundaries (normal component>=0 instead of>=.25); preserve original wall margin, inward score bonus, NPC clearance and all other strategy. Use epsilon for floating-point axis direction."
+}
