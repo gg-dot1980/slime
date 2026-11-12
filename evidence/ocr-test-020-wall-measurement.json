@@ -1,0 +1,22 @@
+{
+  "method": "Independent static-food displacement histogram consensus8+matches compared with visible-wall distance changes in saved consecutive observations.",
+  "limits": "Food matching not ground truth, sparse wall scenes may be excluded.0.5s samples do not reveal all threshold crossings.",
+  "wall_pairs": 367,
+  "median_error": 1.6250742721330766,
+  "p90_error": 3.7037037037036384,
+  "example": {
+    "run": 6,
+    "t_range": [
+      43,
+      59
+    ],
+    "observed_wall_distance_range": [
+      233,
+      447
+    ],
+    "measured_error_median": 1.7833,
+    "pattern": "After inward recovery reaches release boundary, planner immediately reselects outward prey and crossesentry again. Photograph run6-050 confirms rightwall and real Berry prey, so repeated switches are actual movement, not wall jitter.",
+    "source_conflict": "Meal target selection ignores wall feasibility; wall constraints applied only afterward to direction pool."
+  },
+  "next_hypothesis": "H20 candidate goal-feasibility filter: exclude prey whose predicted capture position lies beyond existing admissible wall band before assigning target reward. Do not widen wall margin or relax NPC safety. First replay fixed failing scenes to check viable alternate goals and avoid choosing none."
+}
