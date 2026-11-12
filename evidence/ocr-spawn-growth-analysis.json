@@ -1,0 +1,86 @@
+{
+  "source_sha256": "e60a0455d46702a038742d9dc23bb3028f31dfb44d8f224118bf5f8c2d8852ca",
+  "source_rules": {
+    "reset": "40NPCs around player:14 radius12-22,16 radius29-72,10 radius86-155",
+    "replenishment": "while count<24 immediately spawn; otherwise at most one when spawnT>2 andcount<40. No player-size scaling.",
+    "respawn": "angleuniform0-2pi,distanceuniform650-2100;coordinatesclamped toworld",
+    "npc_competition": "NPCs hunt edible NPCs within up to560 and absorb them before player-vsNPC collision loop. NPC growth changes original distribution.",
+    "small_motion": "smallerthan0.92player canseekfood,hunt ordrift;notstationary",
+    "medium_definition": "controller conservative0.5r..0.91r,notgamecategory"
+  },
+  "spawn_radius_analysis": [
+    {
+      "player_radius": 25,
+      "spawn_medium_fraction": 0.361,
+      "spawn_edible_conservative_fraction": 0.38,
+      "spawn_edible_game_fraction": 0.38,
+      "expected_net_gain_radius20": 3.0516627806229506,
+      "expected_net_gain_same_fraction_075": 2.705235921273391
+    },
+    {
+      "player_radius": 40,
+      "spawn_medium_fraction": 0.14483720930232558,
+      "spawn_edible_conservative_fraction": 0.44883720930232557,
+      "spawn_edible_game_fraction": 0.4547631352282515,
+      "expected_net_gain_radius20": 1.9960935115523135,
+      "expected_net_gain_same_fraction_075": 4.328377474037422
+    },
+    {
+      "player_radius": 60,
+      "spawn_medium_fraction": 0.22883720930232562,
+      "spawn_edible_conservative_fraction": 0.618139534883721,
+      "spawn_edible_game_fraction": 0.6270284237726098,
+      "expected_net_gain_radius20": 1.3546114210873306,
+      "expected_net_gain_same_fraction_075": 6.492566211056136
+    },
+    {
+      "player_radius": 75,
+      "spawn_medium_fraction": 0.286046511627907,
+      "spawn_edible_conservative_fraction": 0.7451162790697674,
+      "spawn_edible_game_fraction": 0.7562273901808786,
+      "expected_net_gain_radius20": 1.0894497706422008,
+      "expected_net_gain_same_fraction_075": 8.115707763820165
+    },
+    {
+      "player_radius": 90,
+      "spawn_medium_fraction": 0.25116279069767444,
+      "spawn_edible_conservative_fraction": 0.78,
+      "spawn_edible_game_fraction": 0.78,
+      "expected_net_gain_radius20": 0.9105255059482751,
+      "expected_net_gain_same_fraction_075": 9.738849316584204
+    },
+    {
+      "player_radius": 110,
+      "spawn_medium_fraction": 0.2030960566228514,
+      "spawn_edible_conservative_fraction": 0.8249565217391305,
+      "spawn_edible_game_fraction": 0.8305421363392378,
+      "expected_net_gain_radius20": 0.7466215530696481,
+      "expected_net_gain_same_fraction_075": 11.903038053602913
+    },
+    {
+      "player_radius": 140,
+      "spawn_medium_fraction": 0.15060465116279073,
+      "spawn_edible_conservative_fraction": 0.912,
+      "spawn_edible_game_fraction": 0.9191089640365002,
+      "expected_net_gain_radius20": 0.5876413222684036,
+      "expected_net_gain_same_fraction_075": 15.149321159130992
+    },
+    {
+      "player_radius": 170,
+      "spawn_medium_fraction": 0.21904347826086962,
+      "spawn_edible_conservative_fraction": 0.9990434782608697,
+      "spawn_edible_game_fraction": 1.0,
+      "expected_net_gain_radius20": 0.48437404620925406,
+      "expected_net_gain_same_fraction_075": 18.39560426465905
+    }
+  ],
+  "center_world_spawn_center_visible_fraction": 0.13864444444444443,
+  "visibility_limits": "Numerical angular/radial quadrature2000x1163.33 viewport;center point only,no body overlap,edge clamp,occlusion,movement orNPCcompetition. Not measured encounter probability.",
+  "conclusions": [
+    "Small radius20 prey expected gain declines asplayer grows;mid-radius ratio0.75prey gain grows withplayer.",
+    "Fresh-spawn medium share varies nonmonotonically withplayer radius;within60-140 it rises toward~79 then falls. Static spawn bands are not adaptive toplayer.",
+    "Most respawn centers initially outsideviewport,so comparable pathlengthdoesnot imply equalvaluableencounters.",
+    "Cannot infer actual live populationfrom spawn mixture becauseNPCs alsoeat eachother. No modifiedgame orhiddenstate read."
+  ],
+  "next": "Audit visible minimap opportunity density along and behind recent player path. Hypothesis to test offline: current local food pursuit may leave persistent nearby NPC clusters behind. Distinct from earlier map timing/reward/probe experiments; do not implement orbit or wait strategy without trajectory evidence."
+}
