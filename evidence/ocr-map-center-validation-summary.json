@@ -1,0 +1,174 @@
+{
+  "geometry": {
+    "limits": "Nearest associations not ground truth; early calibration is independent recorded run but radius25-48. Repeated observations not independent NPCs.",
+    "datasets": [
+      {
+        "folder": "calibration-20261112",
+        "pairs": 39,
+        "median_before": 85.25356857716113,
+        "median_after": 51.74666082677742,
+        "improved": 32
+      },
+      {
+        "folder": "midphase-calibration-20261113",
+        "pairs": 41,
+        "median_before": 93.46151701777198,
+        "median_after": 66.47822812467476,
+        "improved": 31
+      }
+    ]
+  },
+  "direction_replay": [
+    {
+      "folder": "foodwall-abba-20261113",
+      "n": 1,
+      "count": 216,
+      "mapTargets": 0,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "n": 2,
+      "count": 216,
+      "mapTargets": 0,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "n": 3,
+      "count": 216,
+      "mapTargets": 0,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "n": 4,
+      "count": 216,
+      "mapTargets": 0,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "n": 5,
+      "count": 216,
+      "mapTargets": 2,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "n": 6,
+      "count": 216,
+      "mapTargets": 0,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "n": 7,
+      "count": 216,
+      "mapTargets": 2,
+      "changed": 1,
+      "safetyRegression": 0,
+      "examples": [
+        {
+          "t": 70.961,
+          "r": 96,
+          "old": "\u5357",
+          "new": "\u6771\u5357",
+          "oldMap": true,
+          "newMap": true
+        }
+      ]
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "n": 8,
+      "count": 216,
+      "mapTargets": 1,
+      "changed": 1,
+      "safetyRegression": 0,
+      "examples": [
+        {
+          "t": 35.273,
+          "r": 35,
+          "old": "\u897f\u5317",
+          "new": "\u6771\u5317",
+          "oldMap": true,
+          "newMap": true
+        }
+      ]
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 2,
+      "count": 215,
+      "mapTargets": 0,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 3,
+      "count": 216,
+      "mapTargets": 0,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 6,
+      "count": 214,
+      "mapTargets": 7,
+      "changed": 2,
+      "safetyRegression": 0,
+      "examples": [
+        {
+          "t": 90.95,
+          "r": 178,
+          "old": "\u6771",
+          "new": "\u6771\u5357",
+          "oldMap": true,
+          "newMap": true
+        },
+        {
+          "t": 105.255,
+          "r": 196,
+          "old": "\u5317",
+          "new": "\u6771\u5317",
+          "oldMap": true,
+          "newMap": true
+        }
+      ]
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 7,
+      "count": 216,
+      "mapTargets": 0,
+      "changed": 0,
+      "safetyRegression": 0,
+      "examples": []
+    }
+  ],
+  "totals": {
+    "count": 2589,
+    "mapTargets": 12,
+    "changed": 4,
+    "safetyRegression": 0
+  },
+  "decision": "Independent geometry evidence supports pixel-center correction, but only4/2589 one-step directions change and only12 states use map targets. Do not run another8game batch claiming this is a likely win-rate solution. Preserve as isolated correctness fix for a later version; current published strategy unchanged.",
+  "next": "Investigate why medium-prey encounter rate remains low while moving comparable distance; source/observational audit of spawn distribution and player-size growth dynamics,not repeated early-map activation."
+}
