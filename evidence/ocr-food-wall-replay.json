@@ -1,0 +1,282 @@
+{
+  "hypothesis": "H21 extend H20 target wall feasibility to food, using original food contact radius r+0.5*food.r; NPC handling and direction safety unchanged.",
+  "limits": "Static one-step replay with estimated radii/positions, not future trajectory or win-rate test. Map targets unchanged; clipped NPCs already excluded. Existing NPC safety untouched.",
+  "runs": [
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 1,
+      "total": 216,
+      "changed": 6,
+      "targetChanged": 11,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 2
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 2,
+      "total": 216,
+      "changed": 1,
+      "targetChanged": 2,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 1
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 3,
+      "total": 216,
+      "changed": 1,
+      "targetChanged": 43,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 4,
+      "total": 216,
+      "changed": 0,
+      "targetChanged": 0,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 5,
+      "total": 216,
+      "changed": 2,
+      "targetChanged": 6,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 6,
+      "total": 217,
+      "changed": 18,
+      "targetChanged": 43,
+      "noAlternateTarget": 2,
+      "safetyRegression": 0,
+      "higherProjectedGain": 5
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 7,
+      "total": 216,
+      "changed": 1,
+      "targetChanged": 9,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 1
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 8,
+      "total": 216,
+      "changed": 13,
+      "targetChanged": 40,
+      "noAlternateTarget": 4,
+      "safetyRegression": 0,
+      "higherProjectedGain": 2
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 2,
+      "total": 215,
+      "changed": 1,
+      "targetChanged": 9,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 3,
+      "total": 216,
+      "changed": 0,
+      "targetChanged": 0,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 6,
+      "total": 214,
+      "changed": 0,
+      "targetChanged": 7,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 7,
+      "total": 216,
+      "changed": 2,
+      "targetChanged": 3,
+      "noAlternateTarget": 0,
+      "safetyRegression": 0,
+      "higherProjectedGain": 0
+    }
+  ],
+  "noTargets": [
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 6,
+      "t": 106.455,
+      "r": 95,
+      "recovering": true,
+      "oldDirection": "\u897f\u5317",
+      "newDirection": "\u897f\u5317",
+      "clearance": 70.60294327372199,
+      "objects": 8,
+      "oldTarget": {
+        "x": 732.3931623931625,
+        "y": -10.47008547008545,
+        "r": 16.666666666666668,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 6,
+      "t": 106.961,
+      "r": 95,
+      "recovering": true,
+      "oldDirection": "\u5317",
+      "newDirection": "\u5317",
+      "clearance": 84.67303453331385,
+      "objects": 11,
+      "oldTarget": {
+        "x": 267.7777777777777,
+        "y": -104.7222222222222,
+        "r": 10,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 10,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 8,
+      "t": 107.215,
+      "r": 68,
+      "recovering": true,
+      "oldDirection": "\u897f\u5357",
+      "newDirection": "\u897f\u5357",
+      "clearance": 37.3083644749064,
+      "objects": 7,
+      "oldTarget": {
+        "x": -106.22807017543855,
+        "y": 254.38596491228074,
+        "r": 20,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 20,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 8,
+      "t": 108.233,
+      "r": 72,
+      "recovering": true,
+      "oldDirection": "\u897f\u5317",
+      "newDirection": "\u897f\u5317",
+      "clearance": 13.585337875009913,
+      "objects": 9,
+      "oldTarget": {
+        "x": 146.19047619047612,
+        "y": -1.190476190476204,
+        "r": 11.666666666666668,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 11.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 8,
+      "t": 108.752,
+      "r": 72,
+      "recovering": true,
+      "oldDirection": "\u897f",
+      "newDirection": "\u897f",
+      "clearance": 91.61005124257807,
+      "objects": 8,
+      "oldTarget": {
+        "x": 140.96491228070175,
+        "y": 51.5789473684211,
+        "r": 15,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "folder": "goalwall-abba-20261113",
+      "n": 8,
+      "t": 109.768,
+      "r": 72,
+      "recovering": true,
+      "oldDirection": "\u897f\u5357",
+      "newDirection": "\u897f\u5357",
+      "clearance": 55.84712076962157,
+      "objects": 7,
+      "oldTarget": {
+        "x": 124.04761904761908,
+        "y": 73.8095238095238,
+        "r": 10,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 10,
+        "vx": 0,
+        "vy": 0
+      }
+    }
+  ],
+  "totals": {
+    "total": 2590,
+    "changed": 45,
+    "targetChanged": 173,
+    "noAlternateTarget": 6,
+    "safetyRegression": 0,
+    "higherProjectedGain": 11
+  },
+  "directionChangesDuringRecovery": 20,
+  "noTargetDirectionChanges": 0
+}
