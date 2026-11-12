@@ -1,0 +1,157 @@
+[
+  {
+    "run": 2,
+    "recovering": 1,
+    "targetKinds": {
+      "food": 1
+    },
+    "infeasible": {},
+    "examples": [
+      {
+        "t": 62.906,
+        "kind": "food",
+        "infeasible": false,
+        "radius": 71,
+        "nearestWall": 271.6666666666667
+      }
+    ]
+  },
+  {
+    "run": 3,
+    "recovering": 4,
+    "targetKinds": {
+      "food": 2,
+      "map": 1,
+      "npc": 1
+    },
+    "infeasible": {
+      "food": 2
+    },
+    "examples": [
+      {
+        "t": 31.644,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 58,
+        "nearestWall": 271.6666666666667
+      },
+      {
+        "t": 36.723,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 61,
+        "nearestWall": 265
+      },
+      {
+        "t": 87.776,
+        "kind": "map",
+        "infeasible": false,
+        "radius": 145,
+        "nearestWall": 346.6666666666667
+      },
+      {
+        "t": 96.918,
+        "kind": "npc",
+        "infeasible": false,
+        "radius": 146,
+        "nearestWall": 366.6666666666667
+      }
+    ]
+  },
+  {
+    "run": 6,
+    "recovering": 29,
+    "targetKinds": {
+      "food": 25,
+      "npc": 4
+    },
+    "infeasible": {
+      "food": 18
+    },
+    "examples": [
+      {
+        "t": 69.707,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 62,
+        "nearestWall": 240
+      },
+      {
+        "t": 71.788,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 62,
+        "nearestWall": 286.6666666666667
+      },
+      {
+        "t": 72.798,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 62,
+        "nearestWall": 280
+      },
+      {
+        "t": 73.302,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 62,
+        "nearestWall": 286.6666666666667
+      },
+      {
+        "t": 74.318,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 63,
+        "nearestWall": 273.33333333333337
+      }
+    ]
+  },
+  {
+    "run": 7,
+    "recovering": 18,
+    "targetKinds": {
+      "food": 17,
+      "npc": 1
+    },
+    "infeasible": {
+      "food": 4
+    },
+    "examples": [
+      {
+        "t": 77.995,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 82,
+        "nearestWall": 306.6666666666667
+      },
+      {
+        "t": 80.577,
+        "kind": "food",
+        "infeasible": true,
+        "radius": 82,
+        "nearestWall": 273.33333333333337
+      },
+      {
+        "t": 81.601,
+        "kind": "food",
+        "infeasible": false,
+        "radius": 83,
+        "nearestWall": 280
+      },
+      {
+        "t": 82.614,
+        "kind": "food",
+        "infeasible": false,
+        "radius": 84,
+        "nearestWall": 313.33333333333337
+      },
+      {
+        "t": 83.12,
+        "kind": "food",
+        "infeasible": false,
+        "radius": 84,
+        "nearestWall": 320
+      }
+    ]
+  }
+]
