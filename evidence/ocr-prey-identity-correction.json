@@ -1,0 +1,29 @@
+{
+  "comparison": {
+    "predicted_motion": {
+      "prey_target_transitions": 1295,
+      "unmatched": 1007,
+      "unique_match": 288,
+      "retained": 264,
+      "switched": 24,
+      "switched_ineligible": 9,
+      "switched_still_eligible": 15,
+      "near_eligible_switch": 3
+    },
+    "independent_optical": {
+      "prey_target_transitions": 1295,
+      "optical_pairs": 1011,
+      "unique_match": 695,
+      "switched": 62,
+      "switched_still_eligible": 44,
+      "retained": 633,
+      "unmatched": 598,
+      "switched_ineligible": 18,
+      "near_eligible_switch": 6,
+      "ambiguous": 2
+    }
+  },
+  "correction": "Earlier high heuristic target-switch counts may include camera-compensation and identity-matching errors; they are not established true target-switch counts. Among695 uniquely matched optical transitions,633 retain the same prey. Only6 near eligible switches were found; do not claim target lock is the dominant bottleneck.",
+  "next_hypothesis": "H14 independent static-food displacement consensus for camera matching instead of previous predicted-velocity gating. Change only displacement matching; preserve NPC compensation, planner weights and acceptance gate.",
+  "limits": "Still heuristic associations without ground-truth IDs; improved match count is not proof of correct identities or improved gameplay. Rough0.5s sampling may miss short events. Needs fixed live batch after implementation."
+}
