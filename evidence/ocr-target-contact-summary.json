@@ -1,0 +1,148 @@
+{
+  "method": "Replay current camera planner using saved visible observations. Instrument projected contact with exact chosen target object over existing2second horizon, then same NPC clearance and wall bound filters.",
+  "limits": "One-step model prediction, not observed capture. Old direction used is current saved direction, so hysteresis differs from original prior tick. No ground-truth positions or future motion. Horizon is only2seconds.",
+  "runs": [
+    {
+      "folder": "thin-abba-20261112",
+      "n": 1,
+      "npcSelected": 123,
+      "anyContact": 59,
+      "safeContact": 54,
+      "boundedContact": 38,
+      "chosenContact": 40,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 6
+    },
+    {
+      "folder": "thin-abba-20261112",
+      "n": 2,
+      "npcSelected": 128,
+      "anyContact": 74,
+      "safeContact": 60,
+      "boundedContact": 45,
+      "chosenContact": 45,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 7
+    },
+    {
+      "folder": "thin-abba-20261112",
+      "n": 3,
+      "npcSelected": 125,
+      "anyContact": 68,
+      "safeContact": 64,
+      "boundedContact": 42,
+      "chosenContact": 42,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 5
+    },
+    {
+      "folder": "thin-abba-20261112",
+      "n": 4,
+      "npcSelected": 100,
+      "anyContact": 43,
+      "safeContact": 40,
+      "boundedContact": 32,
+      "chosenContact": 32,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 0
+    },
+    {
+      "folder": "thin-abba-20261112",
+      "n": 5,
+      "npcSelected": 131,
+      "anyContact": 73,
+      "safeContact": 64,
+      "boundedContact": 51,
+      "chosenContact": 48,
+      "boundedButNotChosen": 3,
+      "alternativePreyWhenTargetInfeasible": 17
+    },
+    {
+      "folder": "thin-abba-20261112",
+      "n": 6,
+      "npcSelected": 81,
+      "anyContact": 52,
+      "safeContact": 51,
+      "boundedContact": 37,
+      "chosenContact": 37,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 0
+    },
+    {
+      "folder": "thin-abba-20261112",
+      "n": 7,
+      "npcSelected": 93,
+      "anyContact": 62,
+      "safeContact": 60,
+      "boundedContact": 39,
+      "chosenContact": 39,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 1
+    },
+    {
+      "folder": "thin-abba-20261112",
+      "n": 8,
+      "npcSelected": 119,
+      "anyContact": 70,
+      "safeContact": 51,
+      "boundedContact": 30,
+      "chosenContact": 30,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 9
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 2,
+      "npcSelected": 148,
+      "anyContact": 109,
+      "safeContact": 107,
+      "boundedContact": 65,
+      "chosenContact": 68,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 11
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 3,
+      "npcSelected": 75,
+      "anyContact": 30,
+      "safeContact": 28,
+      "boundedContact": 26,
+      "chosenContact": 26,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 2
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 6,
+      "npcSelected": 125,
+      "anyContact": 70,
+      "safeContact": 70,
+      "boundedContact": 70,
+      "chosenContact": 66,
+      "boundedButNotChosen": 4,
+      "alternativePreyWhenTargetInfeasible": 8
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "n": 7,
+      "npcSelected": 120,
+      "anyContact": 70,
+      "safeContact": 60,
+      "boundedContact": 52,
+      "chosenContact": 52,
+      "boundedButNotChosen": 0,
+      "alternativePreyWhenTargetInfeasible": 8
+    }
+  ],
+  "totals": {
+    "npcSelected": 1368,
+    "anyContact": 780,
+    "safeContact": 709,
+    "boundedContact": 527,
+    "chosenContact": 525,
+    "boundedButNotChosen": 7,
+    "alternativePreyWhenTargetInfeasible": 74
+  },
+  "proposed_H17": "Only when selected visible NPC has no contact path in existing admissible direction pool, but another edible NPC does, choose among those alternate-contact directions by existing projected gain/risk; preserve original safety and wall filters, retain original behavior otherwise. Do not treat no2scontact as globally unreachable."
+}
