@@ -1,0 +1,456 @@
+{
+  "method": "Previously image-derived medium edible NPC near viewportedge;nextstep projected outside usingminimap playerposition and NPCvelocity. Trackwhite dots<=3s within180world units andsecondbest gap>100;dedup nearby exits4s.",
+  "limits": "No persistent IDs/colors/names;not confirmed survival orcapture. Mapquantization~120worldunits,velocity uncertain,white dots maybefresh/different NPC. Nonmatches cannot proveNPCdeath.",
+  "runs": [
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 1,
+      "exit_candidates": 1,
+      "persistent_candidates": 1
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 2,
+      "exit_candidates": 0,
+      "persistent_candidates": 0
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 3,
+      "exit_candidates": 1,
+      "persistent_candidates": 1
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 4,
+      "exit_candidates": 2,
+      "persistent_candidates": 2
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 5,
+      "exit_candidates": 0,
+      "persistent_candidates": 0
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 6,
+      "exit_candidates": 2,
+      "persistent_candidates": 2
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 7,
+      "exit_candidates": 1,
+      "persistent_candidates": 0
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 8,
+      "exit_candidates": 0,
+      "persistent_candidates": 0
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 6,
+      "exit_candidates": 1,
+      "persistent_candidates": 1
+    }
+  ],
+  "events": [
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 1,
+      "t": 31.715,
+      "player": 45,
+      "observed_radius": 35,
+      "relative": [
+        -822.7647058823529,
+        531.6372549019609
+      ],
+      "world": [
+        6339.272331154684,
+        4323.3039215686285
+      ],
+      "velocity": [
+        0,
+        0
+      ],
+      "post_exit_observations": [
+        {
+          "dt": 0.51,
+          "unique_white_near_prediction": false,
+          "nearest_error": 555.4
+        },
+        {
+          "dt": 1.02,
+          "unique_white_near_prediction": true,
+          "nearest_error": 53.9
+        },
+        {
+          "dt": 1.53,
+          "unique_white_near_prediction": true,
+          "nearest_error": 53.9
+        },
+        {
+          "dt": 2.03,
+          "unique_white_near_prediction": true,
+          "nearest_error": 53.9
+        },
+        {
+          "dt": 2.54,
+          "unique_white_near_prediction": true,
+          "nearest_error": 53.9
+        }
+      ],
+      "at_least3_unique_map_matches": true,
+      "estimated_wall_feasible": true,
+      "expected_capture_gain": 5.21212102799333
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 3,
+      "t": 46.963,
+      "player": 72,
+      "observed_radius": 49.5961660664448,
+      "relative": [
+        -203.7797045600514,
+        -494.47655748233785
+      ],
+      "world": [
+        4310.109184328838,
+        47.19010918432889
+      ],
+      "velocity": [
+        -28.650824490679472,
+        -10.945133252443092
+      ],
+      "post_exit_observations": [
+        {
+          "dt": 0.51,
+          "unique_white_near_prediction": true,
+          "nearest_error": 70.4
+        },
+        {
+          "dt": 1.01,
+          "unique_white_near_prediction": false,
+          "nearest_error": 293.9
+        },
+        {
+          "dt": 1.52,
+          "unique_white_near_prediction": true,
+          "nearest_error": 90.0
+        },
+        {
+          "dt": 2.02,
+          "unique_white_near_prediction": true,
+          "nearest_error": 97.6
+        },
+        {
+          "dt": 2.52,
+          "unique_white_near_prediction": true,
+          "nearest_error": 84.5
+        }
+      ],
+      "at_least3_unique_map_matches": true,
+      "estimated_wall_feasible": false,
+      "expected_capture_gain": 6.63822508225903
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 4,
+      "t": 2.599,
+      "player": 29,
+      "observed_radius": 21.666666666666668,
+      "relative": [
+        508.4426229508197,
+        -547.049180327869
+      ],
+      "world": [
+        5022.3315118397095,
+        2883.5063752276865
+      ],
+      "velocity": [
+        0,
+        0
+      ],
+      "post_exit_observations": [
+        {
+          "dt": 0.5,
+          "unique_white_near_prediction": false,
+          "nearest_error": 1130.4
+        },
+        {
+          "dt": 1.01,
+          "unique_white_near_prediction": true,
+          "nearest_error": 73.5
+        },
+        {
+          "dt": 1.51,
+          "unique_white_near_prediction": true,
+          "nearest_error": 70.9
+        },
+        {
+          "dt": 2.02,
+          "unique_white_near_prediction": true,
+          "nearest_error": 70.9
+        },
+        {
+          "dt": 2.52,
+          "unique_white_near_prediction": true,
+          "nearest_error": 70.9
+        }
+      ],
+      "at_least3_unique_map_matches": true,
+      "estimated_wall_feasible": true,
+      "expected_capture_gain": 3.115576104325436
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 4,
+      "t": 51.583,
+      "player": 60,
+      "observed_radius": 33.336662058917575,
+      "relative": [
+        -926.7625899280577,
+        -298.6330935251799
+      ],
+      "world": [
+        4188.978150812683,
+        122.66320277111646
+      ],
+      "velocity": [
+        -20.255720593822332,
+        16.38443438168737
+      ],
+      "post_exit_observations": [
+        {
+          "dt": 0.51,
+          "unique_white_near_prediction": true,
+          "nearest_error": 75.4
+        },
+        {
+          "dt": 1.02,
+          "unique_white_near_prediction": true,
+          "nearest_error": 24.5
+        },
+        {
+          "dt": 1.52,
+          "unique_white_near_prediction": true,
+          "nearest_error": 33.4
+        },
+        {
+          "dt": 2.03,
+          "unique_white_near_prediction": true,
+          "nearest_error": 25.1
+        },
+        {
+          "dt": 2.53,
+          "unique_white_near_prediction": true,
+          "nearest_error": 22.3
+        }
+      ],
+      "at_least3_unique_map_matches": true,
+      "estimated_wall_feasible": false,
+      "expected_capture_gain": 3.6705111786714006
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 6,
+      "t": 4.109,
+      "player": 27,
+      "observed_radius": 15,
+      "relative": [
+        202.3809523809524,
+        -531.0119047619047
+      ],
+      "world": [
+        5919.973544973545,
+        3621.7658730158737
+      ],
+      "velocity": [
+        2.445341421910121,
+        -43.980572001049026
+      ],
+      "post_exit_observations": [
+        {
+          "dt": 0.51,
+          "unique_white_near_prediction": true,
+          "nearest_error": 61.1
+        },
+        {
+          "dt": 1.01,
+          "unique_white_near_prediction": true,
+          "nearest_error": 44.5
+        },
+        {
+          "dt": 1.52,
+          "unique_white_near_prediction": true,
+          "nearest_error": 34.9
+        },
+        {
+          "dt": 2.02,
+          "unique_white_near_prediction": true,
+          "nearest_error": 107.6
+        },
+        {
+          "dt": 2.53,
+          "unique_white_near_prediction": true,
+          "nearest_error": 86.3
+        }
+      ],
+      "at_least3_unique_map_matches": true,
+      "estimated_wall_feasible": true,
+      "expected_capture_gain": 1.6514126256732569
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 6,
+      "t": 42.423,
+      "player": 51,
+      "observed_radius": 46.158900623480385,
+      "relative": [
+        910.7760814249363,
+        -212.19465648854964
+      ],
+      "world": [
+        8193.183488832345,
+        3218.360899067006
+      ],
+      "velocity": [
+        0,
+        0
+      ],
+      "post_exit_observations": [
+        {
+          "dt": 0.51,
+          "unique_white_near_prediction": true,
+          "nearest_error": 73.9
+        },
+        {
+          "dt": 1.01,
+          "unique_white_near_prediction": true,
+          "nearest_error": 59.5
+        },
+        {
+          "dt": 1.52,
+          "unique_white_near_prediction": true,
+          "nearest_error": 29.6
+        },
+        {
+          "dt": 2.03,
+          "unique_white_near_prediction": true,
+          "nearest_error": 29.6
+        },
+        {
+          "dt": 2.55,
+          "unique_white_near_prediction": true,
+          "nearest_error": 29.6
+        }
+      ],
+      "at_least3_unique_map_matches": true,
+      "estimated_wall_feasible": true,
+      "expected_capture_gain": 7.817673270216877
+    },
+    {
+      "folder": "foodwall-abba-20261113",
+      "run": 7,
+      "t": 9.214,
+      "player": 33,
+      "observed_radius": 16.666666666666668,
+      "relative": [
+        971.3849765258215,
+        250.84507042253526
+      ],
+      "world": [
+        6087.125717266563,
+        2116.585811163276
+      ],
+      "velocity": [
+        0,
+        0
+      ],
+      "post_exit_observations": [
+        {
+          "dt": 0.5,
+          "unique_white_near_prediction": false,
+          "nearest_error": 906.1
+        },
+        {
+          "dt": 1.02,
+          "unique_white_near_prediction": true,
+          "nearest_error": 50.8
+        },
+        {
+          "dt": 1.57,
+          "unique_white_near_prediction": false,
+          "nearest_error": 1169.0
+        },
+        {
+          "dt": 2.08,
+          "unique_white_near_prediction": false,
+          "nearest_error": 1039.9
+        },
+        {
+          "dt": 2.59,
+          "unique_white_near_prediction": true,
+          "nearest_error": 13.2
+        }
+      ],
+      "at_least3_unique_map_matches": false,
+      "estimated_wall_feasible": true,
+      "expected_capture_gain": 1.6791505728050247
+    },
+    {
+      "folder": "camera-abba-20261112",
+      "run": 6,
+      "t": 9.735,
+      "player": 29,
+      "observed_radius": 15,
+      "relative": [
+        -621.6666666666667,
+        -548.1609195402299
+      ],
+      "world": [
+        4012.592592592593,
+        2280.542784163474
+      ],
+      "velocity": [
+        -3.025106837606984,
+        9.567275781123442
+      ],
+      "post_exit_observations": [
+        {
+          "dt": 0.51,
+          "unique_white_near_prediction": true,
+          "nearest_error": 65.4
+        },
+        {
+          "dt": 1.09,
+          "unique_white_near_prediction": true,
+          "nearest_error": 60.8
+        },
+        {
+          "dt": 1.6,
+          "unique_white_near_prediction": true,
+          "nearest_error": 114.3
+        },
+        {
+          "dt": 2.1,
+          "unique_white_near_prediction": true,
+          "nearest_error": 169.0
+        },
+        {
+          "dt": 2.63,
+          "unique_white_near_prediction": true,
+          "nearest_error": 164.3
+        }
+      ],
+      "at_least3_unique_map_matches": true,
+      "estimated_wall_feasible": true,
+      "expected_capture_gain": 1.5453187357460303
+    }
+  ],
+  "conclusion": "Some previously seen medium NPCs haveconsistent offscreenwhite dots,butseveral wallconstrained cases andearlysmall prey. No proofreturn wouldbesafe/profitable. Filterbyoriginalwall feasibility andradius60-110 beforevaluation.",
+  "decision": "Do not add offscreen return-memory strategy from this set: onlytwoexits inplayer60-110 andboth violateoriginalwall target-feasibility estimate. Remainingpersistent candidates player<60. No safevaluable forgottenmidgame prey demonstrated."
+}
