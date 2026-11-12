@@ -1,0 +1,21 @@
+{
+  "status": "Evidence-limited; no currently supported new strategy patch. Stop sequential micro-analyses and unchanged live batches.",
+  "established": [
+    "Latest H20/H21 both failed0/4 candidate arms;formal gate unmet.",
+    "Wall loops are real but latest failures have littlewall recovery,so fixingwalls alone insufficient.",
+    "Matched-size and same-frame audits found no confirmed mediumprey miss explaining deficit;not proofdetectorcomplete.",
+    "Mediumprey visible samples generallyselected;moretargetweight unsupported.",
+    "Explorationdistance comparable;leavingwhite dotsnot failure-specific;knownmidgame exitedprey werewallconstrained.",
+    "Pixel-center fix independentlyimprovesmapgeometry but only4/2589directionschanged.",
+    "Turning/beam,cadence,tracking,earlymap,unknownmapreward,probe,contacthold alreadytested;do not rename/repeat."
+  ],
+  "primary_blocker": "All current A/B games have different random starts and dynamic NPCcompetition. Small4trialarms cannot separate policy effects from opportunitydistribution. Existing screenshots lackpersistent groundtruthNPC identities. These data cannot identify another high-confidencecontrolchange.",
+  "highest_information_next": "Build an isolated deterministic paired-seed diagnostic harness using verified v2.13source,without changingpublishedgame orformalacceptance. Freeze randomstream and logicalsimulation time;verify two baseline reruns reproduciblymatch beforecomparing baseline/test022 across fixedseedset. Keepcontroller pixel/HUD-only. Disablewrites/leaderboard in diagnosticcopy. Report pairedtrajectoryandcapture differences,not originalgamepassrate.",
+  "conditions_and_limits": [
+    "This changesdiagnostic testconditions;do not mixresults withofficial <110s >=50% gate.",
+    "Math.random seedingalone insufficient ifwall-clock physics/rAF differ;determinism itself mustbevalidated.",
+    "Ifisolation/correctnesscannotbeestablished,stop ratherthanclaimpairedtest.",
+    "Alternative independent evidence:one human successfulrun withsynchronized canvasandinputrecording. Without such evidence,higherchancepatch claimunsupported."
+  ],
+  "current": "No activegamebatch,no newstrategy/publication. Preservecheckpoint andall evidence. Parent tocoordinate whether diagnostic harnessfitsauthorizedtestscope."
+}
