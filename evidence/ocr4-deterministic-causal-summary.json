@@ -1,0 +1,101 @@
+{
+  "diagnostic_only": true,
+  "fixed_key_repeats": [
+    true,
+    true,
+    true
+  ],
+  "controller_repeats": [
+    true,
+    true
+  ],
+  "controller_runs": [
+    {
+      "seed": 101,
+      "repeat": 0,
+      "last": {
+        "size": "199",
+        "time": "02:30",
+        "title": "Eat smart. Stay alive.",
+        "ending": false,
+        "decision": {
+          "x": 1,
+          "y": 0,
+          "r": 199,
+          "clearance": 65.8775532157033
+        },
+        "blocked": 1,
+        "logical_ms": 150000.00000000425
+      }
+    },
+    {
+      "seed": 101,
+      "repeat": 1,
+      "last": {
+        "size": "199",
+        "time": "02:30",
+        "title": "Eat smart. Stay alive.",
+        "ending": false,
+        "decision": {
+          "x": 1,
+          "y": 0,
+          "r": 199,
+          "clearance": 65.8775532157033
+        },
+        "blocked": 1,
+        "logical_ms": 150000.00000000425
+      }
+    },
+    {
+      "seed": 202,
+      "repeat": 0,
+      "last": {
+        "size": "109",
+        "time": "03:23",
+        "title": "You were eaten!",
+        "ending": true,
+        "decision": {
+          "x": -0.7071067811865475,
+          "y": 0.7071067811865476,
+          "r": 109,
+          "clearance": 181.8364588922115
+        },
+        "blocked": 1,
+        "logical_ms": 97000.00000000534
+      }
+    },
+    {
+      "seed": 202,
+      "repeat": 1,
+      "last": {
+        "size": "109",
+        "time": "03:23",
+        "title": "You were eaten!",
+        "ending": true,
+        "decision": {
+          "x": -0.7071067811865475,
+          "y": 0.7071067811865476,
+          "r": 109,
+          "clearance": 181.8364588922115
+        },
+        "blocked": 1,
+        "logical_ms": 97000.00000000534
+      }
+    }
+  ],
+  "spawn_event": {
+    "elapsed": 96.88333333333162,
+    "radius": 154.6663223754149,
+    "x": 1338.8879864949495,
+    "y": 80,
+    "px": 1356.2662599896703,
+    "py": 303.15288060451746,
+    "pr": 108.74683644572943,
+    "distance": 223.8285337300661
+  },
+  "limitations": [
+    "Fixed logical60fps/seed and isolated API/storage differs from original game. Never acceptance.",
+    "Postrun spawn event instrumentation does not feed controller. Observed decisions/HUD matched uninstrumented diagnostic; canvas hashes differed, not claimed byte-identical."
+  ],
+  "hypothesis": "Boundary clamp can spawn large NPC into immediate lethal contact. Compare baseline margin260+.75r vs500+.75r, fixed4seeds x4versions x2variants, diagnostic32 only, no game-rule modifications."
+}
