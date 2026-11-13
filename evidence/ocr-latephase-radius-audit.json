@@ -1,0 +1,23 @@
+{
+  "frames": 50,
+  "player_range": [
+    104,
+    179
+  ],
+  "label_components": 147,
+  "body_highlight_threshold_flips": [
+    {
+      "frame": "frame-0027.png",
+      "player": 150,
+      "body": 183.33333333333334,
+      "highlight": 158.57541971709105,
+      "threshold": 1.08,
+      "hue": 65535,
+      "x": 755.0852241283895,
+      "y": 153.3933591588268
+    }
+  ],
+  "limits": "Detector self-consistency only, not independent radius truth. PNG overhead diagnostic excluded from acceptance.",
+  "visual_check": "frame0027: large gray QQ upper-right is a real NPC, body183.33 vs highlight158.58 at player150; no Danger label on QQ. Both current0.98 and proposed1.04 still classify it as threat. Other nearby large NPCs have visible Danger labels but detector isRed=false, so radius safeguards remain important.",
+  "decision": "No compelling evidence from this small audit to relax thresholds broadly. Single-factor0.98->1.04 replay affected11/2447 states. Keep live policy unchanged; proceed with independent baseline confirmation rather than claim safety improvement."
+}
