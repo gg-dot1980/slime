@@ -1,0 +1,31 @@
+{
+  "goal": "win <=180s, observed rate >=50%",
+  "baseline": {
+    "n": 8,
+    "wins": 5
+  },
+  "confirmation": {
+    "n": 12,
+    "wins": 8,
+    "deaths": 1,
+    "timeouts": 3,
+    "invalid": 0
+  },
+  "combined": {
+    "n": 20,
+    "wins": 13
+  },
+  "policy": "test022 unchanged, no game-state read or modifications during acceptance",
+  "environment": "NUC Ubuntu26.04 Firefox headless 1280x900, v2.13 normal random starts",
+  "limits": "Finite observed sample rates; no population guarantee; diagnostic and fixed-seed trials excluded",
+  "confirmation_times": [
+    146,
+    112,
+    174,
+    175,
+    121,
+    157,
+    162,
+    139
+  ]
+}
