@@ -1,0 +1,17 @@
+{
+  "goal": "<=150sec >=50% observed wins",
+  "comparison": "Per-version24 trials, A/B12 each;96 total, round-robin across actual versions. Full versions reported separately; no pooled pass.",
+  "hypothesis": "some non-edible but nonlethal near-equal NPCs are unnecessarily avoided; relaxing threat threshold increases growth without adding deaths",
+  "prespecified_selection": "Complete all24 valid games. Candidate needs >=6/12 wins and >A wins, with deaths<=A; otherwise do not promote; all outcomes retained. Infrastructure-invalid cases reported separately and only replaced with same variant.",
+  "confirmation": "After selected candidate satisfies every version screening,40 fresh games EACH version(160total), report per-version Wilson95%CI and observed>=50%; no pooled substitute. If a version fails, do not publish /ocr4.",
+  "historical_reanalysis": "same prior20 games:5/20 by150sec, not new trials;180sec timeouts are known150sec failures.",
+  "resources": "NUC single existing driver42441, no parallel game batch",
+  "limits": "Unpaired randomized screening estimates; small samples do not establish causal gain.",
+  "publication": "Passing new2:30 version publishes to /ocr4 and adds /ocr index description/link, preserving OCR1\u20133 and /demo. Subsequent new OCR versions follow same independent-page/index/GitHub pattern. Testing stays /ocr-test and test/ocr-test branch; formal release recorded separately on main.",
+  "versions": [
+    "v2.13",
+    "v2.20",
+    "v2.21",
+    "v2.22"
+  ]
+}
