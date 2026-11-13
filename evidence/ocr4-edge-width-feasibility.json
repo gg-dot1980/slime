@@ -1,0 +1,334 @@
+{
+  "purpose": "Offline edge-width feasibility on existing same-frame PNGs; NOT independent true-radius calibration",
+  "method": "16 radial luminance profiles,0.25px bilinear sampling,median half-prominence rim width; reject low-contrast or unsupported spokes",
+  "samples": 36,
+  "median_ratio_to_highlight": 0.6302110474169262,
+  "within_20percent_of_highlight": 10,
+  "limitations": "Anti-aliasing, polygon shape, overlap, screenshot scaling, hue and low-resolution width. Highlight is comparator, not truth. Do not use inferred stroke radius as live control yet.",
+  "rows": [
+    {
+      "frame": "frame-0001.png",
+      "body_radius": 65.0,
+      "highlight_radius": 70.71844310297685,
+      "stroke_width_px": 1.375,
+      "radius_from_stroke": 50.925925925925924,
+      "spokes": 16,
+      "ratio_to_highlight": 0.7201222720891918
+    },
+    {
+      "frame": "frame-0003.png",
+      "body_radius": 36.66666666666667,
+      "highlight_radius": 31.48826479512596,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 8,
+      "ratio_to_highlight": 1.176217148769975
+    },
+    {
+      "frame": "frame-0004.png",
+      "body_radius": 183.33333333333334,
+      "highlight_radius": 160.84121025687736,
+      "stroke_width_px": 2.5,
+      "radius_from_stroke": 92.5925925925926,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5756770447369439
+    },
+    {
+      "frame": "frame-0005.png",
+      "body_radius": 183.33333333333334,
+      "highlight_radius": 161.14523640546045,
+      "stroke_width_px": 2.5,
+      "radius_from_stroke": 92.5925925925926,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5745909383236045
+    },
+    {
+      "frame": "frame-0006.png",
+      "body_radius": 181.66666666666669,
+      "highlight_radius": 158.51443652450428,
+      "stroke_width_px": 2.75,
+      "radius_from_stroke": 101.85185185185185,
+      "spokes": 16,
+      "ratio_to_highlight": 0.6425399104649177
+    },
+    {
+      "frame": "frame-0006.png",
+      "body_radius": 173.33333333333334,
+      "highlight_radius": 172.50023261996404,
+      "stroke_width_px": 2.75,
+      "radius_from_stroke": 101.85185185185185,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5904447217543299
+    },
+    {
+      "frame": "frame-0007.png",
+      "body_radius": 135.0,
+      "highlight_radius": 138.16189355096304,
+      "stroke_width_px": 2.25,
+      "radius_from_stroke": 83.33333333333333,
+      "spokes": 16,
+      "ratio_to_highlight": 0.6031571455163547
+    },
+    {
+      "frame": "frame-0007.png",
+      "body_radius": 173.33333333333334,
+      "highlight_radius": 169.41694755338307,
+      "stroke_width_px": 2.75,
+      "radius_from_stroke": 101.85185185185185,
+      "spokes": 16,
+      "ratio_to_highlight": 0.6011904553985572
+    },
+    {
+      "frame": "frame-0015.png",
+      "body_radius": 51.66666666666667,
+      "highlight_radius": 52.707961149055144,
+      "stroke_width_px": 1.5,
+      "radius_from_stroke": 55.55555555555556,
+      "spokes": 16,
+      "ratio_to_highlight": 1.0540258880142903
+    },
+    {
+      "frame": "frame-0015.png",
+      "body_radius": 36.66666666666667,
+      "highlight_radius": 34.8232951118036,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 11,
+      "ratio_to_highlight": 1.0635707194889512
+    },
+    {
+      "frame": "frame-0022.png",
+      "body_radius": 33.333333333333336,
+      "highlight_radius": 33.901916219107726,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 13,
+      "ratio_to_highlight": 1.0924762127800405
+    },
+    {
+      "frame": "frame-0023.png",
+      "body_radius": 33.333333333333336,
+      "highlight_radius": 34.77556557529243,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 14,
+      "ratio_to_highlight": 1.0650304725267028
+    },
+    {
+      "frame": "frame-0026.png",
+      "body_radius": 173.33333333333334,
+      "highlight_radius": 177.65504375823005,
+      "stroke_width_px": 2.75,
+      "radius_from_stroke": 101.85185185185185,
+      "spokes": 15,
+      "ratio_to_highlight": 0.5733124694757419
+    },
+    {
+      "frame": "frame-0026.png",
+      "body_radius": 220.0,
+      "highlight_radius": 231.25738553282628,
+      "stroke_width_px": 3.5,
+      "radius_from_stroke": 129.62962962962962,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5605426582634658
+    },
+    {
+      "frame": "frame-0027.png",
+      "body_radius": 183.33333333333334,
+      "highlight_radius": 158.57541971709105,
+      "stroke_width_px": 2.75,
+      "radius_from_stroke": 101.85185185185185,
+      "spokes": 15,
+      "ratio_to_highlight": 0.6422928095259797
+    },
+    {
+      "frame": "frame-0027.png",
+      "body_radius": 38.333333333333336,
+      "highlight_radius": 40.87663199598523,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 8,
+      "ratio_to_highlight": 0.9060687054812808
+    },
+    {
+      "frame": "frame-0027.png",
+      "body_radius": 221.66666666666669,
+      "highlight_radius": 218.53951141597634,
+      "stroke_width_px": 3.5,
+      "radius_from_stroke": 129.62962962962962,
+      "spokes": 15,
+      "ratio_to_highlight": 0.5931633542590278
+    },
+    {
+      "frame": "frame-0027.png",
+      "body_radius": 175.0,
+      "highlight_radius": 185.7756431439381,
+      "stroke_width_px": 2.75,
+      "radius_from_stroke": 101.85185185185185,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5482519135887879
+    },
+    {
+      "frame": "frame-0028.png",
+      "body_radius": 38.333333333333336,
+      "highlight_radius": 38.333333333333336,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 11,
+      "ratio_to_highlight": 0.966183574879227
+    },
+    {
+      "frame": "frame-0028.png",
+      "body_radius": 175.0,
+      "highlight_radius": 180.03558755664977,
+      "stroke_width_px": 2.75,
+      "radius_from_stroke": 101.85185185185185,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5657317713355048
+    },
+    {
+      "frame": "frame-0028.png",
+      "body_radius": 221.66666666666669,
+      "highlight_radius": 230.50094585010896,
+      "stroke_width_px": 3.5,
+      "radius_from_stroke": 129.62962962962962,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5623822026046074
+    },
+    {
+      "frame": "frame-0029.png",
+      "body_radius": 38.333333333333336,
+      "highlight_radius": 36.35781378088459,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 8,
+      "ratio_to_highlight": 1.0186816308660878
+    },
+    {
+      "frame": "frame-0029.png",
+      "body_radius": 173.33333333333334,
+      "highlight_radius": 192.13658990740745,
+      "stroke_width_px": 3.0,
+      "radius_from_stroke": 111.11111111111111,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5782923032237466
+    },
+    {
+      "frame": "frame-0029.png",
+      "body_radius": 218.33333333333334,
+      "highlight_radius": 209.71281042778085,
+      "stroke_width_px": 3.5,
+      "radius_from_stroke": 129.62962962962962,
+      "spokes": 16,
+      "ratio_to_highlight": 0.6181292853078729
+    },
+    {
+      "frame": "frame-0030.png",
+      "body_radius": 223.33333333333334,
+      "highlight_radius": 230.08385817143866,
+      "stroke_width_px": 3.5,
+      "radius_from_stroke": 129.62962962962962,
+      "spokes": 15,
+      "ratio_to_highlight": 0.5634016686778643
+    },
+    {
+      "frame": "frame-0032.png",
+      "body_radius": 306.6666666666667,
+      "highlight_radius": 350.1753628738371,
+      "stroke_width_px": 5.0,
+      "radius_from_stroke": 185.1851851851852,
+      "spokes": 15,
+      "ratio_to_highlight": 0.5288355630316134
+    },
+    {
+      "frame": "frame-0032.png",
+      "body_radius": 245.0,
+      "highlight_radius": 245.24578919312543,
+      "stroke_width_px": 3.75,
+      "radius_from_stroke": 138.88888888888889,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5663252745168117
+    },
+    {
+      "frame": "frame-0033.png",
+      "body_radius": 55.0,
+      "highlight_radius": 59.490791265838375,
+      "stroke_width_px": 1.25,
+      "radius_from_stroke": 46.2962962962963,
+      "spokes": 16,
+      "ratio_to_highlight": 0.7782094558033085
+    },
+    {
+      "frame": "frame-0041.png",
+      "body_radius": 120.0,
+      "highlight_radius": 125.70313073040278,
+      "stroke_width_px": 2.25,
+      "radius_from_stroke": 83.33333333333333,
+      "spokes": 15,
+      "ratio_to_highlight": 0.662937612206807
+    },
+    {
+      "frame": "frame-0041.png",
+      "body_radius": 221.66666666666669,
+      "highlight_radius": 244.60226627409412,
+      "stroke_width_px": 3.5,
+      "radius_from_stroke": 129.62962962962962,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5299608691457113
+    },
+    {
+      "frame": "frame-0042.png",
+      "body_radius": 121.66666666666667,
+      "highlight_radius": 117.04724084557817,
+      "stroke_width_px": 2.25,
+      "radius_from_stroke": 83.33333333333333,
+      "spokes": 16,
+      "ratio_to_highlight": 0.7119632443388905
+    },
+    {
+      "frame": "frame-0042.png",
+      "body_radius": 225.0,
+      "highlight_radius": 243.85505421215666,
+      "stroke_width_px": 3.625,
+      "radius_from_stroke": 134.25925925925927,
+      "spokes": 16,
+      "ratio_to_highlight": 0.5505699264385646
+    },
+    {
+      "frame": "frame-0043.png",
+      "body_radius": 51.66666666666667,
+      "highlight_radius": 49.13491522832498,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 16,
+      "ratio_to_highlight": 0.753782455203793
+    },
+    {
+      "frame": "frame-0044.png",
+      "body_radius": 51.66666666666667,
+      "highlight_radius": 51.340143025391846,
+      "stroke_width_px": 1.0,
+      "radius_from_stroke": 37.03703703703704,
+      "spokes": 14,
+      "ratio_to_highlight": 0.7214050225516363
+    },
+    {
+      "frame": "frame-0049.png",
+      "body_radius": 45.0,
+      "highlight_radius": 42.20525951856182,
+      "stroke_width_px": 1.25,
+      "radius_from_stroke": 46.2962962962963,
+      "spokes": 14,
+      "ratio_to_highlight": 1.0969319185428832
+    },
+    {
+      "frame": "frame-0050.png",
+      "body_radius": 58.333333333333336,
+      "highlight_radius": 65.7888914845753,
+      "stroke_width_px": 1.5,
+      "radius_from_stroke": 55.55555555555556,
+      "spokes": 16,
+      "ratio_to_highlight": 0.844451917366338
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "complete": true,
+  "outcomes": {
+    "v2.13": {
+      "A": {
+        "n": 12,
+        "wins": 3,
+        "rate": 0.25,
+        "wilson95": [
+          0.08894003962896138,
+          0.53231033912066
+        ],
+        "deaths": 0,
+        "timeouts": 9
+      },
+      "B": {
+        "n": 12,
+        "wins": 2,
+        "rate": 0.16666666666666666,
+        "wilson95": [
+          0.04696414761482223,
+          0.44803635738467273
+        ],
+        "deaths": 2,
+        "timeouts": 8
+      }
+    },
+    "v2.20": {
+      "A": {
+        "n": 12,
+        "wins": 0,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.2425007574992425
+        ],
+        "deaths": 12,
+        "timeouts": 0
+      },
+      "B": {
+        "n": 12,
+        "wins": 0,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.2425007574992425
+        ],
+        "deaths": 12,
+        "timeouts": 0
+      }
+    },
+    "v2.21": {
+      "A": {
+        "n": 12,
+        "wins": 0,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.2425007574992425
+        ],
+        "deaths": 12,
+        "timeouts": 0
+      },
+      "B": {
+        "n": 12,
+        "wins": 0,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.2425007574992425
+        ],
+        "deaths": 12,
+        "timeouts": 0
+      }
+    },
+    "v2.22": {
+      "A": {
+        "n": 12,
+        "wins": 0,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.2425007574992425
+        ],
+        "deaths": 3,
+        "timeouts": 9
+      },
+      "B": {
+        "n": 12,
+        "wins": 0,
+        "rate": 0.0,
+        "wilson95": [
+          0.0,
+          0.2425007574992425
+        ],
+        "deaths": 6,
+        "timeouts": 6
+      }
+    }
+  },
+  "decision": "Reject test023 threat1.04 candidate; no independent confirmation or OCR4 promotion. Preserve OCR3. No evidence of improvement, not a causal proof of harm.",
+  "next_hypothesis": "Clipped giant NPC geometry and optional edge-width radius evidence; calibrate existing images/offline ROI first, preserve formal strategy."
+}
