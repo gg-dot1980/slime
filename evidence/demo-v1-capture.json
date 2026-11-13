@@ -1,0 +1,7 @@
+{
+  "source": "https://slime.gameson.cc/",
+  "source_sha256": "14cb23f4a2302577c30181a6205b38cfad920a7597418fd16603106a69d7465d",
+  "duration_target": 40,
+  "version": "2.22",
+  "captured": "actual game canvas; keyboard input; local copy; scoreboard network disabled"
+}
