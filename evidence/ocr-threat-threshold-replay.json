@@ -1,0 +1,324 @@
+{
+  "hypothesis": "Single factor threat-size threshold 0.98 ->1.04 player radius, while edible0.91, red labels, clipped inflation, distance margins and walls remain unchanged.",
+  "limits": "Offline replay on same estimated states. Larger clearance is partly definitional and not proven safety. Not win rate nor true-radius calibration. No live strategy change yet.",
+  "runs": [
+    {
+      "run": 1,
+      "total": 353,
+      "band": 12,
+      "changed": 0,
+      "higherProjectedGain": 0,
+      "oldUnsafe": 0,
+      "newUnsafe": 0
+    },
+    {
+      "run": 2,
+      "total": 353,
+      "band": 8,
+      "changed": 0,
+      "higherProjectedGain": 0,
+      "oldUnsafe": 0,
+      "newUnsafe": 0
+    },
+    {
+      "run": 3,
+      "total": 323,
+      "band": 6,
+      "changed": 0,
+      "higherProjectedGain": 0,
+      "oldUnsafe": 0,
+      "newUnsafe": 0
+    },
+    {
+      "run": 4,
+      "total": 331,
+      "band": 26,
+      "changed": 2,
+      "higherProjectedGain": 2,
+      "oldUnsafe": 0,
+      "newUnsafe": 0
+    },
+    {
+      "run": 5,
+      "total": 131,
+      "band": 6,
+      "changed": 0,
+      "higherProjectedGain": 0,
+      "oldUnsafe": 0,
+      "newUnsafe": 0
+    },
+    {
+      "run": 6,
+      "total": 354,
+      "band": 39,
+      "changed": 5,
+      "higherProjectedGain": 3,
+      "oldUnsafe": 0,
+      "newUnsafe": 0
+    },
+    {
+      "run": 7,
+      "total": 255,
+      "band": 10,
+      "changed": 1,
+      "higherProjectedGain": 0,
+      "oldUnsafe": 0,
+      "newUnsafe": 0
+    },
+    {
+      "run": 8,
+      "total": 347,
+      "band": 24,
+      "changed": 3,
+      "higherProjectedGain": 2,
+      "oldUnsafe": 0,
+      "newUnsafe": 0
+    }
+  ],
+  "examples": [
+    {
+      "run": 4,
+      "t": 61.838,
+      "r": 62,
+      "old": "北",
+      "alt": "西北",
+      "oldGain": 0.58125,
+      "altGain": 0.7999999999999999,
+      "oldClearance": 127.15267661170026,
+      "altClearance": 228.13048737852642,
+      "band": []
+    },
+    {
+      "run": 4,
+      "t": 87.821,
+      "r": 101,
+      "old": "東",
+      "alt": "東北",
+      "oldGain": 0.49999999999999994,
+      "altGain": 1.5961538461538458,
+      "oldClearance": 33.279673819560145,
+      "altClearance": 301.8345538465539,
+      "band": [
+        {
+          "x": 55.8894878706199,
+          "y": -237.005091344714,
+          "r": 103.14858650824858,
+          "npc": true,
+          "stalled": 0,
+          "blocked": false,
+          "isRed": false,
+          "clipped": false,
+          "dangerRadius": 103.14858650824858,
+          "vx": -25.75390902233439,
+          "vy": 82.28441481468795
+        }
+      ]
+    },
+    {
+      "run": 6,
+      "t": 42.867,
+      "r": 49,
+      "old": "西南",
+      "alt": "西",
+      "oldGain": 0.20454545454545453,
+      "altGain": 0.95,
+      "oldClearance": 112.08736297294129,
+      "altClearance": 27.658452140013296,
+      "band": []
+    },
+    {
+      "run": 6,
+      "t": 54.524,
+      "r": 61,
+      "old": "西北",
+      "alt": "西",
+      "oldGain": 0.2647058823529412,
+      "altGain": 0.9075630252100841,
+      "oldClearance": 113.28876163025035,
+      "altClearance": 423.95937078936953,
+      "band": [
+        {
+          "x": -227.69406392694066,
+          "y": 122.80821917808217,
+          "r": 61.317418567294375,
+          "npc": true,
+          "stalled": 0,
+          "blocked": false,
+          "isRed": false,
+          "clipped": false,
+          "dangerRadius": 61.317418567294375,
+          "vx": 7.463063164825931,
+          "vy": -36.05248276428883
+        }
+      ]
+    },
+    {
+      "run": 6,
+      "t": 56.065,
+      "r": 62,
+      "old": "北",
+      "alt": "西北",
+      "oldGain": 0,
+      "altGain": 0,
+      "oldClearance": 37.08557405577953,
+      "altClearance": 419.72664668471583,
+      "band": [
+        {
+          "x": -139.88794326241134,
+          "y": 37.94893617021273,
+          "r": 62.562409678369036,
+          "npc": true,
+          "stalled": 0,
+          "blocked": false,
+          "isRed": false,
+          "clipped": false,
+          "dangerRadius": 62.562409678369036,
+          "vx": 23.15680707293717,
+          "vy": -40.66825525755097
+        }
+      ]
+    },
+    {
+      "run": 6,
+      "t": 137.659,
+      "r": 152,
+      "old": "東",
+      "alt": "東南",
+      "oldGain": 0,
+      "altGain": 0.21428571428571427,
+      "oldClearance": 146.11284036856352,
+      "altClearance": 172.6585705109262,
+      "band": [
+        {
+          "x": 84.06572215663118,
+          "y": 409.2908303817395,
+          "r": 150.06512380644625,
+          "npc": true,
+          "stalled": 0,
+          "blocked": false,
+          "isRed": false,
+          "clipped": false,
+          "dangerRadius": 150.06512380644625,
+          "vx": 2.835431091870081,
+          "vy": -83.50676929880638
+        }
+      ]
+    },
+    {
+      "run": 6,
+      "t": 139.692,
+      "r": 152,
+      "old": "東",
+      "alt": "東南",
+      "oldGain": 0,
+      "altGain": 0,
+      "oldClearance": 77.17010844878334,
+      "altClearance": 68.7962372036555,
+      "band": [
+        {
+          "x": -4.741009439113858,
+          "y": 326.9911849598253,
+          "r": 156.0433514965649,
+          "npc": true,
+          "stalled": 0,
+          "blocked": false,
+          "isRed": false,
+          "clipped": false,
+          "dangerRadius": 156.0433514965649,
+          "vx": -62.5036383712294,
+          "vy": -81.24488077326626
+        }
+      ]
+    },
+    {
+      "run": 7,
+      "t": 82.685,
+      "r": 102,
+      "old": "西北",
+      "alt": "西",
+      "oldGain": 19.809639372581785,
+      "altGain": 19.809639372581785,
+      "oldClearance": 59.12923307125564,
+      "altClearance": 151.69711772165988,
+      "band": []
+    },
+    {
+      "run": 8,
+      "t": 96.442,
+      "r": 97,
+      "old": "西",
+      "alt": "西南",
+      "oldGain": 0.475,
+      "altGain": 0.9086538461538461,
+      "oldClearance": 26.559210360793003,
+      "altClearance": 585.5290758718965,
+      "band": [
+        {
+          "x": -2.830667682152921,
+          "y": 206.030718456461,
+          "r": 95.63724186997473,
+          "npc": true,
+          "stalled": 0,
+          "blocked": false,
+          "isRed": false,
+          "clipped": false,
+          "dangerRadius": 95.63724186997473,
+          "vx": 11.033318428842215,
+          "vy": -61.604343108827734
+        }
+      ]
+    },
+    {
+      "run": 8,
+      "t": 167.941,
+      "r": 181,
+      "old": "西南",
+      "alt": "南",
+      "oldGain": 1.309090909090909,
+      "altGain": 5.104746375692814,
+      "oldClearance": 47.4964924487345,
+      "altClearance": 1000000,
+      "band": [
+        {
+          "x": 112.76378197651809,
+          "y": 389.53541715263196,
+          "r": 181.41845270325322,
+          "npc": true,
+          "stalled": 0,
+          "blocked": false,
+          "isRed": false,
+          "clipped": false,
+          "dangerRadius": 181.41845270325322,
+          "vx": -89.06553395564116,
+          "vy": 30.314307983871753
+        }
+      ]
+    },
+    {
+      "run": 8,
+      "t": 170.47,
+      "r": 189,
+      "old": "東北",
+      "alt": "東",
+      "oldGain": 0,
+      "altGain": 0,
+      "oldClearance": 34.95832094009188,
+      "altClearance": 1000000,
+      "band": [
+        {
+          "x": 311.8571535496426,
+          "y": 167.6460461809064,
+          "r": 192.76910469030275,
+          "npc": true,
+          "stalled": 0,
+          "blocked": false,
+          "isRed": false,
+          "clipped": false,
+          "dangerRadius": 192.76910469030275,
+          "vx": -41.23975971981376,
+          "vy": 55.384543975236475
+        }
+      ]
+    }
+  ]
+}
