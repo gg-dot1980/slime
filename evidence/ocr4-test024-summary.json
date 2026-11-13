@@ -1,0 +1,54 @@
+{
+  "completed": true,
+  "counts": {
+    "v2.13/A": {
+      "n": 12,
+      "wins": 3,
+      "deaths": 2,
+      "timeouts": 7
+    },
+    "v2.20/A": {
+      "n": 12,
+      "wins": 0,
+      "deaths": 12,
+      "timeouts": 0
+    },
+    "v2.21/A": {
+      "n": 12,
+      "wins": 0,
+      "deaths": 12,
+      "timeouts": 0
+    },
+    "v2.22/A": {
+      "n": 12,
+      "wins": 2,
+      "deaths": 4,
+      "timeouts": 6
+    },
+    "v2.13/B": {
+      "n": 12,
+      "wins": 4,
+      "deaths": 0,
+      "timeouts": 8
+    },
+    "v2.20/B": {
+      "n": 12,
+      "wins": 0,
+      "deaths": 12,
+      "timeouts": 0
+    },
+    "v2.21/B": {
+      "n": 12,
+      "wins": 0,
+      "deaths": 12,
+      "timeouts": 0
+    },
+    "v2.22/B": {
+      "n": 12,
+      "wins": 1,
+      "deaths": 5,
+      "timeouts": 6
+    }
+  },
+  "decision": "Reject, no OCR4 promotion or independent confirmation. Risk2s alone failed all-version goal."
+}

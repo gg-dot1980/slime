@@ -1,0 +1,35 @@
+{
+  "hypothesis": "Single new score penalty20*visible minimap red-cluster risk within1600 at2s endpoint; baseline test022 safety thresholds unchanged.",
+  "totals": {
+    "v2.13": {
+      "states": 3498,
+      "changed": 1293,
+      "hiddenLateRisk": 0,
+      "rescuedPredicted": 0,
+      "last5Hidden": 0
+    },
+    "v2.20": {
+      "states": 1914,
+      "changed": 765,
+      "hiddenLateRisk": 0,
+      "rescuedPredicted": 0,
+      "last5Hidden": 0
+    },
+    "v2.21": {
+      "states": 2143,
+      "changed": 888,
+      "hiddenLateRisk": 0,
+      "rescuedPredicted": 0,
+      "last5Hidden": 0
+    },
+    "v2.22": {
+      "states": 3254,
+      "changed": 1396,
+      "hiddenLateRisk": 0,
+      "rescuedPredicted": 0,
+      "last5Hidden": 0
+    }
+  },
+  "limits": "Offline constant-direction projected trajectories, not ground truth or real survival. May overavoid and reduce growth. No live strategy change yet.",
+  "examples": []
+}
