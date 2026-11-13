@@ -1,0 +1,335 @@
+{
+  "diagnostic_only": true,
+  "counts": {
+    "v2.13/A": {
+      "n": 4,
+      "wins": 1,
+      "deaths": 1
+    },
+    "v2.13/B": {
+      "n": 4,
+      "wins": 0,
+      "deaths": 0
+    },
+    "v2.20/A": {
+      "n": 4,
+      "wins": 0,
+      "deaths": 4
+    },
+    "v2.20/B": {
+      "n": 4,
+      "wins": 0,
+      "deaths": 4
+    },
+    "v2.21/A": {
+      "n": 4,
+      "wins": 0,
+      "deaths": 4
+    },
+    "v2.21/B": {
+      "n": 4,
+      "wins": 0,
+      "deaths": 4
+    },
+    "v2.22/A": {
+      "n": 4,
+      "wins": 0,
+      "deaths": 3
+    },
+    "v2.22/B": {
+      "n": 4,
+      "wins": 0,
+      "deaths": 2
+    }
+  },
+  "rows": [
+    {
+      "version": "v2.13",
+      "seed": 101,
+      "variant": "A",
+      "title": "Eat smart. Stay alive.",
+      "r": "199",
+      "t": 150.0,
+      "r90": "125"
+    },
+    {
+      "version": "v2.13",
+      "seed": 101,
+      "variant": "B",
+      "title": "Eat smart. Stay alive.",
+      "r": "166",
+      "t": 150.0,
+      "r90": "122"
+    },
+    {
+      "version": "v2.13",
+      "seed": 202,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "109",
+      "t": 97.0,
+      "r90": "109"
+    },
+    {
+      "version": "v2.13",
+      "seed": 202,
+      "variant": "B",
+      "title": "Eat smart. Stay alive.",
+      "r": "147",
+      "t": 150.0,
+      "r90": "117"
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "variant": "A",
+      "title": "You win!",
+      "r": "180",
+      "t": 143.2,
+      "r90": "98"
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "variant": "B",
+      "title": "Eat smart. Stay alive.",
+      "r": "174",
+      "t": 150.0,
+      "r90": "98"
+    },
+    {
+      "version": "v2.13",
+      "seed": 404,
+      "variant": "A",
+      "title": "Eat smart. Stay alive.",
+      "r": "144",
+      "t": 150.0,
+      "r90": "68"
+    },
+    {
+      "version": "v2.13",
+      "seed": 404,
+      "variant": "B",
+      "title": "Eat smart. Stay alive.",
+      "r": "181",
+      "t": 150.0,
+      "r90": "78"
+    },
+    {
+      "version": "v2.20",
+      "seed": 101,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "53",
+      "t": 57.0,
+      "r90": null
+    },
+    {
+      "version": "v2.20",
+      "seed": 101,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "79",
+      "t": 90.2,
+      "r90": "79"
+    },
+    {
+      "version": "v2.20",
+      "seed": 202,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "90",
+      "t": 93.0,
+      "r90": "90"
+    },
+    {
+      "version": "v2.20",
+      "seed": 202,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "112",
+      "t": 98.6,
+      "r90": "100"
+    },
+    {
+      "version": "v2.20",
+      "seed": 303,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "159",
+      "t": 80.6,
+      "r90": null
+    },
+    {
+      "version": "v2.20",
+      "seed": 303,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "89",
+      "t": 78.4,
+      "r90": null
+    },
+    {
+      "version": "v2.20",
+      "seed": 404,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "78",
+      "t": 88.2,
+      "r90": null
+    },
+    {
+      "version": "v2.20",
+      "seed": 404,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "69",
+      "t": 77.0,
+      "r90": null
+    },
+    {
+      "version": "v2.21",
+      "seed": 101,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "94",
+      "t": 111.2,
+      "r90": "75"
+    },
+    {
+      "version": "v2.21",
+      "seed": 101,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "77",
+      "t": 113.0,
+      "r90": "66"
+    },
+    {
+      "version": "v2.21",
+      "seed": 202,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "83",
+      "t": 97.0,
+      "r90": "83"
+    },
+    {
+      "version": "v2.21",
+      "seed": 202,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "143",
+      "t": 114.4,
+      "r90": "106"
+    },
+    {
+      "version": "v2.21",
+      "seed": 303,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "74",
+      "t": 62.4,
+      "r90": null
+    },
+    {
+      "version": "v2.21",
+      "seed": 303,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "93",
+      "t": 74.6,
+      "r90": null
+    },
+    {
+      "version": "v2.21",
+      "seed": 404,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "64",
+      "t": 60.4,
+      "r90": null
+    },
+    {
+      "version": "v2.21",
+      "seed": 404,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "136",
+      "t": 104.0,
+      "r90": "106"
+    },
+    {
+      "version": "v2.22",
+      "seed": 101,
+      "variant": "A",
+      "title": "Eat smart. Stay alive.",
+      "r": "124",
+      "t": 150.0,
+      "r90": "83"
+    },
+    {
+      "version": "v2.22",
+      "seed": 101,
+      "variant": "B",
+      "title": "Eat smart. Stay alive.",
+      "r": "140",
+      "t": 150.0,
+      "r90": "96"
+    },
+    {
+      "version": "v2.22",
+      "seed": 202,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "164",
+      "t": 135.2,
+      "r90": "115"
+    },
+    {
+      "version": "v2.22",
+      "seed": 202,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "138",
+      "t": 130.8,
+      "r90": "102"
+    },
+    {
+      "version": "v2.22",
+      "seed": 303,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "172",
+      "t": 109.8,
+      "r90": "144"
+    },
+    {
+      "version": "v2.22",
+      "seed": 303,
+      "variant": "B",
+      "title": "Eat smart. Stay alive.",
+      "r": "137",
+      "t": 150.0,
+      "r90": "95"
+    },
+    {
+      "version": "v2.22",
+      "seed": 404,
+      "variant": "A",
+      "title": "You were eaten!",
+      "r": "115",
+      "t": 137.4,
+      "r90": "96"
+    },
+    {
+      "version": "v2.22",
+      "seed": 404,
+      "variant": "B",
+      "title": "You were eaten!",
+      "r": "109",
+      "t": 113.6,
+      "r90": "108"
+    }
+  ]
+}
