@@ -1,0 +1,480 @@
+{
+  "at": "2026-11-15T18:50:06.071912+08:00",
+  "goal": "OCR4 each existing v2.13/20/21/22 <=150s >=50%, independent original-game confirmation. PreserveOCR3/demo, publishocr4+index only afterpass. Visiblepixel/HUD controlonly.",
+  "review_inventory": [
+    {
+      "file": "arc-calibration-summary.json",
+      "bytes": 179314,
+      "sha256": "ae1d113d59910bf27d7853250d9dceaabc5a440f3d292cad28c4d40be0c36b01",
+      "modified_ns": 1794734670876309289
+    },
+    {
+      "file": "arc-geometry-summary.json",
+      "bytes": 6383,
+      "sha256": "9f753a10794a7770b3d4abf9f1cc789b32db9ce3a564299cac4b2d5d3b3234bb",
+      "modified_ns": 1794736601384432905
+    },
+    {
+      "file": "arccenter-summary.json",
+      "bytes": 3014,
+      "sha256": "d73a3ba5503c894d023b7fc15d7df7fa247f7f844f2f67cd199b6bbe03f5f14b",
+      "modified_ns": 1794736200099744463
+    },
+    {
+      "file": "beam-replay-summary.json",
+      "bytes": 652,
+      "sha256": "df04f1ecee6114c6125c4cffc24be9bdb7f47b958351b835587ce8b07a85f709",
+      "modified_ns": 1794407198656250368
+    },
+    {
+      "file": "capture-delay-summary.json",
+      "bytes": 3312,
+      "sha256": "cb03784747b662124ded8f7cc6497b2dd540e28b6c8ad9210e3345bb1d300fda",
+      "modified_ns": 1794494363001113910
+    },
+    {
+      "file": "capture-loss-summary.json",
+      "bytes": 4674,
+      "sha256": "16b3de744843c142b253b2cbd3b1d182ac32b64cb92795cad0951c1e768df421",
+      "modified_ns": 1794739154921349189
+    },
+    {
+      "file": "class-retention-summary.json",
+      "bytes": 317,
+      "sha256": "4b396744130776144835b2130b6471fbcb7ae793637afe5d422e693fea2f9a58",
+      "modified_ns": 1794406138085080317
+    },
+    {
+      "file": "clearance-shadow-summary.json",
+      "bytes": 26206,
+      "sha256": "b35b468459567f06d409f4bba1b55a2f5c419bd9aa0d230c42bbfd749d7fd323",
+      "modified_ns": 1794737740318245727
+    },
+    {
+      "file": "clearancepriority-summary.json",
+      "bytes": 8434,
+      "sha256": "94a464cdf3e65c1539305cad30cd4c687ba4ec13b90639f31c7252d2d9a349b0",
+      "modified_ns": 1794738715677507659
+    },
+    {
+      "file": "clipped-failure-sync-summary.json",
+      "bytes": 6376,
+      "sha256": "e134d1a55d1987817c41839e355c7c35d971054bcb806e588349cb905fbe2103",
+      "modified_ns": 1794727165250429563
+    },
+    {
+      "file": "competition-shadow-summary.json",
+      "bytes": 32012,
+      "sha256": "2821e2778db53ebc5d0e8f746833b0cdcfdd045f38a367342271ef4a733860c6",
+      "modified_ns": 1794739673360208683
+    },
+    {
+      "file": "contact-outcomes-summary.json",
+      "bytes": 1406,
+      "sha256": "4ffa1b4be05d473e8b073e1c6673f20f94c4fb6c4b566d2bbb5f88096ec2f37b",
+      "modified_ns": 1794498417372450695
+    },
+    {
+      "file": "contact-pixel-summary.json",
+      "bytes": 2996,
+      "sha256": "d573f8147c8d4c45090c8e0cc5c18adb8218edf2e494d4153b39e11bcb408c34",
+      "modified_ns": 1794495789964715466
+    },
+    {
+      "file": "deterministic-causal-summary.json",
+      "bytes": 2523,
+      "sha256": "00c2b31d56eb80347fa1b289b7e4cb84d38cbe327d8458545bdfd6b20e92a752",
+      "modified_ns": 1794589332644374488
+    },
+    {
+      "file": "deterministic-clip-summary.json",
+      "bytes": 6065,
+      "sha256": "12523fe15ebd310624b0be838ece6a197c428457102069f076178b48c8c49100",
+      "modified_ns": 1794591133417961147
+    },
+    {
+      "file": "deterministic-edible094-summary.json",
+      "bytes": 5730,
+      "sha256": "000248fbb90cfe83711a53944d19962eec479ec4997cd3bf2d3b690d1cfc7d99",
+      "modified_ns": 1794592557538025340
+    },
+    {
+      "file": "deterministic-wall-summary.json",
+      "bytes": 7656,
+      "sha256": "c7b327d0ad1150d196b49e96022d5c5a1edac88cb01fcfd3612b2c2bf0ad662d",
+      "modified_ns": 1794590144643650752
+    },
+    {
+      "file": "early-threat-summary.json",
+      "bytes": 217896,
+      "sha256": "d4dbbb00d44ae28437f0319cb9314f7b4319709ac496865b0da324f7429d2473",
+      "modified_ns": 1794734433963151188
+    },
+    {
+      "file": "escape-forks-summary.json",
+      "bytes": 7125,
+      "sha256": "44342a5c6deb251806dd943ca52f9d8220afeb417fe7086385523c98f3ab6e79",
+      "modified_ns": 1794737117080728146
+    },
+    {
+      "file": "escapehold-summary.json",
+      "bytes": 8736,
+      "sha256": "f126964b93bb676dd0c3ea297cd586a594c2576c21823bab012cdc8adac7bd7a",
+      "modified_ns": 1794732680859915862
+    },
+    {
+      "file": "food-choice-summary.json",
+      "bytes": 40369,
+      "sha256": "451369977ef32ea079c8f9090eafae3a6b53e366418d65cf34ac37bb59176da5",
+      "modified_ns": 1794733157122294239
+    },
+    {
+      "file": "food-wall-summary.json",
+      "bytes": 6712,
+      "sha256": "b7e3f90577f32c3837660ea024c4e0ba1cc25a629751ada7fb95042b9c1a6abb",
+      "modified_ns": 1794503303621500130
+    },
+    {
+      "file": "full-pipeline-summary.json",
+      "bytes": 3982,
+      "sha256": "d1e35d9f08ae4a6d0ffbcd39361e4912765122c32a9a4591b9fecb39067c6c3b",
+      "modified_ns": 1794499946741106842
+    },
+    {
+      "file": "goal-wall-summary.json",
+      "bytes": 3452,
+      "sha256": "70f3b51208e0f856e82ce28cb3b0b3a4585e0523f15ddb9c75212eeaf24cb76a",
+      "modified_ns": 1794501785861102497
+    },
+    {
+      "file": "growth-budget-summary.json",
+      "bytes": 5599,
+      "sha256": "7b21de193f24fdd621457141edf34b8823ac29f2d155d70a1998bdc3205534cc",
+      "modified_ns": 1794497087854615791
+    },
+    {
+      "file": "initial-timing-summary.json",
+      "bytes": 2038,
+      "sha256": "922f66a0df30329d472c74b3107ff3d6cf70dfed8ddaa36a83eb9f19230dbf88",
+      "modified_ns": 1794723296029022877
+    },
+    {
+      "file": "interior-surround-summary.json",
+      "bytes": 15663,
+      "sha256": "562ef63f79c1d638055b23b22e200dbf598ace07b0757f8e45ebd6fab2477ba5",
+      "modified_ns": 1794731788625468133
+    },
+    {
+      "file": "leaving-clusters-summary.json",
+      "bytes": 4478,
+      "sha256": "b6de2bb6710db893fd3d0034909eb20e982f02095c4b8b807440fe78db5ba3e7",
+      "modified_ns": 1794505529648987829
+    },
+    {
+      "file": "map-acquisition-summary.json",
+      "bytes": 5628,
+      "sha256": "dc85e5daec13181414f96278c3fbdc3191501a4a59a39bf304de3d202d044f05",
+      "modified_ns": 1794505292488333439
+    },
+    {
+      "file": "map-center-validation-summary.json",
+      "bytes": 4175,
+      "sha256": "0ce5d29767593cff39bddad590dfb718112a6aabd8cd34d668cdbfd556ee31ef",
+      "modified_ns": 1794505363151484375
+    },
+    {
+      "file": "map-chain-summary.json",
+      "bytes": 1379,
+      "sha256": "4e174ab19631046d7e9b4e406c28001b50ab8a9a948062410a445c1fd6e007dc",
+      "modified_ns": 1794489071005654574
+    },
+    {
+      "file": "matched-capture-scenes-summary.json",
+      "bytes": 1629,
+      "sha256": "64410d249af7aa5b5d7c282c50e6cb67ea921dc7d31e796aa8aaa84c02de79fc",
+      "modified_ns": 1794500047495613710
+    },
+    {
+      "file": "midphase-diagnostic-summary.json",
+      "bytes": 1542,
+      "sha256": "6328242f237c6e1fc0f09b4c5b86dde4489be8e2a35eab14b50a067a1ab5be81",
+      "modified_ns": 1794505187663838719
+    },
+    {
+      "file": "motion-growth-tradeoff-summary.json",
+      "bytes": 27641,
+      "sha256": "a337de683efa9d3cbefe74d34fac9712fae908fca5d96f371574004d339b4c2b",
+      "modified_ns": 1794732932353846873
+    },
+    {
+      "file": "nonwall-midprey-summary.json",
+      "bytes": 24411,
+      "sha256": "9fea766503e1b350f2499b4f9a05a191e7a6c24d2c408d66e1f0b4b5f2fb31ec",
+      "modified_ns": 1794504705630828509
+    },
+    {
+      "file": "paired-prey-truth-summary.json",
+      "bytes": 14445,
+      "sha256": "22c3155d5d02e0ac7d5a8c85c875de04f51f019fff0437fe07274c1941550cca",
+      "modified_ns": 1794591690305666121
+    },
+    {
+      "file": "period100-summary.json",
+      "bytes": 17572,
+      "sha256": "547bca2a9706b1efcca88f91cd5801995d2e31bed9214788f34ad80b33990dbc",
+      "modified_ns": 1794726745198814381
+    },
+    {
+      "file": "prey-identity-summary.json",
+      "bytes": 1437,
+      "sha256": "c043fd2a39dde05ecf089a5260b802de2bae93454094b6b98f4a7aa7f5071375",
+      "modified_ns": 1794493003825774778
+    },
+    {
+      "file": "pursuit-efficiency-summary.json",
+      "bytes": 75110,
+      "sha256": "5cc5c5c1ab82513f1c122efe6597adbc6b04225eaef6bae4bab6b62818ba852a",
+      "modified_ns": 1794731682528321847
+    },
+    {
+      "file": "recovery-path-summary.json",
+      "bytes": 11620,
+      "sha256": "ea7f79ab702617efc74ae3326092651c69ac30d2190ffb5227b1a57c03dd9ec2",
+      "modified_ns": 1794503388541849053
+    },
+    {
+      "file": "sameframe-label-size-summary.json",
+      "bytes": 1198,
+      "sha256": "963dc6b9a09dda6fff0e264c9556bb884411c0091159c15a4feb2af8ce9c41ac",
+      "modified_ns": 1794504961964115753
+    },
+    {
+      "file": "scaledwall-summary.json",
+      "bytes": 17505,
+      "sha256": "7f5e166e4269c7035861ea541980d5d1a0db378ab61425544d946ba956503e13",
+      "modified_ns": 1794731480253988118
+    },
+    {
+      "file": "tangent-engagement-summary.json",
+      "bytes": 4891,
+      "sha256": "91037e8613c4b82e3749b3eb382ca90dce18787dbdecf0406fb54b8b1290ec61",
+      "modified_ns": 1794495658084280107
+    },
+    {
+      "file": "target-contact-summary.json",
+      "bytes": 4331,
+      "sha256": "3e72b7059f1069f686b69cf409056db9106a115b014f638b6bd6145a595fde95",
+      "modified_ns": 1794497187023982491
+    },
+    {
+      "file": "test024-summary.json",
+      "bytes": 915,
+      "sha256": "8c759de8d9d4b7e892691ac274679b27b1e558a2fca2c09d7dac73a7b2374f62",
+      "modified_ns": 1794577399755939144
+    },
+    {
+      "file": "test025-summary.json",
+      "bytes": 1069,
+      "sha256": "684fda0b98bedb93d213c065996a05d1faae60d4500fd0359ffc9526d249daf3",
+      "modified_ns": 1794588570706961444
+    },
+    {
+      "file": "test026-summary.json",
+      "bytes": 1296,
+      "sha256": "8c163147dc90ae904b449c33469b61bfad33736765a08de18c012ec352cdbce4",
+      "modified_ns": 1794722604912086032
+    },
+    {
+      "file": "three-minute-acceptance-summary.json",
+      "bytes": 641,
+      "sha256": "684d9cdd6c293e5dd477c9c5522ee56764b902445248821a56328801d394ae00",
+      "modified_ns": 1794549605605114044
+    },
+    {
+      "file": "timer-corrected-summary.json",
+      "bytes": 9089,
+      "sha256": "e525effde0fd86c54f8c5cb1ac87fe03de1db4ef65c890fcb095278aa1f2657d",
+      "modified_ns": 1794724343894472112
+    },
+    {
+      "file": "trackhold-summary.json",
+      "bytes": 8518,
+      "sha256": "4a0b51eef20bcace06d5d0b0bff33ee5493f2fa2f0c437e56bf7420a3a70d871",
+      "modified_ns": 1794728043600730382
+    },
+    {
+      "file": "turning-replay-summary.json",
+      "bytes": 493,
+      "sha256": "b939185c3d6c0829e02dc217b6bdaa193f79bc3e43964ac692814ab47be1b13e",
+      "modified_ns": 1794405034918274724
+    },
+    {
+      "file": "two-thirty-screening-summary.json",
+      "bytes": 2105,
+      "sha256": "1ea62803e160fc98d2d91b8da6114d38eda793cba6e8288646ef3150792f9654",
+      "modified_ns": 1794566060145621502
+    },
+    {
+      "file": "value24-death-cause-summary.json",
+      "bytes": 4095,
+      "sha256": "deb1300679ce5b6a0504305df47cb825f54a27be6516ae5aea6ffa9c4c55583d",
+      "modified_ns": 1794729860120399726
+    },
+    {
+      "file": "value24-static-summary.json",
+      "bytes": 620,
+      "sha256": "b0e40f074db260f4c39607e4f876492765eade1bc6dccad71a359ae813e1cda1",
+      "modified_ns": 1794728457558417654
+    },
+    {
+      "file": "value24-summary.json",
+      "bytes": 7446,
+      "sha256": "e73d012575445c88ac36085b85c484335b977935a4de720079f90c5f761ecbfb",
+      "modified_ns": 1794729352422038684
+    },
+    {
+      "file": "visible-toast-summary.json",
+      "bytes": 2770,
+      "sha256": "8bcc43f74cf5da11931f533b6d910b634ade79ac4512606a2c1dbc40c8f11c5e",
+      "modified_ns": 1794499911990815881
+    },
+    {
+      "file": "wallmeal-summary.json",
+      "bytes": 4317,
+      "sha256": "68f45508718b91d985c11ab3e296a7e949bd5a865ed63829f4c849cfe86baeec",
+      "modified_ns": 1794734084996681533
+    }
+  ],
+  "formal_anchor": {
+    "v2.13/A": {
+      "n": 12,
+      "wins": 1,
+      "deaths": 0,
+      "timeouts": 11,
+      "invalid": 0
+    },
+    "v2.20/A": {
+      "n": 12,
+      "wins": 0,
+      "deaths": 12,
+      "timeouts": 0,
+      "invalid": 0
+    },
+    "v2.21/A": {
+      "n": 12,
+      "wins": 0,
+      "deaths": 12,
+      "timeouts": 0,
+      "invalid": 0
+    },
+    "v2.22/A": {
+      "n": 12,
+      "wins": 2,
+      "deaths": 4,
+      "timeouts": 6,
+      "invalid": 0
+    },
+    "v2.13/B": {
+      "n": 12,
+      "wins": 1,
+      "deaths": 2,
+      "timeouts": 9,
+      "invalid": 0
+    },
+    "v2.20/B": {
+      "n": 12,
+      "wins": 0,
+      "deaths": 12,
+      "timeouts": 0,
+      "invalid": 0
+    },
+    "v2.21/B": {
+      "n": 12,
+      "wins": 0,
+      "deaths": 12,
+      "timeouts": 0,
+      "invalid": 0
+    },
+    "v2.22/B": {
+      "n": 12,
+      "wins": 1,
+      "deaths": 6,
+      "timeouts": 5,
+      "invalid": 0
+    }
+  },
+  "do_not_pool": "Formal original-random trials, selected paireddiagnostics, repeatedfixedseeds, frames and counterfactual branches are separate populations. No aggregatewinrate or causalprevalence across57summaryfiles.",
+  "strata": [
+    {
+      "version": "v2.13",
+      "formal_baseline": "1/12win,0death,11timeout",
+      "bottleneck": "Growth throughput, not simply survival. 59/59selectedfood+mediumvisible cases in one trace were wall-excluded; exception failed newcohort. Othernonwall growth failures remain.",
+      "evidence": [
+        "test026-summary.json",
+        "food-choice-summary.json",
+        "wallmeal-summary.json",
+        "growth-budget-summary.json"
+      ]
+    },
+    {
+      "version": "v2.20",
+      "formal_baseline": "0/12win,12death",
+      "bottleneck": "Survival is binding; cannot assign all deaths to one mechanism. Separate matched-source failures include clippedvelocity signerror/merge, existinggiant encirclement, freshspawn+clamp.",
+      "evidence": [
+        "early-threat-summary.json",
+        "arc-geometry-summary.json"
+      ]
+    },
+    {
+      "version": "v2.21",
+      "formal_baseline": "0/12win,12death",
+      "bottleneck": "Survival plus splitting. Visibleparent has possible escape in one localfork but changedfutureRNG; genericclearancefirst failed freshpairedcohort.",
+      "evidence": [
+        "escape-forks-summary.json",
+        "clearancepriority-summary.json"
+      ]
+    },
+    {
+      "version": "v2.22",
+      "formal_baseline": "2/12win,4death,6timeout",
+      "bottleneck": "Mixed; cappedNPCsize doesnot remove competingpredator or timeboundgrowth limitations.",
+      "evidence": [
+        "capture-loss-summary.json",
+        "competition-shadow-summary.json"
+      ]
+    }
+  ],
+  "rejected_changes": [
+    "Edibility .91->.94: formal96 no improvement, deaths increasedv13/v22.",
+    "Horizon2s/minimaprepulsion: formal screens failed.",
+    "100mscontroller: v13 2/8->3/8 butv20/21 0/8;CPUwithin100ms. Notvalidatedsolution.",
+    "Trackhold .6s/value24segmentation: recoveredsomeobjects butv20/21 remained0/4deadall;costselsewhere.",
+    "Fixed500/scaledwall: survival/timeouts tradeoff, growthloss, nooverallpass.",
+    "Escape-reversalhold,wallmealexception: newcohorts lostwins/increaseddeaths elsewhere.",
+    "Arc-center: independentstaticaccuracyimproved; freshclosedloopv13/v22 lostwins, v20/21deadall.",
+    "Clearancepriority: shadowgatepassed butpairedv20survivalmedian-8.5s,v21+.1s,retentionfailed.",
+    "Preycompetition: independent16shadowgatefailedallversions; onlyoneeligibleframe alreadychosenNorth, predictedgain17.28 notrealizednext2s."
+  ],
+  "user_hypotheses": {
+    "size90avoidance": "Not one universal cause. Wall exclusions, unsafeapproaches, radiuserror, preycompetition all have instances. Do not globallylowerthreshold.",
+    "speed_advantage": "145linkedselectedpreyepisodes allpositiveclosingmedian269-308, approximatecamera-relative; no evidence universaltooslow. Fastapproach notproofstablecapture or safety.",
+    "movement_prediction": "Used existingvisualvelocity+2sconstantheading; per-tickreplanning means forecast isnot realizedpath. Tracking/occlusion and changes inpreyavailability limitprediction.",
+    "human_better": "No matchedhuman recorded cohort under sameversions/startconditions; cannot quantify humangap or infer humanpolicyfromclaim."
+  },
+  "largest_verifiable_next_value": "Measure forecast-to-realized capture failure at controllercadence, not more parameter sweeps. This is an evidence task, not proven gameplayimprovement. Existing model can forecast17gain thenHUD0; need isolate cancellationreason and actualprey identity before choosing maneuver policy.",
+  "bounded_next_design": {
+    "input": "Reuse existing trace/canvas corpus. Choose atmost3 r>=90 episodes with forecastNPCgain>=5 and noHUDgrowthnext2s, plus3 matchedsuccessful episodes atsimilarplayer/preysize. No newgameifexistingevidenceenough.",
+    "required_per_callback": [
+      "frame+timestamp+HUD",
+      "capturetoast text ifvisible",
+      "selectedtarget pixelidentity confidence",
+      "alladmissiblecandidatepaths and intendedcontacttime",
+      "headingactualchanges and firstconstraint that cancelsapproach",
+      "occlusion/merge/preyconsumption vscontrollercancellation distinction"
+    ],
+    "offline_truth": "Only score/disambiguate afterdecisions;neverinputs. Exacteventlabels onlyifalreadylogged,otherwisemarkunknown.",
+    "go_no_go": "Require >=3 independentcases sharing same correctablefailure with visuallysafe alternative and projected/observed contact agreement; confirm on unseen cases before single-factorcohort. Cases selectedforfailure cannotestimateprevalence. Do not widen thresholds to manufacturegate.",
+    "current_gap": "Existing summaries do not jointly provide stablepreyidentity, exactvisiblecapturetoast, firstconstraintcancellation, and realizedalternativecontact atsamecallback. Thus no justified nextcontrollerpatch now."
+  },
+  "status": "Stop blind strategy sweeps; noactivegamebatch/no newcontroller/no deployment. Continueonly bounded evidencework when directed. Existing tasknotclaimedcomplete; no resource/permissionblock."
+}
