@@ -1,0 +1,22 @@
+{
+  "diagnostic_only": true,
+  "baseline": "Unmodifiedfoodwall022 pixel/HUD decisions; observation-only planlogging. No failedpatchstacking.",
+  "seeds": [
+    15013,
+    16001
+  ],
+  "phases_ms": [
+    0,
+    100
+  ],
+  "versions": [
+    "v2.13",
+    "v2.20",
+    "v2.21",
+    "v2.22"
+  ],
+  "games": 16,
+  "eligibility": "Atleast2safe/admissiblepooldirections; >=3visiblegiants withdangerRadius>=2player andedgeDistance<700; maxpredictedgainacrosspool<=1; selectedclearance<100; bestclearanceexceedsselected>=5. Preserveboundarypool.",
+  "predefined_gate": "Before any intervention: >=3distinctv20/v21seedphasecases (bothversionsrepresented) have>=3consecutiveeligiblecallbacks; medianforecastgrowthloss(selectedgain-altgain,>=0)<=.25; eligible<=15%ofvalidframesperversion. Ifnotmet,no candidatebatch,reportfailurewithoutretuningon samecases.",
+  "limits": "Shadowpredictions maywrong; gate onlypermitsboundedcontrolleddiagnosis, not proof ofwins or realizedgrowthcost. No formalacceptance."
+}
