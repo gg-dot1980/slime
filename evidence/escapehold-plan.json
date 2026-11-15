@@ -1,0 +1,22 @@
+{
+  "diagnostic_only": true,
+  "n": 32,
+  "seeds": [
+    9001,
+    10007
+  ],
+  "phases": [
+    0,
+    100
+  ],
+  "versions": [
+    "v2.13",
+    "v2.20",
+    "v2.21",
+    "v2.22"
+  ],
+  "A": "unchangedbaseline022",
+  "B": "Ifallsafeempty andbestheadingopposesold, retainoldonlywhen bestclearancegain<30; allotherlogic unchanged",
+  "gate": "everyversion>=2/4 andstrictlybetterthanbaseline without increaseddeaths, pluslater independentconfirmation beforeoriginalscreening; no formalacceptance fromdiagnostic",
+  "limits": "30 is hypothesis notvalidatedbound; smallrelatedseedphase sample. Keepattackspeed/intercept andfoodutilityunchanged."
+}
