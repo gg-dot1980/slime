@@ -1,0 +1,23 @@
+{
+  "diagnostic_only": true,
+  "games": 32,
+  "seeds": [
+    22003,
+    23003
+  ],
+  "phases_ms": [
+    0,
+    100
+  ],
+  "versions": [
+    "v2.13",
+    "v2.20",
+    "v2.21",
+    "v2.22"
+  ],
+  "A": "originalbaseline022",
+  "B": "only frozenwhiteplayeroutline mask,180rays .65..1.4HUDR,white205/range45,coverage95%,maxgap5,maskinterior+2analysispx; failurefallthroughoriginalcomponents. No thresholds/strategychanges orfailedpatchstacking.",
+  "retention_gate": "Eachversion B>=2/4wins at<=150s AND Bwins>=A AND Bdeaths<=A. Pooled actualNPC captures per100alive logicalseconds B>=A; v13/v22 at60seconds both-alivepairs median cumulativeNPCnetgrowth B-A>=0 (reportdenominators;no causalpopulationclaim). No invalidtrial or callbackp95>=200ms. Anyfail rejects withoutretuning samecohort.",
+  "metric_separation": "Captureelapsed/net audited aftergameeatNpc/aftercallbacks intoisolatedharness;nevercontrollerinput. Visual/HUDonly controls. Fixedseed diagnosticnotacceptance;passrequiresoriginalrandomfourversion96screen+independent40/versionconfirmationoriginalgoal unchanged.",
+  "stop": "32gamesmaximum orinstrumentation/resourceerror; no additionalruns iffail. No deployment duringdiagnosis."
+}
