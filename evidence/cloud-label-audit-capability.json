@@ -1,0 +1,16 @@
+{
+  "scope": "Independent cloud capability check; no NUC PID/session cleanup, no game replay or strategy modification",
+  "environment": "Dot cloud computer, attached successfully",
+  "installed": {
+    "chromium": "/usr/bin/chromium",
+    "playwright": true,
+    "Pillow": true,
+    "firefox_binary": false
+  },
+  "attempt": "Fresh isolated Playwright Chromium synthetic canvas -> lossless PNG roundtrip",
+  "result": "Launch failed before page/canvas creation",
+  "error": "chrome/browser/process_singleton_posix.cc:297 socket() failed: Operation not permitted (1); crashpad ptrace Operation not permitted",
+  "cleanup": "Playwright reported process exited SIGABRT and temporary directory cleanup completed; no NUC process touched",
+  "decision": "No successful exact PNG sampling or positive-control result. Do not treat preliminary PIL audit as browser equivalent or lower safety gate. No further workaround attempted.",
+  "next": "Need a permitted fresh Firefox test session or already-resampled original Firefox lossless PNG frames. Existing raw canvas PNGs and independent replay evidence remain available on NUC."
+}
