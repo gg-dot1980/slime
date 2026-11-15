@@ -1,0 +1,602 @@
+{
+  "method": "Postrun source audit only, never control. Medium actual radius0.5player..player/1.08. Whole viewport, exclude overlaps with any NPC/player. Unique nearest match withinmax30,.4r and20margin. Repeated observations not distinct objects.",
+  "summary": [
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "counts": {
+        "fully_visible_medium": 374,
+        "unoccluded_medium": 307,
+        "matched": 306,
+        "missing": 1,
+        "false_inedible": 61,
+        "blocked": 0,
+        "false_danger": 1,
+        "near_visible_mid_missed": 1
+      },
+      "median_radius_ratio": 1.0509693561805613,
+      "p10p90": [
+        1.0056882249248535,
+        1.1335883935445261
+      ]
+    },
+    {
+      "version": "v2.13",
+      "seed": 101,
+      "counts": {
+        "fully_visible_medium": 272,
+        "unoccluded_medium": 223,
+        "matched": 219,
+        "missing": 4,
+        "false_inedible": 43,
+        "blocked": 0,
+        "false_danger": 3,
+        "near_visible_mid_missed": 2
+      },
+      "median_radius_ratio": 1.0234961060460317,
+      "p10p90": [
+        0.8999742900117584,
+        1.0793795918878435
+      ]
+    },
+    {
+      "version": "v2.20",
+      "seed": 303,
+      "counts": {
+        "fully_visible_medium": 277,
+        "unoccluded_medium": 215,
+        "matched": 214,
+        "missing": 1,
+        "false_inedible": 33,
+        "blocked": 0,
+        "false_danger": 8,
+        "near_visible_mid_missed": 0
+      },
+      "median_radius_ratio": 1.0438545527058574,
+      "p10p90": [
+        0.9311308836993832,
+        1.1405124733670868
+      ]
+    },
+    {
+      "version": "v2.21",
+      "seed": 303,
+      "counts": {
+        "fully_visible_medium": 79,
+        "unoccluded_medium": 72,
+        "matched": 72,
+        "missing": 0,
+        "false_inedible": 23,
+        "blocked": 0,
+        "false_danger": 3,
+        "near_visible_mid_missed": 0
+      },
+      "median_radius_ratio": 0.9416500877294935,
+      "p10p90": [
+        0.8768262688158778,
+        1.1219609614638861
+      ]
+    },
+    {
+      "version": "v2.22",
+      "seed": 303,
+      "counts": {
+        "fully_visible_medium": 174,
+        "unoccluded_medium": 145,
+        "matched": 142,
+        "missing": 3,
+        "false_inedible": 21,
+        "blocked": 0,
+        "false_danger": 3,
+        "near_visible_mid_missed": 3
+      },
+      "median_radius_ratio": 1.0564161362375635,
+      "p10p90": [
+        0.9307475311572803,
+        1.1353798573305756
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 0.2,
+      "player": 25,
+      "truth": {
+        "x": 526.9362652128193,
+        "y": 382.08138325501113,
+        "r": 20.88315203366801,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 527.7314814814815,
+        "y": 383.26388888888897,
+        "r": 23.333333333333336,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 23.333333333333336,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 0.4,
+      "player": 25,
+      "truth": {
+        "x": 525.6361739132635,
+        "y": 408.9765133752985,
+        "r": 20.88315203366801,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 526.6548463356975,
+        "y": 410.0472813238772,
+        "r": 23.333333333333336,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 23.333333333333336,
+        "vx": -1.8841115051220907,
+        "vy": -4.754063238770598
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 0.6,
+      "player": 25.38,
+      "truth": {
+        "x": 523.5744152808174,
+        "y": 465.02568069204426,
+        "r": 20.88315203366801,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 524.3518518518518,
+        "y": 466.25,
+        "r": 23.333333333333336,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 23.333333333333336,
+        "vx": -5.254912825059201,
+        "vy": -9.73538342198601
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 0.8,
+      "player": 25.38,
+      "truth": {
+        "x": 500.42014916281096,
+        "y": 523.5898812853598,
+        "r": 20.88315203366801,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 501.23873873873873,
+        "y": 524.7972972972973,
+        "r": 23.333333333333336,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 23.333333333333336,
+        "vx": -8.261789432384386,
+        "vy": -15.366441075232848
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 2.6,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": -901.3293263919722,
+        "y": 14.529621260134263,
+        "r": 16.316109928768128,
+        "wobble": 0.9502331625088118
+      },
+      "observed": {
+        "x": -900.680751173709,
+        "y": 15.586854460093871,
+        "r": 16.666666666666668,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 2.8,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": -870.303729733278,
+        "y": -19.755664845237334,
+        "r": 16.316109928768128,
+        "wobble": 0.9502331625088118
+      },
+      "observed": {
+        "x": -869.4594594594594,
+        "y": -19.00900900900903,
+        "r": 16.666666666666668,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 3.0,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": -886.6246259339341,
+        "y": -69.18072262820942,
+        "r": 16.316109928768128,
+        "wobble": 0.9502331625088118
+      },
+      "observed": {
+        "x": -885.8108108108108,
+        "y": -68.33333333333334,
+        "r": 16.666666666666668,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 3.2,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": -922.6972765722594,
+        "y": -124.98711528821013,
+        "r": 16.316109928768128,
+        "wobble": 0.9502331625088118
+      },
+      "observed": {
+        "x": -921.6203703703703,
+        "y": -124.16666666666667,
+        "r": 16.666666666666668,
+        "npc": false,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 3.4,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": 717.33775320324,
+        "y": 309.9212253163855,
+        "r": 21.64315203366801,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 717.9411764705883,
+        "y": 310.7843137254903,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -8.707415420564562,
+        "vy": -59.142983808165866
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 4.0,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": 616.1295394221806,
+        "y": 199.7192967559845,
+        "r": 21.64315203366801,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 617.1491228070175,
+        "y": 200.4605263157895,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": 3.0510662911054647,
+        "vy": -60.1619158951408
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 4.8,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": 460.04483324011017,
+        "y": 147.76462613114836,
+        "r": 21.64315203366801,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 460.9041394335513,
+        "y": 148.56209150326796,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -7.23242318355588,
+        "vy": -56.134353370666226
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 5.2,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": 413.7873571467253,
+        "y": 126.08546677676077,
+        "r": 21.64315203366801,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 414.66666666666663,
+        "y": 126.86666666666667,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -17.80044029545406,
+        "vy": -54.675831493234995
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 5.8,
+      "player": 26.58803509104531,
+      "truth": {
+        "x": 313.1081934158674,
+        "y": 48.99223893020371,
+        "r": 22.05386023919098,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 314.0683229813666,
+        "y": 49.60662525879921,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -33.97571450246048,
+        "vy": -46.9752491608316
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 6.2,
+      "player": 26.96803509104531,
+      "truth": {
+        "x": 252.43493239463533,
+        "y": -14.884655530025157,
+        "r": 22.05386023919098,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 253.7002096436059,
+        "y": -14.360587002096471,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -36.39026729592208,
+        "vy": -45.9511864578476
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 6.4,
+      "player": 26.96803509104531,
+      "truth": {
+        "x": 237.91461056188746,
+        "y": -54.45436850869919,
+        "r": 22.05386023919098,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 238.78600823045267,
+        "y": -53.82716049382718,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -35.880069425243924,
+        "vy": -47.33221070556513
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 6.6,
+      "player": 26.96803509104531,
+      "truth": {
+        "x": 261.90749818985114,
+        "y": -110.2319292463335,
+        "r": 22.05386023919098,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 266.098901098901,
+        "y": -115.82417582417587,
+        "r": 33.333333333333336,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 33.333333333333336,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 6.8,
+      "player": 26.96803509104531,
+      "truth": {
+        "x": 303.02269774907745,
+        "y": -172.9617565169233,
+        "r": 22.462037068130446,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 303.949494949495,
+        "y": -172.2828282828283,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 7.0,
+      "player": 26.96803509104531,
+      "truth": {
+        "x": 352.5284570551612,
+        "y": -238.442819993174,
+        "r": 22.462037068130446,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 353.49593495934965,
+        "y": -237.76422764227644,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -3.3507142025091396,
+        "vy": -19.836351318058114
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 7.2,
+      "player": 26.96803509104531,
+      "truth": {
+        "x": 406.78725199796827,
+        "y": -304.36882161082076,
+        "r": 22.462037068130446,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 407.82051282051293,
+        "y": -303.5700197238659,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -1.529887615118088,
+        "vy": -31.289058617166077
+      }
+    },
+    {
+      "version": "v2.13",
+      "seed": 303,
+      "time": 7.4,
+      "player": 27.348035091045308,
+      "truth": {
+        "x": 469.91357054563105,
+        "y": -349.8863333367344,
+        "r": 22.462037068130446,
+        "wobble": 1.065900335216429
+      },
+      "observed": {
+        "x": 470.7945736434109,
+        "y": -349.1279069767442,
+        "r": 25,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 25,
+        "vx": -1.8238706889669116,
+        "vy": -37.09070594520985
+      }
+    }
+  ]
+}
