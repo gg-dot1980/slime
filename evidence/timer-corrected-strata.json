@@ -1,0 +1,304 @@
+{
+  "scope": "diagnostic pixel/HUD only; conditional observations, not causal or formal acceptance",
+  "v13_growth": [
+    {
+      "version": "v2.13",
+      "seed": 517,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "growth": {
+        "30": "44",
+        "60": "55",
+        "90": "88",
+        "120": "109"
+      },
+      "late_medium_prey_observation_samples": 38,
+      "late_samples": 150,
+      "late_npc_target_samples": 55
+    },
+    {
+      "version": "v2.13",
+      "seed": 517,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "growth": {
+        "30": "44",
+        "60": "55",
+        "90": "85",
+        "120": "115"
+      },
+      "late_medium_prey_observation_samples": 119,
+      "late_samples": 150,
+      "late_npc_target_samples": 119
+    },
+    {
+      "version": "v2.13",
+      "seed": 517,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "growth": {
+        "30": "50",
+        "60": "87",
+        "90": "125",
+        "120": "139"
+      },
+      "late_medium_prey_observation_samples": 141,
+      "late_samples": 150,
+      "late_npc_target_samples": 69
+    },
+    {
+      "version": "v2.13",
+      "seed": 517,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "growth": {
+        "30": "42",
+        "60": "67",
+        "90": "93",
+        "120": "101"
+      },
+      "late_medium_prey_observation_samples": 122,
+      "late_samples": 150,
+      "late_npc_target_samples": 27
+    },
+    {
+      "version": "v2.13",
+      "seed": 911,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "growth": {
+        "30": "54",
+        "60": "71",
+        "90": "115",
+        "120": "142"
+      },
+      "late_medium_prey_observation_samples": 51,
+      "late_samples": 150,
+      "late_npc_target_samples": 85
+    },
+    {
+      "version": "v2.13",
+      "seed": 911,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "growth": {
+        "30": "83",
+        "60": "115",
+        "90": "142",
+        "120": "176"
+      },
+      "late_medium_prey_observation_samples": 93,
+      "late_samples": 150,
+      "late_npc_target_samples": 150
+    },
+    {
+      "version": "v2.13",
+      "seed": 911,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "growth": {
+        "30": "52",
+        "60": "93",
+        "90": "114",
+        "120": "125"
+      },
+      "late_medium_prey_observation_samples": 87,
+      "late_samples": 150,
+      "late_npc_target_samples": 46
+    },
+    {
+      "version": "v2.13",
+      "seed": 911,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "growth": {
+        "30": "63",
+        "60": "87",
+        "90": "111",
+        "120": "144"
+      },
+      "late_medium_prey_observation_samples": 103,
+      "late_samples": 150,
+      "late_npc_target_samples": 115
+    }
+  ],
+  "v20_21_predeath": [
+    {
+      "version": "v2.20",
+      "seed": 517,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "last_live_ms": 102200.00000000685,
+      "size": 119,
+      "clearance": 27.372850115534504,
+      "visible_threats": 3,
+      "clipped_threats": 3
+    },
+    {
+      "version": "v2.20",
+      "seed": 517,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "last_live_ms": 108000.00000000854,
+      "size": 129,
+      "clearance": 36.5602213438039,
+      "visible_threats": 2,
+      "clipped_threats": 2
+    },
+    {
+      "version": "v2.20",
+      "seed": 517,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "last_live_ms": 86400.00000000226,
+      "size": 107,
+      "clearance": 32.35238037314434,
+      "visible_threats": 4,
+      "clipped_threats": 4
+    },
+    {
+      "version": "v2.20",
+      "seed": 517,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "last_live_ms": 85600.00000000202,
+      "size": 97,
+      "clearance": -5.461139298409478,
+      "visible_threats": 5,
+      "clipped_threats": 5
+    },
+    {
+      "version": "v2.20",
+      "seed": 911,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "last_live_ms": 75599.99999999911,
+      "size": 94,
+      "clearance": -70.18120739160184,
+      "visible_threats": 4,
+      "clipped_threats": 3
+    },
+    {
+      "version": "v2.20",
+      "seed": 911,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "last_live_ms": 103200.00000000714,
+      "size": 85,
+      "clearance": -127.23516122438014,
+      "visible_threats": 2,
+      "clipped_threats": 2
+    },
+    {
+      "version": "v2.20",
+      "seed": 911,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "last_live_ms": 122400.00000001273,
+      "size": 89,
+      "clearance": 71.33980114523945,
+      "visible_threats": 2,
+      "clipped_threats": 2
+    },
+    {
+      "version": "v2.20",
+      "seed": 911,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "last_live_ms": 88800.00000000295,
+      "size": 67,
+      "clearance": 46.24577056754197,
+      "visible_threats": 2,
+      "clipped_threats": 2
+    },
+    {
+      "version": "v2.21",
+      "seed": 517,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "last_live_ms": 94000.00000000447,
+      "size": 122,
+      "clearance": -35.828528865246426,
+      "visible_threats": 3,
+      "clipped_threats": 2
+    },
+    {
+      "version": "v2.21",
+      "seed": 517,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "last_live_ms": 93800.00000000441,
+      "size": 121,
+      "clearance": -90.2626588990118,
+      "visible_threats": 5,
+      "clipped_threats": 5
+    },
+    {
+      "version": "v2.21",
+      "seed": 517,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "last_live_ms": 104800.00000000761,
+      "size": 154,
+      "clearance": -677.588847116156,
+      "visible_threats": 4,
+      "clipped_threats": 4
+    },
+    {
+      "version": "v2.21",
+      "seed": 517,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "last_live_ms": 63799.99999999644,
+      "size": 85,
+      "clearance": -202.23883583479017,
+      "visible_threats": 4,
+      "clipped_threats": 4
+    },
+    {
+      "version": "v2.21",
+      "seed": 911,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "last_live_ms": 106200.00000000802,
+      "size": 100,
+      "clearance": -125.83280288568932,
+      "visible_threats": 4,
+      "clipped_threats": 3
+    },
+    {
+      "version": "v2.21",
+      "seed": 911,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "last_live_ms": 69999.99999999748,
+      "size": 77,
+      "clearance": -92.52600626488788,
+      "visible_threats": 5,
+      "clipped_threats": 4
+    },
+    {
+      "version": "v2.21",
+      "seed": 911,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "last_live_ms": 71199.99999999783,
+      "size": 102,
+      "clearance": 7.782136342691928,
+      "visible_threats": 3,
+      "clipped_threats": 2
+    },
+    {
+      "version": "v2.21",
+      "seed": 911,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "last_live_ms": 111000.00000000942,
+      "size": 97,
+      "clearance": -72.61604032806963,
+      "visible_threats": 4,
+      "clipped_threats": 4
+    }
+  ],
+  "visual_evidence": "timer-unseen-v2.20-517-0-100.png inspected: player119 surrounded by several huge partiallyclipped NPCs; no need hidden truth to see geometrychallenge."
+}
