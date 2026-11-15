@@ -1,0 +1,544 @@
+{
+  "scope": "posthoc original test026 evidence; growth medians conditional on still playing, not population effect; predeath sampling 0.5s approximate",
+  "groups": {
+    "v2.13A": {
+      "growth": {
+        "30": {
+          "surviving": 12,
+          "median": 47.0
+        },
+        "60": {
+          "surviving": 12,
+          "median": 65.5
+        },
+        "90": {
+          "surviving": 12,
+          "median": 89.5
+        },
+        "120": {
+          "surviving": 11,
+          "median": 124.0
+        }
+      },
+      "predeath": []
+    },
+    "v2.13B": {
+      "growth": {
+        "30": {
+          "surviving": 11,
+          "median": 44.0
+        },
+        "60": {
+          "surviving": 11,
+          "median": 75.0
+        },
+        "90": {
+          "surviving": 10,
+          "median": 103.5
+        },
+        "120": {
+          "surviving": 9,
+          "median": 130.0
+        }
+      },
+      "predeath": [
+        {
+          "run": 53,
+          "last_live_elapsed": 2.627,
+          "clearance": 482.1503943209515,
+          "death_seconds": 2
+        },
+        {
+          "run": 73,
+          "last_live_elapsed": 77.282,
+          "clearance": 274.52104582246716,
+          "death_seconds": 77
+        }
+      ]
+    },
+    "v2.20A": {
+      "growth": {
+        "30": {
+          "surviving": 12,
+          "median": 52.5
+        },
+        "60": {
+          "surviving": 12,
+          "median": 78.0
+        },
+        "90": {
+          "surviving": 6,
+          "median": 108.0
+        },
+        "120": {
+          "surviving": 0,
+          "median": null
+        }
+      },
+      "predeath": [
+        {
+          "run": 2,
+          "last_live_elapsed": 113.373,
+          "clearance": -17.21044185268238,
+          "death_seconds": 113
+        },
+        {
+          "run": 14,
+          "last_live_elapsed": 106.775,
+          "clearance": 33.392742771814824,
+          "death_seconds": 107
+        },
+        {
+          "run": 18,
+          "last_live_elapsed": 68.37,
+          "clearance": 114.3350574145959,
+          "death_seconds": 68
+        },
+        {
+          "run": 30,
+          "last_live_elapsed": 83.164,
+          "clearance": -87.58178402535859,
+          "death_seconds": 83
+        },
+        {
+          "run": 34,
+          "last_live_elapsed": 107.166,
+          "clearance": 13.087862992855776,
+          "death_seconds": 107
+        },
+        {
+          "run": 46,
+          "last_live_elapsed": 76.033,
+          "clearance": 11.977963608534708,
+          "death_seconds": 76
+        },
+        {
+          "run": 50,
+          "last_live_elapsed": 94.144,
+          "clearance": -13.82975053701847,
+          "death_seconds": 94
+        },
+        {
+          "run": 62,
+          "last_live_elapsed": 61.707,
+          "clearance": 244.77799267721582,
+          "death_seconds": 61
+        },
+        {
+          "run": 66,
+          "last_live_elapsed": 98.472,
+          "clearance": 44.43755914877056,
+          "death_seconds": 98
+        },
+        {
+          "run": 78,
+          "last_live_elapsed": 95.389,
+          "clearance": 12.049038907293834,
+          "death_seconds": 95
+        },
+        {
+          "run": 82,
+          "last_live_elapsed": 87.272,
+          "clearance": 60.103486265230345,
+          "death_seconds": 87
+        },
+        {
+          "run": 94,
+          "last_live_elapsed": 67.86,
+          "clearance": -8.819626448992267,
+          "death_seconds": 68
+        }
+      ]
+    },
+    "v2.20B": {
+      "growth": {
+        "30": {
+          "surviving": 12,
+          "median": 47.5
+        },
+        "60": {
+          "surviving": 12,
+          "median": 68.0
+        },
+        "90": {
+          "surviving": 6,
+          "median": 96.5
+        },
+        "120": {
+          "surviving": 1,
+          "median": 170.0
+        }
+      },
+      "predeath": [
+        {
+          "run": 6,
+          "last_live_elapsed": 74.251,
+          "clearance": -34.837341388940615,
+          "death_seconds": 74
+        },
+        {
+          "run": 10,
+          "last_live_elapsed": 76.632,
+          "clearance": 158.88689413574718,
+          "death_seconds": 76
+        },
+        {
+          "run": 22,
+          "last_live_elapsed": 116.54,
+          "clearance": 89.56144583338858,
+          "death_seconds": 116
+        },
+        {
+          "run": 26,
+          "last_live_elapsed": 101.349,
+          "clearance": -25.089628397457204,
+          "death_seconds": 101
+        },
+        {
+          "run": 38,
+          "last_live_elapsed": 93.938,
+          "clearance": -78.46718766204037,
+          "death_seconds": 94
+        },
+        {
+          "run": 42,
+          "last_live_elapsed": 102.692,
+          "clearance": 23.072560886320616,
+          "death_seconds": 103
+        },
+        {
+          "run": 54,
+          "last_live_elapsed": 61.776,
+          "clearance": 28.826468495834803,
+          "death_seconds": 61
+        },
+        {
+          "run": 58,
+          "last_live_elapsed": 65.394,
+          "clearance": 278.0431249506105,
+          "death_seconds": 65
+        },
+        {
+          "run": 70,
+          "last_live_elapsed": 121.115,
+          "clearance": -25.349699034058688,
+          "death_seconds": 121
+        },
+        {
+          "run": 74,
+          "last_live_elapsed": 91.421,
+          "clearance": -213.5716714501812,
+          "death_seconds": 91
+        },
+        {
+          "run": 86,
+          "last_live_elapsed": 62.199,
+          "clearance": 33.88584601357621,
+          "death_seconds": 62
+        },
+        {
+          "run": 90,
+          "last_live_elapsed": 84.634,
+          "clearance": 28.057947075101822,
+          "death_seconds": 84
+        }
+      ]
+    },
+    "v2.21A": {
+      "growth": {
+        "30": {
+          "surviving": 12,
+          "median": 49.5
+        },
+        "60": {
+          "surviving": 10,
+          "median": 75.5
+        },
+        "90": {
+          "surviving": 3,
+          "median": 88.0
+        },
+        "120": {
+          "surviving": 1,
+          "median": 110.0
+        }
+      },
+      "predeath": [
+        {
+          "run": 3,
+          "last_live_elapsed": 66.004,
+          "clearance": 194.48833457104877,
+          "death_seconds": 66
+        },
+        {
+          "run": 15,
+          "last_live_elapsed": 58.116,
+          "clearance": 383.02436063463404,
+          "death_seconds": 58
+        },
+        {
+          "run": 19,
+          "last_live_elapsed": 62.395,
+          "clearance": 60.72918419131008,
+          "death_seconds": 62
+        },
+        {
+          "run": 31,
+          "last_live_elapsed": 81.502,
+          "clearance": -16.87417337598461,
+          "death_seconds": 81
+        },
+        {
+          "run": 35,
+          "last_live_elapsed": 87.152,
+          "clearance": -600.7306385926372,
+          "death_seconds": 87
+        },
+        {
+          "run": 47,
+          "last_live_elapsed": 66.966,
+          "clearance": 751.2968404187526,
+          "death_seconds": 67
+        },
+        {
+          "run": 51,
+          "last_live_elapsed": 128.389,
+          "clearance": -71.75217914929533,
+          "death_seconds": 128
+        },
+        {
+          "run": 63,
+          "last_live_elapsed": 92.67,
+          "clearance": 43.55218470884296,
+          "death_seconds": 92
+        },
+        {
+          "run": 67,
+          "last_live_elapsed": 92.476,
+          "clearance": -96.37442095419902,
+          "death_seconds": 92
+        },
+        {
+          "run": 79,
+          "last_live_elapsed": 42.889,
+          "clearance": 546.3522062410968,
+          "death_seconds": 43
+        },
+        {
+          "run": 83,
+          "last_live_elapsed": 81.761,
+          "clearance": -137.66525303742532,
+          "death_seconds": 81
+        },
+        {
+          "run": 95,
+          "last_live_elapsed": 82.805,
+          "clearance": -16.16798765176827,
+          "death_seconds": 82
+        }
+      ]
+    },
+    "v2.21B": {
+      "growth": {
+        "30": {
+          "surviving": 11,
+          "median": 47.0
+        },
+        "60": {
+          "surviving": 11,
+          "median": 77.0
+        },
+        "90": {
+          "surviving": 3,
+          "median": 89.0
+        },
+        "120": {
+          "surviving": 1,
+          "median": 101.0
+        }
+      },
+      "predeath": [
+        {
+          "run": 7,
+          "last_live_elapsed": 86.808,
+          "clearance": 8.772523891320247,
+          "death_seconds": 87
+        },
+        {
+          "run": 11,
+          "last_live_elapsed": 78.671,
+          "clearance": -15.345793215339427,
+          "death_seconds": 78
+        },
+        {
+          "run": 23,
+          "last_live_elapsed": 115.733,
+          "clearance": 8.234426176512557,
+          "death_seconds": 115
+        },
+        {
+          "run": 27,
+          "last_live_elapsed": 26.527,
+          "clearance": 42.57158923744106,
+          "death_seconds": 26
+        },
+        {
+          "run": 39,
+          "last_live_elapsed": 60.255,
+          "clearance": 131.9451319801252,
+          "death_seconds": 60
+        },
+        {
+          "run": 43,
+          "last_live_elapsed": 75.116,
+          "clearance": 50.9625420888992,
+          "death_seconds": 74
+        },
+        {
+          "run": 55,
+          "last_live_elapsed": 92.925,
+          "clearance": 17.42595409330721,
+          "death_seconds": 93
+        },
+        {
+          "run": 59,
+          "last_live_elapsed": 130.254,
+          "clearance": -79.27203400847213,
+          "death_seconds": 130
+        },
+        {
+          "run": 71,
+          "last_live_elapsed": 64.941,
+          "clearance": -39.60712111952614,
+          "death_seconds": 65
+        },
+        {
+          "run": 75,
+          "last_live_elapsed": 85.804,
+          "clearance": 35.32524188573558,
+          "death_seconds": 85
+        },
+        {
+          "run": 87,
+          "last_live_elapsed": 77.36,
+          "clearance": 47.17714249680432,
+          "death_seconds": 77
+        },
+        {
+          "run": 91,
+          "last_live_elapsed": 76.947,
+          "clearance": -43.616138225341274,
+          "death_seconds": 77
+        }
+      ]
+    },
+    "v2.22A": {
+      "growth": {
+        "30": {
+          "surviving": 12,
+          "median": 49.0
+        },
+        "60": {
+          "surviving": 11,
+          "median": 74.0
+        },
+        "90": {
+          "surviving": 11,
+          "median": 104.0
+        },
+        "120": {
+          "surviving": 10,
+          "median": 136.0
+        }
+      },
+      "predeath": [
+        {
+          "run": 48,
+          "last_live_elapsed": 118.448,
+          "clearance": -122.76634501041315,
+          "death_seconds": 118
+        },
+        {
+          "run": 52,
+          "last_live_elapsed": 56.178,
+          "clearance": 99.963945208481,
+          "death_seconds": 56
+        },
+        {
+          "run": 68,
+          "last_live_elapsed": 121.976,
+          "clearance": -110.04438017411928,
+          "death_seconds": 121
+        },
+        {
+          "run": 96,
+          "last_live_elapsed": 147.981,
+          "clearance": -16.8698554128772,
+          "death_seconds": 147
+        }
+      ]
+    },
+    "v2.22B": {
+      "growth": {
+        "30": {
+          "surviving": 12,
+          "median": 45.5
+        },
+        "60": {
+          "surviving": 12,
+          "median": 78.0
+        },
+        "90": {
+          "surviving": 10,
+          "median": 96.0
+        },
+        "120": {
+          "surviving": 8,
+          "median": 136.0
+        }
+      },
+      "predeath": [
+        {
+          "run": 8,
+          "last_live_elapsed": 127.939,
+          "clearance": -19.232164246653866,
+          "death_seconds": 128
+        },
+        {
+          "run": 12,
+          "last_live_elapsed": 86.293,
+          "clearance": 96.67763068851434,
+          "death_seconds": 86
+        },
+        {
+          "run": 40,
+          "last_live_elapsed": 140.786,
+          "clearance": 14.428089447435639,
+          "death_seconds": 140
+        },
+        {
+          "run": 60,
+          "last_live_elapsed": 138.233,
+          "clearance": 54.91412562795182,
+          "death_seconds": 138
+        },
+        {
+          "run": 76,
+          "last_live_elapsed": 100.644,
+          "clearance": -32.41012157017349,
+          "death_seconds": 100
+        },
+        {
+          "run": 88,
+          "last_live_elapsed": 72.484,
+          "clearance": 687.3391498336712,
+          "death_seconds": 72
+        }
+      ]
+    }
+  },
+  "visually_inspected": {
+    "run2-110.png": "v2.20 size142, multiple oversized NPCs clipped at left/topright/bottomright; last sampled controller clearance had crossed negative at112.868s. Does not prove exact killer.",
+    "run3-060.png": "v2.21 size63, top boundary and visible largeNPC split notification; no final contact captured at this 10s sampling. Last-live clearance stillpositive, need finer visual evidence to distinguish missed size/fast motion/spawn."
+  }
+}

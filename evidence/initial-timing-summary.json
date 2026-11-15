@@ -1,0 +1,70 @@
+{
+  "diagnostic_only": true,
+  "single_factor": "initial controller callback 200ms vs300ms; both edible094; fixed60fps200ms subsequent callbacks; v2.13 seeds101202303404",
+  "results": [
+    {
+      "seed": 101,
+      "variant": "first200ms",
+      "win": true,
+      "time_ms": 120800.00000001227,
+      "end_size": "189"
+    },
+    {
+      "seed": 101,
+      "variant": "first300ms",
+      "win": false,
+      "time_ms": 150100.0000000042,
+      "end_size": "125"
+    },
+    {
+      "seed": 202,
+      "variant": "first200ms",
+      "win": true,
+      "time_ms": 133200.00000001403,
+      "end_size": "193"
+    },
+    {
+      "seed": 202,
+      "variant": "first300ms",
+      "win": false,
+      "time_ms": 150100.0000000042,
+      "end_size": "150"
+    },
+    {
+      "seed": 303,
+      "variant": "first200ms",
+      "win": true,
+      "time_ms": 136000.0000000124,
+      "end_size": "197"
+    },
+    {
+      "seed": 303,
+      "variant": "first300ms",
+      "win": false,
+      "time_ms": 150100.0000000042,
+      "end_size": "170"
+    },
+    {
+      "seed": 404,
+      "variant": "first200ms",
+      "win": true,
+      "time_ms": 146200.00000000646,
+      "end_size": "200"
+    },
+    {
+      "seed": 404,
+      "variant": "first300ms",
+      "win": false,
+      "time_ms": 150100.0000000042,
+      "end_size": "166"
+    }
+  ],
+  "limits": [
+    "Only4 previouslyusedseeds, not formal randomized test",
+    "fixedFPS remains unlike original runtime",
+    "harness stops at150.0 vs150.1 due initialdelta, all300ms cases clearly nonwins",
+    "Do not change production startdelay to optimize on these seeds"
+  ],
+  "finding": "200ms4/4 versus300ms0/4. Strong sensitivity to initialtiming, invalidates robustness inference from prior diagnostic4/4, but does not isolate all original-game regression causes.",
+  "next_hypothesis": "Repair diagnostic scheduler to honor delays and test out-of-sample seed+phase stability before selecting future strategy. Separate v20/21 predeath visualfalse-safe diagnosis from v13 growth bottleneck."
+}
