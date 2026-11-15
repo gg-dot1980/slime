@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "version": "v2.13",
+      "seed": 18013,
+      "phase": 0,
+      "success": 95.4,
+      "failure": 102.6
+    },
+    {
+      "version": "v2.22",
+      "seed": 17011,
+      "phase": 100,
+      "success": 105.6,
+      "failure": 108.4
+    },
+    {
+      "version": "v2.22",
+      "seed": 18013,
+      "phase": 100,
+      "success": 105.0,
+      "failure": 108.8
+    }
+  ],
+  "limits": "3 separate trajectories, selectedcases notprevalence. SuccessmeansHUDgrowth notyet attributed target; same-runcontrols only approximate size/radius matches, explicitnot randomized. Existingtrace missing fullcallbackPNG/toast/identity so3 bounded unchanged-policy replays supplement evidence. No intervention/acceptance.",
+  "gate": "Onlypropose commoncorrectablemechanismifall3failurecases show same visiblecause with safealternative and independentvalidation stillrequired.",
+  "separation": "WeakMaptruthidentity/eat events readonlyaftercallback byharness, nevercontroller input. Exactdecisionparity withoriginal required."
+}
