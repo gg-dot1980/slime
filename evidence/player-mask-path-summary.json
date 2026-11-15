@@ -1,0 +1,563 @@
+{
+  "limits": "Static fullimage pipeline resettracking eachframe; originalpixel-derived speed/velocity andcurrentheading reused both variants. Not exacthistoricalcontroller, notactualfuture safety; no truthinput. Alloriginalsafetythresholds unchanged.",
+  "rows": [
+    {
+      "file": "sixcase-v2.13-18013-0-094900.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-095100.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-095300.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-095500.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-095700.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771\u5357",
+      "after_dir": "\u6771\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-095900.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-096100.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-096300.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771\u5357",
+      "after_dir": "\u6771\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-096500.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771\u5357",
+      "after_dir": "\u6771\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-096700.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771\u5357",
+      "after_dir": "\u6771\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-096900.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-097100.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-097300.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-097500.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-097700.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-097900.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-102100.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-102300.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-102500.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-102700.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771\u5357",
+      "after_dir": "\u6771\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-102900.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771\u5357",
+      "after_dir": "\u6771\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-103100.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771\u5317",
+      "after_dir": "\u6771\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-103300.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771\u5317",
+      "after_dir": "\u6771\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-103500.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-103700.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-103900.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-104100.png",
+      "group": "heldout",
+      "before_safe": 7,
+      "after_safe": 7,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-104300.png",
+      "group": "heldout",
+      "before_safe": 7,
+      "after_safe": 7,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-104500.png",
+      "group": "heldout",
+      "before_safe": 7,
+      "after_safe": 7,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-104700.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.13-18013-0-104900.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-105000.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-105200.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-105400.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-105600.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-105800.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-106000.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-106200.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-106400.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-106600.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-106800.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-107000.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-107200.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-107400.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-108000.png",
+      "group": "heldout",
+      "before_safe": 8,
+      "after_safe": 8,
+      "before_dir": "\u897f\u5317",
+      "after_dir": "\u897f\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-108200.png",
+      "group": "heldout",
+      "before_safe": 0,
+      "after_safe": 7,
+      "before_dir": "\u6771",
+      "after_dir": "\u897f",
+      "changed": true
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-108400.png",
+      "group": "heldout",
+      "before_safe": 5,
+      "after_safe": 5,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-108600.png",
+      "group": "heldout",
+      "before_safe": 6,
+      "after_safe": 6,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-108800.png",
+      "group": "heldout",
+      "before_safe": 6,
+      "after_safe": 6,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-109000.png",
+      "group": "heldout",
+      "before_safe": 6,
+      "after_safe": 6,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-109200.png",
+      "group": "heldout",
+      "before_safe": 5,
+      "after_safe": 5,
+      "before_dir": "\u5357",
+      "after_dir": "\u5357",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-109400.png",
+      "group": "heldout",
+      "before_safe": 6,
+      "after_safe": 6,
+      "before_dir": "\u897f",
+      "after_dir": "\u897f",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-109600.png",
+      "group": "heldout",
+      "before_safe": 5,
+      "after_safe": 5,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-109800.png",
+      "group": "heldout",
+      "before_safe": 5,
+      "after_safe": 5,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-110000.png",
+      "group": "heldout",
+      "before_safe": 6,
+      "after_safe": 6,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-110200.png",
+      "group": "heldout",
+      "before_safe": 6,
+      "after_safe": 6,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-110400.png",
+      "group": "heldout",
+      "before_safe": 5,
+      "after_safe": 5,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-110600.png",
+      "group": "heldout",
+      "before_safe": 0,
+      "after_safe": 5,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771\u5357",
+      "changed": true
+    },
+    {
+      "file": "sixcase-v2.22-17011-100-110800.png",
+      "group": "heldout",
+      "before_safe": 0,
+      "after_safe": 5,
+      "before_dir": "\u6771",
+      "after_dir": "\u6771\u5357",
+      "changed": true
+    },
+    {
+      "file": "sixcase-v2.22-18013-100-109000.png",
+      "group": "calibration",
+      "before_safe": 0,
+      "after_safe": 4,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-18013-100-109200.png",
+      "group": "calibration",
+      "before_safe": 0,
+      "after_safe": 5,
+      "before_dir": "\u5317",
+      "after_dir": "\u5317",
+      "changed": false
+    },
+    {
+      "file": "sixcase-v2.22-18013-100-109400.png",
+      "group": "calibration",
+      "before_safe": 6,
+      "after_safe": 6,
+      "before_dir": "\u897f\u5357",
+      "after_dir": "\u897f\u5357",
+      "changed": false
+    }
+  ]
+}
