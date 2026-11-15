@@ -1,0 +1,193 @@
+{
+  "scope": "Three exact candidatefailure replays; truth only postcallback/endGame audit, no decisionschanged. Staticcurrentgap comparison notfullfuturepathproof.",
+  "cases": [
+    {
+      "version": "v2.20",
+      "seed": 14009,
+      "actual_variant": "arccenterB (replay runner labelA only)",
+      "parity_mismatches": 0,
+      "samples": 454,
+      "end": {
+        "elapsed": 90.7666666666653,
+        "player": {
+          "x": 5586.805723663587,
+          "y": 6738.850065561673,
+          "r": 86.24927464021751
+        },
+        "fatal_colliders": [
+          {
+            "x": 5218.504734951819,
+            "y": 6676.533890913684,
+            "r": 526.1953447948844,
+            "id": null
+          }
+        ]
+      },
+      "last_callback_ms": 90700.0000000035,
+      "last_clearance": 73.04540728826623,
+      "recent_births": [
+        {
+          "elapsed": 90.68333333333197,
+          "x": 4911.309252745421,
+          "y": 5294.1821407811785,
+          "r": 46.54660701204535,
+          "px": 5600.248408472439,
+          "py": 6721.487783032259,
+          "pr": 82.22631600274343
+        },
+        {
+          "elapsed": 90.7166666666653,
+          "x": 7271.564694833694,
+          "y": 7120,
+          "r": 341.5181921952538,
+          "px": 5596.254123360598,
+          "py": 6729.282833208771,
+          "pr": 86.24927464021751
+        },
+        {
+          "elapsed": 90.73333333333197,
+          "x": 5388.406912648536,
+          "y": 7120,
+          "r": 44.54197030290157,
+          "px": 5594.060515603227,
+          "py": 6732.372435861192,
+          "pr": 86.24927464021751
+        },
+        {
+          "elapsed": 90.73333333333197,
+          "x": 4910.435960261144,
+          "y": 7120,
+          "r": 389.29586581514224,
+          "px": 5594.060515603227,
+          "py": 6732.372435861192,
+          "pr": 86.24927464021751
+        },
+        {
+          "elapsed": 90.74999999999864,
+          "x": 7061.015728953849,
+          "y": 7120,
+          "r": 323.3498806959699,
+          "px": 5591.749182004789,
+          "py": 6734.974487943859,
+          "pr": 86.24927464021751
+        },
+        {
+          "elapsed": 90.7666666666653,
+          "x": 5218.485744064942,
+          "y": 7120,
+          "r": 523.4661090863152,
+          "px": 5589.328363374158,
+          "py": 6737.123117996655,
+          "pr": 86.24927464021751
+        }
+      ],
+      "geometry_matched_samples": 344,
+      "median_gap_error": -60.895964805034794,
+      "maximum_optimistic_gap_error": -10.527718072617517,
+      "near_false_safe_count": 0,
+      "limitation": "Nearesttruth matches center<80 only; missed/merged NPC excluded. Not formalacceptance."
+    },
+    {
+      "version": "v2.22",
+      "seed": 13001,
+      "actual_variant": "arccenterB (replay runner labelA only)",
+      "parity_mismatches": 0,
+      "samples": 322,
+      "end": {
+        "elapsed": 64.3166666666668,
+        "player": {
+          "x": 4918.838333359499,
+          "y": 288.91874889464265,
+          "r": 63.91032676384537
+        },
+        "fatal_colliders": [
+          {
+            "x": 5007.896548283522,
+            "y": 161.95355983787894,
+            "r": 162.73785147228605,
+            "id": null
+          }
+        ]
+      },
+      "last_callback_ms": 64299.99999999637,
+      "last_clearance": 309.92756754076726,
+      "recent_births": [
+        {
+          "elapsed": 64.3166666666668,
+          "x": 5007.908451835568,
+          "y": 161.9473830524073,
+          "r": 161.9473830524073,
+          "px": 4922.009528834654,
+          "py": 291.3471562468771,
+          "pr": 63.91032676384537
+        }
+      ],
+      "geometry_matched_samples": 155,
+      "median_gap_error": -54.01227441708852,
+      "maximum_optimistic_gap_error": -35.81521682444043,
+      "near_false_safe_count": 0,
+      "limitation": "Nearesttruth matches center<80 only; missed/merged NPC excluded. Not formalacceptance."
+    },
+    {
+      "version": "v2.21",
+      "seed": 13001,
+      "actual_variant": "arccenterB (replay runner labelA only)",
+      "parity_mismatches": 0,
+      "samples": 353,
+      "end": {
+        "elapsed": 70.58333333333312,
+        "player": {
+          "x": 1133.8498128747854,
+          "y": 3034.5731101500714,
+          "r": 63.82099687974878
+        },
+        "fatal_colliders": [
+          {
+            "x": 737.4086837120084,
+            "y": 3114.3131122757763,
+            "r": 498.93584886506534,
+            "id": null
+          }
+        ]
+      },
+      "last_callback_ms": 70499.99999999763,
+      "last_clearance": -294.48012923058855,
+      "recent_births": [
+        {
+          "elapsed": 70.58333333333312,
+          "x": 530.3963295546521,
+          "y": 3997.5256687391407,
+          "r": 154.7917050861744,
+          "px": 1132.543664393956,
+          "py": 3032.252062994609,
+          "pr": 63.82099687974878
+        },
+        {
+          "elapsed": 70.58333333333312,
+          "x": 737.3978786088683,
+          "y": 3114.3152856096813,
+          "r": 498.93584886506534,
+          "px": 1133.8498128747854,
+          "py": 3034.5731101500714,
+          "pr": 63.82099687974878
+        },
+        {
+          "elapsed": 70.58333333333312,
+          "x": 369.16221902740705,
+          "y": 3670.5362932581684,
+          "r": 107.48932883305088,
+          "px": 1133.8498128747854,
+          "py": 3034.5731101500714,
+          "pr": 63.82099687974878
+        }
+      ],
+      "geometry_matched_samples": 304,
+      "median_gap_error": -57.73400186836858,
+      "maximum_optimistic_gap_error": -14.56826338860651,
+      "near_false_safe_count": 0,
+      "limitation": "Nearesttruth matches center<80 only; missed/merged NPC excluded. Not formalacceptance."
+    }
+  ],
+  "conclusion": "No matched corrected-object false-safe evidence attributable to unchanged dangerRadius. v20/v22 actualfatal NPC appeared afterlastcallback and collided duringbirth/clamp/growth; v21 fatalnewchild consistentwithsplit: squaredchildradii sum matchespreviousparent510.383, midpoint matchesmovingparent. Priorparentgap266.65 but no-safe-directionalreadyactive. Do not assume all failureduecenter/radius or blindly inflateallradii.",
+  "next": "Keepcandidate rejected. Distinguish spawn/clamp and split-emergence risk fromtracking errors; validate visible-parent trajectory and attainableescape opportunities before another strategy hypothesis."
+}
