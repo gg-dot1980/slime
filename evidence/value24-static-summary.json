@@ -1,0 +1,23 @@
+{
+  "scope": "exact83.7s v21 callback PNG, pixel-only static replay; offline truthonly forvalidation",
+  "old": {
+    "density": 0.26073551306549747,
+    "minimum": 0.28,
+    "bbox": [
+      866,
+      394
+    ],
+    "accepted": false
+  },
+  "value24": {
+    "density": 0.6054126167333714,
+    "bbox": [
+      318,
+      330
+    ],
+    "raw_radius_world": 275,
+    "actual_radius_offline": 264.54843313913426,
+    "accepted": true
+  },
+  "cause": "Similarhue bodyandlargeNPCoutlinebridge expandedbbox andfailed densitygate; brightnessseparationrecovers body. Candidate may fragmentotherobjects, requires boundedtests."
+}
