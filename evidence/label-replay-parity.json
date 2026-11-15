@@ -1,0 +1,1279 @@
+{
+  "callback_parity_n": 701,
+  "mismatches": 0,
+  "frames": 75,
+  "unmatched_tiny_target_frames": 28,
+  "max_consecutive": 6,
+  "rows": [
+    {
+      "file": "label-replay-v2.22-23003-100-125000.png",
+      "at": 125000.00000001349,
+      "r": 179,
+      "false_candidate": false,
+      "target": {
+        "x": -251.21315192743765,
+        "y": 49.78458049886617,
+        "r": 89.78874124523398,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 89.78874124523398,
+        "vx": -5.105637114527051,
+        "vy": 14.310450430641446
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-125200.png",
+      "at": 125200.00000001355,
+      "r": 179,
+      "false_candidate": false,
+      "target": {
+        "x": -222.93640054127195,
+        "y": 54.66170500676593,
+        "r": 93.33333333333334,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 93.33333333333334,
+        "vx": -36.00826224212126,
+        "vy": 18.253427335405483
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-125400.png",
+      "at": 125400.0000000136,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -736.5154409423751,
+        "y": -254.35530085959888,
+        "r": 82.29522817179456,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 82.29522817179456,
+        "vx": 31.412214461945528,
+        "vy": 6.675966551255608
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-125600.png",
+      "at": 125600.00000001366,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 95.58823529411795,
+        "y": -1108.115468409586,
+        "r": 147.32683890324049,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-125800.png",
+      "at": 125800.00000001372,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1409.6003898635477,
+        "y": -123.53801169590653,
+        "r": 155.7522073799213,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-126000.png",
+      "at": 126000.00000001378,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1397.6337448559675,
+        "y": -147.11934156378592,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-126200.png",
+      "at": 126200.00000001384,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -195,
+        "y": -60,
+        "r": 11.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 11.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-126400.png",
+      "at": 126400.0000000139,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1257.870370370371,
+        "y": -18.0555555555556,
+        "r": 159.7983930612768,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-126600.png",
+      "at": 126600.00000001396,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 20,
+        "y": -173.33333333333334,
+        "r": 13.333333333333334,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 13.333333333333334,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-126800.png",
+      "at": 126800.00000001401,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -178.33333333333334,
+        "y": -8.333333333333334,
+        "r": 13.333333333333334,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 13.333333333333334,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-127000.png",
+      "at": 127000.00000001407,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1263.888888888889,
+        "y": -9.502923976608244,
+        "r": 155.7522073799213,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-127200.png",
+      "at": 127200.00000001413,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1263.888888888889,
+        "y": 110.86744639376214,
+        "r": 155.7522073799213,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-127400.png",
+      "at": 127400.00000001419,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -25.79365079365092,
+        "y": -842.5925925925927,
+        "r": 133.69692777875048,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-127600.png",
+      "at": 127600.00000001425,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -681.7784552845528,
+        "y": 1.9512195121951474,
+        "r": 85.41980912807959,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 85.41980912807959,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-127800.png",
+      "at": 127800.0000000143,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -670.8881256133465,
+        "y": 33.447824664703965,
+        "r": 87.78667361975646,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 87.78667361975646,
+        "vx": -14.510992130303904,
+        "vy": 33.90492963245861
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-128000.png",
+      "at": 128000.00000001436,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1301.900584795322,
+        "y": 47.51461988304101,
+        "r": 155.7522073799213,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-128200.png",
+      "at": 128200.00000001442,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -757.6825030904414,
+        "y": -41.891016003474704,
+        "r": 170.56496417181762,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 170.56496417181762,
+        "vx": 28.94580589372958,
+        "vy": 80.97517081530175
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-128400.png",
+      "at": 128400.00000001448,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1269.9074074074072,
+        "y": 66.20370370370381,
+        "r": 159.7983930612768,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-128600.png",
+      "at": 128600.00000001454,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -623.0694586312563,
+        "y": 104.95062989445009,
+        "r": 86.60921468979357,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 86.60921468979357,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-128800.png",
+      "at": 128800.0000000146,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -616.1566888396156,
+        "y": 118.49593495934964,
+        "r": 81.98766093608782,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 81.98766093608782,
+        "vx": -20.207596889042456,
+        "vy": 23.386165756703765
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-129000.png",
+      "at": 129000.00000001465,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1251.8518518518517,
+        "y": 66.20370370370381,
+        "r": 159.7983930612768,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-129200.png",
+      "at": 129200.00000001471,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -65,
+        "y": -183.33333333333334,
+        "r": 11.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 11.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-129400.png",
+      "at": 129400.00000001477,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1244.883040935673,
+        "y": 60.18518518518518,
+        "r": 155.7522073799213,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-129600.png",
+      "at": 129600.00000001483,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1219.5419103313839,
+        "y": 91.86159844054586,
+        "r": 155.7522073799213,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-129800.png",
+      "at": 129800.00000001489,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -180.55555555555557,
+        "y": -884.2592592592595,
+        "r": 128.83358326239363,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-130000.png",
+      "at": 130000.00000001494,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -180.55555555555557,
+        "y": -884.2592592592595,
+        "r": 128.83358326239363,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-130200.png",
+      "at": 130200.000000015,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 175,
+        "y": -28.333333333333336,
+        "r": 13.333333333333334,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 13.333333333333334,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-130400.png",
+      "at": 130400.00000001506,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 1123.4567901234573,
+        "y": 153.80658436214003,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-130600.png",
+      "at": 130600.00000001512,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -198.33333333333334,
+        "y": 16.666666666666668,
+        "r": 11.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 11.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-130800.png",
+      "at": 130800.00000001518,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 38.333333333333336,
+        "y": 180,
+        "r": 15,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-131000.png",
+      "at": 131000.00000001524,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 175,
+        "y": -6.666666666666667,
+        "r": 15,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-131200.png",
+      "at": 131200.0000000152,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 195,
+        "y": -36.66666666666667,
+        "r": 15,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 76.84887274550266,
+        "vy": -34.12079866872994
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-131400.png",
+      "at": 131400.00000001508,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 195,
+        "y": -46.66666666666667,
+        "r": 11.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 11.666666666666668,
+        "vx": 112.87631823472466,
+        "vy": -31.744024507744783
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-131600.png",
+      "at": 131600.00000001496,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 48.333333333333336,
+        "y": 173.33333333333334,
+        "r": 15,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-131800.png",
+      "at": 131800.00000001484,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 343.40958605664474,
+        "y": 1200.1633986928105,
+        "r": 147.32683890324049,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-132000.png",
+      "at": 132000.00000001473,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 354.42386831275707,
+        "y": 1063.2716049382716,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-132200.png",
+      "at": 132200.0000000146,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 354.42386831275707,
+        "y": 1063.2716049382716,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-132400.png",
+      "at": 132400.0000000145,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -579.6783625730998,
+        "y": -826.7543859649124,
+        "r": 155.7522073799213,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-132600.png",
+      "at": 132600.00000001438,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -579.6783625730998,
+        "y": -826.7543859649124,
+        "r": 155.7522073799213,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-132800.png",
+      "at": 132800.00000001426,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -581.7901234567905,
+        "y": -815.8436213991771,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-133000.png",
+      "at": 133000.00000001414,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 188.33333333333334,
+        "y": 30,
+        "r": 15,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-133200.png",
+      "at": 133200.00000001403,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 191.66666666666669,
+        "y": 30,
+        "r": 15,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 28.6208106923971,
+        "vy": -19.506649735657714
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-133400.png",
+      "at": 133400.0000000139,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -23.333333333333336,
+        "y": 173.33333333333334,
+        "r": 16.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-133600.png",
+      "at": 133600.0000000138,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 361.11111111111114,
+        "y": 1083.3333333333335,
+        "r": 142.92802783209828,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-133800.png",
+      "at": 133800.00000001368,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 33.333333333333336,
+        "y": -196.66666666666669,
+        "r": 13.333333333333334,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 13.333333333333334,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-134000.png",
+      "at": 134000.00000001356,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -615.2263374485601,
+        "y": -809.1563786008231,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-134200.png",
+      "at": 134200.00000001345,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 350.49019607843167,
+        "y": 1101.0348583877999,
+        "r": 147.32683890324049,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-134400.png",
+      "at": 134400.00000001333,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 185,
+        "y": 15,
+        "r": 16.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-134600.png",
+      "at": 134600.0000000132,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -621.9135802469134,
+        "y": -782.4074074074075,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-134800.png",
+      "at": 134800.0000000131,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 195,
+        "y": 15,
+        "r": 13.333333333333334,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 13.333333333333334,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-135000.png",
+      "at": 135000.00000001298,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 347.73662551440293,
+        "y": 1116.769547325103,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-135200.png",
+      "at": 135200.00000001286,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -178.33333333333334,
+        "y": -58.333333333333336,
+        "r": 20,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 20,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-135400.png",
+      "at": 135400.00000001275,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -609.3750000000001,
+        "y": -752.3148148148149,
+        "r": 142.92802783209828,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-135600.png",
+      "at": 135600.00000001263,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -195,
+        "y": -51.66666666666667,
+        "r": 16.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-135800.png",
+      "at": 135800.00000001251,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -609.3750000000001,
+        "y": -752.3148148148149,
+        "r": 142.92802783209828,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-136000.png",
+      "at": 136000.0000000124,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 21.666666666666668,
+        "y": 196.66666666666669,
+        "r": 11.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 11.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-136200.png",
+      "at": 136200.00000001228,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 240.74074074074076,
+        "y": 1208.0026455026455,
+        "r": 159.79999999999998,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-136400.png",
+      "at": 136400.00000001217,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -8.333333333333334,
+        "y": -206.66666666666669,
+        "r": 11.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 11.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-136600.png",
+      "at": 136600.00000001205,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 195,
+        "y": -18.333333333333336,
+        "r": 16.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-136800.png",
+      "at": 136800.00000001193,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -55,
+        "y": -180,
+        "r": 15,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-137000.png",
+      "at": 137000.00000001182,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -708.8477366255141,
+        "y": 869.3415637860082,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-137200.png",
+      "at": 137200.0000000117,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -708.8477366255141,
+        "y": 869.3415637860082,
+        "r": 151.59806655254442,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-137400.png",
+      "at": 137400.00000001158,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 191.66666666666669,
+        "y": -23.333333333333336,
+        "r": 15,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 15,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-137600.png",
+      "at": 137600.00000001147,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 141.61220043573022,
+        "y": 991.285403050109,
+        "r": 159.79999999999998,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-137800.png",
+      "at": 137800.00000001135,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -175,
+        "y": 13.333333333333334,
+        "r": 18.333333333333336,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 18.333333333333336,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-138000.png",
+      "at": 138000.00000001123,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 276.1437908496735,
+        "y": 984.2047930283225,
+        "r": 159.79999999999998,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-138200.png",
+      "at": 138200.00000001112,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -10,
+        "y": -196.66666666666669,
+        "r": 16.666666666666668,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 16.666666666666668,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-138400.png",
+      "at": 138400.000000011,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 286.764705882353,
+        "y": 977.124183006536,
+        "r": 159.79999999999998,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-138600.png",
+      "at": 138600.00000001088,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": 178.33333333333334,
+        "y": -28.333333333333336,
+        "r": 13.333333333333334,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 13.333333333333334,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-138800.png",
+      "at": 138800.00000001077,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 188.85696040868476,
+        "y": 890.3256704980845,
+        "r": 159.79999999999998,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-139000.png",
+      "at": 139000.00000001065,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 188.85696040868476,
+        "y": 890.3256704980845,
+        "r": 159.79999999999998,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-139200.png",
+      "at": 139200.00000001054,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 188.85696040868476,
+        "y": 890.3256704980845,
+        "r": 159.79999999999998,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-139400.png",
+      "at": 139400.00000001042,
+      "r": 188,
+      "false_candidate": true,
+      "target": {
+        "x": -168.33333333333334,
+        "y": 5,
+        "r": 13.333333333333334,
+        "npc": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 13.333333333333334,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-139600.png",
+      "at": 139600.0000000103,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": 192.01940035273367,
+        "y": 822.5308641975308,
+        "r": 159.79999999999998,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "file": "label-replay-v2.22-23003-100-139800.png",
+      "at": 139800.0000000102,
+      "r": 188,
+      "false_candidate": false,
+      "target": {
+        "x": -579.2824074074075,
+        "y": -865.1620370370372,
+        "r": 142.92802783209828,
+        "npc": true,
+        "mapOnly": true,
+        "vx": 0,
+        "vy": 0
+      }
+    }
+  ],
+  "actual_controller": "unchanged B white-mask candidate, runner variant A label is inherited harness label only"
+}
