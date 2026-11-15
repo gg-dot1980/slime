@@ -1,0 +1,407 @@
+{
+  "at": "2026-11-15T19:35:11.037226+08:00",
+  "scope": "Existingtraces/PNG only; no newgames. Smallnearbodytarget isheuristicnotbyitself falseNPC. Posthoctruth unmatched andpixelreview needed.",
+  "latest_strata": [
+    {
+      "version": "v2.20",
+      "seed": 22003,
+      "initial_phase_ms": 0,
+      "end_seconds": 88.20000000000277,
+      "end_size": "115",
+      "last_NPC_capture": 83.93333333333236,
+      "last5_escape_fraction": 0.24,
+      "last30_n": 150,
+      "last30_small_near_body_NPC_targets": 8,
+      "last30_medium_targets": 53,
+      "last30_map_targets": 0
+    },
+    {
+      "version": "v2.20",
+      "seed": 22003,
+      "initial_phase_ms": 100,
+      "end_seconds": 111.60000000000959,
+      "end_size": "115",
+      "last_NPC_capture": 98.69999999999818,
+      "last5_escape_fraction": 0.12,
+      "last30_n": 150,
+      "last30_small_near_body_NPC_targets": 9,
+      "last30_medium_targets": 50,
+      "last30_map_targets": 0
+    },
+    {
+      "version": "v2.20",
+      "seed": 23003,
+      "initial_phase_ms": 0,
+      "end_seconds": 112.60000000000989,
+      "end_size": "136",
+      "last_NPC_capture": 112.48333333333073,
+      "last5_escape_fraction": 0.08,
+      "last30_n": 150,
+      "last30_small_near_body_NPC_targets": 9,
+      "last30_medium_targets": 54,
+      "last30_map_targets": 0
+    },
+    {
+      "version": "v2.20",
+      "seed": 23003,
+      "initial_phase_ms": 100,
+      "end_seconds": 78.80000000000004,
+      "end_size": "143",
+      "last_NPC_capture": 57.75000000000051,
+      "last5_escape_fraction": 0.72,
+      "last30_n": 150,
+      "last30_small_near_body_NPC_targets": 15,
+      "last30_medium_targets": 55,
+      "last30_map_targets": 54
+    },
+    {
+      "version": "v2.21",
+      "seed": 22003,
+      "initial_phase_ms": 0,
+      "end_seconds": 136.2000000000123,
+      "end_size": "102",
+      "last_NPC_capture": 112.63333333333073,
+      "last5_escape_fraction": 0.4230769230769231,
+      "last30_n": 150,
+      "last30_small_near_body_NPC_targets": 28,
+      "last30_medium_targets": 18,
+      "last30_map_targets": 3
+    },
+    {
+      "version": "v2.21",
+      "seed": 22003,
+      "initial_phase_ms": 100,
+      "end_seconds": 53.799999999997894,
+      "end_size": "81",
+      "last_NPC_capture": 32.85000000000193,
+      "last5_escape_fraction": 0.5384615384615384,
+      "last30_n": 151,
+      "last30_small_near_body_NPC_targets": 2,
+      "last30_medium_targets": 25,
+      "last30_map_targets": 10
+    },
+    {
+      "version": "v2.21",
+      "seed": 23003,
+      "initial_phase_ms": 0,
+      "end_seconds": 5.2000000000000055,
+      "end_size": "28",
+      "last_NPC_capture": 2.0833333333333406,
+      "last5_escape_fraction": 0.08,
+      "last30_n": 25,
+      "last30_small_near_body_NPC_targets": 0,
+      "last30_medium_targets": 25,
+      "last30_map_targets": 0
+    },
+    {
+      "version": "v2.21",
+      "seed": 23003,
+      "initial_phase_ms": 100,
+      "end_seconds": 113.20000000001005,
+      "end_size": "134",
+      "last_NPC_capture": 105.81666666666445,
+      "last5_escape_fraction": 0.64,
+      "last30_n": 150,
+      "last30_small_near_body_NPC_targets": 21,
+      "last30_medium_targets": 8,
+      "last30_map_targets": 2
+    },
+    {
+      "version": "v2.22",
+      "seed": 22003,
+      "initial_phase_ms": 0,
+      "end_seconds": 11.399999999999944,
+      "end_size": "30",
+      "last_NPC_capture": 3.000000000000004,
+      "last5_escape_fraction": 0.0,
+      "last30_n": 56,
+      "last30_small_near_body_NPC_targets": 0,
+      "last30_medium_targets": 46,
+      "last30_map_targets": 0
+    },
+    {
+      "version": "v2.22",
+      "seed": 22003,
+      "initial_phase_ms": 100,
+      "end_seconds": 139.8000000000102,
+      "end_size": "150",
+      "last_NPC_capture": 127.38333333332989,
+      "last5_escape_fraction": 0.4230769230769231,
+      "last30_n": 150,
+      "last30_small_near_body_NPC_targets": 13,
+      "last30_medium_targets": 56,
+      "last30_map_targets": 32
+    },
+    {
+      "version": "v2.22",
+      "seed": 23003,
+      "initial_phase_ms": 0,
+      "end_seconds": 150.00000000000426,
+      "end_size": "160",
+      "last_NPC_capture": 141.66666666665597,
+      "last5_escape_fraction": 0.0,
+      "last30_n": 151,
+      "last30_small_near_body_NPC_targets": 14,
+      "last30_medium_targets": 26,
+      "last30_map_targets": 17
+    },
+    {
+      "version": "v2.22",
+      "seed": 23003,
+      "initial_phase_ms": 100,
+      "end_seconds": 150.00000000000426,
+      "end_size": "188",
+      "last_NPC_capture": 125.24999999999667,
+      "last5_escape_fraction": 0.0,
+      "last30_n": 151,
+      "last30_small_near_body_NPC_targets": 47,
+      "last30_medium_targets": 37,
+      "last30_map_targets": 65
+    }
+  ],
+  "offline_smallNPC_checks": [
+    {
+      "source": "player-mask-targeted",
+      "counts": {
+        "before": {
+          "unmatched_smallNPC_frames": 13,
+          "objects": 13,
+          "selected": 4
+        },
+        "after": {
+          "unmatched_smallNPC_frames": 14,
+          "objects": 14,
+          "selected": 2
+        }
+      },
+      "examples": [
+        {
+          "file": "targeted-merge-v2.13-12007-100-125600.png",
+          "variant": "before",
+          "target": {
+            "x": 155,
+            "y": 8.333333333333334,
+            "r": 13.333333333333334,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 13.333333333333334,
+            "vx": 0,
+            "vy": 0
+          }
+        },
+        {
+          "file": "targeted-merge-v2.13-12007-100-126600.png",
+          "variant": "before",
+          "target": {
+            "x": 55,
+            "y": -136.66666666666669,
+            "r": 11.666666666666668,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 11.666666666666668,
+            "vx": 0,
+            "vy": 0
+          }
+        },
+        {
+          "file": "targeted-merge-v2.22-16001-0-117700.png",
+          "variant": "before",
+          "target": {
+            "x": 175,
+            "y": -43.333333333333336,
+            "r": 11.666666666666668,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 11.666666666666668,
+            "vx": 0,
+            "vy": 0
+          }
+        },
+        {
+          "file": "targeted-merge-v2.22-16001-0-117700.png",
+          "variant": "after",
+          "target": {
+            "x": 175,
+            "y": -43.333333333333336,
+            "r": 11.666666666666668,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 11.666666666666668,
+            "vx": 0,
+            "vy": 0
+          }
+        },
+        {
+          "file": "targeted-merge-v2.22-16001-0-117900.png",
+          "variant": "before",
+          "target": {
+            "x": 10,
+            "y": -180,
+            "r": 13.333333333333334,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 13.333333333333334,
+            "vx": 0,
+            "vy": 0
+          }
+        },
+        {
+          "file": "targeted-merge-v2.22-16001-0-117900.png",
+          "variant": "after",
+          "target": {
+            "x": 10,
+            "y": -180,
+            "r": 13.333333333333334,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 13.333333333333334,
+            "vx": 0,
+            "vy": 0
+          }
+        }
+      ]
+    },
+    {
+      "source": "player-mask-v2021",
+      "counts": {
+        "before": {
+          "unmatched_smallNPC_frames": 2,
+          "objects": 3,
+          "selected": 2
+        },
+        "after": {
+          "unmatched_smallNPC_frames": 3,
+          "objects": 4,
+          "selected": 3
+        }
+      },
+      "examples": [
+        {
+          "file": "arc-confirm-v2.21-2467-074800.png",
+          "variant": "after",
+          "target": {
+            "x": -98.33333333333334,
+            "y": -30,
+            "r": 15,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 15,
+            "vx": 0,
+            "vy": 0
+          }
+        },
+        {
+          "file": "arc-confirm-v2.21-2467-078200.png",
+          "variant": "before",
+          "target": {
+            "x": 0,
+            "y": -86.66666666666667,
+            "r": 13.333333333333334,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 13.333333333333334,
+            "vx": 0,
+            "vy": 0
+          }
+        },
+        {
+          "file": "arc-confirm-v2.21-2467-078200.png",
+          "variant": "after",
+          "target": {
+            "x": 0,
+            "y": -86.66666666666667,
+            "r": 13.333333333333334,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 13.333333333333334,
+            "vx": 0,
+            "vy": 0
+          }
+        },
+        {
+          "file": "arc-confirm-v2.21-2467-078400.png",
+          "variant": "before",
+          "target": {
+            "x": 51.07843137254899,
+            "y": -82.15686274509807,
+            "r": 15,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 15,
+            "vx": 39.80392156861595,
+            "vy": 16.225490196073586
+          }
+        },
+        {
+          "file": "arc-confirm-v2.21-2467-078400.png",
+          "variant": "after",
+          "target": {
+            "x": 51.07843137254899,
+            "y": -82.15686274509807,
+            "r": 15,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 15,
+            "vx": 39.80392156861595,
+            "vy": 16.225490196073586
+          }
+        }
+      ]
+    },
+    {
+      "source": "player-mask-collected",
+      "counts": {
+        "before": {
+          "unmatched_smallNPC_frames": 5,
+          "objects": 5,
+          "selected": 0
+        },
+        "after": {
+          "unmatched_smallNPC_frames": 6,
+          "objects": 6,
+          "selected": 0
+        }
+      },
+      "examples": []
+    }
+  ],
+  "finding": "Potentialdifferentunresolved perception/classificationroot: player-border/face highlight fragments acceptedas tinyNPC by hasSlimeLabel brightpixeltest. Existing targetedv22 at117.7/117.9 aftermask picks11.7/13.3radius nearplayeredge, absentfromtruthNPCs; reviewed117700PNG hasnoNPCatthatposition. Similarunmatchedtargets inindependentv21existingsequence. Notcausedonlybymask: targetedbeforeselected4after2; oldbaselinealsohasartifact.",
+  "latest_v22_timeout": "23003phase100 size188lastNPCcapture125.2 then~25secondsnoNPCgrowth; manytinynearbodyNPC/maptargets, notprovenallfalsewithoutsamecallbackrawPNG. Oneother timeoutsize160 differentmix.",
+  "v20_v21": "Deathstrataremainheterogeneous. v20last5allsafeempty8-72%,v21 8-64%; some diejustaftercapture,others20swithoutcapture. CurrentnewbatchnoexactfatalNPC/end-eventtruth, cannotassignmaincauseorproveunavoidable.",
+  "preregister_next_evidence_gate": "Beforeanynewcontrollerpatch: >=3independentepisodes ofconfirmedfalseNPC atplayeroutline pixels, >=3consecutivecallback targetdisruption withnogrowth; differentiate genuine tinyprey and partialocclusion. Proposedpixelclassifier mustpreserveindependentgenuineNPC/danger positives and restoreusefulsafe direction, notjustremoveobjects. Thenunseen validation. Existing2independentpixel-backed cases andlatestunverifiedwindow insufficient.",
+  "next": "UseexistingrawPNG tolabel trueNPC text vs ownoutline/face component and quantifylabeltestfalsepositives; iflatestv22rawframesneeded, atmostoneunchangedreplaywindow125-140s, butnotstarted. No globalr<=20ban, no threshold/marginadjustment. No claimthisfixesv20/21deaths.",
+  "decision": "Keepmaskcandidate rejected. No sufficientnextpatch/no newgamebatch;saveevidencegap."
+}
