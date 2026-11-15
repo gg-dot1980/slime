@@ -1,0 +1,6 @@
+{
+  "limit": "Exactly4unchangedbaseline games,one/version,seed21001phase100,<=150logicalseconds/game; noextensionifnoqualifyingcases. No retriesexceptdocumentedinvalidinstrumentation.",
+  "trigger": "Visiblemerged-lookingNPC r>1.55player centerwithinplayerR AND priorcallbackvisibleedibleNPC .35-.91player withinplayerR+preyR+100. Pixels/HUDonly;truthdoesnottrigger.",
+  "capture": "3priorframes,triggerframe+1secondafter,fullcallbackvisualobservations andofflineaudittruth. No candidatecontrol.",
+  "stop": "After4gamesorresource/safetyproblem. Ifnoindependentmergeepisode,reportinsufficientdata withoutmoregames. Ifcandidate removesrealNPC orunderestimatesdanger,do notclosedloop. Need>=3independentepisodes sustainedseparation>=2callbacks withnoaddedfalse-dangerdeletion andusablepath beforeconsiderboundedAB."
+}

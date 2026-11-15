@@ -1,0 +1,375 @@
+{
+  "at": "2026-11-15T19:09:19.687135+08:00",
+  "bounded_plan": {
+    "limit": "Exactly4unchangedbaseline games,one/version,seed21001phase100,<=150logicalseconds/game; noextensionifnoqualifyingcases. No retriesexceptdocumentedinvalidinstrumentation.",
+    "trigger": "Visiblemerged-lookingNPC r>1.55player centerwithinplayerR AND priorcallbackvisibleedibleNPC .35-.91player withinplayerR+preyR+100. Pixels/HUDonly;truthdoesnottrigger.",
+    "capture": "3priorframes,triggerframe+1secondafter,fullcallbackvisualobservations andofflineaudittruth. No candidatecontrol.",
+    "stop": "After4gamesorresource/safetyproblem. Ifnoindependentmergeepisode,reportinsufficientdata withoutmoregames. Ifcandidate removesrealNPC orunderestimatesdanger,do notclosedloop. Need>=3independentepisodes sustainedseparation>=2callbacks withnoaddedfalse-dangerdeletion andusablepath beforeconsiderboundedAB."
+  },
+  "runs": [
+    {
+      "version": "v2.13",
+      "samples": 750,
+      "trigger_callbacks": 0,
+      "times": []
+    },
+    {
+      "version": "v2.20",
+      "samples": 342,
+      "trigger_callbacks": 0,
+      "times": []
+    },
+    {
+      "version": "v2.21",
+      "samples": 445,
+      "trigger_callbacks": 0,
+      "times": []
+    },
+    {
+      "version": "v2.22",
+      "samples": 687,
+      "trigger_callbacks": 4,
+      "times": [
+        113.80000000001023,
+        115.20000000001063,
+        115.80000000001081,
+        116.40000000001099
+      ]
+    }
+  ],
+  "independent_new_merge_episodes": 1,
+  "episode": "v2.22 seed21001phase100 sameactualpreyID213 across113.8..117.2;4triggers not4independentcases",
+  "offline": {
+    "frames": 16,
+    "before_prey_matched": 8,
+    "after_prey_matched": 16,
+    "merged_before": 6,
+    "merged_after": 0,
+    "first3_consecutive": "113.8/114.0/114.2 falsemerge removed, safe0->8,headingWest->East; pixelpreview confirmsplayer+Bubble visible, no nearbygiant.",
+    "size_caution": "At115.4 aftermaskradius120.5 whileactual76.1; splitisnotaccurateradiusestimator. Do notrelaxthreshold."
+  },
+  "rows": [
+    {
+      "file": "merge-collection-v2.22-21001-100-113800.png",
+      "actual_prey_r": 75.67469820472128,
+      "before": {
+        "matched": false,
+        "center_error": 142.11947079874116,
+        "radius": 215,
+        "false_merged": 1,
+        "safe": 0,
+        "heading": "\u897f"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 8.820565442382117,
+        "radius": 88.33333333333334,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-114000.png",
+      "actual_prey_r": 75.67469820472128,
+      "before": {
+        "matched": false,
+        "center_error": 134.38363366343953,
+        "radius": 208.33333333333334,
+        "false_merged": 1,
+        "safe": 0,
+        "heading": "\u897f"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 6.691335863758414,
+        "radius": 92.33689033222069,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-114200.png",
+      "actual_prey_r": 75.67469820472128,
+      "before": {
+        "matched": false,
+        "center_error": 157.62196895497925,
+        "radius": 226.66666666666669,
+        "false_merged": 1,
+        "safe": 0,
+        "heading": "\u897f"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 1.552405256100444,
+        "radius": 78.993985551803,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-114400.png",
+      "actual_prey_r": 75.67469820472128,
+      "before": {
+        "matched": true,
+        "center_error": 1.0092437471309432,
+        "radius": 78.02434074449803,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 1.0092437471309432,
+        "radius": 78.02434074449803,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-114600.png",
+      "actual_prey_r": 76.05469820472128,
+      "before": {
+        "matched": true,
+        "center_error": 1.1040931741666316,
+        "radius": 78.83153965005033,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 1.1040931741666316,
+        "radius": 78.83153965005033,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-115200.png",
+      "actual_prey_r": 76.05469820472128,
+      "before": {
+        "matched": false,
+        "center_error": 142.911839227306,
+        "radius": 206.66666666666669,
+        "false_merged": 1,
+        "safe": 0,
+        "heading": "\u897f\u5317"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 9.289254329845688,
+        "radius": 86.66666666666667,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-115400.png",
+      "actual_prey_r": 76.05469820472128,
+      "before": {
+        "matched": false,
+        "center_error": 297.7451715594926,
+        "radius": 15,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u897f\u5357"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 6.107911259716728,
+        "radius": 120.49177045435334,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-115600.png",
+      "actual_prey_r": 76.05469820472128,
+      "before": {
+        "matched": true,
+        "center_error": 1.1422093076056643,
+        "radius": 81.46262497278565,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 1.1422093076056643,
+        "radius": 81.46262497278565,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-115800.png",
+      "actual_prey_r": 76.05469820472128,
+      "before": {
+        "matched": false,
+        "center_error": 155.0538661567763,
+        "radius": 206.66666666666669,
+        "false_merged": 1,
+        "safe": 0,
+        "heading": "\u897f"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 1.8157741979474924,
+        "radius": 82.69373224161681,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-116000.png",
+      "actual_prey_r": 76.05469820472128,
+      "before": {
+        "matched": true,
+        "center_error": 0.259061694815565,
+        "radius": 83.13831340774736,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 0.259061694815565,
+        "radius": 83.13831340774736,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-116200.png",
+      "actual_prey_r": 76.43469820472127,
+      "before": {
+        "matched": true,
+        "center_error": 1.2781478408482336,
+        "radius": 83.26439995224727,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 1.2781478408482336,
+        "radius": 83.26439995224727,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-116400.png",
+      "actual_prey_r": 76.43469820472127,
+      "before": {
+        "matched": false,
+        "center_error": 152.69079281631133,
+        "radius": 216.66666666666669,
+        "false_merged": 1,
+        "safe": 0,
+        "heading": "\u897f\u5317"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 2.34169542297266,
+        "radius": 81.98013831704186,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-116600.png",
+      "actual_prey_r": 76.43469820472127,
+      "before": {
+        "matched": true,
+        "center_error": 1.180865158609418,
+        "radius": 79.26529637156898,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 1.180865158609418,
+        "radius": 79.26529637156898,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-116800.png",
+      "actual_prey_r": 76.43469820472127,
+      "before": {
+        "matched": true,
+        "center_error": 1.1763147266122143,
+        "radius": 84.33821378589668,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 1.1763147266122143,
+        "radius": 84.33821378589668,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-117000.png",
+      "actual_prey_r": 76.43469820472127,
+      "before": {
+        "matched": false,
+        "center_error": 724.8850568638042,
+        "radius": 110,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u897f"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 9.517726862370926,
+        "radius": 86.66666666666667,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    },
+    {
+      "file": "merge-collection-v2.22-21001-100-117200.png",
+      "actual_prey_r": 76.81469820472127,
+      "before": {
+        "matched": true,
+        "center_error": 6.661789028506373,
+        "radius": 86.66666666666667,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      },
+      "after": {
+        "matched": true,
+        "center_error": 6.920555918852886,
+        "radius": 86.66666666666667,
+        "false_merged": 0,
+        "safe": 8,
+        "heading": "\u6771\u5357"
+      }
+    }
+  ],
+  "decision": "STOPat4gamecap. Only1newindependentepisode,below>=3gate. Localpersistentseparation benefit observed, no realcapture/survivalgain proven; noABclosedloop/no deployment. Existingv20/v21dangercontrols remainlimited.",
+  "limits": "Diagnosticseededbaseline,notformalwinrate. PosthoctruthIDusedonlyscoring. Savedcandidate sequence hascapturegaps so trackingisnotcontinuousfullgame; firstframecoldstart. 4triggercallbacks allsameprey. No broadfalse-deletionguarantee."
+}

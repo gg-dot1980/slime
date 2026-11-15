@@ -1,0 +1,15 @@
+from pathlib import Path
+import json
+p=Path('/home/gg/projects/ocr3');s=(p/'audit_sixcase.py').read_text().replace('sixcase','merge-collection')
+start=s.index(' for version,seed,phase,windows in ');end=s.index('\n  src=',start);s=s[:start]+" for version,seed,phase,windows in [(v,21001,100,[]) for v in ['v2.13','v2.20','v2.21','v2.22']]:"+s[end:];s=s.replace('range(560)','range(750)')
+s=s.replace('window.__timerTrace=[];','window.__timerTrace=[];window.__mergeRing=[];window.__mergePrev=[];window.__mergeUntil=0;')
+s=s.replace("frame:window.__mergeWindows.some(([a,b])=>w.__t>=a*1000&&w.__t<=b*1000)?w.document.querySelector('canvas').toDataURL():null", "frame:null")
+# actual sixWindows name became merge-collection? replacement onlysixcase lower; original __sixWindows stays.
+s=s.replace("frame:window.__sixWindows.some(([a,b])=>w.__t>=a*1000&&w.__t<=b*1000)?w.document.querySelector('canvas').toDataURL():null", "frame:null")
+needle='const before=window.performance.now();t.f();window.__timerTrace.push('
+hook="const before=window.performance.now();t.f();const ob=window.__diagDecision;const suspect=!!ob&&ob.objects.some(o=>o.npc&&o.r>1.55*ob.r&&Math.hypot(o.x,o.y)<ob.r);const hadPrey=!!ob&&(window.__mergePrev||[]).some(o=>o.npc&&!o.clipped&&!o.isRed&&o.r>=.35*ob.r&&o.r<.91*ob.r&&Math.hypot(o.x,o.y)<ob.r+o.r+100);const trigger=suspect&&hadPrey;if(trigger)window.__mergeUntil=w.__t+1000;window.__mergePrev=ob?.objects||[];const shot={t:w.__t,data:w.document.querySelector('canvas').toDataURL()};window.__mergeRing.push(shot);if(window.__mergeRing.length>4)window.__mergeRing.shift();window.__timerTrace.push("
+s=s.replace(needle,hook).replace('frame:null','frame:window.__mergeUntil>=w.__t?shot.data:null,merge_trigger:trigger,preframes:trigger?window.__mergeRing.slice(0,-1):[]')
+s=s.replace("frame=tr.pop('frame',None)","for pf in tr.pop('preframes',[]):\n      fn=f'merge-collection-{version}-{seed}-{phase}-{round(pf[\"t\"]):06}.png';(p/'evidence'/fn).write_bytes(base64.b64decode(pf['data'].split(',')[1]))\n     frame=tr.pop('frame',None)")
+(p/'audit_merge_collection.py').write_text(s)
+plan={'limit':'Exactly4unchangedbaseline games,one/version,seed21001phase100,<=150logicalseconds/game; noextensionifnoqualifyingcases. No retriesexceptdocumentedinvalidinstrumentation.','trigger':'Visiblemerged-lookingNPC r>1.55player centerwithinplayerR AND priorcallbackvisibleedibleNPC .35-.91player withinplayerR+preyR+100. Pixels/HUDonly;truthdoesnottrigger.','capture':'3priorframes,triggerframe+1secondafter,fullcallbackvisualobservations andofflineaudittruth. No candidatecontrol.','stop':'After4gamesorresource/safetyproblem. Ifnoindependentmergeepisode,reportinsufficientdata withoutmoregames. Ifcandidate removesrealNPC orunderestimatesdanger,do notclosedloop. Need>=3independentepisodes sustainedseparation>=2callbacks withnoaddedfalse-dangerdeletion andusablepath beforeconsiderboundedAB.'}
+(p/'evidence/merge-collection-plan.json').write_text(json.dumps(plan,indent=2));print('prepared')
