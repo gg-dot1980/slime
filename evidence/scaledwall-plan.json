@@ -1,0 +1,33 @@
+{
+  "diagnostic_only": true,
+  "variants": {
+    "A": "260+.75r baseline",
+    "B": "500+.75r historicalfailedcontrol",
+    "C": "max(260+.75r,12r)"
+  },
+  "derivation": "Edge birthmaxradius6.2player and contact.72*(player+NPC) imply about11.384r if clampedtonpcradius;12r rounds upward. Not guaranteeagainst interiorbirthsor growth. Controller usesonlyHUD r andvisualwalls/map.",
+  "seeds": [
+    7001,
+    8009
+  ],
+  "phases": [
+    0,
+    100
+  ],
+  "versions": [
+    "v2.13",
+    "v2.20",
+    "v2.21",
+    "v2.22"
+  ],
+  "n": 48,
+  "measures": [
+    "winsby150",
+    "death/timeouts",
+    "sizeat30/60/90/120 conditionalonalive",
+    "edgeexposure basedvisible/inferredwalls",
+    "recoverytimefraction"
+  ],
+  "gate": "No promotionfromdiagnostics. EveryversionC>=2/4 and greaterwins thanA withnodeathincrease beforeconsideringnew-originalscreening and independentconfirmation. Phasepairsnotindependent.",
+  "fallback": "Ifnoimprovement rejectcandidate, preservehistory andanalyze newevidence ratherthan repeating."
+}
