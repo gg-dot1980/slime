@@ -1,0 +1,145 @@
+{
+  "diagnostic_only": true,
+  "scope": "Postdecision isolated IDsandbirthaudit nevercontrollerinput. Samecandidate decisions verified; no formal acceptance.",
+  "cases": [
+    {
+      "seed": 4001,
+      "same_decisions": true,
+      "fatal_npc": {
+        "x": 242.33748559269816,
+        "y": 203.38170925489567,
+        "r": 652.6801222102384,
+        "color": [
+          149,
+          135,
+          176
+        ],
+        "id": 209
+      },
+      "birth": {
+        "id": 209,
+        "elapsed": 95.64999999999836,
+        "x": 3351.4048416027,
+        "y": 80,
+        "r": 623.9743311928548,
+        "px": 3109.053160620657,
+        "py": 420.59262193795917,
+        "pr": 101.65298238160655,
+        "fromColor": null
+      },
+      "birth_distance": 418.01635302150027,
+      "birth_contact_radius": 522.4516657736121,
+      "birth_already_inside_collision": true,
+      "absent_previous_callback": true
+    },
+    {
+      "seed": 5003,
+      "same_decisions": true,
+      "fatal_npc": {
+        "x": 146.99764787117556,
+        "y": -68.3822467391119,
+        "r": 147.4659365785364,
+        "color": [
+          103,
+          62,
+          159
+        ],
+        "id": 224
+      },
+      "birth": {
+        "id": 224,
+        "elapsed": 99.81666666666479,
+        "x": 2502.4281517605978,
+        "y": 7120,
+        "r": 147.4659365785364,
+        "px": 2355.4155551005947,
+        "py": 7120.916310160575,
+        "pr": 79.0836898394247,
+        "fromColor": null
+      },
+      "birth_distance": 147.01545225256805,
+      "birth_contact_radius": 163.11573102093197,
+      "birth_already_inside_collision": true,
+      "absent_previous_callback": true
+    }
+  ],
+  "wall_policy_last_live": {
+    "walls": [
+      null,
+      null,
+      null,
+      78.33333333333334
+    ],
+    "margin": 319.25,
+    "bounded": 0,
+    "safe": 3,
+    "candidates": [
+      {
+        "name": "\u6771",
+        "x": 1,
+        "y": 0,
+        "clearance": -81.29872832607435,
+        "score": 3.353063978605743,
+        "gain": 4.1200941934069775
+      },
+      {
+        "name": "\u6771\u5357",
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475,
+        "clearance": 73.66334871059419,
+        "score": -14.108533979082578,
+        "gain": 5.150117741758722
+      },
+      {
+        "name": "\u5357",
+        "x": 6.123233995736766e-17,
+        "y": 1,
+        "clearance": 74.779232614114,
+        "score": -23.410015473428796,
+        "gain": 5.150117741758722
+      },
+      {
+        "name": "\u897f\u5357",
+        "x": -0.7071067811865475,
+        "y": 0.7071067811865476,
+        "clearance": 71.27145992330995,
+        "score": -27.72543327369966,
+        "gain": 0
+      },
+      {
+        "name": "\u897f",
+        "x": -1,
+        "y": 1.2246467991473532e-16,
+        "clearance": -97.31123260474635,
+        "score": -14.46389726542944,
+        "gain": 0
+      },
+      {
+        "name": "\u897f\u5317",
+        "x": -0.7071067811865477,
+        "y": -0.7071067811865475,
+        "clearance": -11.582711197724535,
+        "score": 25.777001715816038,
+        "gain": 0
+      },
+      {
+        "name": "\u5317",
+        "x": -1.8369701987210297e-16,
+        "y": -1,
+        "clearance": -165.93331348641254,
+        "score": 5.311604604410723,
+        "gain": 0
+      },
+      {
+        "name": "\u6771\u5317",
+        "x": 0.7071067811865474,
+        "y": -0.7071067811865477,
+        "clearance": -100.40643366434591,
+        "score": 8.15890098565975,
+        "gain": 0
+      }
+    ]
+  },
+  "interpretation": "Two candidate failures caused newlyborn NPCs at clamped arenaedge, initially overlapping collision. Not evidence of newlyintroduced falsepositive. Seed5003 knewwall78away, but allpredicted-safe candidates pointedoutward; simply raisingpriority atlasttick cannot guaranteeescape.",
+  "next_single_factor_hypothesis": "Earlier size-scaled boundary margin (e.g. derived fromspawnmaxradius6.2player) ratherthan addinglatewallforce; must account growthcost and test freshseeds. Prior500margin failed, so notassume success. No gamechanges or relaxedacceptance."
+}
