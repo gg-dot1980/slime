@@ -1,0 +1,178 @@
+{
+  "scope": "Unchanged baseline022 observation-only,16unseen cases; forecast notrealizedgrowth, samplescorrelated, noacceptance.",
+  "cases": [
+    {
+      "version": "v2.13",
+      "seed": 15013,
+      "initial_phase_ms": 0,
+      "valid": 749,
+      "eligible": 18,
+      "longest_consecutive": 4,
+      "end_title": "Eat smart. Stay alive.",
+      "end_seconds": 150.00000000000426
+    },
+    {
+      "version": "v2.13",
+      "seed": 15013,
+      "initial_phase_ms": 100,
+      "valid": 749,
+      "eligible": 39,
+      "longest_consecutive": 6,
+      "end_title": "Eat smart. Stay alive.",
+      "end_seconds": 150.00000000000426
+    },
+    {
+      "version": "v2.13",
+      "seed": 16001,
+      "initial_phase_ms": 0,
+      "valid": 749,
+      "eligible": 51,
+      "longest_consecutive": 11,
+      "end_title": "Eat smart. Stay alive.",
+      "end_seconds": 150.00000000000426
+    },
+    {
+      "version": "v2.13",
+      "seed": 16001,
+      "initial_phase_ms": 100,
+      "valid": 749,
+      "eligible": 6,
+      "longest_consecutive": 2,
+      "end_title": "Eat smart. Stay alive.",
+      "end_seconds": 150.00000000000426
+    },
+    {
+      "version": "v2.20",
+      "seed": 15013,
+      "initial_phase_ms": 0,
+      "valid": 456,
+      "eligible": 63,
+      "longest_consecutive": 17,
+      "end_title": "You were eaten!",
+      "end_seconds": 91.40000000000371
+    },
+    {
+      "version": "v2.20",
+      "seed": 15013,
+      "initial_phase_ms": 100,
+      "valid": 551,
+      "eligible": 103,
+      "longest_consecutive": 12,
+      "end_title": "You were eaten!",
+      "end_seconds": 110.40000000000924
+    },
+    {
+      "version": "v2.20",
+      "seed": 16001,
+      "initial_phase_ms": 0,
+      "valid": 419,
+      "eligible": 53,
+      "longest_consecutive": 7,
+      "end_title": "You were eaten!",
+      "end_seconds": 84.00000000000156
+    },
+    {
+      "version": "v2.20",
+      "seed": 16001,
+      "initial_phase_ms": 100,
+      "valid": 320,
+      "eligible": 12,
+      "longest_consecutive": 4,
+      "end_title": "You were eaten!",
+      "end_seconds": 64.19999999999638
+    },
+    {
+      "version": "v2.21",
+      "seed": 15013,
+      "initial_phase_ms": 0,
+      "valid": 489,
+      "eligible": 65,
+      "longest_consecutive": 10,
+      "end_title": "You were eaten!",
+      "end_seconds": 98.00000000000563
+    },
+    {
+      "version": "v2.21",
+      "seed": 15013,
+      "initial_phase_ms": 100,
+      "valid": 453,
+      "eligible": 49,
+      "longest_consecutive": 12,
+      "end_title": "You were eaten!",
+      "end_seconds": 90.80000000000354
+    },
+    {
+      "version": "v2.21",
+      "seed": 16001,
+      "initial_phase_ms": 0,
+      "valid": 486,
+      "eligible": 14,
+      "longest_consecutive": 4,
+      "end_title": "You were eaten!",
+      "end_seconds": 97.40000000000546
+    },
+    {
+      "version": "v2.21",
+      "seed": 16001,
+      "initial_phase_ms": 100,
+      "valid": 395,
+      "eligible": 8,
+      "longest_consecutive": 8,
+      "end_title": "You were eaten!",
+      "end_seconds": 79.20000000000016
+    },
+    {
+      "version": "v2.22",
+      "seed": 15013,
+      "initial_phase_ms": 0,
+      "valid": 437,
+      "eligible": 10,
+      "longest_consecutive": 2,
+      "end_title": "You were eaten!",
+      "end_seconds": 87.60000000000261
+    },
+    {
+      "version": "v2.22",
+      "seed": 15013,
+      "initial_phase_ms": 100,
+      "valid": 435,
+      "eligible": 87,
+      "longest_consecutive": 8,
+      "end_title": "You were eaten!",
+      "end_seconds": 87.20000000000249
+    },
+    {
+      "version": "v2.22",
+      "seed": 16001,
+      "initial_phase_ms": 0,
+      "valid": 629,
+      "eligible": 2,
+      "longest_consecutive": 2,
+      "end_title": "You win!",
+      "end_seconds": 126.00000000001378
+    },
+    {
+      "version": "v2.22",
+      "seed": 16001,
+      "initial_phase_ms": 100,
+      "valid": 749,
+      "eligible": 17,
+      "longest_consecutive": 6,
+      "end_title": "Eat smart. Stay alive.",
+      "end_seconds": 150.00000000000426
+    }
+  ],
+  "version_eligible_fraction": {
+    "v2.13": 0.038050734312416554,
+    "v2.20": 0.1323024054982818,
+    "v2.21": 0.0746023038946791,
+    "v2.22": 0.051555555555555556
+  },
+  "persistent_target_cases": 8,
+  "persistent_versions": [
+    "v2.21",
+    "v2.20"
+  ],
+  "median_predicted_growth_loss": 0,
+  "gate_passed": true
+}
