@@ -1,0 +1,205 @@
+{
+  "diagnostic_only": true,
+  "control_truth_separation": "truth logged by outside harness only after callback; neverinputto controller",
+  "cases": [
+    {
+      "version": "v2.20",
+      "seed": 1237,
+      "same_decisions_as_prior": true,
+      "last_callbacks": [
+        {
+          "seconds": 59.2999999999971,
+          "truth_nearest": {
+            "x": 158.33017877052316,
+            "y": 369.7781153438855,
+            "r": 367.5068231912298
+          },
+          "truth_gap": 92.88783959022561,
+          "closest_observation": {
+            "x": 159.26437230000147,
+            "y": 346.9589527978849,
+            "r": 305,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": true,
+            "clipped": true,
+            "dangerRadius": 355,
+            "vx": -100.84340274356634,
+            "vy": -160.2384406848287
+          },
+          "estimated_selected_path_clearance": 6.15023011904367
+        },
+        {
+          "seconds": 59.499999999997065,
+          "truth_nearest": {
+            "x": -157.14099440689552,
+            "y": -261.22013844355297,
+            "r": 269.2547559697235
+          },
+          "truth_gap": 66.22327271620514,
+          "closest_observation": {
+            "x": -156.7306818755363,
+            "y": -261.59928666363834,
+            "r": 269.692727989924,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": true,
+            "clipped": false,
+            "dangerRadius": 269.692727989924,
+            "vx": 48.883454304575416,
+            "vy": 8.752191301047798
+          },
+          "estimated_selected_path_clearance": -7.766947036851576
+        },
+        {
+          "seconds": 59.69999999999704,
+          "truth_nearest": {
+            "x": -79.37238371993772,
+            "y": -249.03731444792083,
+            "r": 269.2547559697235
+          },
+          "truth_gap": 22.76038065463473,
+          "closest_observation": {
+            "x": -80.25748922953616,
+            "y": -254.5471395651738,
+            "r": 258.07848371662806,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 258.07848371662806,
+            "vx": 52.773385060056114,
+            "vy": 12.875143008305146
+          },
+          "estimated_selected_path_clearance": -1.6382378244695701
+        },
+        {
+          "seconds": 59.89999999999701,
+          "truth_nearest": {
+            "x": 1.1158402629234843,
+            "y": -238.83110208563812,
+            "r": 269.2547559697235
+          },
+          "truth_gap": 0.21398438833821842,
+          "closest_observation": {
+            "x": 2.1297476421106394,
+            "y": -249.07366811113945,
+            "r": 251.38736954057342,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 251.38736954057342,
+            "vx": 62.352647423118384,
+            "vy": 16.197417999959505
+          },
+          "estimated_selected_path_clearance": 11.296868709277817
+        }
+      ]
+    },
+    {
+      "version": "v2.21",
+      "seed": 1237,
+      "same_decisions_as_prior": true,
+      "last_callbacks": [
+        {
+          "seconds": 83.30000000000135,
+          "truth_nearest": {
+            "x": -192.36616698644207,
+            "y": -180.72511236298033,
+            "r": 248.94215730724366
+          },
+          "truth_gap": 35.58913437272028,
+          "closest_observation": {
+            "x": -212.26433924603623,
+            "y": -188.3180808194931,
+            "r": 305.678248293278,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 305.678248293278,
+            "vx": 38.694952893634,
+            "vy": 200
+          },
+          "estimated_selected_path_clearance": -1.6658466387439148
+        },
+        {
+          "seconds": 83.5000000000014,
+          "truth_nearest": {
+            "x": -181.7205601032415,
+            "y": -180.72511236298033,
+            "r": 248.94215730724366
+          },
+          "truth_gap": 27.93413379463263,
+          "closest_observation": {
+            "x": -208.96259896259892,
+            "y": -189.96041496041497,
+            "r": 298.8875501655863,
+            "npc": true,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": true,
+            "clipped": false,
+            "dangerRadius": 298.8875501655863,
+            "vx": 36.06010514656759,
+            "vy": 200
+          },
+          "estimated_selected_path_clearance": 1.2823893104999229
+        },
+        {
+          "seconds": 83.70000000000147,
+          "truth_nearest": {
+            "x": -168.27515885033358,
+            "y": -196.33138819487067,
+            "r": 264.54843313913426
+          },
+          "truth_gap": 18.986780353243546,
+          "closest_observation": {
+            "x": -63.75,
+            "y": 66.25,
+            "r": 11.666666666666668,
+            "npc": false,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 11.666666666666668,
+            "vx": 0,
+            "vy": 0
+          },
+          "estimated_selected_path_clearance": 53.41218158685905
+        },
+        {
+          "seconds": 83.90000000000153,
+          "truth_nearest": {
+            "x": -137.22324006115264,
+            "y": -196.33138819487067,
+            "r": 264.54843313913426
+          },
+          "truth_gap": -0.05778202720750869,
+          "closest_observation": {
+            "x": -63.75,
+            "y": 66.25,
+            "r": 11.666666666666668,
+            "npc": false,
+            "stalled": 0,
+            "blocked": false,
+            "isRed": false,
+            "clipped": false,
+            "dangerRadius": 11.666666666666668,
+            "vx": 0,
+            "vy": 0
+          },
+          "estimated_selected_path_clearance": 53.41218158685905
+        }
+      ]
+    }
+  ],
+  "hypothesis": "v21 dangerNPC detection disappears during growth/occlusion; retaining unmatched near-danger pixeltracks0.6sec might avoid falseclear escape. Not claiming allclippedfailures samecause."
+}

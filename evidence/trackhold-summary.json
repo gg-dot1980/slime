@@ -1,0 +1,409 @@
+{
+  "diagnostic_only": true,
+  "n": 32,
+  "groups": {
+    "v2.13A": {
+      "wins": 1,
+      "deaths": 0,
+      "n": 4,
+      "ghost_samples": 0
+    },
+    "v2.13B": {
+      "wins": 2,
+      "deaths": 0,
+      "n": 4,
+      "ghost_samples": 49
+    },
+    "v2.20A": {
+      "wins": 0,
+      "deaths": 4,
+      "n": 4,
+      "ghost_samples": 0
+    },
+    "v2.20B": {
+      "wins": 0,
+      "deaths": 4,
+      "n": 4,
+      "ghost_samples": 98
+    },
+    "v2.21A": {
+      "wins": 0,
+      "deaths": 4,
+      "n": 4,
+      "ghost_samples": 0
+    },
+    "v2.21B": {
+      "wins": 0,
+      "deaths": 4,
+      "n": 4,
+      "ghost_samples": 63
+    },
+    "v2.22A": {
+      "wins": 0,
+      "deaths": 1,
+      "n": 4,
+      "ghost_samples": 0
+    },
+    "v2.22B": {
+      "wins": 1,
+      "deaths": 3,
+      "n": 4,
+      "ghost_samples": 87
+    }
+  },
+  "rows": [
+    {
+      "version": "v2.13",
+      "seed": 2467,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": false,
+      "seconds": 150.00000000000426,
+      "size": "165",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.13",
+      "seed": 2467,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": false,
+      "seconds": 150.00000000000426,
+      "size": "166",
+      "ghost_samples": 11
+    },
+    {
+      "version": "v2.13",
+      "seed": 2467,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": false,
+      "seconds": 150.00000000000426,
+      "size": "143",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.13",
+      "seed": 2467,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "win": true,
+      "death": false,
+      "seconds": 140.00000000001006,
+      "size": "184",
+      "ghost_samples": 14
+    },
+    {
+      "version": "v2.13",
+      "seed": 3049,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "win": true,
+      "death": false,
+      "seconds": 131.60000000001497,
+      "size": "183",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.13",
+      "seed": 3049,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "win": true,
+      "death": false,
+      "seconds": 121.6000000000125,
+      "size": "188",
+      "ghost_samples": 6
+    },
+    {
+      "version": "v2.13",
+      "seed": 3049,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": false,
+      "seconds": 150.00000000000426,
+      "size": "145",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.13",
+      "seed": 3049,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": false,
+      "seconds": 150.00000000000426,
+      "size": "141",
+      "ghost_samples": 18
+    },
+    {
+      "version": "v2.20",
+      "seed": 2467,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 59.59999999999705,
+      "size": "53",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.20",
+      "seed": 2467,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 70.3999999999976,
+      "size": "74",
+      "ghost_samples": 28
+    },
+    {
+      "version": "v2.20",
+      "seed": 2467,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 83.00000000000126,
+      "size": "76",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.20",
+      "seed": 2467,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 83.00000000000126,
+      "size": "76",
+      "ghost_samples": 9
+    },
+    {
+      "version": "v2.20",
+      "seed": 3049,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 144.20000000000763,
+      "size": "93",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.20",
+      "seed": 3049,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 104.20000000000744,
+      "size": "117",
+      "ghost_samples": 38
+    },
+    {
+      "version": "v2.20",
+      "seed": 3049,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 80.80000000000062,
+      "size": "106",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.20",
+      "seed": 3049,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 80.80000000000062,
+      "size": "106",
+      "ghost_samples": 23
+    },
+    {
+      "version": "v2.21",
+      "seed": 2467,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 104.80000000000761,
+      "size": "101",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.21",
+      "seed": 2467,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 106.8000000000082,
+      "size": "121",
+      "ghost_samples": 36
+    },
+    {
+      "version": "v2.21",
+      "seed": 2467,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 78.39999999999992,
+      "size": "96",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.21",
+      "seed": 2467,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 78.39999999999992,
+      "size": "96",
+      "ghost_samples": 4
+    },
+    {
+      "version": "v2.21",
+      "seed": 3049,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 104.20000000000744,
+      "size": "100",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.21",
+      "seed": 3049,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 98.40000000000575,
+      "size": "110",
+      "ghost_samples": 17
+    },
+    {
+      "version": "v2.21",
+      "seed": 3049,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 71.59999999999795,
+      "size": "105",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.21",
+      "seed": 3049,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 72.79999999999829,
+      "size": "105",
+      "ghost_samples": 6
+    },
+    {
+      "version": "v2.22",
+      "seed": 2467,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 45.59999999999909,
+      "size": "63",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.22",
+      "seed": 2467,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 104.4000000000075,
+      "size": "109",
+      "ghost_samples": 17
+    },
+    {
+      "version": "v2.22",
+      "seed": 2467,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": false,
+      "seconds": 150.00000000000426,
+      "size": "143",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.22",
+      "seed": 2467,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "win": true,
+      "death": false,
+      "seconds": 138.20000000001113,
+      "size": "196",
+      "ghost_samples": 28
+    },
+    {
+      "version": "v2.22",
+      "seed": 3049,
+      "variant": "A",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": false,
+      "seconds": 150.00000000000426,
+      "size": "161",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.22",
+      "seed": 3049,
+      "variant": "B",
+      "initial_phase_ms": 0,
+      "win": false,
+      "death": true,
+      "seconds": 116.80000000001111,
+      "size": "144",
+      "ghost_samples": 11
+    },
+    {
+      "version": "v2.22",
+      "seed": 3049,
+      "variant": "A",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": false,
+      "seconds": 150.00000000000426,
+      "size": "146",
+      "ghost_samples": 0
+    },
+    {
+      "version": "v2.22",
+      "seed": 3049,
+      "variant": "B",
+      "initial_phase_ms": 100,
+      "win": false,
+      "death": true,
+      "seconds": 107.60000000000842,
+      "size": "104",
+      "ghost_samples": 31
+    }
+  ],
+  "decision": "No formal screening: not everyversion>=50%; diagnosticonly. Retention not generally solves disappearance or giantclipping."
+}
