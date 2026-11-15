@@ -1,0 +1,59 @@
+{
+  "scope": "Frozen rawidentity method onnewseed2467 phase100; identityassociatedusingrawpixelcoords/rawvelocity, correctedvelocityonlywithconsecutiveconfidence. Independentof1237 tuningcases. Frozen geometrygate on v20/v21 seed2467 phase100; replay parity checked separately. Raw accepted NPC-sized components, not fullcontrollerpartfilter. Trackassociation pixelonly; truth onlyposterior, nearestcenter identities ambiguous. No causalgameperformanceclaim. Preserveoriginalradius.",
+  "groups": [
+    {
+      "version": "v2.20",
+      "variant": "baseline",
+      "n_frames": 30,
+      "summary": {
+        "objects": 227,
+        "tracks_created": 39,
+        "center_median": 30.923518084314843,
+        "center_within80": 132,
+        "velocity_median_matched": 34.02150596755912,
+        "identity_switch_proxy": 0
+      }
+    },
+    {
+      "version": "v2.20",
+      "variant": "gated_center",
+      "n_frames": 30,
+      "summary": {
+        "objects": 227,
+        "tracks_created": 39,
+        "center_median": 13.025399793205038,
+        "center_within80": 140,
+        "velocity_median_matched": 33.42910107682006,
+        "identity_switch_proxy": 0
+      }
+    },
+    {
+      "version": "v2.21",
+      "variant": "baseline",
+      "n_frames": 32,
+      "summary": {
+        "objects": 151,
+        "tracks_created": 19,
+        "center_median": 19.405575774976615,
+        "center_within80": 102,
+        "velocity_median_matched": 23.036896411032984,
+        "identity_switch_proxy": 0
+      }
+    },
+    {
+      "version": "v2.21",
+      "variant": "gated_center",
+      "n_frames": 32,
+      "summary": {
+        "objects": 151,
+        "tracks_created": 19,
+        "center_median": 2.7364030592895654,
+        "center_within80": 102,
+        "velocity_median_matched": 18.55032014564287,
+        "identity_switch_proxy": 0
+      }
+    }
+  ],
+  "decision": "Hold for analysis; no gameplaystrategybatch.",
+  "corrections_count": 79
+}

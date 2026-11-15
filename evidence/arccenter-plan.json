@@ -1,0 +1,25 @@
+{
+  "diagnostic_only": true,
+  "hypothesis": "Confidence-gated correction of clipped component center improves usable threat tracking and avoidance without radius/edibility changes.",
+  "implementation": "Arc fitted from visiblepixels only; unchanged baseline hue22, original radii, rawcoordinate identity association; use correctedvelocitydelta only if both consecutiveframes haveconfidence. No truth read.",
+  "evidence": "Independent seed2467 phase100:79 corrections,none>20worse; preservedrawtrackcounts39/19; center errors30.9\u219213.0,19.4\u21922.7; speed34.0\u219233.4,23.0\u219218.6. Nearesttruth evaluation isproxy, notperfecttrackingproof.",
+  "smoke": "20s v20seed13001B,100 samples,35correctedobjects,14msmedian24msp95/26max; noerrors. This seed first20s seen in smoke,no tuning afterward.",
+  "A": "baseline022",
+  "B": "arccenter only",
+  "seeds": [
+    13001,
+    14009
+  ],
+  "phases_ms": [
+    0,
+    100
+  ],
+  "versions": [
+    "v2.13",
+    "v2.20",
+    "v2.21",
+    "v2.22"
+  ],
+  "games": 32,
+  "acceptance": "Diagnostics only; originalfourversion150s/50%formal gateunchanged. Do notdeployfromsmallbatch. Rejectcost/regression; retainallfailuredata."
+}
