@@ -1,0 +1,12 @@
+{
+  "scope": "Retrospective counterfactual diagnosis only, no acceptance; same oldv21seed13001phase0, candidatearccenter otherwiseunchanged.",
+  "fork": "66.5s, beforevisibleparentlargegrowth and70.583s fatal split. Visibleplanner atfork has3safe directions S/SW/NW; evaluateeachpreferred for1s onlywhenstillin admissiblesafepool, otherwisefallback. Thenresumeordinarypixelcontroller.",
+  "branches": [
+    "control",
+    "\u5357",
+    "\u897f\u5357",
+    "\u897f\u5317"
+  ],
+  "cap_seconds": 100,
+  "rules": "No truth fed into choice; truth recordedaftercallback/endGame only. FutureNPCdynamics/PRNGmaydiverge afteractions, so survivalmeansalternativepathinreplayedgame, notproofescapeagainstfixedoriginalfuture or generalpolicy."
+}
