@@ -1,3 +1,9 @@
+## r74 — bounded intervention capture verified (2026-11-18 Taipei)
+
+Recorder-only, strategy unchanged. Fixed2235 directions + prior589 complete outputs exact; new345/345 outputs exact. Browser fixture13/13 PNG roundtrip and immutable first image passed. One declared desktop v2.20 Chrome1562000x1163DPR1 diagnostic:0wins/1death at68s,size90/0aborts,0rejected,keys released. Three interventions; first seq304 preserved outside final ring,2.5ms copy,43,555,200 raw bytes. Two later images deliberately skipped by one-slot cap; no causal strategy claim. Preview stopped; mobile skipped; no OCR4/public strategy release or Library upload.
+
+[Complete source, test commands and limitations](repro/r74/README.md) · [No-image reproduction ZIP](repro/r74/r74-repro.zip), SHA25648a5ed73b4cb600739841f613d4ebcb23c29507d907de6ee55170157c8a37c70. Clean empty-directory build/check/replay passed on same host, not a new OS. Next: compare short-lived intervention reversals using saved exact case and independent controls.
+
 ## r73 — terminal surface audit (2026-11-18 Taipei)
 
 No new games: 0 starts/0 wins/0 deaths/0 aborts. Analyzed B last12 same-source images plus terminal. Player-right purple ROI:12/12 zero, terminal100%; measured wall shift−21.849px and tested horizontal offsets do not explain it. Retrospective, not predictive: final181.1ms unobserved; spawn/growth/identity unknown. Sole intervention seq292 lacks exact image. Do not expand unchanged candidate. Local pixel check and clean-directory numerical replay passed; images excluded, hashes included. Prior full r72 sources pinned, no strategy change/OCR4 release; mobile skipped; preview stopped. Next: bounded exact intervention snapshot, verify unchanged outputs.

@@ -1,0 +1,19 @@
+{
+  "stats": {
+    "pinSeen": 14,
+    "pinSkipped": 13,
+    "pinMissing": 0,
+    "pinCostMs": 2.099999997764826,
+    "pinMaxBytes": 4194304,
+    "pinnedSeq": 1,
+    "pinnedBytes": 3350400,
+    "totalRawBytes": 43555200,
+    "retained": 12
+  },
+  "frames": 13,
+  "allRoundtrip": true,
+  "pinnedOriginalPixel": 17,
+  "pinnedSeq": 1,
+  "finishMs": 689.8999999985099,
+  "pass": true
+}
