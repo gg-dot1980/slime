@@ -1,0 +1,8 @@
+{
+  "hypothesis": "Avoid immediate >120-degree reversal when prior direction remains in original eligible pool and score deficit <=1.8 (one nominal food gain .45*4). Preserve all-unsafe fallback and original safe/bounded pool.",
+  "frozenThreshold": 1.8,
+  "validation": "r57 A/B 941 frozen inputs plus1298 historical originals and415 conditional separately; report margin loss and prior clearance, all-unsafe unchanged",
+  "live": "only if meaningful coverage and no invalid-pool selection, fixed A then B v2.20 desktop one each;150 HUDseconds/210wallseconds; no replacement of death/abort; random seeds unknown",
+  "limits": "one-step frozen replay not closed-loop safety or win-rate evidence; threshold not tuned on holdout",
+  "images": "local only"
+}

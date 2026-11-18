@@ -1,3 +1,9 @@
+# r58 — reversal hysteresis rejected (desktop offline)
+
+2026-11-18 Taipei. Fixed r57 A/B941 observations plus1298 original historical and415 conditional separately. 146 r57 reversals,only3 changed; no final B stall coverage. Historical r14-191 modeled clearance143.68→103.06px; not actual safety proof. New starts/wins/deaths/aborts all0. No live batch or strategy deployment justified. Publictest043 unchanged, mobile skipped, all desktop150s/50%acceptance unmet.
+
+[Complete no-image source, scripts, frozen numerical inputs/results and reproducibility](repro/r58/README.md). Archive SHA25658886ceef650491128a9ad97fe7f002f49d960fc3681892658d78b6c7f0c1550; clean-directory build/replay byte-identical. Original image evidence local only. Next decompose reversal score jumps, not threshold retuning. No Library upload.
+
 # OCR 測試與交接摘要
 
 更新時間（台灣）：2026-11-18T08:16:58.276798+08:00

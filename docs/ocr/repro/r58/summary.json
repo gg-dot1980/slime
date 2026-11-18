@@ -1,0 +1,24 @@
+{
+  "updatedAtTaipei": "2026-11-18T10:27:12.209557+08:00",
+  "stage": "r58",
+  "outcome": "rejected-low-coverage",
+  "newStarts": 0,
+  "wins": 0,
+  "deaths": 0,
+  "aborts": 0,
+  "r57Reversals": 146,
+  "changed": 3,
+  "bChangedRow": 339,
+  "bLastStallChanged": 0,
+  "historicalClearanceLossCounterexample": "r14-191:143.6790663 ->103.0615101px",
+  "sourceRawSHA256": {
+    "A": "e53f3c77e9e462c60971cc8130c85e4a3d275a48f6ce0d94400fa6ee47e9204b",
+    "B": "7855a2838cf2d37c0b8a8ceab1fbc26df451010aa1966e7e955097db1a7c617b"
+  },
+  "environment": {
+    "node": "v24.22.1",
+    "python": "Python 3.12.14",
+    "scope": "same restored cloud Linux host; clean-directory replay, not fresh OS/browser"
+  },
+  "next": "Decompose reversal score jumps in actual r57 pairs into target alignment, predicted contact gain, threat risk and wall term; no threshold retuning or identical games."
+}
