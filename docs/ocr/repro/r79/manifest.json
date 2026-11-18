@@ -1,0 +1,18 @@
+{
+  "r79/audit.cjs": "046e8d3ea213b646c49041bcf5af4acb60fba096f070de98b979999d0f9b6de2",
+  "r79/summary.json": "08016a8915f158dd72f9f0bf344fd08281b87e9126a572c178fec563e6a22c57",
+  "r79/README.md": "33a35329e1a2c6978c3f976b99925f442fd6df24664be7675a17d34acc7c397f",
+  "r79/holdout.json": "b05cb7b7cf76cc1003015b5b79134ad4b38888cc2d796ef3c0e8281c4ecedc1d",
+  "r79/candidate-check.json": "1896935c1a637b51b1d93e6bdc3501f36c9aa22580c73e7072dc7f3da1727ff2",
+  "r79/holdout-results.json": "7bd06921cf2d8cbc8790280596dbf62aece6903ba5334586dd35fa9c22258d67",
+  "r79/candidate-check.cjs": "fa553a6e0db7c43127bce887bae47f5bd96512eaa7019ff6e77b012f2b79bd65",
+  "r79/replay.py": "10c2374944f8d476c925f88d8cafd297f0bf86fc93e1e07289aab94ba62b07ed",
+  "r79/results.json": "e0bb16fbcffaeb036d5f538a6951d7bfb5d3c779173950eb7d7537637948bb57",
+  "r79/candidate-radius.js": "fbd9153818dfd331f0fe5fbb4ddc3b98c244f076b46749a7d49a3ec69ff76aca",
+  "r79/Current.js": "dc0f3bb5a87cc6bb996831a1d882573184a1acc48f779580fc240bf6f651a134",
+  "r78/Current.js": "dc0f3bb5a87cc6bb996831a1d882573184a1acc48f779580fc240bf6f651a134",
+  "r78/inputs.json": "dfb81d864ee336d0aa8ca5aecc2edc717f417ac3cf8dfd83132433b1c49ed2c2",
+  "r78/pixel-results.json": "4b42fe82fef993f9ed2f33443b8cbbe30cdcd8c6970b76351ff6f1f134d17d5c",
+  "r78/independent.json": "84adf11d95526184a0e2f2aa098deba20cf39fdd0c4151834641283b01d1e81c",
+  "r78/independent-results.json": "16ea1574e70035930771d8f230fa070fee59ea4f936779b6073e2d2ce3b288dd"
+}

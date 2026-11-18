@@ -1,0 +1,10 @@
+{
+  "n": 70,
+  "exact": 70,
+  "changed": 9,
+  "perComponentMs": {
+    "median": 0.22632899999996425,
+    "max": 3.5187589999999886
+  },
+  "scope": "Node saved pixels, no rendering/control load; not live overhead"
+}

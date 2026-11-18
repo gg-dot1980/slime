@@ -1,3 +1,9 @@
+## r79 — pooled highlight-area fallback identified (2026-11-18 Taipei)
+
+0 new games.9NPCtarget frames have28–36bright pixels; all fail upper area gate (1.78–2.47xexpected vs1.6),not pixel scarcity. Splitting4connected bright regions yields exactlyone valid cluster each,estimated35.704–37.053worldradius vsfallback26.667–28.333. Text contamination consistent,not labelled truth/killer proof. Prototype only upgrades original fallback when unique cluster passes unchanged gates; accepted estimates/clipped objects retained.70/70component checks exact,9changed; independent13Aimages/52labelledobjects0changes. Corrected-value holdout coverage still missing; no live safety/benefit claim. Node median0.226ms/max3.519ms per component,not active-game overhead. Preview stopped,mobile skipped,no OCR4/Library/image upload.
+
+[Source, evidence and limits](repro/r79/README.md) · [No-image reproduction](repro/r79/r79-repro.zip), SHA2560bb4a203f28c400b7c3250f6a56c33a9f6202e7701cb1af1b4bf3eee61228396. Next: integrate/provenance+active-load validation then bounded trial if supported, preserving uncertainty and upper-threat alternative.
+
 ## r78 — early-death image audit, simple calibration fix falsified (2026-11-18 Taipei)
 
 0 new games. r77B candidate never intervened; death not attributed to it. Last12pixel hashes12/12match; final142.1ms gap. Saved frame/terminal show small selected NPC touching player and upper large threat nearby; killer/true radii unconfirmed. Static renderer scales visible NPC by0.8–1.15 while collision uses unscaled radius: possible ambiguity, not proof. Removing only highlightRadius small-component<18guard changes0/12target estimates, and0/6labelled NPC components across2other scenes. Rejected simple fix; no live expansion or release. Full source/numerical evidence preserved, pixels local only. Preview stopped/mobile skipped.
