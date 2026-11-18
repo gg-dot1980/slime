@@ -1,0 +1,215 @@
+{
+  "hypothesis": "Two consecutive visible adjacency observations permit higher modeled clearance within unchanged original eligible pool; diagnostic only",
+  "rows": [
+    {
+      "alternativeMinVisibleWallMargin": -231.45088286314098,
+      "seq": 312,
+      "warn": false,
+      "baseline": "西",
+      "baselineClearance": 32.277914425792176,
+      "baselineGain": 3.083820442142664,
+      "alternative": "北",
+      "alternativeClearance": 60.35648967028237,
+      "alternativeGain": 0,
+      "changes": false,
+      "pool": [
+        "西",
+        "東北",
+        "西北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": -242.56170710010815,
+      "seq": 313,
+      "warn": false,
+      "baseline": "東北",
+      "baselineClearance": 52.486358949336534,
+      "baselineGain": 0,
+      "alternative": "北",
+      "alternativeClearance": 57.24076104269835,
+      "alternativeGain": 0,
+      "changes": false,
+      "pool": [
+        "東北",
+        "西北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": -279.68387412935454,
+      "seq": 314,
+      "warn": false,
+      "baseline": "東北",
+      "baselineClearance": 60.738270084143664,
+      "baselineGain": 0,
+      "alternative": "北",
+      "alternativeClearance": 65.34741516924856,
+      "alternativeGain": 0,
+      "changes": false,
+      "pool": [
+        "東北",
+        "西北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": -323.7423604864572,
+      "seq": 315,
+      "warn": false,
+      "baseline": "東",
+      "baselineClearance": 19.77489436764057,
+      "baselineGain": 0,
+      "alternative": "北",
+      "alternativeClearance": 82.5600538124628,
+      "alternativeGain": 0,
+      "changes": false,
+      "pool": [
+        "東",
+        "西",
+        "東北",
+        "西北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": -313.291656510434,
+      "seq": 316,
+      "warn": false,
+      "baseline": "東",
+      "baselineClearance": 16.726782289392645,
+      "baselineGain": 0,
+      "alternative": "北",
+      "alternativeClearance": 64.88230219496177,
+      "alternativeGain": 0,
+      "changes": false,
+      "pool": [
+        "東",
+        "西",
+        "東北",
+        "西北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": -304.436717043983,
+      "seq": 317,
+      "warn": false,
+      "baseline": "東",
+      "baselineClearance": 7.593640038484551,
+      "baselineGain": 0,
+      "alternative": "北",
+      "alternativeClearance": 66.9125990010375,
+      "alternativeGain": 0,
+      "changes": false,
+      "pool": [
+        "東",
+        "西",
+        "東北",
+        "西北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": -214.78356610178884,
+      "seq": 318,
+      "warn": false,
+      "baseline": "東",
+      "baselineClearance": 7.382510631139809,
+      "baselineGain": 0,
+      "alternative": "西北",
+      "alternativeClearance": 49.44079086110415,
+      "alternativeGain": 0,
+      "changes": false,
+      "pool": [
+        "東",
+        "西北",
+        "東北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": -298.9662517539749,
+      "seq": 319,
+      "warn": true,
+      "baseline": "東",
+      "baselineClearance": 4.088624018145481,
+      "baselineGain": 0,
+      "alternative": "北",
+      "alternativeClearance": 19.361481818170773,
+      "alternativeGain": 0,
+      "changes": true,
+      "pool": [
+        "東",
+        "東北",
+        "西北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": -298.2522890582386,
+      "seq": 320,
+      "warn": true,
+      "baseline": "東",
+      "baselineClearance": 7.922595756091994,
+      "baselineGain": 0,
+      "alternative": "北",
+      "alternativeClearance": 15.894975441762853,
+      "alternativeGain": 0,
+      "changes": true,
+      "pool": [
+        "東",
+        "東北",
+        "西北",
+        "北"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": 3.1689160216185144,
+      "seq": 321,
+      "warn": true,
+      "baseline": "東南",
+      "baselineClearance": 25.35294208681256,
+      "baselineGain": 0.1956521739130435,
+      "alternative": "東南",
+      "alternativeClearance": 25.35294208681256,
+      "alternativeGain": 0.1956521739130435,
+      "changes": false,
+      "pool": [
+        "東南"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": 24.900812312194233,
+      "seq": 322,
+      "warn": true,
+      "baseline": "南",
+      "baselineClearance": 10.073519720258957,
+      "baselineGain": 0,
+      "alternative": "東南",
+      "alternativeClearance": 50.53759205516636,
+      "alternativeGain": 0.21428571428571427,
+      "changes": true,
+      "pool": [
+        "南",
+        "東南"
+      ]
+    },
+    {
+      "alternativeMinVisibleWallMargin": 71.97988177268661,
+      "seq": 323,
+      "warn": true,
+      "baseline": "南",
+      "baselineClearance": 26.236171115093498,
+      "baselineGain": 0,
+      "alternative": "東南",
+      "alternativeClearance": 53.064108432125806,
+      "alternativeGain": 0.225,
+      "changes": true,
+      "pool": [
+        "南",
+        "東南"
+      ]
+    }
+  ]
+}

@@ -1,3 +1,7 @@
+## r67 — pre-transition surface adjacency (2026-11-18 Taipei)
+
+12 frames from one r65 game: orange/pink adjacency visible for six frames, confirmed warning for five. Shadow maximum-clearance selection changes four directions; first two point north across the visible upper wall, so candidate rejected for live integration. Later southeast alternatives remain counterfactual. Swallowing/growth/attacker identity unknown. No new starts/wins/deaths/aborts; public test-043 unchanged, mobile skipped, OCR4 not released. Clean-directory numerical replay byte-identical; images remain local, no Library upload. [Source, inputs, results and limitations](repro/r67/README.md).
+
 ## r66 — boundary/camera fixed counterexample audit (2026-11-18 Taipei)
 
 12same-sourceframes+terminal: wall-compensated finalboundaryshift263.72analysispx in91.2ms, vs prior11closingrates45.14–64.87px/s. Wall moves9.83px; purecamera translation insufficient. Fixedone200msmargin12.97+4px fails; no tuning/deployment. Ninecolorchecks stable. Growth/identity/attacker stillunknown; bottomclippedextent not inferred. [Scripts, measurements, limits](repro/r66/README.md). Numericalclean-directory replayexact; imageslocalonly. No newgames; priorr65death retained. NoOCR4/Libraryupload; previewstopped,mobileskipped.

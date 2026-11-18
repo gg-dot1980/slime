@@ -1,0 +1,12 @@
+# r67 — Visible surface adjacency and rejected escape hypothesis
+
+Source: r65 v2.20 desktop test-043, one death at HUD 62 seconds, size 93. This phase adds no games and changes no controller. Mobile skipped. OCR4 unpublished.
+
+12 consecutive decision-source frames: orange/pink minimum shared-column gap 77,63,49,36,22,8,2,2,2,2,2,2 analysis pixels. Both visible colors touch/occlude from seq318; two-consecutive confirmation starts seq319 (~923 ms before terminal). This is one already-seen event, not independent validation. A color surface is not a stable NPC identity. No claim of swallowing, growth, attacker identity or collision cause. seq317 and319 visually inspected alongside prior r66 observations.
+
+Fixed diagnostic hypothesis: after two adjacent observations, select maximum predicted NPC clearance from the original eligible pool without changing perception or thresholds. Four direction changes; seq319/320 select north, despite the visible upper wall. An independent 1.1-second free-motion projection using the original velocity recurrence gives wall margins -298.97/-298.25 CSS pixels. These negative margins mean the proposed trajectory crosses the observed boundary; they do not predict physical penetration (collision stops/slides may intervene). Reject deployment of this rule. seq322/323 select southeast with positive modeled wall margins; these are counterfactuals, not demonstrated survival. No false-positive rate is available from one event. Earlier six non-adjacent frames are within-game contrasts only.
+
+## Reproduction (no images)
+Run from parent of r67: `node r67/compare.cjs`. Current.js and inputs.json contain the actual frozen controller and 12 numerical decision inputs. measurements.json preserves every measured column, timestamp and source image hash. comparison.json is expected output. Node 24.22.1, Python 3.12.14; image measurement requires local original r65/live-raw-local.json plus Pillow13.0.0/numpy2.3.5: `python r67/measure.py`. Images intentionally excluded; visual measurement cannot be independently reverified from this package alone. Full r65 harness/source and results are pinned at commit 0fa022ce20daacbef130816a22248f9d946bbc16.
+
+Correct r65 source commit: 0fa022ce20daacbef130816a22248f9d946bbc16. Random gameplay is not bitwise reproducible; no seed was captured. No new browser or preview launched. No Library upload. Next: wall-constrained trajectory comparison against independent existing safety cases, not adjacency-based growth assumptions.
