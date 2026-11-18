@@ -1,3 +1,11 @@
+## r83 — shared wall trajectory audit; user observation rules (2026-11-18 Taipei)
+
+0newgames. Gain/threat alreadyshare unboundedtrajectory;visiblewallclamp missing inboth. r47zeroesnormalvelocity butgame retainsit.347fixedbaselineoutputs exact;sharedclamp retain/zero chooseidentically:0/10development,2/2failure,1/335independentchanged. FailureNWstillnegative;independentA301modelgain improvesbutprojectedgrowth leaves−1.35wallmargin. No supportedlivecandidate;don't repeat r47 asnew. Keep alltradeoffs.
+
+Four sourceversionsv2.13/20/21/22 verifiedatpriorcommit:chase selectedonlyNPC>player*1.08,retarget.55–.9s;apparentapproach canfood/hunt/drift/stalechase. Contact<.72sum,eat/deathratio1.08,neutralotherwise;40numericrulecasespass,notrealcollisionvalidation. User maintaining-distance orbit design savedwithtime/travelcaps,multi-frameidentity,exitwalls/otherthreats/shrinkinggap. No controlledorbitdata yet,no true-radius/chaseflags used or avoidance relaxation.
+
+[Full audit and reproduction](repro/r83/README.md) · [Observation next protocol](repro/r83/OBSERVATION-NEXT.md) · [No-image source/results](repro/r83/r83-repro.zip), SHA256 ec591d12945205dd8a6b1852e7936c9dbb36261e39c497457799f7eec181401b. Clean-directoryreplaypasses;previewstopped,mobile skipped;no publicstrategy/OCR4/Libraryupload;desktopper-version150s/>=50% unmet.
+
 ## r82 — clipped-threat ranking sensitivity (2026-11-18 Taipei)
 
 0new games.347exactbaseline states:10development+2failure+335independentA. Largestclipped radius±5.833(observedhalfspan,not confidencebound) changes no chosen direction. Motion-zero diagnostic changes only2failurestates SE→NW;original-model clearances worsen−4.143/−14.584,wallmargin improves,gain falls. Both originalstatesalreadynegative,not newnegative crossings. Independent335chosen directionsunchanged;no behavioralgeneralization evidence. Reject directzero-motion replacement;no liveA/B,no thresholdtuning. Full8directionmetrics saved,clean-directory exactreplay passed.

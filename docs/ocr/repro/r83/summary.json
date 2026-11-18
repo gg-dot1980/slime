@@ -1,0 +1,70 @@
+{
+  "stage": "r83",
+  "updatedAtTaipei": "2026-11-18T13:02:11.679280+08:00",
+  "starts": 0,
+  "wins": 0,
+  "deaths": 0,
+  "aborts": 0,
+  "baselineExact": 347,
+  "summary": {
+    "development": {
+      "n": 10,
+      "modelsDisagree": 0,
+      "retain": {
+        "changed": 0,
+        "oldSafeLost": 0,
+        "oldGainChanged": 0,
+        "oldGapChanged": 1,
+        "chosenOriginalGapLower": 0
+      },
+      "zero": {
+        "changed": 0,
+        "oldSafeLost": 0,
+        "oldGainChanged": 0,
+        "oldGapChanged": 1,
+        "chosenOriginalGapLower": 0
+      }
+    },
+    "failure": {
+      "n": 2,
+      "modelsDisagree": 0,
+      "retain": {
+        "changed": 2,
+        "oldSafeLost": 0,
+        "oldGainChanged": 1,
+        "oldGapChanged": 2,
+        "chosenOriginalGapLower": 2
+      },
+      "zero": {
+        "changed": 2,
+        "oldSafeLost": 0,
+        "oldGainChanged": 1,
+        "oldGapChanged": 2,
+        "chosenOriginalGapLower": 2
+      }
+    },
+    "independentA": {
+      "n": 335,
+      "modelsDisagree": 0,
+      "retain": {
+        "changed": 1,
+        "oldSafeLost": 0,
+        "oldGainChanged": 1,
+        "oldGapChanged": 0,
+        "chosenOriginalGapLower": 0
+      },
+      "zero": {
+        "changed": 1,
+        "oldSafeLost": 0,
+        "oldGainChanged": 1,
+        "oldGapChanged": 0,
+        "chosenOriginalGapLower": 0
+      }
+    }
+  },
+  "ruleVersions": 4,
+  "ruleCases": 40,
+  "preview": "stopped",
+  "acceptance": false,
+  "candidate": "not ready; projected growth wall inconsistency and negative exits retained"
+}
