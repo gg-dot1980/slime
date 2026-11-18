@@ -1,3 +1,9 @@
+# r59 — reversal score attribution
+
+2026-11-18 Taipei. 2654 fixed inputs,0 instrumented direction/score/clearance differences. In122 eligible non-all-unsafe reversal states:alignment dominates113,gain6,risk3; alignment ablation changes69 choices.146 direction-vs-prior states include B0 initialization,not a measured adjacent reversal (145have prior record). Target identity/camera uncertainty prevents treating score attribution as proven bad-target cause.
+
+Candidate screen(zero selected gain vs positive prior gain)covers14states but6 lose modeled clearance,max71.86px; no safe-policy claim or live test. New starts/wins/deaths/aborts0. Next verify existing B target/trajectory pairs before strategy change. [Complete source, inputs, per-state attribution and reproducibility](repro/r59/README.md); archive SHA2569b50d62495c72d2b416aa98abdb3e7377688d3917dcd634b8e362c17f31fdcb1. No image records, no Library upload, no OCR4 or publicstrategy deployment; mobile skipped.
+
 # r58 — reversal hysteresis rejected (desktop offline)
 
 2026-11-18 Taipei. Fixed r57 A/B941 observations plus1298 original historical and415 conditional separately. 146 r57 reversals,only3 changed; no final B stall coverage. Historical r14-191 modeled clearance143.68→103.06px; not actual safety proof. New starts/wins/deaths/aborts all0. No live batch or strategy deployment justified. Publictest043 unchanged, mobile skipped, all desktop150s/50%acceptance unmet.

@@ -1,0 +1,108 @@
+{
+  "verification": {
+    "n": 2654,
+    "directionScoreClearanceMismatches": 0,
+    "maxSumError": 0
+  },
+  "summary": {
+    "r57A": {
+      "reversals": 69,
+      "modes": {
+        "bounded": 68,
+        "all-unsafe": 1
+      },
+      "priorEligible": 60,
+      "dominant": {
+        "alignment": 54,
+        "gain": 6
+      },
+      "swingDominant": {
+        "alignment": 54,
+        "risk": 2,
+        "wall": 4
+      },
+      "ablationChanges": {
+        "alignment": 38,
+        "gain": 14,
+        "risk": 3,
+        "wall": 0,
+        "inertia": 0
+      },
+      "targetClassChange": 19,
+      "relativeJumpOver100": 51
+    },
+    "r57B": {
+      "reversals": 77,
+      "modes": {
+        "bounded": 70,
+        "all-unsafe": 7
+      },
+      "priorEligible": 62,
+      "dominant": {
+        "alignment": 59,
+        "risk": 3
+      },
+      "swingDominant": {
+        "null": 1,
+        "alignment": 57,
+        "gain": 1,
+        "risk": 3
+      },
+      "ablationChanges": {
+        "alignment": 31,
+        "gain": 12,
+        "risk": 4,
+        "wall": 0,
+        "inertia": 0
+      },
+      "targetClassChange": 26,
+      "relativeJumpOver100": 53
+    }
+  },
+  "stage": "r59",
+  "updatedAtTaipei": "2026-11-18T10:31:48.276516+08:00",
+  "newStarts": 0,
+  "newWins": 0,
+  "newDeaths": 0,
+  "newAborts": 0,
+  "conclusion": "Target alignment dominates score preference; actual wrong-target identity or causal survival loss not established.",
+  "limits": [
+    "146 direction-vs-prior states include B0 initial heading;145 have preceding saved decision",
+    "122 eligible non-all-unsafe states include B0;113 alignment,6gain,3risk dominance",
+    "Target coordinate jump is not identity switch;camera motion and tracking ambiguity remain",
+    "Component ablation uses same eligible pool, is not a closed-loop policy test"
+  ],
+  "next": "Use already saved r57 B195/197 and257-265 target/trajectory pairs plus neighboring images to distinguish target alignment preference from false predicted contact; freeze camera-compensated association and preserve unknown. No hysteresis threshold retune.",
+  "candidateScreen": [
+    {
+      "group": "r57A",
+      "zeroGainReversalVsPositivePrior": 3,
+      "clearanceLossCases": 1,
+      "maxClearanceLoss": 71.85575256411369,
+      "ids": [
+        "r57A-76",
+        "r57A-88",
+        "r57A-225"
+      ]
+    },
+    {
+      "group": "r57B",
+      "zeroGainReversalVsPositivePrior": 11,
+      "clearanceLossCases": 5,
+      "maxClearanceLoss": 31.548553958393853,
+      "ids": [
+        "r57B-195",
+        "r57B-197",
+        "r57B-257",
+        "r57B-259",
+        "r57B-261",
+        "r57B-263",
+        "r57B-265",
+        "r57B-373",
+        "r57B-379",
+        "r57B-381",
+        "r57B-395"
+      ]
+    }
+  ]
+}
