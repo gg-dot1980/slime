@@ -1,0 +1,93 @@
+{
+  "stage": "r60",
+  "updatedAtTaipei": "2026-11-18T10:43:25.985646+08:00",
+  "hypothesis": "one-prior-observation confirmation for food targets",
+  "newStarts": 2,
+  "newWins": 0,
+  "newDeaths": 2,
+  "newAborts": 0,
+  "live": [
+    {
+      "version": "r60-A-test043",
+      "game": "/v2.20/",
+      "startedAt": "2026-11-18T02:37:43.748Z",
+      "outcome": "death",
+      "seconds": 100,
+      "elapsedWall": 104024.5,
+      "stop": {
+        "wall": 1794969567773,
+        "ms": 109132.5,
+        "time": "03:19",
+        "size": "104"
+      },
+      "canvas": [
+        2000,
+        1163
+      ],
+      "css": [
+        2000,
+        1163
+      ],
+      "dpr": 1,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "keysAfter": [],
+      "rawSHA256": "791bdeef42bd87a78176374f75eca97505f303cc5cd9250ee4b9ebee9028db98",
+      "rows": 508,
+      "images": 22,
+      "missed": 0,
+      "rejected": 1,
+      "contextActive": 0,
+      "unconfirmedObserved": 0,
+      "computeMedian": 17.5,
+      "computeMax": 156.59999999962747
+    },
+    {
+      "version": "r60-B-test043",
+      "game": "/v2.20/",
+      "startedAt": "2026-11-18T02:40:07.528Z",
+      "outcome": "death",
+      "seconds": 77,
+      "elapsedWall": 89007.80000000075,
+      "stop": {
+        "wall": 1794969696536,
+        "ms": 89334.09999999963,
+        "time": "03:42",
+        "size": "79"
+      },
+      "canvas": [
+        2000,
+        1163
+      ],
+      "css": [
+        2000,
+        1163
+      ],
+      "dpr": 1,
+      "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+      "keysAfter": [],
+      "rawSHA256": "f455eeb7511cca87b7591be28f0d9d32df2c571268048efe9f82a2172d13ee61",
+      "rows": 417,
+      "images": 19,
+      "missed": 0,
+      "rejected": 2,
+      "contextActive": 323,
+      "unconfirmedObserved": 273,
+      "computeMedian": 21.100000001490116,
+      "computeMax": 200.69999999925494
+    }
+  ],
+  "replay": {
+    "A": {
+      "n": 508,
+      "mismatch": 0,
+      "changed": 0
+    },
+    "B": {
+      "n": 417,
+      "mismatch": 0,
+      "changed": 4
+    }
+  },
+  "next": "Inspect B four changed decisions and death against retained images; separate unseen intervals and time dilation. Do not expand unchanged candidate.",
+  "limits": "Random unpaired sample;not per-version acceptance;5simages not everydecision;no image records onGitHub;mobile skipped."
+}

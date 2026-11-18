@@ -1,3 +1,9 @@
+# r60 — food-target confirmation, bounded desktop A/B complete
+
+2026-11-18 Taipei. Fixed v2.20 desktop Chrome156,2000x1163,DPR1,random unpaired A then B. A death100s,size104;B death77s,size79. Total2starts,0wins,2deaths,0aborts. Rejected decisionsA1/B2,images22/19,0missing,keysreleased. Bconfirmationactive323/417;actualdirectionchanges4/417. ReplayA508/508,B417/417 exact;no causal benefit/harmclaim. Bwall89.008s differsfrom77ssettlement;preserved. Do not expand unchanged candidate.
+
+Existing r57B intermittent east detections not explained solely by camera delta;identity/occlusion/contour-fragment distinction remainsunknown at5simage cadence. Newtarget-only confirmation retains allthreats andoriginalpools;offline marginloss counterexamples retained. [Complete no-image source, conditions, inputs/results and replay instructions](repro/r60/README.md). ArchiveSHA256120bc365d8c758b27a082c5a9971fff709511ac58217a919816eab7e94459ac1;clean extraction outputs identical. Next inspect Bfourchanged decisions anddeathwithavailableimages. Previewstopped,publictest043unchanged,noOCR4/Libraryupload,mobileskipped,per-version150s/50%notmet.
+
 # r59 — reversal score attribution
 
 2026-11-18 Taipei. 2654 fixed inputs,0 instrumented direction/score/clearance differences. In122 eligible non-all-unsafe reversal states:alignment dominates113,gain6,risk3; alignment ablation changes69 choices.146 direction-vs-prior states include B0 initialization,not a measured adjacent reversal (145have prior record). Target identity/camera uncertainty prevents treating score attribution as proven bad-target cause.
