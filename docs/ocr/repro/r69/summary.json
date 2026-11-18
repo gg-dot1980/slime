@@ -1,0 +1,96 @@
+{
+  "stage": "r69",
+  "updatedAtTaipei": "2026-11-18T11:31:33.241967+08:00",
+  "newStarts": 0,
+  "newWins": 0,
+  "newDeaths": 0,
+  "newAborts": 0,
+  "groups": {
+    "r65-last12": {
+      "rows": 12,
+      "visibleWallRows": 12,
+      "unknownWallRows": 0,
+      "noEligibleAlternative": 9,
+      "changes": 2,
+      "baselineWallViolations": 8,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    },
+    "r60-A": {
+      "rows": 508,
+      "visibleWallRows": 49,
+      "unknownWallRows": 459,
+      "noEligibleAlternative": 462,
+      "changes": 5,
+      "baselineWallViolations": 4,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    },
+    "r60-B": {
+      "rows": 417,
+      "visibleWallRows": 103,
+      "unknownWallRows": 314,
+      "noEligibleAlternative": 328,
+      "changes": 17,
+      "baselineWallViolations": 15,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    },
+    "holdout-r46": {
+      "rows": 383,
+      "visibleWallRows": 75,
+      "unknownWallRows": 308,
+      "noEligibleAlternative": 369,
+      "changes": 0,
+      "baselineWallViolations": 60,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    },
+    "holdout-r14": {
+      "rows": 425,
+      "visibleWallRows": 64,
+      "unknownWallRows": 361,
+      "noEligibleAlternative": 365,
+      "changes": 13,
+      "baselineWallViolations": 5,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    },
+    "holdout-r50": {
+      "rows": 415,
+      "visibleWallRows": 54,
+      "unknownWallRows": 361,
+      "noEligibleAlternative": 389,
+      "changes": 14,
+      "baselineWallViolations": 28,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    },
+    "holdout-fixed75": {
+      "rows": 75,
+      "visibleWallRows": 0,
+      "unknownWallRows": 75,
+      "noEligibleAlternative": 75,
+      "changes": 0,
+      "baselineWallViolations": 0,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    }
+  },
+  "correction": "B284 minimum1.0465 wall margin was improvement, NOT one of six wall-margin decreases",
+  "sixCasesNearContact": 0,
+  "mixedResidualMedian": 7.8086458613267276,
+  "mixedResidualMax": 37.92691015317728,
+  "measurementErrorBound": "unknown; residual is not pure sensing error",
+  "holdoutRows": 1298,
+  "holdoutChanges": 27,
+  "preview": "not started",
+  "next": "Validate actual actuation prefix and visible-wall displacement on fixed B180/B181 high-residual intervals; cannot infer collision/sliding from noncontact cases. Preserve candidate as offline prototype."
+}
