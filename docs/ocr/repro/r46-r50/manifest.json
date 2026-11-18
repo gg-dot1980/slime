@@ -1,8 +1,1 @@
-{
-  "bytes": 1098974,
-  "sha256": "7c750c98b4121a07db30fff44582552f40cace1b1233019a1e40d66ee2f19fb7",
-  "removedEmbeddedImages": 36,
-  "excludedFixturePNG": 75,
-  "filesHashed": 38,
-  "oldImageArchive": "removed from current branch; history retained"
-}
+{"revision":"portability-1","bytes":1101435,"sha256":"44356e8c4f10c0656a7564886f711c7d38d6d436ec22d6cdc9fa55dcc7dea441","imagesIncluded":false}
