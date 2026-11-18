@@ -1,0 +1,36 @@
+{
+  "stage": "r84",
+  "updatedAtTaipei": "2026-11-18T13:07:37.354422+08:00",
+  "starts": 0,
+  "wins": 0,
+  "deaths": 0,
+  "aborts": 0,
+  "names": {
+    "heldout": {
+      "n": 24,
+      "correct": 5,
+      "wrongAccepted": 0,
+      "unknown": 19
+    },
+    "unknown-name-control": {
+      "n": 2,
+      "correct": 0,
+      "wrongAccepted": 0,
+      "unknown": 2
+    }
+  },
+  "timeMs": {
+    "median": 0.15844349945837166,
+    "max": 0.31849199876887724
+  },
+  "tracking": {
+    "n": 24,
+    "correct": 24,
+    "unknown": 0,
+    "wrong": 0,
+    "limit": "Manual visual track labels and same-game24transitions; no hard association ambiguity in this set; not global tracker accuracy"
+  },
+  "sourceVersions": 4,
+  "preview": "stopped",
+  "acceptance": false
+}

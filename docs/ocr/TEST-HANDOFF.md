@@ -1,3 +1,9 @@
+## r84 — NPC name cue feasibility (2026-11-18 Taipei)
+
+0newgames. Fourpinnedsourceversions show sixrandomnonuniquenames, noNPCsize text;namefont10–13CSSpx (6–7.8analysispixels),dangerlabelseparate. Existingdetectorcountsbrightpixels,doesnotreadname. Fixedthreeglyph developmenttemplates +24latercases:5correct,0wrongaccepted,19unknown;2unseennamecontrols bothunknown. Originalgeometry24/24previous-visibletrackmatches correct,so0associationgainhere;same-gamecorrelated/manual labels,not independenttruth. CachedROIcomparisonmedian.158ms/max.319ms excludes acquisition/browser. NoChineseTesseractmodel available; noinstallation. Preserveunknowns,duplicates/occlusion,notsoleID,sizeorchasetruth.
+
+[Source/rules/measurement and limits](repro/r84/README.md) · [Complete no-image reproduction](repro/r84/r84-repro.zip), SHA256 c5bd3a17cf030b620c40ff324fcd15cbe1848c81c6f09cb8321d2e6549abbb2f. Clean numeric/source/trackreplay passed;pixelreplay requireslocalimages,templatesnotuploaded. Next optionalnameagreement/veto on independentambiguitycases alongsidecamera/color/spatialcontinuity;no controlcandidate orunchangedgame rerun. Previewstopped,mobileskipped,no publicstrategy/OCR4/Libraryupload;desktopper-version150s/>=50% unmet.
+
 ## r83 — shared wall trajectory audit; user observation rules (2026-11-18 Taipei)
 
 0newgames. Gain/threat alreadyshare unboundedtrajectory;visiblewallclamp missing inboth. r47zeroesnormalvelocity butgame retainsit.347fixedbaselineoutputs exact;sharedclamp retain/zero chooseidentically:0/10development,2/2failure,1/335independentchanged. FailureNWstillnegative;independentA301modelgain improvesbutprojectedgrowth leaves−1.35wallmargin. No supportedlivecandidate;don't repeat r47 asnew. Keep alltradeoffs.
