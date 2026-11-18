@@ -1,3 +1,9 @@
+## r82 — clipped-threat ranking sensitivity (2026-11-18 Taipei)
+
+0new games.347exactbaseline states:10development+2failure+335independentA. Largestclipped radius±5.833(observedhalfspan,not confidencebound) changes no chosen direction. Motion-zero diagnostic changes only2failurestates SE→NW;original-model clearances worsen−4.143/−14.584,wallmargin improves,gain falls. Both originalstatesalreadynegative,not newnegative crossings. Independent335chosen directionsunchanged;no behavioralgeneralization evidence. Reject directzero-motion replacement;no liveA/B,no thresholdtuning. Full8directionmetrics saved,clean-directory exactreplay passed.
+
+[Source, fixed controls and bounded next step](repro/r82/README.md) · [Complete no-image reproduction](repro/r82/r82-repro.zip), SHA256 8dd8a5280fda662312524f6741282a0d1b0b43b418abd9237e0c97107cae6d57. Next reuse priorwallcontact evidence to check commonwall-constrained trajectory semantics;neither modelscore nor unknown geometry proves survival. Previewstopped,mobile skipped,no newpublicstrategy/OCR4/Libraryupload;per-versiondesktop150s/>=50% unmet.
+
 ## r81 — terminal enclosure and intervention-image limits (2026-11-18 Taipei)
 
 0new games.12/12lastBimages hash-verified and viewed. Rightwall, upper-rightgreen threat and lower-leftgiant visibly converge;219.3ms finalgap,killerunknown. FourSE/NWreversals;last2frames modelhasno safe direction. Correction of preliminarypartialread:3late radius corrections,not0;allochreprey remain edible and directions unchanged in same-frameablation. Earlierseq271N→NE keeps2NPCsedible;seq285SE→NW crossesedibility48.333→62.064/HUD60;bothlackexactimages,so true-threatvsfalsepreyblock unresolved. No directlate correction explanation or survivalclaim.14fixeddecision assertions+647plannerreplays passed clean samehost directory.
