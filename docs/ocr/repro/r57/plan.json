@@ -1,0 +1,7 @@
+{
+  "hypothesis": "When original direction has wall-clamped tail displacement<=6.667px, choosing a moving alternative with clearance>3 in BOTH fixed wall models can escape stall despite losing some excess margin.",
+  "scope": "all-unsafe with no positive moving alternative unchanged; original perception/physics unchanged",
+  "batch": "fixed A then B,one v2.20 desktop game each,150HUDseconds/210wallseconds/3stale/800rows;random unpaired; no replacements",
+  "offline": "1298original+415conditional separate; audit all changes and model positive clearance; no claim true safety",
+  "publish": "only if useful evidence;not acceptance;noimagesGitHub"
+}

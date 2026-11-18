@@ -1,0 +1,68 @@
+[
+  {
+    "version": "r57-A-test043",
+    "game": "/v2.20/",
+    "startedAt": "2026-11-18T02:14:36.888Z",
+    "outcome": "death",
+    "seconds": 96,
+    "stop": {
+      "wall": 1794968174303,
+      "ms": 97847.69999999925,
+      "time": "03:23",
+      "size": "104"
+    },
+    "canvas": [
+      2000,
+      1163
+    ],
+    "css": [
+      2000,
+      1163
+    ],
+    "dpr": 1,
+    "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "keysAfter": [],
+    "rows": 483,
+    "rejected": 0,
+    "imageRecords": 21,
+    "missing": 0,
+    "rawSHA256": "e53f3c77e9e462c60971cc8130c85e4a3d275a48f6ce0d94400fa6ee47e9204b",
+    "triggers": 0,
+    "changes": 0,
+    "computeMedian": 18.09999999962747,
+    "computeMax": 120.70000000111759
+  },
+  {
+    "version": "r57-B-test043",
+    "game": "/v2.20/",
+    "startedAt": "2026-11-18T02:16:49.072Z",
+    "outcome": "death",
+    "seconds": 90,
+    "stop": {
+      "wall": 1794968301786,
+      "ms": 93124.90000000037,
+      "time": "03:29",
+      "size": "81"
+    },
+    "canvas": [
+      2000,
+      1163
+    ],
+    "css": [
+      2000,
+      1163
+    ],
+    "dpr": 1,
+    "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "keysAfter": [],
+    "rows": 458,
+    "rejected": 0,
+    "imageRecords": 20,
+    "missing": 0,
+    "rawSHA256": "7855a2838cf2d37c0b8a8ceab1fbc26df451010aa1966e7e955097db1a7c617b",
+    "triggers": 0,
+    "changes": 0,
+    "computeMedian": 17.700000000186265,
+    "computeMax": 94.69999999925494
+  }
+]
