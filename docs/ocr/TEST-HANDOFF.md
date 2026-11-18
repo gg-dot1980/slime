@@ -1,3 +1,9 @@
+# r62 — crowding and two-stage exit audit
+
+2026-11-18 Taipei. Fixed B417/A508states. Inlast15s B22/A21states have model alternatives with more followups andnonloweroriginalclearance;not realescape proof. Bthree-consecutive<=2safedirections begins396(4.072sbeforeending),onlineconfirmation398(3.672s);no qualifyingbetteralternate then. A counterexample:7/6model-safedirections397/197msbeforedeath,nonarrowingwarning. Hypothesis insufficient as generalprediction/policy;no newgame/controller.
+
+[Full source,paths,gaps,conditions and no-image replay](repro/r62/README.md),archiveSHA25625cfb07bff57469cb2cd6976938251f01bdef1ae0b36c04ecaac28763688e00b. Cleanreplayidentical. Newstarts/wins/deaths/aborts0. NextauditAdeathgeometry beforebranch-countdeployment;retainBearlyexit model-only evidence. Previewstopped,no publicstrategy/OCR4/Libraryupload,mobileskipped,desktopper-version150s/50%unmet.
+
 # r61 — intervention and terminal timing audit
 
 2026-11-18 Taipei. Four r60 Bchanges were47.675/36.099/35.682/12.390s before ending;images not synchronous,consumption attributionunknown. Final5s25decisions,0rejections,capture median199.9ms/max203.6ms,capture-to-recordmax39ms,firstall-unsafe2.671s beforeending,13all-unsafe rows. Terminal stale-compute hypothesis unsupported;physical key effect/collision onset stillunknown. No new policy or gameplay;starts/wins/deaths/aborts0. Existingr60deaths retained.
