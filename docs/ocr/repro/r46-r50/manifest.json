@@ -1,28 +1,8 @@
 {
-  "archiveSHA256": "315f2183a8007cd29954d0c73b65b69ee77414ee3b38d92872080fc8004f0447",
-  "archiveBytes": 14325719,
-  "parts": [
-    {
-      "name": "archive.zip.part0",
-      "bytes": 7162860,
-      "sha256": "4ca9a5768f59b38b987df17abe66e947fbbb03b96b90990806491bf1072c9040",
-      "gitBlob": "75baa4dd1557b77fc8b1d2852b2a83fd9a7d4078"
-    },
-    {
-      "name": "archive.zip.part1",
-      "bytes": 7162859,
-      "sha256": "5dfec6121460ffb6c70f4a5cd6c13227c3a2688823265fcfecf488b5a886ae8d",
-      "gitBlob": "c82aa17cf99f2abe60462a57251bec5cc5d2b4f2"
-    }
-  ],
-  "selection": [
-    "recovery-r46-restored-test043",
-    "recovery-r50-telemetry-test043"
-  ],
-  "publicStrategy": "test-043",
-  "game": "v2.20",
-  "cleanReplay": {
-    "python verify.py": "Verified 113 file hashes\n",
-    "node replay.cjs": "{\n  \"results\": [\n    {\n      \"version\": \"recovery-r46-restored-test043\",\n      \"rows\": 383,\n      \"exactPlanReplay\": 383,\n      \"png\": 17,\n      \"recordedOutcome\": \"death\",\n      \"recordedSeconds\": 76,\n      \"keysReleased\": true\n    },\n    {\n      \"version\": \"recovery-r50-telemetry-test043\",\n      \"rows\": 414,\n      \"exactPlanReplay\": 414,\n      \"png\": 19,\n      \"recordedOutcome\": \"death\",\n      \"recordedSeconds\": 80,\n      \"keysReleased\": true\n    }\n  ],\n  \"note\": \"Saved-input planning replay only; not image perception or new random gameplay.\"\n}\n"
-  }
+  "bytes": 1098974,
+  "sha256": "7c750c98b4121a07db30fff44582552f40cace1b1233019a1e40d66ee2f19fb7",
+  "removedEmbeddedImages": 36,
+  "excludedFixturePNG": 75,
+  "filesHashed": 38,
+  "oldImageArchive": "removed from current branch; history retained"
 }
