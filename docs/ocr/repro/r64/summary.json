@@ -1,0 +1,15 @@
+{
+  "stage": "r64",
+  "updatedAtTaipei": "2026-11-18T11:04:34.116496+08:00",
+  "fixedImages": 4,
+  "outputsIdentical": 4,
+  "newStarts": 0,
+  "newWins": 0,
+  "newDeaths": 0,
+  "newAborts": 0,
+  "finding": "terminal giant detected and retained; last197ms remains unobserved",
+  "candidate": "filter relaxation unsupported; no control change",
+  "preview": "stopped",
+  "cleanReplay": "numerical byte-identical; portable fixture build identical with local originals",
+  "next": "Verify bounded last-decision-source capture before targeted live evidence"
+}

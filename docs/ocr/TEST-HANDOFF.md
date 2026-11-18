@@ -1,3 +1,7 @@
+## r64 — original ImageData stage audit (2026-11-18 11:04 Taipei)
+
+Fixed A/B last periodic and terminal four PNGs replayed in Chrome156; instrumentation outputs identical4/4. A terminal giant is detected and survives containment/player filtering; cold-image terminal planner has0safe directions (A clearance -253.63, B -62.32). Filter relaxation unsupported. Missing final197ms still prevents establishing earlier visibility, identity, growth or attacker. No new games or controller change. [Complete source, results and reproduction limits](repro/r64/README.md). Images remain local; pinned r62 full package supplies baseline/game/numericalinputs. Fresh-directory numerical replay and portable fixture build verified. Preview stopped; mobile skipped; noOCR4/Libraryupload.
+
 ## r63 — A terminal geometry audit (2026-11-18 10:59 Taipei)
 
 No new games. Same-geometry collision-threshold hypothesis unsupported: planner is more conservative than v2.20 contact formula. A last4 threats do not correspond to the giant overlapping the player in terminal image; final197ms missing synchronous image prevents assigning perception/growth/prediction cause. B negative-gap counterexample retained. Deterministic clean-directory audit passed. [Full report and reproducible script](repro/r63/README.md), with pinned complete r62 source/input package. Images remain local only. Next: original ImageData component/filter audit, not threshold tuning. test-043 unchanged; OCR4 not released; mobile skipped; preview stopped.
