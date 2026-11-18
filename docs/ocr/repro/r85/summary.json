@@ -1,0 +1,242 @@
+{
+  "stage": "r85",
+  "updatedAtTaipei": "2026-11-18T13:12:37.032000+08:00",
+  "starts": 0,
+  "wins": 0,
+  "deaths": 0,
+  "aborts": 0,
+  "summary": {
+    "green-visible-danger": {
+      "n": 12,
+      "detected": 0,
+      "missedVisible": 9,
+      "falsePositive": 0,
+      "unknown": 3,
+      "hits": [
+        1,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    "purple-no-danger": {
+      "n": 12,
+      "detected": 0,
+      "missedVisible": 0,
+      "falsePositive": 0,
+      "unknown": 0,
+      "hits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "ochre-no-danger": {
+      "n": 12,
+      "detected": 0,
+      "missedVisible": 0,
+      "falsePositive": 0,
+      "unknown": 0,
+      "hits": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "giant-visible-danger": {
+      "n": 12,
+      "detected": 0,
+      "missedVisible": 12,
+      "falsePositive": 0,
+      "unknown": 0,
+      "hits": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0,
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "sources": {
+    "versions": [
+      {
+        "version": "v2.13",
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "samePriorPinnedSource": true,
+        "sourceCommit": "15f077ff9b96bf98b45860ca6ad0cbfe9e7a30e9",
+        "dangerLabel": "NPC>player*1.10",
+        "deathOnContact": "NPC>=player*1.08",
+        "thresholdCounterexamples": [
+          {
+            "npcPlayerRatio": 1.079,
+            "label": false,
+            "canKillOnContact": false
+          },
+          {
+            "npcPlayerRatio": 1.08,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.09,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.1,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.101,
+            "label": true,
+            "canKillOnContact": true
+          }
+        ],
+        "deployment": "not verified;web tool cannot access https://slime.gameson.cc/"
+      },
+      {
+        "version": "v2.20",
+        "sha256": "b0138f16e42d83c16ab3c9ca2ed1ac37892a106cf54552d75bcc410b50cffeea",
+        "samePriorPinnedSource": true,
+        "sourceCommit": "15f077ff9b96bf98b45860ca6ad0cbfe9e7a30e9",
+        "dangerLabel": "NPC>player*1.10",
+        "deathOnContact": "NPC>=player*1.08",
+        "thresholdCounterexamples": [
+          {
+            "npcPlayerRatio": 1.079,
+            "label": false,
+            "canKillOnContact": false
+          },
+          {
+            "npcPlayerRatio": 1.08,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.09,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.1,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.101,
+            "label": true,
+            "canKillOnContact": true
+          }
+        ],
+        "deployment": "not verified;web tool cannot access https://slime.gameson.cc/"
+      },
+      {
+        "version": "v2.21",
+        "sha256": "a155543125b08fb3402143e7f8bfb2778d82b8892b36179c0536568592be81a7",
+        "samePriorPinnedSource": true,
+        "sourceCommit": "15f077ff9b96bf98b45860ca6ad0cbfe9e7a30e9",
+        "dangerLabel": "NPC>player*1.10",
+        "deathOnContact": "NPC>=player*1.08",
+        "thresholdCounterexamples": [
+          {
+            "npcPlayerRatio": 1.079,
+            "label": false,
+            "canKillOnContact": false
+          },
+          {
+            "npcPlayerRatio": 1.08,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.09,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.1,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.101,
+            "label": true,
+            "canKillOnContact": true
+          }
+        ],
+        "deployment": "not verified;web tool cannot access https://slime.gameson.cc/"
+      },
+      {
+        "version": "v2.22",
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "samePriorPinnedSource": true,
+        "sourceCommit": "15f077ff9b96bf98b45860ca6ad0cbfe9e7a30e9",
+        "dangerLabel": "NPC>player*1.10",
+        "deathOnContact": "NPC>=player*1.08",
+        "thresholdCounterexamples": [
+          {
+            "npcPlayerRatio": 1.079,
+            "label": false,
+            "canKillOnContact": false
+          },
+          {
+            "npcPlayerRatio": 1.08,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.09,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.1,
+            "label": false,
+            "canKillOnContact": true
+          },
+          {
+            "npcPlayerRatio": 1.101,
+            "label": true,
+            "canKillOnContact": true
+          }
+        ],
+        "deployment": "not verified;web tool cannot access https://slime.gameson.cc/"
+      }
+    ],
+    "localV220SameMain": true
+  },
+  "preview": "stopped",
+  "acceptance": false
+}

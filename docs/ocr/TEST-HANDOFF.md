@@ -1,3 +1,11 @@
+## r85 — danger-label source gap and saved-pixel misses (2026-11-18 Taipei)
+
+0newgames. Currentmain15f077f sources4versions equalpriorpinnedfiles;localr80v2.20 snapshotexactmain. AlllabelNPC>player*1.10 vsdeathNPC>=player*1.08;1.08/1.09/1.10nolabelcanlethal. Actualdeploymentunverified:webopenroot inaccessible/InternalError,notpolicydenial orprovenbotblock. No bypass.
+
+12hashverifiedframes,48manualtracklabels:45availableobjectdetectorreplays exact;21visiblewarningmisses(9green+12clippedgiant),3greenmissingobjectunknown,24negativecontrols0falsepositive. ExistingROIs only0–1matchingpinkpixels vs3required;location/scaling/predicate rootnotisolated.21/21stillthreatsbysize/clipping,notprooflabelmisscauseddeath. Duplicate names and219.3mslastgap retained;absence never safetyproof. No thresholdtuning/controlcandidate.
+
+[Source and audit details](repro/r85/README.md) · [Complete no-image reproduction](repro/r85/r85-repro.zip), SHA256 39bf1be9bef7cd9ea577156029fd87be60dcfc25718ee66c4be7209bd8db2b79. Numeric/sourcecleanchecks pass;pixelreplayrequireslocalimages. Next separateoriginalresolution vsdownscale/ROI onfixedindependentcontrols. Previewstopped,mobileskipped,no publicstrategy/OCR4/Libraryupload;150s/>=50%perdesktopversion unmet.
+
 ## r84 — NPC name cue feasibility (2026-11-18 Taipei)
 
 0newgames. Fourpinnedsourceversions show sixrandomnonuniquenames, noNPCsize text;namefont10–13CSSpx (6–7.8analysispixels),dangerlabelseparate. Existingdetectorcountsbrightpixels,doesnotreadname. Fixedthreeglyph developmenttemplates +24latercases:5correct,0wrongaccepted,19unknown;2unseennamecontrols bothunknown. Originalgeometry24/24previous-visibletrackmatches correct,so0associationgainhere;same-gamecorrelated/manual labels,not independenttruth. CachedROIcomparisonmedian.158ms/max.319ms excludes acquisition/browser. NoChineseTesseractmodel available; noinstallation. Preserveunknowns,duplicates/occlusion,notsoleID,sizeorchasetruth.
