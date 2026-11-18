@@ -1,3 +1,9 @@
+## r76 — target progress vs threat avoidance (2026-11-18 Taipei)
+
+0 new games. Frozen risk-aware gate retains override if baseline existing risk>0 OR wall below existing margin.3169states,54prior overrides→35retained/19reverted.19/19 modeled0.2s target approach improves (median20.725px), but2s weighted gain drops14/19,unchanged5: no live-growth claim. r75r50index386 threat avoidance retained; no new negative prefix gap/wall vs prior. Separate r72A/B589states has0 changed cases, so no independent validation of new behavior. Clean-directory replay identical. Candidate offline only; no publication, images/Library uploads or preview. Mobile skipped.
+
+[Source and limitations](repro/r76/README.md) · [Complete no-image reproduction](repro/r76/r76-repro.zip), SHA2569a007a215a7ff5cfe837eea5f947464cca9fe72c26bfabbbdbaf460befd1c850. Next: predeclared small actual growth comparison with bounded first-intervention recorder, without tuning on holdout.
+
 ## r75 — short-lived override attribution, rejected wall-only gate (2026-11-18 Taipei)
 
 0 new starts/wins/deaths/aborts. Saved r74 seq304 image supports food below-left, distant visible wall, right/clipped-left NPCs. BaselineSW overriddenSE despite base wall450.118>margin322.25; next frameSW. This is90-degree direction change, not measured180-degree reversal. Seq306/322 images missing: no visual/causal attribution. Single existing-margin gate tested2580fixed states:35 changes; r50index386 counterexample lowers continuous no-prefix NPCgap2.340→0.684 despite adequate wall distance. Negative100/200ms prefix already exists in both;0 newly negative cases. Reject wall-only gate, no live expansion. Clean-directory replay identical, no images uploaded, preview stopped, mobile skipped, no OCR4 release.
