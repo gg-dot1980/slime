@@ -1,3 +1,9 @@
+## r75 — short-lived override attribution, rejected wall-only gate (2026-11-18 Taipei)
+
+0 new starts/wins/deaths/aborts. Saved r74 seq304 image supports food below-left, distant visible wall, right/clipped-left NPCs. BaselineSW overriddenSE despite base wall450.118>margin322.25; next frameSW. This is90-degree direction change, not measured180-degree reversal. Seq306/322 images missing: no visual/causal attribution. Single existing-margin gate tested2580fixed states:35 changes; r50index386 counterexample lowers continuous no-prefix NPCgap2.340→0.684 despite adequate wall distance. Negative100/200ms prefix already exists in both;0 newly negative cases. Reject wall-only gate, no live expansion. Clean-directory replay identical, no images uploaded, preview stopped, mobile skipped, no OCR4 release.
+
+[Source, counterexample and limits](repro/r75/README.md) · [Complete numerical reproduction](repro/r75/r75-repro.zip), SHA256f3c5a215aec4aefc5c41ec7a464bc959af61a2ee6de92b7da3a88688dc597fd6.
+
 ## r74 — bounded intervention capture verified (2026-11-18 Taipei)
 
 Recorder-only, strategy unchanged. Fixed2235 directions + prior589 complete outputs exact; new345/345 outputs exact. Browser fixture13/13 PNG roundtrip and immutable first image passed. One declared desktop v2.20 Chrome1562000x1163DPR1 diagnostic:0wins/1death at68s,size90/0aborts,0rejected,keys released. Three interventions; first seq304 preserved outside final ring,2.5ms copy,43,555,200 raw bytes. Two later images deliberately skipped by one-slot cap; no causal strategy claim. Preview stopped; mobile skipped; no OCR4/public strategy release or Library upload.
