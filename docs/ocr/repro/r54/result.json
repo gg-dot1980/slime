@@ -1,0 +1,263 @@
+{
+  "summary": {
+    "intervals": 13,
+    "normalUnchanged": 13,
+    "tangentCommandIntervals": 10,
+    "zeroTangentCommand": [
+      {
+        "ms": 92740.10000000056,
+        "observedTangentDelta": 33.33333333333337,
+        "inertiaPredictedDelta": 26.841961910441782,
+        "constantCommandDelta": 3.769148455892974e-15
+      },
+      {
+        "ms": 93938.89999999944,
+        "observedTangentDelta": 16.666666666666742,
+        "inertiaPredictedDelta": 15.650848741034011,
+        "constantCommandDelta": 3.7635003812346806e-15
+      },
+      {
+        "ms": 94139.29999999981,
+        "observedTangentDelta": 10,
+        "inertiaPredictedDelta": 11.191186886509458,
+        "constantCommandDelta": 3.772913838951746e-15
+      }
+    ],
+    "inertiaMedianAbsError": 5.124602264952507,
+    "constantMedianAbsError": 18.36437453294546,
+    "imageChecks": [
+      {
+        "image": "17",
+        "wallColumns": [
+          1793,
+          1794,
+          1795,
+          1796,
+          1797,
+          1798,
+          1799
+        ],
+        "center": 1796
+      },
+      {
+        "image": "18",
+        "wallColumns": [
+          1756,
+          1757,
+          1758,
+          1759,
+          1760,
+          1761,
+          1762,
+          1763
+        ],
+        "center": 1759.5
+      }
+    ],
+    "imageTangentDelta": 36.5
+  },
+  "intervals": [
+    {
+      "ms": 91938.89999999944,
+      "dt": 0.2,
+      "command": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 43.33333333333337,
+      "observedAvgTangentVelocity": 216.66666666666686,
+      "priorIntervalVelocity": null,
+      "inertiaPredictedDelta": null,
+      "constantCommandDelta": 43.48238049362581,
+      "actuationOffsetMs": 19.5
+    },
+    {
+      "ms": 92138.60000000056,
+      "dt": 0.1997000000011176,
+      "command": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 46.66666666666663,
+      "observedAvgTangentVelocity": 233.68385912070838,
+      "priorIntervalVelocity": 216.66666666666686,
+      "inertiaPredictedDelta": 43.31734644212732,
+      "constantCommandDelta": 43.41715692312835,
+      "actuationOffsetMs": 24.40000000037253
+    },
+    {
+      "ms": 92340.00000000093,
+      "dt": 0.20140000000037253,
+      "command": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 40.0,
+      "observedAvgTangentVelocity": 198.6097318764946,
+      "priorIntervalVelocity": 233.68385912070838,
+      "inertiaPredictedDelta": 45.9777429412693,
+      "constantCommandDelta": 43.786757157162185,
+      "actuationOffsetMs": 23.40000000037253
+    },
+    {
+      "ms": 92539.89999999944,
+      "dt": 0.19989999999850988,
+      "command": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 40.0,
+      "observedAvgTangentVelocity": 200.1000500265041,
+      "priorIntervalVelocity": 198.6097318764946,
+      "inertiaPredictedDelta": 40.94084794871829,
+      "constantCommandDelta": 43.46063930305503,
+      "actuationOffsetMs": 19.399999998509884
+    },
+    {
+      "ms": 92740.10000000056,
+      "dt": 0.2002000000011176,
+      "command": {
+        "x": 6.123233995736766e-17,
+        "y": 1
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 33.33333333333337,
+      "observedAvgTangentVelocity": 166.50016649923722,
+      "priorIntervalVelocity": 200.1000500265041,
+      "inertiaPredictedDelta": 26.841961910441782,
+      "constantCommandDelta": 3.769148455892974e-15,
+      "actuationOffsetMs": 21.600000001490116
+    },
+    {
+      "ms": 92940.00000000093,
+      "dt": 0.19990000000037253,
+      "command": {
+        "x": -0.7071067811865475,
+        "y": 0.7071067811865476
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": -3.3333333333333712,
+      "observedAvgTangentVelocity": -16.675004168720157,
+      "priorIntervalVelocity": 166.50016649923722,
+      "inertiaPredictedDelta": 7.989713595986288,
+      "constantCommandDelta": -43.46063930345998,
+      "actuationOffsetMs": 18.40000000037253
+    },
+    {
+      "ms": 93139.60000000056,
+      "dt": 0.19959999999962746,
+      "command": {
+        "x": -0.7071067811865475,
+        "y": 0.7071067811865476
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": -23.33333333333337,
+      "observedAvgTangentVelocity": -116.90046760208878,
+      "priorIntervalVelocity": -16.675004168720157,
+      "inertiaPredictedDelta": -16.51893401624318,
+      "constantCommandDelta": -43.39541573255755,
+      "actuationOffsetMs": 19.09999999962747
+    },
+    {
+      "ms": 93339.10000000056,
+      "dt": 0.1995,
+      "command": {
+        "x": -0.7071067811865475,
+        "y": 0.7071067811865476
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": -40.0,
+      "observedAvgTangentVelocity": -200.50125313283206,
+      "priorIntervalVelocity": -116.90046760208878,
+      "inertiaPredictedDelta": -29.920544304299078,
+      "constantCommandDelta": -43.37367454239174,
+      "actuationOffsetMs": 28.90000000037253
+    },
+    {
+      "ms": 93539.20000000019,
+      "dt": 0.20009999999962746,
+      "command": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": -13.333333333333258,
+      "observedAvgTangentVelocity": -66.6333499917945,
+      "priorIntervalVelocity": -200.50125313283206,
+      "inertiaPredictedDelta": -12.538233890329536,
+      "constantCommandDelta": 43.50412168379163,
+      "actuationOffsetMs": 23.59999999962747
+    },
+    {
+      "ms": 93739.00000000093,
+      "dt": 0.19980000000074505,
+      "command": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 23.333333333333258,
+      "observedAvgTangentVelocity": 116.7834501163476,
+      "priorIntervalVelocity": -66.6333499917945,
+      "inertiaPredictedDelta": 5.384303359990234,
+      "constantCommandDelta": 43.438898113294165,
+      "actuationOffsetMs": 24.40000000037253
+    },
+    {
+      "ms": 93938.89999999944,
+      "dt": 0.19989999999850988,
+      "command": {
+        "x": 6.123233995736766e-17,
+        "y": 1
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 16.666666666666742,
+      "observedAvgTangentVelocity": 83.37502084437709,
+      "priorIntervalVelocity": 116.7834501163476,
+      "inertiaPredictedDelta": 15.650848741034011,
+      "constantCommandDelta": 3.7635003812346806e-15,
+      "actuationOffsetMs": 24.5
+    },
+    {
+      "ms": 94139.29999999981,
+      "dt": 0.20040000000037253,
+      "command": {
+        "x": 6.123233995736766e-17,
+        "y": 1
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 10,
+      "observedAvgTangentVelocity": 49.90019960070564,
+      "priorIntervalVelocity": 83.37502084437709,
+      "inertiaPredictedDelta": 11.191186886509458,
+      "constantCommandDelta": 3.772913838951746e-15,
+      "actuationOffsetMs": 19.300000000745058
+    },
+    {
+      "ms": 94338.70000000019,
+      "dt": 0.19940000000037253,
+      "command": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallNormalDelta": 0,
+      "observedTangentDelta": 16.66666666666663,
+      "observedAvgTangentVelocity": 83.58408558994729,
+      "priorIntervalVelocity": 49.90019960070564,
+      "inertiaPredictedDelta": 20.938128255302345,
+      "constantCommandDelta": 43.35193335222593,
+      "actuationOffsetMs": 23.0
+    }
+  ],
+  "limitations": [
+    "13 adjacent intervals from one game, not13independent trials",
+    "Wall scanquantization6.667CSSpx; previousinterval averagevelocity is not instantaneous; actuationoffset18.4\u201328.9ms",
+    "r46 upperwall final8samples have no orthogonalwall, so tangentmotion not independently identified",
+    "Two savedPNG walls shift36.5px over501.3ms; sparsePNGdoesnotvalidateeachtransition",
+    "No proof of survival, fulltrajectory accuracy, NPCmotion, or winrate"
+  ]
+}
