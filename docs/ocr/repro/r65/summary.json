@@ -1,0 +1,155 @@
+{
+  "id": "r65",
+  "version": "r65-ring-test043",
+  "game": "/v2.20/",
+  "startedAt": "2026-11-18T03:08:27.783Z",
+  "ua": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+  "canvas": [
+    2000,
+    1163
+  ],
+  "css": [
+    2000,
+    1163
+  ],
+  "dpr": 1,
+  "outcome": "death",
+  "seconds": 62,
+  "size": "93",
+  "reason": "visible-ending",
+  "rows": 321,
+  "rejections": 2,
+  "periodicAndTerminalImages": 15,
+  "missed": [],
+  "keysAfter": [],
+  "ring": {
+    "cap": 12,
+    "maxBytes": 50331648,
+    "seen": 323,
+    "evicted": 311,
+    "retained": 12,
+    "bytes": 40204800,
+    "events": []
+  },
+  "association": [
+    {
+      "seq": 312,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 2323.699999999255
+    },
+    {
+      "seq": 313,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 2123.599999997765
+    },
+    {
+      "seq": 314,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 1923.5999999977648
+    },
+    {
+      "seq": 315,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 1723.3999999985099
+    },
+    {
+      "seq": 316,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 1523.3999999985099
+    },
+    {
+      "seq": 317,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 1323.5999999977648
+    },
+    {
+      "seq": 318,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 1123.199999999255
+    },
+    {
+      "seq": 319,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 923.3999999985099
+    },
+    {
+      "seq": 320,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 690.2999999970198
+    },
+    {
+      "seq": 321,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 490.5
+    },
+    {
+      "seq": 322,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 290.5999999977648
+    },
+    {
+      "seq": 323,
+      "status": "accepted",
+      "matchedAccepted": true,
+      "timestampExact": true,
+      "decisionMsExact": true,
+      "roundtripEqual": true,
+      "toStopMs": 91.19999999925494
+    }
+  ],
+  "computeMedianMs": 21.199999999254942,
+  "computeMaxMs": 147.5,
+  "rawSha256": "e78a3586e42356de82a4fd6b209268bb838dd69225302714aa667d6c8592a0c3",
+  "newStarts": 1,
+  "newWins": 0,
+  "newDeaths": 1,
+  "newAborts": 0,
+  "stage": "r65",
+  "updatedAtTaipei": "2026-11-18T11:12:07.010306+08:00",
+  "preview": "stopped",
+  "next": "Audit boundary transition in12same-sourceframes andterminal; no assumedgrowth"
+}
