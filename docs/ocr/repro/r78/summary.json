@@ -1,0 +1,16 @@
+{
+  "stage": "r78",
+  "newStarts": 0,
+  "newWins": 0,
+  "newDeaths": 0,
+  "newAborts": 0,
+  "sourcePixelHashMatches": 12,
+  "targetMatches": 12,
+  "targetEstimateChanges": 0,
+  "independentFrames": 2,
+  "independentLabelledComponents": 6,
+  "independentEstimateChanges": 0,
+  "lastCaptureToTerminalMs": 142.1,
+  "conclusion": "small-radius gate relaxation does not change estimates; killer unconfirmed; no live test",
+  "preview": "stopped"
+}

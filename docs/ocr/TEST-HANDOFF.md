@@ -1,3 +1,9 @@
+## r78 — early-death image audit, simple calibration fix falsified (2026-11-18 Taipei)
+
+0 new games. r77B candidate never intervened; death not attributed to it. Last12pixel hashes12/12match; final142.1ms gap. Saved frame/terminal show small selected NPC touching player and upper large threat nearby; killer/true radii unconfirmed. Static renderer scales visible NPC by0.8–1.15 while collision uses unscaled radius: possible ambiguity, not proof. Removing only highlightRadius small-component<18guard changes0/12target estimates, and0/6labelled NPC components across2other scenes. Rejected simple fix; no live expansion or release. Full source/numerical evidence preserved, pixels local only. Preview stopped/mobile skipped.
+
+[Report and limits](repro/r78/README.md) · [No-image reproduction](repro/r78/r78-repro.zip), SHA2561742aaaed4d68441f2414be247e92cfe9c025dd35374be43a028aa050bb02792. Next: inspect highlight fallback reasons on same fixed images, retain upper-threat alternative; no unchanged gameplay rerun.
+
 ## r77 — fixed desktop A/B completed (2026-11-18 Taipei)
 
 Predeclared A/B one random v2.20 game each,Chrome1562000x1163DPR1:2starts/0wins/2deaths/0aborts. A death74s,size102; B death10s,size31. A30s/60s sizes42/73; B died before first30s window, so no common predeclared growth comparison. B0retained/0suppressed overrides: no rule effect observed, early death cannot be attributed to candidate. No replacement or expansion. All425accepted outputs exact on replay,0rejected; keys released, image roundtrips all passed. A22interventions,first image pinned/21skipped; B none. Images local only. Preview stopped, mobile skipped, no publicstrategy/OCR4 release.
