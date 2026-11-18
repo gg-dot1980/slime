@@ -1,3 +1,7 @@
+## r63 — A terminal geometry audit (2026-11-18 10:59 Taipei)
+
+No new games. Same-geometry collision-threshold hypothesis unsupported: planner is more conservative than v2.20 contact formula. A last4 threats do not correspond to the giant overlapping the player in terminal image; final197ms missing synchronous image prevents assigning perception/growth/prediction cause. B negative-gap counterexample retained. Deterministic clean-directory audit passed. [Full report and reproducible script](repro/r63/README.md), with pinned complete r62 source/input package. Images remain local only. Next: original ImageData component/filter audit, not threshold tuning. test-043 unchanged; OCR4 not released; mobile skipped; preview stopped.
+
 # r62 — crowding and two-stage exit audit
 
 2026-11-18 Taipei. Fixed B417/A508states. Inlast15s B22/A21states have model alternatives with more followups andnonloweroriginalclearance;not realescape proof. Bthree-consecutive<=2safedirections begins396(4.072sbeforeending),onlineconfirmation398(3.672s);no qualifyingbetteralternate then. A counterexample:7/6model-safedirections397/197msbeforedeath,nonarrowingwarning. Hypothesis insufficient as generalprediction/policy;no newgame/controller.
