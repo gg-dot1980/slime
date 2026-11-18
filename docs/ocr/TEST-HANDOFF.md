@@ -1,3 +1,9 @@
+## r77 — fixed desktop A/B completed (2026-11-18 Taipei)
+
+Predeclared A/B one random v2.20 game each,Chrome1562000x1163DPR1:2starts/0wins/2deaths/0aborts. A death74s,size102; B death10s,size31. A30s/60s sizes42/73; B died before first30s window, so no common predeclared growth comparison. B0retained/0suppressed overrides: no rule effect observed, early death cannot be attributed to candidate. No replacement or expansion. All425accepted outputs exact on replay,0rejected; keys released, image roundtrips all passed. A22interventions,first image pinned/21skipped; B none. Images local only. Preview stopped, mobile skipped, no publicstrategy/OCR4 release.
+
+[Complete source/results and limits](repro/r77/README.md) · [No-image reproduction ZIP](repro/r77/r77-repro.zip), SHA256e19138eb929b481675a620dba449cbbcb6dd3a3b578e987e81d501a09e92fe16. Clean-directory build/check/replay/summary passed. Next: analyze B early-death retained12frames before more batches.
+
 ## r76 — target progress vs threat avoidance (2026-11-18 Taipei)
 
 0 new games. Frozen risk-aware gate retains override if baseline existing risk>0 OR wall below existing margin.3169states,54prior overrides→35retained/19reverted.19/19 modeled0.2s target approach improves (median20.725px), but2s weighted gain drops14/19,unchanged5: no live-growth claim. r75r50index386 threat avoidance retained; no new negative prefix gap/wall vs prior. Separate r72A/B589states has0 changed cases, so no independent validation of new behavior. Clean-directory replay identical. Candidate offline only; no publication, images/Library uploads or preview. Mobile skipped.
