@@ -1,3 +1,9 @@
+## r73 — terminal surface audit (2026-11-18 Taipei)
+
+No new games: 0 starts/0 wins/0 deaths/0 aborts. Analyzed B last12 same-source images plus terminal. Player-right purple ROI:12/12 zero, terminal100%; measured wall shift−21.849px and tested horizontal offsets do not explain it. Retrospective, not predictive: final181.1ms unobserved; spawn/growth/identity unknown. Sole intervention seq292 lacks exact image. Do not expand unchanged candidate. Local pixel check and clean-directory numerical replay passed; images excluded, hashes included. Prior full r72 sources pinned, no strategy change/OCR4 release; mobile skipped; preview stopped. Next: bounded exact intervention snapshot, verify unchanged outputs.
+
+[r73 evidence and limits](repro/r73/README.md)
+
 ## r72 — recorded timing and completed desktop A/B (2026-11-18 Taipei)
 
 v2.20 Chrome156 desktop2000x1163DPR1, fixed A/B one random game each: A death56s,size66; B death60s,size63.2starts/0wins/2deaths/0aborts; no replacements. B intervened once2.584s before stop; that intervention lacks same-source ring PNG (nearest periodic1.383s), so no causal claim. Both last12frames intact/distinct/roundtrip,keysreleased,logdrops0.589/589live decisions replay exactly;2235/2235fixed integration matches.9recorded callback tapes yield1.843–2.000simseconds per2wallseconds;450retained historical model comparisons pass, NOT live improvement. Preview stopped,publictest043 unchanged,OCR4unpublished,mobile skipped. [Full findings](repro/r72/README.md), [complete no-image source/config/scripts/results](repro/r72/r72-repro.zip), SHA256d060ec3428f1e5a0a811ac2d17bd868ee5e4366a702a418863eae14075bd6f71. Clean-directory generation/replays/build verified; random outcomes not reproducible exactly. No Library upload.
