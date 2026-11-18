@@ -1,3 +1,7 @@
+## r68 — wall-constrained shadow alternatives (2026-11-18 Taipei)
+
+Independent r60 A/B: 925 decisions, 152 with visible walls, 23 shadow changes. Six changes lower wall margin; minimum remainder1.0465 CSSpx with no calibrated error bound. Original model clearance/gain nondecrease is enforced, not independent safety proof. Development r65: 2/12 changes; first two r67 north alternatives rejected. No live integration, new starts/wins/deaths/aborts0; mobile skipped, publictest043 unchanged, OCR4 unpublished. [Reproduction and limitations](repro/r68/README.md), [complete no-image numerical package](repro/r68/r68-repro.zip), SHA2567021058737a4bf17ddf9d3d3948fbfb6e42c6ef209f74581c546dfe681e3ee1d. Fresh empty-directory results byte-identical; same host. No Library upload.
+
 ## r67 — pre-transition surface adjacency (2026-11-18 Taipei)
 
 12 frames from one r65 game: orange/pink adjacency visible for six frames, confirmed warning for five. Shadow maximum-clearance selection changes four directions; first two point north across the visible upper wall, so candidate rejected for live integration. Later southeast alternatives remain counterfactual. Swallowing/growth/attacker identity unknown. No new starts/wins/deaths/aborts; public test-043 unchanged, mobile skipped, OCR4 not released. Clean-directory numerical replay byte-identical; images remain local, no Library upload. [Source, inputs, results and limitations](repro/r67/README.md).

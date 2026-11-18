@@ -1,0 +1,52 @@
+{
+  "stage": "r68",
+  "updatedAtTaipei": "2026-11-18T11:26:52.431066+08:00",
+  "newStarts": 0,
+  "newWins": 0,
+  "newDeaths": 0,
+  "newAborts": 0,
+  "groups": {
+    "r65-last12": {
+      "rows": 12,
+      "visibleWallRows": 12,
+      "unknownWallRows": 0,
+      "noEligibleAlternative": 8,
+      "changes": 2,
+      "baselineWallViolations": 8,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    },
+    "r60-A": {
+      "rows": 508,
+      "visibleWallRows": 49,
+      "unknownWallRows": 459,
+      "noEligibleAlternative": 462,
+      "changes": 6,
+      "baselineWallViolations": 4,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    },
+    "r60-B": {
+      "rows": 417,
+      "visibleWallRows": 103,
+      "unknownWallRows": 314,
+      "noEligibleAlternative": 327,
+      "changes": 17,
+      "baselineWallViolations": 15,
+      "changedWallViolations": 0,
+      "clearanceRegressions": 0,
+      "gainRegressions": 0
+    }
+  },
+  "independentOfDevelopmentGames": 2,
+  "independentDecisionRows": 925,
+  "independentWallObservedRows": 152,
+  "independentShadowChanges": 23,
+  "wallMarginDecreases": 6,
+  "minimumRemainingWallMargin": 1.046505146762314,
+  "liveCandidate": "not supported: tiny wall margin and no measured uncertainty bound; adjacency specificity unknown",
+  "preview": "not started",
+  "next": "Inspect frozen r60-B index177/180/181/202/205/255/257/263/264/265/284/286/289/297/300/305/310 numerical wall-margin counterexamples; validate physical wall response using existing evidence, not arbitrary threshold tuning."
+}
