@@ -1,3 +1,9 @@
+# r61 — intervention and terminal timing audit
+
+2026-11-18 Taipei. Four r60 Bchanges were47.675/36.099/35.682/12.390s before ending;images not synchronous,consumption attributionunknown. Final5s25decisions,0rejections,capture median199.9ms/max203.6ms,capture-to-recordmax39ms,firstall-unsafe2.671s beforeending,13all-unsafe rows. Terminal stale-compute hypothesis unsupported;physical key effect/collision onset stillunknown. No new policy or gameplay;starts/wins/deaths/aborts0. Existingr60deaths retained.
+
+[Complete source and no-image audit evidence](repro/r61/README.md),archiveSHA256ffef8822780a4cfe9aac87e3ffc0fbfdc885685b8c852416b43f2b8e3760d0a1;clean replay identical. Next audit earlier crowd geometry and availableescape trajectories;do not repeat same latency/foodconfirmation test. Previewstopped,no publicstrategy/OCR4/Libraryupload,mobileskipped,desktopper-version150s/50%notmet.
+
 # r60 — food-target confirmation, bounded desktop A/B complete
 
 2026-11-18 Taipei. Fixed v2.20 desktop Chrome156,2000x1163,DPR1,random unpaired A then B. A death100s,size104;B death77s,size79. Total2starts,0wins,2deaths,0aborts. Rejected decisionsA1/B2,images22/19,0missing,keysreleased. Bconfirmationactive323/417;actualdirectionchanges4/417. ReplayA508/508,B417/417 exact;no causal benefit/harmclaim. Bwall89.008s differsfrom77ssettlement;preserved. Do not expand unchanged candidate.

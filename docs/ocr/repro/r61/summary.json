@@ -1,0 +1,96 @@
+{
+  "stage": "r61",
+  "updatedAtTaipei": "2026-11-18T10:48:15.858976+08:00",
+  "hypothesis": "Terminal failure primarily caused by stale computation or delayed control release",
+  "conclusion": "Not supported by recorded final5s; not proof latency irrelevant or alternative escape possible",
+  "newStarts": 0,
+  "newWins": 0,
+  "newDeaths": 0,
+  "newAborts": 0,
+  "last5s": {
+    "rows": 25,
+    "allUnsafeRows": 13,
+    "firstAllUnsafeToEndMs": 2670.5999999996275,
+    "captureIntervalMs": {
+      "median": 199.8999999994412,
+      "max": 203.59999999962747
+    },
+    "captureToRecordMaxMs": 39.0,
+    "lastCaptureToEndMs": 70.80000000074506,
+    "candidateDirectionChanges": 0,
+    "rejectedInWindow": 0
+  },
+  "interventions": [
+    {
+      "row": 186,
+      "ms": 41659.199999999255,
+      "hudTime": "04:25",
+      "hud": 55,
+      "before": "\u897f",
+      "after": "\u897f\u5317",
+      "clearanceBefore": 29.01099994941569,
+      "clearanceAfter": 241.99364348333586,
+      "toEndingMs": 47674.90000000037,
+      "imageBeforeGapMs": 626.0999999996275,
+      "imageAfterGapMs": 4473.800000000745,
+      "growthAfter1s": 0,
+      "growthAfter3s": 1,
+      "actualConsumptionAttribution": "unknown;no synchronous image or isolated control"
+    },
+    {
+      "row": 243,
+      "ms": 53235.09999999963,
+      "hudTime": "04:14",
+      "hud": 64,
+      "before": "\u6771\u5317",
+      "after": "\u897f\u5317",
+      "clearanceBefore": 207.34064493943256,
+      "clearanceAfter": 222.83247183912874,
+      "toEndingMs": 36099.0,
+      "imageBeforeGapMs": 2101.300000000745,
+      "imageAfterGapMs": 2911.0,
+      "growthAfter1s": 0,
+      "growthAfter3s": 2,
+      "actualConsumptionAttribution": "unknown;no synchronous image or isolated control"
+    },
+    {
+      "row": 245,
+      "ms": 53652.09999999963,
+      "hudTime": "04:14",
+      "hud": 64,
+      "before": "\u6771\u5317",
+      "after": "\u897f\u5317",
+      "clearanceBefore": 199.8459611921462,
+      "clearanceAfter": 193.13513354682038,
+      "toEndingMs": 35682.0,
+      "imageBeforeGapMs": 2518.300000000745,
+      "imageAfterGapMs": 2494.0,
+      "growthAfter1s": 0,
+      "growthAfter3s": 2,
+      "actualConsumptionAttribution": "unknown;no synchronous image or isolated control"
+    },
+    {
+      "row": 356,
+      "ms": 76944.09999999963,
+      "hudTime": "03:53",
+      "hud": 79,
+      "before": "\u6771",
+      "after": "\u5317",
+      "clearanceBefore": 12.109925345148241,
+      "clearanceAfter": 153.75734076704458,
+      "toEndingMs": 12390.0,
+      "imageBeforeGapMs": 617.5999999996275,
+      "imageAfterGapMs": 4388.800000000745,
+      "growthAfter1s": 0,
+      "growthAfter3s": 0,
+      "actualConsumptionAttribution": "unknown;no synchronous image or isolated control"
+    }
+  ],
+  "next": "Use existing full r60 observations to audit early crowd geometry and candidate escape trajectories before all-unsafe; distinguish circle/radius changes from actual path feasibility, retain unknown images. Do not repeat latency tuning or food confirmation unchanged.",
+  "limits": [
+    "recordAt follows dispatch,not measured physical key effectiveness",
+    "terminal sample later than last frame,exact contact time unknown",
+    "5second images cannot identify exact target identity or causality",
+    "same frozen baseline direction does not prove same counterfactual trajectory"
+  ]
+}
