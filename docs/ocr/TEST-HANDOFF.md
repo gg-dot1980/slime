@@ -1,3 +1,7 @@
+## r66 — boundary/camera fixed counterexample audit (2026-11-18 Taipei)
+
+12same-sourceframes+terminal: wall-compensated finalboundaryshift263.72analysispx in91.2ms, vs prior11closingrates45.14–64.87px/s. Wall moves9.83px; purecamera translation insufficient. Fixedone200msmargin12.97+4px fails; no tuning/deployment. Ninecolorchecks stable. Growth/identity/attacker stillunknown; bottomclippedextent not inferred. [Scripts, measurements, limits](repro/r66/README.md). Numericalclean-directory replayexact; imageslocalonly. No newgames; priorr65death retained. NoOCR4/Libraryupload; previewstopped,mobileskipped.
+
 ## r65 — bounded same-source terminal recording (2026-11-18 Taipei)
 
 One v2.20 desktop diagnostic: 0wins/1death/0aborts, visible62s,size93.321accepted decisions/2rejections; originalplanner321/321exact. Final12same-sourceframes retainseq312–323,40,204,800bytes,12/12timestamps andPNGpixelroundtrip exact; lastcapture91.2ms beforeterminal.15periodic+terminalimages,0missed;keysreleased.16-call staticprobe outputs16/16exact. Large left/lower threat is already detected before ending; terminalboundary changes markedly, cause/identity stillunknown. No strategyclaim orOCR4release. [Report/source/settings/fullnumericresults](repro/r65/README.md), [complete noimage package](repro/r65/r65-repro.zip), SHA2562091bd43d7aa2fee91a678b0cdfcbd3fae7ae01fcd5cba2230e73701cde620ec. Imageslocalonly, noLibraryupload. Freshdirectorybuild/replaypassed. Previewstopped;mobileskipped.
