@@ -1,3 +1,17 @@
+# Slime OCR 測試交接索引
+
+適用 [GitHub 存放規則 v1](GITHUB-STORAGE.md)。以下為存放狀態更新，並非新增測試或驗收。
+
+## 2026-11-19：r219／r220 離線包入口與已知缺漏
+
+- [r219 固定入口](repro/r219/README.md) · [r220 固定入口](repro/r220/README.md)。
+- [既有 ZIP（保留原位置）](../../evidence/offline-r219-r220/offline-r219-r220-review.zip)，加入於 commit [706de21](https://github.com/gg-dot1980/slime/commit/706de21d6a2ccb078a23277d4308b8ce1c31cec2)；9,579,597 bytes，Git blob `68e57f010cdae5fce089f9854b9a754a4431ba3b`。本次不重傳、不重新解壓或執行。
+- 原索引與 repro 最新輪次為 r85；r86–r218、r221 以後的固定入口／材料本次未補，不宣稱已同步。r219/r220 只補可讀入口，完整重現仍有未驗證項，見各入口。
+- r43/r44 原始資料不可得的既有限制保留；不由摘要重造原件。舊資料未逐版重驗 v1，舊連結保持有效。
+- 本次文件存放更新不代表策略改善、正式站更新或 OCR4 達標。
+
+---
+
 ## r85 — danger-label source gap and saved-pixel misses (2026-11-18 Taipei)
 
 0newgames. Currentmain15f077f sources4versions equalpriorpinnedfiles;localr80v2.20 snapshotexactmain. AlllabelNPC>player*1.10 vsdeathNPC>=player*1.08;1.08/1.09/1.10nolabelcanlethal. Actualdeploymentunverified:webopenroot inaccessible/InternalError,notpolicydenial orprovenbotblock. No bypass.
