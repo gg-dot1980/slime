@@ -1,0 +1,156 @@
+{
+  "round": "visible-approach-1",
+  "githubBranch": "test/ocr-test",
+  "pageSourceCommit": "2218b255e8ee037f94799bcedd765b07bd9d5124",
+  "siteSourceCommit": "e5060afcabfef0fd7260b5f5aad20b6366096a6a",
+  "siteVersion": 166,
+  "siteVersionId": "appgprj_6ab46afe00688191adaf062409a986ee~appgver_f79e54c0c5b8819196480895b85f2012",
+  "artifactDigest": "sha256:4ac88588fbde5078d2f6bec1195c35db816497af0d273169bd09259cd1836b9d",
+  "deployment": {
+    "id": "appgdep_6afeaaad34808191921614d1dee90f97",
+    "project_id": "appgprj_6ab46afe00688191adaf062409a986ee",
+    "title": "原色史萊姆競技場",
+    "version_id": "appgprj_6ab46afe00688191adaf062409a986ee~appgver_f79e54c0c5b8819196480895b85f2012",
+    "type": "publish",
+    "status": "succeeded",
+    "url": "https://slime-arena.audihsu.chatgpt.site",
+    "has_mcp": false,
+    "screenshot_asset_pointer": null,
+    "provider_deployment_id": "site---6ab46afe00688191adaf062409a986ee",
+    "failure_message": null,
+    "env_set_revision": 0,
+    "updated_at": "2026-11-19T07:52:23.570539+00:00"
+  },
+  "url": "https://slime.gameson.cc/ocr-test",
+  "browserVerification": {
+    "browser": "Chrome156 cloud",
+    "visibleRound": "visible-approach-1",
+    "historyNewestFirst": true,
+    "loadedGameVersion": "v2.13",
+    "loadedVersionSelector": true,
+    "gameStarted": false,
+    "method": "native accessibility state; no external screenshot or Playwright"
+  },
+  "localRouteVerification": {
+    "kind": "local-worker-response",
+    "results": [
+      {
+        "path": "/",
+        "status": 200,
+        "before": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "after": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "changed": false
+      },
+      {
+        "path": "/v2.13",
+        "status": 200,
+        "before": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "after": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "changed": false
+      },
+      {
+        "path": "/v2.20",
+        "status": 200,
+        "before": "b0138f16e42d83c16ab3c9ca2ed1ac37892a106cf54552d75bcc410b50cffeea",
+        "after": "b0138f16e42d83c16ab3c9ca2ed1ac37892a106cf54552d75bcc410b50cffeea",
+        "changed": false
+      },
+      {
+        "path": "/v2.21",
+        "status": 200,
+        "before": "a155543125b08fb3402143e7f8bfb2778d82b8892b36179c0536568592be81a7",
+        "after": "a155543125b08fb3402143e7f8bfb2778d82b8892b36179c0536568592be81a7",
+        "changed": false
+      },
+      {
+        "path": "/v2.22",
+        "status": 200,
+        "before": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "after": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "changed": false
+      },
+      {
+        "path": "/ocr",
+        "status": 200,
+        "before": "f4d26c4c20730637c78476c4bec9503b16aca6487f047f380de29ff36b05c2c3",
+        "after": "f4d26c4c20730637c78476c4bec9503b16aca6487f047f380de29ff36b05c2c3",
+        "changed": false
+      },
+      {
+        "path": "/ocr1",
+        "status": 200,
+        "before": "3fa062e8fba8fce7c6b645d9b8d547593d58be658bb372776e88aecca6530377",
+        "after": "3fa062e8fba8fce7c6b645d9b8d547593d58be658bb372776e88aecca6530377",
+        "changed": false
+      },
+      {
+        "path": "/ocr2",
+        "status": 200,
+        "before": "cb887c2b9413361f5b2faf95cdcbfda81449da1f317bf9f53e61e6394f10df75",
+        "after": "cb887c2b9413361f5b2faf95cdcbfda81449da1f317bf9f53e61e6394f10df75",
+        "changed": false
+      },
+      {
+        "path": "/ocr3",
+        "status": 200,
+        "before": "3edb16466039281b5cdc9a074df6dcc77406e4beb084fe8a71163b28c3383038",
+        "after": "3edb16466039281b5cdc9a074df6dcc77406e4beb084fe8a71163b28c3383038",
+        "changed": false
+      },
+      {
+        "path": "/ocr4",
+        "status": 200,
+        "before": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "after": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "changed": false
+      },
+      {
+        "path": "/release",
+        "status": 200,
+        "before": "a72ef19049e8cb2cc8c518754e75d28c50ac0a0f156f9706521ab2fd00ec315c",
+        "after": "a72ef19049e8cb2cc8c518754e75d28c50ac0a0f156f9706521ab2fd00ec315c",
+        "changed": false
+      },
+      {
+        "path": "/demo",
+        "status": 200,
+        "before": "38c1d1f98c70dd16a24833e1179337804906d6941fa4a0f971113302a363cece",
+        "after": "38c1d1f98c70dd16a24833e1179337804906d6941fa4a0f971113302a363cece",
+        "changed": false
+      },
+      {
+        "path": "/api/versions",
+        "status": 200,
+        "before": "658d5bde5be4bac0bdc17476ba4a04fc66634b8dff4e61b381ebf6d01aaaae94",
+        "after": "658d5bde5be4bac0bdc17476ba4a04fc66634b8dff4e61b381ebf6d01aaaae94",
+        "changed": false
+      },
+      {
+        "path": "/ocr-test",
+        "status": 200,
+        "before": "78343d23040f8aff8183fdf73bf5a398d5a65288dee8bb35c6ec349ce6d578e2",
+        "after": "616eaa6cabf66a9508a10333b3aa587ce485498af9e22d3222dea49c8c33b24c",
+        "changed": true
+      },
+      {
+        "path": "/ocr-test/",
+        "status": 200,
+        "before": "78343d23040f8aff8183fdf73bf5a398d5a65288dee8bb35c6ec349ce6d578e2",
+        "after": "616eaa6cabf66a9508a10333b3aa587ce485498af9e22d3222dea49c8c33b24c",
+        "changed": true
+      },
+      {
+        "path": "/ocr-test.html",
+        "status": 200,
+        "before": "78343d23040f8aff8183fdf73bf5a398d5a65288dee8bb35c6ec349ce6d578e2",
+        "after": "616eaa6cabf66a9508a10333b3aa587ce485498af9e22d3222dea49c8c33b24c",
+        "changed": true
+      }
+    ]
+  },
+  "limits": [
+    "Local Worker response hashes demonstrate route-body isolation; direct post-deploy full-body checks pending. No live leaderboard or database mutation test performed.",
+    "No strategy change; zero new game starts. Not formal acceptance.",
+    "Public page title remains test-043 intentionally: latest entry is diagnostic, not a default-strategy release."
+  ]
+}
