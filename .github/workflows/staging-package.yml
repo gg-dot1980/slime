@@ -1,0 +1,32 @@
+name: Private staging package
+on:
+  pull_request:
+    branches: [test/ocr-test]
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.22.1'
+      - run: node scripts/staging/build.mjs baseline staging-baseline
+      - run: node scripts/staging/build.mjs candidate staging-candidate
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: private-staging-${{ github.event.pull_request.head.sha }}
+          path: |
+            staging-baseline/website.tar
+            staging-baseline/manifest.json
+            staging-baseline/digest.json
+            staging-candidate/website.tar
+            staging-candidate/manifest.json
+            staging-candidate/digest.json
+          retention-days: 14
+          if-no-files-found: error
