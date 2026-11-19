@@ -30,3 +30,5 @@ No npm dependency or install, no server, no key dispatch. First execution failed
 ## Publication
 
 Only test-branch documentation, replay source/numeric results and /ocr-test summary are eligible. Formal /ocr,/ocr3,/ocr4 and database/leaderboard code remain unchanged. See publication.json for verified synchronization and remaining visible-behavior checks; no formal acceptance claim.
+
+Independent decoder command (Pillow13.0.0 in this environment): `python3 verify_rgba.py input-local.json result-noimages.json` produced12/12 hash matches. No installation performed. Current publication: Sites167 succeeded; live basic-load/visible-behavior verification pending shared-browser coordination. See publication.json; deployment success is not a claim of browser QA.
