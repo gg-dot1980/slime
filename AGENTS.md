@@ -15,3 +15,7 @@ OCR 文件權威分支是 `gg-dot1980/slime` 的 `test/ocr-test`。開始工作�
 ## 人／AI 協作導引
 
 開分支、PR 或 review 前讀 [main 的 CONTRIBUTING.md](https://github.com/gg-dot1980/slime/blob/main/CONTRIBUTING.md) 及 [main 的 Code Review Rules](https://github.com/gg-dot1980/slime/blob/main/AGENTS.md#code-review-rules)。此處只連結權威指南，不複製全文；保留上方 OCR 三文件入口。流程修改在 main 維護，這些連結必要時同步。建議關卡不表示權限／CI 已啟用。
+
+## 獨立測試與驗收入口
+
+設計／執行測試、review 測試證據或判定驗收前讀 [權威 TESTING.md](https://github.com/gg-dot1980/slime/blob/test/ocr-test/docs/ocr/TESTING.md)。測試流程或已核實命令改動時在 test/ocr-test 更新，必要時同步 main 指南及 PR 範本入口；不複製規則。固定 commit、客觀斷言、完整分母與獨立 reviewer／CI 核對；文件 PR 僅做適用檢查。
