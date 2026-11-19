@@ -1,5 +1,9 @@
 # OCR 獨立測試與驗收
 
+## Workflow POC 分支增量（未合併）
+
+本分支新增可執行 `npm run doctor`、`npm run smoke`、`npm run regression` 及 `npm run release:drill`，限定無像素r228數值回放／暫存產物演練；詳見[固定POC入口](repro/workflow-poc/README.md)。以下v1的「尚未實作」描述保留為導入前狀態：acceptance仍未實作，前三項只補此最小範圍，不是瀏覽器或正式驗收runner。PR的GitHub-hosted workflow已提出，須以實際check結果確認執行，不能僅以YAML宣稱啟用或通過。
+
 文件版本 v1 · 2026-11-19（台灣時間）；唯一權威分支 `test/ocr-test`。配合 [SPEC](SPEC.md)、[GitHub 存放規則 v1](GITHUB-STORAGE.md)、[交接索引](TEST-HANDOFF.md) 與 [main 協作指南](https://github.com/gg-dot1980/slime/blob/main/CONTRIBUTING.md)。本文件建立流程與證據契約，**沒有新增 runner、CI、權限或正式驗收結果**。
 
 ## 人或 AI 都依相同證據

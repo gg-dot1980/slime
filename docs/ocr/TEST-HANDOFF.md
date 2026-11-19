@@ -1,5 +1,9 @@
 # Slime OCR 測試交接索引
 
+## Workflow POC v1 — Draft proposal
+
+[可重跑入口、固定條件與限制](repro/workflow-poc/README.md)。專用工作分支提案；18幀離線回放，不是新遊戲或OCR4驗收。實際Fail/Pass SHA及CI狀態在Draft PR記錄，未合併，不改歷史。
+
 現行驗收與測試範圍見 [SPEC.md](SPEC.md)；存放與重現要求見 [GITHUB-STORAGE.md](GITHUB-STORAGE.md)。本分支為唯一權威交接索引，歷史條目不代表目前規格已通過。接手請指定 repo、branch 與 base commit。
 
 適用 [GitHub 存放規則 v1](GITHUB-STORAGE.md)。以下為存放狀態更新，並非新增測試或驗收。

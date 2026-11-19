@@ -1,0 +1,489 @@
+{
+  "sourceCommit": "f70766043b1ccabf62ecd434a42e15258c516a30",
+  "rootLicenseFilePresent": false,
+  "thirdPartyNoticesPresent": true,
+  "dependencyMetadataOnly": [
+    {
+      "package": "@drizzle-team/brocli",
+      "version": "0.10.2",
+      "licenseMetadata": "Apache-2.0",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils",
+      "version": "3.3.2",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/android-arm",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/android-arm64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/android-x64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/darwin-arm64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/darwin-x64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/freebsd-arm64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/freebsd-x64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-arm",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-arm64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-ia32",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-loong64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-mips64el",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-ppc64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-riscv64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-s390x",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/linux-x64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/netbsd-x64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/openbsd-x64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/sunos-x64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/win32-arm64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/win32-ia32",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/@esbuild/win32-x64",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/core-utils/node_modules/esbuild",
+      "version": "0.18.20",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild-kit/esm-loader",
+      "version": "2.6.5",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/aix-ppc64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/android-arm",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/android-arm64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/android-x64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/darwin-arm64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/darwin-x64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/freebsd-arm64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/freebsd-x64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-arm",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-arm64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-ia32",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-loong64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-mips64el",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-ppc64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-riscv64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-s390x",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/linux-x64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/netbsd-arm64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/netbsd-x64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/openbsd-arm64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/openbsd-x64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/openharmony-arm64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/sunos-x64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/win32-arm64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/win32-ia32",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "@esbuild/win32-x64",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "buffer-from",
+      "version": "1.1.2",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "debug",
+      "version": "4.4.3",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "drizzle-kit",
+      "version": "0.31.4",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "drizzle-orm",
+      "version": "0.44.5",
+      "licenseMetadata": "Apache-2.0",
+      "integrityPresent": true
+    },
+    {
+      "package": "esbuild",
+      "version": "0.25.12",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "esbuild-register",
+      "version": "3.6.0",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "get-tsconfig",
+      "version": "4.14.3",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "ms",
+      "version": "2.1.3",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "resolve-pkg-maps",
+      "version": "1.0.0",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    },
+    {
+      "package": "source-map",
+      "version": "0.6.1",
+      "licenseMetadata": "BSD-3-Clause",
+      "integrityPresent": true
+    },
+    {
+      "package": "source-map-support",
+      "version": "0.5.21",
+      "licenseMetadata": "MIT",
+      "integrityPresent": true
+    }
+  ],
+  "sourceAssetInventory": [
+    {
+      "file": "src/controller.html",
+      "sha256": "483ed3f2ed880e2151fad3c7d90d22c9a6a4b855b3e21a5491f2497a16a1bf61",
+      "inlineSvgCount": 1,
+      "dataImageReferenceCount": 0,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/game-v2.13.html",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 1,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/game-v2.20.html",
+      "sha256": "b0138f16e42d83c16ab3c9ca2ed1ac37892a106cf54552d75bcc410b50cffeea",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 1,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/game-v2.21.html",
+      "sha256": "a155543125b08fb3402143e7f8bfb2778d82b8892b36179c0536568592be81a7",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 1,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/game.html",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 1,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/ocr-test.html",
+      "sha256": "78343d23040f8aff8183fdf73bf5a398d5a65288dee8bb35c6ec349ce6d578e2",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 0,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/ocr.html",
+      "sha256": "f4d26c4c20730637c78476c4bec9503b16aca6487f047f380de29ff36b05c2c3",
+      "inlineSvgCount": 3,
+      "dataImageReferenceCount": 0,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/ocr1.html",
+      "sha256": "3fa062e8fba8fce7c6b645d9b8d547593d58be658bb372776e88aecca6530377",
+      "inlineSvgCount": 1,
+      "dataImageReferenceCount": 0,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/ocr2.html",
+      "sha256": "cb887c2b9413361f5b2faf95cdcbfda81449da1f317bf9f53e61e6394f10df75",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 0,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/ocr3.html",
+      "sha256": "3edb16466039281b5cdc9a074df6dcc77406e4beb084fe8a71163b28c3383038",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 0,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/release.html",
+      "sha256": "a72ef19049e8cb2cc8c518754e75d28c50ac0a0f156f9706521ab2fd00ec315c",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 0,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": true
+    },
+    {
+      "file": "src/worker.js",
+      "sha256": "2050b957a60b3f6a8060948dc5591f0da596f830cae10235f990fa611f232360",
+      "inlineSvgCount": 0,
+      "dataImageReferenceCount": 0,
+      "externalScriptOrStylesheetUrls": [],
+      "usesSystemFonts": false
+    }
+  ],
+  "limits": [
+    "Metadata is not a legal determination",
+    "Transitive installed LICENSE texts not retrieved",
+    "Historical ZIP interiors and all authorship not audited",
+    "No source image/pixel contents included"
+  ]
+}

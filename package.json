@@ -5,7 +5,11 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "db:generate": "drizzle-kit generate",
-    "dev": "node scripts/preview.mjs"
+    "dev": "node scripts/preview.mjs",
+    "doctor": "node scripts/workflow-poc/runner.mjs doctor",
+    "smoke": "node scripts/workflow-poc/runner.mjs smoke",
+    "regression": "node scripts/workflow-poc/runner.mjs regression",
+    "release:drill": "node scripts/workflow-poc/release-drill.mjs"
   },
   "devDependencies": {
     "drizzle-kit": "0.31.4",

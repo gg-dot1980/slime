@@ -10,3 +10,6 @@ dist/
 *.db
 *.db-*
 wrangler.jsonc
+
+# Generated POC reports (copy only explicitly reviewed JSON for handoff)
+.poc-output/

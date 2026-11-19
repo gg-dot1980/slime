@@ -1,0 +1,27 @@
+import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';import {execFileSync} from 'node:child_process';import path from 'node:path';
+const label=process.argv[2],out=path.resolve(process.argv[3]||'staging-output');
+if(!['baseline','candidate'].includes(label)||existsSync(out))throw Error('Require baseline/candidate and nonexistent output');
+if(process.version!=='v24.22.1')throw Error('Node version mismatch');
+const sha=b=>createHash('sha256').update(b).digest('hex');
+const pins=JSON.parse(readFileSync('scripts/staging/source-pins.json'));
+const read=p=>{const b=readFileSync(p);if(sha(b)!==pins[p])throw Error('Source changed: '+p);return b.toString()};
+const sourceCommit=execFileSync('git',['rev-parse','HEAD']).toString().trim();
+const games=Object.fromEntries(['v2.13','v2.20','v2.21','v2.22'].map(v=>['/'+v,read(v==='v2.22'?'src/game.html':'src/game-'+v+'.html')]));
+const banner=`<aside id="staging-version" style="padding:12px;background:#222;color:white">PRIVATE STAGING ${label} · ${sourceCommit} · no persistence</aside>`;
+const ocr=banner+read('src/ocr-test.html').replaceAll('https://slime.gameson.cc','');
+const identity={label,sourceCommit,sourcePins:pins,isolation:'no DB/R2 bindings; all writes rejected'};
+const code=`const games=${JSON.stringify(games)};const ocr=${JSON.stringify(ocr)};const identity=${JSON.stringify(identity)};
+const headers={'Cache-Control':'no-store','X-Staging-Version':identity.label,'X-Source-Commit':identity.sourceCommit,'Content-Security-Policy':"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; frame-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'"};
+export default {async fetch(req){const u=new URL(req.url);const json=(v,status=200)=>Response.json(v,{status,headers});if(req.method!=='GET'&&req.method!=='HEAD')return json({error:'Staging writes disabled'},405);if(u.pathname==='/__staging/version')return json(identity);if(u.pathname==='/__staging/health')return json({ok:true,...identity});if(u.pathname==='/api/versions')return json({currentVersion:'v2.22',currentPath:'/v2.22',versions:Object.keys(games).map(p=>({version:p.slice(1),path:p,current:p==='/v2.22'}))});if(u.pathname.startsWith('/api/'))return json({error:'Staging persistence disabled'},503);const html=['/','/ocr','/ocr-test','/ocr-test/'].includes(u.pathname)?ocr:games[u.pathname];return html?new Response(html,{headers:{...headers,'Content-Type':'text/html; charset=utf-8'}}):json({error:'Not found'},404);}};
+`;
+const manifest={project_id:'appgprj_6afe6534eee481919d3841c569a6518d'};
+mkdirSync(path.join(out,'dist/server'),{recursive:true});mkdirSync(path.join(out,'.openai'),{recursive:true});
+writeFileSync(path.join(out,'dist/server/index.js'),code);writeFileSync(path.join(out,'.openai/hosting.json'),JSON.stringify(manifest)+'\n');
+writeFileSync(path.join(out,'package.json'),'{"type":"module"}\n');
+const worker=(await import('file://'+path.join(out,'dist/server/index.js'))).default;
+const env=new Proxy({},{get(){throw Error('Unexpected binding access')}});const checks=[];
+for(const [route,method,status] of [['/ocr-test','GET',200],['/v2.20','GET',200],['/__staging/version','GET',200],['/__staging/health','GET',200],['/api/versions','GET',200],['/api/profile','POST',405],['/api/scores','POST',405],['/api/leaderboard','GET',503],['/ocr4','GET',404]]){const r=await worker.fetch(new Request('https://offline.invalid'+route,{method}),env);if(r.status!==status)throw Error(route);if(r.headers.get('X-Source-Commit')!==sourceCommit)throw Error('Version header');checks.push({route,method,status});}
+writeFileSync(path.join(out,'manifest.json'),JSON.stringify({...identity,workerSha256:sha(code),hostingSha256:sha(JSON.stringify(manifest)+'\n'),checks},null,2)+'\n');
+execFileSync('tar',['--sort=name','--mtime=@0','--owner=0','--group=0','--numeric-owner','-cf',path.join(out,'website.tar'),'-C',out,'.openai/hosting.json','dist/server/index.js']);
+writeFileSync(path.join(out,'digest.json'),JSON.stringify({sourceCommit,label,sha256:sha(readFileSync(path.join(out,'website.tar'))),workerSha256:sha(code),checks:checks.length},null,2)+'\n');console.log(readFileSync(path.join(out,'digest.json'),'utf8'));
