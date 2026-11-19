@@ -1,0 +1,39 @@
+name: OCR workflow POC
+on:
+  pull_request:
+    branches: [test/ocr-test]
+    types: [opened, synchronize, reopened, ready_for_review]
+permissions:
+  contents: read
+concurrency:
+  group: ocr-poc-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+jobs:
+  fixed-replay:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Checkout exact PR head (no persisted credentials)
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Pin Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24.22.1'
+      - run: npm run doctor
+      - run: npm run smoke
+      - run: npm run regression
+      - name: Isolated artifact promotion and rollback
+        if: ${{ !cancelled() }}
+        run: npm run release:drill
+      - name: Preserve no-pixel evidence only
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: ocr-poc-${{ github.event.pull_request.head.sha }}
+          path: .poc-output/*.json
+          if-no-files-found: error
+          retention-days: 14
+          include-hidden-files: true
