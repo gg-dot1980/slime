@@ -21,3 +21,7 @@ OCR 文件權威分支是 `gg-dot1980/slime` 的 `test/ocr-test`。開始工作�
 1. OCR 變更須核對遊戲／策略版本、base commit、逐版本分母及無像素 repro；把實測、回放和未知分開，未達 SPEC 不得支持 OCR4 發布結論。
 2. 檢查威脅／牆界、停止釋放按鍵及過期控制回歸；收益或辨識修改不能靠隱藏遊戲真值或省略失敗證據證明安全。純文件變更檢查連結及範圍即可，不為此重跑遊戲。
 3. 核對 PR 目標與最小 diff；不得整支測試分支合併至 main、夾帶影像／秘密或無授權部署。AI review（若已啟用）不取代人類批准與維護者合併權限。
+
+## 獨立測試與驗收入口
+
+設計／執行測試、review 測試證據或判定驗收前讀 [權威 TESTING.md](https://github.com/gg-dot1980/slime/blob/test/ocr-test/docs/ocr/TESTING.md)。測試流程或已核實命令改動時在 test/ocr-test 更新，必要時同步 main 指南及 PR 範本入口；不複製規則。固定 commit、客觀斷言、完整分母與獨立 reviewer／CI 核對；文件 PR 僅做適用檢查。

@@ -43,3 +43,11 @@
 - [ ] 如為發布，逐版本驗收與部署授權另已核對；本 PR 的文件／紀錄不是已部署證據。
 
 <!-- @codex review 僅在 repo 已啟用時可用。外部 fork 不在私人 NUC 執行，不讀正式站憑證。 -->
+
+## 必填獨立測試證據
+
+<!-- 按權威 https://github.com/gg-dot1980/slime/blob/test/ocr-test/docs/ocr/TESTING.md；不適用需說明，未跑不可寫 Pass。 -->
+- 固定 tested commit／乾淨 checkout 與環境核對：
+- 適用層級、重跑命令、腳本斷言／客觀結果及無像素 JSON/repro 連結：
+- 事前局數／樣本／seed／計時／重試／分母規則；逐版本分母、死亡／超時／基礎設施錯誤與排除理由（文件 PR 寫 N/A）：
+- 獨立 reviewer／CI、同一 commit 的核對狀態（尚未驗證請直寫）：

@@ -42,3 +42,9 @@ OCR 結果需逐遊戲版本／環境列：全部開局、有效完成局、150 
 ## 完成與交接
 
 轉 Ready for review 前補齊實際測試與限制；合併者確認人類批准和適用關卡後才依現有權限合併。測試成果寫到 test/ocr-test 的逐版入口與交接索引；main / test/demo 不另存 OCR 結果副本。保留歷史及失敗，不批量覆蓋其他工作的檔案。不強制推送、不擅自重寫歷史。拒絕或不確定寫入先確認遠端狀態，保留待同步 patch，不換路徑繞過。
+
+## 獨立測試與驗收
+
+設計測試、提交證據或 review 前讀 [test/ocr-test 的 TESTING.md](https://github.com/gg-dot1980/slime/blob/test/ocr-test/docs/ocr/TESTING.md)。它定義分層 PR 檢查、風險對照、逐版本實戰驗收與無像素 JSON 欄位；統一 doctor／smoke／regression／acceptance 入口仍為規劃，不宣稱已啟用。
+
+作者提交固定 commit 與客觀斷言／結果，獨立 reviewer 或受信任 CI 從同一 commit 核對；AI 可跑腳本與 review，不能口頭給 Pass 或透過改門檻／挑樣本取得 Pass。死亡、超時是有效失敗，基礎設施錯誤另列，樣本不足不得達標。文件 PR 只執行適用的文件與連結檢查，不重跑遊戲。
