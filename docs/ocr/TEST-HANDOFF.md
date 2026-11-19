@@ -1,5 +1,7 @@
 # Slime OCR 測試交接索引
 
+現行驗收與測試範圍見 [SPEC.md](SPEC.md)；存放與重現要求見 [GITHUB-STORAGE.md](GITHUB-STORAGE.md)。本分支為唯一權威交接索引，歷史條目不代表目前規格已通過。接手請指定 repo、branch 與 base commit。
+
 適用 [GitHub 存放規則 v1](GITHUB-STORAGE.md)。以下為存放狀態更新，並非新增測試或驗收。
 
 ## 2026-11-19：r228 固定末段策略假設
