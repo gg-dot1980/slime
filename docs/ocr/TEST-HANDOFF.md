@@ -1,5 +1,10 @@
 # Slime OCR 測試交接索引
 
+## contour-path-1 — 固定跨幀輪廓回放，未形成候選
+
+[逐版入口](repro/contour-path-1/README.md) · [完整無影像數值](repro/contour-path-1/result-noimages.json)。3局既有片段12圖、43配對檢查，31未匹配／6未知／6暫定；0個三幀大型逼近警示。PNG解碼12/12獨立雜湊核對、程式重跑數值一致。無策略改動、新增實跑0局；保留裁切及成功接觸反例。`/ocr-test` 分開標示實際辨識test-033／規劃test-026與最新未採用實驗；線上驗證狀態另見逐版 publication.json。影像僅本機，公開checkout需本機依賴才可像素重播。
+
+
 ## visible-approach-1 — 頁內像素回放，策略未採用
 
 [逐版入口](repro/visible-approach-1/README.md) · [固定條件](repro/visible-approach-1/protocol.md) · [無影像結果](repro/visible-approach-1/summary-noimages.json)。24張解碼，12張完整決策圖作粗略像素核對、12張裁切圖僅解碼；8筆新篩選命中中5筆重疊／裁切未知，成功接觸對照也有1筆命中。沒有足夠身分連續與安全替代證據，未改策略。新增開局0、過關0、死亡0、中止0；不算實戰驗收。可重跑程式已保存，原圖依政策僅留本機，公開checkout無原圖不能復現像素結果。測試頁同步與正式驗收分流見[SPEC v1.1](SPEC.md)。本輪僅補此入口，未補其他歷史缺漏。
