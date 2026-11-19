@@ -1,0 +1,1279 @@
+{
+  "summary": {
+    "frames": 12,
+    "runs": 3,
+    "npcObservations": 57,
+    "reasonCounts": {
+      "no-surface": 33,
+      "clipped": 22,
+      "player-overlap": 8,
+      "multiple-surfaces": 4,
+      "shared-component": 4
+    },
+    "transitions": 43,
+    "statuses": {
+      "unmatched": 31,
+      "unknown-pair": 6,
+      "provisional-pair": 6
+    },
+    "warnings": 0,
+    "warningRuns": 0,
+    "newGames": 0,
+    "candidate": false
+  },
+  "warnings": [],
+  "transitions": [
+    {
+      "group": "new",
+      "seq": 448,
+      "index": 0,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 448,
+      "index": 1,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 448,
+      "index": 2,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "fromSeq": 447,
+      "seq": 448,
+      "index": 3,
+      "fromIndex": 3,
+      "status": "unknown-pair",
+      "large": false,
+      "gap": 556.1787438092183,
+      "previousGap": 560.2384070179172,
+      "delta": -4.0596632086989075,
+      "relativeSpeed": 263.73890701056695,
+      "headingChanged": false,
+      "wallsKnown": false
+    },
+    {
+      "group": "new",
+      "seq": 448,
+      "index": 4,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 448,
+      "index": 5,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "fromSeq": 447,
+      "seq": 448,
+      "index": 6,
+      "fromIndex": 5,
+      "status": "provisional-pair",
+      "large": false,
+      "gap": 374.4944828852043,
+      "previousGap": 419.7416310343356,
+      "delta": -45.247148149131306,
+      "relativeSpeed": 276.890934819772,
+      "headingChanged": false,
+      "wallsKnown": false
+    },
+    {
+      "group": "new",
+      "seq": 448,
+      "index": 7,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 449,
+      "index": 0,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 449,
+      "index": 1,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 449,
+      "index": 2,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "fromSeq": 448,
+      "seq": 449,
+      "index": 3,
+      "fromIndex": 3,
+      "status": "unknown-pair",
+      "large": false,
+      "gap": 565.9734998022884,
+      "previousGap": 556.1787438092183,
+      "delta": 9.794755993070112,
+      "relativeSpeed": 265.19001082843516,
+      "headingChanged": true,
+      "wallsKnown": false
+    },
+    {
+      "group": "new",
+      "seq": 449,
+      "index": 4,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 449,
+      "index": 5,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 449,
+      "index": 6,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 450,
+      "index": 0,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 450,
+      "index": 1,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 450,
+      "index": 2,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 450,
+      "index": 3,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "fromSeq": 449,
+      "seq": 450,
+      "index": 4,
+      "fromIndex": 3,
+      "status": "unknown-pair",
+      "large": false,
+      "gap": 573.9663291074444,
+      "previousGap": 565.9734998022884,
+      "delta": 7.992829305155965,
+      "relativeSpeed": 340.9056435538997,
+      "headingChanged": true,
+      "wallsKnown": false
+    },
+    {
+      "group": "new",
+      "seq": 450,
+      "index": 5,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 450,
+      "index": 6,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 451,
+      "index": 0,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 451,
+      "index": 1,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 451,
+      "index": 2,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "fromSeq": 450,
+      "seq": 451,
+      "index": 3,
+      "fromIndex": 4,
+      "status": "unknown-pair",
+      "large": false,
+      "gap": 594.0837366743076,
+      "previousGap": 573.9663291074444,
+      "delta": 20.11740756686322,
+      "relativeSpeed": 275.383184083825,
+      "headingChanged": true,
+      "wallsKnown": false
+    },
+    {
+      "group": "new",
+      "seq": 451,
+      "index": 4,
+      "status": "unmatched"
+    },
+    {
+      "group": "new",
+      "seq": 451,
+      "index": 5,
+      "status": "unmatched"
+    },
+    {
+      "group": "success209",
+      "fromSeq": 229,
+      "seq": 230,
+      "index": 0,
+      "fromIndex": 0,
+      "status": "provisional-pair",
+      "large": false,
+      "gap": -45.99999999999998,
+      "previousGap": -15.306417171952479,
+      "delta": -30.6935828280475,
+      "relativeSpeed": 329.9612463032918,
+      "headingChanged": false,
+      "wallsKnown": false
+    },
+    {
+      "group": "success209",
+      "seq": 230,
+      "index": 1,
+      "status": "unmatched"
+    },
+    {
+      "group": "success209",
+      "fromSeq": 230,
+      "seq": 231,
+      "index": 0,
+      "fromIndex": 0,
+      "status": "unknown-pair",
+      "large": false,
+      "gap": -45.99999999999999,
+      "previousGap": -45.99999999999998,
+      "delta": -1.4210854715202004e-14,
+      "relativeSpeed": 332.9481060309447,
+      "headingChanged": true,
+      "wallsKnown": false
+    },
+    {
+      "group": "success209",
+      "seq": 231,
+      "index": 1,
+      "status": "unmatched"
+    },
+    {
+      "group": "success209",
+      "seq": 232,
+      "index": 0,
+      "status": "unmatched"
+    },
+    {
+      "group": "success209",
+      "seq": 232,
+      "index": 1,
+      "status": "unmatched"
+    },
+    {
+      "group": "success161",
+      "seq": 144,
+      "index": 0,
+      "status": "unmatched"
+    },
+    {
+      "group": "success161",
+      "fromSeq": 143,
+      "seq": 144,
+      "index": 1,
+      "fromIndex": 1,
+      "status": "unknown-pair",
+      "large": true,
+      "gap": 665.6871103848019,
+      "previousGap": 634.5340890846426,
+      "delta": 31.153021300159367,
+      "relativeSpeed": 339.0415621162844,
+      "headingChanged": false,
+      "wallsKnown": false
+    },
+    {
+      "group": "success161",
+      "seq": 144,
+      "index": 2,
+      "status": "unmatched"
+    },
+    {
+      "group": "success161",
+      "fromSeq": 143,
+      "seq": 144,
+      "index": 3,
+      "fromIndex": 3,
+      "status": "provisional-pair",
+      "large": false,
+      "gap": 602.4536566009984,
+      "previousGap": 662.178676495107,
+      "delta": -59.72501989410853,
+      "relativeSpeed": 315.55163701967007,
+      "headingChanged": false,
+      "wallsKnown": false
+    },
+    {
+      "group": "success161",
+      "fromSeq": 143,
+      "seq": 144,
+      "index": 4,
+      "fromIndex": 4,
+      "status": "provisional-pair",
+      "large": false,
+      "gap": -22.92893218813451,
+      "previousGap": -0.5372174505604974,
+      "delta": -22.391714737574013,
+      "relativeSpeed": 297.676782802134,
+      "headingChanged": false,
+      "wallsKnown": false
+    },
+    {
+      "group": "success161",
+      "seq": 145,
+      "index": 0,
+      "status": "unmatched"
+    },
+    {
+      "group": "success161",
+      "fromSeq": 144,
+      "seq": 145,
+      "index": 1,
+      "fromIndex": 1,
+      "status": "provisional-pair",
+      "large": true,
+      "gap": 681.8643138310376,
+      "previousGap": 665.6871103848019,
+      "delta": 16.177203446235694,
+      "relativeSpeed": 361.7346258629993,
+      "headingChanged": true,
+      "wallsKnown": false
+    },
+    {
+      "group": "success161",
+      "seq": 145,
+      "index": 2,
+      "status": "unmatched"
+    },
+    {
+      "group": "success161",
+      "fromSeq": 144,
+      "seq": 145,
+      "index": 3,
+      "fromIndex": 3,
+      "status": "provisional-pair",
+      "large": false,
+      "gap": 510.2994230797798,
+      "previousGap": 602.4536566009984,
+      "delta": -92.15423352121866,
+      "relativeSpeed": 332.29220640059174,
+      "headingChanged": true,
+      "wallsKnown": false
+    }
+  ],
+  "rows": [
+    {
+      "group": "new",
+      "seq": 447,
+      "time": 99151.90000000596,
+      "hud": 86,
+      "direction": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": true,
+          "recordedRadius": 241.35688922509016,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 541.6666666666667,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped",
+            "player-overlap"
+          ]
+        },
+        {
+          "index": 2,
+          "large": false,
+          "recordedRadius": 71.66666666666667,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "multiple-surfaces"
+          ]
+        },
+        {
+          "index": 3,
+          "large": false,
+          "recordedRadius": 78.84434676031225,
+          "surface": {
+            "id": 70,
+            "area": 5698,
+            "x": 663.4134784134784,
+            "y": -343.7691587691588,
+            "hue": 225
+          },
+          "gap": 560.2384070179172,
+          "reasons": [
+            "shared-component"
+          ]
+        },
+        {
+          "index": 4,
+          "large": true,
+          "recordedRadius": 278.8791523024963,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        },
+        {
+          "index": 5,
+          "large": false,
+          "recordedRadius": 43.439584340940144,
+          "surface": {
+            "id": 248,
+            "area": 1988,
+            "x": 631.5300134138163,
+            "y": 205.41498993963785,
+            "hue": 105
+          },
+          "gap": 419.7416310343356,
+          "reasons": []
+        },
+        {
+          "index": 6,
+          "large": true,
+          "recordedRadius": 266.6666666666667,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        }
+      ],
+      "componentCount": 7,
+      "pngSha256": "8e3f2a4daa2122d8664524d3b77c7c10bb97a9827201cbc5b7542663e3714c90",
+      "rgbaSha256": "3a51f99ff0e39d4fde6d7c298d175c5473a2b8bdaa45350ea0742c0419cf111d"
+    },
+    {
+      "group": "new",
+      "seq": 448,
+      "time": 99351.09999999404,
+      "hud": 86,
+      "direction": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": true,
+          "recordedRadius": 198.33333333333334,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 565,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped",
+            "player-overlap"
+          ]
+        },
+        {
+          "index": 2,
+          "large": false,
+          "recordedRadius": 68.33333333333334,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "multiple-surfaces"
+          ]
+        },
+        {
+          "index": 3,
+          "large": false,
+          "recordedRadius": 76.14745697457299,
+          "surface": {
+            "id": 62,
+            "area": 5686,
+            "x": 628.0422675577443,
+            "y": -382.61490209872204,
+            "hue": 225
+          },
+          "gap": 556.1787438092183,
+          "reasons": [
+            "shared-component"
+          ]
+        },
+        {
+          "index": 4,
+          "large": true,
+          "recordedRadius": 276.9693191471023,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        },
+        {
+          "index": 5,
+          "large": false,
+          "recordedRadius": 13.333333333333334,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "player-overlap"
+          ]
+        },
+        {
+          "index": 6,
+          "large": false,
+          "recordedRadius": 43.333333333333336,
+          "surface": {
+            "id": 245,
+            "area": 1976,
+            "x": 591.6919703103914,
+            "y": 167.26804993252358,
+            "hue": 105
+          },
+          "gap": 374.4944828852043,
+          "reasons": []
+        },
+        {
+          "index": 7,
+          "large": true,
+          "recordedRadius": 286.6666666666667,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        }
+      ],
+      "componentCount": 7,
+      "pngSha256": "854f1ab2587d67e8eb6942301c6180f76c7f6828515926664a0cc980d8805561",
+      "rgbaSha256": "340c6fafe8f9013d07f2f692056086882131f29427da3ca3675907d0d14c26bb"
+    },
+    {
+      "group": "new",
+      "seq": 449,
+      "time": 99567.79999999702,
+      "hud": 86,
+      "direction": {
+        "x": 6.123233995736766e-17,
+        "y": 1
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": true,
+          "recordedRadius": 560,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped",
+            "player-overlap"
+          ]
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 196.66666666666669,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 2,
+          "large": false,
+          "recordedRadius": 71.66666666666667,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "multiple-surfaces"
+          ]
+        },
+        {
+          "index": 3,
+          "large": false,
+          "recordedRadius": 79.22856056533784,
+          "surface": {
+            "id": 44,
+            "area": 5659,
+            "x": 588.7624433056487,
+            "y": -424.5614655121636,
+            "hue": 225
+          },
+          "gap": 565.9734998022884,
+          "reasons": [
+            "shared-component"
+          ]
+        },
+        {
+          "index": 4,
+          "large": true,
+          "recordedRadius": 280.8008272951975,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        },
+        {
+          "index": 5,
+          "large": false,
+          "recordedRadius": 16.666666666666668,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "player-overlap"
+          ]
+        },
+        {
+          "index": 6,
+          "large": true,
+          "recordedRadius": 313.33333333333337,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        }
+      ],
+      "componentCount": 7,
+      "pngSha256": "222f24324a5591a65aa896403bafc8c0d49d4dee802c81fbeab971bf6c773bcd",
+      "rgbaSha256": "773e97fcbb6d3f68de8b570a9397599de000e33fa710a89f5b98d3f467551f5d"
+    },
+    {
+      "group": "new",
+      "seq": 450,
+      "time": 99767.59999999404,
+      "hud": 86,
+      "direction": {
+        "x": 0.7071067811865476,
+        "y": 0.7071067811865475
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": true,
+          "recordedRadius": 533.3333333333334,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped",
+            "player-overlap"
+          ]
+        },
+        {
+          "index": 1,
+          "large": false,
+          "recordedRadius": 30,
+          "surface": {
+            "id": 1,
+            "area": 140,
+            "x": 28.714285714285666,
+            "y": -578.6547619047619,
+            "hue": 285
+          },
+          "gap": 486.63765933519335,
+          "reasons": [
+            "clipped"
+          ]
+        },
+        {
+          "index": 2,
+          "large": true,
+          "recordedRadius": 190,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 3,
+          "large": false,
+          "recordedRadius": 71.66666666666667,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "multiple-surfaces",
+            "clipped"
+          ]
+        },
+        {
+          "index": 4,
+          "large": false,
+          "recordedRadius": 79.76870725270416,
+          "surface": {
+            "id": 25,
+            "area": 5633,
+            "x": 556.6773181845081,
+            "y": -484.64406177880346,
+            "hue": 225
+          },
+          "gap": 573.9663291074444,
+          "reasons": [
+            "shared-component"
+          ]
+        },
+        {
+          "index": 5,
+          "large": true,
+          "recordedRadius": 279.82413102380343,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        },
+        {
+          "index": 6,
+          "large": true,
+          "recordedRadius": 353.33333333333337,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        }
+      ],
+      "componentCount": 7,
+      "pngSha256": "831c8605d35a640c0f2a27807d577cd53cd9887ae68950967c0b0b94b0a3156c",
+      "rgbaSha256": "6e782870bdb8d16dbf5346348c7f616317a5411a51ad302a123a1b5fdf5b9d64"
+    },
+    {
+      "group": "new",
+      "seq": 451,
+      "time": 99967.90000000596,
+      "hud": 86,
+      "direction": {
+        "x": 6.123233995736766e-17,
+        "y": 1
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": false,
+          "recordedRadius": 31.666666666666668,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 496.6666666666667,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 2,
+          "large": true,
+          "recordedRadius": 186.66666666666669,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 3,
+          "large": false,
+          "recordedRadius": 73.33333333333334,
+          "surface": {
+            "id": 2,
+            "area": 4711,
+            "x": 528.0633977216444,
+            "y": -531.801103799618,
+            "hue": 225
+          },
+          "gap": 594.0837366743076,
+          "reasons": [
+            "clipped"
+          ]
+        },
+        {
+          "index": 4,
+          "large": true,
+          "recordedRadius": 278.5255105794195,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "player-overlap"
+          ]
+        },
+        {
+          "index": 5,
+          "large": true,
+          "recordedRadius": 360,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        }
+      ],
+      "componentCount": 5,
+      "pngSha256": "e7549d3693e98ed131b57b84b8d9d769feccb05edce9fc122f71e09e2b0a285e",
+      "rgbaSha256": "20d252f90888f53e4694b5a9716b18ef2b90cf8778ea462abb95e719a05aa463"
+    },
+    {
+      "group": "success209",
+      "seq": 229,
+      "time": 52380.29999999702,
+      "hud": 46,
+      "direction": {
+        "x": -0.7071067811865477,
+        "y": -0.7071067811865475
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": false,
+          "recordedRadius": 28.333333333333336,
+          "surface": {
+            "id": 154,
+            "area": 661,
+            "x": -144.89409984871412,
+            "y": -137.4609178013111,
+            "hue": 135
+          },
+          "gap": -15.306417171952479,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 59.47560310348727,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        }
+      ],
+      "componentCount": 46,
+      "pngSha256": "39d47795f0e135f09ba2c3d6a3f16b38430d6c4125fe50cc6eba54376ad9aacf",
+      "rgbaSha256": "a484ffae1ae12bc11058cde65128caaa0f82ef80af5c3295b199e00c4517ff37"
+    },
+    {
+      "group": "success209",
+      "seq": 230,
+      "time": 52580.29999999702,
+      "hud": 46,
+      "direction": {
+        "x": -0.7071067811865477,
+        "y": -0.7071067811865475
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": false,
+          "recordedRadius": 30,
+          "surface": {
+            "id": 188,
+            "area": 734,
+            "x": -107.94959128065386,
+            "y": -82.7792915531335,
+            "hue": 165
+          },
+          "gap": -45.99999999999998,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 63.835807992290334,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        }
+      ],
+      "componentCount": 45,
+      "pngSha256": "605ee44fd093aa0cf3e2f0907fd7cb8209e876c4c9841bbbbf963787f48e4405",
+      "rgbaSha256": "78597b59662e3f12392da73d542555eccdeefdd963372e058a6463463390b950"
+    },
+    {
+      "group": "success209",
+      "seq": 231,
+      "time": 52779.90000000596,
+      "hud": 46,
+      "direction": {
+        "x": -1,
+        "y": 1.2246467991473532e-16
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": false,
+          "recordedRadius": 30,
+          "surface": {
+            "id": 202,
+            "area": 715,
+            "x": -70.8554778554778,
+            "y": -27.638694638694595,
+            "hue": 165
+          },
+          "gap": -45.99999999999999,
+          "reasons": [
+            "player-overlap"
+          ]
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 60.91973239679081,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        }
+      ],
+      "componentCount": 47,
+      "pngSha256": "d2a1422efceb8ac88237df5e6a4d7fb32fdc1486f408a9b60b809cb487a01be3",
+      "rgbaSha256": "8d4a9735642baa7ae72c36efbadaf8f1b28df18acedfae56f1959025ff776565"
+    },
+    {
+      "group": "success209",
+      "seq": 232,
+      "time": 52979.60000000894,
+      "hud": 50,
+      "direction": {
+        "x": -0.7071067811865475,
+        "y": 0.7071067811865476
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": false,
+          "recordedRadius": 33.333333333333336,
+          "surface": {
+            "id": 278,
+            "area": 964,
+            "x": -808.9851313969572,
+            "y": 219.0525587828493,
+            "hue": 45
+          },
+          "gap": 638.186870802572,
+          "reasons": []
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 66.74963093240548,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        }
+      ],
+      "componentCount": 43,
+      "pngSha256": "a47d06884a3e9f4cf7bc845291ab7d1abc34b4eb1c2a6a1b35924c51bf8bd531",
+      "rgbaSha256": "b9ee9bcff0f87f5ccb7486055c82c5a2666b4607e501caa94b55f035e38ebb02"
+    },
+    {
+      "group": "success161",
+      "seq": 143,
+      "time": 39806.5,
+      "hud": 30,
+      "direction": {
+        "x": 0.7071067811865474,
+        "y": -0.7071067811865477
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": true,
+          "recordedRadius": 35,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 125,
+          "surface": {
+            "id": 0,
+            "area": 15439,
+            "x": -605.4682945786645,
+            "y": -485.3154349374959,
+            "hue": 135
+          },
+          "gap": 634.5340890846426,
+          "reasons": [
+            "clipped"
+          ]
+        },
+        {
+          "index": 2,
+          "large": true,
+          "recordedRadius": 140.907150220093,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        },
+        {
+          "index": 3,
+          "large": false,
+          "recordedRadius": 21.666666666666668,
+          "surface": {
+            "id": 59,
+            "area": 422,
+            "x": 814.8025276461294,
+            "y": -171.48894154818328,
+            "hue": 15
+          },
+          "gap": 662.178676495107,
+          "reasons": []
+        },
+        {
+          "index": 4,
+          "large": false,
+          "recordedRadius": 21.666666666666668,
+          "surface": {
+            "id": 63,
+            "area": 435,
+            "x": 122.57471264367818,
+            "y": -52.727969348658995,
+            "hue": 225
+          },
+          "gap": -0.5372174505604974,
+          "reasons": []
+        }
+      ],
+      "componentCount": 9,
+      "pngSha256": "55c314b7da89637f1cf37cf0d555f7c86b41963396c4b40ead950c0d1abde06d",
+      "rgbaSha256": "0230b39c46c71b05d3141eb21cae2c8fc7ba22854a40ce30ba255fcfd0943c78"
+    },
+    {
+      "group": "success161",
+      "seq": 144,
+      "time": 40006.29999999702,
+      "hud": 30,
+      "direction": {
+        "x": 0.7071067811865474,
+        "y": -0.7071067811865477
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": true,
+          "recordedRadius": 38.333333333333336,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 135.1851281491897,
+          "surface": {
+            "id": 0,
+            "area": 16795,
+            "x": -668.8940160762131,
+            "y": -461.52565247593526,
+            "hue": 135
+          },
+          "gap": 665.6871103848019,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "large": true,
+          "recordedRadius": 138.33409687573462,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        },
+        {
+          "index": 3,
+          "large": false,
+          "recordedRadius": 21.666666666666668,
+          "surface": {
+            "id": 59,
+            "area": 426,
+            "x": 757.2026604068856,
+            "y": -145.85289514866977,
+            "hue": 15
+          },
+          "gap": 602.4536566009984,
+          "reasons": []
+        },
+        {
+          "index": 4,
+          "large": false,
+          "recordedRadius": 21.666666666666668,
+          "surface": {
+            "id": 63,
+            "area": 439,
+            "x": 68.1511009870919,
+            "y": -28.739559605163265,
+            "hue": 225
+          },
+          "gap": -22.92893218813451,
+          "reasons": []
+        }
+      ],
+      "componentCount": 9,
+      "pngSha256": "f43c75adac890860f93add26f09ddb77b0c014b4244466ddd4ce239ca94e4e64",
+      "rgbaSha256": "1376fcdc09c6649a91896112af83e75abbd088dc7a407b903149c6845ddd5199"
+    },
+    {
+      "group": "success161",
+      "seq": 145,
+      "time": 40205.79999999702,
+      "hud": 35,
+      "direction": {
+        "x": 1,
+        "y": 0
+      },
+      "wallsKnown": false,
+      "objects": [
+        {
+          "index": 0,
+          "large": true,
+          "recordedRadius": 38.1843832912432,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface"
+          ]
+        },
+        {
+          "index": 1,
+          "large": true,
+          "recordedRadius": 134.93400594041202,
+          "surface": {
+            "id": 9,
+            "area": 16831,
+            "x": -724.5316182441131,
+            "y": -415.56483076862145,
+            "hue": 135
+          },
+          "gap": 681.8643138310376,
+          "reasons": []
+        },
+        {
+          "index": 2,
+          "large": true,
+          "recordedRadius": 118.33333333333334,
+          "surface": null,
+          "gap": null,
+          "reasons": [
+            "no-surface",
+            "clipped"
+          ]
+        },
+        {
+          "index": 3,
+          "large": false,
+          "recordedRadius": 21.666666666666668,
+          "surface": {
+            "id": 70,
+            "area": 428,
+            "x": 704.3263239875389,
+            "y": -105.86838006230532,
+            "hue": 15
+          },
+          "gap": 510.2994230797798,
+          "reasons": []
+        }
+      ],
+      "componentCount": 10,
+      "pngSha256": "84d546667df66085d3d8679063030aa0e195dfd25e1ff213cf6ba4cd6e3fa836",
+      "rgbaSha256": "f19f41df36503e774c82f4cc865ff303932a5c4daf22ca1f619a75510c8da375"
+    }
+  ]
+}
