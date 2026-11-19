@@ -149,8 +149,18 @@
     ]
   },
   "limits": [
-    "Local Worker response hashes demonstrate route-body isolation; direct post-deploy full-body checks pending. No live leaderboard or database mutation test performed.",
+    "Local Worker response hashes demonstrate route-body isolation; full-body post-deploy HTTP comparison unavailable (403 in executor). Browser visibly verified new test history and basic load. No live leaderboard or database mutation test performed.",
     "No strategy change; zero new game starts. Not formal acceptance.",
     "Public page title remains test-043 intentionally: latest entry is diagnostic, not a default-strategy release."
-  ]
+  ],
+  "directHttpReadback": {
+    "paths": [
+      "/ocr-test",
+      "/ocr",
+      "/ocr3",
+      "/ocr4"
+    ],
+    "status": 403,
+    "note": "Executor HTTP readback forbidden; cloud Chrome successfully rendered /ocr-test. No retry or bypass."
+  }
 }
