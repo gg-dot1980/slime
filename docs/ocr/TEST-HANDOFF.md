@@ -1,5 +1,10 @@
 # Slime OCR 測試交接索引
 
+## visible-approach-1 — 頁內像素回放，策略未採用
+
+[逐版入口](repro/visible-approach-1/README.md) · [固定條件](repro/visible-approach-1/protocol.md) · [無影像結果](repro/visible-approach-1/summary-noimages.json)。24張解碼，12張完整決策圖作粗略像素核對、12張裁切圖僅解碼；8筆新篩選命中中5筆重疊／裁切未知，成功接觸對照也有1筆命中。沒有足夠身分連續與安全替代證據，未改策略。新增開局0、過關0、死亡0、中止0；不算實戰驗收。可重跑程式已保存，原圖依政策僅留本機，公開checkout無原圖不能復現像素結果。測試頁同步與正式驗收分流見[SPEC v1.1](SPEC.md)。本輪僅補此入口，未補其他歷史缺漏。
+
+
 現行驗收與測試範圍見 [SPEC.md](SPEC.md)；存放與重現要求見 [GITHUB-STORAGE.md](GITHUB-STORAGE.md)。本分支為唯一權威交接索引，歷史條目不代表目前規格已通過。接手請指定 repo、branch 與 base commit。
 
 適用 [GitHub 存放規則 v1](GITHUB-STORAGE.md)。以下為存放狀態更新，並非新增測試或驗收。
