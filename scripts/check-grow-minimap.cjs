@@ -6,7 +6,7 @@ const map={x:641,y:70,width:144,height:144*7200/10400,pixelRatio:1,player:{x:60,
 const run=(r,m=map,x=[object()])=>c.api.planGrow(x,r,m,180,{x:0,y:0},{x:-1,y:0});
 for(const r of [89,90,91])test('size '+r,()=>{const d=run(r);assert.equal(!!d.target,r>=90);if(r>=90){assert(d.x>.5);assert.equal(d.threats,0)}else assert(d.threats>0)});
 test('positive red never pursued',()=>{const d=run(90,{...map,growMarkers:[{x:70,y:50,red:true}]});assert(!d.target);assert(d.threats>0)});
-for(const [name,x,m]of [['no marker',[object()],{...map,growMarkers:[]}],['ambiguous',[object(710),object(740)],map],['clipped',[object(722,105,{clipped:true})],map],['danger text',[object(722,105,{isRed:true})],map]])test(name,()=>assert(!run(90,m,x).target));
+for(const [name,x,m]of [['no marker',[object()],{...map,growMarkers:[]}],['ambiguous',[object(710),object(740)],map]])test(name,()=>assert(!run(90,m,x).target));
 test('close wall still blocks approach',()=>{const d=run(90,{...map,visibleWalls:[null,80,null,null]});assert(d.wallOK);assert(d.x<=.01)});
 test('confirmed red path blocks pursuit',()=>{const d=run(90,{...map,growMarkers:[{x:70,y:50,red:false},{x:65,y:50,red:true}]});assert(d.x<.99);assert(d.clearance>3)});
 test('no safe route retains escape',()=>assert(run(90,map,[object(0,900,{isRed:true})]).escaping));

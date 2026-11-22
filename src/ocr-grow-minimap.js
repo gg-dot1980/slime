@@ -17,7 +17,7 @@ function growMapInputs(objects,r,map){
  const dots=observed.map(m=>({...m,x:(m.x-map.player.x)/map.width*10400,y:(m.y-map.player.y)/map.height*7200})),copy=objects.map(o=>({...o})),targets=[];
  for(const m of dots){const near=copy.filter(o=>o.npc&&Math.hypot(o.x-m.x,o.y-m.y)<100+Math.min(60,o.r*.3||0));const unique=near.length===1&&dots.filter(n=>Math.hypot(near[0].x-n.x,near[0].y-n.y)<100+Math.min(60,near[0].r*.3||0)).length===1;
  if(m.red){copy.push({x:m.x,y:m.y,r:Math.max(r*1.12,114)+75,npc:true,isRed:true,clipped:false,vx:0,vy:0,mapOnly:true});continue;}
- if(near.length){if(!unique||near[0].clipped||near[0].isRed||near[0].blocked)continue;near[0].mapVerified=true;targets.push(near[0]);}
+ if(near.length){if(!unique)continue;near[0].mapVerified=true;targets.push(near[0]);}
  else {const o={x:m.x,y:m.y,r:Math.min(r,60),npc:true,isRed:false,clipped:false,blocked:false,vx:0,vy:0,mapVerified:true,mapOnly:true};copy.push(o);targets.push(o);}
  }return {objects:copy,targets};
 }
