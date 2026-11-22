@@ -2,7 +2,7 @@ const fs=require('fs'),vm=require('vm'),assert=require('assert'),crypto=require(
 const h=fs.readFileSync('src/ocr-grow.html','utf8'),base=fs.readFileSync('src/ocr-test.html','utf8');
 const p=fs.readFileSync('src/ocr-grow-planner.js','utf8');assert(h.includes(p));
 const slice=base.slice(base.indexOf('const dirs='),base.indexOf('let lastVision=0;'));
-const c={};vm.createContext(c);vm.runInContext(slice+'\n'+p+';globalThis.api={plan,planGrow}',c);
+const c={};vm.createContext(c);vm.runInContext(slice+'\n'+fs.readFileSync('src/ocr-grow-minimap.js','utf8')+'\n'+p+';globalThis.api={plan,planGrow}',c);
 const obj=(x,y,r,more={})=>({x,y,r,npc:true,clipped:false,blocked:false,isRed:false,vx:0,vy:0,...more});const args=[50,null,180,{x:0,y:0},{x:1,y:0}];
 let checks=[];function test(n,fn){fn();checks.push(n)}
 test('stationary opportunity control grid',()=>{let changed=0;for(const radius of [22,30,38])for(const distance of [180,260,340]){const xs=[obj(distance,0,radius),obj(-100,0,8,{npc:false}),obj(-110,20,8,{npc:false})];const a=c.api.plan(xs,...args),b=c.api.planGrow(xs,...args);assert(b.target?.npc);assert(b.eta>0&&b.eta<=2);if(a.name!==b.name)changed++;}assert.equal(changed,0);console.log(JSON.stringify({growthGrid:9,directionChanges:changed}));});
