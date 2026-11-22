@@ -1,5 +1,6 @@
 function planGrow(objects,r,map,speed,v,old){
  const mapped=growMapInputs(objects,r,map);objects=mapped.objects;
+ if(mapped.mapStatus==='lost')return {x:0,y:0,name:'小地圖遺失，釋放控制',clearance:0,gain:0,threats:0,escaping:false,strategy:'grow-5',mapStatus:'lost'};
  const walls=map?.visibleWalls||null, margin=260+.75*r;
  const edible=o=>o.npc&&(o.mapVerified||!o.clipped&&!o.blocked&&!o.isRed)&&Number.isFinite(o.r)&&o.r>0&&(o.mapVerified||o.r<r*.85)&&Number.isFinite(o.vx)&&Number.isFinite(o.vy);
  const threats=objects.filter(o=>o.npc&&!o.mapVerified&&(o.clipped||o.isRed||!Number.isFinite(o.r)||o.r>=r*.94));
@@ -12,5 +13,5 @@ function planGrow(objects,r,map,speed,v,old){
  let approach=0;for(const o of mapped.targets){const before=Math.hypot(o.x,o.y),after=Math.hypot(o.x-x,o.y-y),value=(before-after)/Math.max(200,before);if(value>approach){approach=value;if(!target)target={...o,utility:0,pursuitOnly:true};}}
  return {...d,clearance,risk,gain,npcUtility,target,eta,wallOK,recovering:!!walls?.some(w=>Number.isFinite(w)&&w<margin),score:approach*80+npcUtility*12+gain*2-risk*12+(d.x*old.x+d.y*old.y)*.15};});
  const bounded=candidates.filter(d=>d.wallOK),safe=bounded.filter(d=>d.clearance>3),pool=safe.length?safe:bounded.length?bounded:candidates;
- pool.sort((a,b)=>safe.length?b.score-a.score:b.clearance-a.clearance||b.score-a.score);return {...pool[0],escaping:!safe.length,threats:threats.length,strategy:r>=90?'grow-4':'grow-1',wallKnown:!!walls?.some(Number.isFinite)};
+ pool.sort((a,b)=>safe.length?b.score-a.score:b.clearance-a.clearance||b.score-a.score);return {...pool[0],escaping:!safe.length,threats:threats.length,strategy:r>=90?'grow-5':'grow-1',...(r>=90?{mapStatus:mapped.mapStatus}:{}),wallKnown:!!walls?.some(Number.isFinite)};
 }

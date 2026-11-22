@@ -12,12 +12,19 @@ function growMarkers(image,w,h,map){
  }return out;
 }
 function growMapInputs(objects,r,map){
- const markers=map?.growMarkers;if(r<90||!map?.player||!markers)return {objects,targets:[]};
- const observed=[...markers,...(map.threats||[]).filter(t=>!markers.some(m=>m.red&&Math.hypot(m.x-t.x,m.y-t.y)<2)).map(t=>({...t,red:true}))];
- const dots=observed.map(m=>({...m,x:(m.x-map.player.x)/map.width*10400,y:(m.y-map.player.y)/map.height*7200})),copy=objects.map(o=>({...o})),targets=[];
- for(const m of dots){const near=copy.filter(o=>o.npc&&Math.hypot(o.x-m.x,o.y-m.y)<100+Math.min(60,o.r*.3||0));const unique=near.length===1&&dots.filter(n=>Math.hypot(near[0].x-n.x,near[0].y-n.y)<100+Math.min(60,near[0].r*.3||0)).length===1;
- if(m.red){copy.push({x:m.x,y:m.y,r:Math.max(r*1.12,114)+75,npc:true,isRed:true,clipped:false,vx:0,vy:0,mapOnly:true});continue;}
- if(near.length){if(!unique)continue;near[0].mapVerified=true;targets.push(near[0]);}
- else {const o={x:m.x,y:m.y,r:Math.min(r,60),npc:true,isRed:false,clipped:false,blocked:false,vx:0,vy:0,mapVerified:true,mapOnly:true};copy.push(o);targets.push(o);}
- }return {objects:copy,targets};
+ if(r<90)return {objects,targets:[]};
+ const valid=Number.isFinite(map?.player?.x)&&Number.isFinite(map?.player?.y)&&map.width>0&&map.height>0&&Array.isArray(map.growMarkers);
+ if(!valid)return {objects:[],targets:[],mapStatus:'lost'};
+ // At >=90 the visible map is authoritative for NPC policy. Body fragments,
+ // aliases, red text, radius and failed pairing must not reintroduce avoidance.
+ const markers=map.growMarkers.filter(m=>Number.isFinite(m.x)&&Number.isFinite(m.y));
+ const reds=[...markers.filter(m=>m.red),...(map.threats||[]).filter(t=>Number.isFinite(t.x)&&Number.isFinite(t.y)&&!markers.some(m=>m.red&&Math.hypot(m.x-t.x,m.y-t.y)<2))];
+ const copy=objects.filter(o=>!o.npc).map(o=>({...o})),targets=[];
+ const point=m=>({x:(m.x-map.player.x)/map.width*10400,y:(m.y-map.player.y)/map.height*7200});
+ for(const m of reds)copy.push({...point(m),r:Math.max(r*1.12,114)+75,npc:true,isRed:true,clipped:false,vx:0,vy:0,mapOnly:true});
+ for(const m of markers.filter(m=>m.red===false)){
+  if(reds.some(t=>Math.hypot(m.x-t.x,m.y-t.y)<=2*(map.pixelRatio||1)))continue;
+  const o={...point(m),r:Math.min(r,60),npc:true,isRed:false,clipped:false,blocked:false,vx:0,vy:0,mapVerified:true,mapOnly:true};copy.push(o);targets.push(o);
+ }
+ return {objects:copy,targets,mapStatus:'visible'};
 }
