@@ -1,0 +1,9 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');const box={module:{exports:{}}};vm.runInNewContext(fs.readFileSync(__dirname+'/timing.js','utf8'),box);const {create}=box.module.exports;let passed=0;
+for(const nominal of [100,250])for(const overlap of [false,true]){
+ let time=0;const held=new Set(),trace=[];const r=create(()=>time,64);r.enable(true);const send=(type,key)=>r.dispatch(type,key,()=>{if(type==='keydown')held.add(key);else held.delete(key);trace.push(Number(held.has('ArrowRight'))-Number(held.has('ArrowLeft')));time+=3;});
+ r.capture({data:Uint8Array.of(1,2,3,255)},time,time);r.decision({x:1,y:0});send('keydown','ArrowRight');time+=nominal+7;r.decision({x:-1,y:0});
+ if(overlap){send('keydown','ArrowLeft');assert.equal(trace.at(-1),0);send('keyup','ArrowRight');}else{send('keyup','ArrowRight');send('keydown','ArrowLeft');}
+ assert.equal(trace.at(-1),-1);send('keyup','ArrowLeft');r.stop();assert.equal(held.size,0);const s=r.snapshot();assert(s.rows.every((x,i)=>!i||x.at>=s.rows[i-1].at));assert.equal(s.rows.filter(x=>x.kind==='dispatchBefore').length,s.rows.filter(x=>x.kind==='dispatchAfter').length);assert(s.rows.filter(x=>x.kind==='decisionComplete').every(x=>x.signedScreenDisplacement===null));passed++;
+}
+{let t=0,r=create(()=>++t,4);r.enable(true);const a={data:Uint8Array.of(1,2,3,4)};r.capture(a,0,1);r.capture(a,2,3);assert.equal(r.snapshot().rows[1].signatureChanged,false);a.data[0]=2;r.capture(a,4,5);assert.equal(r.snapshot().rows[2].signatureChanged,true);for(let i=0;i<9;i++)r.stop();assert.equal(r.snapshot().rows.length,4);assert.equal(r.snapshot().dropped,8);r.enable(false);let called=0;r.dispatch('keyup','ArrowLeft',()=>called++);assert.equal(called,1);passed++;}
+console.log(JSON.stringify({kind:'synthetic-contract',passed,total:5,gameStarts:0,nominalConditionsMs:[100,250],actualGameTiming:'not measured'}));
