@@ -1,0 +1,188 @@
+{
+ "baseline-grow6": {
+  "games": 12,
+  "win150": 0,
+  "winLate": 0,
+  "death": 9,
+  "cutoff150": 3,
+  "timeout300": 0,
+  "controllerStop": 0,
+  "infra": 0,
+  "unknown": 0,
+  "byVersion": {
+   "v2.13": {
+    "games": 3,
+    "win150": 0,
+    "death": 1,
+    "cutoff150": 2,
+    "other": 0
+   },
+   "v2.20": {
+    "games": 3,
+    "win150": 0,
+    "death": 3,
+    "cutoff150": 0,
+    "other": 0
+   },
+   "v2.21": {
+    "games": 3,
+    "win150": 0,
+    "death": 3,
+    "cutoff150": 0,
+    "other": 0
+   },
+   "v2.22": {
+    "games": 3,
+    "win150": 0,
+    "death": 2,
+    "cutoff150": 1,
+    "other": 0
+   }
+  },
+  "deathSeconds": [
+   109,
+   87,
+   147,
+   91,
+   116,
+   131,
+   98,
+   108,
+   77
+  ],
+  "finalCutoffSize": [
+   130,
+   102,
+   127
+  ],
+  "colorSpeedMedian": "not recorded",
+  "medianSize60": 58,
+  "medianSize120Alive": 98,
+  "medianDeathSecond": 108,
+  "win150Rate": "0/12"
+ },
+ "claude-1": {
+  "games": 12,
+  "win150": 0,
+  "winLate": 0,
+  "death": 8,
+  "cutoff150": 4,
+  "timeout300": 0,
+  "controllerStop": 0,
+  "infra": 0,
+  "unknown": 0,
+  "byVersion": {
+   "v2.13": {
+    "games": 3,
+    "win150": 0,
+    "death": 0,
+    "cutoff150": 3,
+    "other": 0
+   },
+   "v2.20": {
+    "games": 3,
+    "win150": 0,
+    "death": 3,
+    "cutoff150": 0,
+    "other": 0
+   },
+   "v2.21": {
+    "games": 3,
+    "win150": 0,
+    "death": 3,
+    "cutoff150": 0,
+    "other": 0
+   },
+   "v2.22": {
+    "games": 3,
+    "win150": 0,
+    "death": 2,
+    "cutoff150": 1,
+    "other": 0
+   }
+  },
+  "deathSeconds": [
+   91,
+   92,
+   92,
+   117,
+   81,
+   66,
+   110,
+   94
+  ],
+  "finalCutoffSize": [
+   131,
+   123,
+   106,
+   113
+  ],
+  "colorSpeedMedian": "not recorded",
+  "medianSize60": 59,
+  "medianSize120Alive": 85,
+  "medianDeathSecond": 92,
+  "win150Rate": "0/12"
+ },
+ "claude-2": {
+  "games": 12,
+  "win150": 0,
+  "winLate": 0,
+  "death": 8,
+  "cutoff150": 4,
+  "timeout300": 0,
+  "controllerStop": 0,
+  "infra": 0,
+  "unknown": 0,
+  "byVersion": {
+   "v2.13": {
+    "games": 3,
+    "win150": 0,
+    "death": 2,
+    "cutoff150": 1,
+    "other": 0
+   },
+   "v2.20": {
+    "games": 3,
+    "win150": 0,
+    "death": 3,
+    "cutoff150": 0,
+    "other": 0
+   },
+   "v2.21": {
+    "games": 3,
+    "win150": 0,
+    "death": 3,
+    "cutoff150": 0,
+    "other": 0
+   },
+   "v2.22": {
+    "games": 3,
+    "win150": 0,
+    "death": 0,
+    "cutoff150": 3,
+    "other": 0
+   }
+  },
+  "deathSeconds": [
+   128,
+   92,
+   110,
+   66,
+   89,
+   141,
+   119,
+   87
+  ],
+  "finalCutoffSize": [
+   85,
+   152,
+   77,
+   109
+  ],
+  "colorSpeedMedian": 1.074,
+  "medianSize60": 54,
+  "medianSize120Alive": 81,
+  "medianDeathSecond": 110,
+  "win150Rate": "0/12"
+ }
+}

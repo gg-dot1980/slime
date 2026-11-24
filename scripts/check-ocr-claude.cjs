@@ -1,0 +1,25 @@
+// Synthetic regression checks for src/ocr-claude.html (claude-1). Numeric inputs only; not gameplay.
+const fs=require('fs'),vm=require('vm'),assert=require('assert');
+const h=fs.readFileSync('src/ocr-claude.html','utf8');
+const slice=h.slice(h.indexOf('const dirs='),h.indexOf('let lastVision=0;'));
+const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude}',c);
+const obj=(x,y,r,more={})=>({x,y,r,npc:true,clipped:false,blocked:false,isRed:false,vx:0,vy:0,...more});
+const food=(x,y)=>({x,y,r:9,npc:false,clipped:false,blocked:false,vx:0,vy:0});
+const map=(threats=[])=>({x:0,y:0,width:144,height:144*9/13,player:{x:72,y:50},threats,visibleWalls:null});
+const run=(xs,r,m=null,old={x:1,y:0})=>c.api.planClaude(xs,r,m,250,{x:0,y:0},old);
+const checks=[];const test=(n,fn)=>{fn();checks.push(n)};
+test('pursues reachable prey below 0.88R',()=>{const d=run([obj(220,0,60*.86)],60);assert.equal(d.name,'東');assert(d.target?.npc);});
+test('ignores 0.90R as prey (not edible, not a threat)',()=>{const d=run([obj(220,0,60*.90),food(-160,0)],60);assert(!d.target?.npc);});
+test('avoids lethal visible NPC on the path',()=>{const d=run([obj(160,0,80),food(200,0)],60);assert.notEqual(d.name,'東');assert(d.clearance>3);});
+test('minimap red marker east blocks east at r>=90',()=>{const m=map([{x:72+6,y:50}]);const d=run([food(180,0),food(260,0)],100,m);assert(!['東','東南','東北'].includes(d.name));assert(d.threats>=1);});
+test('no white-dot pursuit: no NPC target without body evidence at r>=90',()=>{const m=map([]);const d=run([],100,m);assert(!d.target);assert.equal(d.strategy,'claude-1');});
+test('body prey still pursued at r>=90',()=>{const d=run([obj(260,0,80)],100,map([]));assert.equal(d.name,'東');assert(d.target?.npc);});
+test('clipped body treated as threat',()=>{const d=run([obj(150,0,40,{clipped:true,dangerRadius:90})],60);assert.notEqual(d.name,'東');});
+test('below 90 identical to grow-6 when no map reds and no 0.85-0.88R prey',()=>{const cases=[[obj(200,0,30),food(-100,0)],[obj(-180,40,80),food(100,0)],[food(50,50),food(-60,10)]];for(const xs of cases){const a=c.api.planGrow(xs,60,null,250,{x:0,y:0},{x:1,y:0}),b=run(xs,60);assert.equal(a.name,b.name);}});
+const run2=(xs,r,m=null)=>c.api.planClaude(xs,r,m,250,{x:0,y:0},{x:1,y:0},{foodColor:true});
+const hued=(x,y,hue)=>({...food(x,y),hue});
+test('claude-2 prefers yellow food over blue at equal distance',()=>{const xs=[hued(0,-150,220),hued(0,-170,220),hued(0,150,43),hued(0,170,43)];assert.equal(run2(xs,40).name,'南');const flipped=xs.map(o=>({...o,y:-o.y}));assert.equal(run2(flipped,40).name,'北');});
+test('claude-2 food weighting never overrides a lethal threat',()=>{const xs=[hued(160,0,43),hued(220,0,43),obj(200,0,90)];const d=run2(xs,60);assert(!['東','東南','東北'].includes(d.name));assert(d.clearance>3);});
+test('claude-2 still prefers edible NPC over yellow food',()=>{const xs=[obj(220,0,45),hued(-150,0,43),hued(-180,0,43)];assert.equal(run2(xs,60).name,'東');});
+test('claude-2 equals claude-1 when no hue is known',()=>{const xs=[food(100,40),food(-90,0),obj(250,60,30)];assert.equal(run2(xs,50).name,run(xs,50).name);});
+console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2'],newGames:0}));
