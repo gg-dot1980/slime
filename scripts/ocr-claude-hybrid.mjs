@@ -1,0 +1,50 @@
+// TEST-ONLY isolation experiment: run the controller's own planner (planClaude5 from the static page) on PERFECT
+// perception built from the true game state, limited to what the screen and minimap show. Not an OCR controller.
+// If this matches the test bot, the gap is perception; if it matches the OCR controller, the gap is the planner.
+// Usage: [HYBRID_OPTS=claude-14] [HYBRID_MS=200] node scripts/ocr-claude-hybrid.mjs <url> <out.jsonl> <versions> <games> [label]
+import {appendFile} from 'node:fs/promises';
+import {createRequire} from 'node:module';
+const req=createRequire(process.env.PLAYWRIGHT_DIR?process.env.PLAYWRIGHT_DIR+'/':import.meta.url);
+const {chromium}=req('playwright');
+const [url,out,versionList,perVersion,label='hybrid']=process.argv.slice(2);
+const versions=versionList.split(','),n=Number(perVersion),order=[];for(let i=0;i<n;i++)for(const v of versions)order.push(v);
+const OPTS={'claude-11':{clipWhite:true,clipRedClear:6,segment:true,safe:true},'claude-14':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true},'claude-5':{}}[process.env.HYBRID_OPTS||'claude-14'];
+const period=Number(process.env.HYBRID_MS)||200;if(process.env.HYBRID_MAP==='real')OPTS.__realMap=true;
+const browser=await chromium.launch({channel:'chrome',headless:true});
+const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
+await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fetch(),body=await res.text(),anchor="(()=>{'use strict';";
+ await route.fulfill({response:res,body:body.split(anchor).join(anchor+"window.__dbg=()=>({player,slimes,foods,keys,elapsed,running,cam,vw,vh,W,H,setBoost:v=>{boosting=v}});").replace('let lastVision=0;','window.__p5=planClaude5;let lastVision=0;')});});
+// Runs in the controller page (parent): planClaude5 and dirs are its globals; the game is reached through the iframe.
+const driver=([opts,period])=>{const gw=document.getElementById('game').contentWindow,stats={ticks:0,eats:[],foodGain:0,npcGain:0,err:null};window.__hy=stats;let old={x:1,y:0},lastR=null,last=null;
+ window.__hyTimer=setInterval(()=>{try{const g=gw.__dbg();if(!g.running)return;g.setBoost(true);const p=g.player,R=p.r;stats.ticks++;
+  // growth classification (same as the batch observer)
+  if(last){const cur=new Set(g.slimes),gone=[...last].filter(q=>!cur.has(q)),dr=p.r-lastR,mine=gone.filter(q=>Math.hypot(q.x-p.x,q.y-p.y)<(lastR+q.r)*.72+80&&lastR>=q.r*1.08);if(mine.length&&dr>0){stats.npcGain+=dr;for(const q of mine)stats.eats.push([Math.round(g.elapsed*10)/10,Math.round(lastR),Math.round(q.r/lastR*100)/100]);}else if(dr>0)stats.foodGain+=dr;}
+  lastR=p.r;last=new Set(g.slimes);
+  const inView=q=>q.x+q.r>g.cam.x&&q.x-q.r<g.cam.x+g.vw&&q.y+q.r>g.cam.y&&q.y-q.r<g.cam.y+g.vh;
+  const objects=[...g.slimes.filter(inView).map(q=>({x:q.x-p.x,y:q.y-p.y,r:q.r,npc:true,clipped:false,blocked:false,isRed:false,vx:q.vx,vy:q.vy})),
+   ...g.foods.filter(f=>f.x>g.cam.x&&f.x<g.cam.x+g.vw&&f.y>g.cam.y&&f.y<g.cam.y+g.vh).map(f=>({x:f.x-p.x,y:f.y-p.y,r:f.r,npc:false,clipped:false,blocked:false,vx:0,vy:0}))];
+  // HYBRID_MAP=real: degrade the minimap like the real one — positions rounded to map pixels, and dots within 1.5 map
+  // px of the camera rectangle stroke removed (the stroke is drawn over the dots).
+  const mw=144,mh=144*g.H/g.W,real=opts.__realMap,q2=v=>real?Math.round(v-.5)+.5:v,mp=q=>({x:q2(q.x/g.W*mw),y:q2(q.y/g.H*mh)});
+  const L=g.cam.x/g.W*mw,T=g.cam.y/g.H*mh,Rr=(g.cam.x+g.vw)/g.W*mw,B=(g.cam.y+g.vh)/g.H*mh,onStroke=q=>{const x=q.x/g.W*mw,y=q.y/g.H*mh;return (Math.abs(x-L)<1.5||Math.abs(x-Rr)<1.5)&&y>T-1.5&&y<B+1.5||(Math.abs(y-T)<1.5||Math.abs(y-B)<1.5)&&x>L-1.5&&x<Rr+1.5;};
+  const off=g.slimes.filter(q=>!inView(q)&&!(real&&onStroke(q)));
+  const map={x:0,y:0,width:mw,height:mh,player:mp(p),pixelRatio:1,viewWidth:g.vw,viewHeight:g.vh,visibleWalls:null,
+   threats:off.filter(q=>q.r>R*1.12).map(mp),growMarkers:[...off.filter(q=>q.r>R*1.12).map(q=>({...mp(q),red:true})),...off.filter(q=>q.r<=R*1.12).map(q=>({...mp(q),red:false,rEst:q.r>=45.6?Math.min(q.r,114):null}))]};
+  const c=p.color,S=Math.max(92,260-(R-25)*.65)*(.72+(.2126*c[0]+.7152*c[1]+.0722*c[2])/255*.58)*1.38;
+  const d=window.__p5(objects,R,map,S,{x:p.vx,y:p.vy},old,opts);old={x:d.x,y:d.y};
+  for(const k of ['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'])g.keys.delete(k);if(d.x>.38)g.keys.add('ArrowRight');if(d.x<-.38)g.keys.add('ArrowLeft');if(d.y>.38)g.keys.add('ArrowDown');if(d.y<-.38)g.keys.add('ArrowUp');
+ }catch(e){stats.err=String(e).slice(0,200);}},period);return 'installed';};
+let index=0;
+for(const version of order){index++;const page=await ctx.newPage(),started=Date.now(),row={label,index,version,opts:process.env.HYBRID_OPTS||'claude-14',map:process.env.HYBRID_MAP||'exact',periodMs:period,outcome:'unknown',samples:[]};
+ try{await page.goto(url);await page.selectOption('#gameChoice','/'+version);
+  await page.waitForFunction(v=>document.getElementById('gameVersion').textContent.includes(v),version,{timeout:30000});await page.waitForTimeout(1500);
+  const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);row.driver=await page.evaluate(driver,[OPTS,period]);
+  for(;;){await page.waitForTimeout(1000);const s=await f.evaluate(()=>{const g=window.__dbg();return {t:g.elapsed,r:g.player.r,running:g.running};});
+   if(!row.samples.length||s.t-row.samples.at(-1)[0]>=10)row.samples.push([Math.round(s.t),Math.round(s.r)]);
+   if(s.r>=200||(!s.running&&s.t>1)){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome=s.r>=200?(s.t<=150?'win<=150':'win>150'):'death';break;}
+   if(s.t>150){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome='cutoff150';break;}
+   if(Date.now()-started>300000){row.outcome='wall-timeout';break;}}
+  row.hybrid=await page.evaluate(()=>{clearInterval(window.__hyTimer);return window.__hy;});
+ }catch(e){row.outcome='infra-error';row.error=String(e).slice(0,300);}
+ await appendFile(out,JSON.stringify(row)+'\n');console.log(index,version,row.outcome,row.gameSeconds,row.size,row.hybrid?.eats?.length,row.hybrid?.err||'');await page.close();}
+await browser.close();
