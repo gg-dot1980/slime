@@ -87,3 +87,16 @@ cmp "$GROW_SUMMARY_PATH" results/evaluation-summary.json
 
 適用 [SPEC](../../SPEC.md)、[GITHUB-STORAGE v1](../../GITHUB-STORAGE.md)、[TESTING](../../TESTING.md) 與 [main 協作指南](https://github.com/gg-dot1980/slime/blob/main/CONTRIBUTING.md)。保存失敗與未知；未新增實戰影像、影片、像素／內嵌影像日誌、秘密或部署設定。
 
+## 歸檔與遠端核驗
+
+已推送至 `feat/grow-evaluation-20261125`，並建立 [Draft PR #2](https://github.com/gg-dot1980/slime/pull/2)，目標為 `test/ocr-test`。固定來源／證據提交為 [`4df1d8d`](https://github.com/gg-dot1980/slime/commit/4df1d8dd410f9e674d85bd1f0265d690b88cb124)；下面的稽核與遠端回讀清單綁定其194個路徑。這份狀態補充不改動策略、protocol或原始結果。
+
+| 紀錄 | 核對範圍 |
+| --- | --- |
+| [原包內容稽核](audit-original-package.json) | 原112檔、壓縮內容、全部事件與禁止材料檢查；102檔直接保存，10個既有依賴不重傳。 |
+| [乾淨相依還原核驗](audit-publication-package.json) | 還原與重複執行、111項checksum、摘要逐byte重算、不同來源／目的檔拒絕覆寫。 |
+| [歷史來源核對](historical-inventory.json) | grow1～12的固定來源、23份原件、79項依賴及六版封存重建／合成檢查。 |
+| [整體來源與文件稽核](audit-final-staging.json) | 固定來源提交的194檔、全部17版入口、390相對連結與逐版數字／hash核對。 |
+| [遠端逐檔回讀證明](remote-verification.json) | 固定來源提交的parent/tree、194路徑、逐檔內容、全部變更範圍、分支與PR目標。 |
+
+PR目前為草稿且未合併。核驗時沒有回報commit status或PR觸發的workflow run；沒有把這種狀態稱為CI通過，人類reviewer批准也尚未取得。原包歷史「未上傳」字樣由本外層狀態紀錄更新解讀，原始檔本身保持不變。

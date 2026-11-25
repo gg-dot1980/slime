@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "status": "prepared_for_authorized_upload",
+  "status": "uploaded_and_verified_on_feature_branch",
   "authorization": {
     "dateTaipei": "2026-11-25",
     "userRequest": "繼續 把每個版本都放上github",
@@ -24,9 +24,73 @@
   "deploymentStatus": "not_deployed",
   "formalAcceptance": false,
   "remoteVerification": {
-    "status": "pending",
-    "commit": null,
-    "pr": null
+    "status": "verified",
+    "sourceCommit": "4df1d8dd410f9e674d85bd1f0265d690b88cb124",
+    "sourceTree": "61c61890c57519752db14da5781d52fc4c1856f2",
+    "sourceSnapshotPaths": 194,
+    "sourceSnapshotUniqueBlobs": 166,
+    "contentReadbackVerified": true,
+    "branchHeadReadbackVerified": true,
+    "commitParentAndTreeVerified": true,
+    "comparePathsVerified": true,
+    "details": "remote-verification.json"
+  },
+  "updatedAtUtc": "2026-11-25T05:01:53Z",
+  "updatedAtTaipei": "2026-11-25 13:01:53 +08:00",
+  "sourceSnapshotCommit": "4df1d8dd410f9e674d85bd1f0265d690b88cb124",
+  "versions": {
+    "indexed": 17,
+    "preservedExistingPublicVersions": [
+      "grow-1",
+      "grow-2",
+      "grow-3",
+      "grow-4",
+      "grow-5",
+      "grow-6"
+    ],
+    "newHistoricalCapsules": [
+      "grow-7",
+      "grow-8",
+      "grow-9",
+      "grow-10",
+      "grow-11",
+      "grow-12"
+    ],
+    "newExperimentEntries": [
+      "grow-13",
+      "grow-14",
+      "grow-15",
+      "grow-16",
+      "grow-17"
+    ]
+  },
+  "pullRequest": {
+    "number": 2,
+    "url": "https://github.com/gg-dot1980/slime/pull/2",
+    "base": "test/ocr-test",
+    "head": "feat/grow-evaluation-20261125",
+    "draft": true,
+    "state": "open",
+    "merged": false
+  },
+  "localVerification": {
+    "finalSourceAudit": "audit-final-staging.json",
+    "sourceAuditPaths": 194,
+    "relativeLinksChecked": 390,
+    "brokenRelativeLinks": 0,
+    "historicalEntriesBytePreserved": 23,
+    "historicalDependenciesChecked": 79,
+    "reconstitutedOriginalPackageFiles": 112,
+    "originalChecksumEntriesPassed": 111,
+    "summaryByteExact": true,
+    "existingGameDependenciesRestored": 10,
+    "noNewGameplay": true
+  },
+  "ciObservation": {
+    "commit": "4df1d8dd410f9e674d85bd1f0265d690b88cb124",
+    "commitStatuses": [],
+    "pullRequestTriggeredWorkflowRuns": [],
+    "interpretation": "No statuses or PR-triggered workflow runs were returned at this check. No CI pass or required-check configuration is claimed."
   }
 }
 
