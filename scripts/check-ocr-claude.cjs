@@ -2,7 +2,7 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const h=fs.readFileSync('src/ocr-claude.html','utf8');
 const slice=h.slice(h.indexOf('const dirs='),h.indexOf('let lastVision=0;'));
-const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude,planClaude5,whiteDots}',c);
+const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude,planClaude5,whiteDots,C5mem}',c);
 const obj=(x,y,r,more={})=>({x,y,r,npc:true,clipped:false,blocked:false,isRed:false,vx:0,vy:0,...more});
 const food=(x,y)=>({x,y,r:9,npc:false,clipped:false,blocked:false,vx:0,vy:0});
 const map=(threats=[])=>({x:0,y:0,width:144,height:144*9/13,player:{x:72,y:50},threats,visibleWalls:null});
@@ -80,4 +80,12 @@ test('claude-11 drops an edge target inside a lethal reach',()=>{const xs=[cut(5
 test('claude-11 prefers a wide escape lane over a 50 px hunt lane',()=>{const xs=[obj(300,0,40),obj(250,-150,140),obj(250,150,140),obj(-500,0,10)];const d=run11(xs,60,hmap([]));assert(d.clearance>=60);});
 test('claude-11 still hunts visible prey in open space',()=>{assert.equal(run11([obj(300,0,40)],60,hmap([])).name,'東');});
 test('claude-11 still eats food when nothing else',()=>{assert.equal(run11([food(0,120),food(0,170),food(0,220)],40,hmap([])).name,'南');});
-console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4','claude-5','claude-6','claude-7(=claude-6 planner, 50ms tick)','claude-8(=claude-6 planner + whiteDots)','claude-9(claude-8, clip red clearance 6px)','claude-10(claude-9 + edge segment radius)','claude-11(claude-10 + safer near giants)'],newGames:0}));
+const o12={clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true};
+const run12=(xs,r,m,v={x:0,y:0})=>c.api.planClaude5(xs,r,m,300,v,{x:1,y:0},o12);
+const resetMem=()=>{c.api.C5mem.items=[];c.api.C5mem.t=0;};
+test('claude-12 does not take a 1.12x edge body as target when its segment says lethal',()=>{resetMem();const mx=72+500/10400*144,m=hmap([{x:mx,y:50,red:false}]);const xs=[cut(500,0,60,{x:520,y:0,r:62})];assert.equal(run11(xs,55,m).clipWhites,1);const d=run12(xs,55,m);assert.equal(d.clipWhites,0);assert(d.threats>=1);});
+test('claude-12 does not take an edge body with visible r>=0.8R as target',()=>{resetMem();const mx=72+500/10400*144,m=hmap([{x:mx,y:50,red:false}]);assert.equal(run12([obj(500,0,48,{clipped:true,dangerRadius:98})],55,m).clipWhites,0);});
+test('claude-12 remembers a lethal body that vanishes next to the player',()=>{resetMem();const m=hmap([]);run12([obj(-200,0,90,{vx:40,vy:0})],80,m);const d=run12([food(-100,0),food(-150,0)],80,m);assert(d.threats>=1);assert.notEqual(d.name,'西');});
+test('claude-12 forgets a vanished body after 0.6 s',()=>{resetMem();const m=hmap([]);run12([obj(-200,0,90)],80,m);c.api.C5mem.items.forEach(i=>i.seen-=700);c.api.C5mem.t-=700;const d=run12([food(-100,0),food(-150,0)],80,m);assert.equal(d.threats,0);});
+test('claude-12 small edge segment is still a target',()=>{resetMem();const d=run12([cut(500,0,20,{x:540,y:0,r:30})],50,hmap([]));assert.equal(d.clipWhites,1);});
+console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4','claude-5','claude-6','claude-7(=claude-6 planner, 50ms tick)','claude-8(=claude-6 planner + whiteDots)','claude-9(claude-8, clip red clearance 6px)','claude-10(claude-9 + edge segment radius)','claude-11(claude-10 + safer near giants)','claude-12(claude-11 + segment-first + lethal memory)'],newGames:0}));
