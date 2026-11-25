@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "status": "passed",
+  "kind": "clean frozen source reconstruction",
+  "candidate": "grow-18",
+  "protocolHash": "e436c342e09d99758aec04da125d1913ae3bc7fdc754c0daef6f1b0780b8eabf",
+  "node": "v24.22.3",
+  "buildMetadataClock": "2026-11-25T06:18:22.112Z",
+  "gameClockModified": false,
+  "randomSeedModified": false,
+  "allFrozenFilesByteIdentical": true,
+  "pageHash": "6168d5e93b942af212037b5cfb15628cb28ad3b40a5b9b42de7e13bdf2ce2461",
+  "parsedInlineScripts": 2,
+  "gameDependencies": {
+    "status": "verified",
+    "sourceCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+    "dependencies": 2,
+    "created": 2,
+    "retainedIdentical": 0
+  },
+  "buildStdout": {
+    "pageHash": "6168d5e93b942af212037b5cfb15628cb28ad3b40a5b9b42de7e13bdf2ce2461",
+    "plannerHash": "fd77baecfd7002a66aee693527f88f6a666a072c18fe7802819bad98d2a63046",
+    "protocolHash": "e436c342e09d99758aec04da125d1913ae3bc7fdc754c0daef6f1b0780b8eabf"
+  },
+  "gameplayStarts": 0,
+  "browserStarts": 0,
+  "serverStarts": 0,
+  "checks": {
+    "plannerCases": 70,
+    "harnessCases": 25,
+    "realBrowserOrGame": false
+  }
+}

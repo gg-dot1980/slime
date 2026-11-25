@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "kind": "Historical standby inventory comparison, not a new batch freeze",
+  "standbyRecordedAt": "2026-11-25T06:40:41.193417+00:00",
+  "currentBuildVerificationAt": "2026-11-25T06:41:46.348Z",
+  "sameListedFiles": 22,
+  "changedListedFiles": [
+    {
+      "file": "build-verification.json",
+      "standby": {
+        "bytes": 5306,
+        "sha256": "dd12d8d801e12eb35f60f7e2fa241234ca743ac8688da2c558358096fbc21bbc"
+      },
+      "current": {
+        "bytes": 5306,
+        "sha256": "29e7325a7982e136cb9c850d0d68b42d8267b68efe202e66ea9eca560ba1f47c"
+      }
+    }
+  ],
+  "subsequentRecordsNotInStandbyInventory": [
+    "activation-verification.json",
+    "freeze.json"
+  ],
+  "explanation": "The original standby inventory is retained byte-for-byte as history. Root reran verify-build before activation/freeze; its report timestamp and file hash changed while frozen core files did not. Current source-checksums and freeze govern current source identity. No live event log was read for this comparison."
+}

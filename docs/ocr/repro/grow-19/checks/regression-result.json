@@ -1,0 +1,5952 @@
+{
+  "schema": 1,
+  "createdAt": "2026-11-25T06:26:07.784Z",
+  "status": "synthetic regression only; inactive candidate",
+  "strategy": "grow-19",
+  "parent": "frozen grow-15/screen-03",
+  "sourceHashes": {
+    "parentPlanner": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+    "source": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+    "geometry": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+    "fixtureGenerator": "d916d2d8e627d4de1b17ab2176ecb13c05ff877a3cb46e05b946aaf013b53ef2",
+    "candidatePlanner": "b75c18be0d2444e3113bcd1fec302cca86ea7bc60844773b1a8511a19e7c4ee8"
+  },
+  "normalizedPolicyHash": "516ae8cab03c6f0a8efd8615826a61a87645898adc15ca45b2f0dc6252398dac",
+  "scriptHash": "d1c7b7f6e085ff4a5c0bdc8513247e47452fa2eed6f8cd2ad52c8fac99c8f8ea",
+  "derivedFromResearch": {
+    "scriptHash": "7ec9df82caac5888781c6104b8b0a797eb618db154f1df94278647ece8091d7b",
+    "resultHash": "a3df57cd8b3446ab4bd0eb107e0cfab4103cd7c993293439f6086c260c774f63"
+  },
+  "environment": {
+    "node": "v24.22.3",
+    "platform": "linux",
+    "arch": "x64",
+    "dependencies": "Node standard libraries only",
+    "browser": null,
+    "seed": "fixed synthetic inputs, no RNG"
+  },
+  "command": "node experiments/grow19/regression.cjs --write",
+  "change": {
+    "policy": "if (cappedGame && o.geometryAccepted === 0 && finite(o.visualR) && o.visualR > 0) upper = Math.max(upper, (o.visualR + 6) / .808);",
+    "scope": "v2.22 geometryAccepted exactly0 only, all HUD stages",
+    "diagnostic": "boundAdjustedCount counts deduplicated NPC bodies whose bound is strictly higher after original clipped expansion and200 cap, before map-red association/red expansion and before local-hazard distance/36 limit. A later red expansion can erase this difference; the counter does not count deaths avoided or final local hazards.",
+    "diagnosticStopValue": 0,
+    "liveActivated": false
+  },
+  "counts": {
+    "pixelFixtures": 7,
+    "plannerCases": 115,
+    "assertions": 364,
+    "passedAssertions": 364,
+    "liveGames": 0
+  },
+  "fixtures": [
+    {
+      "id": "R96-no-highlight",
+      "spec": {
+        "R": 96,
+        "wobble": 0.8,
+        "highlights": [],
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.01794374393793,
+        "y": 135.98205625606207,
+        "r": 76.5,
+        "area": 2062,
+        "bw": 153,
+        "bh": 153,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 76.5,
+        "visualR": 76.5,
+        "originalRadius": 76.5,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R96-half-highlight",
+      "spec": {
+        "R": 96,
+        "wobble": 0.8,
+        "cut": true,
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.01794374393793,
+        "y": 135.98205625606207,
+        "r": 76.5,
+        "area": 2062,
+        "bw": 153,
+        "bh": 153,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 76.5,
+        "visualR": 76.5,
+        "originalRadius": 76.5,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R96-full-highlight",
+      "spec": {
+        "R": 96,
+        "wobble": 0.8,
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.01794374393793,
+        "y": 135.98205625606207,
+        "r": 76.5,
+        "area": 2062,
+        "bw": 153,
+        "bh": 153,
+        "clipped": false
+      },
+      "geometry": {
+        "x": 159.9692314016387,
+        "y": 134.9412432586657,
+        "r": 95.84710932201098,
+        "confidence": 0.9882575647433003
+      },
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 95.84710932201098,
+        "visualR": 76.5,
+        "originalRadius": 99.44921866646634,
+        "geometryAccepted": 1,
+        "confidence": 0.9882575647433003,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R120-no-highlight",
+      "spec": {
+        "R": 120,
+        "wobble": 0.8,
+        "highlights": [],
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.11509785647715,
+        "y": 135.88490214352285,
+        "r": 96,
+        "area": 3219,
+        "bw": 192,
+        "bh": 192,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 96,
+        "visualR": 96,
+        "originalRadius": 96,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R120-half-highlight",
+      "spec": {
+        "R": 120,
+        "wobble": 0.8,
+        "cut": true,
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.11509785647715,
+        "y": 135.88490214352285,
+        "r": 96,
+        "area": 3219,
+        "bw": 192,
+        "bh": 192,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 96,
+        "visualR": 96,
+        "originalRadius": 96,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R120-full-highlight",
+      "spec": {
+        "R": 120,
+        "wobble": 0.8,
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.11509785647715,
+        "y": 135.88490214352285,
+        "r": 96,
+        "area": 3219,
+        "bw": 192,
+        "bh": 192,
+        "clipped": false
+      },
+      "geometry": {
+        "x": 159.94605981419966,
+        "y": 134.93369409134598,
+        "r": 119.79619735797394,
+        "confidence": 0.9890093587415452
+      },
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 119.79619735797394,
+        "visualR": 96,
+        "originalRadius": 123.28713814302739,
+        "geometryAccepted": 1,
+        "confidence": 0.9890093587415452,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R40-large-outline-no-highlight",
+      "spec": {
+        "R": 40,
+        "wobble": 1.15,
+        "highlights": [],
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 160.90725806451613,
+        "y": 136.09274193548387,
+        "r": 46.5,
+        "area": 744,
+        "bw": 93,
+        "bh": 93,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 46.5,
+        "visualR": 46.5,
+        "originalRadius": 46.5,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    }
+  ],
+  "cases": [
+    {
+      "id": "R96-no-highlight/HUD60/v2.13",
+      "fixture": "R96-no-highlight",
+      "hud": 60,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 87.17136888719851,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 87.17136888719851,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-no-highlight/HUD60/v2.22",
+      "fixture": "R96-no-highlight",
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 87.17136888719851,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.59211740205001,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-no-highlight/HUD80/v2.13",
+      "fixture": "R96-no-highlight",
+      "hud": 80,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-no-highlight/HUD80/v2.22",
+      "fixture": "R96-no-highlight",
+      "hud": 80,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 58.19211740205,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-no-highlight/HUD100/v2.13",
+      "fixture": "R96-no-highlight",
+      "hud": 100,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-no-highlight/HUD100/v2.22",
+      "fixture": "R96-no-highlight",
+      "hud": 100,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-no-highlight/HUD120/v2.13",
+      "fixture": "R96-no-highlight",
+      "hud": 120,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-no-highlight/HUD120/v2.22",
+      "fixture": "R96-no-highlight",
+      "hud": 120,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.1039603960396,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-no-highlight/HUD180/v2.13",
+      "fixture": "R96-no-highlight",
+      "hud": 180,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-no-highlight/HUD180/v2.22",
+      "fixture": "R96-no-highlight",
+      "hud": 180,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.1039603960396,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-no-highlight/HUD195/v2.13",
+      "fixture": "R96-no-highlight",
+      "hud": 195,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-no-highlight/HUD195/v2.22",
+      "fixture": "R96-no-highlight",
+      "hud": 195,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 102.1039603960396,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-half-highlight/HUD60/v2.13",
+      "fixture": "R96-half-highlight",
+      "hud": 60,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 87.17136888719851,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 87.17136888719851,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-half-highlight/HUD60/v2.22",
+      "fixture": "R96-half-highlight",
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 87.17136888719851,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.59211740205001,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-half-highlight/HUD80/v2.13",
+      "fixture": "R96-half-highlight",
+      "hud": 80,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-half-highlight/HUD80/v2.22",
+      "fixture": "R96-half-highlight",
+      "hud": 80,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 58.19211740205,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-half-highlight/HUD100/v2.13",
+      "fixture": "R96-half-highlight",
+      "hud": 100,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-half-highlight/HUD100/v2.22",
+      "fixture": "R96-half-highlight",
+      "hud": 100,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-half-highlight/HUD120/v2.13",
+      "fixture": "R96-half-highlight",
+      "hud": 120,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-half-highlight/HUD120/v2.22",
+      "fixture": "R96-half-highlight",
+      "hud": 120,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.1039603960396,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-half-highlight/HUD180/v2.13",
+      "fixture": "R96-half-highlight",
+      "hud": 180,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-half-highlight/HUD180/v2.22",
+      "fixture": "R96-half-highlight",
+      "hud": 180,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.1039603960396,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-half-highlight/HUD195/v2.13",
+      "fixture": "R96-half-highlight",
+      "hud": 195,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-half-highlight/HUD195/v2.22",
+      "fixture": "R96-half-highlight",
+      "hud": 195,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 102.1039603960396,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R96-full-highlight/HUD60/v2.13",
+      "fixture": "R96-full-highlight",
+      "hud": 60,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.26635586552126,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.26635586552126,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD60/v2.22",
+      "fixture": "R96-full-highlight",
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.26635586552126,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.26635586552126,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD80/v2.13",
+      "fixture": "R96-full-highlight",
+      "hud": 80,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.86635586552126,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.86635586552126,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD80/v2.22",
+      "fixture": "R96-full-highlight",
+      "hud": 80,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.86635586552126,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.86635586552126,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD100/v2.13",
+      "fixture": "R96-full-highlight",
+      "hud": 100,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD100/v2.22",
+      "fixture": "R96-full-highlight",
+      "hud": 100,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD120/v2.13",
+      "fixture": "R96-full-highlight",
+      "hud": 120,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.604615221036724,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.604615221036724,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD120/v2.22",
+      "fixture": "R96-full-highlight",
+      "hud": 120,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.604615221036724,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.604615221036724,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD180/v2.13",
+      "fixture": "R96-full-highlight",
+      "hud": 180,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.145187745033944,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.145187745033944,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD180/v2.22",
+      "fixture": "R96-full-highlight",
+      "hud": 180,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.145187745033944,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.145187745033944,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD195/v2.13",
+      "fixture": "R96-full-highlight",
+      "hud": 195,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R96-full-highlight/HUD195/v2.22",
+      "fixture": "R96-full-highlight",
+      "hud": 195,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 102.55640697455175,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-no-highlight/HUD60/v2.13",
+      "fixture": "R120-no-highlight",
+      "hud": 60,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.14856888719852,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.14856888719852,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-no-highlight/HUD60/v2.22",
+      "fixture": "R120-no-highlight",
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.14856888719852,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 55.21587977828764,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-no-highlight/HUD80/v2.13",
+      "fixture": "R120-no-highlight",
+      "hud": 80,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.74856888719853,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.74856888719853,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-no-highlight/HUD80/v2.22",
+      "fixture": "R120-no-highlight",
+      "hud": 80,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.74856888719853,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 101.29023892716711,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-no-highlight/HUD100/v2.13",
+      "fixture": "R120-no-highlight",
+      "hud": 100,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-no-highlight/HUD100/v2.22",
+      "fixture": "R120-no-highlight",
+      "hud": 100,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 86.8902389271671,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-no-highlight/HUD120/v2.13",
+      "fixture": "R120-no-highlight",
+      "hud": 120,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-no-highlight/HUD120/v2.22",
+      "fixture": "R120-no-highlight",
+      "hud": 120,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-no-highlight/HUD180/v2.13",
+      "fixture": "R120-no-highlight",
+      "hud": 180,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-no-highlight/HUD180/v2.22",
+      "fixture": "R120-no-highlight",
+      "hud": 180,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 126.23762376237623,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-no-highlight/HUD195/v2.13",
+      "fixture": "R120-no-highlight",
+      "hud": 195,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-no-highlight/HUD195/v2.22",
+      "fixture": "R120-no-highlight",
+      "hud": 195,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 126.23762376237623,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-half-highlight/HUD60/v2.13",
+      "fixture": "R120-half-highlight",
+      "hud": 60,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.14856888719852,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.14856888719852,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-half-highlight/HUD60/v2.22",
+      "fixture": "R120-half-highlight",
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 72.14856888719852,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 55.21587977828764,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-half-highlight/HUD80/v2.13",
+      "fixture": "R120-half-highlight",
+      "hud": 80,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.74856888719853,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.74856888719853,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-half-highlight/HUD80/v2.22",
+      "fixture": "R120-half-highlight",
+      "hud": 80,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 57.74856888719853,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 101.29023892716711,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-half-highlight/HUD100/v2.13",
+      "fixture": "R120-half-highlight",
+      "hud": 100,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-half-highlight/HUD100/v2.22",
+      "fixture": "R120-half-highlight",
+      "hud": 100,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 86.8902389271671,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-half-highlight/HUD120/v2.13",
+      "fixture": "R120-half-highlight",
+      "hud": 120,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-half-highlight/HUD120/v2.22",
+      "fixture": "R120-half-highlight",
+      "hud": 120,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-half-highlight/HUD180/v2.13",
+      "fixture": "R120-half-highlight",
+      "hud": 180,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-half-highlight/HUD180/v2.22",
+      "fixture": "R120-half-highlight",
+      "hud": 180,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 126.23762376237623,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-half-highlight/HUD195/v2.13",
+      "fixture": "R120-half-highlight",
+      "hud": 195,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-half-highlight/HUD195/v2.22",
+      "fixture": "R120-half-highlight",
+      "hud": 195,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 102.72,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 126.23762376237623,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R120-full-highlight/HUD60/v2.13",
+      "fixture": "R120-full-highlight",
+      "hud": 60,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 53.8159784426154,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 53.8159784426154,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD60/v2.22",
+      "fixture": "R120-full-highlight",
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 53.8159784426154,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 53.8159784426154,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD80/v2.13",
+      "fixture": "R120-full-highlight",
+      "hud": 80,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 99.89033759149487,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 99.89033759149487,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD80/v2.22",
+      "fixture": "R120-full-highlight",
+      "hud": 80,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 99.89033759149487,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 99.89033759149487,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD100/v2.13",
+      "fixture": "R120-full-highlight",
+      "hud": 100,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 85.49033759149486,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 85.49033759149486,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD100/v2.22",
+      "fixture": "R120-full-highlight",
+      "hud": 100,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 85.49033759149486,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 85.49033759149486,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD120/v2.13",
+      "fixture": "R120-full-highlight",
+      "hud": 120,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD120/v2.22",
+      "fixture": "R120-full-highlight",
+      "hud": 120,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD180/v2.13",
+      "fixture": "R120-full-highlight",
+      "hud": 180,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 15.548598478631163,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 128.18193117303213,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 15.548598478631163,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 128.18193117303213,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD180/v2.22",
+      "fixture": "R120-full-highlight",
+      "hud": 180,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 15.548598478631163,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 128.18193117303213,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 15.548598478631163,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 128.18193117303213,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD195/v2.13",
+      "fixture": "R120-full-highlight",
+      "hud": 195,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 128.18193117303213,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 128.18193117303213,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R120-full-highlight/HUD195/v2.22",
+      "fixture": "R120-full-highlight",
+      "hud": 195,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 128.18193117303213,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 128.18193117303213,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD60/v2.13",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 60,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.903237796403417,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.903237796403417,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD60/v2.22",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.903237796403417,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD80/v2.13",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 80,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5.337172373389407,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5.337172373389407,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD80/v2.22",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 80,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5.337172373389407,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 5.337172373389407,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 64.97524752475248,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD100/v2.13",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 100,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 4.3343941411920035,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 4.3343941411920035,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD100/v2.22",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 100,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 4.3343941411920035,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 4.3343941411920035,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 64.97524752475248,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD120/v2.13",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 120,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 3.642651039737231,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 3.642651039737231,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD120/v2.22",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 120,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 3.642651039737231,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 3.642651039737231,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 64.97524752475248,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD180/v2.13",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 180,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 2.4552512410857332,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 2.4552512410857332,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD180/v2.22",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 180,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 2.4552512410857332,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 2.4552512410857332,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 64.97524752475248,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD195/v2.13",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 195,
+      "gameVersion": "v2.13",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 2.2693879389152443,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 2.2693879389152443,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      },
+      "unchangedPolicyOutput": true
+    },
+    {
+      "id": "R40-large-outline-no-highlight/HUD195/v2.22",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 195,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 2.2693879389152443,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 2.2693879389152443,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": 64.97524752475248,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    }
+  ],
+  "controls": [
+    {
+      "id": "ordinary-food/HUD25/v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD25/v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD60/v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD60/v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD100/v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD100/v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD180/v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD180/v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD195/v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "ordinary-food/HUD195/v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0.38,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "geometry-field-missing",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "geometry-field-null",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "visual-radius-missing",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 81.855,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "existing-upper-at-cap",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "西南",
+        "targetUpper": null,
+        "clearance": 39.771676626011214,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "西南",
+        "targetUpper": null,
+        "clearance": 39.771676626011214,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "clipped-expansion-dominates",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 50.58132803607799,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 50.58132803607799,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "two-coincident-body-aliases",
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      }
+    },
+    {
+      "id": "invalid-objects",
+      "old": {
+        "classification": "none",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "invalid-visible-input",
+        "direction": "等待可靠畫面",
+        "targetUpper": null,
+        "clearance": 0,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "none",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "invalid-visible-input",
+        "direction": "等待可靠畫面",
+        "targetUpper": null,
+        "clearance": 0,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "invalid-HUD",
+      "old": {
+        "classification": "none",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "invalid-visible-input",
+        "direction": "等待可靠畫面",
+        "targetUpper": null,
+        "clearance": 0,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "none",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "invalid-visible-input",
+        "direction": "等待可靠畫面",
+        "targetUpper": null,
+        "clearance": 0,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "id": "stale-visible-map",
+      "old": {
+        "classification": "none",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "stale-visible-frame",
+        "direction": "等待可靠畫面",
+        "targetUpper": null,
+        "clearance": 0,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "none",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "stale-visible-frame",
+        "direction": "等待可靠畫面",
+        "targetUpper": null,
+        "clearance": 0,
+        "boundAdjustedCount": 0
+      }
+    }
+  ],
+  "originalHazardCases": [
+    {
+      "hud": 180,
+      "distance": 320,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 180,
+      "distance": 400,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 180,
+      "distance": 500,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 185,
+      "distance": 320,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 185,
+      "distance": 400,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 185,
+      "distance": 500,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 186,
+      "distance": 320,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 186,
+      "distance": 400,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 186,
+      "distance": 500,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 195,
+      "distance": 320,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 195,
+      "distance": 400,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    },
+    {
+      "hud": 195,
+      "distance": 500,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 0
+      }
+    }
+  ],
+  "negativeGrowthTradeoffs": [
+    {
+      "id": "R40-large-outline-no-highlight/HUD60/v2.22",
+      "fixture": "R40-large-outline-no-highlight",
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "gain": 6.903237796403417,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "targetUpper": 49.755,
+        "clearance": 1000000,
+        "boundAdjustedCount": null
+      },
+      "candidate": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "targetUpper": null,
+        "clearance": 1000000,
+        "boundAdjustedCount": 1
+      },
+      "unchangedPolicyOutput": false
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact-single-policy-addition-after-removing-naming-and-count-only-diagnostics",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "normalized-policy-is-frozen-research-proposal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "original-hard-soft-rule-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "grow18-nominal-lethal-hard-change-not-carried",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "original-200-cap-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD60/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD60/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD60/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD60/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD60/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD80/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD80/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD80/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD80/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD80/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD100/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD100/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD100/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD100/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD100/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD120/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD120/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD120/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD120/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD120/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD180/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD180/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD180/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD180/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD180/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD195/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD195/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD195/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD195/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD195/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD60/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD60/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD60/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD60/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD60/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD80/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD80/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD80/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD80/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD80/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD100/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD100/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD100/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD100/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD100/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD120/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD120/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD120/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD120/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD120/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD180/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD180/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD180/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD180/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD180/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD195/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD195/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD195/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD195/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD195/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD60/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD60/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD60/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD60/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD60/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD80/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD80/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD80/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD80/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD80/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD100/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD100/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD100/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD100/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD100/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD120/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD120/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD120/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD120/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD120/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD180/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD180/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD180/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD180/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD180/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD195/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD195/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD195/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD195/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD195/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD60/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD60/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD60/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD60/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD60/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD80/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD80/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD80/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD80/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD80/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD100/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD100/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD100/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD100/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD100/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD120/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD120/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD120/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD120/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD120/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD180/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD180/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD180/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD180/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD180/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD195/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD195/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD195/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD195/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD195/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.22/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD60/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD60/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD60/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD60/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD60/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD60/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD80/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD80/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD80/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD80/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD80/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD80/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD100/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD100/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD100/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD100/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD100/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD100/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD120/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD120/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD120/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD120/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD120/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD120/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD180/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD180/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD180/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD180/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD180/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD180/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD195/v2.13/negative-control-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD195/v2.13/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD195/v2.13/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD195/outside-true-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD195/v2.22/legacy-rUpper-contract",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD195/v2.22/counter",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/removes-synthetic-false-meal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/removes-synthetic-false-meal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "negative-growth-tradeoff-is-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD25/v2.13",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD25/v2.22",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD60/v2.13",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD60/v2.22",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD100/v2.13",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD100/v2.22",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD180/v2.13",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD180/v2.22",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD195/v2.13",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/HUD195/v2.22",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "geometry-field-missing/unchanged-and-counter-zero",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "geometry-field-null/unchanged-and-counter-zero",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "visual-radius-missing/unchanged-and-counter-zero",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "existing-upper-at-cap/unchanged-and-counter-zero",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "clipped-expansion-dominates/unchanged-and-counter-zero",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "counter-is-after-body-deduplication",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x320/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x320/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x320/old-soft-rule-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x400/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x400/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x400/old-soft-rule-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x500/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x500/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD180/x500/old-soft-rule-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x320/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x320/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x320/old-soft-rule-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x400/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x400/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x400/old-soft-rule-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x500/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x500/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD185/x500/old-soft-rule-retained",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD186/x320/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD186/x320/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD186/x400/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD186/x400/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD186/x500/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD186/x500/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD195/x320/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD195/x320/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD195/x400/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD195/x400/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD195/x500/outside-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/HUD195/x500/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "invalid-objects/stop-unchanged-and-counter-zero",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "invalid-HUD/stop-unchanged-and-counter-zero",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "stale-visible-map/stop-unchanged-and-counter-zero",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "all-read-inputs-unchanged",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "limits": [
+    "Ideal complete continuous polygon obeys V>=.808R, but current components do not certify a full unoccluded outline. Neither labelSeen nor localReliable proves it.",
+    "+6 world units is the fixed step3/two-cell heuristic for the archived2000-wide ratio1 capture, not a universal pixel/occlusion bound.",
+    "The inherited circle/label fixtures are synthetic algorithm tests, not exact browser polygon/font/anti-aliasing renders or real captured game images.",
+    "Fixture physical radius is used only to label expected outcomes; the planner receives derived visible estimates. No hidden live-game state is read.",
+    "The new floor can incorrectly discard truly edible prey; all encountered negative meal-to-nonmeal cases are retained in negativeGrowthTradeoffs.",
+    "Accepted geometry, v2.13, ordinary food and original hard/soft classifier remain unchanged. This candidate does not include Grow18.",
+    "The original exact-radius200 soft-hazard behavior at HUD180/185 remains; cases start outside physical contact and are planner tests only.",
+    "Tracking/blocked resets remain unchanged. These tests cannot prove live survival, growth, success rate or OCR4 acceptance."
+  ]
+}

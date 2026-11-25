@@ -1,8 +1,8 @@
 # OCR Grow 版本索引
 
-更新：2026-11-25（臺灣時間）。本索引列出 grow-1～grow-17 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；本次提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
+更新：2026-11-25（臺灣時間）。本索引列出 grow-1～grow-19 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
 
-[本輪完整結果與重現方法](repro/grow-evaluation-20261125/README.md) · [交接索引](TEST-HANDOFF.md) · [歷史來源稽核](repro/grow-evaluation-20261125/historical-inventory.json)
+[Grow12～17的80局結果與重現方法](repro/grow-evaluation-20261125/README.md) · [交接索引](TEST-HANDOFF.md) · [歷史來源稽核](repro/grow-evaluation-20261125/historical-inventory.json)
 
 ## 全部版本
 
@@ -25,12 +25,16 @@
 | grow-15 | [來源／結果／重現](repro/grow-15/README.md) | [凍結 manifest](repro/grow-evaluation-20261125/bundle/source/experiments/grow15/manifest.json) | 亮斑幾何估計中心與半徑；確認 v2.13 11/12、v2.22 5/12。 |
 | grow-16 | [來源／結果／重現](repro/grow-16/README.md) | [凍結 manifest](repro/grow-evaluation-20261125/bundle/source/experiments/grow16/manifest.json) | v2.22 已確認紅色本體採上界 200；確認 5/12，沒有新的 v2.13 實測。 |
 | grow-17 | [來源／結果／重現](repro/grow-17/README.md) | [凍結 manifest](repro/grow-evaluation-20261125/bundle/source/experiments/grow17/manifest.json) | 直接以 grow-15 為父版，cap immunity 時停止未見白點探索效用；v2.22 確認 3/12，沒有新的 v2.13 實測。 |
+| grow-18 | [來源／結果／重現](repro/grow-18/README.md) | [凍結 manifest](repro/grow-18/source/experiments/grow18/manifest.json) | 直接以 Grow15 為父版，名義致命尺寸加入硬性避碰；新探索 v2.13 4/4、v2.22 1/4（3死亡），未過探索門檻，確認未開始。 |
+| grow-19 | [來源／結果／重現](repro/grow-19/README.md) | [凍結 manifest](repro/grow-19/source/experiments/grow19/manifest.json) | 直接以 Grow15 為父版，v2.22 幾何拒判提高尺寸上界；探索 v2.13 3/4、v2.22 2/4（含1次239.4ms計算中止）。未通過完整結算門檻，確認未開始。 |
 
 grow-14 的 recovery 是原第 07／08 個未開局位置的續測，仍歸 grow-14，原兩個中斷保留分母；不是另起一個策略版本。Grow-17 的直接父版是 grow-15，沒有繼承 grow-16 的紅色本體上界改動。
 
 ## 判讀方式
 
-本次沒有因上傳而新增遊戲。Grow-7～12 的歷史自然遊戲數仍按原紀錄為 0；封存驗證是純 Node 合成／建置檢查。本輪 grow-12～17 的 80 個實際開局另存完整原始事件，探索與確認、不同策略及遊戲版本分開統計。
+先前 Grow1～17 歸檔沒有因上傳而新增遊戲。Grow-7～12 的歷史自然遊戲數仍按原紀錄為 0；封存驗證是純 Node 合成／建置檢查。本輪 grow-12～17 的 80 個實際開局另存完整原始事件，探索與確認、不同策略及遊戲版本分開統計。
+
+新增 Grow18、Grow19 各8局與原80局分開保存。Grow19為v2.13 3/4（1次截止）、v2.22 2/4（1次截止、1次控制器中止）；雖然樣本比例75%與50%，因v2.22只有3個native遊戲結果，未通過事前各4個完整結算門檻，沒有開始確認。Grow18的v2.13 為4/4，v2.22 為1/4，兩版0個確認開局。線上API於2026-11-25臺灣時間14:10及14:37核實目前版本v2.22，兩版遊戲HTML與固定副本逐byte相同；不覆寫原80局結束時403的歷史限制。
 
 原目標為體型 200、可見遊戲時間 150 秒內、每個指定版本至少 50%。本輪 v2.22 的最高獨立確認為 5/12，因此雙版本目標沒有達成。這些材料不是 OCR4 正式驗收或網站部署證據。
 
@@ -41,5 +45,9 @@ grow-14 的 recovery 是原第 07／08 個未開局位置的續測，仍歸 grow
 - Grow-1～6：以表列完整公開 commit checkout，按各版原 README 重現。
 - Grow-7～12：以本 PR 完整 checkout 執行 `node docs/ocr/repro/grow-7/source/reproduce.mjs 7 /tmp/slime-grow-7-repro --synthetic`；改版本數與新的輸出目錄可處理其他版。詳見各版 PUBLICATION。
 - Grow-13～17／本輪 Grow-12 對照：先執行 `node docs/ocr/repro/grow-evaluation-20261125/materialize-game-sources.mjs`，再按逐版命令重建或核對統計。完整 repo 的既有遊戲來源以固定 hash 引用，不重傳重複圖像資產。
+
+- Grow18：從完整repo根目錄執行 `node docs/ocr/repro/grow-18/rebuild-frozen.mjs --output /tmp/slime-grow18-repro --checks`。原8局事件、獨立結果核對及限制見逐版入口。
+
+- Grow19：從完整repo根目錄執行 `node docs/ocr/repro/grow-19/rebuild-frozen.mjs --output /tmp/slime-grow19-repro --checks`，完整8局及239.4ms異常見逐版入口。
 
 適用 [SPEC](SPEC.md)、[GITHUB-STORAGE](GITHUB-STORAGE.md)、[TESTING](TESTING.md)；完整未知、失敗與限制見各版入口。

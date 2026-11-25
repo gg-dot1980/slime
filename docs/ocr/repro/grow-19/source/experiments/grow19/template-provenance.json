@@ -1,0 +1,40 @@
+{
+  "schema": 1,
+  "status": "template copied read-only; Grow19 not activated",
+  "templateCandidate": "grow-18",
+  "templateProtocolHash": "e436c342e09d99758aec04da125d1913ae3bc7fdc754c0daef6f1b0780b8eabf",
+  "templateFiles": {
+    "build-lab.mjs": "06e95f68981661602a3c44783e09f22c4e0374a91ecc2525c15ffb7db47e5732",
+    "harness.js": "5f14752c9fd880083990ceb606f1507ab2bafe00781d6ceeaca6d7e8b9824039",
+    "server.mjs": "916b0adf18dfe8d1856249fd74b2feb77461a3fa0632ab1914b6974d1dbbf12b",
+    "harness-regression.mjs": "7d114c20b0aba8b7e374bfbe048b0d0288cd0a7807e7b483ab484f0c7a670ddd"
+  },
+  "templateDeltas": {
+    "harness.js": "replace only hardThreats/softThreats/promotedLethalThreats numeric sample fields with boundAdjustedCount",
+    "server.mjs": "replace experiments/grow18/ with experiments/grow19/ only",
+    "harness-regression.mjs": "replace synthetic goodRows runId prefix screen-06- with screen-07- only",
+    "build-lab.mjs": "candidate names/wiring, visible strategy description and risk, policy metadata, screen-07/confirm-07, activation/latest-recheck prerequisites"
+  },
+  "unchangedParent15Inputs": {
+    "source-base.html": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+    "geometry.js": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+    "game-isolation.mjs": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+    "game-v2.13.html": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+    "game-v2.22.html": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+    "parent-manifest.json": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5"
+  },
+  "deployedVerificationCopiedHash": "ceda096e575b4fac800b362e9e2903004918861691009d1ecae4343defbf7400",
+  "freezeWritten": false,
+  "serverStarted": false,
+  "browserStarted": false,
+  "gameStarts": 0,
+  "parentControllerFunctionHashes": {
+    "readImage": "063f370cbfea9c5ac3a0e2b8d666d186a82a0e57afd085c918cc4cfc2ec965b3",
+    "tick": "4765df136f02335607e3d79445a1f75b02ad6478b8a593c6337ce3339e44b412",
+    "move": "6daa5bee291dc59f7616f488b783bacf6020d0ca6d005855be60877666cbf8e8",
+    "stop": "2c2d94db5fc6f1ad4f6c88023b78867e0346c1b167f506c6691f0b4bea70c9e5",
+    "hudSpeed": "efda31db3056b2e0a6b4087ab12a2362138a22898ddbb3b1e6e11a62c4069b8c"
+  },
+  "templateDeployedVerificationHash": "831729fa1f040e972111efda74b266907c06e2700c496b68a81b2b0e550052b3",
+  "deployedVerificationCopiedFrom": "root fresh Grow19 verification, 2026-11-25T06:37:54.590332Z"
+}

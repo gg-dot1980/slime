@@ -1,0 +1,254 @@
+{
+  "schema": 1,
+  "candidate": "grow-18",
+  "createdAt": "2026-11-25T06:18:22.112Z",
+  "repository": "gg-dot1980/slime",
+  "authorityBranch": "test/ocr-test",
+  "authorityBaseCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+  "publicationParentCommit": "0f450e7682c2ac97181e1dae9fd35f67c1454e1d",
+  "baseSiteCommit": "14c1815351b32096b325e032331b90c1f7873159",
+  "parentCandidate": "grow-15",
+  "parentProtocolHash": "c380f2eab1f1f722273d8f04103681ac3dd90baa02e617b2065b8706dc1de346",
+  "parentPlannerHash": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+  "parentManifestHash": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5",
+  "sourceHash": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+  "geometryHash": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+  "plannerHash": "fd77baecfd7002a66aee693527f88f6a666a072c18fe7802819bad98d2a63046",
+  "harnessHash": "5f14752c9fd880083990ceb606f1507ab2bafe00781d6ceeaca6d7e8b9824039",
+  "serverHash": "916b0adf18dfe8d1856249fd74b2feb77461a3fa0632ab1914b6974d1dbbf12b",
+  "buildHash": "06e95f68981661602a3c44783e09f22c4e0374a91ecc2525c15ffb7db47e5732",
+  "pageHash": "6168d5e93b942af212037b5cfb15628cb28ad3b40a5b9b42de7e13bdf2ce2461",
+  "isolationHash": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+  "deployedGameVerificationHash": "831729fa1f040e972111efda74b266907c06e2700c496b68a81b2b0e550052b3",
+  "games": {
+    "v2.13": {
+      "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+    },
+    "v2.22": {
+      "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+    }
+  },
+  "latestVersionVerified": "v2.22",
+  "latestVersionCheckedAt": "2026-11-25T06:10:48.443775+00:00",
+  "viewport": {
+    "gameWidth": 2000,
+    "gameHeight": 1163,
+    "devicePixelRatio": 1
+  },
+  "environment": "managed Linux desktop browser; exact user agent and outer viewport recorded on every start",
+  "seed": "natural Math.random; unknown and uncontrolled; no selection or injection; not paired random trials",
+  "controller": "rendered canvas pixels + visible HUD only",
+  "input": "Arrow keys + Space boost",
+  "maxComputeMs": 200,
+  "controlIntervalMs": 100,
+  "concurrency": 1,
+  "policyChange": {
+    "versions": [
+      "v2.13",
+      "v2.22"
+    ],
+    "exactDiff": "hard hazard OR includes nominal observed radius at the existing lethal threshold; diagnostics and naming do not change decisions",
+    "rationale": "the old interval fraction can classify an already nominally lethal body as soft, particularly near the v2.22 size cap",
+    "unchanged": "geometry, fallback radii, red marker bounds, target value, scouts, immunity, motion prediction, path horizon, weights and tracking",
+    "hypothesis": "hard avoidance may reduce early deaths; additional avoidance may reduce growth and increase cutoffs; no causal efficacy claim before the new batch"
+  },
+  "instrumentationChange": "additional numeric selected-target coordinates/motion/stall/blocked fields and local hard/soft/promoted counts; startup page/harness/planner SHA-256 verification; independent 100ms visible-stop watchdog; save abort after2500ms with unconfirmed records displayed for reconciliation; win without visible result time is unknown; no pixels or hidden state",
+  "perception": {
+    "maxCaptureWidth": 2000,
+    "minimap": "strict growMarkers for candidate; no permissive white fallback",
+    "plannerLogic": "Grow15 with nominal-lethal hard hazard condition; all other strategy choices unchanged",
+    "geometry": "frozen geometry.js; accepted pixel centre AND radius converted by capture ratio; null preserves original; NPCs only",
+    "confidence": "geometric consistency score, not probability",
+    "numericDiagnostics": [
+      "geometryAccepted",
+      "confidence",
+      "originalRadius",
+      "geometryAcceptedCount",
+      "geometryNpcCount",
+      "geometryConfidenceMean"
+    ]
+  },
+  "screen": {
+    "id": "screen-06",
+    "versions": [
+      "v2.13",
+      "v2.22"
+    ],
+    "NPerVersion": 4,
+    "minimumWinsPerVersion": 2,
+    "nativeOutcomes": [
+      "win_le150",
+      "win_late",
+      "death",
+      "deadline_cutoff"
+    ],
+    "requireUniqueRunIds": true,
+    "order": [
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      }
+    ]
+  },
+  "confirmation": {
+    "id": "confirm-06",
+    "versions": [
+      "v2.13",
+      "v2.22"
+    ],
+    "NPerVersion": 12,
+    "minimumWinsPerVersion": 6,
+    "order": [
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.13",
+        "strategy": "grow-18"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-18"
+      }
+    ],
+    "condition": "both versions have exactly four native screen finals and >=2 wins each; frozen same candidate; 12 new starts per version; no data pooling"
+  },
+  "success": {
+    "sizeGoal": 200,
+    "gameSecondsMaximum": 150,
+    "evidence": "this run visible You win settlement and visible result Play time <=02:30; HUD may stop updating during ending animation"
+  },
+  "stop": {
+    "gameDeadline": "visible HUD elapsed >150 (integer display, normally151); settlement checked first",
+    "wallMs": 300000,
+    "computeMs": 200,
+    "manual": "stop batch records controller_abort and releases all held keys",
+    "watchdogMs": 100,
+    "persistenceTimeoutMs": 2500,
+    "persistenceFailure": "stop and retain infrastructure_error or unconfirmed visible records; reconcile by runId before sidecar, no replacements; unconfirmed final never triggers a second final; server rejects duplicate start/final identities"
+  },
+  "denominatorPolicy": "every start stays in its version and phase denominator; death, cutoff, late win, infrastructure error, abort and unknown are separately reported; no replacements, exclusions or restarting an interrupted batch",
+  "acceptance": "research only: both confirmation versions require >=6/12 observed wins for this sample target; report Wilson 95% intervals; no formal OCR4 release, all-version acceptance or long-term guarantee",
+  "unsupportedClaims": [
+    "synthetic fixtures are not game outcomes",
+    "historical uncontrolled batches do not establish causal improvement",
+    "v2.20/v2.21 not tested in this user-requested two-version batch"
+  ],
+  "freezePolicy": "no controller, game, harness or protocol edits after first start; new code requires a new candidate and batch identity",
+  "protocolHash": "e436c342e09d99758aec04da125d1913ae3bc7fdc754c0daef6f1b0780b8eabf"
+}

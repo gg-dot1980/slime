@@ -1,5 +1,27 @@
 # Slime OCR 測試交接索引
 
+## 2026-11-25：Grow19 新策略與完整8局實戰
+
+[Grow19固定入口](repro/grow-19/README.md) · [全部版本](GROW-VERSIONS.md) · [原始事件](repro/grow-19/results/events.jsonl) · [獨立結果核對](repro/grow-19/checks/final-results-review.json)。以凍結Grow15為父版，唯一策略變更為v2.22的幾何拒判NPC提高半徑上界，保留原200上限；沒有疊加Grow18的hard條件。較保守估計可能漏吃獵物，負面合成案例一併保存。
+
+screen-07全部8 starts與8 final rows已保留：v2.13 3/4勝（124、130、138秒）及1次截止；v2.22 2/4勝（109、144秒）、1次截止及1次controller_abort。Wilson95%分別30.1～95.4%、15.0～85.0%。第06局在可見108秒、體型116時因單次計算239.4ms而停止，已釋放按鍵。此overrun在正常computeMs記錄前return，因此獨立auditor另合併controllerEvents計入最大值；200ms效能預算未達。不得排除該局改報2/3，亦沒有補局。
+
+雖然探索觀察比例為75%與50%，v2.22僅3個協議認可遊戲結果、未滿4個，故screen gate=false，confirm-07兩版均0 starts、比例null。235筆原始紀錄、15凍結項目、逐局身份／時間／順序與全分母經乾淨副本獨立核對一致；8/8釋鍵成功，無遺漏或未解決紀錄。自然seed未知，小樣本不等於長期勝率或正式OCR4驗收。
+
+來源及完整無像素數值按GITHUB-STORAGE v1封存；同一既有Draft PR指向test/ocr-test。沒有變更main、正式頁或既有80局與Grow18結果。下一個策略或效能修正必須使用新版本及新固定protocol，保留本批失敗。
+
+
+## 2026-11-25：Grow18 新策略與完整8局實戰
+
+[Grow18固定入口](repro/grow-18/README.md) · [全部版本](GROW-VERSIONS.md) · [原始事件](repro/grow-18/results/events.jsonl) · [逐版統計](repro/grow-18/results/evaluation-summary.json)。Grow18直接以凍結Grow15為父版，唯一策略改動是名義NPC尺寸已達致命門檻時，將它列入原硬性避碰約束；沒有帶入Grow16或Grow17改動。來源於臺灣時間14:22:18凍結，測試前70個planner檢查、25個harness檢查通過。
+
+固定screen-06全部8個starts與8個native finals已完成：v2.13 4/4過關（120、121、132、141秒；Wilson95% 51.0～100%）；v2.22 1/4過關（149秒；Wilson95% 4.6～69.9%）及3次死亡（89、119、124秒）。沒有截止、infra、中止、未知、補局或遺漏；所有final釋鍵成功，最高單次compute189.5ms。探索未通過兩版各≥2/4門檻，confirm-06兩版均未開始，不寫成0%確認勝率。此批原雙版本目標未達，不作正式OCR4驗收或因果改善聲明。
+
+來源與原始事件已由獨立Python核對程式在乾淨副本重算：225個records、14凍結檔、逐局身份／順序／可見結算／分母／釋鍵／效能全部一致，與主要統計0差異。自然seed未知，僅約1Hz數值樣本，不能還原相同軌跡或指認致死NPC。兩版公開遊戲HTML與凍結來源一致，開始前latest為v2.22；詳細證據及重建指令見逐版入口。
+
+此項接續原有Draft PR到test/ocr-test，保留原Grow1～17與80局封存，不改main、正式網站或過往結果。遠端同步狀態以本輪提交與讀回紀錄為準。
+
+
 ## 2026-11-25：Grow-1～17 逐版來源與完整 80 局歸檔
 
 [全部版本索引](GROW-VERSIONS.md) · [本輪總入口](repro/grow-evaluation-20261125/README.md) · [同步／回讀狀態](repro/grow-evaluation-20261125/publication.json)。依使用者明確要求，保留已有 grow-1～6 的固定 GitHub 來源，補存 grow-7～12 的歷史來源與各版重現說明，新增 grow-13～17 的完整凍結來源、protocol、無像素事件與結果；共 17 個版本入口，沒有覆寫舊歷史。

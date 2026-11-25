@@ -1,0 +1,65 @@
+{
+  "frozenAt": "2026-11-25T06:22:18.037039+00:00",
+  "candidate": "grow-18",
+  "startsAtFreeze": 0,
+  "protocolHash": "e436c342e09d99758aec04da125d1913ae3bc7fdc754c0daef6f1b0780b8eabf",
+  "files": {
+    "planner.js": {
+      "bytes": 15718,
+      "sha256": "fd77baecfd7002a66aee693527f88f6a666a072c18fe7802819bad98d2a63046"
+    },
+    "geometry.js": {
+      "bytes": 5169,
+      "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec"
+    },
+    "source-base.html": {
+      "bytes": 52177,
+      "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b"
+    },
+    "game-isolation.mjs": {
+      "bytes": 2797,
+      "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f"
+    },
+    "game-v2.13.html": {
+      "bytes": 51125,
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97"
+    },
+    "game-v2.22.html": {
+      "bytes": 52422,
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+    },
+    "harness.js": {
+      "bytes": 12537,
+      "sha256": "5f14752c9fd880083990ceb606f1507ab2bafe00781d6ceeaca6d7e8b9824039"
+    },
+    "server.mjs": {
+      "bytes": 2082,
+      "sha256": "916b0adf18dfe8d1856249fd74b2feb77461a3fa0632ab1914b6974d1dbbf12b"
+    },
+    "build-lab.mjs": {
+      "bytes": 10764,
+      "sha256": "06e95f68981661602a3c44783e09f22c4e0374a91ecc2525c15ffb7db47e5732"
+    },
+    "index.html": {
+      "bytes": 233222,
+      "sha256": "6168d5e93b942af212037b5cfb15628cb28ad3b40a5b9b42de7e13bdf2ce2461"
+    },
+    "manifest.json": {
+      "bytes": 8859,
+      "sha256": "0b9c7b9e3bc993633a85595d8eaf56381b1958f8fefd4bc04e4f077af584d174"
+    },
+    "protocol.json": {
+      "bytes": 8859,
+      "sha256": "0b9c7b9e3bc993633a85595d8eaf56381b1958f8fefd4bc04e4f077af584d174"
+    },
+    "parent-manifest.json": {
+      "bytes": 3009,
+      "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5"
+    },
+    "deployed-game-verification.json": {
+      "bytes": 1356,
+      "sha256": "831729fa1f040e972111efda74b266907c06e2700c496b68a81b2b0e550052b3"
+    }
+  },
+  "rule": "Do not modify any frozen file after first start; all starts retained, no replacements."
+}

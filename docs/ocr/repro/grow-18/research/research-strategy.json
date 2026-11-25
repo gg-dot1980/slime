@@ -1,0 +1,1966 @@
+{
+  "schemaVersion": 1,
+  "kind": "bounded strategy research and authorized pure Grow18 candidate; no new gameplay",
+  "createdAtUtc": "2026-11-25T06:17:46.185272+00:00",
+  "goal": {
+    "targetSize": 200,
+    "deadlineSeconds": 150,
+    "perGameVersionObservedSuccessTarget": 0.5,
+    "primaryVersions": [
+      "v2.13",
+      "v2.22"
+    ],
+    "noPooledVersionAcceptance": true
+  },
+  "authority": {
+    "repo": "gg-dot1980/slime",
+    "targetBranch": "test/ocr-test",
+    "rootReportedBaseCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+    "rootReportedFeatureHeadPrefix": "0f450e7",
+    "instructionsDirectory": "github-grow-publication/instructions",
+    "note": "Root supplied current refs; this agent did not write or reread GitHub this turn."
+  },
+  "inputs": [
+    {
+      "path": "grow-repro-publish/results/screen-01-events-noimages.jsonl",
+      "bytes": 639686,
+      "sha256": "dd18b3fbd7b6bb54cc26e1a39b2500b4d6e2cfe0bc63022b9852c288c844f37c"
+    },
+    {
+      "path": "grow-repro-publish/results/screen-02-events-noimages.jsonl",
+      "bytes": 687809,
+      "sha256": "9f7c5032982a79ed7c8a9472237d2bf7cd20f9f0aee6971e947fa8ed84256b10"
+    },
+    {
+      "path": "grow-repro-publish/results/screen-02-recovery-events-noimages.jsonl",
+      "bytes": 144308,
+      "sha256": "902e33119dc87630771f7209097b3bd04e549a69c06e7a9f4d3f523612a59ab9"
+    },
+    {
+      "path": "grow-repro-publish/results/screen-03-events-noimages.jsonl",
+      "bytes": 4697408,
+      "sha256": "adc9cc99cb0a3278e99cb6aa4b52cb9ba7d1ab492e7ed5cbb455c9e349ecc3e9"
+    },
+    {
+      "path": "grow-repro-publish/results/screen-04-events-noimages.jsonl",
+      "bytes": 2209669,
+      "sha256": "33d617a8495245e8d1acdfc233e2efb65ec58997fc1996e612edc877de2fa398"
+    },
+    {
+      "path": "grow-repro-publish/results/screen-05-events-noimages.jsonl",
+      "bytes": 2096396,
+      "sha256": "44aa0bb950e956a7497fe1b92307d552b6a9a38ad6ad3147d019dbf790b2ad0d"
+    },
+    {
+      "path": "grow-repro-publish/results/screen-02-recovery-reviewer-sidecar.json",
+      "bytes": 4885,
+      "sha256": "f2270eabd7724a8da5faa1ecca9ec68f3baca9c13ca591267df31af26c4d39b6"
+    },
+    {
+      "path": "grow-repro-publish/results/screen-02-reviewer-sidecar.json",
+      "bytes": 9413,
+      "sha256": "fcdcf4f7221f9bc69439226aef7dc2495192632eb02887b384fbd850809b7838"
+    }
+  ],
+  "sources": [
+    {
+      "path": "grow-repro-publish/source/experiments/grow15/frozen/screen-03/planner.js",
+      "bytes": 15192,
+      "sha256": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e"
+    },
+    {
+      "path": "grow-repro-publish/source/experiments/grow17/planner.js",
+      "bytes": 15203,
+      "sha256": "f2c8f104324fa8fb616a1e783020fe456817742e94bc2d896aa803586fbd8df4"
+    },
+    {
+      "path": "grow-repro-publish/source/experiments/grow15/source-base.html",
+      "bytes": 52177,
+      "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b"
+    },
+    {
+      "path": "grow-repro-publish/source/experiments/grow15/harness.js",
+      "bytes": 9676,
+      "sha256": "cfee3070ac5fe13f5b5d9c3b17bcfe3fcecc1c2c446e850d112a927e8c81f4ba"
+    },
+    {
+      "path": "grow-repro-publish/source/experiments/grow17/harness.js",
+      "bytes": 9893,
+      "sha256": "b4739a723f05f1981fab5d24829f3f19ab0fc8d2ca854faea74450b6d4f0c3c9"
+    },
+    {
+      "path": "grow-repro-publish/source/experiments/grow15/build-lab.mjs",
+      "bytes": 7124,
+      "sha256": "d62a48bb5745babe545c94c63d4e0d658ed6afb744748a54e048e01a4a8e28ea"
+    },
+    {
+      "path": "grow-repro-publish/source/experiments/grow17/build-lab.mjs",
+      "bytes": 8924,
+      "sha256": "c2d4d064e19069408203846a26b84962bc41d1f04fd95a8be32390ed382ca42e"
+    },
+    {
+      "path": "grow-repro-publish/source/experiments/grow15/geometry.js",
+      "bytes": 5169,
+      "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec"
+    },
+    {
+      "path": "grow-repro-publish/source/experiments/grow15/game-v2.22.html",
+      "bytes": 52422,
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+    },
+    {
+      "path": "grow-repro-publish/results/grow15-confirm-03-04-diagnostic.json",
+      "bytes": 21489,
+      "sha256": "266dcfa5fa14bf87dc61ebc819cb53baba19b6ea88bf2a98ded4d3d9f25d0a51",
+      "role": "prior numeric diagnostic; new tables below recomputed from complete saved events"
+    },
+    {
+      "path": "grow-repro-publish/results/grow15-late-v22-diagnostic.json",
+      "bytes": 121845,
+      "sha256": "0572f7c0e7338da60bc6533d168d9709dab7641b9fd754142be3545e26a6b69a",
+      "role": "prior numeric diagnostic; new tables below recomputed from complete saved events"
+    },
+    {
+      "path": "grow-repro-publish/results/grow17-late-cutoff-diagnostic.json",
+      "bytes": 34667,
+      "sha256": "82215de3322fd6a1ac0f4e5364a751b2ffc1964442c274f5f56b4e4ab0363f81",
+      "role": "prior numeric diagnostic; new tables below recomputed from complete saved events"
+    }
+  ],
+  "wholeEvidenceScope": {
+    "scope": "loaded_event_snapshots_only; see pendingEvidence for manifests without included events",
+    "recordedStarts": 80,
+    "nativeFinals": 78,
+    "reviewerClassifiedInfrastructureErrors": 2,
+    "unstartedLogicalSlots": 0
+  },
+  "focusedScope": {
+    "strategies": [
+      "grow-15",
+      "grow-17"
+    ],
+    "version": "v2.22",
+    "nativeFinals": 32,
+    "note": "All 32 native v2.22 finals from these two versions are included, with screen/confirm outcome rows retained in their original files; late descriptive tables combine sample-level diagnostics only, not success-rate denominators."
+  },
+  "findings": [
+    {
+      "id": "nominal-lethal-soft-classification",
+      "status": "source and finite arithmetic proved; live causal role unknown",
+      "priority": "selected independent Grow18 change",
+      "sourceRefs": [
+        {
+          "path": "grow-repro-publish/source/experiments/grow15/frozen/screen-03/planner.js",
+          "symbol": "planGrow15 body interval and hard classification",
+          "lines": [
+            52,
+            66,
+            94,
+            104,
+            208,
+            244
+          ]
+        },
+        {
+          "path": "grow-repro-publish/source/experiments/grow15/game-v2.22.html",
+          "symbols": [
+            "addNpc",
+            "drawSlime",
+            "update player/NPC collision"
+          ],
+          "lines": [
+            61,
+            91,
+            96,
+            104
+          ]
+        }
+      ],
+      "mechanism": "When cap200 truncates the upper interval, the existing uncalibrated uniform-interval chance can drop below .45 even while o.r itself is at or above the lethal threshold. Soft hazards contribute weighted risk but are excluded from clearance and hard-safe path filtering. Raising an already nominally lethal body to hard therefore restores an existing semantic safety condition without tuning score coefficients.",
+      "example": {
+        "hud": 182,
+        "npcPointEstimate": 200,
+        "localReliable": true,
+        "radiusError": 14,
+        "lower": 186,
+        "upper": 200,
+        "lethalThreshold": 196.02,
+        "chance": 0.28428571428571353,
+        "oldHard": false,
+        "newHard": true,
+        "visibleCueConsistency": "At true player radius182 and NPC200, the minimap is white and no danger text is drawn. HUD180/181 require a missed danger-label detection for isRed=false, and pure tests label this explicitly."
+      },
+      "liveExposureNote": "screen-05-01 died at HUD182. Its last saved uncertainNpc sequence was 0,1,1,1,4 at elapsed105..109. This proves soft-hazard exposure, not that a radius200 body or this defect caused death.",
+      "scope": "The cap-driven nominal200 example affects HUD180..185; immunity at186 remains unchanged. Other pre186 deaths and bad size estimates are not solved by this one fix."
+    },
+    {
+      "id": "fallback-radius-not-physical-bound",
+      "status": "source-mechanics limitation proved; not changed in Grow18",
+      "priority": "separate future perception/interval candidate",
+      "mechanism": "After geometry rejection, fallback highlightRadius/visualR is used with a 7/10/15 percent error and max(upper, visualR*.88). NPC outline wobble scales the body by .8..1.15 independently of physical radius. These heuristic values do not guarantee a physical upper radius.",
+      "conditionalOutlineDerivation": "For a complete continuous polygon, x-axis vertices i=0 and i=8 both use 1.01*wobble and their odd-harmonic noise cancels. Their x separation is 2*1.01*wobble*R; full bbox half-extent V>=.808R at wobble>=.8. Thus R<=V/.808 only when V bounds the complete contour. Stroke only increases the ideal bbox.",
+      "unconditionalLimitation": "components measures a connected hue region, not a certified complete silhouette. Clipped=false excludes screen/UI clipping, not occlusion or hue fragmentation. Neither labelSeen nor compact aspect/density certifies completeness. A finite pixel margin such as +6 is an uncertainty policy, not a proved upper bound for missing contours.",
+      "conditionalStrokeExample": {
+        "physicalRadiusFixture": 200,
+        "wobble": 0.8,
+        "phase": 0,
+        "idealContinuousFillAndMiterStrokeHalfBox": 166.2430138263531,
+        "existingUnlabelledFallbackUpper": 191.17946590030604,
+        "existingReliableFallbackUpper": 177.88002479419782,
+        "hud180LethalThreshold": 193.86,
+        "assumptions": "Analytic continuous source polygon with 9px default miter stroke, no raster, occlusion or saved-image replay."
+      }
+    },
+    {
+      "id": "late-unrealized-path-rewards",
+      "status": "descriptive association only; no complete decision replay",
+      "priority": "not changed in Grow18",
+      "mechanism": "Several late cutoff samples selected geometry-rejected/unreliable body targets and assigned path rewards without visible subsequent growth. A path is a proposed 2.2s two-segment rollout, not a committed future action; repeated path gain must not be described as a guaranteed growth forecast. Scouts have zero path-growth contribution; their utility uses an assumed target size only for approach.",
+      "limits": "No target x/y, persistent ID, blocked/stalled status, full object list, velocity, map or complete per-decision plan input is saved in final samples. Thus no target identity, cause, counterfactual selected direction or full replay is reconstructed.",
+      "existingStallMemory": "readImage stalled increments only on matching current close NPC while prior.radius===HUD, otherwise resets; no persistent blocked cooldown. This is a separate candidate, not folded into Grow18."
+    }
+  ],
+  "priorityEvidence": {
+    "confirmationV222NonWins": 23,
+    "confirmationDeaths": 16,
+    "confirmationCutoffs": 7,
+    "allDeathsFinalAndMaxSampleBelow186": true,
+    "deathLast10SamplesAllPositiveClearance": 11,
+    "cutoffsEverReached186": 3,
+    "interpretation": "The concentration before186 supports prioritizing safety-model correctness. A positive saved clearance is not evidence of actual safety, and the last saved decision is not necessarily the lethal frame."
+  },
+  "confirmationFailureRows": [
+    {
+      "runId": "confirm-03-04",
+      "strategy": "grow-15",
+      "outcome": "death",
+      "finalHud": 81,
+      "maxSampleHud": 81,
+      "resultSeconds": 52,
+      "finalElapsedVisible": 53,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 134.39779988613057,
+      "lastReason": "food-and-exploration",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-03-08",
+      "strategy": "grow-15",
+      "outcome": "deadline_cutoff",
+      "finalHud": 189,
+      "maxSampleHud": 189,
+      "resultSeconds": null,
+      "finalElapsedVisible": 151,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 1000000,
+      "lastReason": "cap200-finish",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-03-10",
+      "strategy": "grow-15",
+      "outcome": "death",
+      "finalHud": 156,
+      "maxSampleHud": 156,
+      "resultSeconds": 121,
+      "finalElapsedVisible": 122,
+      "last10ClearancesAllPositive": false,
+      "lastClearance": -20.345171114892793,
+      "lastReason": "escape",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-03-16",
+      "strategy": "grow-15",
+      "outcome": "death",
+      "finalHud": 112,
+      "maxSampleHud": 112,
+      "resultSeconds": 84,
+      "finalElapsedVisible": 85,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 12.885432441985813,
+      "lastReason": "intercept-growth",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-03-18",
+      "strategy": "grow-15",
+      "outcome": "deadline_cutoff",
+      "finalHud": 156,
+      "maxSampleHud": 156,
+      "resultSeconds": null,
+      "finalElapsedVisible": 151,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 144.4894359549653,
+      "lastReason": "intercept-growth",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-03-20",
+      "strategy": "grow-15",
+      "outcome": "death",
+      "finalHud": 167,
+      "maxSampleHud": 167,
+      "resultSeconds": 138,
+      "finalElapsedVisible": 139,
+      "last10ClearancesAllPositive": false,
+      "lastClearance": -33.89024285492161,
+      "lastReason": "escape",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-03-24",
+      "strategy": "grow-15",
+      "outcome": "deadline_cutoff",
+      "finalHud": 164,
+      "maxSampleHud": 164,
+      "resultSeconds": null,
+      "finalElapsedVisible": 151,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 60.40372606950001,
+      "lastReason": "food-and-exploration",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-04-02",
+      "strategy": "grow-16",
+      "outcome": "death",
+      "finalHud": 95,
+      "maxSampleHud": 95,
+      "resultSeconds": 110,
+      "finalElapsedVisible": 111,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 341.02608122216395,
+      "lastReason": "intercept-growth",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-04-03",
+      "strategy": "grow-16",
+      "outcome": "death",
+      "finalHud": 109,
+      "maxSampleHud": 109,
+      "resultSeconds": 97,
+      "finalElapsedVisible": 98,
+      "last10ClearancesAllPositive": false,
+      "lastClearance": -33.6683481008927,
+      "lastReason": "escape",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-04-05",
+      "strategy": "grow-16",
+      "outcome": "deadline_cutoff",
+      "finalHud": 139,
+      "maxSampleHud": 138,
+      "resultSeconds": null,
+      "finalElapsedVisible": 151,
+      "last10ClearancesAllPositive": false,
+      "lastClearance": -4.3613045340114525,
+      "lastReason": "escape",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-04-06",
+      "strategy": "grow-16",
+      "outcome": "death",
+      "finalHud": 79,
+      "maxSampleHud": 78,
+      "resultSeconds": 52,
+      "finalElapsedVisible": 53,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 310.19683083478674,
+      "lastReason": "food-and-exploration",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-04-07",
+      "strategy": "grow-16",
+      "outcome": "death",
+      "finalHud": 175,
+      "maxSampleHud": 175,
+      "resultSeconds": 126,
+      "finalElapsedVisible": 127,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 27.526512705284688,
+      "lastReason": "intercept-growth",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-04-08",
+      "strategy": "grow-16",
+      "outcome": "death",
+      "finalHud": 179,
+      "maxSampleHud": 179,
+      "resultSeconds": 136,
+      "finalElapsedVisible": 137,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 27.585354596524496,
+      "lastReason": "intercept-growth",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-04-12",
+      "strategy": "grow-16",
+      "outcome": "death",
+      "finalHud": 176,
+      "maxSampleHud": 176,
+      "resultSeconds": 141,
+      "finalElapsedVisible": 142,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 143.8744023107426,
+      "lastReason": "food-and-exploration",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-01",
+      "strategy": "grow-17",
+      "outcome": "death",
+      "finalHud": 118,
+      "maxSampleHud": 118,
+      "resultSeconds": 99,
+      "finalElapsedVisible": 100,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 158.0664729528819,
+      "lastReason": "food-and-exploration",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-02",
+      "strategy": "grow-17",
+      "outcome": "deadline_cutoff",
+      "finalHud": 162,
+      "maxSampleHud": 162,
+      "resultSeconds": null,
+      "finalElapsedVisible": 151,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 1000000,
+      "lastReason": "food-and-exploration",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-03",
+      "strategy": "grow-17",
+      "outcome": "death",
+      "finalHud": 110,
+      "maxSampleHud": 97,
+      "resultSeconds": 92,
+      "finalElapsedVisible": 93,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 253.44852192322458,
+      "lastReason": "intercept-growth",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-04",
+      "strategy": "grow-17",
+      "outcome": "deadline_cutoff",
+      "finalHud": 195,
+      "maxSampleHud": 195,
+      "resultSeconds": null,
+      "finalElapsedVisible": 151,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 1000000,
+      "lastReason": "cap200-finish",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-05",
+      "strategy": "grow-17",
+      "outcome": "death",
+      "finalHud": 73,
+      "maxSampleHud": 73,
+      "resultSeconds": 70,
+      "finalElapsedVisible": 71,
+      "last10ClearancesAllPositive": false,
+      "lastClearance": -180.43350597622194,
+      "lastReason": "escape",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-07",
+      "strategy": "grow-17",
+      "outcome": "death",
+      "finalHud": 161,
+      "maxSampleHud": 160,
+      "resultSeconds": 113,
+      "finalElapsedVisible": 114,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 132.45107814326371,
+      "lastReason": "food-and-exploration",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-08",
+      "strategy": "grow-17",
+      "outcome": "death",
+      "finalHud": 114,
+      "maxSampleHud": 114,
+      "resultSeconds": 80,
+      "finalElapsedVisible": 81,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 502.18129147128525,
+      "lastReason": "food-and-exploration",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-09",
+      "strategy": "grow-17",
+      "outcome": "death",
+      "finalHud": 92,
+      "maxSampleHud": 92,
+      "resultSeconds": 92,
+      "finalElapsedVisible": 93,
+      "last10ClearancesAllPositive": false,
+      "lastClearance": -11.448550023062921,
+      "lastReason": "escape",
+      "controllerEvents": []
+    },
+    {
+      "runId": "confirm-05-11",
+      "strategy": "grow-17",
+      "outcome": "deadline_cutoff",
+      "finalHud": 191,
+      "maxSampleHud": 191,
+      "resultSeconds": null,
+      "finalElapsedVisible": 151,
+      "last10ClearancesAllPositive": true,
+      "lastClearance": 1000000,
+      "lastReason": "cap200-finish",
+      "controllerEvents": []
+    }
+  ],
+  "lateWindowDefinition": "Saved samples with186<=HUD<200, no interpolation. 1Hz sampling and shared-run dependence; counts are descriptive, not independent-trial estimates.",
+  "lateDescriptiveGroups": [
+    {
+      "strategy": "grow-15",
+      "outcome": "win_le150",
+      "runs": 8,
+      "runsWithLateSamples": 6,
+      "lateSavedSamples": 59,
+      "targetTypes": {
+        "npc": 8,
+        "food": 46,
+        "scout": 5
+      },
+      "npcTargetSamples": 8,
+      "npcGeometryAccepted": 7,
+      "npcLocalReliable": 6,
+      "npcLabelSeen": 6,
+      "samplesWithModeledPathGainAtLeastHudGap": 10,
+      "samplesAlreadyWithinModeledNpcContact": 0
+    },
+    {
+      "strategy": "grow-15",
+      "outcome": "deadline_cutoff",
+      "runs": 4,
+      "runsWithLateSamples": 2,
+      "lateSavedSamples": 58,
+      "targetTypes": {
+        "scout": 37,
+        "npc": 7,
+        "food": 13,
+        "none": 1
+      },
+      "npcTargetSamples": 7,
+      "npcGeometryAccepted": 3,
+      "npcLocalReliable": 3,
+      "npcLabelSeen": 4,
+      "samplesWithModeledPathGainAtLeastHudGap": 0,
+      "samplesAlreadyWithinModeledNpcContact": 0
+    },
+    {
+      "strategy": "grow-15",
+      "outcome": "death",
+      "runs": 4,
+      "runsWithLateSamples": 0,
+      "lateSavedSamples": 0,
+      "targetTypes": {},
+      "npcTargetSamples": 0,
+      "npcGeometryAccepted": 0,
+      "npcLocalReliable": 0,
+      "npcLabelSeen": 0,
+      "samplesWithModeledPathGainAtLeastHudGap": 0,
+      "samplesAlreadyWithinModeledNpcContact": 0
+    },
+    {
+      "strategy": "grow-17",
+      "outcome": "win_le150",
+      "runs": 5,
+      "runsWithLateSamples": 4,
+      "lateSavedSamples": 36,
+      "targetTypes": {
+        "food": 30,
+        "npc": 6
+      },
+      "npcTargetSamples": 6,
+      "npcGeometryAccepted": 6,
+      "npcLocalReliable": 6,
+      "npcLabelSeen": 6,
+      "samplesWithModeledPathGainAtLeastHudGap": 5,
+      "samplesAlreadyWithinModeledNpcContact": 0
+    },
+    {
+      "strategy": "grow-17",
+      "outcome": "deadline_cutoff",
+      "runs": 3,
+      "runsWithLateSamples": 2,
+      "lateSavedSamples": 50,
+      "targetTypes": {
+        "food": 26,
+        "npc": 21,
+        "none": 3
+      },
+      "npcTargetSamples": 21,
+      "npcGeometryAccepted": 0,
+      "npcLocalReliable": 0,
+      "npcLabelSeen": 9,
+      "samplesWithModeledPathGainAtLeastHudGap": 12,
+      "samplesAlreadyWithinModeledNpcContact": 4
+    },
+    {
+      "strategy": "grow-17",
+      "outcome": "death",
+      "runs": 8,
+      "runsWithLateSamples": 0,
+      "lateSavedSamples": 0,
+      "targetTypes": {},
+      "npcTargetSamples": 0,
+      "npcGeometryAccepted": 0,
+      "npcLocalReliable": 0,
+      "npcLabelSeen": 0,
+      "samplesWithModeledPathGainAtLeastHudGap": 0,
+      "samplesAlreadyWithinModeledNpcContact": 0
+    }
+  ],
+  "lateAlreadyInsideModelContactSamples": [
+    {
+      "runId": "confirm-05-04",
+      "outcome": "deadline_cutoff",
+      "elapsedVisible": 140,
+      "hudSize": 195,
+      "gain": 5,
+      "modeledContact": 239.70000000000002,
+      "target": {
+        "npc": true,
+        "mapOnly": false,
+        "r": 157.5,
+        "visualR": 157.5,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "originalRadius": 157.5,
+        "lower": 141.75,
+        "upper": 173.25,
+        "labelSeen": true,
+        "localReliable": false,
+        "eta": 0.1,
+        "utility": 7.692307692307692,
+        "distance": 223.1461477541829
+      }
+    },
+    {
+      "runId": "confirm-05-04",
+      "outcome": "deadline_cutoff",
+      "elapsedVisible": 141,
+      "hudSize": 195,
+      "gain": 5,
+      "modeledContact": 224.54252544306604,
+      "target": {
+        "npc": true,
+        "mapOnly": false,
+        "r": 135.20959623980295,
+        "visualR": 159,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "originalRadius": 135.20959623980295,
+        "lower": 114.92815680383251,
+        "upper": 155.4910356757734,
+        "labelSeen": false,
+        "localReliable": false,
+        "eta": 0.1,
+        "utility": 8.69230769230769,
+        "distance": 210.09349744955335
+      }
+    },
+    {
+      "runId": "confirm-05-04",
+      "outcome": "deadline_cutoff",
+      "elapsedVisible": 146,
+      "hudSize": 195,
+      "gain": 5,
+      "modeledContact": 236.00402926431644,
+      "target": {
+        "npc": true,
+        "mapOnly": false,
+        "r": 152.06474891811237,
+        "visualR": 162,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "originalRadius": 152.06474891811237,
+        "lower": 136.85827402630113,
+        "upper": 167.2712238099236,
+        "labelSeen": true,
+        "localReliable": false,
+        "eta": 0.1,
+        "utility": 8.69230769230769,
+        "distance": 224.05498700524106
+      }
+    },
+    {
+      "runId": "confirm-05-11",
+      "outcome": "deadline_cutoff",
+      "elapsedVisible": 147,
+      "hudSize": 191,
+      "gain": 9,
+      "modeledContact": 229.6680243610213,
+      "target": {
+        "npc": true,
+        "mapOnly": false,
+        "r": 146.7470946485607,
+        "visualR": 142.5,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "originalRadius": 146.7470946485607,
+        "lower": 132.07238518370463,
+        "upper": 161.42180411341678,
+        "labelSeen": true,
+        "localReliable": false,
+        "eta": 0.1,
+        "utility": 15.646153846153844,
+        "distance": 206.55273052471523
+      }
+    }
+  ],
+  "lateCutoffPlateaus": [
+    {
+      "runId": "screen-03-04",
+      "plateauHud": 190,
+      "firstSampleElapsed": 141,
+      "lastSampleElapsed": 150,
+      "spanSeconds": 9,
+      "samples": 10,
+      "targets": {
+        "food": 3,
+        "scout": 4,
+        "npc": 3
+      },
+      "nonzeroModeledGainSamples": 8,
+      "modeledFinishGainSamples": 0,
+      "eligibleNpcMedian": 0.0,
+      "progressHudEaten": [
+        {
+          "elapsedVisible": 116,
+          "hudSize": 161,
+          "eaten": 147
+        },
+        {
+          "elapsedVisible": 122,
+          "hudSize": 170,
+          "eaten": 150
+        },
+        {
+          "elapsedVisible": 126,
+          "hudSize": 172,
+          "eaten": 153
+        },
+        {
+          "elapsedVisible": 132,
+          "hudSize": 176,
+          "eaten": 165
+        },
+        {
+          "elapsedVisible": 137,
+          "hudSize": 189,
+          "eaten": 169
+        },
+        {
+          "elapsedVisible": 142,
+          "hudSize": 190,
+          "eaten": 170
+        },
+        {
+          "elapsedVisible": 147,
+          "hudSize": 190,
+          "eaten": 170
+        }
+      ]
+    },
+    {
+      "runId": "confirm-03-08",
+      "plateauHud": 188,
+      "firstSampleElapsed": 121,
+      "lastSampleElapsed": 148,
+      "spanSeconds": 27,
+      "samples": 28,
+      "targets": {
+        "scout": 21,
+        "npc": 2,
+        "food": 5
+      },
+      "nonzeroModeledGainSamples": 9,
+      "modeledFinishGainSamples": 0,
+      "eligibleNpcMedian": 0.0,
+      "progressHudEaten": [
+        {
+          "elapsedVisible": 117,
+          "hudSize": 187,
+          "eaten": 227
+        },
+        {
+          "elapsedVisible": 122,
+          "hudSize": 188,
+          "eaten": 228
+        },
+        {
+          "elapsedVisible": 127,
+          "hudSize": 188,
+          "eaten": 228
+        },
+        {
+          "elapsedVisible": 132,
+          "hudSize": 188,
+          "eaten": 228
+        },
+        {
+          "elapsedVisible": 137,
+          "hudSize": 188,
+          "eaten": 228
+        },
+        {
+          "elapsedVisible": 142,
+          "hudSize": 188,
+          "eaten": 228
+        },
+        {
+          "elapsedVisible": 147,
+          "hudSize": 188,
+          "eaten": 228
+        }
+      ]
+    },
+    {
+      "runId": "confirm-05-04",
+      "plateauHud": 195,
+      "firstSampleElapsed": 124,
+      "lastSampleElapsed": 150,
+      "spanSeconds": 26,
+      "samples": 27,
+      "targets": {
+        "food": 7,
+        "npc": 18,
+        "none": 2
+      },
+      "nonzeroModeledGainSamples": 24,
+      "modeledFinishGainSamples": 10,
+      "eligibleNpcMedian": 1,
+      "progressHudEaten": [
+        {
+          "elapsedVisible": 116,
+          "hudSize": 168,
+          "eaten": 207
+        },
+        {
+          "elapsedVisible": 121,
+          "hudSize": 193,
+          "eaten": 214
+        },
+        {
+          "elapsedVisible": 126,
+          "hudSize": 195,
+          "eaten": 219
+        },
+        {
+          "elapsedVisible": 131,
+          "hudSize": 195,
+          "eaten": 219
+        },
+        {
+          "elapsedVisible": 136,
+          "hudSize": 195,
+          "eaten": 219
+        },
+        {
+          "elapsedVisible": 141,
+          "hudSize": 195,
+          "eaten": 219
+        },
+        {
+          "elapsedVisible": 146,
+          "hudSize": 195,
+          "eaten": 219
+        }
+      ]
+    },
+    {
+      "runId": "confirm-05-11",
+      "plateauHud": 190,
+      "firstSampleElapsed": 136,
+      "lastSampleElapsed": 144,
+      "spanSeconds": 8,
+      "samples": 9,
+      "targets": {
+        "food": 6,
+        "none": 1,
+        "npc": 2
+      },
+      "nonzeroModeledGainSamples": 8,
+      "modeledFinishGainSamples": 1,
+      "eligibleNpcMedian": 0,
+      "progressHudEaten": [
+        {
+          "elapsedVisible": 116,
+          "hudSize": 160,
+          "eaten": 217
+        },
+        {
+          "elapsedVisible": 121,
+          "hudSize": 165,
+          "eaten": 229
+        },
+        {
+          "elapsedVisible": 126,
+          "hudSize": 173,
+          "eaten": 248
+        },
+        {
+          "elapsedVisible": 131,
+          "hudSize": 187,
+          "eaten": 267
+        },
+        {
+          "elapsedVisible": 136,
+          "hudSize": 190,
+          "eaten": 275
+        },
+        {
+          "elapsedVisible": 141,
+          "hudSize": 190,
+          "eaten": 276
+        },
+        {
+          "elapsedVisible": 146,
+          "hudSize": 191,
+          "eaten": 277
+        }
+      ]
+    }
+  ],
+  "pre186GeometryCoverage": [
+    {
+      "strategy": "grow-15",
+      "savedPre186Samples": 1922,
+      "acceptedBodyObservations": 3058,
+      "npcBodyObservations": 7509,
+      "acceptedFraction": 0.4072446397656146,
+      "medianNpcPerSavedSample": 4.0,
+      "medianAcceptedPerSavedSample": 1.0
+    },
+    {
+      "strategy": "grow-17",
+      "savedPre186Samples": 1756,
+      "acceptedBodyObservations": 2617,
+      "npcBodyObservations": 6559,
+      "acceptedFraction": 0.3989937490471108,
+      "medianNpcPerSavedSample": 3.0,
+      "medianAcceptedPerSavedSample": 1.0
+    }
+  ],
+  "nominal200ClassificationArithmetic": [
+    {
+      "hud": 176,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 189.54000000000002,
+      "rawChance": 0.7471428571428557,
+      "clampedChance": 0.7471428571428557,
+      "oldClassification": "hard",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": false,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": true
+    },
+    {
+      "hud": 177,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 190.62,
+      "rawChance": 0.6699999999999997,
+      "clampedChance": 0.6699999999999997,
+      "oldClassification": "hard",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": false,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": true
+    },
+    {
+      "hud": 178,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 191.70000000000002,
+      "rawChance": 0.5928571428571416,
+      "clampedChance": 0.5928571428571416,
+      "oldClassification": "hard",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": false,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": true
+    },
+    {
+      "hud": 179,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 192.78,
+      "rawChance": 0.5157142857142857,
+      "clampedChance": 0.5157142857142857,
+      "oldClassification": "hard",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": true,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": true
+    },
+    {
+      "hud": 180,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 193.86,
+      "rawChance": 0.4385714285714276,
+      "clampedChance": 0.4385714285714276,
+      "oldClassification": "soft",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": true,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": true
+    },
+    {
+      "hud": 181,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 194.94000000000003,
+      "rawChance": 0.36142857142856954,
+      "clampedChance": 0.36142857142856954,
+      "oldClassification": "soft",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": true,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": true
+    },
+    {
+      "hud": 182,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 196.02,
+      "rawChance": 0.28428571428571353,
+      "clampedChance": 0.28428571428571353,
+      "oldClassification": "soft",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": true,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": false
+    },
+    {
+      "hud": 183,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 197.10000000000002,
+      "rawChance": 0.20714285714285552,
+      "clampedChance": 0.20714285714285552,
+      "oldClassification": "soft",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": true,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": false
+    },
+    {
+      "hud": 184,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 198.18,
+      "rawChance": 0.1299999999999995,
+      "clampedChance": 0.1299999999999995,
+      "oldClassification": "soft",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": true,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": false
+    },
+    {
+      "hud": 185,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 199.26000000000002,
+      "rawChance": 0.05285714285714148,
+      "clampedChance": 0.12,
+      "oldClassification": "soft",
+      "newClassification": "hard",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": true,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": false
+    },
+    {
+      "hud": 186,
+      "nominalNpcRadius": 200,
+      "lower": 186,
+      "upper": 200,
+      "lethalThresholdUsingExistingPlayerLow": 200.34,
+      "rawChance": -0.02428571428571453,
+      "clampedChance": 0.12,
+      "oldClassification": "immune",
+      "newClassification": "immune",
+      "whiteMinimapAtPhysicalPlayerRadiusEqualHud": true,
+      "dangerTextRenderedAtPhysicalPlayerRadiusEqualHud": false
+    }
+  ],
+  "conditionalContinuousRendererArithmetic": [
+    {
+      "physicalRadiusFixture": 80,
+      "wobble": 0.8,
+      "phase": 0,
+      "idealFillBoxHalfExtent": 64.64000000000001,
+      "fallbackUpperIfUnlabelled": 74.33600000000001,
+      "fallbackUpperIfLocalReliable": 69.16480000000001,
+      "conditionalFullOutlineUpper": 80.00000000000001
+    },
+    {
+      "physicalRadiusFixture": 80,
+      "wobble": 0.8,
+      "phase": 1.5707963267948966,
+      "idealFillBoxHalfExtent": 65.33113594068244,
+      "fallbackUpperIfUnlabelled": 75.13080633178481,
+      "fallbackUpperIfLocalReliable": 69.90431545653021,
+      "conditionalFullOutlineUpper": 80.85536626322084
+    },
+    {
+      "physicalRadiusFixture": 80,
+      "wobble": 0.8,
+      "phase": 3.141592653589793,
+      "idealFillBoxHalfExtent": 65.26753830219675,
+      "fallbackUpperIfUnlabelled": 75.05766904752626,
+      "fallbackUpperIfLocalReliable": 69.83626598335053,
+      "conditionalFullOutlineUpper": 80.77665631459993
+    },
+    {
+      "physicalRadiusFixture": 80,
+      "wobble": 0.8,
+      "phase": 4.71238898038469,
+      "idealFillBoxHalfExtent": 64.63999999999999,
+      "fallbackUpperIfUnlabelled": 74.33599999999998,
+      "fallbackUpperIfLocalReliable": 69.16479999999999,
+      "conditionalFullOutlineUpper": 79.99999999999997
+    },
+    {
+      "physicalRadiusFixture": 120,
+      "wobble": 0.8,
+      "phase": 0,
+      "idealFillBoxHalfExtent": 96.96000000000001,
+      "fallbackUpperIfUnlabelled": 111.504,
+      "fallbackUpperIfLocalReliable": 103.74720000000002,
+      "conditionalFullOutlineUpper": 120.0
+    },
+    {
+      "physicalRadiusFixture": 120,
+      "wobble": 0.8,
+      "phase": 1.5707963267948966,
+      "idealFillBoxHalfExtent": 97.99670391102364,
+      "fallbackUpperIfUnlabelled": 112.69620949767719,
+      "fallbackUpperIfLocalReliable": 104.8564731847953,
+      "conditionalFullOutlineUpper": 121.28304939483124
+    },
+    {
+      "physicalRadiusFixture": 120,
+      "wobble": 0.8,
+      "phase": 3.141592653589793,
+      "idealFillBoxHalfExtent": 97.90130745329515,
+      "fallbackUpperIfUnlabelled": 112.58650357128941,
+      "fallbackUpperIfLocalReliable": 104.75439897502581,
+      "conditionalFullOutlineUpper": 121.16498447189993
+    },
+    {
+      "physicalRadiusFixture": 120,
+      "wobble": 0.8,
+      "phase": 4.71238898038469,
+      "idealFillBoxHalfExtent": 96.96,
+      "fallbackUpperIfUnlabelled": 111.50399999999999,
+      "fallbackUpperIfLocalReliable": 103.74719999999999,
+      "conditionalFullOutlineUpper": 119.99999999999999
+    },
+    {
+      "physicalRadiusFixture": 160,
+      "wobble": 0.8,
+      "phase": 0,
+      "idealFillBoxHalfExtent": 129.28000000000003,
+      "fallbackUpperIfUnlabelled": 148.67200000000003,
+      "fallbackUpperIfLocalReliable": 138.32960000000003,
+      "conditionalFullOutlineUpper": 160.00000000000003
+    },
+    {
+      "physicalRadiusFixture": 160,
+      "wobble": 0.8,
+      "phase": 1.5707963267948966,
+      "idealFillBoxHalfExtent": 130.6622718813649,
+      "fallbackUpperIfUnlabelled": 150.26161266356962,
+      "fallbackUpperIfLocalReliable": 139.80863091306043,
+      "conditionalFullOutlineUpper": 161.7107325264417
+    },
+    {
+      "physicalRadiusFixture": 160,
+      "wobble": 0.8,
+      "phase": 3.141592653589793,
+      "idealFillBoxHalfExtent": 130.5350766043935,
+      "fallbackUpperIfUnlabelled": 150.11533809505252,
+      "fallbackUpperIfLocalReliable": 139.67253196670106,
+      "conditionalFullOutlineUpper": 161.55331262919987
+    },
+    {
+      "physicalRadiusFixture": 160,
+      "wobble": 0.8,
+      "phase": 4.71238898038469,
+      "idealFillBoxHalfExtent": 129.27999999999997,
+      "fallbackUpperIfUnlabelled": 148.67199999999997,
+      "fallbackUpperIfLocalReliable": 138.32959999999997,
+      "conditionalFullOutlineUpper": 159.99999999999994
+    },
+    {
+      "physicalRadiusFixture": 200,
+      "wobble": 0.8,
+      "phase": 0,
+      "idealFillBoxHalfExtent": 161.60000000000002,
+      "fallbackUpperIfUnlabelled": 185.84,
+      "fallbackUpperIfLocalReliable": 172.91200000000003,
+      "conditionalFullOutlineUpper": 200.00000000000003
+    },
+    {
+      "physicalRadiusFixture": 200,
+      "wobble": 0.8,
+      "phase": 1.5707963267948966,
+      "idealFillBoxHalfExtent": 163.32783985170607,
+      "fallbackUpperIfUnlabelled": 187.82701582946197,
+      "fallbackUpperIfLocalReliable": 174.76078864132552,
+      "conditionalFullOutlineUpper": 202.13841565805205
+    },
+    {
+      "physicalRadiusFixture": 200,
+      "wobble": 0.8,
+      "phase": 3.141592653589793,
+      "idealFillBoxHalfExtent": 163.1688457554919,
+      "fallbackUpperIfUnlabelled": 187.64417261881567,
+      "fallbackUpperIfLocalReliable": 174.59066495837635,
+      "conditionalFullOutlineUpper": 201.94164078649987
+    },
+    {
+      "physicalRadiusFixture": 200,
+      "wobble": 0.8,
+      "phase": 4.71238898038469,
+      "idealFillBoxHalfExtent": 161.6,
+      "fallbackUpperIfUnlabelled": 185.83999999999997,
+      "fallbackUpperIfLocalReliable": 172.912,
+      "conditionalFullOutlineUpper": 199.99999999999997
+    }
+  ],
+  "candidate": {
+    "name": "grow-18",
+    "parent": "frozen grow-15 screen-03",
+    "plannerPath": "grow-next/lab/experiments/grow18/planner.js",
+    "plannerSha256": "fd77baecfd7002a66aee693527f88f6a666a072c18fe7802819bad98d2a63046",
+    "singleDecisionChange": {
+      "old": "const hard = red || o.clipped || chance >= .45;",
+      "new": "const hard = red || o.clipped || o.r >= playerLow * 1.08 || chance >= .45;"
+    },
+    "diagnostics": [
+      "hardThreats: local hard-hazard count",
+      "softThreats: local soft-hazard count",
+      "promotedLethalThreats: local formerly-soft bodies promoted by the nominal-radius condition"
+    ],
+    "diagnosticNeed": "Existing uncertainNpc counts all soft bodies before local filtering, while threats counts only local hazards. They cannot identify local hard/soft or mechanism exposure by subtraction.",
+    "unchanged": "Perception, radius intervals, red matching, geometry fallback, scouts (including post186 scouts from15), gains, wall logic, scoring coefficients, hazard range/limit and pursuit memory. The hard classification naturally uses the existing hard weight1 and hard clearance checks.",
+    "runtimeIntegrationOwner": "root; this agent did not change build/server/harness/protocol",
+    "newGameplayStarts": 0,
+    "activationOrSuccessClaim": false
+  },
+  "pureRegression": {
+    "schema": 1,
+    "kind": "pure planner and stop contract; no gameplay",
+    "pass": true,
+    "cases": 70,
+    "baselineSha256": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+    "plannerSha256": "fd77baecfd7002a66aee693527f88f6a666a072c18fe7802819bad98d2a63046",
+    "controllerSha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+    "regressionSha256": "2ce093b81e0097a32e201b59903118350c5eee8f8983a35a7ec3e457bb1af9df",
+    "normalizedSourceExactlyParent": true,
+    "changedFirstHeadingsIn18PromotionScenes": 10,
+    "liveGames": 0,
+    "browserRuns": 0,
+    "limitations": [
+      "Synthetic detector-level observations are not saved-pixel replay.",
+      "No complete recorded planner inputs exist in the final numeric logs; no natural-game decisions were replayed.",
+      "Geometry, radius intervals, scouting, gains, tracking, hazard range and scoring weights remain the parent policy.",
+      "The real release function is checked with an in-memory key sink; browser focus and dispatch remain an integration check."
+    ],
+    "rows": [
+      {
+        "name": "nominal-200-hud-180-distance-320",
+        "type": "promoted",
+        "hud": 180,
+        "distance": 320,
+        "oldFirst": 3,
+        "newFirst": 4,
+        "oldSecond": 3,
+        "newSecond": 4,
+        "oldClearance": 1000000,
+        "newClearance": 43.242016783883855,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-180-distance-400",
+        "type": "promoted",
+        "hud": 180,
+        "distance": 400,
+        "oldFirst": 2,
+        "newFirst": 2,
+        "oldSecond": 1,
+        "newSecond": 1,
+        "oldClearance": 1000000,
+        "newClearance": 88.34540228280412,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-180-distance-500",
+        "type": "promoted",
+        "hud": 180,
+        "distance": 500,
+        "oldFirst": 1,
+        "newFirst": 1,
+        "oldSecond": 1,
+        "newSecond": 1,
+        "oldClearance": 1000000,
+        "newClearance": 74.27685121643594,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-181-distance-320",
+        "type": "promoted",
+        "hud": 181,
+        "distance": 320,
+        "oldFirst": 3,
+        "newFirst": 4,
+        "oldSecond": 3,
+        "newSecond": 4,
+        "oldClearance": 1000000,
+        "newClearance": 42.52201678388383,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-181-distance-400",
+        "type": "promoted",
+        "hud": 181,
+        "distance": 400,
+        "oldFirst": 2,
+        "newFirst": 2,
+        "oldSecond": 1,
+        "newSecond": 1,
+        "oldClearance": 1000000,
+        "newClearance": 87.62540228280409,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-181-distance-500",
+        "type": "promoted",
+        "hud": 181,
+        "distance": 500,
+        "oldFirst": 1,
+        "newFirst": 1,
+        "oldSecond": 1,
+        "newSecond": 1,
+        "oldClearance": 1000000,
+        "newClearance": 73.55685121643592,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-182-distance-320",
+        "type": "promoted",
+        "hud": 182,
+        "distance": 320,
+        "oldFirst": 3,
+        "newFirst": 4,
+        "oldSecond": 3,
+        "newSecond": 4,
+        "oldClearance": 1000000,
+        "newClearance": 41.80201678388386,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-182-distance-400",
+        "type": "promoted",
+        "hud": 182,
+        "distance": 400,
+        "oldFirst": 2,
+        "newFirst": 2,
+        "oldSecond": 1,
+        "newSecond": 1,
+        "oldClearance": 1000000,
+        "newClearance": 86.90540228280412,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-182-distance-500",
+        "type": "promoted",
+        "hud": 182,
+        "distance": 500,
+        "oldFirst": 1,
+        "newFirst": 0,
+        "oldSecond": 1,
+        "newSecond": 2,
+        "oldClearance": 1000000,
+        "newClearance": 98.9295260912707,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-183-distance-320",
+        "type": "promoted",
+        "hud": 183,
+        "distance": 320,
+        "oldFirst": 3,
+        "newFirst": 4,
+        "oldSecond": 3,
+        "newSecond": 4,
+        "oldClearance": 1000000,
+        "newClearance": 41.08201678388383,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-183-distance-400",
+        "type": "promoted",
+        "hud": 183,
+        "distance": 400,
+        "oldFirst": 2,
+        "newFirst": 2,
+        "oldSecond": 1,
+        "newSecond": 1,
+        "oldClearance": 1000000,
+        "newClearance": 86.18540228280409,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-183-distance-500",
+        "type": "promoted",
+        "hud": 183,
+        "distance": 500,
+        "oldFirst": 1,
+        "newFirst": 0,
+        "oldSecond": 1,
+        "newSecond": 2,
+        "oldClearance": 1000000,
+        "newClearance": 98.20952609127067,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-184-distance-320",
+        "type": "promoted",
+        "hud": 184,
+        "distance": 320,
+        "oldFirst": 2,
+        "newFirst": 4,
+        "oldSecond": 2,
+        "newSecond": 4,
+        "oldClearance": 1000000,
+        "newClearance": 40.36201678388386,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-184-distance-400",
+        "type": "promoted",
+        "hud": 184,
+        "distance": 400,
+        "oldFirst": 2,
+        "newFirst": 2,
+        "oldSecond": 1,
+        "newSecond": 1,
+        "oldClearance": 1000000,
+        "newClearance": 85.46540228280412,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-184-distance-500",
+        "type": "promoted",
+        "hud": 184,
+        "distance": 500,
+        "oldFirst": 1,
+        "newFirst": 0,
+        "oldSecond": 1,
+        "newSecond": 2,
+        "oldClearance": 1000000,
+        "newClearance": 97.4895260912707,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-185-distance-320",
+        "type": "promoted",
+        "hud": 185,
+        "distance": 320,
+        "oldFirst": 2,
+        "newFirst": 4,
+        "oldSecond": 2,
+        "newSecond": 4,
+        "oldClearance": 1000000,
+        "newClearance": 39.64201678388383,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-185-distance-400",
+        "type": "promoted",
+        "hud": 185,
+        "distance": 400,
+        "oldFirst": 2,
+        "newFirst": 2,
+        "oldSecond": 1,
+        "newSecond": 1,
+        "oldClearance": 1000000,
+        "newClearance": 84.7454022828041,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "nominal-200-hud-185-distance-500",
+        "type": "promoted",
+        "hud": 185,
+        "distance": 500,
+        "oldFirst": 1,
+        "newFirst": 0,
+        "oldSecond": 1,
+        "newSecond": 2,
+        "oldClearance": 1000000,
+        "newClearance": 96.76952609127068,
+        "oldUncertain": 1,
+        "hard": 1,
+        "soft": 0,
+        "promoted": 1
+      },
+      {
+        "name": "just-below-nominal-lethal",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "at-nominal-lethal-inclusive",
+        "type": "promoted",
+        "threshold": 196.02,
+        "clearance": 86.90540228280412
+      },
+      {
+        "name": "nominal-190-below-lethal-hud-180",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "nominal-190-below-lethal-hud-181",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "nominal-190-below-lethal-hud-182",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "nominal-190-below-lethal-hud-183",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "nominal-190-below-lethal-hud-184",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "nominal-190-below-lethal-hud-185",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "v222-existing-classification-25-15",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-25-25",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "v222-existing-classification-25-200",
+        "type": "full-output-unchanged",
+        "clearance": 64.62859974439627,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-90-54",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-90-90",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-90-200",
+        "type": "full-output-unchanged",
+        "clearance": 99.82427847447238,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-150-90",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-150-150",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-150-200",
+        "type": "full-output-unchanged",
+        "clearance": 56.62427847447239,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-175-105",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-175-175",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-175-200",
+        "type": "full-output-unchanged",
+        "clearance": 54.48276984068991,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-179-107.39999999999999",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-179-179",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v222-existing-classification-179-200",
+        "type": "full-output-unchanged",
+        "clearance": 127.93429557577241,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v213-25-13.750000000000002",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-25-25",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 1
+      },
+      {
+        "name": "v213-25-32.5",
+        "type": "full-output-unchanged",
+        "clearance": 183.59059974439626,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v213-90-49.50000000000001",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-90-90",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-90-117",
+        "type": "full-output-unchanged",
+        "clearance": 153.68747847447239,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v213-179-98.45",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-179-179",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-179-232.70000000000002",
+        "type": "full-output-unchanged",
+        "clearance": 92.6622155757724,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v213-182-100.10000000000001",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-182-182",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-182-236.6",
+        "type": "full-output-unchanged",
+        "clearance": 87.4976555757724,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v213-186-102.30000000000001",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-186-186",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-186-241.8",
+        "type": "full-output-unchanged",
+        "clearance": 80.6115755757724,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "v213-195-107.25000000000001",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-195-195",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "v213-195-253.5",
+        "type": "full-output-unchanged",
+        "clearance": 65.11789557577242,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "immune-186-scout-false",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "immune-186-scout-true",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "immune-190-scout-false",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "immune-190-scout-true",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "immune-195-scout-false",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "immune-195-scout-true",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "already-hard-red",
+        "type": "full-output-unchanged",
+        "clearance": 91.97302982498175,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "already-hard-clipped",
+        "type": "full-output-unchanged",
+        "clearance": 306.784305667201,
+        "hard": 1,
+        "soft": 0
+      },
+      {
+        "name": "wall-recovery",
+        "type": "full-output-unchanged",
+        "clearance": 1000000,
+        "hard": 0,
+        "soft": 0
+      },
+      {
+        "name": "over-600ms-release",
+        "type": "release-contract",
+        "keysReleased": 3
+      },
+      {
+        "name": "explicit-stale-release",
+        "type": "release-contract",
+        "keysReleased": 3
+      }
+    ]
+  },
+  "replayLimitations": [
+    "Final numeric logs are not complete perception/planner states. No full natural decision replay was performed or claimed.",
+    "Model target selection does not identify an actual consumed or lethal NPC.",
+    "Screen and confirmation phases, versions and failure categories retain their original denominators.",
+    "A new finite pure fixture is a mechanism regression, not evidence of a better live win rate."
+  ],
+  "workPerformed": {
+    "readOnlyOriginalSources": true,
+    "candidateFilesWritten": [
+      "grow-next/lab/experiments/grow18/planner.js",
+      "grow-next/lab/experiments/grow18/planner.regression.mjs"
+    ],
+    "researchFile": "grow-next/research-strategy.json",
+    "browserRuns": 0,
+    "serversStarted": 0,
+    "githubWrites": 0,
+    "gameplayStarts": 0
+  }
+}

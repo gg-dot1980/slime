@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "kind": "existing repository sources; materialize locally without uploading duplicate game favicon payloads",
+  "repository": "gg-dot1980/slime",
+  "sourceCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+  "files": [
+    {
+      "gameVersion": "v2.13",
+      "sourcePath": "src/game-v2.13.html",
+      "path": "source/experiments/grow18/game-v2.13.html",
+      "runtimePath": "experiments/grow18/game-v2.13.html",
+      "bytes": 51125,
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "gitBlobSha": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.13.html"
+    },
+    {
+      "gameVersion": "v2.22",
+      "sourcePath": "src/game.html",
+      "path": "source/experiments/grow18/game-v2.22.html",
+      "runtimePath": "experiments/grow18/game-v2.22.html",
+      "bytes": 52422,
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "gitBlobSha": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game.html"
+    }
+  ],
+  "runtimeClockAndRandomness": "unchanged original game sources; source materialization does not execute or alter game logic"
+}

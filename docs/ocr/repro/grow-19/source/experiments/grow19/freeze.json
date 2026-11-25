@@ -1,0 +1,69 @@
+{
+  "frozenAt": "2026-11-25T06:42:23.897326+00:00",
+  "candidate": "grow-19",
+  "startsAtFreeze": 0,
+  "protocolHash": "6164d5b844b777019450774e81702f933817dce7a0c561da117ef47a0b7e3da1",
+  "files": {
+    "planner.js": {
+      "bytes": 15763,
+      "sha256": "b75c18be0d2444e3113bcd1fec302cca86ea7bc60844773b1a8511a19e7c4ee8"
+    },
+    "geometry.js": {
+      "bytes": 5169,
+      "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec"
+    },
+    "source-base.html": {
+      "bytes": 52177,
+      "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b"
+    },
+    "game-isolation.mjs": {
+      "bytes": 2797,
+      "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f"
+    },
+    "game-v2.13.html": {
+      "bytes": 51125,
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97"
+    },
+    "game-v2.22.html": {
+      "bytes": 52422,
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+    },
+    "harness.js": {
+      "bytes": 12439,
+      "sha256": "024d23c043268577cb0fced12e639b079fca8b3eeac9048d52a991dbed5bc854"
+    },
+    "server.mjs": {
+      "bytes": 2082,
+      "sha256": "37b40da087e0ca78f9d8a3b4212aa4ad478ebd82485460a83d9de6c9bfdde8f7"
+    },
+    "build-lab.mjs": {
+      "bytes": 13450,
+      "sha256": "4c48594e1738a46584c1ddc9128860c2afe0bee50bc4631c5a90d12682fd6cc2"
+    },
+    "index.html": {
+      "bytes": 233405,
+      "sha256": "7ccdef465829281411dd2055fee1101e1159e598ff04479274c4baa11d1c44a9"
+    },
+    "manifest.json": {
+      "bytes": 11515,
+      "sha256": "057c91d47a80ef4c91e24cc3daafc89e251e472dc5fd6d3d407c6c2c80bc5cc9"
+    },
+    "protocol.json": {
+      "bytes": 11515,
+      "sha256": "057c91d47a80ef4c91e24cc3daafc89e251e472dc5fd6d3d407c6c2c80bc5cc9"
+    },
+    "parent-manifest.json": {
+      "bytes": 3009,
+      "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5"
+    },
+    "deployed-game-verification.json": {
+      "bytes": 1355,
+      "sha256": "ceda096e575b4fac800b362e9e2903004918861691009d1ecae4343defbf7400"
+    },
+    "activation-verification.json": {
+      "bytes": 1102,
+      "sha256": "42203096e5c880b528a3b7fd7635f1eb9e37b5648fad475c47cf4e0c1a0d7efc"
+    }
+  },
+  "rule": "Do not modify any frozen file after first start; all starts retained, no replacements."
+}

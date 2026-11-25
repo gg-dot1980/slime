@@ -1,0 +1,148 @@
+{
+  "schemaVersion": 1,
+  "recordType": "bounded_synthetic_harness_regression",
+  "createdAt": "2026-11-25T06:40:21.299Z",
+  "status": "pass",
+  "protocolHash": "6164d5b844b777019450774e81702f933817dce7a0c561da117ef47a0b7e3da1",
+  "sourceHashes": {
+    "harness": "024d23c043268577cb0fced12e639b079fca8b3eeac9048d52a991dbed5bc854",
+    "server": "37b40da087e0ca78f9d8a3b4212aa4ad478ebd82485460a83d9de6c9bfdde8f7",
+    "planner": "b75c18be0d2444e3113bcd1fec302cca86ea7bc60844773b1a8511a19e7c4ee8",
+    "page": "7ccdef465829281411dd2055fee1101e1159e598ff04479274c4baa11d1c44a9"
+  },
+  "extractedFunctionHashes": {
+    "save": "f373c19f8b45e773d5d5101e158873b01a174e871f8fe9787df607c0e086babc",
+    "checkVisibleStop": "a6d91f5d05b35cde25691c57292bf9a36a41d32b9af110b7c9db9cc20af46aba",
+    "display": "52170ffcd1c71faf19d441c9f233725b3cbd32574febb4bc4bf13581642cfce5",
+    "screenReady": "cf6cbb606610883b841b8926ed8f775a8cf631133b20cf51faced9b82291e4f5",
+    "slot": "767b0f21185c1572c8af95ce7c6ce2d6572685ac4945ae7ffc01f75ce76d2d19",
+    "run": "e0f49fc45c2cf711ee3d8d1fdb02826743b577126dab9e1ce9a2128b7f45294c"
+  },
+  "method": "Verbatim function extraction into Node vm with synthetic visible HUD, DOM button stubs, controllable timer callbacks and fake HTTP acknowledgements. Real server request-handler extraction uses in-memory appendFile; no listening socket.",
+  "gameStarts": 0,
+  "browserStarts": 0,
+  "serverStarts": 0,
+  "networkRequests": 0,
+  "candidateFilesModified": false,
+  "limitations": [
+    "Synthetic cases establish only the asserted control/recording paths, not real browser timer scheduling, game success, pixel perception or crash durability.",
+    "An actual process/browser failure can still leave a started run without a native final; preserve denominator and reconcile raw plus pending records without replacement."
+  ],
+  "caseCount": 25,
+  "passed": 25,
+  "failed": 0,
+  "cases": [
+    {
+      "name": "visible150_does_not_cut_off",
+      "status": "pass"
+    },
+    {
+      "name": "visible151_stops_and_snapshot_cannot_be_overwritten",
+      "status": "pass"
+    },
+    {
+      "name": "settlement150_wins_despite_stale_hud_and_elapsed151",
+      "status": "pass"
+    },
+    {
+      "name": "settlement151_is_late_win",
+      "status": "pass"
+    },
+    {
+      "name": "win_without_visible_result_time_is_unknown",
+      "status": "pass"
+    },
+    {
+      "name": "visible_death_is_preserved",
+      "status": "pass"
+    },
+    {
+      "name": "manual_halt_stops_during_ending",
+      "status": "pass"
+    },
+    {
+      "name": "wall_limit_stops_during_ending",
+      "status": "pass"
+    },
+    {
+      "name": "ending_waits_for_settlement_within_wall_limit",
+      "status": "pass"
+    },
+    {
+      "name": "inactive_controller_is_abort",
+      "status": "pass"
+    },
+    {
+      "name": "gate_exact_four_each_and_two_wins_each",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_one_version_has_one_win",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_infrastructure_final_present",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_unknown_final_present",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_duplicate_run_identity",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_wrong_strategy",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_wrong_phase",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_late_win_not_success",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_partial_cohort",
+      "status": "pass"
+    },
+    {
+      "name": "gate_rejects_extra_final",
+      "status": "pass"
+    },
+    {
+      "name": "watchdog_runs_while_progress_write_is_pending",
+      "status": "pass",
+      "detail": {
+        "watchdogOutcome": "deadline_cutoff",
+        "transportClassification": "infrastructure_error",
+        "syntheticStarts": 1,
+        "repeatedFinals": 0
+      }
+    },
+    {
+      "name": "acknowledgement_lost_after_final_commit_never_creates_second_final",
+      "status": "pass",
+      "detail": {
+        "finalPostAttempts": 1,
+        "committedFinals": 1,
+        "originalOutcome": "win_le150",
+        "batchErrorMarksUnconfirmedFinal": true
+      }
+    },
+    {
+      "name": "server_rejects_existing_final_without_rewrite",
+      "status": "pass"
+    },
+    {
+      "name": "server_reserves_identity_before_async_append",
+      "status": "pass"
+    },
+    {
+      "name": "server_failed_append_releases_reservation",
+      "status": "pass"
+    }
+  ]
+}
