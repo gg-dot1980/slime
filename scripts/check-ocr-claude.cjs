@@ -2,7 +2,7 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const h=fs.readFileSync('src/ocr-claude.html','utf8');
 const slice=h.slice(h.indexOf('const dirs='),h.indexOf('let lastVision=0;'));
-const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude,planClaude5}',c);
+const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude,planClaude5,whiteDots}',c);
 const obj=(x,y,r,more={})=>({x,y,r,npc:true,clipped:false,blocked:false,isRed:false,vx:0,vy:0,...more});
 const food=(x,y)=>({x,y,r:9,npc:false,clipped:false,blocked:false,vx:0,vy:0});
 const map=(threats=[])=>({x:0,y:0,width:144,height:144*9/13,player:{x:72,y:50},threats,visibleWalls:null});
@@ -56,4 +56,16 @@ test('claude-6 keeps a clipped body lethal when a red dot is there',()=>{const m
 test('claude-6 keeps a clipped body lethal with no map dot',()=>{const d=run6([obj(500,0,30,{clipped:true,dangerRadius:80})],50,hmap([]));assert.equal(d.clipWhites,0);assert.equal(d.threats,1);});
 test('claude-6 keeps a clipped body lethal without a map',()=>{const d=run6([obj(500,0,30,{clipped:true,dangerRadius:80})],50,null);assert.equal(d.threats,1);});
 test('claude-6 clipped-white is never a collision gain',()=>{const m=hmap([{x:72+120/10400*144,y:50,red:false}]);const d=run6([obj(120,0,30,{clipped:true,dangerRadius:80})],50,m);assert.equal(d.ateN,0);});
-console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4','claude-5','claude-6'],newGames:0}));
+// whiteDots: synthetic minimap pixels. Background #203238; dots drawn with fractional coverage like canvas anti-aliasing.
+const img=(w,h)=>{const d=new Uint8ClampedArray(w*h*4);for(let i=0;i<w*h;i++){d[i*4]=32;d[i*4+1]=50;d[i*4+2]=56;d[i*4+3]=255;}return {data:d,w,h};};
+const blend=(im,x,y,col,a)=>{const i=(y*im.w+x)*4,bg=[im.data[i],im.data[i+1],im.data[i+2]];for(let k=0;k<3;k++)im.data[i+k]=Math.round(bg[k]+(col[k]-bg[k])*a);};
+const dot=(im,cx,cy,rad,col)=>{for(let y=Math.floor(cy-rad-1);y<=cy+rad+1;y++)for(let x=Math.floor(cx-rad-1);x<=cx+rad+1;x++){let cov=0;for(let sy=0;sy<4;sy++)for(let sx=0;sx<4;sx++)if(Math.hypot(x+(sx+.5)/4-cx,y+(sy+.5)/4-cy)<=rad)cov++;if(cov)blend(im,x,y,col,cov/16);}};
+const mm={x:0,y:0,width:144,height:100,player:{x:72,y:50},pixelRatio:1};
+test('whiteDots finds a 1.2 px anti-aliased white dot',()=>{const im=img(144,100);dot(im,30.3,20.6,1.2,[211,238,225]);const out=c.api.whiteDots(im,144,100,mm);assert.equal(out.length,1);assert(Math.hypot(out[0].x-30.3,out[0].y-20.6)<1);});
+test('whiteDots finds a 3 px white dot',()=>{const im=img(144,100);dot(im,100.5,70.5,3,[211,238,225]);assert.equal(c.api.whiteDots(im,144,100,mm).length,1);});
+test('whiteDots ignores red dots and the player/camera colour',()=>{const im=img(144,100);dot(im,30,20,2,[255,138,126]);dot(im,100,70,2.5,[163,243,209]);for(let x=40;x<90;x++){blend(im,x,80,[163,243,209],1);blend(im,x,81,[163,243,209],1);}assert.equal(c.api.whiteDots(im,144,100,mm).length,0);});
+test('whiteDots ignores the player marker position',()=>{const im=img(144,100);dot(im,72,50,1.2,[211,238,225]);assert.equal(c.api.whiteDots(im,144,100,mm).length,0);});
+const run9=(xs,r,m)=>c.api.planClaude5(xs,r,m,300,{x:0,y:0},{x:1,y:0},{clipWhite:true,clipRedClear:6});
+test('claude-9 keeps a clipped body lethal when a red dot is 5 map px away',()=>{const mx=72+500/10400*144,m=hmap([{x:mx,y:50,red:false}],[{x:mx+5,y:50}]);assert.equal(run9([obj(500,0,30,{clipped:true,dangerRadius:80})],50,m).clipWhites,0);assert.equal(run6([obj(500,0,30,{clipped:true,dangerRadius:80})],50,m).clipWhites,1);});
+test('claude-9 still approaches a clipped white with no red within 6 px',()=>{const mx=72+500/10400*144,m=hmap([{x:mx,y:50,red:false}],[{x:mx+9,y:50}]);assert.equal(run9([obj(500,0,30,{clipped:true,dangerRadius:80})],50,m).clipWhites,1);});
+console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4','claude-5','claude-6','claude-7(=claude-6 planner, 50ms tick)','claude-8(=claude-6 planner + whiteDots)','claude-9(claude-8, clip red clearance 6px)'],newGames:0}));

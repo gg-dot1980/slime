@@ -2,7 +2,7 @@
 // (positions, radii, velocities of every NPC and food) through a hook injected into the served page, and
 // drives the game's own key set. It is NOT an OCR controller and must never ship; its only purpose is to
 // show whether "size 200 within 150 s" is reachable at all with good play. Repo game files are unchanged.
-// Usage: node scripts/ocr-claude-oracle.mjs <url> <out.jsonl> <versions,comma> <gamesPerVersion> [label]
+// Usage: [ORACLE_VIEW=1] [ORACLE_MS=50] node scripts/ocr-claude-oracle.mjs <url> <out.jsonl> <versions,comma> <gamesPerVersion> [label]
 import {appendFile} from 'node:fs/promises';
 import {createRequire} from 'node:module';
 const req=createRequire(process.env.PLAYWRIGHT_DIR?process.env.PLAYWRIGHT_DIR+'/':import.meta.url);
@@ -13,7 +13,7 @@ const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
 await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fetch(),body=await res.text(),anchor="(()=>{'use strict';";
  await route.fulfill({response:res,body:body.split(anchor).join(anchor+"window.__dbg=()=>({player,slimes,foods,keys,elapsed,running,W,H,cam,vw,vh,setBoost:v=>{boosting=v}});")});});
-const bot=(viewOnly)=>{const DIRS=[...Array(16)].map((_,i)=>({x:Math.cos(i*Math.PI/8),y:Math.sin(i*Math.PI/8)}));
+const bot=([viewOnly,period])=>{const DIRS=[...Array(16)].map((_,i)=>({x:Math.cos(i*Math.PI/8),y:Math.sin(i*Math.PI/8)}));
  const keyFor=d=>[d.x>.38?'ArrowRight':d.x<-.38?'ArrowLeft':null,d.y>.38?'ArrowDown':d.y<-.38?'ArrowUp':null].filter(Boolean);
  const stats={eats:0,ticks:0};window.__oracle=stats;let prevR=null;
  window.__oracleTimer=setInterval(()=>{const g=window.__dbg();if(!g.running)return;const {player:p,slimes,foods,keys,W,H}=g,R=p.r;g.setBoost(true);stats.ticks++;
@@ -35,12 +35,12 @@ const bot=(viewOnly)=>{const DIRS=[...Array(16)].map((_,i)=>({x:Math.cos(i*Math.
    const wall=Math.min(p.x+d.x*400,p.y+d.y*400,W-p.x-d.x*400,H-p.y-d.y*400)-R;if(wall<0)score+=wall*.05;
    if(!best||score>best.score)best={d,score};}
   for(const k of ['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'])keys.delete(k);for(const k of keyFor(best.d))keys.add(k);
-  if(prevR!==null&&R-prevR>1.5)stats.eats++;prevR=R;},50);return 'installed';};
+  if(prevR!==null&&R-prevR>1.5)stats.eats++;prevR=R;},period);return 'installed';};
 let index=0;
 for(const version of order){index++;const page=await ctx.newPage(),started=Date.now(),row={label,index,version,outcome:'unknown',samples:[]};
  try{await page.goto(url);await page.selectOption('#gameChoice','/'+version);
   await page.waitForFunction(v=>document.getElementById('gameVersion').textContent.includes(v),version,{timeout:30000});await page.waitForTimeout(1500);
-  const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);row.bot=await f.evaluate(bot,!!process.env.ORACLE_VIEW);row.viewOnly=!!process.env.ORACLE_VIEW;
+  const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);const period=Number(process.env.ORACLE_MS)||50;row.bot=await f.evaluate(bot,[!!process.env.ORACLE_VIEW,period]);row.viewOnly=!!process.env.ORACLE_VIEW;row.periodMs=period;
   for(;;){await page.waitForTimeout(1000);const s=await f.evaluate(()=>{const g=window.__dbg();return {t:g.elapsed,r:g.player.r,running:g.running,title:document.getElementById('title')?.textContent||''};});
    if(!row.samples.length||s.t-row.samples.at(-1)[0]>=10)row.samples.push([Math.round(s.t),Math.round(s.r)]);
    if(s.r>=200||(!s.running&&s.t>1)){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome=s.r>=200?(s.t<=150?'win<=150':'win>150'):'death';break;}
