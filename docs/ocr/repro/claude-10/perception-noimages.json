@@ -1,0 +1,68 @@
+{
+ "v2.13": {
+  "samples": 450,
+  "trueByClass": {
+   "prey": 261,
+   "neutral": 60,
+   "lethal": 529
+  },
+  "detectedByClass": {
+   "prey": 223,
+   "neutral": 52,
+   "lethal": 279
+  },
+  "lethalSeenSafe": 0,
+  "falsePrey": 1,
+  "preyCalled": 150,
+  "missedPrey": 112,
+  "ghost": 322,
+  "detTotal": 876,
+  "detectionRate": {
+   "prey": "85.4%",
+   "neutral": "86.7%",
+   "lethal": "52.7%"
+  },
+  "radiusRatioMedian": 1.03,
+  "radiusRatioP10": 1,
+  "radiusRatioP90": 1.08,
+  "positionErrorMedian": 5.1,
+  "positionScaleMedian": 0.99,
+  "lethalLookingSafe": "0/279",
+  "falsePreyRate": "0.7%",
+  "preyMissed": "112/261",
+  "ghostDetections": "322/876"
+ },
+ "v2.22": {
+  "samples": 418,
+  "trueByClass": {
+   "prey": 91,
+   "neutral": 48,
+   "lethal": 686
+  },
+  "detectedByClass": {
+   "prey": 83,
+   "neutral": 42,
+   "lethal": 295
+  },
+  "lethalSeenSafe": 0,
+  "falsePrey": 0,
+  "preyCalled": 59,
+  "missedPrey": 32,
+  "ghost": 402,
+  "detTotal": 822,
+  "detectionRate": {
+   "prey": "91.2%",
+   "neutral": "87.5%",
+   "lethal": "43%"
+  },
+  "radiusRatioMedian": 1.03,
+  "radiusRatioP10": 1.01,
+  "radiusRatioP90": 1.05,
+  "positionErrorMedian": 20.02,
+  "positionScaleMedian": 0.97,
+  "lethalLookingSafe": "0/295",
+  "falsePreyRate": "0%",
+  "preyMissed": "32/91",
+  "ghostDetections": "402/822"
+ }
+}

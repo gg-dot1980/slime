@@ -15,7 +15,11 @@ await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fe
  await route.fulfill({response:res,body:body.split(anchor).join(anchor+"window.__dbg=()=>({player,slimes,foods,keys,elapsed,running,W,H,cam,vw,vh,setBoost:v=>{boosting=v}});")});});
 const bot=([viewOnly,period])=>{const DIRS=[...Array(16)].map((_,i)=>({x:Math.cos(i*Math.PI/8),y:Math.sin(i*Math.PI/8)}));
  const keyFor=d=>[d.x>.38?'ArrowRight':d.x<-.38?'ArrowLeft':null,d.y>.38?'ArrowDown':d.y<-.38?'ArrowUp':null].filter(Boolean);
- const stats={eats:0,ticks:0};window.__oracle=stats;let prevR=null;
+ const stats={eats:0,ticks:0,eatList:[],foodGain:0,npcGain:0};window.__oracle=stats;let prevR=null;
+ // Growth classification identical to the batch observer: NPC eat if a smaller slime vanished at contact, else food.
+ {let lastR=window.__dbg().player.r,last=new Set(window.__dbg().slimes);window.__oracleObs=setInterval(()=>{const g=window.__dbg(),p=g.player,cur=new Set(g.slimes),gone=[...last].filter(q=>!cur.has(q)),dr=p.r-lastR;
+  const mine=gone.filter(q=>Math.hypot(q.x-p.x,q.y-p.y)<(lastR+q.r)*.72+80&&lastR>=q.r*1.08);
+  if(mine.length&&dr>0){stats.npcGain+=dr;for(const q of mine)stats.eatList.push([Math.round(g.elapsed*10)/10,Math.round(lastR),Math.round(q.r/lastR*100)/100,Math.round(dr*10)/10]);}else if(dr>0)stats.foodGain+=dr;lastR=p.r;last=cur;},50);}
  window.__oracleTimer=setInterval(()=>{const g=window.__dbg();if(!g.running)return;const {player:p,slimes,foods,keys,W,H}=g,R=p.r;g.setBoost(true);stats.ticks++;
   const c=p.color,bright=(.2126*c[0]+.7152*c[1]+.0722*c[2])/255,S=Math.max(92,260-(R-25)*.65)*(.72+bright*.58)*1.38;
   // ORACLE_VIEW=1: only what the screen shows — exact data inside the camera view; outside it, minimap-like
@@ -46,7 +50,7 @@ for(const version of order){index++;const page=await ctx.newPage(),started=Date.
    if(s.r>=200||(!s.running&&s.t>1)){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome=s.r>=200?(s.t<=150?'win<=150':'win>150'):'death';break;}
    if(s.t>150){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome='cutoff150';break;}
    if(Date.now()-started>300000){row.outcome='wall-timeout';break;}}
-  row.oracle=await f.evaluate(()=>{clearInterval(window.__oracleTimer);return window.__oracle;});
+  row.oracle=await f.evaluate(()=>{clearInterval(window.__oracleTimer);clearInterval(window.__oracleObs);return window.__oracle;});
  }catch(e){row.outcome='infra-error';row.error=String(e).slice(0,300);}
  await appendFile(out,JSON.stringify(row)+'\n');console.log(index,version,row.outcome,row.gameSeconds,row.size,row.oracle?.eats);await page.close();}
 await browser.close();
