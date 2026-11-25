@@ -13,7 +13,7 @@ const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
 await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fetch(),body=await res.text(),anchor="(()=>{'use strict';";
  await route.fulfill({response:res,body:body.split(anchor).join(anchor+"window.__dbg=()=>({player,slimes,foods,keys,elapsed,running,W,H,cam,vw,vh,setBoost:v=>{boosting=v}});")});});
-const bot=([viewOnly,period,rule])=>{const K=rule==='v1'||rule==='v2'?25:15;const DIRS=[...Array(16)].map((_,i)=>({x:Math.cos(i*Math.PI/8),y:Math.sin(i*Math.PI/8)}));
+const bot=([viewOnly,period,rule])=>{const K=['v1','v2','v3'].includes(rule)?25:15;const DIRS=[...Array(16)].map((_,i)=>({x:Math.cos(i*Math.PI/8),y:Math.sin(i*Math.PI/8)}));
  const keyFor=d=>[d.x>.38?'ArrowRight':d.x<-.38?'ArrowLeft':null,d.y>.38?'ArrowDown':d.y<-.38?'ArrowUp':null].filter(Boolean);
  const stats={eats:0,ticks:0,eatList:[],foodGain:0,npcGain:0};window.__oracle=stats;let prevR=null;
  // Growth classification identical to the batch observer: NPC eat if a smaller slime vanished at contact, else food.
@@ -21,15 +21,16 @@ const bot=([viewOnly,period,rule])=>{const K=rule==='v1'||rule==='v2'?25:15;cons
   const mine=gone.filter(q=>Math.hypot(q.x-p.x,q.y-p.y)<(lastR+q.r)*.72+80&&lastR>=q.r*1.08);
   if(mine.length&&dr>0){stats.npcGain+=dr;for(const q of mine)stats.eatList.push([Math.round(g.elapsed*10)/10,Math.round(lastR),Math.round(q.r/lastR*100)/100,Math.round(dr*10)/10]);}else if(dr>0)stats.foodGain+=dr;lastR=p.r;last=cur;},50);}
  window.__oracleTimer=setInterval(()=>{const g=window.__dbg();if(!g.running)return;const {player:p,slimes,foods,keys,W,H}=g,R=p.r;g.setBoost(true);stats.ticks++;
-  const c=p.color,bright=(.2126*c[0]+.7152*c[1]+.0722*c[2])/255,S=Math.max(92,260-(R-25)*.65)*(.72+bright*.58)*1.38;
+  const c=p.color,bright=(.2126*c[0]+.7152*c[1]+.0722*c[2])/255,S=Math.max(92,260-(R-25)*.65)*(.72+bright*.58)*1.38;stats.spd=stats.spd||[];if(stats.ticks%4===0&&stats.spd.length<3000)stats.spd.push(Math.round(Math.hypot(p.vx,p.vy)/(S/1.38)*100)/100);
   // ORACLE_VIEW=1: only what the screen shows — exact data inside the camera view; outside it, minimap-like
   // position + red(>1.12R)/white class only (no radius, no velocity). Off-view whites attract but never count as eaten.
   const inView=s=>s.x+s.r>g.cam.x&&s.x-s.r<g.cam.x+g.vw&&s.y+s.r>g.cam.y&&s.y-s.r<g.cam.y+g.vh;
-  const seen=viewOnly?slimes.map(s=>inView(s)?s:s.r>R*1.12?{x:s.x,y:s.y,r:R*1.5,vx:0,vy:0,mapRed:true}:{x:s.x,y:s.y,r:R*.6,vx:0,vy:0,mapWhite:true}):slimes;
+  const seen=viewOnly?slimes.map(s=>inView(s)?s:s.r>R*1.12?{x:s.x,y:s.y,r:R*1.5,vx:0,vy:0,mapRed:true}:{x:s.x,y:s.y,r:(rule==='v3'&&s.r>=45.6)?Math.min(s.r,114):(rule==='v3'?Math.min(R*.6,45):R*.6),vx:0,vy:0,mapWhite:true,sized:rule==='v3'&&s.r>=45.6}):slimes;
+  // rule v3: minimap dot radius = clamp(r/38,1.2,3) carries size for 45.6<=r<=114; whites read as >=1.06R are not prey.
   const near=seen.map(s=>({s,d:Math.hypot(s.x-p.x,s.y-p.y)})).filter(o=>o.d<2600),food=foods.filter(f=>Math.abs(f.x-p.x)<700&&Math.abs(f.y-p.y)<700);
   let prey=null;for(const o of near)if(R>=o.s.r*1.1){const gain=Math.sqrt(R*R+.55*o.s.r*o.s.r)-R,v=gain/(o.d/S+1);if(!prey||v>prey.v)prey={...o,v};}
   let best=null;for(const d of DIRS){let score=0,minGap=1e9,ateNpc=new Set(),ateFood=0;
-   for(let k=1;k<=K;k++){const t=k*.1,x=p.x+d.x*S*t,y=p.y+d.y*S*t;if(x<R||y<R||x>W-R||y>H-R){score-=rule==='v2'?400:40;break;}if(rule==='v2'){const wd=Math.min(x,y,W-x,H-y)-R;if(wd<150)score-=(150-wd)*.6/(t+.3);}
+   for(let k=1;k<=K;k++){const t=k*.1,x=p.x+d.x*S*t,y=p.y+d.y*S*t;if(x<R||y<R||x>W-R||y>H-R){score-=(rule==='v2'||rule==='v3')?400:40;break;}if(rule==='v2'||rule==='v3'){const wd=Math.min(x,y,W-x,H-y)-R;if(wd<150)score-=(150-wd)*.6/(t+.3);}
     for(const o of near){const s=o.s,sx=s.x+s.vx*t,sy=s.y+s.vy*t,gap=Math.hypot(sx-x,sy-y)-(R+s.r)*.72;
      if(s.r>=R*1.06)minGap=Math.min(minGap,gap);else if(R>=s.r*1.1&&gap<0&&!ateNpc.has(s)){ateNpc.add(s);score+=(Math.sqrt(R*R+.55*s.r*s.r)-R)*8/(t+.3);}}
     for(const f of food)if(!f.__o&&Math.hypot(f.x-x,f.y-y)<R+f.r*.55){f.__o=1;ateFood++;score+=.4*2/(t+.3);}}
@@ -38,7 +39,7 @@ const bot=([viewOnly,period,rule])=>{const K=rule==='v1'||rule==='v2'?25:15;cons
    if(prey){const px=prey.s.x-p.x,py=prey.s.y-p.y;score+=(d.x*px+d.y*py)/prey.d*prey.v*6;}
    const wall=Math.min(p.x+d.x*400,p.y+d.y*400,W-p.x-d.x*400,H-p.y-d.y*400)-R;if(wall<0)score+=wall*.05;
    // rule v1: prefer room to escape — crowd of lethal bodies around the 1.5 s end point, and distance to walls.
-   if(rule==='v1'||rule==='v2'){const ex=p.x+d.x*S*1.5,ey=p.y+d.y*S*1.5;let crowd=0;for(const o of near){const s=o.s;if(s.r>=R*1.06){const dd=Math.max(120,Math.hypot(s.x-ex,s.y-ey)-s.r);crowd+=(s.r/R)*(250/dd)**2;}}score-=crowd*6;
+   if(['v1','v2','v3'].includes(rule)){const ex=p.x+d.x*S*1.5,ey=p.y+d.y*S*1.5;let crowd=0;for(const o of near){const s=o.s;if(s.r>=R*1.06){const dd=Math.max(120,Math.hypot(s.x-ex,s.y-ey)-s.r);crowd+=(s.r/R)*(250/dd)**2;}}score-=crowd*6;
     const wd=Math.min(ex,ey,W-ex,H-ey)-R;if(wd<600)score-=(600-wd)*.04;}
    if(!best||score>best.score)best={d,score};}
   for(const k of ['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'])keys.delete(k);for(const k of keyFor(best.d))keys.add(k);
