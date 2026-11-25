@@ -1,0 +1,31 @@
+{
+  "kind": "publication packaging verification; not browser or gameplay",
+  "strategyVersion": "grow-11",
+  "sitesSourceCommit": "9a60e39a74eef32834b0602d089fc4d665337ae3",
+  "sourceManifestSha256": "035d5286546c1969080e1fb485599d40ab7cafca9cee0638251bb4c36b9c1f2e",
+  "node": "v24.22.3",
+  "generatedPageSha256": "87b6ed4ac73b6c2ad28a459862e558da5074fd788bde94315d10d61b93399971",
+  "generatedPageBytes": 314997,
+  "parsedScripts": 7,
+  "isolatedGameVersions": 4,
+  "sourceDependenciesVerified": 12,
+  "syntheticChecks": [
+    {
+      "script": "scripts/check-grow11.cjs",
+      "status": "passed",
+      "stdoutBytes": 4684,
+      "stdoutSha256": "2c0df608eb5165911a03f37b85708e78f41409ef9b1678a4bd4eaf6ad80cc6b3",
+      "stdoutArtifact": "results.json"
+    }
+  ],
+  "browserRuns": 0,
+  "newGameplayStarts": 0,
+  "routeParity": "not rerun; full historical Sites routes/media are outside this capsule",
+  "recordedAtUtc": "2026-11-25T04:42:58.344491+00:00",
+  "publicationAdapterSha256": "a2c4fc304fc67481903fb2f7b4293a9763544d08a80a522e58867722b2e26bfd",
+  "commandFromRepositoryRoot": "node docs/ocr/repro/grow-7/source/reproduce.mjs 11 /tmp/slime-grow-11-repro --synthetic",
+  "syntheticDeclaredChecksOrScenarios": [
+    32
+  ],
+  "historicalBrowserResultsRerun": false
+}

@@ -1,0 +1,1091 @@
+{
+  "schemaVersion": 1,
+  "deadlineSeconds": 150,
+  "inputEventCount": 240,
+  "ignoredEventCount": 0,
+  "integrity": {
+    "ok": true,
+    "issues": []
+  },
+  "batches": [
+    {
+      "batchId": "screen-01",
+      "plannedRuns": 8,
+      "recordedSlots": 8,
+      "recordedStarts": 8,
+      "recordedFinals": 8,
+      "lifecycle": [
+        {
+          "schema": 1,
+          "at": "2026-11-25T01:00:35.968Z",
+          "kind": "batch_end",
+          "batch": "screen-01",
+          "halted": false,
+          "completed": 8,
+          "planned": 8
+        }
+      ],
+      "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18"
+    }
+  ],
+  "manifests": [
+    {
+      "schema": 1,
+      "at": "2026-11-25T00:42:02.441Z",
+      "kind": "batch_start",
+      "batch": "screen-01",
+      "protocol": {
+        "schema": 1,
+        "createdAt": "2026-11-25T00:41:44.328Z",
+        "baseSiteCommit": "14c1815351b32096b325e032331b90c1f7873159",
+        "sourceHash": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "harnessHash": "8d43cd9ff97c74fa1e8884caf5a14a4b205cdcdb65cfa92393a96d58f46ed422",
+        "buildHash": "2509e38b38569aa5a033ea8d64df83facc2ea7dd597d3edd776309ae2b972153",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "isolationHash": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+        "games": {
+          "v2.13": {
+            "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+            "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+          },
+          "v2.22": {
+            "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+            "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+          }
+        },
+        "viewport": {
+          "gameWidth": 2000,
+          "gameHeight": 1163
+        },
+        "seed": "natural Math.random; unknown",
+        "controller": "rendered canvas pixels + visible HUD only",
+        "input": "Arrow keys + Space boost",
+        "maxComputeMs": 200,
+        "concurrency": 1,
+        "screen": {
+          "id": "screen-01",
+          "order": [
+            {
+              "strategy": "grow-12",
+              "version": "v2.13"
+            },
+            {
+              "strategy": "grow-12",
+              "version": "v2.22"
+            },
+            {
+              "strategy": "grow-13",
+              "version": "v2.13"
+            },
+            {
+              "strategy": "grow-13",
+              "version": "v2.22"
+            },
+            {
+              "strategy": "grow-13",
+              "version": "v2.13"
+            },
+            {
+              "strategy": "grow-13",
+              "version": "v2.22"
+            },
+            {
+              "strategy": "grow-12",
+              "version": "v2.13"
+            },
+            {
+              "strategy": "grow-12",
+              "version": "v2.22"
+            }
+          ]
+        },
+        "confirmation": {
+          "id": "confirm-01",
+          "NPerVersion": 12,
+          "condition": "grow-13 screen >=1/2 on each version; frozen same candidate"
+        },
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18"
+      },
+      "planned": [
+        {
+          "strategy": "grow-12",
+          "version": "v2.13"
+        },
+        {
+          "strategy": "grow-12",
+          "version": "v2.22"
+        },
+        {
+          "strategy": "grow-13",
+          "version": "v2.13"
+        },
+        {
+          "strategy": "grow-13",
+          "version": "v2.22"
+        },
+        {
+          "strategy": "grow-13",
+          "version": "v2.13"
+        },
+        {
+          "strategy": "grow-13",
+          "version": "v2.22"
+        },
+        {
+          "strategy": "grow-12",
+          "version": "v2.13"
+        },
+        {
+          "strategy": "grow-12",
+          "version": "v2.22"
+        }
+      ]
+    }
+  ],
+  "groups": [
+    {
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.13",
+      "strategy": "grow-12",
+      "plannedRuns": 2,
+      "startedRuns": 2,
+      "visiblyConfirmedStarts": 2,
+      "visiblyUnconfirmedStarts": 0,
+      "startConfirmationNotRecorded": 0,
+      "finalizedRuns": 2,
+      "counts": {
+        "win_le150": 0,
+        "win_late": 0,
+        "death": 1,
+        "deadline_cutoff": 1,
+        "game_timeout": 0,
+        "controller_abort": 0,
+        "infrastructure_error": 0,
+        "unknown": 0,
+        "in_progress": 0
+      },
+      "winRate": 0,
+      "winRateFraction": "0/2",
+      "wilson95": {
+        "low": 0,
+        "high": 0.6576197724933469
+      },
+      "denominator": "all_recorded_start_attempts_including_unconfirmed_starts_aborts_errors_unknowns_and_in_progress",
+      "provisional": false,
+      "computeMs": {
+        "n": 1289,
+        "median": 11.400000000372529,
+        "p95": 22.799999999813735,
+        "p99": 31.5,
+        "max": 60.39999999944121
+      },
+      "computeOverruns": 0,
+      "winningGameSeconds": {
+        "n": 0,
+        "median": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "deathGameSeconds": {
+        "n": 1,
+        "median": 108,
+        "p95": 108,
+        "p99": 108,
+        "max": 108
+      },
+      "cutoffObservedSize": {
+        "n": 1,
+        "median": 115,
+        "p95": 115,
+        "p99": 115,
+        "max": 115
+      },
+      "runIds": [
+        "screen-01-01",
+        "screen-01-07"
+      ]
+    },
+    {
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.22",
+      "strategy": "grow-12",
+      "plannedRuns": 2,
+      "startedRuns": 2,
+      "visiblyConfirmedStarts": 2,
+      "visiblyUnconfirmedStarts": 0,
+      "startConfirmationNotRecorded": 0,
+      "finalizedRuns": 2,
+      "counts": {
+        "win_le150": 0,
+        "win_late": 0,
+        "death": 0,
+        "deadline_cutoff": 2,
+        "game_timeout": 0,
+        "controller_abort": 0,
+        "infrastructure_error": 0,
+        "unknown": 0,
+        "in_progress": 0
+      },
+      "winRate": 0,
+      "winRateFraction": "0/2",
+      "wilson95": {
+        "low": 0,
+        "high": 0.6576197724933469
+      },
+      "denominator": "all_recorded_start_attempts_including_unconfirmed_starts_aborts_errors_unknowns_and_in_progress",
+      "provisional": false,
+      "computeMs": {
+        "n": 1498,
+        "median": 11.5,
+        "p95": 22.81499999989754,
+        "p99": 31.80899999980814,
+        "max": 57.10000000055879
+      },
+      "computeOverruns": 0,
+      "winningGameSeconds": {
+        "n": 0,
+        "median": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "deathGameSeconds": {
+        "n": 0,
+        "median": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "cutoffObservedSize": {
+        "n": 2,
+        "median": 107,
+        "p95": 113.3,
+        "p99": 113.86,
+        "max": 114
+      },
+      "runIds": [
+        "screen-01-02",
+        "screen-01-08"
+      ]
+    },
+    {
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.13",
+      "strategy": "grow-13",
+      "plannedRuns": 2,
+      "startedRuns": 2,
+      "visiblyConfirmedStarts": 2,
+      "visiblyUnconfirmedStarts": 0,
+      "startConfirmationNotRecorded": 0,
+      "finalizedRuns": 2,
+      "counts": {
+        "win_le150": 1,
+        "win_late": 0,
+        "death": 0,
+        "deadline_cutoff": 1,
+        "game_timeout": 0,
+        "controller_abort": 0,
+        "infrastructure_error": 0,
+        "unknown": 0,
+        "in_progress": 0
+      },
+      "winRate": 0.5,
+      "winRateFraction": "1/2",
+      "wilson95": {
+        "low": 0.09453120573423074,
+        "high": 0.9054687942657693
+      },
+      "denominator": "all_recorded_start_attempts_including_unconfirmed_starts_aborts_errors_unknowns_and_in_progress",
+      "provisional": false,
+      "computeMs": {
+        "n": 2983,
+        "median": 12.200000000186265,
+        "p95": 21.90000000037253,
+        "p99": 31.57199999989935,
+        "max": 63.799999999813735
+      },
+      "computeOverruns": 0,
+      "winningGameSeconds": {
+        "n": 1,
+        "median": 148,
+        "p95": 148,
+        "p99": 148,
+        "max": 148
+      },
+      "deathGameSeconds": {
+        "n": 0,
+        "median": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "cutoffObservedSize": {
+        "n": 1,
+        "median": 110,
+        "p95": 110,
+        "p99": 110,
+        "max": 110
+      },
+      "runIds": [
+        "screen-01-03",
+        "screen-01-05"
+      ]
+    },
+    {
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.22",
+      "strategy": "grow-13",
+      "plannedRuns": 2,
+      "startedRuns": 2,
+      "visiblyConfirmedStarts": 2,
+      "visiblyUnconfirmedStarts": 0,
+      "startConfirmationNotRecorded": 0,
+      "finalizedRuns": 2,
+      "counts": {
+        "win_le150": 0,
+        "win_late": 0,
+        "death": 1,
+        "deadline_cutoff": 1,
+        "game_timeout": 0,
+        "controller_abort": 0,
+        "infrastructure_error": 0,
+        "unknown": 0,
+        "in_progress": 0
+      },
+      "winRate": 0,
+      "winRateFraction": "0/2",
+      "wilson95": {
+        "low": 0,
+        "high": 0.6576197724933469
+      },
+      "denominator": "all_recorded_start_attempts_including_unconfirmed_starts_aborts_errors_unknowns_and_in_progress",
+      "provisional": false,
+      "computeMs": {
+        "n": 2442,
+        "median": 12.799999999813735,
+        "p95": 21.799999999813735,
+        "p99": 31.435999999856634,
+        "max": 157.70000000018626
+      },
+      "computeOverruns": 0,
+      "winningGameSeconds": {
+        "n": 0,
+        "median": null,
+        "p95": null,
+        "p99": null,
+        "max": null
+      },
+      "deathGameSeconds": {
+        "n": 1,
+        "median": 94,
+        "p95": 94,
+        "p99": 94,
+        "max": 94
+      },
+      "cutoffObservedSize": {
+        "n": 1,
+        "median": 97,
+        "p95": 97,
+        "p99": 97,
+        "max": 97
+      },
+      "runIds": [
+        "screen-01-04",
+        "screen-01-06"
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "runId": "screen-01-01",
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.13",
+      "strategy": "grow-12",
+      "index": 0,
+      "started": true,
+      "startedVisible": true,
+      "finalized": true,
+      "startRecordCount": 1,
+      "finalRecordCount": 1,
+      "title": "",
+      "description": "",
+      "gameSeconds": null,
+      "elapsedVisible": 151,
+      "hudTime": "02:29",
+      "size": 115,
+      "outcome": "deadline_cutoff",
+      "declaredOutcome": "deadline_cutoff",
+      "flags": [],
+      "keysReleased": true,
+      "decisions": 749,
+      "progressRecords": 29,
+      "latestProgress": {
+        "ending": false,
+        "settled": false,
+        "title": "",
+        "description": "",
+        "hudSize": 112,
+        "hudTime": "02:33",
+        "eaten": 136,
+        "elapsedVisible": 147
+      },
+      "computeMs": {
+        "n": 749,
+        "median": 11.5,
+        "p95": 21.779999999888247,
+        "p99": 31.203999999724324,
+        "max": 54
+      },
+      "completedDecisionComputeMs": {
+        "n": 749,
+        "median": 11.5,
+        "p95": 21.779999999888247,
+        "p99": 31.203999999724324,
+        "max": 54
+      },
+      "computeOverruns": 0,
+      "growthCheckpoints": [
+        {
+          "requestedElapsedVisible": 30,
+          "observedElapsedVisible": 30,
+          "observedHudSize": 38,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 60,
+          "observedElapsedVisible": 60,
+          "observedHudSize": 59,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 90,
+          "observedElapsedVisible": 90,
+          "observedHudSize": 96,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 120,
+          "observedElapsedVisible": 120,
+          "observedHudSize": 100,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        }
+      ],
+      "sourceHashes": {
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gameHashes": {
+          "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+          "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+        }
+      }
+    },
+    {
+      "runId": "screen-01-02",
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.22",
+      "strategy": "grow-12",
+      "index": 1,
+      "started": true,
+      "startedVisible": true,
+      "finalized": true,
+      "startRecordCount": 1,
+      "finalRecordCount": 1,
+      "title": "",
+      "description": "",
+      "gameSeconds": null,
+      "elapsedVisible": 151,
+      "hudTime": "02:29",
+      "size": 100,
+      "outcome": "deadline_cutoff",
+      "declaredOutcome": "deadline_cutoff",
+      "flags": [],
+      "keysReleased": true,
+      "decisions": 749,
+      "progressRecords": 29,
+      "latestProgress": {
+        "ending": false,
+        "settled": false,
+        "title": "",
+        "description": "",
+        "hudSize": 100,
+        "hudTime": "02:33",
+        "eaten": 91,
+        "elapsedVisible": 147
+      },
+      "computeMs": {
+        "n": 749,
+        "median": 11.900000000372529,
+        "p95": 24.220000000111764,
+        "p99": 31.955999999716873,
+        "max": 46.5
+      },
+      "completedDecisionComputeMs": {
+        "n": 749,
+        "median": 11.900000000372529,
+        "p95": 24.220000000111764,
+        "p99": 31.955999999716873,
+        "max": 46.5
+      },
+      "computeOverruns": 0,
+      "growthCheckpoints": [
+        {
+          "requestedElapsedVisible": 30,
+          "observedElapsedVisible": 30,
+          "observedHudSize": 39,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 60,
+          "observedElapsedVisible": 60,
+          "observedHudSize": 55,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 90,
+          "observedElapsedVisible": 90,
+          "observedHudSize": 83,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 120,
+          "observedElapsedVisible": 120,
+          "observedHudSize": 95,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        }
+      ],
+      "sourceHashes": {
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gameHashes": {
+          "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+          "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+        }
+      }
+    },
+    {
+      "runId": "screen-01-03",
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.13",
+      "strategy": "grow-13",
+      "index": 2,
+      "started": true,
+      "startedVisible": true,
+      "finalized": true,
+      "startRecordCount": 1,
+      "finalRecordCount": 1,
+      "title": "",
+      "description": "",
+      "gameSeconds": null,
+      "elapsedVisible": 151,
+      "hudTime": "02:29",
+      "size": 110,
+      "outcome": "deadline_cutoff",
+      "declaredOutcome": "deadline_cutoff",
+      "flags": [],
+      "keysReleased": true,
+      "decisions": 1498,
+      "progressRecords": 29,
+      "latestProgress": {
+        "ending": false,
+        "settled": false,
+        "title": "",
+        "description": "",
+        "hudSize": 109,
+        "hudTime": "02:33",
+        "eaten": 91,
+        "elapsedVisible": 147
+      },
+      "computeMs": {
+        "n": 1498,
+        "median": 13,
+        "p95": 23.899999999580906,
+        "p99": 34.50300000001676,
+        "max": 63.799999999813735
+      },
+      "completedDecisionComputeMs": {
+        "n": 1498,
+        "median": 13,
+        "p95": 23.899999999580906,
+        "p99": 34.50300000001676,
+        "max": 63.799999999813735
+      },
+      "computeOverruns": 0,
+      "growthCheckpoints": [
+        {
+          "requestedElapsedVisible": 30,
+          "observedElapsedVisible": 30,
+          "observedHudSize": 40,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 60,
+          "observedElapsedVisible": 60,
+          "observedHudSize": 42,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 90,
+          "observedElapsedVisible": 90,
+          "observedHudSize": 69,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 120,
+          "observedElapsedVisible": 120,
+          "observedHudSize": 99,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        }
+      ],
+      "sourceHashes": {
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gameHashes": {
+          "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+          "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+        }
+      }
+    },
+    {
+      "runId": "screen-01-04",
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.22",
+      "strategy": "grow-13",
+      "index": 3,
+      "started": true,
+      "startedVisible": true,
+      "finalized": true,
+      "startRecordCount": 1,
+      "finalRecordCount": 1,
+      "title": "",
+      "description": "",
+      "gameSeconds": null,
+      "elapsedVisible": 151,
+      "hudTime": "02:29",
+      "size": 97,
+      "outcome": "deadline_cutoff",
+      "declaredOutcome": "deadline_cutoff",
+      "flags": [],
+      "keysReleased": true,
+      "decisions": 1497,
+      "progressRecords": 29,
+      "latestProgress": {
+        "ending": false,
+        "settled": false,
+        "title": "",
+        "description": "",
+        "hudSize": 97,
+        "hudTime": "02:33",
+        "eaten": 113,
+        "elapsedVisible": 147
+      },
+      "computeMs": {
+        "n": 1497,
+        "median": 12.700000000186265,
+        "p95": 23.220000000111764,
+        "p99": 33.09999999962747,
+        "max": 157.70000000018626
+      },
+      "completedDecisionComputeMs": {
+        "n": 1497,
+        "median": 12.700000000186265,
+        "p95": 23.220000000111764,
+        "p99": 33.09999999962747,
+        "max": 157.70000000018626
+      },
+      "computeOverruns": 0,
+      "growthCheckpoints": [
+        {
+          "requestedElapsedVisible": 30,
+          "observedElapsedVisible": 30,
+          "observedHudSize": 43,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 60,
+          "observedElapsedVisible": 60,
+          "observedHudSize": 44,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 90,
+          "observedElapsedVisible": 90,
+          "observedHudSize": 72,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 120,
+          "observedElapsedVisible": 120,
+          "observedHudSize": 94,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        }
+      ],
+      "sourceHashes": {
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gameHashes": {
+          "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+          "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+        }
+      }
+    },
+    {
+      "runId": "screen-01-05",
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.13",
+      "strategy": "grow-13",
+      "index": 4,
+      "started": true,
+      "startedVisible": true,
+      "finalized": true,
+      "startRecordCount": 1,
+      "finalRecordCount": 1,
+      "title": "You win!",
+      "description": "You reached size 200 and survived!Play time 02:28 · Eaten 227Best eaten: 227.",
+      "gameSeconds": 148,
+      "elapsedVisible": 149,
+      "hudTime": "02:31",
+      "size": 200,
+      "outcome": "win_le150",
+      "declaredOutcome": "win_le150",
+      "flags": [],
+      "keysReleased": true,
+      "decisions": 1485,
+      "progressRecords": 29,
+      "latestProgress": {
+        "ending": false,
+        "settled": false,
+        "title": "",
+        "description": "",
+        "hudSize": 183,
+        "hudTime": "02:33",
+        "eaten": 217,
+        "elapsedVisible": 147
+      },
+      "computeMs": {
+        "n": 1485,
+        "median": 11.699999999254942,
+        "p95": 18.5,
+        "p99": 28.331999999843553,
+        "max": 46.09999999962747
+      },
+      "completedDecisionComputeMs": {
+        "n": 1485,
+        "median": 11.699999999254942,
+        "p95": 18.5,
+        "p99": 28.331999999843553,
+        "max": 46.09999999962747
+      },
+      "computeOverruns": 0,
+      "growthCheckpoints": [
+        {
+          "requestedElapsedVisible": 30,
+          "observedElapsedVisible": 30,
+          "observedHudSize": 41,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 60,
+          "observedElapsedVisible": 60,
+          "observedHudSize": 51,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 90,
+          "observedElapsedVisible": 90,
+          "observedHudSize": 90,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 120,
+          "observedElapsedVisible": 120,
+          "observedHudSize": 134,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        }
+      ],
+      "sourceHashes": {
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gameHashes": {
+          "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+          "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+        }
+      }
+    },
+    {
+      "runId": "screen-01-06",
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.22",
+      "strategy": "grow-13",
+      "index": 5,
+      "started": true,
+      "startedVisible": true,
+      "finalized": true,
+      "startRecordCount": 1,
+      "finalRecordCount": 1,
+      "title": "You were eaten!",
+      "description": "A bigger slime swallowed you.Play time 01:34 · Eaten 102Best eaten: 102.",
+      "gameSeconds": 94,
+      "elapsedVisible": 95,
+      "hudTime": "03:25",
+      "size": 86,
+      "outcome": "death",
+      "declaredOutcome": "death",
+      "flags": [],
+      "keysReleased": true,
+      "decisions": 945,
+      "progressRecords": 19,
+      "latestProgress": {
+        "ending": true,
+        "settled": false,
+        "title": "You were eaten!",
+        "description": "",
+        "hudSize": 86,
+        "hudTime": "03:25",
+        "eaten": 102,
+        "elapsedVisible": 95
+      },
+      "computeMs": {
+        "n": 945,
+        "median": 12.799999999813735,
+        "p95": 19.779999999888236,
+        "p99": 29.23600000016388,
+        "max": 70.29999999981374
+      },
+      "completedDecisionComputeMs": {
+        "n": 945,
+        "median": 12.799999999813735,
+        "p95": 19.779999999888236,
+        "p99": 29.23600000016388,
+        "max": 70.29999999981374
+      },
+      "computeOverruns": 0,
+      "growthCheckpoints": [
+        {
+          "requestedElapsedVisible": 30,
+          "observedElapsedVisible": 30,
+          "observedHudSize": 48,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 60,
+          "observedElapsedVisible": 60,
+          "observedHudSize": 65,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 90,
+          "observedElapsedVisible": 90,
+          "observedHudSize": 82,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 120,
+          "observedElapsedVisible": null,
+          "observedHudSize": null,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        }
+      ],
+      "sourceHashes": {
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gameHashes": {
+          "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+          "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+        }
+      }
+    },
+    {
+      "runId": "screen-01-07",
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.13",
+      "strategy": "grow-12",
+      "index": 6,
+      "started": true,
+      "startedVisible": true,
+      "finalized": true,
+      "startRecordCount": 1,
+      "finalRecordCount": 1,
+      "title": "You were eaten!",
+      "description": "A bigger slime swallowed you.Play time 01:48 · Eaten 67Best eaten: 227.",
+      "gameSeconds": 108,
+      "elapsedVisible": 109,
+      "hudTime": "03:11",
+      "size": 100,
+      "outcome": "death",
+      "declaredOutcome": "death",
+      "flags": [],
+      "keysReleased": true,
+      "decisions": 540,
+      "progressRecords": 21,
+      "latestProgress": {
+        "ending": false,
+        "settled": false,
+        "title": "",
+        "description": "",
+        "hudSize": 100,
+        "hudTime": "03:14",
+        "eaten": 67,
+        "elapsedVisible": 106
+      },
+      "computeMs": {
+        "n": 540,
+        "median": 11.299999999813735,
+        "p95": 23.415000000316635,
+        "p99": 32.59299999970013,
+        "max": 60.39999999944121
+      },
+      "completedDecisionComputeMs": {
+        "n": 540,
+        "median": 11.299999999813735,
+        "p95": 23.415000000316635,
+        "p99": 32.59299999970013,
+        "max": 60.39999999944121
+      },
+      "computeOverruns": 0,
+      "growthCheckpoints": [
+        {
+          "requestedElapsedVisible": 30,
+          "observedElapsedVisible": 30,
+          "observedHudSize": 39,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 60,
+          "observedElapsedVisible": 60,
+          "observedHudSize": 64,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 90,
+          "observedElapsedVisible": 90,
+          "observedHudSize": 100,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 120,
+          "observedElapsedVisible": null,
+          "observedHudSize": null,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        }
+      ],
+      "sourceHashes": {
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gameHashes": {
+          "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+          "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+        }
+      }
+    },
+    {
+      "runId": "screen-01-08",
+      "batchId": "screen-01",
+      "phase": "exploration",
+      "gameVersion": "v2.22",
+      "strategy": "grow-12",
+      "index": 7,
+      "started": true,
+      "startedVisible": true,
+      "finalized": true,
+      "startRecordCount": 1,
+      "finalRecordCount": 1,
+      "title": "",
+      "description": "",
+      "gameSeconds": null,
+      "elapsedVisible": 151,
+      "hudTime": "02:29",
+      "size": 114,
+      "outcome": "deadline_cutoff",
+      "declaredOutcome": "deadline_cutoff",
+      "flags": [],
+      "keysReleased": true,
+      "decisions": 749,
+      "progressRecords": 29,
+      "latestProgress": {
+        "ending": false,
+        "settled": false,
+        "title": "",
+        "description": "",
+        "hudSize": 114,
+        "hudTime": "02:33",
+        "eaten": 88,
+        "elapsedVisible": 147
+      },
+      "computeMs": {
+        "n": 749,
+        "median": 11,
+        "p95": 22.339999999851,
+        "p99": 29.876000000089384,
+        "max": 57.10000000055879
+      },
+      "completedDecisionComputeMs": {
+        "n": 749,
+        "median": 11,
+        "p95": 22.339999999851,
+        "p99": 29.876000000089384,
+        "max": 57.10000000055879
+      },
+      "computeOverruns": 0,
+      "growthCheckpoints": [
+        {
+          "requestedElapsedVisible": 30,
+          "observedElapsedVisible": 30,
+          "observedHudSize": 44,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 60,
+          "observedElapsedVisible": 60,
+          "observedHudSize": 96,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 90,
+          "observedElapsedVisible": 90,
+          "observedHudSize": 99,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        },
+        {
+          "requestedElapsedVisible": 120,
+          "observedElapsedVisible": 120,
+          "observedHudSize": 110,
+          "samplingRule": "first_sample_at_or_after_requested_visible_time"
+        }
+      ],
+      "sourceHashes": {
+        "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18",
+        "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+        "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gameHashes": {
+          "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+          "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "No automatic acceptance claim: exploration and confirmation remain separate.",
+    "Visible game times have their displayed resolution; cutoff size is not exact 150-second size.",
+    "No outcomes or sample counts are inferred for unrecorded starts."
+  ]
+}

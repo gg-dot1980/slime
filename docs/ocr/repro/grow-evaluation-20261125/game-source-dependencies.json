@@ -1,0 +1,78 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "gg-dot1980/slime",
+  "sourceCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+  "purpose": "Materialize identical, already published game source dependencies locally. No strategy, physics, test data or original hashes are modified.",
+  "files": [
+    {
+      "path": "bundle/source/experiments/grow15/frozen/screen-03/game-v2.13.html",
+      "sourcePath": "src/game-v2.13.html",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "gitBlobSha": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "bytes": 51125
+    },
+    {
+      "path": "bundle/source/experiments/grow15/frozen/screen-03/game-v2.22.html",
+      "sourcePath": "src/game.html",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "gitBlobSha": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "bytes": 52422
+    },
+    {
+      "path": "bundle/source/experiments/grow15/game-v2.13.html",
+      "sourcePath": "src/game-v2.13.html",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "gitBlobSha": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "bytes": 51125
+    },
+    {
+      "path": "bundle/source/experiments/grow15/game-v2.22.html",
+      "sourcePath": "src/game.html",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "gitBlobSha": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "bytes": 52422
+    },
+    {
+      "path": "bundle/source/experiments/grow16/game-v2.13.html",
+      "sourcePath": "src/game-v2.13.html",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "gitBlobSha": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "bytes": 51125
+    },
+    {
+      "path": "bundle/source/experiments/grow16/game-v2.22.html",
+      "sourcePath": "src/game.html",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "gitBlobSha": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "bytes": 52422
+    },
+    {
+      "path": "bundle/source/experiments/grow17/game-v2.13.html",
+      "sourcePath": "src/game-v2.13.html",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "gitBlobSha": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "bytes": 51125
+    },
+    {
+      "path": "bundle/source/experiments/grow17/game-v2.22.html",
+      "sourcePath": "src/game.html",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "gitBlobSha": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "bytes": 52422
+    },
+    {
+      "path": "bundle/source/src/game-v2.13.html",
+      "sourcePath": "src/game-v2.13.html",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "gitBlobSha": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "bytes": 51125
+    },
+    {
+      "path": "bundle/source/src/game.html",
+      "sourcePath": "src/game.html",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "gitBlobSha": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "bytes": 52422
+    }
+  ]
+}

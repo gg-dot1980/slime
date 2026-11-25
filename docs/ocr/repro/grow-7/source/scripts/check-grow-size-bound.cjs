@@ -1,0 +1,10 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert');const helper=fs.readFileSync('src/ocr-grow-minimap.js','utf8'),planner=fs.readFileSync('src/ocr-grow-planner.js','utf8'),html=fs.readFileSync('src/ocr-grow.html','utf8'),dirs=html.slice(html.indexOf('const dirs='),html.indexOf('function planBaseline('));const c={};vm.createContext(c);vm.runInContext(dirs+helper+planner+';this.api={growMarkers,planGrow}',c);let checks=0;const test=f=>{f();checks++};
+const m={width:144,height:144*7200/10400,player:{x:50,y:50},growMarkers:[{x:57,y:50,red:false,sizeLower:98}]};const run=(r=96,map=m)=>c.api.planGrow([],r,map,180,{x:0,y:0},{x:1,y:0});
+test(()=>{const d=run();assert.equal(d.nearWhite,1);assert(!d.target);assert(d.x<.99)});
+for(const lower of [0,40,75,86])test(()=>{const d=run(96,{...m,growMarkers:[{...m.growMarkers[0],sizeLower:lower}]});assert.equal(d.nearWhite,0);assert(d.target);assert(d.x>.99)});
+for(const r of [89,90,96,150])test(()=>{const d=run(r);assert.equal(!!d.nearWhite,r>=90&&r<109)});
+test(()=>{const d=run(96,{...m,growMarkers:[{x:57,y:50,red:true}]});assert(d.threats>0);assert(!d.target)});
+test(()=>{const d=run(96,{...m,growMarkers:[...m.growMarkers,{x:50,y:60,red:false,sizeLower:50}]});assert(d.target);assert(d.y>.5)});
+test(()=>assert.equal(run(96,null).reason,'missing-map'));
+for(const v of ['v2.13','v2.20','v2.21','v2.22'])test(()=>{const s=fs.readFileSync(v==='v2.22'?'src/game.html':'src/game-'+v+'.html','utf8');assert(s.includes('Math.max(1.2,Math.min(3,s.r/38))'));assert(s.includes('miniH,3,0,Math.PI*2)'));assert(s.includes('Math.floor(player.r)'));});
+console.log(JSON.stringify({checks,passed:true,naturalGames:0}));

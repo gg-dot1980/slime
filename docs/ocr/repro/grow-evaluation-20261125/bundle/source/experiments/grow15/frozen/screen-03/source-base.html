@@ -1,0 +1,313 @@
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OCR Grow · grow-12 小地圖導引／主畫面避障</title><style>
+:root{color-scheme:dark;--bg:#10191d;--panel:#18272d;--line:#344a50;--ink:#eef8f5;--muted:#a8bfba;--mint:#9df0cb;--warn:#ff9b8e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.layout{max-width:1440px;margin:auto;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px}.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden}.stage{position:relative;min-height:60vh;background:#111a1f;display:grid;place-items:center}iframe{width:100%;height:min(82vh,850px);border:0;background:#111a1f}.side{padding:18px;align-self:start;position:sticky;top:16px}.side h1{font-size:21px;margin:0 0 4px}.muted{color:var(--muted);font-size:14px}.actions{display:grid;gap:9px;margin:16px 0}button{padding:12px;border:1px solid #57716f;border-radius:10px;background:#20343a;color:var(--ink);font:700 15px system-ui;cursor:pointer}button.primary{background:var(--mint);color:#10231b;border:0}button:focus-visible{outline:3px solid white;outline-offset:2px}button:disabled{opacity:.55;cursor:wait}.status{padding:12px;border:1px solid var(--line);border-radius:10px;min-height:50px}.status.ok{color:var(--mint)}.status.err{color:var(--warn)}.legend{display:grid;gap:7px;margin-top:14px;color:var(--muted);font-size:14px}.sample{position:relative;max-width:100%;max-height:82vh}.sample canvas{display:block;max-width:100%;max-height:82vh;object-fit:contain}.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay circle{fill:none;stroke-width:3;vector-effect:non-scaling-stroke}.overlay .player{stroke:var(--mint)}.overlay .npc{stroke:#ffca6e}.overlay .food{stroke:#62dce0}.overlay .route{stroke:var(--mint);stroke-width:5;vector-effect:non-scaling-stroke;marker-end:url(#arrow)}.overlay text{fill:white;font:700 13px system-ui;paint-order:stroke;stroke:#10191d;stroke-width:4px}.readout{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{padding:10px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}.metric b{display:block;color:var(--ink);font-size:20px}.decision{padding:13px;border:1px solid #45645d;border-radius:12px;background:#142522;margin-top:12px}.decision strong{font-size:19px;color:var(--mint)}.decision p{margin:5px 0 0;font-size:14px;color:var(--muted)}.how{font-size:14px;color:var(--muted);margin-top:16px}.back{color:var(--mint);font-size:14px;text-decoration:none;display:inline-block;margin-bottom:12px}@media(max-width:850px){.layout{grid-template-columns:1fr;padding:8px;gap:8px}.stage{min-height:52vh}.side{position:static}.stage iframe{height:62vh}.sample,.sample canvas{max-height:62vh}}
+.titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 4px}.titlebar h1{margin:0}.version{flex:none;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--mint);font-size:12px;font-weight:700;letter-spacing:.03em}.status{height:76px;min-height:76px;display:flex;align-items:center;overflow:auto}.decision{height:154px;display:flex;flex-direction:column;overflow:hidden}.decision strong{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.decision p{flex:1;min-height:0;overflow:auto}.url-picker{display:grid;gap:8px;margin-top:16px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#122025}.url-picker label{font-size:13px;font-weight:700}.url-picker select,.url-picker input{width:100%;min-width:0;padding:10px;border:1px solid #57716f;border-radius:9px;background:#10191d;color:var(--ink);font:inherit}.url-picker input[hidden]{display:none}.url-picker p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+@media(min-width:851px){.stage{align-self:start;min-height:0}.side{max-height:calc(100vh - 32px);overflow:auto}iframe{height:calc(100vh - 34px)}}
+@media(min-width:851px){.stage{display:block;height:calc(100vh - 34px)}.stage iframe{width:calc(100% * var(--view-scale,1));height:calc((100vh - 34px) * var(--view-scale,1));transform:scale(calc(1 / var(--view-scale,1)));transform-origin:top left}}
+.release-history{max-width:1440px;margin:20px auto;padding:20px;color:var(--muted)}.release-history article{border-top:1px solid var(--line);padding:12px 0}.release-history h2,.release-history h3{color:var(--ink)}.test-banner{padding:14px 20px;background:#493c20;color:#fff3c9}.test-banner a{color:#b8ffdf}.test-title{display:block;font-size:clamp(1.35rem,5vw,1.9rem);line-height:1.25}.test-banner p{margin:.5rem 0;overflow-wrap:anywhere}.test-live-status{display:inline-block;padding:.25rem .65rem;border:1px solid #ffe19b;border-radius:.45rem;background:#2c2516;font-weight:700}@media(max-width:600px){.test-banner{padding:16px}.test-strategy{font-size:1rem}.test-banner p:last-child{font-size:.9rem}}
+@media(max-width:850px){.side{grid-row:1}.stage{grid-row:2}}select{font:inherit;padding:10px;width:100%;background:#10191d;color:#eef8f5}.experiment{max-width:1440px;margin:auto;padding:16px}</style>
+<header class="test-banner"><strong>OCR Grow · grow-12｜90以上追白點、保留退路</strong><p>實戰未驗證 · 不是正式 OCR4 · 不保證過關率</p></header><main class="layout"><section class="card stage"><iframe id="game" title="v2.13 不送榜實驗遊戲"></iframe></section><aside class="card side"><h1>體型90切換小地圖策略</h1><p>B 體型未滿90使用原主畫面規劃；90（含）以上追可見且尺寸上界明顯小於玩家的白點、避開紅點，紅白衝突先避紅。近體型、飽和或大小未知白點不當獵物。綠點是玩家；牆獨立處理，缺少可靠小地圖或資料過期釋放按鍵。大畫面 NPC 只在同向紅點存在時輔助避讓。追逐前比較短期可見退路，紅點夾擊優先留通道、近牆角提早往內；不保證不被包圍。保留鏡頭框不遮紅點的修正。A 不變；實驗策略不保證可吞食或過關。</p><label for="gameChoice">遊戲版本</label><select id="gameChoice"></select><p id="gameVersion" class="muted">預設 v2.13；切換會停止並清空本局。</p><label for="strategy">本局策略（開始時固定）</label><select id="strategy"><option value="grow-12">B · grow-12 成長優先</option value="baseline">A · 原規劃 test-026</option></select><p class="muted">共用辨識 test-033；各版原規則隔離副本。只讀畫面及可見 HUD，不寫排行榜。A/B 並非勝率驗收。</p><label for="viewScale">遊戲視野</label><select id="viewScale"><option value="1" selected>標準</option><option value="wide">固定 2000</option></select><div class="actions"><button id="go" class="primary" disabled>開始單局實驗</button><button id="stop">停止並暫停</button></div><div id="status" class="status">正在載入</div><div class="readout"><div class="metric">體型<b id="size">—</b></div><div class="metric">剩餘時間<b id="time">—</b></div><div class="metric">決策耗時<b id="ms">—</b></div><div class="metric">本次嘗試<b id="attempt">0</b></div></div><div class="decision"><strong id="action">等待</strong><p id="detail"></p></div><p id="rank"></p><ol id="runs"></ol><details id="diagnostics"><summary>本機辨識診斷</summary><canvas id="vision" style="width:100%"></canvas><pre id="visionText" style="white-space:pre-wrap"></pre></details><input id="timingEnabled" type="checkbox" hidden><p class="muted">保持頁面前景；切換分頁、停止或計算超過200ms會釋放按鍵。手機僅提供排版，未恢復手機驗收。</p></aside></main><section class="experiment" id="grow-12"><h2>grow-12 · 2026-11-23</h2><p>90以上新增短期退路評分：多個近紅點或牆角時，在既有安全方向內優先保留較寬出口，避免只遠離最近紅點卻朝另一紅點移動。開闊白點場景不加此偏轉；89以下及 A 不變。只以可見資訊作靜態短期預估，非實戰勝率。</p></section><section class="experiment" id="grow-11"><h2>grow-11 · 2026-11-23</h2><p>恢復90門檻（含90）：以下原規劃，以上小地圖追明顯小白點、紅點優先避讓。保留 grow-10 視覺修正，牆與失圖防護；受控回歸，非實戰勝率。</p></section><section class="experiment" id="grow-10"><h2>grow-10 · 2026-11-23</h2><p>只修實驗遊戲小地圖視覺層：鏡頭框改中性色且先畫，NPC 點後畫，綠色玩家仍最後畫。避免鏡頭框遮掉真紅點；不憑空補紅、不改規則及物理。同向紅點才許可主畫面避障，真無紅仍不躲 NPC。受控測試非勝率。</p></section><section class="experiment" id="grow-9"><h2>grow-9 · 2026-11-22</h2><p>分開小地圖目的地與主畫面局部避障；開局生效。小地圖原前進方向有紅點，主畫面可靠近危險才允許偏轉；無紅不閃避NPC，牆獨立。這會接受未標紅但可能致命的風險。使用安全側向保持與回復餘量減少來回反向。可辨識 NPC 優先；約8秒路程外且近處有已分類小食物時先取食物，無合適 NPC 時小食物備案。固定受控回歸，完整實戰未執行；不是正式驗收。</p></section><section class="experiment" id="grow-8"><h2>grow-8 · 2026-11-22</h2><p>B 開局啟用白點追逐、紅點與已確認近體型避讓。只新增獵物接近／退出篩選：固定4秒接近、1秒離開模型；牆資訊不足或超出範圍標未知，保留原策略。預測接觸不等於吞食；不新增攔截或鎖定。受控回歸，完整實戰未執行。</p></section><section class="experiment" id="grow-7"><h2>grow-7 · 2026-11-22</h2><p>四版本綠點半徑固定3，NPC點半徑限制1.2～3（實際半徑÷38）。只以完整白點的實色面積保守估計下界；達玩家HUD加1的90%才列為接近體型威脅，紅點與牆仍避開。飽和或低信心不等於同大小，不一律全避；近綠點的小白點繼續追。僅合成／受控驗證，實戰未驗證。</p></section><section class="experiment" id="grow-6"><h2>grow-6 · 2026-11-22</h2><p>修正已分離白點距玩家6像素時遭誤刪、導致沒有目標而沿舊方向的問題。保留實際綠白接觸／重疊拒判；紅點、牆與缺圖防護不變。顯示白點追逐、紅點／牆限制、缺圖或無合格白點等決策原因。固定像素與瀏覽器案例不是自然實戰或過關率。</p></section><section class="experiment" id="grow-5"><h2>grow-5 · 2026-11-22</h2><p>修正白點進入主畫面後被配對失敗、裁切碎片或危險外觀重新當威脅。B 體型≥90以可見小地圖白／紅點主導 NPC 決策：白點追逐，紅點與牆避讓；不再依主畫面 NPC 產生避讓覆寫。缺少小地圖或玩家定位時釋放控制。此策略可能撞上實際不可吃 NPC；實戰未驗證、不保證吞食。</p></section><section class="experiment" id="grow-4"><h2>grow-4 · 2026-11-22</h2><p>依指定實驗行為：B 體型≥90，唯一確認的非紅 NPC 不再被同一物件的半徑、紅字、裁切旗標或停滯旗標重新排除／避讓；仍需小地圖正面證據與唯一歸屬。其他紅點與牆保留。非紅門檻與吞食門檻不同，這可能致死；遊戲規則未改。固定回歸非實戰勝率，未驗收。</p></section><section class="experiment" id="grow-3"><h2>grow-3 · 2026-11-22</h2><p>B 在體型 ≥90 時以可見小地圖非紅 NPC 標記追逐，不再以原 0.85／0.94 體型估計排除唯一配對目標。紅點保持威脅；不以沒有紅點推定可吃。綠色玩家、邊框、混色與模糊標記拒判。A、90 以下及隔離規則未變。合成／來源回歸不是實戰勝率，尚未驗收。</p></section><section class="experiment" id="grow-2"><h2>grow-2 · 2026-11-22</h2><p>新增與 OCR-test 相同版本及標籤，預設 v2.13。每版依原始遊戲建立無網路、無排行榜副本；切換先釋放按鍵、失效舊回呼並清空本局追蹤。grow-1 A/B 策略未變；本改版不是勝率驗收。</p></section><section class="experiment" id="grow-1"><h2>grow-1 · 2026-11-22</h2><p>新增獨立成長優先策略，不修改其他 OCR 頁。短程可達的小型 NPC 優先於一般食物；尺寸未知不追、威脅不因預期成長消失。兩秒軌跡逐步檢查可見牆界與威脅；畫面外與辨識誤差仍未知。</p><p>固定合成 A/B 與停止測試另附可重跑程式；實戰未驗證，尚無過關率證據。沒有納入威脅去重原型。</p></section><script>/* timing-2: optional local diagnostic, no network, pixels or object records retained. */
+(function(root){
+'use strict';
+function create(clock=()=>performance.now(),limit=512){
+ let enabled=false,seq=0,lastHash=null,rows=[],dropped=0;
+ function add(kind,data={}){if(!enabled)return;const row={kind,at:clock(),seq,...data};if(rows.length===limit){rows.shift();dropped++;}rows.push(row);}
+ return {
+ enable(on){enabled=!!on;if(on){seq=0;lastHash=null;rows=[];dropped=0;}},
+ capture(image,start,end){if(!enabled)return;seq++;let hash=2166136261;for(let i=0;i<image.data.length;i++)hash=Math.imul(hash^image.data[i],16777619)>>>0;
+ add('capture',{start,end,signatureChanged:lastHash===null?null:hash!==lastHash,frameIdentity:'pixel-change-only; render time unknown'});lastHash=hash;},
+ decision(d){add('decisionComplete',{requestedHeading:{x:d.x,y:d.y},signedScreenDisplacement:null,displacementStatus:'unknown; requires independent background measurement'});},
+ dispatch(type,key,send){add('dispatchBefore',{type,key});try{return send();}finally{add('dispatchAfter',{type,key,receiverAcknowledged:false});}},
+ stop(){add('stop');},
+ snapshot(){return {version:'timing-2',clock:'parent performance.now',enabled,dropped,rows:JSON.parse(JSON.stringify(rows))};}
+ };
+}
+const api={create};if(typeof module!=='undefined')module.exports=api;else root.OCRTiming=api;
+})(typeof window==='undefined'?globalThis:window);
+</script><script>(()=>{const $=id=>document.getElementById(id),game=$('game'),out=document.createElement('canvas'),ctx=out.getContext('2d',{willReadFrequently:true});const timing=window.ocrTiming=OCRTiming.create();document.getElementById('timingEnabled').onchange=e=>timing.enable(e.target.checked);let active=false,challenging=false,epoch=0,previous=[],last=0,heading={x:1,y:0},velocity={x:0,y:0},held=new Set(),attempt=0;
+function isPlayerComponent(p,radius,cx,cy){if(!radius)return false;const offset=Math.hypot(p.x-cx,p.y-cy);return offset<=radius*.65&&p.r>=radius*.45&&p.r<=radius*1.55}
+function components(data,w,h,scale,uiMasks=[]){
+ const W=Math.ceil(w/scale),H=Math.ceil(h/scale),n=W*H,mask=new Uint8Array(n),seen=new Uint8Array(n),hues=new Uint16Array(n),rgb=data.data,sqrt3=Math.sqrt(3);
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+  if(uiMasks.some(rect=>x*scale>=rect.x&&x*scale<=rect.x+rect.w&&y*scale>=rect.y&&y*scale<=rect.y+rect.h))continue;
+  const p=((y*scale)*w+x*scale)*4,r=rgb[p],g=rgb[p+1],b=rgb[p+2],max=Math.max(r,g,b),min=Math.min(r,g,b),i=y*W+x;
+  if(max>64){mask[i]=1;hues[i]=max-min<8?65535:Math.round((Math.atan2(sqrt3*(g-b),2*r-g-b)*180/Math.PI+360)%360)%360}
+ }
+ const found=[],queue=new Int32Array(n);
+ for(let i=0;i<n;i++){
+  if(!mask[i]||seen[i])continue;
+  const seedHue=hues[i],sameColor=j=>{if(seedHue===65535||hues[j]===65535)return seedHue===hues[j];const delta=Math.abs(hues[j]-seedHue);return delta<=22||delta>=338};
+  let head=0,tail=0;queue[tail++]=i;seen[i]=1;let area=0,minX=W,minY=H,maxX=0,maxY=0,sx=0,sy=0;
+  while(head<tail){
+   const q=queue[head++],x=q%W,y=(q/W)|0;area++;sx+=x;sy+=y;if(x<minX)minX=x;if(x>maxX)maxX=x;if(y<minY)minY=y;if(y>maxY)maxY=y;
+   let j;if(x>0){j=q-1;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(x+1<W){j=q+1;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(y>0){j=q-W;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(y+1<H){j=q+W;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}
+  }
+  const bw=maxX-minX+1,bh=maxY-minY+1,diam=Math.max(bw,bh)*scale,cx=(sx/area+.5)*scale,cy=(sy/area+.5)*scale;
+  const aspect=Math.max(bw,bh)/Math.min(bw,bh),density=area/(bw*bh),textLike=aspect>2.4&&density<.55;
+  if(area>=7&&diam>=9&&density>=.28&&aspect<=12&&!textLike)found.push({hue:seedHue,x:cx,y:cy,r:diam/2,area,bw:bw*scale,bh:bh*scale,clipped:minX<=1||minY<=1||maxX>=W-2||maxY>=H-2||uiMasks.some(rect=>(maxX+1)*scale>=rect.x-scale&&minX*scale<=rect.x+rect.w+scale&&(maxY+1)*scale>=rect.y-scale&&minY*scale<=rect.y+rect.h+scale)});
+ }
+ return found
+}
+function canvasUiMasks(w,h,pixelRatio=1){
+ // The supported game versions paint only the minimap into this canvas. Other HUD panels are DOM overlays and must not hide arena pixels.
+ const miniWidth=Math.min(144*pixelRatio,w*.26),miniHeight=miniWidth*9/13;
+ return [{x:w-miniWidth-27*pixelRatio,y:58*pixelRatio,w:miniWidth+27*pixelRatio,h:miniHeight+42*pixelRatio}]
+}
+function detectMinimap(image,w,h,pixelRatio=1){
+ const width=Math.min(144*pixelRatio,w*.26),height=width*9/13,x=w-width-15*pixelRatio,y=70*pixelRatio;
+ if(width<40||x<0||y+height>h)return null;
+ const data=image.data,W=Math.ceil(width),H=Math.ceil(height),red=new Uint8Array(W*H),green=new Uint8Array(W*H),seen=new Uint8Array(W*H),queue=new Int32Array(W*H),threats=[];
+ let mapBackground=0;
+ for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){
+  const px=Math.floor(x+xx),py=Math.floor(y+yy);if(px>=w||py>=h)continue;
+  const i=(py*w+px)*4,r=data[i],g=data[i+1],b=data[i+2],j=yy*W+xx;
+  if(Math.abs(r-32)<=2&&Math.abs(g-50)<=2&&Math.abs(b-56)<=2)mapBackground++;
+  red[j]=r>205&&r-g>55&&r-b>65&&g<185?1:0;
+  green[j]=r>110&&r<200&&g>190&&g-r>35&&g-b>15?1:0;
+ }
+ if(mapBackground<W*H*.25)return null;
+ // Separate red islands; overlapping dots remain one group with greater area/weight.
+ for(let i=0;i<red.length;i++)if(red[i]&&!seen[i]){
+  let head=0,tail=0,area=0,sx=0,sy=0;queue[tail++]=i;seen[i]=1;
+  while(head<tail){const j=queue[head++],xx=j%W,yy=(j/W)|0;area++;sx+=xx;sy+=yy;
+   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=xx+dx,ny=yy+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;const k=ny*W+nx;if(red[k]&&!seen[k]){seen[k]=1;queue[tail++]=k}}
+  }
+  if(area>=Math.max(2,pixelRatio*pixelRatio*1.5))threats.push({x:sx/area+.5,y:sy/area+.5,area,weight:1+Math.min(2,Math.max(0,Math.sqrt(area/Math.PI)/pixelRatio-1.2))*.4})
+ }
+ // A filled green disk identifies the player; the thin camera rectangle must not qualify.
+ const disk=[],ring=[],coreRadius=2.2*pixelRatio,outerRadius=4.4*pixelRatio;
+ for(let dy=-Math.ceil(outerRadius);dy<=Math.ceil(outerRadius);dy++)for(let dx=-Math.ceil(outerRadius);dx<=Math.ceil(outerRadius);dx++){const d=Math.hypot(dx,dy);if(d<=coreRadius)disk.push([dx,dy]);else if(d>=3.7*pixelRatio&&d<=outerRadius)ring.push([dx,dy])}
+ let player=null,best=-Infinity;
+ for(let yy=Math.ceil(coreRadius);yy<H-Math.ceil(coreRadius);yy++)for(let xx=Math.ceil(coreRadius);xx<W-Math.ceil(coreRadius);xx++)if(green[yy*W+xx]){
+  const coverage=offsets=>{let hits=0,total=0;for(const [dx,dy] of offsets){const nx=xx+dx,ny=yy+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;total++;hits+=green[ny*W+nx]}return total?hits/total:0},filled=coverage(disk),score=filled-coverage(ring)*.25;
+  if(filled>=.82&&score>best){best=score;player={x:xx+.5,y:yy+.5}}
+ }
+ const opportunities=[];const visited=new Set();for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){const i=(Math.floor(y+yy)*w+Math.floor(x+xx))*4;if(data[i]>115&&data[i+1]>140&&data[i+2]>130&&data[i+1]-data[i]<55&&Math.abs(data[i]-data[i+2])<40&&!visited.has(yy*W+xx)){let area=0,sx=0,sy=0;const todo=[[xx,yy]];while(todo.length){const [a,b]=todo.pop(),k=b*W+a;if(a<0||a>=W||b<0||b>=H||visited.has(k))continue;visited.add(k);const q=(Math.floor(y+b)*w+Math.floor(x+a))*4;if(!(data[q]>115&&data[q+1]>140&&data[q+2]>130&&data[q+1]-data[q]<55&&Math.abs(data[q]-data[q+2])<40))continue;area++;sx+=a;sy+=b;todo.push([a-1,b],[a+1,b],[a,b-1],[a,b+1]);}if(area>=Math.max(1,2*pixelRatio*pixelRatio)&&area<100*pixelRatio*pixelRatio)opportunities.push({x:sx/area,y:sy/area,area});}}return player?{x,y,width,height,pixelRatio,player,threats,opportunities}:null
+}
+function hasSlimeLabel(image,w,h,p){
+ if(p.r<6)return false;
+ const data=image.data,halfWidth=Math.min(40,p.r*.65),halfHeight=Math.min(7,p.r*.25);
+ let bright=0;
+ for(let y=Math.max(0,Math.floor(p.y-halfHeight));y<=Math.min(h-1,p.y+halfHeight);y+=2)
+  for(let x=Math.max(0,Math.floor(p.x-halfWidth));x<=Math.min(w-1,p.x+halfWidth);x+=2){
+   const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2];
+   if(Math.min(r,g,b)>200&&Math.max(r,g,b)-Math.min(r,g,b)<40)bright++;
+  }
+ return bright>=3
+}
+function hasDangerLabel(image,w,h,p,ratio){
+ let hits=0;const data=image.data;
+ for(let y=Math.max(0,Math.floor(p.y-p.r*1.35-20*ratio));y<Math.min(h,p.y-p.r*.65);y++)for(let x=Math.max(0,Math.floor(p.x-24*ratio));x<Math.min(w,p.x+24*ratio);x++){
+ const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2];if(r>225&&g>130&&g<210&&b>115&&b<200&&r-g>40&&g-b<40)hits++;
+ }return hits>=Math.max(3,5*ratio*ratio);
+}
+function highlightRadius(image,w,h,p){
+ if(p.clipped||p.r<18)return p.r;const data=image.data,colors=[];
+ for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=Math.round(p.x+p.r*.32)+dx,y=Math.round(p.y-p.r*.28)+dy;if(x<0||x>=w||y<0||y>=h)continue;const i=(y*w+x)*4;colors.push([data[i],data[i+1],data[i+2]]);}
+ if(!colors.length)return p.r;const base=[0,1,2].map(k=>colors.map(c=>c[k]).sort((a,b)=>a-b)[colors.length>>1]);let area=0,sx=0,sy=0;
+ for(let y=Math.max(0,Math.floor(p.y-p.r*.7));y<p.y-p.r*.12;y++)for(let x=Math.max(0,Math.floor(p.x-p.r*.65));x<p.x+p.r*.02;x++){if(x>=w||y>=h)continue;const i=(y*w+x)*4;if([0,1,2].every(k=>data[i+k]>base[k]+9)&&[0,1,2].reduce((n,k)=>n+data[i+k]-base[k],0)>40){area++;sx+=x+.5;sy+=y+.5;}}
+ if(area<4)return p.r;const dx=p.x-sx/area,dy=p.y-sy/area,estimate=(dx*.25+dy*.33)/(.25*.25+.33*.33),expected=Math.PI*.18*.09*estimate*estimate;
+ return estimate>p.r*.7&&estimate<p.r*1.4&&area>expected*.45&&area<expected*1.6?estimate:p.r;
+}
+let imageState=null;
+function detectVisibleWalls(image,w,h,ratio){
+ const s=4,nx=Math.ceil(w/s),ny=Math.ceil(h/s),rows=new Uint16Array(ny),cols=new Uint16Array(nx),px=image.data;
+ for(let j=0;j<ny;j++)for(let i=0;i<nx;i++){const k=((j*s)*w+i*s)*4,a=px[k],b=px[k+1],c=px[k+2];if(a>=40&&a<=95&&b>=85&&b<=150&&c>=75&&c<=140&&b-a>=30&&b-a<=60&&b-c>=5&&b-c<=20){rows[j]++;cols[i]++;}}
+ function lines(counts,opposite){const groups=[];for(let i=0;i<counts.length;i++)if(counts[i]/opposite>=.55){const x=i*s,g=groups.at(-1);if(g&&x-g.at(-1)<=s)g.push(x);else groups.push([x]);}return groups.filter(g=>g.at(-1)-g[0]<=20).map(g=>g.reduce((a,b)=>a+b,0)/g.length);}
+ const result=[null,null,null,null];for(const x of lines(cols,ny)){const k=x<w/2?0:1,v=Math.abs(x-w/2)/ratio;result[k]=result[k]===null?v:Math.min(result[k],v);}for(const y of lines(rows,nx)){const k=y<h/2?2:3,v=Math.abs(y-h/2)/ratio;result[k]=result[k]===null?v:Math.min(result[k],v);}return result.some(v=>v!==null)?result:null;
+}
+function readImage(source,radius,now,predictedVelocity=null){
+ const scale=Math.min(1,1200/source.width),w=Math.round(source.width*scale),h=Math.round(source.height*scale);if(!w||!h)throw Error('遊戲畫面尚未就緒');
+ if(out.width!==w)out.width=w;if(out.height!==h)out.height=h;const captureStart=performance.now();ctx.drawImage(source,0,0,w,h);window.r4capture={start:captureStart,end:performance.now(),sourceWidth:source.width,sourceHeight:source.height};const image=ctx.getImageData(0,0,w,h);timing.capture(image,captureStart,performance.now());const pixels=new Uint32Array(image.data.buffer,image.data.byteOffset,image.data.byteLength/4),ratio=w/(source.clientWidth||w);
+ const prior=imageState;let same=prior?.pixels.length===pixels.length&&prior.width===w&&prior.height===h;if(same)for(let i=0;i<pixels.length;i++)if(pixels[i]!==prior.pixels[i]){same=false;break;}if(same)return prior.analysis;
+ const map0=detectMinimap(image,w,h,ratio),visibleWalls=detectVisibleWalls(image,w,h,ratio),map=map0?{...map0,visibleWalls}:visibleWalls?{visibleWalls}:null,r=radius*ratio,rawParts=components(image,w,h,Math.max(1,Math.ceil(w/700)),canvasUiMasks(w,h,ratio)),parts=rawParts.filter(p=>!rawParts.some(q=>q!==p&&q.r>p.r*1.8&&Math.hypot(p.x-q.x,p.y-q.y)<q.r*.8&&!(p.r>=r*.98&&p.hue!==65535&&q.hue!==65535&&Math.min(Math.abs(p.hue-q.hue),360-Math.abs(p.hue-q.hue))>22&&hasSlimeLabel(image,w,h,p)))).filter(p=>!isPlayerComponent(p,r,w/2,h/2)&&p.r>4*ratio&&!(p.r<=Math.max(20*ratio,r*.48)&&Math.hypot(p.x-w/2,p.y-h/2)<r*1.2&&(p.hue===65535||!hasSlimeLabel(image,w,h,p))));
+ if(map&&runStrategy==='grow-12')map.growMarkers=growMarkers(image,w,h,map);
+ if(map){map.observedAt=now;map.viewWidth=w/ratio;map.viewHeight=h/ratio;}
+ const dt=Math.max(.04,Math.min(.4,(now-(prior?.timestamp??now-100))/1000)),previous=prior?.objects||[];let camera=predictedVelocity?{...predictedVelocity}:{x:0,y:0};
+ if(!predictedVelocity&&map?.player&&prior?.analysis.map?.player){const old=prior.analysis.map;camera={x:(map.player.x/map.width-old.player.x/old.width)*10400/dt,y:(map.player.y/map.height-old.player.y/old.height)*7200/dt};}
+ const shifts=[];for(const p of parts.filter(p=>p.r<=20*ratio)){const x=(p.x-w/2)/ratio,y=(p.y-h/2)/ratio;let best=null,error=35;for(const q of previous.filter(q=>!q.npc)){const dist=Math.hypot(q.x-x-(prior.analysis.velocity.x||0)*dt,q.y-y-(prior.analysis.velocity.y||0)*dt);if(Math.abs(q.r-p.r/ratio)<3&&dist<error){error=dist;best=q;}}if(best)shifts.push({x:(best.x-x)/dt,y:(best.y-y)/dt});}
+ let measuredCamera=null;if(shifts.length>=3){const median=k=>shifts.map(p=>p[k]).sort((a,b)=>a-b)[shifts.length>>1];measuredCamera={x:median('x'),y:median('y')};camera=predictedVelocity?{x:predictedVelocity.x*.6+median('x')*.4,y:predictedVelocity.y*.6+median('y')*.4}:{x:median('x'),y:median('y')};}
+ camera.x=Math.max(-400,Math.min(400,camera.x));camera.y=Math.max(-400,Math.min(400,camera.y));const oldVelocity=prior?.analysis.velocity||{x:0,y:0},velocity=predictedVelocity?{...camera}:{x:oldVelocity.x*.75+camera.x*.25,y:oldVelocity.y*.75+camera.y*.25};
+ const used=new Set(),objects=parts.map(p=>{const x=(p.x-w/2)/ratio,y=(p.y-h/2)/ratio,visualR=p.r/ratio,labelSeen=hasSlimeLabel(image,w,h,p),npc=labelSeen||visualR>20,r=npc?highlightRadius(image,w,h,p)/ratio:visualR;let match=null,error=100;for(const q of previous){if(used.has(q)||q.npc!==npc||Math.abs(q.r-r)>Math.max(6,r*.2))continue;const dist=Math.hypot(q.x+(q.vx-camera.x)*dt-x,q.y+(q.vy-camera.y)*dt-y);if(dist<error){error=dist;match=q;}}if(match)used.add(match);const clamp=v=>Math.max(-200,Math.min(200,v));const stalled=npc&&Math.hypot(x,y)<(radius+r)*.74&&prior?.radius===radius?(match?.stalled||0)+dt:0;return {x,y,r,npc,labelSeen,localReliable:!p.clipped&&labelSeen&&Math.max(p.bw,p.bh)/Math.min(p.bw,p.bh)<=1.4&&p.area*Math.max(1,Math.ceil(w/700))**2/(p.bw*p.bh)>=.5,stalled,blocked:stalled>.5,isRed:npc&&hasDangerLabel(image,w,h,p,ratio),clipped:p.clipped,dangerRadius:p.clipped?r+50:r,vx:npc&&match?clamp((match.vx||0)*.65+((x-match.x)/dt+(measuredCamera?.x??camera.x))*.35):0,vy:npc&&match?clamp((match.vy||0)*.65+((y-match.y)/dt+(measuredCamera?.y??camera.y))*.35):0};});
+ const analysis={objects,map,velocity};imageState={radius,width:w,height:h,pixels:new Uint32Array(pixels),timestamp:now,objects,analysis};return analysis;
+}
+function hudSpeed(r,text){const values=/RGB\s*(\d+)\s*·\s*(\d+)\s*·\s*(\d+)/.exec(text||''),color=values?values.slice(1).map(Number):[98,218,169],brightness=(.2126*color[0]+.7152*color[1]+.0722*color[2])/255;return Math.max(92,260-Math.max(0,r-25)*.65)*(.72+brightness*.58)*1.38;}
+const dirs=Array.from({length:8},(_,i)=>({x:Math.cos(i*Math.PI/4),y:Math.sin(i*Math.PI/4),name:['東','東南','南','西南','西','西北','北','東北'][i]}));
+function planBaseline(objects,r,map,speed,v,old,splitGuard=true){
+ const meals=objects.filter(o=>!o.clipped&&!o.blocked&&(!o.npc||!o.isRed&&o.r<r*.94));
+ const estimatedWalls=map?.player?[map.player.x/map.width*10400,(1-map.player.x/map.width)*10400,map.player.y/map.height*7200,(1-map.player.y/map.height)*7200]:null,walls=map?.visibleWalls?map.visibleWalls.map((v,i)=>v??estimatedWalls?.[i]??Infinity):estimatedWalls;
+ const margin=260+.75*r,wallMeal=false,recovering=!!walls?.some(x=>x<margin);
+ let target=null,best=0;
+ for(const o of meals){if(walls){const contact=o.npc?.7*(r+o.r):r+o.r*.5,preyWall=walls.map((w,i)=>w+[o.x,-o.x,o.y,-o.y][i]);if(preyWall.some(w=>w+contact<margin))continue;}const dist=Math.hypot(o.x,o.y),gain=o.npc?.75*(Math.sqrt(r*r+.55*o.r*o.r)-r):.45,eta=Math.max(.12,(dist-(o.npc?.7*(r+o.r):r))/speed),score=gain/(eta+.4)*(o.npc?2:1)*(old.target&&old.target.npc===o.npc&&Math.hypot(old.target.x-o.x,old.target.y-o.y)<100?1.2:1);if(score>best){best=score;target=o;}}
+ if(map&&(!target||r>=140&&!target.npc))for(const dot of map.opportunities||[]){const x=(dot.x-map.player.x)/map.width*10400,y=(dot.y-map.player.y)/map.height*7200,dist=Math.hypot(x,y);if(dist<300||map.viewWidth&&Math.abs(x)<map.viewWidth*.5-40&&Math.abs(y)<map.viewHeight*.5-40)continue;const area=dot.area/(map.pixelRatio||1)**2,body=area<6?Math.min(20,r*.75):Math.min(r*.85,Math.sqrt(area/Math.PI)*38),gain=.75*(Math.sqrt(r*r+.55*body*body)-r),score=gain/(dist/speed+.7)*1.2;if(score>best){best=score;target={x,y,r:body,npc:true,mapOnly:true,vx:0,vy:0};}}
+ const lead=target?Math.min(1.2,Math.hypot(target.x,target.y)/speed):0,tx=target?target.x+target.vx*lead:old.x*speed,ty=target?target.y+target.vy*lead:old.y*speed;
+ const candidates=dirs.map(d=>{let x=0,y=0,vx=v.x,vy=v.y,clearance=1e6,risk=0,gain=0,projectedR=r;const picked=new Set();
+ for(let k=1;k<=20;k++){const t=k*.1;vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
+ for(const o of objects){if(o.clipped||o.blocked||picked.has(o)||o.npc&&(o.isRed||o.r>=projectedR*.94))continue;if(Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)<(o.npc?.7*(projectedR+o.r):projectedR+o.r*.5)){picked.add(o);const g=o.npc?.75*(Math.sqrt(projectedR*projectedR+.55*o.r*o.r)-projectedR):.45;gain+=g/(t+.3);projectedR+=g;}}
+ if(t<=1.1)for(const o of objects){if(!o.npc||picked.has(o)||!o.clipped&&!o.isRed&&o.r<projectedR*.98)continue;const body=o.clipped?o.dangerRadius:o.isRed?Math.max(o.r,r*1.1):o.r, gap=Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)-.75*(projectedR+body)-12;clearance=Math.min(clearance,gap);risk+=Math.max(0,1-gap/100)**2/11;}
+ }
+ const alignment=(d.x*tx+d.y*ty)/Math.max(1,Math.hypot(tx,ty)),inward=walls&&!wallMeal?[d.x,-d.x,d.y,-d.y].reduce((s,a,i)=>s+Math.max(0,(margin-walls[i])/margin)*a,0):0;
+ return {...d,target,clearance,risk,gain,projectedR,recovering,score:alignment*Math.max(2,best)*4+gain*4-risk*12+inward*50+(d.x*old.x+d.y*old.y)*.15};});
+ const safe=candidates.filter(d=>d.clearance>3),bounded=safe.filter(d=>!walls||walls.every((distance,i)=>distance>=margin||[d.x,-d.x,d.y,-d.y][i]>=.25)),pool=bounded.length?bounded:safe.length?safe:candidates;pool.sort((a,b)=>safe.length?b.score-a.score:b.clearance-a.clearance);return {...pool[0],escaping:!safe.length,threats:objects.filter(o=>o.npc&&(o.clipped||o.isRed||o.r>=r*.98)).length};
+}
+// grow-3: read only rendered minimap pixels; no game state or absent-marker inference.
+function growMarkers(image,w,h,map){
+ if(!map?.player||!image?.data)return [];
+ const q=map.pixelRatio||1,W=Math.ceil(map.width),H=Math.ceil(map.height),kind=new Uint8Array(W*H),seen=new Uint8Array(W*H),out=[];
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const X=Math.floor(map.x+x),Y=Math.floor(map.y+y);if(X<0||Y<0||X>=w||Y>=h)continue;const i=(Y*w+X)*4,r=image.data[i],g=image.data[i+1],b=image.data[i+2];kind[y*W+x]=r>=240&&g>=120&&g<=158&&b>=110&&b<=150?2:r>=200&&r<=217&&g>=228&&g<=244&&b>=215&&b<=233?1:r>=140&&r<=185&&g>=220&&b>=185&&b<=224?3:0;}
+ for(let i=0;i<kind.length;i++)if((kind[i]===1||kind[i]===2)&&!seen[i]){const color=kind[i],todo=[i],points=[];seen[i]=1;while(todo.length){const k=todo.pop(),x=k%W,y=(k/W)|0;points.push([x,y]);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const a=x+dx,b=y+dy,j=b*W+a;if(a>=0&&a<W&&b>=0&&b<H&&!seen[j]&&kind[j]===color){seen[j]=1;todo.push(j);}}}
+ const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]),l=Math.min(...xs),r=Math.max(...xs),t=Math.min(...ys),b=Math.max(...ys),bw=r-l+1,bh=b-t+1,x=xs.reduce((a,b)=>a+b,0)/points.length+.5,y=ys.reduce((a,b)=>a+b,0)/points.length+.5;
+ let mixed=false;for(let Y=Math.max(0,t-1);Y<=Math.min(H-1,b+1);Y++)for(let X=Math.max(0,l-1);X<=Math.min(W-1,r+1);X++){const k=kind[Y*W+X];if(k===3||k&&k!==color)mixed=true;}
+ // A resolved white component is not rejected merely for proximity to the player.
+ // The expanded mixed-color box still rejects green/white contact and camera strokes.
+ // No food is painted here. Reject borders, text, player/camera strokes and touching colors.
+ if(l<=0||t<=0||r>=W-1||b>=H-1||points.length<Math.max(2,q*q)||bw>7*q+1||bh>7*q+1||Math.max(bw,bh)/Math.min(bw,bh)>1.8||points.length/(bw*bh)<.45||mixed||(color===2&&Math.hypot(x-map.player.x,y-map.player.y)<=6*q))continue;
+ let core=0;for(const [X,Y]of points){const i=((Math.floor(map.y)+Y)*w+Math.floor(map.x)+X)*4;if(image.data[i]===211&&image.data[i+1]===238&&image.data[i+2]===225)core++;}
+ // Exact pale core area only: antialias/tint cannot increase this lower estimate.
+ // NPC map radius = clamp(worldRadius/38,1.2,3); player marker is fixed3.
+ const sizeLower=color===1&&Math.max(bw,bh)/Math.min(bw,bh)<=1.2&&points.length/(bw*bh)>=.7?38*Math.sqrt(core*.98/Math.PI)/q:0;
+ const sizeUpper=color===1&&Math.max(bw,bh)<5*q?38*(Math.max(bw,bh)/q+1)/2:0;
+ out.push({x,y,red:color===2,area:points.length,sizeLower,sizeUpper,source:'visible-minimap'});
+ }return out;
+}
+function growMapInputs(objects,r,map){
+ const valid=Number.isFinite(map?.player?.x)&&Number.isFinite(map?.player?.y)&&map.width>0&&map.height>0&&Array.isArray(map.growMarkers);
+ if(!valid)return {objects:[],targets:[],mapStatus:'lost'};
+ // In B the visible map is authoritative for NPC policy. Body fragments,
+ // aliases, red text, radius and failed pairing must not reintroduce avoidance.
+ const markers=map.growMarkers.filter(m=>Number.isFinite(m.x)&&Number.isFinite(m.y));
+ const nearWhite=markers.filter(m=>m.red===false&&Number.isFinite(m.sizeLower)&&m.sizeLower>45.6&&m.sizeLower>=.9*(r+1));
+ const reds=[...nearWhite.map(m=>({...m,nearWhite:true})),...markers.filter(m=>m.red),...(map.threats||[]).filter(t=>Number.isFinite(t.x)&&Number.isFinite(t.y)&&!markers.some(m=>m.red&&Math.hypot(m.x-t.x,m.y-t.y)<2))];
+ const copy=objects.filter(o=>!o.npc).map(o=>({...o})),targets=[];
+ const point=m=>({x:(m.x-map.player.x)/map.width*10400,y:(m.y-map.player.y)/map.height*7200});
+ for(const m of reds)copy.push({...point(m),r:Math.max(r*1.12,114)+75,nearWhite:!!m.nearWhite,npc:true,isRed:true,clipped:false,vx:0,vy:0,mapOnly:true});
+ for(const m of markers.filter(m=>m.red===false)){
+  if(reds.some(t=>Math.hypot(m.x-t.x,m.y-t.y)<=2*(map.pixelRatio||1)))continue;
+  const o={...point(m),r:Math.min(r,60),npc:true,isRed:false,clipped:false,blocked:false,vx:0,vy:0,mapVerified:true,mapOnly:true,sizeUpper:m.sizeUpper||0};copy.push(o);targets.push(o);
+ }
+ return {objects:copy,targets,mapStatus:'visible',nearWhite:nearWhite.length};
+}
+// Visible-map-only target screen. A contact is hypothetical, never a claimed eat.
+function growExitEvidence(target,r,map,speed,v,threats){
+ const walls=map?.visibleWalls||[null,null,null,null],complete=walls.length===4&&walls.every(Number.isFinite);
+ const margin=260+.75*r,contact=.7*(r+target.r);let reached=false,attempted=false;
+ function legal(s,t){
+  if(walls.some((w,i)=>Number.isFinite(w)&&w+[s.x,-s.x,s.y,-s.y][i]<Math.min(w,margin)-1))return false;
+  return threats.every(o=>Math.hypot(o.x+(o.vx||0)*t-s.x,o.y+(o.vy||0)*t-s.y)-.75*(r+Math.max(o.r||0,r*1.1))-12>3);
+ }
+ function step(s,d){const vx=s.vx+(d.x*speed-s.vx)*.35,vy=s.vy+(d.y*speed-s.vy)*.35;return {x:s.x+vx*.1,y:s.y+vy*.1,vx,vy};}
+ for(const d of dirs){let geometric={x:0,y:0,vx:v.x,vy:v.y},inRange=false;for(let k=0;k<=40;k++){if(Math.hypot(target.x-geometric.x,target.y-geometric.y)<=contact){inRange=true;break;}geometric=step(geometric,d);}if(!inRange)continue;attempted=true;let s={x:0,y:0,vx:v.x,vy:v.y};
+  for(let k=0;k<=40;k++){
+   if(!legal(s,k*.1))break;
+   if(Math.hypot(target.x-s.x,target.y-s.y)<=contact){
+    reached=true;const startDistance=Math.hypot(target.x-s.x,target.y-s.y);
+    for(const exit of dirs){let end={...s},ok=true;
+     for(let j=1;j<=10;j++){end=step(end,exit);if(!legal(end,(k+j)*.1)){ok=false;break;}}
+     if(ok&&Math.hypot(end.x-target.x,end.y-target.y)>=startDistance+r*.5)return {state:complete?'pass':'unknown',reason:complete?'bounded-exit':'partial-walls',contactAt:k*.1,exit:{x:exit.x,y:exit.y}};
+    }break;
+   }s=step(s,d);
+  }
+ }
+ if(!attempted)return {state:'unknown',reason:'beyond-fixed-horizon'};
+ return {state:'blocked',reason:reached?'no-exit':'no-bounded-approach'};
+}
+function growLocalThreats(objects,r,speed){
+ const reliable=objects.filter(o=>o.npc&&!o.clipped&&!o.blocked&&o.localReliable===true&&Number.isFinite(o.r)&&o.r>0&&Number.isFinite(o.x)&&Number.isFinite(o.y)&&(o.isRed||o.r>=r*1.08));
+ // Coincident aliases cannot establish independent solid boundaries.
+ return reliable.filter(o=>!reliable.some(q=>q!==o&&Math.hypot(q.x-o.x,q.y-o.y)<Math.min(q.r,o.r)*.5)&&Math.hypot(o.x,o.y)<r+o.r+speed*1.1+50);
+}
+// Short visible-only escape fan; unknown walls are not claimed clear.
+function growEscapeFan(state,r,walls,speed,reds){
+ const margin=260+.75*r,allowed=[];
+ for(const d of dirs){let {x,y,vx,vy}=state,ok=true,minGap=1e6;
+  for(let j=1;j<=15;j++){vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
+   if(walls.some((w,i)=>Number.isFinite(w)&&w+[x,-x,y,-y][i]<Math.min(w,margin)-1)){ok=false;break;}
+   const gap=reds.reduce((g,o)=>Math.min(g,Math.hypot(o.x-x,o.y-y)-.75*(r+Math.max(o.r,r*1.1))-12),1e6);
+   minGap=Math.min(minGap,gap);if(gap<=20){ok=false;break;}
+  }allowed.push(ok);
+ }
+ let arc=0;for(let i=0;i<8;i++){let n=0;while(n<8&&allowed[(i+n)%8])n++;arc=Math.max(arc,n);}
+ return {count:allowed.filter(Boolean).length,arc,wallKnown:walls.filter(Number.isFinite).length};
+}
+function planGrow(objects,r,map,speed,v,old){
+ if(r<90)return {...planBaseline(objects,r,map,speed,v,old),strategy:'grow-12',reason:'below-90-baseline'};
+ if(map?.stale||Number.isFinite(map?.observedAt)&&performance.now()-map.observedAt>400)map=null;
+ const mapped=growMapInputs(objects,r,map);
+ mapped.targets=mapped.targets.filter(t=>t.sizeUpper>0&&t.sizeUpper<r*.9);
+ if(mapped.mapStatus==='lost')return {x:0,y:0,name:'小地圖遺失，釋放控制',clearance:0,gain:0,threats:0,escaping:false,strategy:'grow-12',mapStatus:'lost',reason:'missing-map'};
+ const walls=map?.visibleWalls||[],margin=260+.75*r;
+ const checks=mapped.targets.map(t=>({target:t,...growExitEvidence(t,r,map,speed,v,[])}));
+ const available=checks.filter(c=>c.state!=='blocked');
+ const poolTargets=(available.length?available:checks).map(c=>c.target);
+ const mapHazards=mapped.objects.filter(o=>o.npc&&!o.mapVerified);
+ // Minimap red/near-size only rank destinations, never local escape directions.
+ const ranked=poolTargets.map(t=>{const distance=Math.hypot(t.x,t.y),pressure=mapHazards.reduce((p,o)=>p+Math.max(0,1-Math.hypot(t.x-o.x,t.y-o.y)/Math.max(1,r+o.r+100)),0);return {t,value:1/(distance/Math.max(1,speed)+.35)/(1+pressure)};}).sort((a,b)=>b.value-a.value||a.t.x-b.t.x||a.t.y-b.t.y);
+ const food=objects.filter(o=>!o.npc&&!o.clipped&&!o.blocked&&o.r>0&&o.r<=6&&Number.isFinite(o.x)&&Number.isFinite(o.y)).sort((a,b)=>Math.hypot(a.x,a.y)-Math.hypot(b.x,b.y))[0];
+ const npcTarget=ranked[0]?.t||null;
+ const target=npcTarget&&(!food||Math.hypot(npcTarget.x,npcTarget.y)/Math.max(1,speed)<=8)?npcTarget:food||npcTarget,tx=target?target.x:old.x,ty=target?target.y:old.y,length=Math.max(1,Math.hypot(tx,ty));
+ const guide=[...dirs].sort((a,b)=>(b.x*tx+b.y*ty)-(a.x*tx+a.y*ty))[0];
+ const correspondingRed=mapped.objects.filter(o=>o.npc&&!o.mapVerified&&!o.nearWhite).some(o=>{const along=o.x*guide.x+o.y*guide.y,cross=Math.abs(o.x*guide.y-o.y*guide.x);return along>0&&cross<=along*Math.tan(Math.PI/6)+10400/map.width*(map.pixelRatio||1);});
+ const redThreats=mapped.objects.filter(o=>o.npc&&!o.mapVerified&&!o.nearWhite);
+ const threats=[...redThreats,...(correspondingRed?growLocalThreats(objects,r,speed):[])];
+ const startGap=threats.reduce((g,o)=>Math.min(g,Math.hypot(o.x,o.y)-.75*(r+Math.max(o.r,r*1.1))-12),1e6);
+ const candidates=dirs.map(d=>{let x=0,y=0,vx=v.x,vy=v.y,gap=1e6,wallOK=true,endGap=1e6;
+  for(let k=1;k<=10;k++){vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
+   if(walls.some((w,i)=>Number.isFinite(w)&&w+[x,-x,y,-y][i]<Math.min(w,margin)-1))wallOK=false;
+   endGap=threats.reduce((g,o)=>Math.min(g,Math.hypot(o.x+(o.vx||0)*k*.1-x,o.y+(o.vy||0)*k*.1-y)-.75*(r+Math.max(o.r,r*1.1))-12),1e6);gap=Math.min(gap,endGap);
+  }const redSafe=redThreats.every(o=>Math.hypot(o.x,o.y)>r+o.r+speed*2||Math.hypot(o.x-x,o.y-y)>=Math.hypot(o.x,o.y)-1);return {...d,escape:growEscapeFan({x,y,vx,vy},r,walls,speed,redThreats),wallEnd:walls.map((w,i)=>Number.isFinite(w)?w+[x,-x,y,-y][i]:null),clearance:gap,endGap,wallOK,redSafe,alignment:(d.x*tx+d.y*ty)/length};
+ });
+ const direct=candidates.find(d=>d.name===guide.name),safe=candidates.filter(d=>d.wallOK&&d.redSafe&&d.clearance>3);
+ let selected,mode='map-guide';
+ const threshold=old.mode==='local-avoid'?20:3;
+ if(direct.wallOK&&direct.redSafe&&direct.clearance>threshold)selected=direct;
+ else if(safe.length){
+  safe.sort((a,b)=>Math.round(b.alignment*1000)-Math.round(a.alignment*1000)||b.clearance-a.clearance||(b.x*old.x+b.y*old.y)-(a.x*old.x+a.y*old.y));selected=safe[0];mode='local-avoid';
+  // Keep the prior safe adjacent turn within one octant, not a locked target.
+  const prior=safe.find(d=>d.x*old.x+d.y*old.y>.99);
+  if(old.mode==='local-avoid'&&prior&&selected.alignment-prior.alignment<.3)selected=prior;
+ }else{const bounded=candidates.filter(d=>d.wallOK);selected=[...(bounded.length?bounded:candidates)].sort((a,b)=>b.endGap-a.endGap||b.clearance-a.clearance||b.alignment-a.alignment)[0];mode='emergency';}
+ // Only bias already feasible directions. Never trade immediate red/wall safety for exit count.
+ const nearX=[0,1].filter(i=>Number.isFinite(walls[i])&&walls[i]<margin+speed*2),nearY=[2,3].filter(i=>Number.isFinite(walls[i])&&walls[i]<margin+speed*2);
+ const corner=nearX.length>0&&nearY.length>0,nearReds=redThreats.filter(o=>Math.hypot(o.x,o.y)<r+o.r+speed*4);
+ if(safe.length&&(corner||nearReds.length>=2)){
+  const cornerRoom=d=>corner?Math.min(...[...nearX,...nearY].map(i=>d.wallEnd[i])):0;
+  const quality=d=>d.escape.arc*2+d.escape.count+Math.min(3,cornerRoom(d)/Math.max(1,speed));
+  const best=[...safe].sort((a,b)=>quality(b)-quality(a)||b.alignment-a.alignment)[0];
+  // A full octant of extra escape coverage or a substantial inward corner step.
+  if(best!==selected&&(best.escape.arc>=selected.escape.arc+1||corner&&cornerRoom(best)>cornerRoom(selected)+speed*.35)&&quality(best)>quality(selected)+1){selected=best;mode='escape-route';}
+ }
+ return {...selected,target,gain:0,threats:threats.length,escaping:mode==='emergency',recovering:!direct.wallOK,strategy:'grow-12',mapStatus:'visible',mode,correspondingRed,reason:mode==='escape-route'?'preserve-exit':mode==='map-guide'?(target?(target.npc?'white-guidance':'food-fallback'):'no-eligible-dot'):!direct.wallOK?'wall':(redThreats.length?'red-map-threat':'main-view-threat'),guide:{x:guide.x,y:guide.y},nearWhite:mapped.nearWhite||0,eligibleDots:mapped.targets.length,exitScreen:{pass:checks.filter(c=>c.state==='pass').length,unknown:checks.filter(c=>c.state==='unknown').length,blocked:checks.filter(c=>c.state==='blocked').length},startGap};
+}
+
+let lastVision=0;
+function showVision(analysis,r,d,now){if(!$('diagnostics').open||now-lastVision<1000)return;lastVision=now;const canvas=$('vision');canvas.width=out.width;canvas.height=out.height;const v=canvas.getContext('2d'),ratio=out.width/(game.contentDocument.querySelector('canvas').clientWidth||out.width);v.drawImage(out,0,0);v.lineWidth=2;for(const o of analysis.objects){v.strokeStyle=o.clipped||o.isRed||o.npc&&o.r>=r*.95?'#ff796e':o.npc?'#7dff9b':'#5bdbea';v.beginPath();v.arc(out.width/2+o.x*ratio,out.height/2+o.y*ratio,o.r*ratio,0,Math.PI*2);v.stroke();}v.strokeStyle='#ffffff';v.beginPath();v.moveTo(out.width/2,out.height/2);v.lineTo(out.width/2+d.x*90,out.height/2+d.y*90);v.stroke();$('visionText').textContent=JSON.stringify({target:d.target&&{radius:Math.round(d.target.r),distance:Math.round(Math.hypot(d.target.x,d.target.y)),npc:d.target.npc},map:analysis.map&&analysis.map.player,npcs:analysis.objects.filter(o=>o.npc).map(o=>({r:Math.round(o.r),x:Math.round(o.x),y:Math.round(o.y),red:o.isRed,clipped:o.clipped}))},null,1);}
+function key(type,k){const win=game.contentWindow;timing.dispatch(type,k,()=>win.dispatchEvent(new win.KeyboardEvent(type,{key:k,bubbles:true,cancelable:true})));}
+function release(){for(const k of held)key('keyup',k);held.clear();}
+function move(d){const next=new Set([' ']);if(d.x>.25)next.add('ArrowRight');if(d.x<-.25)next.add('ArrowLeft');if(d.y>.25)next.add('ArrowDown');if(d.y<-.25)next.add('ArrowUp');for(const k of held)if(!next.has(k))key('keyup',k);for(const k of next)key('keydown',k);held=next;heading=d;}
+const visible=e=>e.getClientRects().length>0,buttons=()=>[...game.contentDocument.querySelectorAll('button')].filter(visible);
+function stop(pause=true){challenging=false;epoch++;active=false;release();timing.stop();if(pause)buttons().find(b=>/^(暫停|pause)$/i.test(b.textContent.trim()))?.click();$('status').textContent='已停止';}
+let runCount=0,runStrategy='grow-12',runGameVersion=null,loadedVersion=null,loadGeneration=0;
+async function finish(runId){
+ const doc=game.contentDocument,won=/成功過關|You win/i.test(doc.getElementById('title')?.textContent||''),description=doc.getElementById('description')?.textContent||'',clock=/(?:遊玩時間|Play time)\s*(\d+):(\d+)/.exec(description),seconds=clock?Number(clock[1])*60+Number(clock[2]):null;
+ active=false;release();const reached=won&&seconds!==null&&seconds<=150;
+ const entry=document.createElement('li');entry.textContent=`第 ${attempt} 局 · ${runGameVersion} · ${runStrategy} · ${won?'過關':'失敗'} · ${clock?clock[1]+':'+clock[2]:'時間未確認'} · ${reached?'2:30 內':'未達標'}`;$('runs').append(entry);
+ $('status').textContent=reached?'本局150秒內過關；不代表正式驗收':`本局${won?'過關但未2:30 內':'失敗'}（${runCount}/5）`;
+ if(true){challenging=false;return;}
+ await new Promise(resolve=>setTimeout(resolve,3000));if(runId!==epoch||!challenging)return;startAttempt();
+}
+
+function tick(runId){if(!active||runId!==epoch)return;const begin=performance.now();try{const doc=game.contentDocument;if(doc.querySelector('#pauseScreen.open')){release();doc.getElementById('resumeButton')?.click();game.contentWindow.focus();$('status').textContent='已恢復暫停，重新同步控制';setTimeout(()=>tick(runId),100);return;}if(buttons().some(b=>/^(再玩一次|play again)$/i.test(b.textContent.trim()))||doc.querySelector('#gameEnding.visible')){finish(runId);return;}const source=doc.querySelector('canvas'),hud=Number(doc.getElementById('size')?.textContent)||25,mixText=doc.getElementById('mix')?.textContent||'',speed=hudSpeed(hud,mixText),dt=Math.max(0,Math.min(.2,(begin-last)/1000)),follow=1-Math.exp(-4.2*dt);if(held.size){velocity.x+=(heading.x*speed-velocity.x)*follow;velocity.y+=(heading.y*speed-velocity.y)*follow;}else velocity={x:0,y:0};const analysis=readImage(source,hud,begin,velocity);if(!analysis){release();$('status').textContent='等待遊戲畫面辨識';setTimeout(()=>tick(runId),65);return;}const objects=analysis.objects;const splitGuard=true;velocity=analysis.velocity;const planInput=JSON.parse(JSON.stringify({objects,hud,map:analysis.map,speed,velocity,heading,splitGuard}));const d=(runStrategy==='grow-12'?planGrow:planBaseline)(objects,hud,analysis.map,speed,velocity,heading,splitGuard);if(performance.now()-begin>200){stop();$('status').textContent='計算逾時，已釋放控制並暫停';return;}timing.decision(d);const planOutput=JSON.parse(JSON.stringify(d));if(d.mapStatus==='lost')release();else move(d);window.ocrTestRecord?.({planInput,planOutput,mixText,speed,rgb:(/RGB\s*(\d+)\s*·\s*(\d+)\s*·\s*(\d+)/.exec(mixText)||[]).slice(1).map(Number),capture:{...window.r4capture},recordAt:performance.now(),ms:begin,elapsedCompute:performance.now()-begin,hud,hudTime:doc.getElementById('time')?.textContent,objects:analysis.objects,map:analysis.map,velocity:analysis.velocity,direction:{x:d.x,y:d.y},target:d.target,clearance:d.clearance,gain:d.gain});showVision(analysis,hud,d,begin);previous=objects;last=begin;$('size').textContent=hud||'—';$('time').textContent=doc.getElementById('time')?.textContent||'—';$('action').textContent=(d.escaping?'緊急脫離':d.recovering?'離開邊界／角落':'比較成長路徑')+' · '+d.name;$('detail').textContent=d.mapStatus==='lost'?'小地圖／玩家位置未確認，暫停送鍵；不推測白點':`預測安全間距 ${Math.round(d.clearance)} · 成長收益 ${d.gain.toFixed(2)} · 可見威脅 ${d.threats} · ${d.reason||'legacy'} · 加速中`;$('ms').textContent=(performance.now()-begin).toFixed(1)+' ms';}catch(e){stop(false);$('status').textContent=e.message;return;}setTimeout(()=>tick(runId),Math.max(0,200-(performance.now()-begin)));}
+let lastMap=null;function startAttempt(){if(!loadedVersion||$('go').disabled)return;stop(false);runGameVersion=loadedVersion;runStrategy=$('strategy').value;challenging=true;runCount++;previous=[];lastMap=null;velocity={x:0,y:0};last=performance.now();imageState=null;const b=buttons().find(b=>/^(開始遊戲|再玩一次|play|play again|繼續遊戲|resume)$/i.test(b.textContent.trim()));buttons().find(b=>/^(改用螢幕搖桿|Use joystick)$/i.test(b.textContent.trim()))?.click();b?.click();game.contentWindow.focus();active=true;$('attempt').textContent=++attempt;$('status').textContent='正在實驗（單局；不送榜）';const runId=epoch;setTimeout(()=>tick(runId),300);}$('go').onclick=()=>{runCount=0;startAttempt()};$('stop').onclick=()=>stop();window.addEventListener('pagehide',()=>stop(false));document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+function setViewport(){const choice=$('viewScale').value,scale=choice==='wide'?2000/game.parentElement.clientWidth:Number(choice);document.documentElement.style.setProperty('--view-scale',scale);}$('viewScale').onchange=()=>{stop();setViewport();};window.addEventListener('resize',()=>{if($('viewScale').value==='wide')setViewport();});
+const growGames=__GROW_GAMES__;
+const gameChoice=$('gameChoice');for(const o of growGames.options)gameChoice.add(new Option(o.label,o.value));gameChoice.value='/v2.13';
+function loadGrowGame(){
+ stop();const generation=++loadGeneration,entry=growGames.entries[gameChoice.value];loadedVersion=null;$('go').disabled=true;
+ previous=[];lastMap=null;imageState=null;velocity={x:0,y:0};heading={x:1,y:0};last=0;attempt=0;runCount=0;
+ for(const id of ['size','time','ms'])$(id).textContent='—';$('attempt').textContent='0';$('action').textContent='等待';$('detail').textContent='';$('rank').textContent='';$('visionText').textContent='';$('vision').width=0;
+ if(!entry){$('status').textContent='未知版本，未載入';return;}
+ $('status').textContent='正在載入 '+entry.version;game.title=entry.version+' 不送榜實驗遊戲';
+ game.onload=()=>{if(generation!==loadGeneration)return;const actual=game.contentDocument?.querySelector('meta[name="ocr-grow-version"]')?.content;if(actual!==entry.version){$('status').textContent='版本核對失敗，禁止開始';return;}loadedVersion=actual;$('gameVersion').textContent='已載入 '+actual+' · 原規則隔離副本 · 不送榜';$('status').textContent=actual+' 已就緒；B grow-12／A test-026';$('go').disabled=false;};
+ game.srcdoc=entry.html;
+}
+gameChoice.onchange=loadGrowGame;setViewport();loadGrowGame();
+})();</script></html>

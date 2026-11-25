@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "status": "prepared_for_authorized_upload",
+  "authorization": {
+    "dateTaipei": "2026-11-25",
+    "userRequest": "繼續 把每個版本都放上github",
+    "scope": "Versioned OCR Grow source, reproducibility dependencies, full no-pixel evaluation records, indexes and draft PR"
+  },
+  "repository": "gg-dot1980/slime",
+  "baseBranch": "test/ocr-test",
+  "baseCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+  "headBranch": "feat/grow-evaluation-20261125",
+  "sourceSitesCommit": "14c1815351b32096b325e032331b90c1f7873159",
+  "storageRulesVersion": "v1",
+  "immutableOriginalPackage": {
+    "files": 112,
+    "bytes": 13734624,
+    "zipSha256": "3a31eeabb18f3e6e06dfa55ce2aa3dcc6e9217a8d6991d23442454d337f11e81",
+    "directlyStoredFiles": 102,
+    "existingGameDependencyCopies": 10
+  },
+  "newGameplayStartsDuringPublication": 0,
+  "mergeStatus": "not_merged",
+  "deploymentStatus": "not_deployed",
+  "formalAcceptance": false,
+  "remoteVerification": {
+    "status": "pending",
+    "commit": null,
+    "pr": null
+  }
+}
+

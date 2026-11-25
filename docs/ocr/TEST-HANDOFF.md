@@ -1,5 +1,16 @@
 # Slime OCR 測試交接索引
 
+## 2026-11-25：Grow-1～17 逐版來源與完整 80 局歸檔
+
+[全部版本索引](GROW-VERSIONS.md) · [本輪總入口](repro/grow-evaluation-20261125/README.md) · [同步／回讀狀態](repro/grow-evaluation-20261125/publication.json)。依使用者明確要求，保留已有 grow-1～6 的固定 GitHub 來源，補存 grow-7～12 的歷史來源與各版重現說明，新增 grow-13～17 的完整凍結來源、protocol、無像素事件與結果；共 17 個版本入口，沒有覆寫舊歷史。
+
+本輪實戰共 80 starts：78 原生 final、2 個有 hash 綁定 sidecar 的基礎設施中斷；全部開局保留，沒有補造 final 或換局。獨立確認：grow-15／v2.13 11/12；grow-15／v2.22 5/12；grow-16／v2.22 5/12；grow-17／v2.22 3/12。探索另列，grow-16／17 沒有新的 v2.13 樣本，原雙版本 150 秒／50% 目標未達成。
+
+此次歸檔新增實戰 0 局。Grow-7～12 乾淨重建與原合成檢查通過；新包由 102 個原檔加 10 個既有遊戲來源的本機還原，完整 112 檔與凍結原包一致，111 項 checksum 及重算統計全部匹配。遊戲 seed 未知，v2.22 是本輪開始時核實的最新版、結束重查為 403；沒有改寫上述限制。未涵蓋其他遊戲版本或正式驗收。
+
+發布基底 `46b8aa3f8207ed03bc89c84c6ed896a23bcd5601`；以 `feat/grow-evaluation-20261125` 的 Draft PR 指向 `test/ocr-test`。正式提交／回讀以 publication.json 為準；本紀錄沒有改動正式策略或部署網站。適用 GITHUB-STORAGE v1。以下既有歷史全文保留。
+
+
 ## contour-path-1 — 固定跨幀輪廓回放，未形成候選
 
 [逐版入口](repro/contour-path-1/README.md) · [完整無影像數值](repro/contour-path-1/result-noimages.json)。3局既有片段12圖、43配對檢查，31未匹配／6未知／6暫定；0個三幀大型逼近警示。PNG解碼12/12獨立雜湊核對、程式重跑數值一致。無策略改動、新增實跑0局；保留裁切及成功接觸反例。`/ocr-test` 分開標示實際辨識test-033／規劃test-026與最新未採用實驗；線上驗證狀態另見逐版 publication.json。影像僅本機，公開checkout需本機依賴才可像素重播。

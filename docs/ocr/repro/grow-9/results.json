@@ -1,0 +1,212 @@
+{
+  "passed": true,
+  "checks": 23,
+  "rows": [
+    {
+      "name": "opening-25",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "opening-89",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "opening-90",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "opening-130",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "no-red-large",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "behind-red",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "side-red",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "front-red-body-below",
+      "x": 0.7071067811865474,
+      "y": -0.7071067811865477,
+      "mode": "local-avoid",
+      "red": true,
+      "reason": "main-view-threat",
+      "clearance": 62.25867238761293
+    },
+    {
+      "name": "front-red-body-above",
+      "x": 0.7071067811865476,
+      "y": 0.7071067811865475,
+      "mode": "local-avoid",
+      "red": true,
+      "reason": "main-view-threat",
+      "clearance": 62.25867238761293
+    },
+    {
+      "name": "far-body",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": true,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "danger-cleared",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": true,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "uncertain-main",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": true,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "uncertain-main",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": true,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "uncertain-main",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": true,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "overlap-alias",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": true,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "wall",
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "mode": "local-avoid",
+      "red": false,
+      "reason": "wall",
+      "clearance": 1000000
+    },
+    {
+      "name": "missing-map",
+      "x": 0,
+      "y": 0,
+      "reason": "missing-map",
+      "clearance": 0
+    },
+    {
+      "name": "stable-side",
+      "x": 0.7071067811865474,
+      "y": -0.7071067811865477,
+      "mode": "local-avoid",
+      "red": true,
+      "reason": "main-view-threat",
+      "clearance": 61.52403377683615
+    },
+    {
+      "name": "no-route",
+      "x": 0.7071067811865476,
+      "y": 0.7071067811865475,
+      "mode": "emergency",
+      "red": true,
+      "reason": "wall",
+      "clearance": -80.34257434375
+    },
+    {
+      "name": "near-white-not-prey",
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "npc-before-food",
+      "x": 1,
+      "y": 0,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "white-guidance",
+      "clearance": 1000000
+    },
+    {
+      "name": "food-backup",
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "mode": "map-guide",
+      "red": false,
+      "reason": "food-fallback",
+      "clearance": 1000000
+    },
+    {
+      "name": "npc-score-not-override",
+      "x": 0.7071067811865474,
+      "y": -0.7071067811865477,
+      "mode": "local-avoid",
+      "red": true,
+      "reason": "main-view-threat",
+      "clearance": 62.25867238761293
+    }
+  ],
+  "naturalGames": 0
+}

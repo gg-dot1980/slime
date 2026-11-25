@@ -1,0 +1,3221 @@
+{
+  "schemaVersion": 1,
+  "recordType": "independent_original_package_publication_audit",
+  "auditedAtUtc": "2026-11-25T04:37:24.766764+00:00",
+  "reviewer": "/root/evidence_audit",
+  "scope": {
+    "originalPackage": "/workspace/scratch/508360b15fc8/grow-repro-publish",
+    "readOnlyOriginal": true,
+    "onlyWrittenFile": "/workspace/scratch/508360b15fc8/github-grow-publication/audit-original-package.json",
+    "gameplayExecuted": false,
+    "browserStarted": false,
+    "githubWritesPerformed": false,
+    "sourceOrHistoricalResultsModified": false
+  },
+  "repository": {
+    "repo": "gg-dot1980/slime",
+    "targetBranch": "test/ocr-test",
+    "workingBranch": "feat/grow-evaluation-20261125",
+    "baseCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+    "publicationCommit": null,
+    "remoteHeadReadback": "Both branches still at base, supplied by parent; no publication commit yet",
+    "layout": "docs/ocr/repro/grow-evaluation-20261125/bundle/",
+    "nearerInstructions": "Parent reports complete 553-entry base tree has no nearer AGENTS or .agents/skills"
+  },
+  "authorization": {
+    "currentUserInstruction": "繼續 把每個版本都放上github",
+    "effect": "Explicit source/result publication authorization supersedes earlier missing-authorization state; image/secret exclusion rules remain applicable",
+    "historicalPackageText": "Original README/EVALUATION_STATUS preserved byte-for-byte; new outer publication README must identify those as historical and record current authorization and actual publication state"
+  },
+  "instructions": [
+    {
+      "file": "instructions/AGENTS-test.md",
+      "sha256": "058ef1136a96a0b7698a5a7b093f5de58e52e3083e55ce0b4ad7b98f21e210ac",
+      "readScope": "full"
+    },
+    {
+      "file": "instructions/GITHUB-STORAGE.md",
+      "sha256": "a514261179cafe7daa69e09462097994a67d82917166de0a0ae7634c8f005a65",
+      "readScope": "full"
+    },
+    {
+      "file": "instructions/TESTING.md",
+      "sha256": "ace98b128dfc1c6a724cb7ae7283c0efc6105ebc7a278d30f39aff0c29a778ff",
+      "readScope": "full"
+    },
+    {
+      "file": "instructions/CONTRIBUTING.md",
+      "sha256": "23121103a3691678d308668b1a232ee23020b1e8690cd4672365095cc4bcac65",
+      "readScope": "full"
+    },
+    {
+      "file": "instructions/AGENTS-main.md",
+      "sha256": "5257f88476465d8cbcc47912dba63a054351f8d6a00bbdcfd216afe32699c4ad",
+      "readScope": "full"
+    },
+    {
+      "file": "instructions/SPEC.md",
+      "sha256": "bb106e4701d9506c25017e69f78d7ae0b7a9ed5f46eda954c2a9a5058765ec55",
+      "readScope": "full"
+    },
+    {
+      "file": "instructions/TEST-HANDOFF.md",
+      "sha256": "edb498b660752e343c837dc301044e60f7679084c87583063479d92f7fb5e4dd",
+      "readScope": "current index introduction, applicable storage/handoff sections; unrelated historical entries not re-audited"
+    }
+  ],
+  "environment": {
+    "auditOS": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "python": "3.12.14",
+    "method": "Standard-library static byte/hash, gzip, UTF-8, HTML, XML and JSON inspection; no application code or game execution"
+  },
+  "decision": {
+    "status": "102_original_files_approved_for_direct_upload_10_existing_game_dependencies_excluded",
+    "original112AsIsApproved": false,
+    "directUploadFileCount": 102,
+    "excludedExistingDependencyFileCount": 10,
+    "capturedPixelEvidenceDetected": false,
+    "secretsDetected": false,
+    "newPublicationFilesVerified": false,
+    "remainingRequirement": "Audit the new dependency manifest/materializer/outer README when available, then verify remote file contents after publication; do not upload the 10 omitted game-source copies"
+  },
+  "inventory": {
+    "fileCount": 112,
+    "totalBytes": 13734624,
+    "symlinks": 0,
+    "extensionCounts": {
+      ".sha256": 1,
+      ".txt": 1,
+      ".md": 4,
+      ".json": 29,
+      ".jsonl": 6,
+      ".gz": 1,
+      ".mjs": 23,
+      ".cjs": 8,
+      ".js": 20,
+      ".html": 19
+    },
+    "files": [
+      {
+        "path": "CHECKSUMS.sha256",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/CHECKSUMS.sha256",
+        "bytes": 12039,
+        "sha256": "168c078b0594d9b87c47564aea4a9802acab537e9b1fc9f2350c0b85a3e95ec6",
+        "gitBlobSha1": "7de57dac0eab1f4cc8674cd196d1b18e286c1332",
+        "checksumStatus": "self_excluded",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "documentation_or_analysis_code",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "EVALUATION_STATUS.txt",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/EVALUATION_STATUS.txt",
+        "bytes": 1431,
+        "sha256": "fb8b156b645ba5697ff318b85a95d8d5fd934ec220939a54ed9376f848fd3a7e",
+        "gitBlobSha1": "dc95fbcf6cfed2bfa9150f836346127724687e63",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "documentation_or_analysis_code",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "README.md",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/README.md",
+        "bytes": 76731,
+        "sha256": "26d6ac3e2d17278d92fe5edf737ab53321c0e0c31b1f1b1b716fe855b9abc313",
+        "gitBlobSha1": "f5c57d87ac8d0686d339d7d8118de69331210003",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "documentation_or_analysis_code",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/evaluation-summary.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/evaluation-summary.json",
+        "bytes": 304727,
+        "sha256": "b2d79ef6868f86d6c5bcb16f17e5174a298c07aca87988b8504188253bb12cef",
+        "gitBlobSha1": "0a6369455540521d87d7d9c9f1425ba538a4a5a7",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "devicePixelRatio",
+              "valueType": "int"
+            },
+            {
+              "key": "iframe",
+              "valueType": "dict"
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/final-version-read-attempt.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/final-version-read-attempt.json",
+        "bytes": 430,
+        "sha256": "93940d9a2aff896f516aa5d8a76afe0ccc788d7c3a119797ba7d9e7bb9527008",
+        "gitBlobSha1": "0a2342cdd293f5f02c9f7e5c88b4bbfe632dc96c",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow14-diagnostics-20261125.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow14-diagnostics-20261125.json",
+        "bytes": 101203,
+        "sha256": "ffe459c00f1d512bc73c67d47cd6bb5454f7ab06a95d2a8bc473947bd3ff1cda",
+        "gitBlobSha1": "426e72d5852eb1f6fb56118c402425113fbcfbfa",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow15-confirm-03-04-diagnostic.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow15-confirm-03-04-diagnostic.json",
+        "bytes": 21489,
+        "sha256": "266dcfa5fa14bf87dc61ebc819cb53baba19b6ea88bf2a98ded4d3d9f25d0a51",
+        "gitBlobSha1": "57ab7d8c3b6dfeacba5544a500334eb9bd813fe3",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow15-late-v22-diagnostic.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow15-late-v22-diagnostic.json",
+        "bytes": 121845,
+        "sha256": "0572f7c0e7338da60bc6533d168d9709dab7641b9fd754142be3545e26a6b69a",
+        "gitBlobSha1": "0f6b40ad0417b26d0048f6541d3adc3a2ca7100b",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow16-activation-verification.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow16-activation-verification.json",
+        "bytes": 617,
+        "sha256": "08fc1d60f5f6a9ef828326306acd825ab42532e9327e7e7a8d83d7aba915ca4a",
+        "gitBlobSha1": "8dc5648a08aed999c13ca5879f5a43023f6f79f9",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow16-clean-build-verification.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow16-clean-build-verification.json",
+        "bytes": 4173,
+        "sha256": "539227ee43c2c767618e0ab049004e49154591ec6e32b8151e1c71f18c3795b3",
+        "gitBlobSha1": "e42efee8d399b3d735c2bb7cce5d3dfc44d4b707",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow16-confirmation-gate-verification.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow16-confirmation-gate-verification.json",
+        "bytes": 509,
+        "sha256": "238fde9537be6160c45dba8a7fe87aa20394c2c6fb3dc772a1e595aaa92f7a75",
+        "gitBlobSha1": "ae20afc913d21b2c977f3b20706415a702cf9ef3",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow17-clean-build-verification.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow17-clean-build-verification.json",
+        "bytes": 5968,
+        "sha256": "22b76a636c476a57e5bdf5edb6979c4b86eed56749cd1b342c6ed983626a4c77",
+        "gitBlobSha1": "90f1a2d32934df7dc47faa6dc9c07612cc4cb14f",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow17-confirmation-gate-verification.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow17-confirmation-gate-verification.json",
+        "bytes": 515,
+        "sha256": "dc2737b05d9dfcb1f188850e5af963439e1e901d9ad0236234d845d085668955",
+        "gitBlobSha1": "d39c174608d445dec30482573ba8eff0e2cff5e9",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/grow17-late-cutoff-diagnostic.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/grow17-late-cutoff-diagnostic.json",
+        "bytes": 34667,
+        "sha256": "82215de3322fd6a1ac0f4e5364a751b2ffc1964442c274f5f56b4e4ab0363f81",
+        "gitBlobSha1": "fea867337dd6cbbe15d54f903b859c0104aa0392",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/live-version-verification.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/live-version-verification.json",
+        "bytes": 656,
+        "sha256": "e8ba7d19bd477781a8aac515c328656ec6b46b14682d0685334084d83a425de1",
+        "gitBlobSha1": "7d3f69592a8963c8b900daa5a0c1d6dafc84fae8",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/raw-native-summary.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/raw-native-summary.json",
+        "bytes": 301901,
+        "sha256": "be21ca982583227258360dac6fb66ec4548fc9ef36b2a397e8ec84893cb538b8",
+        "gitBlobSha1": "3719d44ceca50763be292db7569dc0baf14f3277",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-01-events-noimages.jsonl",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-01-events-noimages.jsonl",
+        "bytes": 639686,
+        "sha256": "dd18b3fbd7b6bb54cc26e1a39b2500b4d6e2cfe0bc63022b9852c288c844f37c",
+        "gitBlobSha1": "1d7f0e94d6c1dae0efe1a1e3ed57829d5e7c3990",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 240,
+          "longNumericArrayKeys": {
+            "computeMs": 8
+          },
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "devicePixelRatio",
+              "valueType": "int"
+            },
+            {
+              "key": "iframe",
+              "valueType": "dict"
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-01-events-noimages.jsonl.gz",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-01-events-noimages.jsonl.gz",
+        "bytes": 98055,
+        "sha256": "94b418df6dabe0d2ad6ffcd54d1c8fe464f4f81855819f8f49715ee0b444fcff",
+        "gitBlobSha1": "716288e7640f2d16ae1c6b9a429e0dd36ad3225b",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8 after gzip decode",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 240,
+          "longNumericArrayKeys": {
+            "computeMs": 8
+          },
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "devicePixelRatio",
+              "valueType": "int"
+            },
+            {
+              "key": "iframe",
+              "valueType": "dict"
+            }
+          ]
+        },
+        "contentClassification": "compressed_numeric_event_log",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-01-summary.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-01-summary.json",
+        "bytes": 32444,
+        "sha256": "77370be9defb562493a9b83c3949787ac3a1e4c1ad5e588f227cdb4ebc689614",
+        "gitBlobSha1": "ed665d4ee123d8d34b754aac7010a61432b4f61e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-02-events-noimages.jsonl",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-02-events-noimages.jsonl",
+        "bytes": 687809,
+        "sha256": "9f7c5032982a79ed7c8a9472237d2bf7cd20f9f0aee6971e947fa8ed84256b10",
+        "gitBlobSha1": "d1c524c42c1b2132b45d6bb64e5c00f37979a674",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 177,
+          "longNumericArrayKeys": {
+            "computeMs": 5
+          },
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "devicePixelRatio",
+              "valueType": "int"
+            },
+            {
+              "key": "iframe",
+              "valueType": "dict"
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-02-recovery-events-noimages.jsonl",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-02-recovery-events-noimages.jsonl",
+        "bytes": 144308,
+        "sha256": "902e33119dc87630771f7209097b3bd04e549a69c06e7a9f4d3f523612a59ab9",
+        "gitBlobSha1": "56d4707b98561d977e0a3ba59db2e58bc633f158",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 53,
+          "longNumericArrayKeys": {
+            "computeMs": 1
+          },
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "devicePixelRatio",
+              "valueType": "int"
+            },
+            {
+              "key": "iframe",
+              "valueType": "dict"
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-02-recovery-reviewer-sidecar.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-02-recovery-reviewer-sidecar.json",
+        "bytes": 4885,
+        "sha256": "f2270eabd7724a8da5faa1ecca9ec68f3baca9c13ca591267df31af26c4d39b6",
+        "gitBlobSha1": "9d59ed41cdc75764925527f12d6319c11a0e3fd7",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "blackDesktopScreenshots",
+              "valueType": "int",
+              "value": 2
+            },
+            {
+              "key": "imageEmbedded",
+              "valueType": "bool",
+              "value": false
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-02-reviewer-sidecar.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-02-reviewer-sidecar.json",
+        "bytes": 9413,
+        "sha256": "fcdcf4f7221f9bc69439226aef7dc2495192632eb02887b384fbd850809b7838",
+        "gitBlobSha1": "28ca0af28dcb1550e617c005f37b0813b200e9cd",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "imageEmbedded",
+              "valueType": "bool",
+              "value": false
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-03-events-noimages.jsonl",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-03-events-noimages.jsonl",
+        "bytes": 4697408,
+        "sha256": "adc9cc99cb0a3278e99cb6aa4b52cb9ba7d1ab492e7ed5cbb455c9e349ecc3e9",
+        "gitBlobSha1": "781e009f667d1b1eb5352fd6b348c9a7de3914f4",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 909,
+          "longNumericArrayKeys": {
+            "computeMs": 32
+          },
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "devicePixelRatio",
+              "valueType": "int"
+            },
+            {
+              "key": "iframe",
+              "valueType": "dict"
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-04-events-noimages.jsonl",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-04-events-noimages.jsonl",
+        "bytes": 2209669,
+        "sha256": "33d617a8495245e8d1acdfc233e2efb65ec58997fc1996e612edc877de2fa398",
+        "gitBlobSha1": "abdf7fa1697027d021bbb154054b214c53925d8f",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 435,
+          "longNumericArrayKeys": {
+            "computeMs": 16
+          },
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "devicePixelRatio",
+              "valueType": "int"
+            },
+            {
+              "key": "iframe",
+              "valueType": "dict"
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/screen-05-events-noimages.jsonl",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/screen-05-events-noimages.jsonl",
+        "bytes": 2096396,
+        "sha256": "44aa0bb950e956a7497fe1b92307d552b6a9a38ad6ad3147d019dbf790b2ad0d",
+        "gitBlobSha1": "8ee2be3df9d5d33e80bfa7970e4a16522cbeb2fa",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 414,
+          "longNumericArrayKeys": {
+            "computeMs": 16
+          },
+          "imageOrSecretRelatedJsonKeyTypes": [
+            {
+              "key": "devicePixelRatio",
+              "valueType": "int"
+            },
+            {
+              "key": "iframe",
+              "valueType": "dict"
+            }
+          ]
+        },
+        "contentClassification": "numeric_or_text_evidence",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "results/summarize-evaluation.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/results/summarize-evaluation.mjs",
+        "bytes": 19313,
+        "sha256": "2484d6d91f4bc1216e14fcdfbac929cecad55b4291b45ca68a9ec69e53f137c3",
+        "gitBlobSha1": "9277cd493758239f8c5c0f21227ebc4d8b8022e7",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "documentation_or_analysis_code",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow13/build-lab.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow13/build-lab.mjs",
+        "bytes": 5047,
+        "sha256": "2509e38b38569aa5a033ea8d64df83facc2ea7dd597d3edd776309ae2b972153",
+        "gitBlobSha1": "52434533f7edd4043cb5055a01be11c954eb6940",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow13/check-minimap-next.cjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow13/check-minimap-next.cjs",
+        "bytes": 4833,
+        "sha256": "734d557b599a3e13f7a0641ad571cad10150c76a14300472ae118678aec10138",
+        "gitBlobSha1": "c8955e5333d48d6e6e7c9a9e43fa8a241575a362",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow13/harness.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow13/harness.js",
+        "bytes": 8552,
+        "sha256": "8d43cd9ff97c74fa1e8884caf5a14a4b205cdcdb65cfa92393a96d58f46ed422",
+        "gitBlobSha1": "2de88fb19d2fe4fc2d5a4f2eaa8602e90a742c4b",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow13/manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow13/manifest.json",
+        "bytes": 2197,
+        "sha256": "329c3356d317cb8de5a6ae4ec4c73c9aaed839e86f56cc837f78b32867395d09",
+        "gitBlobSha1": "92fefd5a57e9cea4d1c443d04c76901f684f063a",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow13/planner.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow13/planner.js",
+        "bytes": 15192,
+        "sha256": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+        "gitBlobSha1": "1b92041af48c71ceaf76fe490c5a9345c366228a",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow13/server.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow13/server.mjs",
+        "bytes": 1703,
+        "sha256": "a99473635df2f743a41b89c32b6d1ff997b89cc84636cd4872226378e6052f3d",
+        "gitBlobSha1": "f7335f2f5b96c0d554fcac2eb419fc1beaee9677",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow13/summarize.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow13/summarize.mjs",
+        "bytes": 16434,
+        "sha256": "feada3ce2d2d99ddeb10d93a281fd4027fc88b238331be39721a5ad5627eff21",
+        "gitBlobSha1": "cc0f4ebaad0afd3b48055078e9b5bf671e54b221",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/build-lab.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/build-lab.mjs",
+        "bytes": 5841,
+        "sha256": "51b044afce4777a9d8c53bbbc51ae60817efcdd407aca8ef74a0cf0ba3163dbb",
+        "gitBlobSha1": "a557b7d77c22fdcaadc11ebe8dca7de2b2cdde4f",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/frozen/screen-02/build-lab.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/frozen/screen-02/build-lab.mjs",
+        "bytes": 5841,
+        "sha256": "51b044afce4777a9d8c53bbbc51ae60817efcdd407aca8ef74a0cf0ba3163dbb",
+        "gitBlobSha1": "a557b7d77c22fdcaadc11ebe8dca7de2b2cdde4f",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/frozen/screen-02/harness.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/frozen/screen-02/harness.js",
+        "bytes": 9161,
+        "sha256": "4f3563e92a5e69a27a56fce4794a5a35fd861ecb7dc9af474add0b37fa1a769c",
+        "gitBlobSha1": "c9cbb3e1684cf08305adf120fb9f338bae53bd2e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/frozen/screen-02/index.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/frozen/screen-02/index.html",
+        "bytes": 227255,
+        "sha256": "409195550d29b471c1085b7e32a46d2ce36d725231dd82b1d973725d87e1ca58",
+        "gitBlobSha1": "2243c8dc6ccb908baf8a08d4acfbd3d12128df02",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/frozen/screen-02/manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/frozen/screen-02/manifest.json",
+        "bytes": 2368,
+        "sha256": "2b8043c65ef57b6449ee34771c709982460371cbb21a2f431ac4dc535c7155d2",
+        "gitBlobSha1": "fe80764d637a23747b6519f23993c0d501dce752",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/frozen/screen-02/planner.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/frozen/screen-02/planner.js",
+        "bytes": 15192,
+        "sha256": "59937f61bf7d8e820f8bdbc49863f088b72a04961a5c55611f9b43659e557e85",
+        "gitBlobSha1": "0ad8d4a404dcf63b39f58006eb9a6c3913198f45",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/frozen/screen-02/server.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/frozen/screen-02/server.mjs",
+        "bytes": 1703,
+        "sha256": "82c821bb8a788e2c53eccc4c6b524118ed3c8474332fe74401522cde874701ab",
+        "gitBlobSha1": "0686ae5aafead4a1435882d875f03fa290f5dabd",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/harness.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/harness.js",
+        "bytes": 9161,
+        "sha256": "4f3563e92a5e69a27a56fce4794a5a35fd861ecb7dc9af474add0b37fa1a769c",
+        "gitBlobSha1": "c9cbb3e1684cf08305adf120fb9f338bae53bd2e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/manifest.json",
+        "bytes": 2368,
+        "sha256": "2b8043c65ef57b6449ee34771c709982460371cbb21a2f431ac4dc535c7155d2",
+        "gitBlobSha1": "fe80764d637a23747b6519f23993c0d501dce752",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/planner.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/planner.js",
+        "bytes": 15192,
+        "sha256": "59937f61bf7d8e820f8bdbc49863f088b72a04961a5c55611f9b43659e557e85",
+        "gitBlobSha1": "0ad8d4a404dcf63b39f58006eb9a6c3913198f45",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14/server.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14/server.mjs",
+        "bytes": 1703,
+        "sha256": "82c821bb8a788e2c53eccc4c6b524118ed3c8474332fe74401522cde874701ab",
+        "gitBlobSha1": "0686ae5aafead4a1435882d875f03fa290f5dabd",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14-recovery/build-recovery.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14-recovery/build-recovery.mjs",
+        "bytes": 2373,
+        "sha256": "e288d457916045cdd634c39d6f36780184ce0cd0a9abc08656cb6c32c4abf373",
+        "gitBlobSha1": "197b183e7acc1b56968c61ae4c6009030ab795c7",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14-recovery/harness.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14-recovery/harness.js",
+        "bytes": 9161,
+        "sha256": "4f3563e92a5e69a27a56fce4794a5a35fd861ecb7dc9af474add0b37fa1a769c",
+        "gitBlobSha1": "c9cbb3e1684cf08305adf120fb9f338bae53bd2e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14-recovery/manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14-recovery/manifest.json",
+        "bytes": 2756,
+        "sha256": "96e5dd120632724e516f142502874e1068c212ebac8c6aad1503ceb223e19074",
+        "gitBlobSha1": "f36da877e6a74f812ac2894e63cc84a46d0397be",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14-recovery/planner.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14-recovery/planner.js",
+        "bytes": 15192,
+        "sha256": "59937f61bf7d8e820f8bdbc49863f088b72a04961a5c55611f9b43659e557e85",
+        "gitBlobSha1": "0ad8d4a404dcf63b39f58006eb9a6c3913198f45",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow14-recovery/server.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow14-recovery/server.mjs",
+        "bytes": 1712,
+        "sha256": "147c8cfd9c7488f5cf1d7b044d507139a052ce94fc69301d5d70faee65626594",
+        "gitBlobSha1": "46a7d0b8e2ed086e5c6a5ae9cd8555c7d384dc8d",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/NOTES.md",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/NOTES.md",
+        "bytes": 2679,
+        "sha256": "c461f57ccdc37a1835b14ac1e43d64aa06d88e58335eb4b9cecff6b66537bbc9",
+        "gitBlobSha1": "f6a4c277a60fed557daeded7b68f218fb01898e1",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/build-lab.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/build-lab.mjs",
+        "bytes": 7124,
+        "sha256": "d62a48bb5745babe545c94c63d4e0d658ed6afb744748a54e048e01a4a8e28ea",
+        "gitBlobSha1": "e740c8db1d7588604e1527fce6527f4d16015fa0",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/check-build.cjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/check-build.cjs",
+        "bytes": 5651,
+        "sha256": "56112621eb952655cbe2d947aea78dad760e84efe36fd3b159debd4bb010bad1",
+        "gitBlobSha1": "0cb46faf79cbe4c03d7351a1d26960669d7f1834",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/check-minimap-next.cjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/check-minimap-next.cjs",
+        "bytes": 4819,
+        "sha256": "af8e98c40321247f45068eee45f50c9336e603efbdce428c8fd47eedf514a581",
+        "gitBlobSha1": "c0394334c4c3ffddeed128d5acc731e241121d89",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/build-lab.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/build-lab.mjs",
+        "bytes": 7124,
+        "sha256": "d62a48bb5745babe545c94c63d4e0d658ed6afb744748a54e048e01a4a8e28ea",
+        "gitBlobSha1": "e740c8db1d7588604e1527fce6527f4d16015fa0",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/game-isolation.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/game-isolation.mjs",
+        "bytes": 2797,
+        "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+        "gitBlobSha1": "fb8c352a5223f85ff8eb7cd834eedef6f4c68623",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/game-v2.13.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/game-v2.13.html",
+        "bytes": 51125,
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/game-v2.22.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/game-v2.22.html",
+        "bytes": 52422,
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/geometry.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/geometry.js",
+        "bytes": 5169,
+        "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+        "gitBlobSha1": "050911ecd24603341e1f68125c331b9c730529c0",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/harness.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/harness.js",
+        "bytes": 9676,
+        "sha256": "cfee3070ac5fe13f5b5d9c3b17bcfe3fcecc1c2c446e850d112a927e8c81f4ba",
+        "gitBlobSha1": "a538feea19bdb26291a9a46a90bd20613891e728",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/index.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/index.html",
+        "bytes": 232707,
+        "sha256": "bbb5ce95c2b80ee406c3b9256ac80134140dc54764a2643048b46a4f087895ba",
+        "gitBlobSha1": "03d43ec2e3cd6f43a3106c2ab6b280692af97570",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/manifest.json",
+        "bytes": 3009,
+        "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5",
+        "gitBlobSha1": "cf162547977a83b8b5b575f46eefe9f0fc6ef72e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/planner.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/planner.js",
+        "bytes": 15192,
+        "sha256": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+        "gitBlobSha1": "9d531499ad39a8a7054c3d451529723d407f1a7e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/server.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/server.mjs",
+        "bytes": 1703,
+        "sha256": "b7cd8ddcb09631f86c951885f0b80831c23a5b31092ccd54c16671d2468557d0",
+        "gitBlobSha1": "1e02fd2c36e65b77fa8b0786e88f888ec7aea8fe",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/source-base.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/source-base.html",
+        "bytes": 52177,
+        "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+        "gitBlobSha1": "99e93a673d3ed4b0e6333c46533420e5b4216e54",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/game-isolation.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/game-isolation.mjs",
+        "bytes": 2797,
+        "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+        "gitBlobSha1": "fb8c352a5223f85ff8eb7cd834eedef6f4c68623",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/game-v2.13.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/game-v2.13.html",
+        "bytes": 51125,
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/experiments/grow15/game-v2.22.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/game-v2.22.html",
+        "bytes": 52422,
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/experiments/grow15/geometry.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/geometry.js",
+        "bytes": 5169,
+        "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+        "gitBlobSha1": "050911ecd24603341e1f68125c331b9c730529c0",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/geometry.synthetic.cjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/geometry.synthetic.cjs",
+        "bytes": 2714,
+        "sha256": "d916d2d8e627d4de1b17ab2176ecb13c05ff877a3cb46e05b946aaf013b53ef2",
+        "gitBlobSha1": "51266e2b67290d12714df73992c3f9f7235d21c0",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/harness.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/harness.js",
+        "bytes": 9676,
+        "sha256": "cfee3070ac5fe13f5b5d9c3b17bcfe3fcecc1c2c446e850d112a927e8c81f4ba",
+        "gitBlobSha1": "a538feea19bdb26291a9a46a90bd20613891e728",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/manifest.json",
+        "bytes": 3009,
+        "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5",
+        "gitBlobSha1": "cf162547977a83b8b5b575f46eefe9f0fc6ef72e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/planner.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/planner.js",
+        "bytes": 15192,
+        "sha256": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+        "gitBlobSha1": "9d531499ad39a8a7054c3d451529723d407f1a7e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/server.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/server.mjs",
+        "bytes": 1703,
+        "sha256": "b7cd8ddcb09631f86c951885f0b80831c23a5b31092ccd54c16671d2468557d0",
+        "gitBlobSha1": "1e02fd2c36e65b77fa8b0786e88f888ec7aea8fe",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow15/source-base.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/source-base.html",
+        "bytes": 52177,
+        "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+        "gitBlobSha1": "99e93a673d3ed4b0e6333c46533420e5b4216e54",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/NOTES.md",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/NOTES.md",
+        "bytes": 3314,
+        "sha256": "5d0ab0f8570827fbad23b9a88a1e7dc5f09b22d843877b0a416a2448ebd44547",
+        "gitBlobSha1": "efbe1a65347e9571fc34a98ff3f0b543fee54f13",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/activation-verification.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/activation-verification.json",
+        "bytes": 617,
+        "sha256": "08fc1d60f5f6a9ef828326306acd825ab42532e9327e7e7a8d83d7aba915ca4a",
+        "gitBlobSha1": "8dc5648a08aed999c13ca5879f5a43023f6f79f9",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/build-lab.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/build-lab.mjs",
+        "bytes": 8306,
+        "sha256": "7845c99dd21516d5b07b6c97d22e703b088f7368b39dcaff04d5fe651cea4d3b",
+        "gitBlobSha1": "88dfdf512c3fbf57e623834599c80fdd5410c3f6",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/check-build.cjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/check-build.cjs",
+        "bytes": 4016,
+        "sha256": "cd8bb534dd6f49735922ea3b3da1a1b720744edf625b496356e74a14159e06c9",
+        "gitBlobSha1": "cedd10ed93083ae8986ac1b6fef86f1b70ab6230",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/check-planner.cjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/check-planner.cjs",
+        "bytes": 8030,
+        "sha256": "54375d345f60b393e99efd91f96cfd9e94b634f397fd6d98c622ddaf611bb684",
+        "gitBlobSha1": "c08f078c39bfad67a26550d8f0cd9251be41a0e2",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/game-isolation.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/game-isolation.mjs",
+        "bytes": 2797,
+        "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+        "gitBlobSha1": "fb8c352a5223f85ff8eb7cd834eedef6f4c68623",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/game-v2.13.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/game-v2.13.html",
+        "bytes": 51125,
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/experiments/grow16/game-v2.22.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/game-v2.22.html",
+        "bytes": 52422,
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/experiments/grow16/geometry.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/geometry.js",
+        "bytes": 5169,
+        "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+        "gitBlobSha1": "050911ecd24603341e1f68125c331b9c730529c0",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/harness.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/harness.js",
+        "bytes": 9651,
+        "sha256": "1c38cd7a246d96291b565fa3530ce2cc55b9db23daad19d3fbbe43a91ce7f8db",
+        "gitBlobSha1": "bb7e96a5f9f91c0627d106fd6535088793bbaae0",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/index.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/index.html",
+        "bytes": 232784,
+        "sha256": "60aa5a7174de315f0e73d5a8737f62fb52e7cafdf08a5c06ea31fba378fba72b",
+        "gitBlobSha1": "4006aa2b64c07e1cbdec7eb43fd533be9311b8ce",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/manifest.json",
+        "bytes": 5304,
+        "sha256": "32083e89c958b6187f4a222c4f0d510f6c97da5aba5e905aa169684534922707",
+        "gitBlobSha1": "6e127098ed8ad2d863ebbb36f0b1853c2cab5fa9",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/parent-manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/parent-manifest.json",
+        "bytes": 3009,
+        "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5",
+        "gitBlobSha1": "cf162547977a83b8b5b575f46eefe9f0fc6ef72e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/planner.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/planner.js",
+        "bytes": 15211,
+        "sha256": "a2f96a52c425eb188f7c880ab700fa3cf098d984672749115c23d64389bd8f34",
+        "gitBlobSha1": "2b39d344b54b9948781bb65fef56447b2c88ea26",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/server.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/server.mjs",
+        "bytes": 1703,
+        "sha256": "e16f0734325f5a9645676765cb1cce3032daa2b6d9730fe3129619fd139828c9",
+        "gitBlobSha1": "618256140a504164ca2049934ec8d85871cb0b68",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow16/source-base.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow16/source-base.html",
+        "bytes": 52177,
+        "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+        "gitBlobSha1": "99e93a673d3ed4b0e6333c46533420e5b4216e54",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/NOTES.md",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/NOTES.md",
+        "bytes": 4442,
+        "sha256": "409bb3eb3320ef632a7926c46d5dbfa4e766f720acd7e533ee208a0b932f1b07",
+        "gitBlobSha1": "d58041dd51b2ad09012a384c2d0aeb8f7dd5cba5",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/activation-verification.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/activation-verification.json",
+        "bytes": 661,
+        "sha256": "bbe79cb910554458c7d515ba338b43b468de4f256d5ea47b6e91e67488beba8a",
+        "gitBlobSha1": "a4139eb63a1fb5fc26473e5927e8bbb3f34aeb25",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/build-lab.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/build-lab.mjs",
+        "bytes": 8924,
+        "sha256": "c2d4d064e19069408203846a26b84962bc41d1f04fd95a8be32390ed382ca42e",
+        "gitBlobSha1": "8b7252b730d21346608e1a899093b46654de720b",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/check-build.cjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/check-build.cjs",
+        "bytes": 5799,
+        "sha256": "929ba7df8afccc84aee77c88ac86e0d79416f0e59c248fc39e0fb944871fa85d",
+        "gitBlobSha1": "bd0671cb4a64af8d9931e64d4d1f5a42401f5f01",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/check-planner.cjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/check-planner.cjs",
+        "bytes": 8823,
+        "sha256": "e4223a51ada6eb8d869a546b4f927dca68de957b23daf0df61966d87e1b524b8",
+        "gitBlobSha1": "b04bb20f5b85851d1a6a0ff09cdf738e23688b8f",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/game-isolation.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/game-isolation.mjs",
+        "bytes": 2797,
+        "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+        "gitBlobSha1": "fb8c352a5223f85ff8eb7cd834eedef6f4c68623",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/game-v2.13.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/game-v2.13.html",
+        "bytes": 51125,
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/experiments/grow17/game-v2.22.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/game-v2.22.html",
+        "bytes": 52422,
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/experiments/grow17/geometry.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/geometry.js",
+        "bytes": 5169,
+        "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+        "gitBlobSha1": "050911ecd24603341e1f68125c331b9c730529c0",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/harness.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/harness.js",
+        "bytes": 9893,
+        "sha256": "b4739a723f05f1981fab5d24829f3f19ab0fc8d2ca854faea74450b6d4f0c3c9",
+        "gitBlobSha1": "af2eebbf6f11c998ffa2ed0986ea2bc73fb96b1c",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/index.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/index.html",
+        "bytes": 232824,
+        "sha256": "69a97b8eddd4f3fc3611e1c8738a523772b147e20208154fc15e5b145cc5fca4",
+        "gitBlobSha1": "10809b3ec841451b939b66198bb15ce6e04aff58",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/manifest.json",
+        "bytes": 6016,
+        "sha256": "a3c62d6186c9793183410fdbf0f34781c7bec5e21c6445c3aa12a76b0fc140e4",
+        "gitBlobSha1": "8ec56b914a89e0be6578b8df7683437a8cdbb6b8",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/parent-manifest.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/parent-manifest.json",
+        "bytes": 3009,
+        "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5",
+        "gitBlobSha1": "cf162547977a83b8b5b575f46eefe9f0fc6ef72e",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/planner.js",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/planner.js",
+        "bytes": 15203,
+        "sha256": "f2c8f104324fa8fb616a1e783020fe456817742e94bc2d896aa803586fbd8df4",
+        "gitBlobSha1": "cdde3e9bb04b591ccf09a9d0394ebbafc33523b9",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/server.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/server.mjs",
+        "bytes": 1703,
+        "sha256": "c71d3b321376448600bfbef3348d665b7b7dce6ba23932face775bdfad485de9",
+        "gitBlobSha1": "23d89a75faa270e5634aa5b5f2b29f095fdd6c49",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/experiments/grow17/source-base.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow17/source-base.html",
+        "bytes": 52177,
+        "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+        "gitBlobSha1": "99e93a673d3ed4b0e6333c46533420e5b4216e54",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/package.json",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/package.json",
+        "bytes": 899,
+        "sha256": "a3b33960272d8ae218a5b1d80088b161e6f378f94192c7cd7df1e2cc2cc1ec37",
+        "gitBlobSha1": "0f23e62960356fb8b81b58c49257e9a18651aa2f",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedJsonRecords": 1,
+          "longNumericArrayKeys": {},
+          "imageOrSecretRelatedJsonKeyTypes": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/scripts/grow-games.mjs",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/scripts/grow-games.mjs",
+        "bytes": 2797,
+        "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+        "gitBlobSha1": "fb8c352a5223f85ff8eb7cd834eedef6f4c68623",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": []
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      },
+      {
+        "path": "source/src/game-v2.13.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/src/game-v2.13.html",
+        "bytes": 51125,
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/src/game.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/src/game.html",
+        "bytes": 52422,
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [
+            {
+              "line": 9,
+              "mimeType": "image/svg+xml",
+              "encoding": "percent-encoded URL",
+              "decodedBytes": 293,
+              "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+              "elementTypes": [
+                "svg",
+                "path",
+                "ellipse",
+                "ellipse"
+              ],
+              "base64": false,
+              "containsRasterElement": false,
+              "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+            }
+          ],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "game_source_with_embedded_favicon_dependency",
+        "directUploadDisposition": "exclude_existing_game_dependency",
+        "findingIds": [
+          "F001"
+        ]
+      },
+      {
+        "path": "source/src/ocr-grow.html",
+        "intendedRepositoryPath": "docs/ocr/repro/grow-evaluation-20261125/bundle/source/src/ocr-grow.html",
+        "bytes": 52177,
+        "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+        "gitBlobSha1": "99e93a673d3ed4b0e6333c46533420e5b4216e54",
+        "checksumStatus": "matched",
+        "symlink": false,
+        "scan": {
+          "encoding": "UTF-8",
+          "suspiciousPatternHits": {},
+          "embeddedImageAssets": [],
+          "parsedMediaElements": [],
+          "runtimeCanvasSource": true
+        },
+        "contentClassification": "source_or_configuration",
+        "directUploadDisposition": "approved_from_original_package",
+        "findingIds": []
+      }
+    ]
+  },
+  "checksumVerification": {
+    "status": "pass",
+    "manifest": "CHECKSUMS.sha256",
+    "manifestSha256": "168c078b0594d9b87c47564aea4a9802acab537e9b1fc9f2350c0b85a3e95ec6",
+    "listedFileCount": 111,
+    "matched": 111,
+    "mismatches": [],
+    "missing": [],
+    "duplicates": [],
+    "unlistedFiles": [
+      "CHECKSUMS.sha256"
+    ],
+    "explanation": "CHECKSUMS excludes itself; all remaining 111 original files match. The public 102-file subset intentionally lacks 10 dependencies until materialized; only the restored original tree can satisfy all 111 entries."
+  },
+  "compressedContent": [
+    {
+      "path": "results/screen-01-events-noimages.jsonl.gz",
+      "container": "gzip",
+      "decodedBytes": 639686,
+      "decodedSha256": "dd18b3fbd7b6bb54cc26e1a39b2500b4d6e2cfe0bc63022b9852c288c844f37c",
+      "decodedSibling": "results/screen-01-events-noimages.jsonl",
+      "decodedEqualsSibling": true,
+      "nestedArchiveOrMediaMagic": [],
+      "scan": "fully_decoded_and_recursively_scanned_as_jsonl"
+    }
+  ],
+  "contentReview": {
+    "coverage": "All 112 files byte-read; sole gzip fully decompressed and content-scanned, not trusted by extension or filename",
+    "unexpectedBinaryContainersOrMedia": [],
+    "base64OrOpaqueEncodedPayloadHits": [],
+    "storedRasterPixelArrays": [],
+    "longNumericArrays": {
+      "keysAndCountsIncludingDuplicateGzip": {
+        "computeMs": 86
+      },
+      "interpretation": "All long flat arrays are computeMs timing measurements; no stored RGBA/image pixel grid found"
+    },
+    "longJsonStrings": [
+      {
+        "file": "results/grow16-clean-build-verification.json",
+        "key": "stdout",
+        "length": 1624,
+        "classification": "build verification stdout"
+      },
+      {
+        "file": "results/grow17-clean-build-verification.json",
+        "key": "stdout",
+        "length": 2509,
+        "classification": "build verification stdout"
+      }
+    ],
+    "htmlAndCanvasDistinction": "Canvas drawing, getImageData, typed-array allocation and synthetic fixture loops are executable source algorithms. No saved live ImageData buffers or serialized raster arrays are embedded. A regex match for <image in i<image.data.length is a JavaScript comparison, not an HTML image element. The 10 percent-encoded static SVG favicons are actual vector assets and are separately excluded.",
+    "embeddedSvgAssets": [
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/game-v2.13.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/experiments/grow15/frozen/screen-03/game-v2.22.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/experiments/grow15/game-v2.13.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/experiments/grow15/game-v2.22.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/experiments/grow16/game-v2.13.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/experiments/grow16/game-v2.22.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/experiments/grow17/game-v2.13.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/experiments/grow17/game-v2.22.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/src/game-v2.13.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      },
+      {
+        "path": "source/src/game.html",
+        "line": 9,
+        "mimeType": "image/svg+xml",
+        "encoding": "percent-encoded URL",
+        "decodedBytes": 293,
+        "decodedSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+        "elementTypes": [
+          "svg",
+          "path",
+          "ellipse",
+          "ellipse"
+        ],
+        "base64": false,
+        "containsRasterElement": false,
+        "classification": "static source favicon; actual encoded vector asset, not captured gameplay pixels"
+      }
+    ],
+    "secretScan": {
+      "patterns": [
+        "private_key",
+        "github_token",
+        "provider_credential",
+        "url_credentials",
+        "secret_literal_assignment",
+        "base64_data_uri",
+        "encoded_raster_signature",
+        "opaque_long_encoded_token",
+        "large_numeric_array_literal"
+      ],
+      "detectedCredentials": [],
+      "limits": "Static recognizable-pattern/content inspection; not a mathematical proof against arbitrary obfuscation"
+    },
+    "unrelatedSensitiveData": {
+      "detected": false,
+      "urlHosts": {
+        "github.com": 2,
+        "127.0.0.1:4173": 1,
+        "slime.gameson.cc": 2,
+        "localhost": 8,
+        "www.w3.org": 10
+      },
+      "queryParameterNames": [],
+      "localPathCount": 6,
+      "localPathPurpose": "Only task scratch/temp build locations; no personal home directories, account credentials or signed URLs found",
+      "runtimeMetadata": "User agent, generic Linux platform, UTC, hardwareConcurrency, viewport, canvas dimensions and task timestamps are relevant reproducibility metadata"
+    }
+  },
+  "evidenceVerification": {
+    "status": "pass",
+    "rawJsonlFiles": [
+      {
+        "file": "results/screen-01-events-noimages.jsonl",
+        "bytes": 639686,
+        "sha256": "dd18b3fbd7b6bb54cc26e1a39b2500b4d6e2cfe0bc63022b9852c288c844f37c",
+        "records": 240,
+        "eventKinds": {
+          "batch_start": 1,
+          "slot": 8,
+          "start": 8,
+          "progress": 214,
+          "final": 8,
+          "batch_end": 1
+        }
+      },
+      {
+        "file": "results/screen-02-events-noimages.jsonl",
+        "bytes": 687809,
+        "sha256": "9f7c5032982a79ed7c8a9472237d2bf7cd20f9f0aee6971e947fa8ed84256b10",
+        "records": 177,
+        "eventKinds": {
+          "batch_start": 1,
+          "slot": 6,
+          "start": 6,
+          "progress": 159,
+          "final": 5
+        }
+      },
+      {
+        "file": "results/screen-02-recovery-events-noimages.jsonl",
+        "bytes": 144308,
+        "sha256": "902e33119dc87630771f7209097b3bd04e549a69c06e7a9f4d3f523612a59ab9",
+        "records": 53,
+        "eventKinds": {
+          "batch_start": 1,
+          "slot": 2,
+          "start": 2,
+          "progress": 47,
+          "final": 1
+        }
+      },
+      {
+        "file": "results/screen-03-events-noimages.jsonl",
+        "bytes": 4697408,
+        "sha256": "adc9cc99cb0a3278e99cb6aa4b52cb9ba7d1ab492e7ed5cbb455c9e349ecc3e9",
+        "records": 909,
+        "eventKinds": {
+          "batch_start": 2,
+          "slot": 32,
+          "start": 32,
+          "progress": 809,
+          "final": 32,
+          "batch_end": 2
+        }
+      },
+      {
+        "file": "results/screen-04-events-noimages.jsonl",
+        "bytes": 2209669,
+        "sha256": "33d617a8495245e8d1acdfc233e2efb65ec58997fc1996e612edc877de2fa398",
+        "records": 435,
+        "eventKinds": {
+          "batch_start": 2,
+          "slot": 16,
+          "start": 16,
+          "progress": 383,
+          "final": 16,
+          "batch_end": 2
+        }
+      },
+      {
+        "file": "results/screen-05-events-noimages.jsonl",
+        "bytes": 2096396,
+        "sha256": "44aa0bb950e956a7497fe1b92307d552b6a9a38ad6ad3147d019dbf790b2ad0d",
+        "records": 414,
+        "eventKinds": {
+          "batch_start": 2,
+          "slot": 16,
+          "start": 16,
+          "progress": 362,
+          "final": 16,
+          "batch_end": 2
+        }
+      }
+    ],
+    "totalRawRecords": 2228,
+    "uniqueStarts": 80,
+    "nativeFinals": 78,
+    "duplicateStarts": [],
+    "duplicateFinals": [],
+    "orphanFinals": [],
+    "startsWithoutNativeFinal": [
+      "screen-02-06",
+      "screen-02-recovery-02"
+    ],
+    "reviewerInfrastructureClassifications": [
+      {
+        "logicalRunId": "screen-02-06",
+        "physicalRunId": "screen-02-06",
+        "sourceFile": "screen-02-events-noimages.jsonl",
+        "sourceSha256": "9f7c5032982a79ed7c8a9472237d2bf7cd20f9f0aee6971e947fa8ed84256b10",
+        "nativeFinalPresent": false,
+        "reviewedOutcome": "infrastructure_error",
+        "outcomeEvidence": "reviewer_sidecar",
+        "reviewerAnnotation": {
+          "file": "screen-02-reviewer-sidecar.json",
+          "sha256": "fcdcf4f7221f9bc69439226aef7dc2495192632eb02887b384fbd850809b7838",
+          "bytes": 9413
+        }
+      },
+      {
+        "logicalRunId": "screen-02-08",
+        "physicalRunId": "screen-02-recovery-02",
+        "sourceFile": "screen-02-recovery-events-noimages.jsonl",
+        "sourceSha256": "902e33119dc87630771f7209097b3bd04e549a69c06e7a9f4d3f523612a59ab9",
+        "nativeFinalPresent": false,
+        "reviewedOutcome": "infrastructure_error",
+        "outcomeEvidence": "reviewer_sidecar",
+        "reviewerAnnotation": {
+          "file": "screen-02-recovery-reviewer-sidecar.json",
+          "sha256": "f2270eabd7724a8da5faa1ecca9ec68f3baca9c13ca591267df31af26c4d39b6",
+          "bytes": 4885
+        }
+      }
+    ],
+    "allStartsVisiblyConfirmed": true,
+    "all78NativeFinalsKeysReleased": true,
+    "reviewedSummaryTotals": {
+      "scope": "loaded_event_snapshots_only; see pendingEvidence for manifests without included events",
+      "recordedStarts": 80,
+      "nativeFinals": 78,
+      "reviewerClassifiedInfrastructureErrors": 2,
+      "unstartedLogicalSlots": 0
+    },
+    "summaryGroupsDirectlyRecounted": 14,
+    "groupCountMismatches": [],
+    "summaryInputHashesMatched": true,
+    "pendingEvidence": [],
+    "confirmationResults": [
+      {
+        "cohort": "confirm-03",
+        "version": "v2.13",
+        "strategy": "grow-15",
+        "fraction": "11/12",
+        "counts": {
+          "win_le150": 11,
+          "win_late": 0,
+          "death": 0,
+          "deadline_cutoff": 1,
+          "game_timeout": 0,
+          "controller_abort": 0,
+          "infrastructure_error": 0,
+          "unknown": 0,
+          "in_progress": 0
+        },
+        "wilson95": {
+          "low": 0.646120088858883,
+          "high": 0.9851349055950829
+        },
+        "winningGameSeconds": {
+          "n": 11,
+          "median": 130,
+          "p95": 147.5,
+          "p99": 147.9,
+          "max": 148
+        },
+        "computeMs": {
+          "n": 15773,
+          "median": 16.59999999962747,
+          "p95": 26.700000001117587,
+          "p99": 47.056000000313055,
+          "max": 113.19999999925494
+        }
+      },
+      {
+        "cohort": "confirm-03",
+        "version": "v2.22",
+        "strategy": "grow-15",
+        "fraction": "5/12",
+        "counts": {
+          "win_le150": 5,
+          "win_late": 0,
+          "death": 4,
+          "deadline_cutoff": 3,
+          "game_timeout": 0,
+          "controller_abort": 0,
+          "infrastructure_error": 0,
+          "unknown": 0,
+          "in_progress": 0
+        },
+        "wilson95": {
+          "low": 0.19326031365875665,
+          "high": 0.6804886874504503
+        },
+        "winningGameSeconds": {
+          "n": 5,
+          "median": 117,
+          "p95": 141.4,
+          "p99": 143.48,
+          "max": 144
+        },
+        "computeMs": {
+          "n": 14634,
+          "median": 17.59999999962747,
+          "p95": 28.199999999254942,
+          "p99": 49.13399999950082,
+          "max": 99.69999999925494
+        }
+      },
+      {
+        "cohort": "confirm-04",
+        "version": "v2.22",
+        "strategy": "grow-16",
+        "fraction": "5/12",
+        "counts": {
+          "win_le150": 5,
+          "win_late": 0,
+          "death": 6,
+          "deadline_cutoff": 1,
+          "game_timeout": 0,
+          "controller_abort": 0,
+          "infrastructure_error": 0,
+          "unknown": 0,
+          "in_progress": 0
+        },
+        "wilson95": {
+          "low": 0.19326031365875665,
+          "high": 0.6804886874504503
+        },
+        "winningGameSeconds": {
+          "n": 5,
+          "median": 125,
+          "p95": 145.6,
+          "p99": 146.72,
+          "max": 147
+        },
+        "computeMs": {
+          "n": 14739,
+          "median": 17.5,
+          "p95": 28.299999998882413,
+          "p99": 52.5,
+          "max": 121.90000000037253
+        }
+      },
+      {
+        "cohort": "confirm-05",
+        "version": "v2.22",
+        "strategy": "grow-17",
+        "fraction": "3/12",
+        "counts": {
+          "win_le150": 3,
+          "win_late": 0,
+          "death": 6,
+          "deadline_cutoff": 3,
+          "game_timeout": 0,
+          "controller_abort": 0,
+          "infrastructure_error": 0,
+          "unknown": 0,
+          "in_progress": 0
+        },
+        "wilson95": {
+          "low": 0.08894166839405471,
+          "high": 0.5323053349335657
+        },
+        "winningGameSeconds": {
+          "n": 3,
+          "median": 144,
+          "p95": 144,
+          "p99": 144,
+          "max": 144
+        },
+        "computeMs": {
+          "n": 13651,
+          "median": 17.399999998509884,
+          "p95": 29.199999999254942,
+          "p99": 51.200000000186265,
+          "max": 128
+        }
+      }
+    ],
+    "originalGoalMet": false,
+    "formalAcceptanceClaim": false,
+    "versionQualification": "v2.22 was latest at successful initial check; completion read HTTP403 did not revalidate live version; tested source hashes fixed"
+  },
+  "readmeReview": {
+    "relativeLinksMissing": [],
+    "final12Grow17RowsPresent": true,
+    "methodResultsAndLimitationsPresent": true,
+    "gapsOrPublicationNotes": [
+      {
+        "id": "R001",
+        "severity": "documentation_context",
+        "issue": "Frozen original README and status say GitHub sync awaits authorization/no commit or PR; these are true for original package cutoff, not the new publication request",
+        "requiredAction": "Keep frozen bundle intact and explain new authorization/current remote state in outer README; do not invent publication commit or remote verification",
+        "parentPlan": "outer README will provide this context",
+        "status": "planned_not_yet_audited"
+      },
+      {
+        "id": "R002",
+        "severity": "scope_clarification",
+        "issue": "This bundle has grow12 baseline plus complete grow13-17/recovery sources, not independent historical grow1-11 snapshots",
+        "requiredAction": "Use separate version entries/fixed source references for earlier versions if included in current every-version publication scope; do not count source changelog sections as historical source snapshots"
+      },
+      {
+        "id": "R003",
+        "severity": "known_reproduction_limit",
+        "issue": "Unknown natural seed and omitted live images prevent frame-exact historical replay; game isolation changes presentation/network persistence as documented",
+        "requiredAction": "Preserve original README qualifications; existing clean-build results are source reproduction evidence, not new gameplay validation"
+      }
+    ]
+  },
+  "findings": [
+    {
+      "id": "F001",
+      "severity": "exclude_from_direct_upload",
+      "title": "Ten duplicate game HTML files contain one static percent-encoded SVG favicon",
+      "finding": "293 decoded bytes per occurrence, same SVG hash; path and ellipses only, no raster image. It is an actual encoded vector asset, not captured gameplay evidence or a canvas algorithm. No image-rule exception is assumed.",
+      "decodedAssetSha256": "59771657e8e00ab519c04d570d98ddf855dc61f5497aef177b4088a5cd9b0992",
+      "affectedFileCount": 10,
+      "resolution": "Omit these 10 duplicate files from new publication. Reference existing base-commit game sources and use a hash-checking materializer to restore their exact original bytes locally. Original package and trial hashes remain unchanged.",
+      "resolutionStatus": "approved_plan_materializer_not_yet_audited"
+    }
+  ],
+  "publicationSelection": {
+    "directUploadPaths": [
+      "CHECKSUMS.sha256",
+      "EVALUATION_STATUS.txt",
+      "README.md",
+      "results/evaluation-summary.json",
+      "results/final-version-read-attempt.json",
+      "results/grow14-diagnostics-20261125.json",
+      "results/grow15-confirm-03-04-diagnostic.json",
+      "results/grow15-late-v22-diagnostic.json",
+      "results/grow16-activation-verification.json",
+      "results/grow16-clean-build-verification.json",
+      "results/grow16-confirmation-gate-verification.json",
+      "results/grow17-clean-build-verification.json",
+      "results/grow17-confirmation-gate-verification.json",
+      "results/grow17-late-cutoff-diagnostic.json",
+      "results/live-version-verification.json",
+      "results/raw-native-summary.json",
+      "results/screen-01-events-noimages.jsonl",
+      "results/screen-01-events-noimages.jsonl.gz",
+      "results/screen-01-summary.json",
+      "results/screen-02-events-noimages.jsonl",
+      "results/screen-02-recovery-events-noimages.jsonl",
+      "results/screen-02-recovery-reviewer-sidecar.json",
+      "results/screen-02-reviewer-sidecar.json",
+      "results/screen-03-events-noimages.jsonl",
+      "results/screen-04-events-noimages.jsonl",
+      "results/screen-05-events-noimages.jsonl",
+      "results/summarize-evaluation.mjs",
+      "source/experiments/grow13/build-lab.mjs",
+      "source/experiments/grow13/check-minimap-next.cjs",
+      "source/experiments/grow13/harness.js",
+      "source/experiments/grow13/manifest.json",
+      "source/experiments/grow13/planner.js",
+      "source/experiments/grow13/server.mjs",
+      "source/experiments/grow13/summarize.mjs",
+      "source/experiments/grow14/build-lab.mjs",
+      "source/experiments/grow14/frozen/screen-02/build-lab.mjs",
+      "source/experiments/grow14/frozen/screen-02/harness.js",
+      "source/experiments/grow14/frozen/screen-02/index.html",
+      "source/experiments/grow14/frozen/screen-02/manifest.json",
+      "source/experiments/grow14/frozen/screen-02/planner.js",
+      "source/experiments/grow14/frozen/screen-02/server.mjs",
+      "source/experiments/grow14/harness.js",
+      "source/experiments/grow14/manifest.json",
+      "source/experiments/grow14/planner.js",
+      "source/experiments/grow14/server.mjs",
+      "source/experiments/grow14-recovery/build-recovery.mjs",
+      "source/experiments/grow14-recovery/harness.js",
+      "source/experiments/grow14-recovery/manifest.json",
+      "source/experiments/grow14-recovery/planner.js",
+      "source/experiments/grow14-recovery/server.mjs",
+      "source/experiments/grow15/NOTES.md",
+      "source/experiments/grow15/build-lab.mjs",
+      "source/experiments/grow15/check-build.cjs",
+      "source/experiments/grow15/check-minimap-next.cjs",
+      "source/experiments/grow15/frozen/screen-03/build-lab.mjs",
+      "source/experiments/grow15/frozen/screen-03/game-isolation.mjs",
+      "source/experiments/grow15/frozen/screen-03/geometry.js",
+      "source/experiments/grow15/frozen/screen-03/harness.js",
+      "source/experiments/grow15/frozen/screen-03/index.html",
+      "source/experiments/grow15/frozen/screen-03/manifest.json",
+      "source/experiments/grow15/frozen/screen-03/planner.js",
+      "source/experiments/grow15/frozen/screen-03/server.mjs",
+      "source/experiments/grow15/frozen/screen-03/source-base.html",
+      "source/experiments/grow15/game-isolation.mjs",
+      "source/experiments/grow15/geometry.js",
+      "source/experiments/grow15/geometry.synthetic.cjs",
+      "source/experiments/grow15/harness.js",
+      "source/experiments/grow15/manifest.json",
+      "source/experiments/grow15/planner.js",
+      "source/experiments/grow15/server.mjs",
+      "source/experiments/grow15/source-base.html",
+      "source/experiments/grow16/NOTES.md",
+      "source/experiments/grow16/activation-verification.json",
+      "source/experiments/grow16/build-lab.mjs",
+      "source/experiments/grow16/check-build.cjs",
+      "source/experiments/grow16/check-planner.cjs",
+      "source/experiments/grow16/game-isolation.mjs",
+      "source/experiments/grow16/geometry.js",
+      "source/experiments/grow16/harness.js",
+      "source/experiments/grow16/index.html",
+      "source/experiments/grow16/manifest.json",
+      "source/experiments/grow16/parent-manifest.json",
+      "source/experiments/grow16/planner.js",
+      "source/experiments/grow16/server.mjs",
+      "source/experiments/grow16/source-base.html",
+      "source/experiments/grow17/NOTES.md",
+      "source/experiments/grow17/activation-verification.json",
+      "source/experiments/grow17/build-lab.mjs",
+      "source/experiments/grow17/check-build.cjs",
+      "source/experiments/grow17/check-planner.cjs",
+      "source/experiments/grow17/game-isolation.mjs",
+      "source/experiments/grow17/geometry.js",
+      "source/experiments/grow17/harness.js",
+      "source/experiments/grow17/index.html",
+      "source/experiments/grow17/manifest.json",
+      "source/experiments/grow17/parent-manifest.json",
+      "source/experiments/grow17/planner.js",
+      "source/experiments/grow17/server.mjs",
+      "source/experiments/grow17/source-base.html",
+      "source/package.json",
+      "source/scripts/grow-games.mjs",
+      "source/src/ocr-grow.html"
+    ],
+    "excludedDependencies": [
+      {
+        "omittedBundlePath": "source/experiments/grow15/frozen/screen-03/game-v2.13.html",
+        "existingRepositoryPath": "src/game-v2.13.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.13.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/experiments/grow15/frozen/screen-03/game-v2.22.html",
+        "existingRepositoryPath": "src/game.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/experiments/grow15/game-v2.13.html",
+        "existingRepositoryPath": "src/game-v2.13.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.13.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/experiments/grow15/game-v2.22.html",
+        "existingRepositoryPath": "src/game.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/experiments/grow16/game-v2.13.html",
+        "existingRepositoryPath": "src/game-v2.13.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.13.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/experiments/grow16/game-v2.22.html",
+        "existingRepositoryPath": "src/game.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/experiments/grow17/game-v2.13.html",
+        "existingRepositoryPath": "src/game-v2.13.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.13.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/experiments/grow17/game-v2.22.html",
+        "existingRepositoryPath": "src/game.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/src/game-v2.13.html",
+        "existingRepositoryPath": "src/game-v2.13.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+        "gitBlobSha1": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.13.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      },
+      {
+        "omittedBundlePath": "source/src/game.html",
+        "existingRepositoryPath": "src/game.html",
+        "fixedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+        "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+        "gitBlobSha1": "30af12f7608da91514711ecdbc01b57654ab2eab",
+        "sourceUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game.html",
+        "remoteExistenceEvidence": "parent reports readback of test/ocr-test base tree and main; local Git blob SHA1 independently matches"
+      }
+    ],
+    "dependencyPlan": "Parent will add dependency manifest and materialize-game-sources.mjs; copies only existing repository src files after SHA verification, restoring all10 paths. No new image exception, no source/game rule changes, no historical result edits."
+  }
+}

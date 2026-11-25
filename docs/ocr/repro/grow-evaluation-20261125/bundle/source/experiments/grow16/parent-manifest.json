@@ -1,0 +1,91 @@
+{
+  "schema": 1,
+  "createdAt": "2026-11-25T01:19:25.040Z",
+  "baseSiteCommit": "14c1815351b32096b325e032331b90c1f7873159",
+  "parentCandidate": "grow-14",
+  "parentProtocolHash": "e3237b940633b27e65685ad6ae8031aa878699c6dc4ce283679c0d8ea11836de",
+  "sourceHash": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+  "geometryHash": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+  "plannerHash": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+  "harnessHash": "cfee3070ac5fe13f5b5d9c3b17bcfe3fcecc1c2c446e850d112a927e8c81f4ba",
+  "buildHash": "d62a48bb5745babe545c94c63d4e0d658ed6afb744748a54e048e01a4a8e28ea",
+  "pageHash": "bbb5ce95c2b80ee406c3b9256ac80134140dc54764a2643048b46a4f087895ba",
+  "isolationHash": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+  "games": {
+    "v2.13": {
+      "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+    },
+    "v2.22": {
+      "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+    }
+  },
+  "viewport": {
+    "gameWidth": 2000,
+    "gameHeight": 1163
+  },
+  "seed": "natural Math.random; unknown",
+  "controller": "rendered canvas pixels + visible HUD only",
+  "input": "Arrow keys + Space boost",
+  "maxComputeMs": 200,
+  "concurrency": 1,
+  "perception": {
+    "maxCaptureWidth": 2000,
+    "minimap": "strict growMarkers for candidate; no permissive white fallback",
+    "plannerLogic": "byte-identical to grow-14 after naming normalization",
+    "geometry": "frozen geometry.js; accepted pixel centre AND radius converted by capture ratio; null preserves original; NPCs only",
+    "confidence": "geometric consistency score, not probability",
+    "numericDiagnostics": [
+      "geometryAccepted",
+      "confidence",
+      "originalRadius",
+      "geometryAcceptedCount",
+      "geometryNpcCount",
+      "geometryConfidenceMean"
+    ]
+  },
+  "screen": {
+    "id": "screen-03",
+    "order": [
+      {
+        "strategy": "grow-15",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-15",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-15",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-15",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-15",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-15",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-15",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-15",
+        "version": "v2.22"
+      }
+    ]
+  },
+  "confirmation": {
+    "id": "confirm-03",
+    "NPerVersion": 12,
+    "condition": "grow-15 screen >=2/4 on each version; frozen same candidate"
+  },
+  "protocolHash": "c380f2eab1f1f722273d8f04103681ac3dd90baa02e617b2065b8706dc1de346"
+}

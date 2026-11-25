@@ -1,0 +1,20 @@
+{
+  "name": "ocr-grow-20261125-repro",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build:grow13": "node experiments/grow13/build-lab.mjs",
+    "build:grow14": "node experiments/grow14/build-lab.mjs",
+    "build:grow14-recovery": "node experiments/grow14-recovery/build-recovery.mjs",
+    "build:grow15": "node experiments/grow15/build-lab.mjs",
+    "build:grow16": "node experiments/grow16/build-lab.mjs",
+    "dev:grow13": "node experiments/grow13/server.mjs",
+    "dev:grow14": "node experiments/grow14/server.mjs",
+    "dev:grow14-recovery": "node experiments/grow14-recovery/server.mjs",
+    "dev:grow15": "node experiments/grow15/server.mjs",
+    "dev:grow16": "node experiments/grow16/server.mjs",
+    "summarize": "node experiments/grow13/summarize.mjs",
+    "build:grow17": "node experiments/grow17/build-lab.mjs",
+    "dev:grow17": "node experiments/grow17/server.mjs"
+  }
+}
