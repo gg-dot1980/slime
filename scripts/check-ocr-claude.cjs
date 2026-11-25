@@ -22,4 +22,19 @@ test('claude-2 prefers yellow food over blue at equal distance',()=>{const xs=[h
 test('claude-2 food weighting never overrides a lethal threat',()=>{const xs=[hued(160,0,43),hued(220,0,43),obj(200,0,90)];const d=run2(xs,60);assert(!['東','東南','東北'].includes(d.name));assert(d.clearance>3);});
 test('claude-2 still prefers edible NPC over yellow food',()=>{const xs=[obj(220,0,45),hued(-150,0,43),hued(-180,0,43)];assert.equal(run2(xs,60).name,'東');});
 test('claude-2 equals claude-1 when no hue is known',()=>{const xs=[food(100,40),food(-90,0),obj(250,60,30)];assert.equal(run2(xs,50).name,run(xs,50).name);});
-console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2'],newGames:0}));
+// claude-3: map pixel units; map 144 wide => 72 world px per map px. View half-size 1000x580 world px.
+const hmap=(markers,threats=[])=>({...map(threats),growMarkers:markers,viewWidth:2000,viewHeight:1160,pixelRatio:1});
+const run3=(xs,r,m)=>c.api.planClaude(xs,r,m,250,{x:0,y:0},{x:1,y:0},{hunt:true});
+test('claude-3 steers toward an off-screen white dot when no prey is visible',()=>{const m=hmap([{x:72-20,y:50,red:false}]);const d=run3([food(60,40),food(80,50)],50,m);assert.equal(d.name,'西');assert.equal(d.huntTargets,1);});
+test('claude-3 ignores white dots inside the view',()=>{const m=hmap([{x:72-5,y:50,red:false}]);const d=run3([],50,m);assert.equal(d.huntTargets,0);});
+test('claude-3 ignores a white dot overlapping a red marker',()=>{const m=hmap([{x:72-20,y:50,red:false},{x:72-20,y:51,red:true}]);assert.equal(run3([],50,m).huntTargets,0);});
+test('claude-3 never pursues a dot through a visible lethal body',()=>{const m=hmap([{x:72+20,y:50,red:false}]);const d=run3([obj(170,0,90)],50,m);assert.notEqual(d.name,'東');assert(d.clearance>3);});
+test('claude-3 off-screen dot is not counted as a collision or threat',()=>{const m=hmap([{x:72+20,y:50,red:false}]);const d=run3([],50,m);assert.equal(d.threats,0);assert.equal(d.npcUtility,0);});
+test('claude-3 equals claude-1 without map markers',()=>{const xs=[food(100,40),food(-90,0),obj(250,60,30),obj(-200,-90,70)];assert.equal(run3(xs,50,null).name,run(xs,50).name);});
+const run4=(xs,r,m,old={x:1,y:0})=>c.api.planClaude(xs,r,m,250,{x:0,y:0},old,{hunt:true,flee:true});
+const giant=(x,y)=>obj(x,y,300,{clipped:true,dangerRadius:420});
+test('claude-4 flees away from a minimap red dot when no direction is safe',()=>{const m=hmap([],[{x:72+3,y:50}]);const xs=[giant(120,0),giant(60,140),giant(60,-140)];const d=run4(xs,80,m);assert.equal(d.reason,'flee-map');assert(d.x<0,'should move west');});
+test('claude-4 keeps fleeing heading across fragment noise',()=>{const m=hmap([],[{x:72+3,y:50}]);const a=run4([giant(120,0),giant(60,140),giant(60,-140)],80,m,{x:-1,y:0});const b=run4([giant(150,40),giant(30,160),giant(90,-120)],80,m,{x:a.x,y:a.y});assert(a.x<0&&b.x<0);assert(a.x*b.x+a.y*b.y>.6);});
+test('claude-4 flee respects a known wall',()=>{const m={...hmap([],[{x:72+3,y:50}]),visibleWalls:[Infinity,40,Infinity,Infinity]};const d=run4([giant(120,0),giant(60,140),giant(60,-140)],80,m);assert(d.wallOK);});
+test('claude-4 behaves like claude-3 when a safe direction exists',()=>{const m=hmap([{x:72-20,y:50,red:false}]);const xs=[food(60,40),obj(300,200,90)];assert.equal(run4(xs,50,m).name,run3(xs,50,m).name);});
+console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4'],newGames:0}));

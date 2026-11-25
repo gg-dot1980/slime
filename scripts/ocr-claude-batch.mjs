@@ -13,6 +13,21 @@ const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
 // Numeric-only decision ring via the controller's existing ocrTestRecord hook (no pixels kept).
 await ctx.addInitScript(()=>{const ring=[];window.ocrClaudeRing=ring;window.ocrTestRecord=r=>{const o=r.planOutput||{},npcs=(r.objects||[]).filter(x=>x.npc);const near=npcs.map(x=>({d:Math.round(Math.hypot(x.x,x.y)),r:Math.round(x.r),red:!!x.isRed,clip:!!x.clipped})).sort((a,b)=>a.d-b.d).slice(0,3);ring.push({t:r.hudTime,hud:r.hud,dir:o.name,clr:Math.round(o.clearance),thr:o.threats,esc:!!o.escaping,rsn:o.reason||null,ms:Math.round(r.elapsedCompute),near});if(ring.length>15)ring.shift();};});
+
+// OBSERVE=1: test-side observer inside the game frame (diagnosis only; the controller never reads it).
+// Classifies each growth step as NPC eat or food, samples prey availability, and records the killer at death.
+const observer=()=>{if(window.__obs)return 'already';if(typeof window.__dbg!=='function')return 'no-hook';const G=()=>window.__dbg();let {player,slimes}=G();const O=window.__obs={eats:[],foodGain:0,npcGain:0,avail:[],killer:null,err:null};let lastR=player.r,last=new Set(slimes),tick=0;
+ window.__obsTimer=setInterval(()=>{try{const g=G(),{cam,vw,vh,elapsed}=g;player=g.player;slimes=g.slimes;const cur=new Set(slimes),gone=[...last].filter(s=>!cur.has(s)),dr=player.r-lastR;
+  const mine=gone.filter(s=>Math.hypot(s.x-player.x,s.y-player.y)<(lastR+s.r)*.72+80&&lastR>=s.r*1.08);
+  if(mine.length&&dr>0){O.npcGain+=dr;for(const s of mine)O.eats.push([Math.round(elapsed*10)/10,Math.round(lastR),Math.round(s.r/lastR*100)/100,Math.round(dr*10)/10]);}else if(dr>0)O.foodGain+=dr;
+  if(++tick%20===0){const R=player.r,inView=s=>s.x+s.r>cam.x&&s.x-s.r<cam.x+vw&&s.y+s.r>cam.y&&s.y-s.r<cam.y+vh;let ev=0,ef=0,lv=0,ln=0;for(const s of slimes){const d=Math.hypot(s.x-player.x,s.y-player.y);if(R>=s.r*1.08){if(inView(s))ev++;else if(d<2600)ef++;}else if(s.r>=R*1.08){if(inView(s))lv++;if(d<600)ln++;}}O.avail.push([Math.round(elapsed),Math.round(R),ev,ef,lv,ln,slimes.length]);}
+  lastR=player.r;last=cur;}catch(e){O.err=String(e).slice(0,200)}},50);return 'installed';};
+const killerOf=()=>{const {player,slimes,cam,vw,vh,W,H}=window.__dbg(),R=player.r;let best=null;for(const s of slimes){if(s.r<R*1.08)continue;const d=Math.hypot(s.x-player.x,s.y-player.y),q=d/((R+s.r)*.72);if(!best||q<best.q)best={q:Math.round(q*100)/100,ratio:Math.round(s.r/R*100)/100,sprint:s.boostRemaining>0,chase:!!s.target?.chase,hunt:!!s.target?.hunt,inView:s.x+s.r>cam.x&&s.x-s.r<cam.x+vw&&s.y+s.r>cam.y&&s.y-s.r<cam.y+vh,vx:Math.round(s.vx),vy:Math.round(s.vy),wallDist:Math.round(Math.min(player.x,player.y,W-player.x,H-player.y)-R)};}return best;};
+const gameFrame=async page=>(await page.$('#game'))?.contentFrame();
+// OBSERVE only: inject a read-only state getter into each bundled game's IIFE, in the served response (repo files unchanged).
+if(process.env.OBSERVE)await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fetch(),body=await res.text();
+ const anchor="(()=>{'use strict';",hooked=body.split(anchor).join(anchor+"window.__dbg=()=>({player,slimes,elapsed,cam,vw,vh,W,H});");
+ await route.fulfill({response:res,body:hooked});});
 let index=0;
 for(const version of order){
  index++;const page=await ctx.newPage();const started=Date.now();
@@ -24,8 +39,10 @@ for(const version of order){
   if(process.env.STRATEGY)await page.selectOption('#strategy',process.env.STRATEGY);
   row.strategy=await page.$eval('#strategy',s=>s.value);
   await page.click('#go');
+  let observed=false;
   for(;;){
    await page.waitForTimeout(1000);
+   if(process.env.OBSERVE&&!observed){try{const f=await gameFrame(page);if(f&&await f.evaluate(()=>typeof window.__dbg==='function'&&window.__dbg().elapsed>0)){row.observer=await f.evaluate(observer);observed=true;}}catch(e){row.observerError=String(e).slice(0,200);}}
    const s=await page.evaluate(()=>{const d=document.getElementById('game').contentDocument,t=(d.getElementById('time')?.textContent||'').match(/(\d+):(\d+)/);
     const rgb=(/RGB\s*(\d+)\s*·\s*(\d+)\s*·\s*(\d+)/.exec(d.getElementById('mix')?.textContent||'')||[]).slice(1).map(Number),cs=rgb.length===3?.72+(.2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2])/255*.58:null;
     return {cs,left:t?Number(t[1])*60+Number(t[2]):null,size:Number(d.getElementById('size')?.textContent)||null,runs:[...document.querySelectorAll('#runs li')].map(l=>l.textContent),status:document.getElementById('status').textContent,action:document.getElementById('action').textContent,title:d.getElementById('title')?.textContent||'',desc:d.getElementById('description')?.textContent||''};});
@@ -34,8 +51,8 @@ for(const version of order){
    row.lastAction=s.action;
    if(s.runs.length){const text=s.runs.at(-1);row.resultText=text;const m=s.desc.match(/(?:遊玩時間|Play time)\s*(\d+):(\d+)/);row.gameSeconds=m?Number(m[1])*60+Number(m[2]):null;
     row.outcome=/成功過關|You win/.test(s.title)?(row.gameSeconds!==null&&row.gameSeconds<=150?'win<=150':'win>150'):/吞掉|eaten/i.test(s.title)?'death':/時間到|Time/.test(s.title)?'timeout300':'unknown';
-    const sz=s.desc.match(/最終體型\s*(\d+)/);row.size=sz?Number(sz[1]):s.size;row.lastDecisions=await page.evaluate(()=>window.ocrClaudeRing||[]);break;}
-   if(elapsed!==null&&elapsed>150){row.outcome='cutoff150';row.gameSeconds=elapsed;row.size=s.size;await page.click('#stop');break;}
+    const sz=s.desc.match(/最終體型\s*(\d+)/);row.size=sz?Number(sz[1]):s.size;row.lastDecisions=await page.evaluate(()=>window.ocrClaudeRing||[]);if(observed){const f=await gameFrame(page);row.obs=await f.evaluate(()=>{clearInterval(window.__obsTimer);return window.__obs;});if(row.outcome==='death')row.obs.killer=await f.evaluate(killerOf);}break;}
+   if(elapsed!==null&&elapsed>150){row.outcome='cutoff150';row.gameSeconds=elapsed;row.size=s.size;if(observed){const f=await gameFrame(page);row.obs=await f.evaluate(()=>{clearInterval(window.__obsTimer);return window.__obs;});}await page.click('#stop');break;}
    if(/逾時|停止/.test(s.status)&&!s.runs.length&&Date.now()-started>5000){row.outcome='controller-stop';row.status=s.status;row.gameSeconds=elapsed;row.size=s.size;break;}
    if(Date.now()-started>420000){row.outcome='wall-timeout';break;}
   }
