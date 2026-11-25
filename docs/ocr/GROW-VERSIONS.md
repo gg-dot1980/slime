@@ -29,7 +29,7 @@
 | grow-19 | [來源／結果／重現](repro/grow-19/README.md) | [凍結 manifest](repro/grow-19/source/experiments/grow19/manifest.json) | 直接以 Grow15 為父版，v2.22 幾何拒判提高尺寸上界；探索 v2.13 3/4、v2.22 2/4（含1次239.4ms計算中止）。未通過完整結算門檻，確認未開始。 |
 | grow-20 | [來源與結果摘要](repro/grow-20-public/README.md) | [完整單檔來源](repro/grow-20-public/ocr-grow20.html) | Grow19 策略加控制延遲修復；固定前景探索 v2.13 2/4、v2.22 0/4，確認未開始。另保留 1 個環境中斷，合計 9 個嘗試、2 勝。 |
 | grow-21 | [原型狀態](repro/grow-21-public/README.md) | [完整單檔來源](repro/grow-21-public/ocr-grow21.html) | Grow20 加有界白點偵查記憶；12 組合成案例、91 斷言通過，自然實戰 0 局。未採用於 Grow22。 |
-| grow-22 | [來源與測試狀態](repro/grow-22-public/README.md) | [完整單檔來源](repro/grow-22-public/ocr-grow22.html) | 直接以 Grow20 為父版，預估可見 NPC 一次互吃後的致命尺寸；15 組合成案例、53 斷言通過。固定新 8 局探索進行中，未宣稱達標。 |
+| grow-22 | [來源與測試狀態](repro/grow-22-public/README.md) | [完整單檔來源](repro/grow-22-public/ocr-grow22.html) | 直接以 Grow20 為父版，預估可見 NPC 一次互吃後的致命尺寸；15 組合成案例、53 斷言通過。固定新 8 局探索完成：v2.13 2/4、v2.22 3/4；門檻通過，各 12 局獨立確認進行中，尚未宣稱達標。 |
 
 grow-14 的 recovery 是原第 07／08 個未開局位置的續測，仍歸 grow-14，原兩個中斷保留分母；不是另起一個策略版本。Grow-17 的直接父版是 grow-15，沒有繼承 grow-16 的紅色本體上界改動。
 
