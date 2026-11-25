@@ -8,7 +8,7 @@ const req=createRequire(process.env.PLAYWRIGHT_DIR?process.env.PLAYWRIGHT_DIR+'/
 const {chromium}=req('playwright');
 const [url,out,versionList,perVersion,label='hybrid']=process.argv.slice(2);
 const versions=versionList.split(','),n=Number(perVersion),order=[];for(let i=0;i<n;i++)for(const v of versions)order.push(v);
-const OPTS={'claude-11':{clipWhite:true,clipRedClear:6,segment:true,safe:true},'claude-14':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true},'claude-5':{}}[process.env.HYBRID_OPTS||'claude-14'];
+const OPTS={'claude-11':{clipWhite:true,clipRedClear:6,segment:true,safe:true},'claude-14':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true},'claude-15':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true,v2:true},'claude-15b':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true},'claude-5':{}}[process.env.HYBRID_OPTS||'claude-14'];
 const period=Number(process.env.HYBRID_MS)||200;if(process.env.HYBRID_MAP==='real')OPTS.__realMap=true;
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
