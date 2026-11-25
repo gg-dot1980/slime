@@ -73,10 +73,12 @@ for(const version of order){
     const sz=s.desc.match(/最終體型\s*(\d+)/);row.size=sz?Number(sz[1]):s.size;row.lastDecisions=await page.evaluate(()=>window.ocrClaudeRing||[]);row.percep=await page.evaluate(()=>window.ocrClaudePercep||[]);row.agree=await page.evaluate(()=>window.ocrClaudeAgree||null);if(observed){const f=await gameFrame(page);row.obs=await f.evaluate(()=>{clearInterval(window.__obsTimer);return window.__obs;});if(row.outcome==='death')row.obs.killer=await f.evaluate(killerOf);}break;}
    if(elapsed!==null&&elapsed>150){row.outcome='cutoff150';row.gameSeconds=elapsed;row.size=s.size;row.percep=await page.evaluate(()=>window.ocrClaudePercep||[]);row.agree=await page.evaluate(()=>window.ocrClaudeAgree||null);if(observed){const f=await gameFrame(page);row.obs=await f.evaluate(()=>{clearInterval(window.__obsTimer);return window.__obs;});}await page.click('#stop');break;}
    if(/逾時|停止/.test(s.status)&&!s.runs.length&&Date.now()-started>5000){row.outcome='controller-stop';row.status=s.status;row.gameSeconds=elapsed;row.size=s.size;break;}
-   if(Date.now()-started>420000){row.outcome='wall-timeout';break;}
+   // controller exception: tick catch calls stop(false) and puts e.message in #status; the game then stops advancing.
+   if(s.left!==row.__lastLeft){row.__lastLeft=s.left;row.__lastMove=Date.now();}else if(Date.now()-(row.__lastMove||started)>10000&&!s.runs.length){row.outcome='controller-error';row.status=s.status;row.action=s.action;row.gameSeconds=elapsed;row.size=s.size;row.lastDecisions=await page.evaluate(()=>window.ocrClaudeRing||[]);break;}
+   if(Date.now()-started>420000){row.outcome='wall-timeout';row.status=s.status;row.action=s.action;row.gameLeft=s.left;break;}
   }
  }catch(e){row.outcome='infra-error';row.error=String(e).slice(0,300);}
- row.wallSeconds=Math.round((Date.now()-started)/1000);
+ row.wallSeconds=Math.round((Date.now()-started)/1000);delete row.__lastLeft;delete row.__lastMove;
  await appendFile(out,JSON.stringify(row)+'\n');console.log(index,version,row.outcome,row.gameSeconds,row.size);
  await page.close();
 }
