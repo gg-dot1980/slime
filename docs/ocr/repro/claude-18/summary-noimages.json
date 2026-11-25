@@ -1,0 +1,170 @@
+{
+ "claude-17": {
+  "games": 12,
+  "win150": 0,
+  "winLate": 0,
+  "death": 2,
+  "cutoff150": 10,
+  "timeout300": 0,
+  "controllerStop": 0,
+  "infra": 0,
+  "unknown": 0,
+  "byVersion": {
+   "v2.13": {
+    "games": 6,
+    "win150": 0,
+    "death": 1,
+    "cutoff150": 5,
+    "other": 0
+   },
+   "v2.22": {
+    "games": 6,
+    "win150": 0,
+    "death": 1,
+    "cutoff150": 5,
+    "other": 0
+   }
+  },
+  "deathSeconds": [
+   149,
+   110
+  ],
+  "finalCutoffSize": [
+   63,
+   92,
+   68,
+   70,
+   54,
+   57,
+   99,
+   77,
+   62,
+   74
+  ],
+  "colorSpeedMedian": 1.061,
+  "observed": 12,
+  "npcEats": [
+   10,
+   15,
+   7,
+   12,
+   7,
+   9,
+   7,
+   8,
+   10,
+   4,
+   7,
+   8
+  ],
+  "npcGain": [
+   25,
+   50,
+   21,
+   30,
+   19,
+   30,
+   16,
+   40,
+   36,
+   14,
+   28,
+   27
+  ],
+  "foodGain": [
+   14,
+   16,
+   23,
+   15,
+   10,
+   14,
+   15,
+   34,
+   16,
+   22,
+   22,
+   13
+  ],
+  "killers": {
+   "n": 2,
+   "atWall": 0,
+   "inView": 2,
+   "sprint": 1,
+   "chase": 1,
+   "hunt": 1,
+   "ratios": [
+    2.22,
+    3.08
+   ]
+  },
+  "medianSize60": 43,
+  "medianSize120Alive": 59,
+  "medianDeathSecond": 149,
+  "win150Rate": "0/12",
+  "medianNpcEats": 8,
+  "medianNpcGain": 28,
+  "medianFoodGain": 16
+ },
+ "claude-18": {
+  "games": 6,
+  "win150": 0,
+  "winLate": 0,
+  "death": 0,
+  "cutoff150": 6,
+  "timeout300": 0,
+  "controllerStop": 0,
+  "infra": 0,
+  "unknown": 0,
+  "byVersion": {
+   "v2.22": {
+    "games": 6,
+    "win150": 0,
+    "death": 0,
+    "cutoff150": 6,
+    "other": 0
+   }
+  },
+  "deathSeconds": [],
+  "finalCutoffSize": [
+   72,
+   67,
+   58,
+   85,
+   76,
+   44
+  ],
+  "colorSpeedMedian": 1.081,
+  "observed": 6,
+  "npcEats": [
+   9,
+   8,
+   5,
+   12,
+   10,
+   1
+  ],
+  "npcGain": [
+   34,
+   21,
+   17,
+   49,
+   42,
+   4
+  ],
+  "foodGain": [
+   13,
+   21,
+   16,
+   11,
+   9,
+   14
+  ],
+  "medianSize60": 37,
+  "medianSize120Alive": 61,
+  "medianDeathSecond": null,
+  "win150Rate": "0/6",
+  "medianNpcEats": 9,
+  "medianNpcGain": 34,
+  "medianFoodGain": 14
+ }
+}

@@ -2,7 +2,7 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const h=fs.readFileSync('src/ocr-claude.html','utf8');
 const slice=h.slice(h.indexOf('const dirs='),h.indexOf('let lastVision=0;'));
-const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude,planClaude5,whiteDots,C5mem,rememberStrokeDots,strokeMem}',c);
+const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude,planClaude5,whiteDots,C5mem,rememberStrokeDots,strokeMem,C5track}',c);
 const obj=(x,y,r,more={})=>({x,y,r,npc:true,clipped:false,blocked:false,isRed:false,vx:0,vy:0,...more});
 const food=(x,y)=>({x,y,r:9,npc:false,clipped:false,blocked:false,vx:0,vy:0});
 const map=(threats=[])=>({x:0,y:0,width:144,height:144*9/13,player:{x:72,y:50},threats,visibleWalls:null});
@@ -108,4 +108,14 @@ test('stroke memory expires after 1.5 s',()=>{c.api.strokeMem.items=[];c.api.rem
 test('stroke memory does not duplicate a dot that is still visible',()=>{c.api.strokeMem.items=[];const d={x:72+13.85,y:50,red:true};c.api.rememberStrokeDots(smap([d]));assert.equal(c.api.rememberStrokeDots(smap([{...d,x:d.x+.5}])).length,1);});
 const o16={...o12,safe:false,dotSize:true,v2:true};
 test('claude-16 hunts visible prey in open space and avoids arena walls',()=>{c.api.C5mem.items=[];assert.equal(c.api.planClaude5([obj(300,0,40)],60,atMap(72,50),300,{x:0,y:0},{x:1,y:0},o16).name,'東');c.api.C5mem.items=[];assert(!['東','東南','東北'].includes(c.api.planClaude5([food(150,0)],60,atMap(143,50),300,{x:0,y:0},{x:1,y:0},o16).name));});
-console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4','claude-5','claude-6','claude-7(=claude-6 planner, 50ms tick)','claude-8(=claude-6 planner + whiteDots)','claude-9(claude-8, clip red clearance 6px)','claude-10(claude-9 + edge segment radius)','claude-11(claude-10 + safer near giants)','claude-12(claude-11 + segment-first + lethal memory)','claude-13(claude-12 + bot rule v2)','claude-14(claude-12 + minimap dot size)','claude-15(claude-14 + v2 rules + stroke dot memory)','claude-16(claude-15 without safe penalties)'],newGames:0}));
+const o17={...o16,sizeMem:true};const run17=(xs,r,m)=>{c.api.C5mem.items=[];return c.api.planClaude5(xs,r,m,300,{x:0,y:0},{x:1,y:0},o17);};
+test('claude-17 remembers a body seen on screen and flags its later off-screen white dot as lethal',()=>{c.api.C5track.items=[];const m0=atMap(72,50);run17([obj(400,0,55)],50,m0);const m1={...atMap(72,50),growMarkers:[{x:72+1500/72.2,y:50,red:false,rEst:null}]};
+ // player moved 1100 px west: the same NPC (world +400) is now 1500 px east
+ m1.player={x:72-1100/72.2,y:50};m1.growMarkers=[{x:72-1100/72.2+1500/72.2,y:50,red:false,rEst:null}];const d=run17([],50,m1);assert.equal(d.huntTargets,0);assert(d.threats>=1);});
+test('claude-17 does not chase a remembered neutral-size white (0.95-1.06R)',()=>{c.api.C5track.items=[];run17([obj(400,0,50)],50,atMap(72,50));const m1={...atMap(72-1100/72.2,50),growMarkers:[{x:72-1100/72.2+1500/72.2,y:50,red:false,rEst:null}]};const d=run17([],50,m1);assert.equal(d.huntTargets,0);assert.equal(d.threats,0);});
+test('claude-17 without a remembered body behaves like claude-16',()=>{c.api.C5track.items=[];const m=hmap([{x:72-20,y:50,red:false,rEst:null}]);const d=run17([],60,m);assert.equal(d.huntTargets,1);});
+const o18={...o17,cluster:true};const run18=(xs,r,m)=>{c.api.C5mem.items=[];c.api.C5track.items=[];return c.api.planClaude5(xs,r,m,300,{x:0,y:0},{x:1,y:0},o18);};
+test('claude-18 merges overlapping fragments of one giant',()=>{const frags=[obj(400,100,60,{clipped:true,dangerRadius:110}),obj(430,160,50,{clipped:true,dangerRadius:100}),obj(380,40,55,{clipped:true,dangerRadius:105})];assert.equal(run18(frags,60,hmap([])).merged,2);});
+test('claude-18 keeps two separate lethal bodies',()=>{assert.equal(run18([obj(400,0,90),obj(-400,0,90)],60,hmap([])).threats,2);});
+test('claude-18 still avoids a merged giant',()=>{const frags=[obj(160,0,60,{clipped:true,dangerRadius:110}),obj(180,40,50,{clipped:true,dangerRadius:100})];assert.notEqual(run18(frags,60,hmap([])).name,'東');});
+console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4','claude-5','claude-6','claude-7(=claude-6 planner, 50ms tick)','claude-8(=claude-6 planner + whiteDots)','claude-9(claude-8, clip red clearance 6px)','claude-10(claude-9 + edge segment radius)','claude-11(claude-10 + safer near giants)','claude-12(claude-11 + segment-first + lethal memory)','claude-13(claude-12 + bot rule v2)','claude-14(claude-12 + minimap dot size)','claude-15(claude-14 + v2 rules + stroke dot memory)','claude-16(claude-15 without safe penalties)','claude-17(claude-16 + white-dot size memory)','claude-18(claude-17 + fragment merge)'],newGames:0}));
