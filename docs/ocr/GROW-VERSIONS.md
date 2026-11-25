@@ -1,6 +1,6 @@
 # OCR Grow 版本索引
 
-更新：2026-11-25（臺灣時間）。本索引列出 grow-1～grow-19 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
+更新：2026-11-25（臺灣時間）。本索引列出 grow-1～grow-22 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
 
 [Grow12～17的80局結果與重現方法](repro/grow-evaluation-20261125/README.md) · [交接索引](TEST-HANDOFF.md) · [歷史來源稽核](repro/grow-evaluation-20261125/historical-inventory.json)
 
@@ -27,6 +27,9 @@
 | grow-17 | [來源／結果／重現](repro/grow-17/README.md) | [凍結 manifest](repro/grow-evaluation-20261125/bundle/source/experiments/grow17/manifest.json) | 直接以 grow-15 為父版，cap immunity 時停止未見白點探索效用；v2.22 確認 3/12，沒有新的 v2.13 實測。 |
 | grow-18 | [來源／結果／重現](repro/grow-18/README.md) | [凍結 manifest](repro/grow-18/source/experiments/grow18/manifest.json) | 直接以 Grow15 為父版，名義致命尺寸加入硬性避碰；新探索 v2.13 4/4、v2.22 1/4（3死亡），未過探索門檻，確認未開始。 |
 | grow-19 | [來源／結果／重現](repro/grow-19/README.md) | [凍結 manifest](repro/grow-19/source/experiments/grow19/manifest.json) | 直接以 Grow15 為父版，v2.22 幾何拒判提高尺寸上界；探索 v2.13 3/4、v2.22 2/4（含1次239.4ms計算中止）。未通過完整結算門檻，確認未開始。 |
+| grow-20 | [來源與結果摘要](repro/grow-20-public/README.md) | [完整單檔來源](repro/grow-20-public/ocr-grow20.html) | Grow19 策略加控制延遲修復；固定前景探索 v2.13 2/4、v2.22 0/4，確認未開始。另保留 1 個環境中斷，合計 9 個嘗試、2 勝。 |
+| grow-21 | [原型狀態](repro/grow-21-public/README.md) | [完整單檔來源](repro/grow-21-public/ocr-grow21.html) | Grow20 加有界白點偵查記憶；12 組合成案例、91 斷言通過，自然實戰 0 局。未採用於 Grow22。 |
+| grow-22 | [來源與測試狀態](repro/grow-22-public/README.md) | [完整單檔來源](repro/grow-22-public/ocr-grow22.html) | 直接以 Grow20 為父版，預估可見 NPC 一次互吃後的致命尺寸；15 組合成案例、53 斷言通過。固定新 8 局探索進行中，未宣稱達標。 |
 
 grow-14 的 recovery 是原第 07／08 個未開局位置的續測，仍歸 grow-14，原兩個中斷保留分母；不是另起一個策略版本。Grow-17 的直接父版是 grow-15，沒有繼承 grow-16 的紅色本體上界改動。
 
@@ -51,3 +54,8 @@ grow-14 的 recovery 是原第 07／08 個未開局位置的續測，仍歸 grow
 - Grow19：從完整repo根目錄執行 `node docs/ocr/repro/grow-19/rebuild-frozen.mjs --output /tmp/slime-grow19-repro --checks`，完整8局及239.4ms異常見逐版入口。
 
 適用 [SPEC](SPEC.md)、[GITHUB-STORAGE](GITHUB-STORAGE.md)、[TESTING](TESTING.md)；完整未知、失敗與限制見各版入口。
+
+## Grow20～22 公開來源範圍
+
+每版保留可直接開啟的完整 HTML，內含控制器及 v2.13／v2.22 隔離遊戲；同目錄 README 記錄測試結果與未驗證範圍。這三版公開的是可執行來源與摘要，不包含原始執行環境資料、逐幀數字紀錄或影像。Grow20 的原始中斷與前景批次仍分別保留，並未刪除失敗或以新局替換。Grow21 只有合成驗證，不把它計入自然過關率。
+
