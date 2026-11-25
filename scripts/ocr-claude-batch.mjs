@@ -12,7 +12,11 @@ const order=[];for(let i=0;i<n;i++)for(const v of versions)order.push(v); // int
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
 // Numeric-only decision ring via the controller's existing ocrTestRecord hook (no pixels kept).
-await ctx.addInitScript(()=>{const ring=[];window.ocrClaudeRing=ring;window.ocrTestRecord=r=>{const o=r.planOutput||{},npcs=(r.objects||[]).filter(x=>x.npc);const near=npcs.map(x=>({d:Math.round(Math.hypot(x.x,x.y)),r:Math.round(x.r),red:!!x.isRed,clip:!!x.clipped})).sort((a,b)=>a.d-b.d).slice(0,3);ring.push({t:r.hudTime,hud:r.hud,dir:o.name,clr:Math.round(o.clearance),thr:o.threats,esc:!!o.escaping,rsn:o.reason||null,ms:Math.round(r.elapsedCompute),near});if(ring.length>15)ring.shift();};});
+await ctx.addInitScript(()=>{const ring=[];window.ocrClaudeRing=ring;window.ocrTestRecord=r=>{const o=r.planOutput||{},npcs=(r.objects||[]).filter(x=>x.npc);const near=npcs.map(x=>({d:Math.round(Math.hypot(x.x,x.y)),r:Math.round(x.r),red:!!x.isRed,clip:!!x.clipped})).sort((a,b)=>a.d-b.d).slice(0,3);ring.push({t:r.hudTime,hud:r.hud,dir:o.name,clr:Math.round(o.clearance),thr:o.threats,esc:!!o.escaping,rsn:o.reason||null,ms:Math.round(r.elapsedCompute),near});if(ring.length>15)ring.shift();
+ // Perception sampling (OBSERVE only): every 10th decision keep the controller's NPC detections next to the true
+ // in-view NPCs (relative to the player). Numbers only. The controller never sees this.
+ const dbg=document.getElementById('game')?.contentWindow?.__dbg;if(typeof dbg==='function'){const P=(window.ocrClaudePercep??=[]);window.__pc=(window.__pc||0)+1;if(window.__pc%10===0&&P.length<160){const g=dbg(),pl=g.player,inView=q=>q.x+q.r>g.cam.x&&q.x-q.r<g.cam.x+g.vw&&q.y+q.r>g.cam.y&&q.y-q.r<g.cam.y+g.vh;
+  P.push({t:Math.round(g.elapsed*10)/10,R:Math.round(pl.r*10)/10,hud:r.hud,vw:Math.round(g.vw),vh:Math.round(g.vh),det:npcs.map(x=>[Math.round(x.x),Math.round(x.y),Math.round(x.r),x.clipped?1:0,x.isRed?1:0]),tru:g.slimes.filter(inView).map(q=>[Math.round(q.x-pl.x),Math.round(q.y-pl.y),Math.round(q.r)])});}}};});
 
 // OBSERVE=1: test-side observer inside the game frame (diagnosis only; the controller never reads it).
 // Classifies each growth step as NPC eat or food, samples prey availability, and records the killer at death.
@@ -51,8 +55,8 @@ for(const version of order){
    row.lastAction=s.action;
    if(s.runs.length){const text=s.runs.at(-1);row.resultText=text;const m=s.desc.match(/(?:遊玩時間|Play time)\s*(\d+):(\d+)/);row.gameSeconds=m?Number(m[1])*60+Number(m[2]):null;
     row.outcome=/成功過關|You win/.test(s.title)?(row.gameSeconds!==null&&row.gameSeconds<=150?'win<=150':'win>150'):/吞掉|eaten/i.test(s.title)?'death':/時間到|Time/.test(s.title)?'timeout300':'unknown';
-    const sz=s.desc.match(/最終體型\s*(\d+)/);row.size=sz?Number(sz[1]):s.size;row.lastDecisions=await page.evaluate(()=>window.ocrClaudeRing||[]);if(observed){const f=await gameFrame(page);row.obs=await f.evaluate(()=>{clearInterval(window.__obsTimer);return window.__obs;});if(row.outcome==='death')row.obs.killer=await f.evaluate(killerOf);}break;}
-   if(elapsed!==null&&elapsed>150){row.outcome='cutoff150';row.gameSeconds=elapsed;row.size=s.size;if(observed){const f=await gameFrame(page);row.obs=await f.evaluate(()=>{clearInterval(window.__obsTimer);return window.__obs;});}await page.click('#stop');break;}
+    const sz=s.desc.match(/最終體型\s*(\d+)/);row.size=sz?Number(sz[1]):s.size;row.lastDecisions=await page.evaluate(()=>window.ocrClaudeRing||[]);row.percep=await page.evaluate(()=>window.ocrClaudePercep||[]);if(observed){const f=await gameFrame(page);row.obs=await f.evaluate(()=>{clearInterval(window.__obsTimer);return window.__obs;});if(row.outcome==='death')row.obs.killer=await f.evaluate(killerOf);}break;}
+   if(elapsed!==null&&elapsed>150){row.outcome='cutoff150';row.gameSeconds=elapsed;row.size=s.size;row.percep=await page.evaluate(()=>window.ocrClaudePercep||[]);if(observed){const f=await gameFrame(page);row.obs=await f.evaluate(()=>{clearInterval(window.__obsTimer);return window.__obs;});}await page.click('#stop');break;}
    if(/逾時|停止/.test(s.status)&&!s.runs.length&&Date.now()-started>5000){row.outcome='controller-stop';row.status=s.status;row.gameSeconds=elapsed;row.size=s.size;break;}
    if(Date.now()-started>420000){row.outcome='wall-timeout';break;}
   }

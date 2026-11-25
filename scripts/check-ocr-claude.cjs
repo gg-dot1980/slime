@@ -2,7 +2,7 @@
 const fs=require('fs'),vm=require('vm'),assert=require('assert');
 const h=fs.readFileSync('src/ocr-claude.html','utf8');
 const slice=h.slice(h.indexOf('const dirs='),h.indexOf('let lastVision=0;'));
-const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude}',c);
+const c={};vm.createContext(c);vm.runInContext(slice+';globalThis.api={planGrow,planClaude,planClaude5}',c);
 const obj=(x,y,r,more={})=>({x,y,r,npc:true,clipped:false,blocked:false,isRed:false,vx:0,vy:0,...more});
 const food=(x,y)=>({x,y,r:9,npc:false,clipped:false,blocked:false,vx:0,vy:0});
 const map=(threats=[])=>({x:0,y:0,width:144,height:144*9/13,player:{x:72,y:50},threats,visibleWalls:null});
@@ -37,4 +37,23 @@ test('claude-4 flees away from a minimap red dot when no direction is safe',()=>
 test('claude-4 keeps fleeing heading across fragment noise',()=>{const m=hmap([],[{x:72+3,y:50}]);const a=run4([giant(120,0),giant(60,140),giant(60,-140)],80,m,{x:-1,y:0});const b=run4([giant(150,40),giant(30,160),giant(90,-120)],80,m,{x:a.x,y:a.y});assert(a.x<0&&b.x<0);assert(a.x*b.x+a.y*b.y>.6);});
 test('claude-4 flee respects a known wall',()=>{const m={...hmap([],[{x:72+3,y:50}]),visibleWalls:[Infinity,40,Infinity,Infinity]};const d=run4([giant(120,0),giant(60,140),giant(60,-140)],80,m);assert(d.wallOK);});
 test('claude-4 behaves like claude-3 when a safe direction exists',()=>{const m=hmap([{x:72-20,y:50,red:false}]);const xs=[food(60,40),obj(300,200,90)];assert.equal(run4(xs,50,m).name,run3(xs,50,m).name);});
-console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4'],newGames:0}));
+const run5=(xs,r,m=null,old={x:1,y:0})=>c.api.planClaude5(xs,r,m,300,{x:0,y:0},old);
+test('claude-5 goes for visible edible prey',()=>{const d=run5([obj(300,0,40)],60);assert.equal(d.name,'東');assert.equal(d.reason,'hunt-body');});
+test('claude-5 does not treat 0.97R as prey',()=>{const d=run5([obj(0,-300,60*.97),food(0,150),food(0,180)],60);assert.equal(d.prey,0);});
+test('claude-5 treats 0.93R as prey (calibrated)',()=>{assert.equal(run5([obj(0,-300,60*.93)],60).prey,1);});
+test('claude-5 treats 1.07R as lethal, 1.0R as neither',()=>{assert.equal(run5([obj(0,-300,60*1.07)],60).threats,1);const d=run5([obj(0,-300,60)],60);assert.equal(d.threats,0);assert.equal(d.prey,0);});
+test('claude-5 avoids a lethal body on the path to prey',()=>{const d=run5([obj(170,0,90),obj(400,0,40)],60);assert.notEqual(d.name,'東');assert(d.clearance>=40);});
+test('claude-5 escapes away from a clipped giant',()=>{const d=run5([obj(140,0,300,{clipped:true,dangerRadius:350})],60);assert(d.x<0);});
+test('claude-5 steers to an off-screen white dot when nothing is visible',()=>{const m=hmap([{x:72-25,y:50,red:false}]);const d=run5([],50,m);assert.equal(d.name,'西');assert.equal(d.reason,'hunt-map');});
+test('claude-5 treats off-screen red dot as lethal',()=>{const m=hmap([{x:72+16,y:50,red:false}],[{x:72+16,y:50}]);const d=run5([],50,m);assert.equal(d.huntTargets,0);assert(d.threats>=1);});
+test('claude-5 respects a known wall',()=>{const m={...hmap([{x:72+25,y:50,red:false}]),visibleWalls:[Infinity,60,Infinity,Infinity]};const d=run5([],60,m);assert(d.wallOK);assert.notEqual(d.name,'東');});
+test('claude-5 eats food when nothing else',()=>{const d=run5([food(0,120),food(0,170),food(0,220)],40);assert.equal(d.name,'南');});
+const run6=(xs,r,m=null,old={x:1,y:0})=>c.api.planClaude5(xs,r,m,300,{x:0,y:0},old,{clipWhite:true});
+// clipped body at world (500,0) -> map x = 72+500/72.2 ≈ 78.9
+test('claude-6 approaches a clipped body that the map shows white',()=>{const m=hmap([{x:72+500/10400*144,y:50,red:false}]);const d=run6([obj(500,0,30,{clipped:true,dangerRadius:80})],50,m);assert.equal(d.clipWhites,1);assert.equal(d.name,'東');assert.equal(d.reason,'hunt-edge');});
+test('claude-5 still avoids that clipped body',()=>{const m=hmap([{x:72+500/10400*144,y:50,red:false}]);const d=run5([obj(500,0,30,{clipped:true,dangerRadius:80})],50,m);assert.equal(d.threats,1);});
+test('claude-6 keeps a clipped body lethal when a red dot is there',()=>{const mx=72+500/10400*144,m=hmap([{x:mx,y:50,red:false}],[{x:mx+1,y:50}]);const d=run6([obj(500,0,30,{clipped:true,dangerRadius:80})],50,m);assert.equal(d.clipWhites,0);assert(d.threats>=1);});
+test('claude-6 keeps a clipped body lethal with no map dot',()=>{const d=run6([obj(500,0,30,{clipped:true,dangerRadius:80})],50,hmap([]));assert.equal(d.clipWhites,0);assert.equal(d.threats,1);});
+test('claude-6 keeps a clipped body lethal without a map',()=>{const d=run6([obj(500,0,30,{clipped:true,dangerRadius:80})],50,null);assert.equal(d.threats,1);});
+test('claude-6 clipped-white is never a collision gain',()=>{const m=hmap([{x:72+120/10400*144,y:50,red:false}]);const d=run6([obj(120,0,30,{clipped:true,dangerRadius:80})],50,m);assert.equal(d.ateN,0);});
+console.log(JSON.stringify({checks:checks.length,passed:true,strategies:['claude-1','claude-2','claude-3','claude-4','claude-5','claude-6'],newGames:0}));
