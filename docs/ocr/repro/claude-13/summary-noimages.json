@@ -1,0 +1,108 @@
+{
+ "claude-13": {
+  "games": 12,
+  "win150": 0,
+  "winLate": 0,
+  "death": 2,
+  "cutoff150": 10,
+  "timeout300": 0,
+  "controllerStop": 0,
+  "infra": 0,
+  "unknown": 0,
+  "byVersion": {
+   "v2.13": {
+    "games": 6,
+    "win150": 0,
+    "death": 0,
+    "cutoff150": 6,
+    "other": 0
+   },
+   "v2.22": {
+    "games": 6,
+    "win150": 0,
+    "death": 2,
+    "cutoff150": 4,
+    "other": 0
+   }
+  },
+  "deathSeconds": [
+   54,
+   72
+  ],
+  "finalCutoffSize": [
+   100,
+   69,
+   66,
+   87,
+   83,
+   80,
+   109,
+   72,
+   105,
+   76
+  ],
+  "colorSpeedMedian": 1.07,
+  "observed": 12,
+  "npcEats": [
+   13,
+   11,
+   11,
+   17,
+   10,
+   10,
+   4,
+   14,
+   8,
+   14,
+   10,
+   2
+  ],
+  "npcGain": [
+   56,
+   25,
+   26,
+   35,
+   28,
+   36,
+   10,
+   62,
+   29,
+   51,
+   35,
+   9
+  ],
+  "foodGain": [
+   18,
+   19,
+   15,
+   26,
+   29,
+   19,
+   8,
+   22,
+   18,
+   29,
+   15,
+   7
+  ],
+  "killers": {
+   "n": 2,
+   "atWall": 0,
+   "inView": 2,
+   "sprint": 0,
+   "chase": 0,
+   "hunt": 1,
+   "ratios": [
+    2.06,
+    4.5
+   ]
+  },
+  "medianSize60": 43,
+  "medianSize120Alive": 64,
+  "medianDeathSecond": 72,
+  "win150Rate": "0/12",
+  "medianNpcEats": 11,
+  "medianNpcGain": 35,
+  "medianFoodGain": 19
+ }
+}
