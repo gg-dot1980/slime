@@ -1,0 +1,42 @@
+--- grow36-finish.html
++++ grow36-stall.html
+@@ -552,5 +552,6 @@
+  for(const o of objects){
+    const d=near(o.x,o.y);
+-   if(!o.npc){if(!o.blocked&&!o.clipped)foods.push({...o,d,growth:.4});continue;}
++   if(!o.npc){if(!o.blocked&&!o.clipped&&(r<85||d>r-4))foods.push({...o,d,growth:.4});continue;}
++   if(r>=85&&!o.isRed&&!o.clipped&&o.r<r*.18&&d<r*.96)continue;
+    const matching=safeTracks.filter(m=>near((m.x-px)*sx-o.x,(m.y-py)*sy-o.y)<Math.max(80,Math.min(150,m.bound+55)));
+    if(o.clipped&&!o.isRed&&matching.length===1&&o.r<matching[0].bound*1.55)continue;
+@@ -617,4 +618,16 @@
+  }
+  const finishing=r>=170;
++ let progress=old?.progress;
++ const xWorld=px*sx,yWorld=py*sy;
++ if(!progress||progress.r!==r||now-progress.t>7500)progress={x:xWorld,y:yWorld,t:now,r};
++ const stuck=mapOK&&r>=70&&now-progress.t>3300&&near(xWorld-progress.x,yWorld-progress.y)<270;
++ let departure=old?.departure;
++ if(departure&&now>=departure.until)departure=null;
++ if(stuck&&!departure){
++   const alternatives=scouts.filter(o=>o.d>550&&!threats.some(h=>near(o.x-h.x,o.y-h.y)<h.hit));
++   alternatives.sort((a,b)=>b.growth/(1+b.d/speed)-a.growth/(1+a.d/speed));
++   const t=alternatives[0];
++   if(t){departure={x:t.x/t.d,y:t.y/t.d,until:now+1800};progress={x:xWorld,y:yWorld,t:now,r};}
++ }
+  const paths=dirs.map((dir,index)=>{
+     let x=0,y=0,vx=velocity?.x||0,vy=velocity?.y||0;
+@@ -662,5 +675,6 @@
+     const forward=dir.x*(old?.x||0)+dir.y*(old?.y||0);
+     const finishBonus=finishing&&finishTime!==null?28/(finishTime+.35):0;
+-    const score=1.8*preyIncome+(finishing?2.1:1.7)*foodIncome+(finishing?1.65:1.32)*approach+finishBonus+forward*.16-wallDebt
++    const free=departure&&!preyIncome?(dir.x*departure.x+dir.y*departure.y)*2.2:0;
++    const score=free+1.8*preyIncome+(finishing?2.1:1.7)*foodIncome+(finishing?1.65:1.32)*approach+finishBonus+forward*.16-wallDebt
+       -Math.max(0,35-clearance)*.033-Math.max(0,18-tailGap)*.022;
+     return {...dir,index,target,score,clearance,tailGap,wallDebt,foodIncome,preyIncome,approach};
+@@ -673,5 +687,5 @@
+  const best=(safe.length?safe:paths)[0],target=best.target;
+  pursuit=target?.verified||null;
+- return {...best,atlas,dotTracks:tracks,pursuit,target,reason:!safe.length?'escape':target?.mapOnly?'scout-visible-dot':target?.npc?'intercept-growth':'food-and-exploration',gain:best.preyIncome+best.foodIncome,threats:threats.length,escaping:!safe.length,recovering:false,mapStatus:mapOK?'visible':'main-view',strategy:'grow-23'};
++ return {...best,progress,departure,atlas,dotTracks:tracks,pursuit,target,reason:!safe.length?'escape':target?.mapOnly?'scout-visible-dot':target?.npc?'intercept-growth':'food-and-exploration',gain:best.preyIncome+best.foodIncome,threats:threats.length,escaping:!safe.length,recovering:false,mapStatus:mapOK?'visible':'main-view',strategy:'grow-23'};
+ }
+ 

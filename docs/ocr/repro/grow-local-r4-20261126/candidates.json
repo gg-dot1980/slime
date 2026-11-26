@@ -49,5 +49,10 @@
     "sha256": "eeec42256fc85c4f56f63734c7d453280669da6080df8acdd164fc66e2733ddb",
     "geometry": "native",
     "label": "v2.13 採 Grow32，v2.22 採 Grow31"
+  },
+  "grow36": {
+    "sha256": "017cf13f29f941f8e7ac77ccd3e1e9103434cc2bb4bc764e215b148d3fc0885a",
+    "geometry": "native",
+    "label": "小地圖邊緣白點與沿牆路徑預測"
   }
 }

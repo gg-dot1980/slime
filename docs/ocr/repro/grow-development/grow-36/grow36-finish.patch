@@ -1,0 +1,85 @@
+--- grow36-finalWall.html
++++ grow36-finish.html
+@@ -215,8 +215,5 @@
+  const map0=detectMinimap(image,w,h,ratio),visibleWalls=detectVisibleWalls(image,w,h,ratio),map=map0?{...map0,visibleWalls}:visibleWalls?{visibleWalls}:null,r=radius*ratio,rawParts=components(image,w,h,Math.max(1,Math.ceil(w/700)),canvasUiMasks(w,h,ratio)),parts=rawParts.filter(p=>!rawParts.some(q=>q!==p&&q.r>p.r*1.8&&Math.hypot(p.x-q.x,p.y-q.y)<q.r*.8&&!(p.r>=r*.98&&p.hue!==65535&&q.hue!==65535&&Math.min(Math.abs(p.hue-q.hue),360-Math.abs(p.hue-q.hue))>22&&hasSlimeLabel(image,w,h,p)))).filter(p=>!isPlayerComponent(p,r,w/2,h/2)&&p.r>4*ratio&&!(p.r<=Math.max(20*ratio,r*.48)&&Math.hypot(p.x-w/2,p.y-h/2)<r*1.2&&(p.hue===65535||!hasSlimeLabel(image,w,h,p))));
+  if(map&&(runStrategy==='grow-12'||runStrategy==='grow-23'))map.growMarkers=growMarkers(image,w,h,map);
+- if(map&&map.player){
+-  map.developmentMarkers=scoutComponents32(image,w,h,map);
+-  for(const m of edgeMarkers36(image,w,h,map))if(!map.developmentMarkers.some(q=>Math.hypot(q.x-m.x,q.y-m.y)<1.6))map.developmentMarkers.push(m);
+- }
++ if(map&&map.player)map.developmentMarkers=scoutComponents32(image,w,h,map);
+  if(map){map.observedAt=now;map.viewWidth=w/ratio;map.viewHeight=h/ratio;}
+  const dt=Math.max(.04,Math.min(.4,(now-(prior?.timestamp??now-100))/1000)),previous=prior?.objects||[];let camera=predictedVelocity?{...predictedVelocity}:{x:0,y:0};
+@@ -536,5 +533,5 @@
+     const hw=(map.viewWidth||958)/2,hh=(map.viewHeight||557)/2;
+     const crosses=Math.abs(Math.abs(dx)-hw)<280&&Math.abs(dy)<hh+240||Math.abs(Math.abs(dy)-hh)<280&&Math.abs(dx)<hw+240;
+-    const bounded=!m.edge&&!crosses&&near(dx,dy)>520&&m.area<23.2;
++    const bounded=!crosses&&near(dx,dy)>520&&m.area<23.2;
+     const tracked=identity(m);
+     const temporal=tracked?.upper!=null&&!tracked.nearby?tracked.upper+5:null;
+@@ -630,18 +627,10 @@
+       vx+=(dir.x*speed-vx)*inertia;vy+=(dir.y*speed-vy)*inertia;
+       x+=vx*.15;y+=vy*.15;
+-      // The game clamps its player centre and retains tangential velocity. Do
+-      // not score a phantom trajectory hundreds of pixels through the wall.
+-      // Preserve the original measured coordinate when a quantised map estimate
+-      // would put the current centre inside the wall.
+-      if(Number.isFinite(walls[0]))x=Math.max(x,Math.min(0,r-walls[0]));
+-      if(Number.isFinite(walls[1]))x=Math.min(x,Math.max(0,walls[1]-r));
+-      if(Number.isFinite(walls[2]))y=Math.max(y,Math.min(0,r-walls[2]));
+-      if(Number.isFinite(walls[3]))y=Math.min(y,Math.max(0,walls[3]-r));
+       const wallTerms=[x,-x,y,-y];
+       for(let i=0;i<4;i++)if(Number.isFinite(walls[i])){
+         const after=walls[i]+wallTerms[i];
+-        const min=Math.min(walls[i],r);
++        const min=Math.min(walls[i],r+18);
+         if(after<min-2)wallDebt+=Math.max(1,min-after)*.025;
+-        if(after<r+100&&threats.some(h=>near(h.x-x,h.y-y)<h.hit+165))wallDebt+=Math.max(0,r+100-after)*.0009;
++        if(after<r+100)wallDebt+=Math.max(0,r+100-after)*.0004;
+       }
+       for(const h of threats){
+@@ -672,10 +661,6 @@
+     }
+     const forward=dir.x*(old?.x||0)+dir.y*(old?.y||0);
+-    const progress=near(x,y);
+-    // While steering straight into an impassable boundary the legitimate
+-    // clamped projection has no progress. A parallel lane remains available.
+-    const standstill=progress<speed*.45&&preyIncome<.2?1.05:0;
+     const finishBonus=finishing&&finishTime!==null?28/(finishTime+.35):0;
+-    const score=1.8*preyIncome+(finishing?2.1:1.7)*foodIncome+(finishing?1.65:1.32)*approach+finishBonus+forward*.16-wallDebt-standstill
++    const score=1.8*preyIncome+(finishing?2.1:1.7)*foodIncome+(finishing?1.65:1.32)*approach+finishBonus+forward*.16-wallDebt
+       -Math.max(0,35-clearance)*.033-Math.max(0,18-tailGap)*.022;
+     return {...dir,index,target,score,clearance,tailGap,wallDebt,foodIncome,preyIncome,approach};
+@@ -691,32 +676,4 @@
+ }
+ 
+-function edgeMarkers36(image,w,h,map) {
+- const width=Math.ceil(map.width),height=Math.ceil(map.height),pad=4,W=width+2*pad,H=height+2*pad;
+- const ox=Math.floor(map.x)-pad,oy=Math.floor(map.y)-pad;
+- const mask=new Float32Array(W*H),seen=new Uint8Array(W*H),queue=new Int32Array(W*H);
+- for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+-  const mx=x-pad,my=y-pad,dx=Math.min(mx,width-1-mx),dy=Math.min(my,height-1-my);
+-  if(dx>7&&dy>7)continue;
+-  const k=((oy+y)*w+ox+x)*4,rr=image.data[k],gg=image.data[k+1],bb=image.data[k+2];
+-  const base=dx<0||dy<0?[17,27,33]:[32,50,56];
+-  const cover=(rr-base[0])/(211-base[0]);
+-  if(cover<.18||cover>1.045)continue;
+-  if(Math.abs(gg-(base[1]+cover*(238-base[1])))<10&&Math.abs(bb-(base[2]+cover*(225-base[2])))<10)mask[y*W+x]=cover;
+- }
+- const rows=[];
+- for(let i=0;i<mask.length;i++)if(mask[i]&&!seen[i]){
+-  let p=0,q=0,mass=0,bulk=0,xx=0,yy=0,l=W,r=0,t=H,b=0;queue[q++]=i;seen[i]=1;
+-  while(p<q){const j=queue[p++],x=j%W,y=Math.floor(j/W),c=mask[j];
+-   mass+=c;bulk+=c>.80;xx+=(x-pad+.5)*c;yy+=(y-pad+.5)*c;l=Math.min(l,x);r=Math.max(r,x);t=Math.min(t,y);b=Math.max(b,y);
+-   for(let v=-1;v<=1;v++)for(let u=-1;u<=1;u++){const nx=x+u,ny=y+v,k=ny*W+nx;if(nx>=0&&nx<W&&ny>=0&&ny<H&&mask[k]&&!seen[k]){queue[q++]=k;seen[k]=1;}}
+-  }
+-  const bw=r-l+1,bh=b-t+1,cx=xx/mass,cy=yy/mass;
+-  if(mass<2.35||mass>34||bulk<1||bw>8||bh>8||Math.max(bw,bh)>Math.min(bw,bh)*1.8||cx<0||cy<0||cx>map.width||cy>map.height)continue;
+-  if(Math.min(cx,cy,map.width-cx,map.height-cy)>5.5)continue;
+-  rows.push({x:cx,y:cy,area:mass,edge:true});
+- }
+- return rows;
+-}
+-
+ function scoutComponents32(image,w,h,map){
+  const {x,y,width,height}=map,W=Math.floor(width),H=Math.floor(height),q=map.pixelRatio||1;

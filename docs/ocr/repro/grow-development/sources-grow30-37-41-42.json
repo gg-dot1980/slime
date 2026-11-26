@@ -52,5 +52,18 @@
     "code": 1,
     "alias": [],
     "notMatched": []
+  },
+  {
+    "candidate": 36,
+    "variants": 12,
+    "patches": 12,
+    "code": 0,
+    "alias": [],
+    "notMatched": [
+      "grow36-coast.html",
+      "grow36-stall.html",
+      "grow36-value.html",
+      "grow36-valueWall.html"
+    ]
   }
 ]
