@@ -4,6 +4,10 @@
 
 [Grow12～17的80局結果與重現方法](repro/grow-evaluation-20261125/README.md) · [交接索引](TEST-HANDOFF.md) · [歷史來源稽核](repro/grow-evaluation-20261125/historical-inventory.json)
 
+## 2026-11-26 本機接續
+
+完整GitHub clone及原遊戲hash已核實；[新的本機同源測試與嚴格帳本](repro/grow-local-20261126/README.md)已完成兩版各1局10秒控制診斷並釋鍵。Grow24固定8局探索09:01開始，結果待完整結束後追加；不使用GitHub Actions。Grow25新增感知可達性有限反例，仍是未採用候選，實戰0局。舊Grow23未決與其他歷史成績不變。
+
 ## 全部版本
 
 | 版本 | 逐版入口 | 固定來源 | 本次保存與證據範圍 |

@@ -27,3 +27,7 @@ node docs/ocr/repro/grow-25-public/run-desktop.cjs --phase explore --width 1024 
 ```
 
 本輪兩段候選script及執行器語法解析通過；未執行Node/Playwright端到端。容器 Chromium、Node、Xvfb 可用，但 git ls-remote 因DNS失敗；原始URL下載也無法取得，完整同源遊戲源未能載入。新增自然開局0，過關0，死亡0；不得當勝率。無部署、無合併、無背景實戰。OS/瀏覽器實戰版本/seed/viewport實測值及時間分布缺漏。所有舊實驗保留。
+
+## 2026-11-26 — 感知可達性限制與接續
+
+完整clone與本機原遊戲來源已恢復；26組49斷言已在真實Node執行通過，但仍是合成planner檢查。原遊戲小地圖→原感知→planner的有限獨立renderer反例中，1600個150–299距離白點場景皆無近點通過，不能由手工map fixture推論真實nearScout會觸發。完整[程式／數值反例與限制](../grow-local-20261126/README.md#grow25感知反例)已保存。自然實戰仍0局、未採用；先跑Grow24原生基線，再依實際失敗機制決定改版。

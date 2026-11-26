@@ -1,5 +1,17 @@
 # Slime OCR 測試交接索引
 
+## 2026-11-26：Grow24／25來源與原生視野本機測試恢復
+
+[本機固定測試入口](repro/grow-local-20261126/README.md) · [Grow24](repro/grow-24-public/README.md) · [Grow25](repro/grow-25-public/README.md) · [Grow1～25版本索引](GROW-VERSIONS.md)。既有Draft PR #2維持指向test/ocr-test，不使用GitHub Actions。
+
+GitHub完整clone及兩個原遊戲blob驗證成功。以受管本機同源預覽及前景Chromium執行；原遊戲／候選HTML未改，Canvas依原生CSS為958×557、DPR1。先前自行啟動的未連通服務不作載入成功證據。
+
+新增嚴格帳本檢查，拒絕缺結尾、重複ID、中止冒充完整探索；來源、條件、樣本順序及可見結算原文保留。45項帳本回歸通過。兩版各1局10秒控制診斷於09:00完成，兩局均原生開局、預定停止及釋鍵成功，不計勝率。09:01開始Grow24各4局探索，未完成結果不預填；完整成績另追加。
+
+Grow25保留合成候選狀態。新增原minimap→感知→planner有限反例指出近白點可能在感知階段已被遮擋／拒判；詳見本機入口，不把合成數值當實戰優勢。
+
+當前GitHub main已核實最新版來源v2.22；正式站取檔HTTP403，部署逐byte一致性本批未驗證。Grow23舊未決仍保留；舊工作目錄未找到原始事件，不補造、不換局、不合併新舊視野成績。以下為當時歷史，包含舊文「沒有建立Grow24」的陳述。
+
 ## 2026-11-25：Grow23 確認取證中斷，保留未決開局
 
 [Grow1～23 全部來源](GROW-VERSIONS.md) · [Grow23 完整程式與當前狀態](repro/grow-23-public/README.md) · [Grow22 完整確認摘要](repro/grow-22-public/README.md)。每版程式均有 GitHub 入口；本節是環境失聯後的最新狀態，下面的「確認進行中」保留為當時歷史。
