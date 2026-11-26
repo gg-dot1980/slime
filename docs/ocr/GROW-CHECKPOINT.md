@@ -11,7 +11,7 @@
 | 已完成探索 | v2.13 2/4、v2.22 1/4 |
 | 確認狀態 | 探索未通過兩版各 2/4 門檻，獨立確認未啟動。 |
 | 結果資料截止 | 2026-11-26T19:23:33+08:00 核驗 |
-| 唯一下一步 | 六局逼近避牆回放已完成，618/618 筆重現，0/3 死亡局見提前改向且同時改善牆距、維持威脅間距。保留 Grow48，下一步在死亡前改向片段核對觸發 NPC 是否為限制逃生間距的同一隻，免重做本回放。 |
+| 唯一下一步 | 已核對 24/24 筆改向的限制威脅。兩筆提前改向都避錯對象並縮小安全間距。核對三局末段 8 個首方向的可行性，定位尚來得及轉向時是否漏掉可用退路或高估原路徑間距。 |
 | 目前阻礙 | 本機 QHD 預檢、控制診斷與本階段獨立稽核均已完成。 |
 
 來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
