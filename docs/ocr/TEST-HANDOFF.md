@@ -2,7 +2,7 @@
 
 [Grow1–46 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
 
-[Grow46 的追獵條件、回放範圍與 QHD 入口](repro/grow-46-public/README.md)
+[Grow46 的追獵條件、回放範圍與 QHD 入口](repro/grow-46-public/README.md) · [Grow46 原生 QHD 結果](repro/grow-46-public/results/README.md)
 
 [Grow45 的分版來源、決策核對與兩種寬畫面入口](repro/grow-45-public/README.md) · [Grow45 的原生 QHD 測試結果](repro/grow-45-public/results/README.md)
 

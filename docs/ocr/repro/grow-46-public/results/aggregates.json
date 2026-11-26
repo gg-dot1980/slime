@@ -1,0 +1,368 @@
+{
+  "candidate": "Grow46",
+  "dataCutoffTaipei": "2026-11-26T14:32:58+08:00",
+  "geometry": {
+    "outer": [
+      2560,
+      1440
+    ],
+    "nativeGameCanvas": [
+      2250,
+      1308
+    ],
+    "controllerSamples": [
+      2000,
+      1163
+    ],
+    "dpr": 1
+  },
+  "environment": "桌機 Chromium Headless Shell、同源原遊戲、未固定遊戲亂數、每版交錯新局。",
+  "successRule": "原生可見成功結算、遊戲時間不超過 150 秒；每局結束時核對釋鍵。",
+  "phaseRule": "探索每版四局、均有有效原生結果且每版至少兩勝，才啟動各十二個新局的獨立確認。確認兩版各至少六勝為樣本門檻。",
+  "frozenSources": {
+    "candidate": "https://github.com/gg-dot1980/slime/blob/818ffad5f986182ba5b1a950432eb281ccc6e0cd/docs/ocr/repro/grow-46-public/README.md",
+    "build": "https://github.com/gg-dot1980/slime/blob/818ffad5f986182ba5b1a950432eb281ccc6e0cd/docs/ocr/repro/grow-46-public/build-candidate.cjs",
+    "parent": "https://github.com/gg-dot1980/slime/blob/0ea729163a98ddf464ca4dcfdb4641bf53ce88d6/docs/ocr/repro/grow-45-public/README.md",
+    "previousQhd": "https://github.com/gg-dot1980/slime/blob/0ea729163a98ddf464ca4dcfdb4641bf53ce88d6/docs/ocr/repro/grow-45-public/results/aggregates.json",
+    "r4": "https://github.com/gg-dot1980/slime/blob/818ffad5f986182ba5b1a950432eb281ccc6e0cd/docs/ocr/repro/grow-local-r4-20261126/README.md",
+    "development": "https://github.com/gg-dot1980/slime/blob/818ffad5f986182ba5b1a950432eb281ccc6e0cd/docs/ocr/repro/grow-46-public/development.json"
+  },
+  "phases": {
+    "diagnostic": {
+      "phase": "diagnostic",
+      "hasBatchEnd": true,
+      "integrityOk": true,
+      "byVersion": {
+        "v2.13": {
+          "planned": 1,
+          "attemptStarts": 1,
+          "nativeStarts": 1,
+          "validOutcomes": 0,
+          "winsWithin150": null,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 1,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "plannedDiagnosticStops": 1
+        },
+        "v2.22": {
+          "planned": 1,
+          "attemptStarts": 1,
+          "nativeStarts": 1,
+          "validOutcomes": 0,
+          "winsWithin150": null,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 1,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "plannedDiagnosticStops": 1
+        }
+      },
+      "observedVisiblePlanner": {
+        "v2.13": {
+          "label": "grow-23",
+          "foundInRetainedSamples": true
+        },
+        "v2.22": {
+          "label": "grow-46",
+          "foundInRetainedSamples": true
+        }
+      },
+      "lastRetainedCumulativeCountsLowerBounds": {
+        "v2.13": {
+          "attemptsWithTotals": 0,
+          "attemptsWithCounterInLastTraceEntry": 0,
+          "attemptsWithFirstDirectionChanged": 0,
+          "applied": 0,
+          "stagnant": 0,
+          "discounted": 0,
+          "firstChanged": 0,
+          "routeChanged": 0
+        },
+        "v2.22": {
+          "attemptsWithTotals": 1,
+          "attemptsWithCounterInLastTraceEntry": 1,
+          "attemptsWithFirstDirectionChanged": 0,
+          "applied": 97,
+          "stagnant": 0,
+          "discounted": 0,
+          "firstChanged": 0,
+          "routeChanged": 0
+        }
+      },
+      "retainedDecisionDiagnostics": {
+        "v2.13": {
+          "retainedSamples": 10,
+          "withTrackingFields": 0,
+          "truncatedTrackingFields": 0,
+          "stagnantAtLeastTwo": 0,
+          "anySafePathDiscounted": 0,
+          "chosenPathDiscounted": 0
+        },
+        "v2.22": {
+          "retainedSamples": 10,
+          "withTrackingFields": 10,
+          "truncatedTrackingFields": 0,
+          "stagnantAtLeastTwo": 0,
+          "anySafePathDiscounted": 0,
+          "chosenPathDiscounted": 0
+        }
+      }
+    },
+    "explore": {
+      "phase": "explore",
+      "hasBatchEnd": true,
+      "integrityOk": true,
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 4,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "winOverlayExplicitSize200": 4,
+          "winLastHudAtLeast200": 1
+        },
+        "v2.22": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 3,
+          "deaths": 0,
+          "cutoffs": 1,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "winOverlayExplicitSize200": 3,
+          "winLastHudAtLeast200": 1
+        }
+      },
+      "observedVisiblePlanner": {
+        "v2.13": {
+          "label": "grow-23",
+          "foundInRetainedSamples": true
+        },
+        "v2.22": {
+          "label": "grow-46",
+          "foundInRetainedSamples": true
+        }
+      },
+      "eligibleForConfirmation": true,
+      "lastRetainedCumulativeCountsLowerBounds": {
+        "v2.13": {
+          "attemptsWithTotals": 0,
+          "attemptsWithCounterInLastTraceEntry": 0,
+          "attemptsWithFirstDirectionChanged": 0,
+          "applied": 0,
+          "stagnant": 0,
+          "discounted": 0,
+          "firstChanged": 0,
+          "routeChanged": 0
+        },
+        "v2.22": {
+          "attemptsWithTotals": 4,
+          "attemptsWithCounterInLastTraceEntry": 4,
+          "attemptsWithFirstDirectionChanged": 1,
+          "applied": 5629,
+          "stagnant": 8,
+          "discounted": 2,
+          "firstChanged": 1,
+          "routeChanged": 1
+        }
+      },
+      "retainedDecisionDiagnostics": {
+        "v2.13": {
+          "retainedSamples": 509,
+          "withTrackingFields": 0,
+          "truncatedTrackingFields": 0,
+          "stagnantAtLeastTwo": 0,
+          "anySafePathDiscounted": 0,
+          "chosenPathDiscounted": 0
+        },
+        "v2.22": {
+          "retainedSamples": 537,
+          "withTrackingFields": 537,
+          "truncatedTrackingFields": 0,
+          "stagnantAtLeastTwo": 1,
+          "anySafePathDiscounted": 0,
+          "chosenPathDiscounted": 0
+        }
+      }
+    }
+  },
+  "comparisonQhdNativeExploration": [
+    {
+      "candidate": "Grow38",
+      "canvas": [
+        2250,
+        1308
+      ],
+      "phase": "explore",
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 4,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        },
+        "v2.22": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 0,
+          "deaths": 0,
+          "cutoffs": 4,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        }
+      }
+    },
+    {
+      "candidate": "Grow44",
+      "canvas": [
+        2250,
+        1308
+      ],
+      "phase": "explore",
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 2,
+          "deaths": 0,
+          "cutoffs": 2,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        },
+        "v2.22": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 0,
+          "deaths": 1,
+          "cutoffs": 3,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        }
+      }
+    },
+    {
+      "candidate": "Grow45",
+      "canvas": [
+        2250,
+        1308
+      ],
+      "phase": "explore",
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 4,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        },
+        "v2.22": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 1,
+          "deaths": 1,
+          "cutoffs": 2,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        }
+      }
+    }
+  ],
+  "confirmationStarted": true,
+  "confirmationStatus": "inProgressAtSnapshot",
+  "confirmationStatusCheckedTaipei": "2026-11-26T15:01:58+08:00",
+  "priorFixedDevelopment": {
+    "candidateSha256": "2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa",
+    "atFreeze": {
+      "naturalGameStarts": 0
+    },
+    "priorGrow45QhdReplay": {
+      "version": "v2.22",
+      "sourceNativeGames": 4,
+      "sparseSamples": 481,
+      "parentDirectionsMatched": 481,
+      "sparseStagnantSamplesAcrossThreeToastAssumptions": [
+        2,
+        3
+      ],
+      "sparseSamplesWithAnyDiscountedSafePath": 0,
+      "uniqueSparseAndTerminalObservations": 593,
+      "samplesWithAnyDiscountedSafePathIncludingTerminal": 0,
+      "samplesWithChangedFirstOrSecondDirectionIncludingTerminal": 0,
+      "secondSegmentOnlySamples": 97,
+      "withNpcNoticeAtSameOrNextTwoDisplayedSeconds": 62,
+      "withNpcNoticeAtNextOneOrTwoDisplayedSeconds": 58
+    },
+    "synthetic": {
+      "gameStarts": 0,
+      "guardFixtures": 14,
+      "completeParityDecisionsOnOtherVersions": 9,
+      "exampleDiscountedSafePaths": 3,
+      "exampleFirstDirectionChanged": true
+    }
+  }
+}
