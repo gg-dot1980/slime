@@ -1,20 +1,42 @@
 'use strict';
-// Read one private terminal observation ledger. Write frame-level values only
-// to the caller's private output path. The controller and scores stay frozen.
+// Inspect a closed private ledger. The optional fifth argument supplies pursuit
+// alerts from check-chase-progress.py instead of the two terminal windows.
+// Frame-level values go only to the private output. Controller scores stay frozen.
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
 const {createHash} = require('node:crypto');
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
-const html = fs.readFileSync(path.join(__dirname, '../ocr-grow48.html'), 'utf8');
 const raw = fs.readFileSync(process.argv[2]);
 const report = JSON.parse(fs.readFileSync(process.argv[3]));
-assert.equal(sha(html), 'c1127a2fef754be13639f5fe96821080d4707a69b27c4dd7763b2145624b5253');
 assert.equal(sha(raw), report.rawSha256);
-assert(report.complete && report.integrityOk && report.phase === 'diagnostic');
+assert(report.complete && report.integrityOk);
+const controller = {
+  grow47: ['../../grow-47-public/ocr-grow47.html', 'a333fd5ba52c2cbb4c6eb17fde85f5e53c9a98924a61440fe606ccb8fca27fee'],
+  grow48: ['../ocr-grow48.html', 'c1127a2fef754be13639f5fe96821080d4707a69b27c4dd7763b2145624b5253']
+}[report.candidate];
+assert(controller);
+const html = fs.readFileSync(path.join(__dirname, controller[0]), 'utf8');
+assert.equal(sha(html), controller[1]);
 const rows = raw.toString().trimEnd().split('\n').map(JSON.parse);
 assert.equal(rows[0].contract.candidateSha256, sha(html));
-assert.equal(rows[0].contract.protocolId, 'grow-native-local-20261126-v4-terminal-observation');
+const flags = new Map();
+const byFlag = Boolean(process.argv[5]);
+if (byFlag) {
+  const groups = JSON.parse(fs.readFileSync(process.argv[5])).filter(
+    g => g.candidate === report.candidate && g.phase === report.phase);
+  assert(groups.length > 0);
+  for (const g of groups) for (const a of g.alerts) {
+    const probes = process.argv[6] === 'neighbours' ? a.sameTargetNeighbours : [a];
+    for (const probe of probes) {
+      const key = g.game + '/' + probe.recordAt;
+      assert(!flags.has(key), 'Overlapping observation windows');
+      flags.set(key, g.outcome + (probe.position ? '-' + probe.position : ''));
+    }
+  }
+} else {
+  assert.equal(rows[0].contract.protocolId, 'grow-native-local-20261126-v4-terminal-observation');
+}
 const code = html.slice(html.indexOf('function chaseEvidence46('), html.indexOf('let totals46='));
 function inject(source, needle, instrumentation) {
   assert.equal(source.split(needle).length, 2);
@@ -36,8 +58,8 @@ for (const row of rows) {
   const s = row.snapshot;
   const [minutes, seconds] = s.hudTime.split(':').map(Number);
   const elapsed = 300 - minutes * 60 - seconds;
-  const window = elapsed >= 70 && elapsed <= 81 ? 'plateau'
-    : elapsed >= 88 && elapsed <= 91 ? 'closing' : null;
+  const window = byFlag ? flags.get(row.id + '/' + s.recordAt)
+    : elapsed >= 70 && elapsed <= 81 ? 'plateau' : elapsed >= 88 && elapsed <= 91 ? 'closing' : null;
   if (!window) continue;
   const u = s.planInput, expected = structuredClone(s.planOutput);
   assert(!s.diagnosticTruncated);
@@ -59,12 +81,15 @@ for (const row of rows) {
   });
   const clear = others.filter(p => p.clearance >= chosen.clearance);
   const protectedRoutes = clear.filter(p => p.wall47.min >= chosen.wall47.min);
-  details.push({window, elapsed, recordAt: s.recordAt, hud: u.hud, heading: d.name,
+  details.push({window, game: row.id, elapsed, recordAt: s.recordAt, hud: u.hud, heading: d.name,
     targetRadius: d.target?.r, targetDistance: d.target ? Math.hypot(d.target.x, d.target.y) : null,
     gain: chosen.gain, clearance: chosen.clearance, wallMinimum: chosen.wall47.min,
     higherGain: others.length, noLessClearance: clear.length, noLessWall: protectedRoutes.length});
 }
-for (const [name, count] of [['plateau', 12], ['closing', 4]]) {
+if (byFlag) assert.equal(details.length, flags.size);
+const expectedCounts = byFlag ? [...new Set(flags.values())].map(
+  name => [name, [...flags.values()].filter(group => group === name).length]) : [['plateau', 12], ['closing', 4]];
+for (const [name, count] of expectedCounts) {
   const part = details.filter(s => s.window === name);
   assert.equal(part.length, count);
   console.log(JSON.stringify({window: name, samples: part.length,
