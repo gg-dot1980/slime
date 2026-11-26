@@ -8,12 +8,16 @@ const req=createRequire(process.env.PLAYWRIGHT_DIR?process.env.PLAYWRIGHT_DIR+'/
 const {chromium}=req('playwright');
 const [url,out,versionList,perVersion,label='hybrid']=process.argv.slice(2);
 const versions=versionList.split(','),n=Number(perVersion),order=[];for(let i=0;i<n;i++)for(const v of versions)order.push(v);
-const OPTS={'claude-11':{clipWhite:true,clipRedClear:6,segment:true,safe:true},'claude-14':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true},'claude-15':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true,v2:true},'claude-15b':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true},'claude-16':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true},'claude-18':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true,sizeMem:true,cluster:true},'claude-5':{}}[process.env.HYBRID_OPTS||'claude-14'];
-const period=Number(process.env.HYBRID_MS)||200;if(process.env.HYBRID_MAP==='real')OPTS.__realMap=true;if(process.env.HYBRID_SRC)OPTS.__src=process.env.HYBRID_SRC;
+const OPTS={'claude-11':{clipWhite:true,clipRedClear:6,segment:true,safe:true},'claude-14':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true},'claude-15':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true,v2:true},'claude-15b':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true},'claude-16':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true},'claude-18':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true,sizeMem:true,cluster:true},'claude-22':{clipWhite:true,clipRedClear:6,segment:true,safe:true,fit:true,wallOnly:true},'claude-24':{clipWhite:true,clipRedClear:6,segment:true,safe:true,fit:true,wallOnly:true,attract:3},'claude-5':{}}[process.env.HYBRID_OPTS||'claude-14'];
+const hwarp=Math.max(1,Number(process.env.HYBRID_WARP)||1),period=Math.max(4,Math.round((Number(process.env.HYBRID_MS)||200)/hwarp));if(process.env.HYBRID_MAP==='real')OPTS.__realMap=true;if(process.env.HYBRID_SRC)OPTS.__src=process.env.HYBRID_SRC;
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
 await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fetch(),body=await res.text(),anchor="(()=>{'use strict';";
- await route.fulfill({response:res,body:body.split(anchor).join(anchor+"window.__dbg=()=>({player,slimes,foods,keys,elapsed,running,cam,vw,vh,W,H,setBoost:v=>{boosting=v}});").replace('let lastVision=0;','window.__p5=planClaude5;window.__see=(...a)=>readImage(...a);window.__setStrat=v=>{runStrategy=v};let lastVision=0;')});});
+ // HYBRID_WARP=N: same test-only time acceleration as the bot (N update(dt) sub-steps per frame); driver and poll
+ // intervals are divided by N.
+ let b2=body.split(anchor).join(anchor+"window.__dbg=()=>({player,slimes,foods,keys,elapsed,running,cam,vw,vh,W,H,setBoost:v=>{boosting=v}});").replace('let lastVision=0;','window.__p5=planClaude5;window.__see=(...a)=>readImage(...a);window.__setStrat=v=>{runStrategy=v};let lastVision=0;');
+ const warp=Math.max(1,Number(process.env.HYBRID_WARP)||1);if(warp>1){if(!b2.includes('last=t;update(dt);'))throw new Error('warp anchor missing');b2=b2.split('last=t;update(dt);').join('last=t;for(let __k=0;__k<'+warp+'&&running;__k++)update(dt);');}
+ await route.fulfill({response:res,body:b2});});
 // Runs in the controller page (parent): planClaude5 and dirs are its globals; the game is reached through the iframe.
 const driver=([opts,period])=>{const gw=document.getElementById('game').contentWindow,stats={ticks:0,eats:[],foodGain:0,npcGain:0,err:null};window.__hy=stats;let old={x:1,y:0},lastR=null,last=null;
  window.__hyTimer=setInterval(()=>{try{const g=gw.__dbg();if(!g.running)return;g.setBoost(true);const p=g.player,R=p.r;stats.ticks++;
@@ -40,11 +44,11 @@ const driver=([opts,period])=>{const gw=document.getElementById('game').contentW
   for(const k of ['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'])g.keys.delete(k);if(d.x>.38)g.keys.add('ArrowRight');if(d.x<-.38)g.keys.add('ArrowLeft');if(d.y>.38)g.keys.add('ArrowDown');if(d.y<-.38)g.keys.add('ArrowUp');
  }catch(e){stats.err=String(e).slice(0,200);}},period);return 'installed';};
 let index=0;
-for(const version of order){index++;const page=await ctx.newPage(),started=Date.now(),row={label,index,version,opts:process.env.HYBRID_OPTS||'claude-14',map:process.env.HYBRID_MAP||'exact',src:process.env.HYBRID_SRC||'true',periodMs:period,outcome:'unknown',samples:[]};
+for(const version of order){index++;const page=await ctx.newPage(),started=Date.now(),row={label,index,version,opts:process.env.HYBRID_OPTS||'claude-14',map:process.env.HYBRID_MAP||'exact',src:process.env.HYBRID_SRC||'true',periodMs:period,warp:hwarp,outcome:'unknown',samples:[]};
  try{await page.goto(url);await page.selectOption('#gameChoice','/'+version);
   await page.waitForFunction(v=>document.getElementById('gameVersion').textContent.includes(v),version,{timeout:30000});await page.waitForTimeout(1500);
   const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);if(process.env.HYBRID_SRC)await page.evaluate(v=>window.__setStrat(v),process.env.HYBRID_STRAT||'claude-16');row.driver=await page.evaluate(driver,[OPTS,period]);
-  for(;;){await page.waitForTimeout(1000);const s=await f.evaluate(()=>{const g=window.__dbg();return {t:g.elapsed,r:g.player.r,running:g.running};});
+  for(;;){await page.waitForTimeout(Math.round(1000/hwarp));const s=await f.evaluate(()=>{const g=window.__dbg();return {t:g.elapsed,r:g.player.r,running:g.running};});
    if(!row.samples.length||s.t-row.samples.at(-1)[0]>=10)row.samples.push([Math.round(s.t),Math.round(s.r)]);
    if(s.r>=200||(!s.running&&s.t>1)){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome=s.r>=200?(s.t<=150?'win<=150':'win>150'):'death';break;}
    if(s.t>150){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome='cutoff150';break;}
