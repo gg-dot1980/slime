@@ -104,5 +104,10 @@
     "sha256": "2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa",
     "geometry": "qhd",
     "label": "v2.22 連續追獵距離與第二段預測收益"
+  },
+  "grow47": {
+    "sha256": "a333fd5ba52c2cbb4c6eb17fde85f5e53c9a98924a61440fe606ccb8fca27fee",
+    "geometry": "qhd",
+    "label": "Grow47 v2.22 預測牆距"
   }
 }

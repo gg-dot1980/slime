@@ -1,12 +1,16 @@
 # OCR Grow 版本索引
 
-[Grow1–46 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md) · [Grow／Claude 比較及 Grow44 結果](repro/grow-claude-comparison-20261126/README.md)
+[Grow1–47 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md) · [Grow／Claude 比較及 Grow44 結果](repro/grow-claude-comparison-20261126/README.md)
 
 更新：2026-11-26（臺灣時間）。本索引列出 grow-1～grow-26 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
 
 [Grow12～17的80局結果與重現方法](repro/grow-evaluation-20261125/README.md) · [交接索引](TEST-HANDOFF.md) · [歷史來源稽核](repro/grow-evaluation-20261125/historical-inventory.json)
 
-## 2026-11-26 本機接續
+## 2026-11-26：Grow47 凍結，原生測試待啟動
+
+[Grow47 完整來源、有限檢查與限制](repro/grow-47-public/README.md) · [短檢查點](GROW-CHECKPOINT.md)。只在 v2.22 原安全路徑加入 1.5 秒預測牆距扣分；v2.13 與緊急逃生來源保留。8 個公式邊界、15 個人工場景、896 條原路徑資料及 45 個其他版本完整決策已由獨立 reviewer 核對，三個降低預測捕食收益的案例保留。此刻自然遊戲 0 局；QHD 實際預檢後才啟動固定批次。Grow46 已完整確認為 v2.13 10/12、v2.22 4/12，原研究目標尚未完成。
+
+## 歷史：2026-11-26 本機接續
 
 Grow24原生視野探索已中斷：6次嘗試、5次實際遊戲、0勝、3截止、2死亡、1載入中止；剩2次未開始，不補局、不確認。完整結果及記錄限制見[本機r1](repro/grow-local-20261126/README.md)。新[r2 runner](repro/grow-local-r2-20261126/README.md)修正document身份與數字snapshot，但真實preflight遇到初始化時序問題、0自然開局；[r3](repro/grow-local-r3-20261126/README.md)再補完整就緒檢查；[Grow26](repro/grow-26-public/README.md)只修白點第一段接近評分，合成40組242斷言通過，實戰待執行。Grow25仍未採用，舊Grow23未決保留。沒有GitHub Actions。
 

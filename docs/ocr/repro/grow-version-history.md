@@ -26,6 +26,7 @@
 | [Grow44](grow-44-public/README.md) | OCR Grow 44: v2.22 可接觸獵物優先 | `3c2f5b5a82d3276f0f512255fcc336910e398f27b895fc0334a55b263a8b7a6d` |
 | [Grow45](grow-45-public/README.md) | OCR Grow 45: 寬畫面 v2.22 沿用 Grow15 規劃器 | `7f2712f72d46b4bd8ec2a401c66a58f82db661eab5de33d26b355cd7edf8bdcc` |
 | [Grow46](grow-46-public/README.md) | OCR Grow 46: 連續追獵未接近時折減第二段收益 | `2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa` |
+| [Grow47](grow-47-public/README.md) | OCR Grow 47: v2.22 預測牆距評分 | `a333fd5ba52c2cbb4c6eb17fde85f5e53c9a98924a61440fe606ccb8fca27fee` |
 
 [開發版本復原清單](grow-development/README.md) 涵蓋 Grow30–37、41、42 中可確認的程式與別名。此外，Grow27 同時保留兩份不同的玩家定位程序，[Grow39](grow-39-public/README.md) 有兩個已核對原型的獨立差異檔。[Grow40](grow-40-public/README.md) 說明已保存版本及較早失敗原型的來源缺口。
 

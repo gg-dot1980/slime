@@ -1,6 +1,12 @@
 # Slime OCR 測試交接索引
 
-[Grow1–46 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+[Grow1–47 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+
+## 2026-11-26：Grow47 來源已凍結
+
+[Grow47 完整來源及有限機制檢查](repro/grow-47-public/README.md) · [短檢查點](GROW-CHECKPOINT.md)。本次只新增此候選，檢驗 v2.22 的 1.5 秒預測牆距；v2.13 保留原規劃器。獨立來源 review 無阻塞，近牆食物／小 NPC 的收益損失反例保留。此節提交時自然 0 局；下一步是既有獨立 Chromium 測試入口的 QHD 預檢、控制診斷及固定探索／合格後確認。仍不使用 GitHub Actions。
+
+Grow46 已結案確認 v2.13 10/12、v2.22 4/12，尚未達雙版研究門檻。原私人紀錄已取回作獨立複核；新候選不追加或替換舊分母。下面各節保留當時歷史狀態。
 
 [Grow46 的追獵條件、回放範圍與 QHD 入口](repro/grow-46-public/README.md) · [Grow46 原生 QHD 結果](repro/grow-46-public/results/README.md)
 

@@ -15,5 +15,7 @@ node docs/ocr/repro/grow-local-r4-20261126/server.cjs --port 4173
 
 每局私有輸出寫入本目錄的 `results-private/`。每秒 sample 與結束時的 result 可含 `visibleIntake`，記錄可見 HUD 的吞食總數、遊戲秒及期間可讀的食物／NPC 提示與顯示的體型增量。相同提示持續顯示只記一次。同一幀中被覆寫的提示無法逐個還原，分類數是觀察下限。
 
+受管預覽環境可對本目錄下的 `qhd/` 啟動既有預覽服務；其 `dev` 只傳入原有 `--geometry-mode qhd`，不另開第二個伺服器。既有獨立 Chromium 測試入口為 `python docs/ocr/repro/grow-38-public/geometry/native.py qhd --candidate grow47 --port 4173 --through confirm`；port 必須與預覽服務實際回傳相同，必要時用 `--chromium` 指向已安裝的測試瀏覽器。它從 0 開局預檢依序執行診斷、探索及門檻通過後的確認，不能用作中斷批次的重新開始；已有批次時先核對帳本。使用這個入口不代表實體 QHD 顯示器測試，實際瀏覽器、viewport、畫布、來源與啟動程式 hash 另存私人證據。
+
 離線測試可在本目錄執行 `node check-harness.cjs`、`node check-ledger.cjs`、`node check-visible-intake.cjs`。測試使用合成資料。
 

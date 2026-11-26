@@ -1,0 +1,6 @@
+function planClaude5(objects,r,map,speed,v,old,opts={}){
+ const walls=map?.visibleWalls||null,margin=260+.75*r,S=speed;
+ const hasMap=!!(map?.player&&map.width>0&&map.height>0),point=m=>({x:(m.x-map.player.x)/map.width*10400,y:(m.y-map.player.y)/map.height*7200});
+ const hw=(map?.viewWidth||1200)/2,hh=(map?.viewHeight||700)/2,offView=o=>Math.abs(o.x)>hw*.85||Math.abs(o.y)>hh*.85;
+ const lethal=[],prey=[],food=[],clipWhites=[];
+ const worldPos=hasMap?{x:map.player.x/map.width*10400,y:map.player.y/map.height*7200}:null;
