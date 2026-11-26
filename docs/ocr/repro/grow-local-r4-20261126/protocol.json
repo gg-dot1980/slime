@@ -1,7 +1,7 @@
 {
   "id": "grow-native-local-20261126-v4",
   "scope": "Desktop research: v2.13 and source-verified v2.22; not formal OCR4 acceptance",
-  "sourceGameBytes": "Unmodified Git blobs; live deployment equality separately recorded",
+  "sourceGameBytes": "Unmodified files from the checkout verified against fixed Git blob object IDs.",
   "targetSize": 200,
   "deadlineGameSeconds": 150,
   "explorationPerVersion": 4,
@@ -49,7 +49,7 @@
     "policy": "Verify actual geometry; never force viewport, CSS or original game. Other DPR integration unverified."
   },
   "grow38Geometry": {
-    "cohort": "Desktop focus-mode 1920x1080, DPR1, both versions independently; separate from the native 958x557 cohorts.",
+    "cohort": "Default FHD uses a 1920x1080 outer viewport, wide original canvas, DPR1. Optional QHD uses 2560x1440 with original 2250x1308 canvas, DPR1, as a separate frozen geometry contract.",
     "originalGameRendering": "The parent frame fills the available area. The original game CSS and its bitmap size are not changed. Freeze measured canvas/iframe dimensions before games, and verify identical dimensions on every native start.",
     "candidate": "Grow24 control and perception bytes; outer desktop layout only.",
     "naturalGames": "Existing 8 exploration attempts and independent 24 confirmation attempts if eligible. No fixed random seeds."

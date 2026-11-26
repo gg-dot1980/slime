@@ -10,5 +10,9 @@
   "grow26": {
     "sha256": "7f6494c12a22d2e833fbec796196cef39c04157325c304e3961ec644652a2f33",
     "geometry": "native"
+  },
+  "grow27": {
+    "sha256": "08e618fa6d05703a302f8cfc798aea6074c7ffe99805529b92149a4c8fc6e914",
+    "geometry": "native"
   }
 }
