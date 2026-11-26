@@ -10,9 +10,9 @@
 | 環境分組 | 桌機 QHD，視窗 2560×1440、原畫布 2250×1308、DPR 1；不混用其他幾何 |
 | 已完成探索 | v2.13 2/4、v2.22 1/4 |
 | 確認狀態 | 探索未通過兩版各 2/4 門檻，獨立確認未啟動。 |
-| 結果資料截止 | 2026-11-26T22:06:24+08:00 終場診斷封帳。v2.13 1/1、v2.22 0/1，另列於[終場診斷](repro/grow-48-public/results/terminal.md)。 |
-| 唯一下一步 | 追逐停滯及相鄰一筆的時機已核對。7 次舊局提醒有 0 次可安全提高預測成長，前後兩筆替代機會同屬一局逾時。無足夠依據凍結新候選。下次用既有 Grow46 v2.22 確認組全 12 局比較首次觀察到體型 100、150、186 的時間，納入未達者，定位勝敗最早出現的進度差距。 |
-| 目前阻礙 | 兩局舊死亡缺少原圖，本次 v2.22 在截止時仍存活。三筆粉紅獵物原圖與後段成功追近可作追逐對照。 |
+| 結果資料截止 | 2026-11-26T23:04:00+08:00 完成 Grow46 v2.22 確認組 12 局進度門檻重驗；新增自然局 0。見[進度門檻](repro/grow-46-public/results/progress-timing.md)。 |
+| 唯一下一步 | Grow46 v2.22 確認組全 12 局的進度門檻已核對。下一步只分析體型 100–149 階段，逐局比較所選可吃 NPC、預測成長與下一筆可見 HUD 增量，並以 4 勝／8 死亡分組，找出首次可操作差異；不重開自然局。 |
+| 目前阻礙 | Grow46 v2.22 的 8 個死亡局均未達可見體型 150；目前尚未定位體型 100–149 間的可操作決策差異。 |
 
 來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
 
