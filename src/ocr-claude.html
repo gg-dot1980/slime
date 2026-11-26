@@ -51,7 +51,8 @@ function components(data,w,h,scale,uiMasks=[]){
   // claude-20: circle fit for cut bodies. Boundary pixels of this component whose outside neighbour is another colour or
   // background (not the screen edge, not a UI mask) lie on the true circle; algebraic (Kasa) fit, trimmed twice.
   let fit=null;const cut=minX<=1||minY<=1||maxX>=W-2||maxY>=H-2||uiMasks.some(rc=>(minX-1)*scale<=rc.x+rc.w&&(maxX+1)*scale>=rc.x&&(minY-1)*scale<=rc.y+rc.h&&(maxY+1)*scale>=rc.y);
-  if(cut&&area>=7){const inUi=(x,y)=>uiMasks.some(rc=>x*scale>=rc.x&&x*scale<=rc.x+rc.w&&y*scale>=rc.y&&y*scale<=rc.y+rc.h),pts=[];
+  // compute cap (a 200 ms tick timeout was seen once): skip very large components, subsample to 300 arc points.
+  if(cut&&area>=7&&tail<=20000){const inUi=(x,y)=>uiMasks.some(rc=>x*scale>=rc.x&&x*scale<=rc.x+rc.w&&y*scale>=rc.y&&y*scale<=rc.y+rc.h),pts=[];
    for(let k=0;k<tail;k++){const q=queue[k],x=q%W,y=(q/W)|0;let edge=false,arc=false;
     for(const [dx,dy] of [[1,0],[-1,0],[0,1],[0,-1]]){const X=x+dx,Y=y+dy;if(X<0||Y<0||X>=W||Y>=H){edge=true;continue;}const j=Y*W+X;if(comp[j]===cid)continue;if(inUi(X,Y)){edge=true;continue;}arc=true;}
     if(arc&&!edge)pts.push([x+.5,y+.5]);}
@@ -59,7 +60,7 @@ function components(data,w,h,scale,uiMasks=[]){
     // normal equations for x²+y²+Dx+Ey+F=0
     const A=[[a,b,c],[b,d,e],[c,e,m]],B=[-f,-g,-h],det=M=>M[0][0]*(M[1][1]*M[2][2]-M[1][2]*M[2][1])-M[0][1]*(M[1][0]*M[2][2]-M[1][2]*M[2][0])+M[0][2]*(M[1][0]*M[2][1]-M[1][1]*M[2][0]),D0=det(A);if(!n2||Math.abs(D0)<1e-9)return null;
     const col=(M,i)=>M.map((r,k)=>r.map((v,j)=>j===i?B[k]:v)),D=det(col(A,0))/D0,E=det(col(A,1))/D0,F=det(col(A,2))/D0,cx2=-D/2,cy2=-E/2,r2=cx2*cx2+cy2*cy2-F;return r2>0?{x:cx2,y:cy2,r:Math.sqrt(r2)}:null;};
-   let P=pts,c0=pts.length>=12?solve(pts):null;
+   const stepP=Math.max(1,Math.ceil(pts.length/300)),sub=stepP>1?pts.filter((_,k)=>k%stepP===0):pts;let P=sub,c0=sub.length>=12?solve(sub):null;
    for(let it=0;it<2&&c0;it++){const res=P.map(([x,y])=>Math.abs(Math.hypot(x-c0.x,y-c0.y)-c0.r)),sorted=[...res].sort((u,v)=>u-v),lim=Math.max(1,1.5*sorted[sorted.length>>1]);const keep=P.filter((_,k)=>res[k]<=lim);if(keep.length<10)break;P=keep;c0=solve(P);}
    if(c0&&c0.r*2>=Math.max(bw,bh)*.8&&c0.r<Math.max(W,H)*1.5)fit={x:c0.x*scale,y:c0.y*scale,r:c0.r*scale,n:P.length};}
   if(area>=7&&diam>=9&&density>=.28&&aspect<=12&&!textLike)found.push({hue:seedHue,x:cx,y:cy,r:diam/2,area,bw:bw*scale,bh:bh*scale,seg,fit,clipped:minX<=1||minY<=1||maxX>=W-2||maxY>=H-2||uiMasks.some(rect=>(maxX+1)*scale>=rect.x-scale&&minX*scale<=rect.x+rect.w+scale&&(maxY+1)*scale>=rect.y-scale&&minY*scale<=rect.y+rect.h+scale)});
