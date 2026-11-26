@@ -71,6 +71,8 @@ def stage_runtime(output):
     protocol["evidence"] += " Separate private observer of v2.22 visible canvas at applied decisions and ending/result."
     write(stage / "protocol.json", protocol)
     harness = (stage / "harness.js").read_text()
+    harness = replace_once(harness, "manifest.protocol?.id!=='grow-native-local-20261126-v4'",
+                           "manifest.protocol?.id!==" + json.dumps(protocol["id"]))
     harness = replace_once(harness, "async function run(phase) {\n    if(active)return;",
                            "async function run(phase) {\n    if(active || phase!=='diagnostic')return;")
     anchor = "const now=performance.now();\n        if (now-current.lastSample"
@@ -135,7 +137,10 @@ def run(args, output):
                     journal.write(json.dumps({**meta,"file":file.name,"sha256":digest(content)})+"\n")
                 page.expose_binding("saveGrowTerminalFrame",save)
                 page.goto(url)
-                page.locator("#candidateChoice:enabled").wait_for()
+                page.wait_for_function("""() => document.querySelector('#candidateChoice option[value="grow48"]')
+                    || document.querySelector('#status').textContent.startsWith('啟動失敗')""")
+                if page.locator('#candidateChoice option[value="grow48"]').count() != 1:
+                    raise RuntimeError(page.locator("#status").inner_text())
                 page.select_option("#candidateChoice","grow48")
                 page.evaluate((HERE/"terminal-observer.js").read_text())
                 page.bring_to_front()

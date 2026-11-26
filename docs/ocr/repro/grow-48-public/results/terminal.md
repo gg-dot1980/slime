@@ -16,3 +16,5 @@ python docs/ocr/repro/grow-48-public/diagnostics/terminal-pair.py \
 ```
 
 [自然探索與歷次回放](natural.md) · [診斷驅動](../diagnostics/terminal-pair.py) · [可見畫布觀察器](../diagnostics/terminal-observer.js)
+
+第一次載入時，診斷協定名稱與頁面預期的名稱不同，兩版均為 0 次開局。已保留該次傳輸紀錄，讓診斷頁核對預先指定的完整協定名稱及候選選項，再啟動原定的一組取證。
