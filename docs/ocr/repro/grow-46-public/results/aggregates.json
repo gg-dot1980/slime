@@ -1,6 +1,6 @@
 {
   "candidate": "Grow46",
-  "dataCutoffTaipei": "2026-11-26T14:32:58+08:00",
+  "dataCutoffTaipei": "2026-11-26T15:22:46+08:00",
   "geometry": {
     "outer": [
       2560,
@@ -208,6 +208,98 @@
           "chosenPathDiscounted": 0
         }
       }
+    },
+    "confirm": {
+      "phase": "confirm",
+      "hasBatchEnd": true,
+      "integrityOk": true,
+      "byVersion": {
+        "v2.13": {
+          "planned": 12,
+          "attemptStarts": 12,
+          "nativeStarts": 12,
+          "validOutcomes": 12,
+          "winsWithin150": 10,
+          "deaths": 1,
+          "cutoffs": 1,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "winOverlayExplicitSize200": 10,
+          "winLastHudAtLeast200": 2
+        },
+        "v2.22": {
+          "planned": 12,
+          "attemptStarts": 12,
+          "nativeStarts": 12,
+          "validOutcomes": 12,
+          "winsWithin150": 4,
+          "deaths": 8,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "winOverlayExplicitSize200": 4,
+          "winLastHudAtLeast200": 2
+        }
+      },
+      "observedVisiblePlanner": {
+        "v2.13": {
+          "label": "grow-23",
+          "foundInRetainedSamples": true
+        },
+        "v2.22": {
+          "label": "grow-46",
+          "foundInRetainedSamples": true
+        }
+      },
+      "meetsSampleThreshold": false,
+      "lastRetainedCumulativeCountsLowerBounds": {
+        "v2.13": {
+          "attemptsWithTotals": 0,
+          "attemptsWithCounterInLastTraceEntry": 0,
+          "attemptsWithFirstDirectionChanged": 0,
+          "applied": 0,
+          "stagnant": 0,
+          "discounted": 0,
+          "firstChanged": 0,
+          "routeChanged": 0
+        },
+        "v2.22": {
+          "attemptsWithTotals": 12,
+          "attemptsWithCounterInLastTraceEntry": 12,
+          "attemptsWithFirstDirectionChanged": 3,
+          "applied": 13075,
+          "stagnant": 173,
+          "discounted": 40,
+          "firstChanged": 13,
+          "routeChanged": 13
+        }
+      },
+      "retainedDecisionDiagnostics": {
+        "v2.13": {
+          "retainedSamples": 1535,
+          "withTrackingFields": 0,
+          "truncatedTrackingFields": 0,
+          "stagnantAtLeastTwo": 0,
+          "anySafePathDiscounted": 0,
+          "chosenPathDiscounted": 0
+        },
+        "v2.22": {
+          "retainedSamples": 1254,
+          "withTrackingFields": 1254,
+          "truncatedTrackingFields": 0,
+          "stagnantAtLeastTwo": 15,
+          "anySafePathDiscounted": 4,
+          "chosenPathDiscounted": 1
+        }
+      }
     }
   },
   "comparisonQhdNativeExploration": [
@@ -333,8 +425,7 @@
     }
   ],
   "confirmationStarted": true,
-  "confirmationStatus": "inProgressAtSnapshot",
-  "confirmationStatusCheckedTaipei": "2026-11-26T15:01:58+08:00",
+  "confirmationStatus": "closed",
   "priorFixedDevelopment": {
     "candidateSha256": "2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa",
     "atFreeze": {
@@ -363,6 +454,39 @@
       "completeParityDecisionsOnOtherVersions": 9,
       "exampleDiscountedSafePaths": 3,
       "exampleFirstDirectionChanged": true
+    }
+  },
+  "v222FinalVisibleWallDistance": {
+    "win": {
+      "withPosition": 4,
+      "under150": 0,
+      "under600": 0,
+      "escapeSelected": 0
+    },
+    "death": {
+      "withPosition": 8,
+      "under150": 2,
+      "under600": 8,
+      "escapeSelected": 1
+    }
+  },
+  "researchNext": "固定 Grow46 為父版，v2.13 維持原有控制；v2.22 單獨測試 Claude22 的 1.5 秒路徑牆距扣分，分別核對死亡、截止、過關與實際改向次數。",
+  "claudeWallComparator": {
+    "sourceCommit": "5d223a8",
+    "phase": "phase2-wall",
+    "v222": {
+      "Claude20": {
+        "n": 20,
+        "deaths": 11,
+        "wins": 0,
+        "deathsAtWall": 6
+      },
+      "Claude22": {
+        "n": 20,
+        "deaths": 6,
+        "wins": 0,
+        "deathsAtWall": 0
+      }
     }
   }
 }

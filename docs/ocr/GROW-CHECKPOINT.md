@@ -5,14 +5,14 @@
 | 欄位 | 最近已核對的紀錄 |
 |---|---|
 | 研究分支 | `feat/grow-evaluation-20261125` |
-| 已核對來源提交 | `25d668f620c72ca3f0e401ea87627859a1a8e75a` |
+| 已核對來源提交 | `8e3d8cd254eb4925255b663d4b312a75320b2861` |
 | 候選／凍結來源 | Grow46；候選來源 `818ffad5f986182ba5b1a950432eb281ccc6e0cd` |
 | 環境分組 | 桌機 QHD，視窗 2560×1440、原畫布 2250×1308、DPR 1；不混用其他幾何 |
 | 已完成探索 | v2.13：4/4；v2.22：3/4；8 個原生開局完整保留 |
-| 確認狀態 | 原提交記錄每版 12 個新局的獨立確認已啟動；本檢查點沒有確認完成成績，也不表示程序現在仍執行 |
-| 結果資料截止 | 台灣時間 2026-11-26 14:32:58 |
-| 唯一下一步 | 先核對 Grow46 既有確認批次的程序、ledger 與新增結果；接續原批次，或如實處理中止。不要為此重跑探索或先建立 Grow47 |
+| 確認狀態 | 雙版各 12 局已完整結案。v2.13 10/12，v2.22 4/12；v2.22 距六勝門檻差兩勝。 |
+| 結果資料截止 | 台灣時間 2026-11-26 15:22:46 |
+| 唯一下一步 | 保留 Grow46 及其已結案分母。以單一新候選檢驗 v2.22 的 1.5 秒預測牆距評分，記錄能否降低近牆死亡並保留捕食；v2.13 沿用凍結基線。 |
 
-來源：[固定提交的 Grow46 彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
+來源：[確認結果](repro/grow-46-public/results/README.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
 
 每階段完成後只更新本表與下一步，附當次來源；舊成績仍保留在逐版結果中。若目前候選或批次已前進，先更新索引，不照過時的下一步重新開局。
