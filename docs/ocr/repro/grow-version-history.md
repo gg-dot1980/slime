@@ -23,6 +23,7 @@
 | [Grow41](grow-41-public/README.md) | OCR Grow 41: 玩家與獵物輪廓重疊時的近身追蹤 | `7a8aeb4d4bec0b79cf4194a374a1fb8cf5de6e91ad476f64e06ede1daf6f7f5c` |
 | [Grow42](grow-42-public/README.md) | OCR Grow 42: 分版本選用 Grow36／39 | `1da5fc0d76d3de4a3c794776982a22c1c12249ab78943fd77f36240dc1be3763` |
 | [Grow43](grow-43-public/README.md) | OCR Grow 43: 免疫期補食與搜尋 | `86e19c542d301da612bbfa1ec130afcac8c01ca9bfccd942d9d8c19f8274430c` |
+| [Grow44](grow-44-public/README.md) | OCR Grow 44: v2.22 可接觸獵物優先 | `3c2f5b5a82d3276f0f512255fcc336910e398f27b895fc0334a55b263a8b7a6d` |
 
 [開發版本復原清單](grow-development/README.md) 涵蓋 Grow30–37、41、42 中可確認的程式與別名。此外，Grow27 同時保留兩份不同的玩家定位程序，[Grow39](grow-39-public/README.md) 有兩個已核對原型的獨立差異檔。[Grow40](grow-40-public/README.md) 說明已保存版本及較早失敗原型的來源缺口。
 

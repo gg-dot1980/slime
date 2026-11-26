@@ -1,6 +1,8 @@
 # Slime OCR 測試交接索引
 
-[Grow1–43 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+[Grow1–44 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+
+[Grow44 的候選重建、合成測試與 QHD 原生探索入口](repro/grow-44-public/README.md)
 
 ## 2026-11-26 09:34：Grow26 preflight攔下初始化時序問題
 

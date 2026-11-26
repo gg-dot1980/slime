@@ -53,5 +53,9 @@
     "originalGameRendering": "The parent frame fills the available area. The original game CSS and its bitmap size are not changed. Freeze measured canvas/iframe dimensions before games, and verify identical dimensions on every native start.",
     "candidate": "Grow24 control and perception bytes; outer desktop layout only.",
     "naturalGames": "Existing 8 exploration attempts and independent 24 confirmation attempts if eligible. No fixed random seeds."
+  },
+  "grow44Geometry": {
+    "cohort": "QHD only: 2560x1440 outer viewport, original 2250x1308 canvas at DPR1; start with --geometry-mode qhd.",
+    "naturalGames": "Same alternating v2.13/v2.22 r4 protocol: 4/edition in exploration, followed by an independent 12/edition confirmation only if each edition wins at least 2/4 within 150 game seconds."
   }
 }

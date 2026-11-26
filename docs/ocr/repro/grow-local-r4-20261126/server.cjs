@@ -31,13 +31,17 @@ const registry = JSON.parse(fs.readFileSync(path.join(__dirname, 'candidates.jso
 const candidates = new Map();
 for (const [id, entry] of Object.entries(registry)) {
   const match = /^grow([1-9][0-9]*)$/.exec(id);
-  if (!match || !/^[a-f0-9]{64}$/.test(entry?.sha256) || !['native','fhd'].includes(entry.geometry)) throw Error('Invalid candidate registration: ' + id);
+  if (!match || !/^[a-f0-9]{64}$/.test(entry?.sha256) || !['native','fhd','qhd'].includes(entry.geometry)) throw Error('Invalid candidate registration: ' + id);
   if (entry.label !== undefined && (typeof entry.label !== 'string' || !entry.label.trim() || entry.label.length > 80)) throw Error('Invalid candidate label: ' + id);
   const relative = `docs/ocr/repro/grow-${match[1]}-public/ocr-grow${match[1]}.html`;
   const bytes = fs.readFileSync(path.join(root, relative));
   if (hash(bytes) !== entry.sha256) throw Error('Frozen source changed for ' + id);
-  if (geometryMode !== 'qhd' || id === 'grow38' && entry.geometry === 'fhd')
-    candidates.set(id, {...entry, geometry:geometryMode==='qhd'?'qhd':entry.geometry, bytes, path:relative});
+  // FHD controllers may opt into a second, separately frozen QHD cohort.
+  // QHD-only candidates are absent from the default geometry selector.
+  const eligible = geometryMode === 'qhd'
+    ? entry.geometry === 'qhd' || entry.geometry === 'fhd' && entry.qhd === true
+    : entry.geometry !== 'qhd';
+  if (eligible) candidates.set(id, {...entry, geometry:geometryMode==='qhd'?'qhd':entry.geometry, bytes, path:relative});
 }
 if (!candidates.size) throw Error('No registered candidate for this geometry mode');
 const sourceNames = ['server.cjs', 'harness.js', 'index.html', 'ledger.cjs', 'protocol.json', 'navigation.js', 'load-journal.cjs', 'visible-intake.js', 'candidates.json'];

@@ -62,7 +62,8 @@
   },
   "grow38": {
     "sha256": "befaf6a2c6ac1ff14596628753e509e5c15eb5bffd0e6f62f81e91b884f239ec",
-    "geometry": "fhd"
+    "geometry": "fhd",
+    "qhd": true
   },
   "grow39": {
     "sha256": "42e55f8e17819100b33f1d787673c61e612f49a89dd7c648c29d79e4d556181c",
@@ -87,5 +88,10 @@
     "sha256": "86e19c542d301da612bbfa1ec130afcac8c01ca9bfccd942d9d8c19f8274430c",
     "geometry": "native",
     "label": "v2.22 體型達 186 的補食與搜尋"
+  },
+  "grow44": {
+    "sha256": "3c2f5b5a82d3276f0f512255fcc336910e398f27b895fc0334a55b263a8b7a6d",
+    "geometry": "qhd",
+    "label": "v2.22 可接觸獵物優先"
   }
 }

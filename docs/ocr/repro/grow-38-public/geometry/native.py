@@ -1,6 +1,8 @@
-"""Measure Grow38 in a loopback r4 runner and optionally run its fixed natural batches."""
+"""Verify a registered wide-screen candidate and optionally run its natural batches."""
 import argparse
 import json
+from hashlib import sha256
+from pathlib import Path
 from urllib.parse import urlencode
 from playwright.sync_api import sync_playwright
 
@@ -11,18 +13,29 @@ GEOMETRIES = {
 PHASES = ("preflight", "diagnostic", "explore", "confirm")
 SOURCE = "befaf6a2c6ac1ff14596628753e509e5c15eb5bffd0e6f62f81e91b884f239ec"
 
-def run(mode, port, through, chromium):
+def run(mode, port, through, chromium, candidate="grow38", locale=None):
     outer, expected = GEOMETRIES[mode]
     url = f"http://127.0.0.1:{port}"
     with sync_playwright() as playwright:
-        browser = playwright.chromium.launch(executable_path=chromium)
-        page = browser.new_page(viewport={"width": outer[0], "height": outer[1]}, device_scale_factor=1)
+        launch_args = ["--disable-dev-shm-usage"] if candidate == "grow44" else []
+        browser = playwright.chromium.launch(executable_path=chromium, args=launch_args)
+        context_args = {"viewport": {"width": outer[0], "height": outer[1]}, "device_scale_factor": 1}
+        if locale is not None or candidate == "grow44":
+            context_args["locale"] = locale or "zh-TW"
+        page = browser.new_page(**context_args)
         page.goto(url)
         page.locator("#candidateChoice:enabled").wait_for()
         manifest = page.request.get(url + "/lab/manifest").json()
-        if manifest["candidates"]["grow38"]["sha256"] != SOURCE:
+        local_root = Path(__file__).resolve().parents[2]
+        number = candidate.removeprefix("grow")
+        html = local_root / f"grow-{number}-public" / f"ocr-grow{number}.html"
+        expected_sha = sha256(html.read_bytes()).hexdigest()
+        if candidate == "grow38" and expected_sha != SOURCE:
             raise ValueError("Unexpected Grow38 source")
-        page.select_option("#candidateChoice", "grow38")
+        registered = manifest["candidates"].get(candidate, {})
+        if registered.get("sha256") != expected_sha or registered.get("geometry") != mode:
+            raise ValueError("Candidate source or geometry differs from checkout")
+        page.select_option("#candidateChoice", candidate)
         page.bring_to_front()
         for phase in PHASES:
             control = page.locator("#" + phase)
@@ -62,5 +75,7 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=4173)
     parser.add_argument("--through", choices=PHASES, default="preflight")
     parser.add_argument("--chromium", help="Optional installed Chromium executable")
+    parser.add_argument("--candidate", choices=("grow38", "grow44"), default="grow38")
+    parser.add_argument("--locale", help="Browser locale (Grow44 defaults to zh-TW)")
     args = parser.parse_args()
-    run(args.mode, args.port, args.through, args.chromium)
+    run(args.mode, args.port, args.through, args.chromium, args.candidate, args.locale)
