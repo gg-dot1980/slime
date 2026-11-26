@@ -63,5 +63,10 @@
   "grow38": {
     "sha256": "befaf6a2c6ac1ff14596628753e509e5c15eb5bffd0e6f62f81e91b884f239ec",
     "geometry": "fhd"
+  },
+  "grow39": {
+    "sha256": "42e55f8e17819100b33f1d787673c61e612f49a89dd7c648c29d79e4d556181c",
+    "geometry": "native",
+    "label": "跨視野追蹤與多目標路線"
   }
 }
