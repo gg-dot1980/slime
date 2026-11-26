@@ -65,5 +65,16 @@
       "grow36-value.html",
       "grow36-valueWall.html"
     ]
+  },
+  {
+    "candidate": 37,
+    "variants": 11,
+    "patches": 11,
+    "code": 0,
+    "alias": [],
+    "notMatched": [
+      "v8.html",
+      "v10.html"
+    ]
   }
 ]
