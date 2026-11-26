@@ -314,7 +314,11 @@
       const ids=Object.keys(manifest.candidates).sort((a,b)=>Number(a.slice(4))-Number(b.slice(4)));
       if(!ids.length||ids.some(id=>!/^grow[1-9][0-9]*$/.test(id)||!/^[0-9a-f]{64}$/.test(manifest.candidates[id].sha256)))throw Error('Invalid candidate registry');
       const choices=$('candidateChoice');
-      for(const id of ids)choices.add(new Option('Grow'+id.slice(4)+' · '+manifest.candidates[id].geometry,id));
+      for(const id of ids){
+        const {label,geometry}=manifest.candidates[id];
+        const title=['Grow'+id.slice(4),label,geometry].filter(Boolean).join(' · ');
+        choices.add(new Option(title,id));
+      }
       choices.value=ids.at(-1);
       status('來源已載入，請先執行不開局預檢。');enabled(true);
     }catch(error){status('啟動失敗：'+error.message);}

@@ -32,6 +32,7 @@ const candidates = new Map();
 for (const [id, entry] of Object.entries(registry)) {
   const match = /^grow([1-9][0-9]*)$/.exec(id);
   if (!match || !/^[a-f0-9]{64}$/.test(entry?.sha256) || !['native','fhd'].includes(entry.geometry)) throw Error('Invalid candidate registration: ' + id);
+  if (entry.label !== undefined && (typeof entry.label !== 'string' || !entry.label.trim() || entry.label.length > 80)) throw Error('Invalid candidate label: ' + id);
   const relative = `docs/ocr/repro/grow-${match[1]}-public/ocr-grow${match[1]}.html`;
   const bytes = fs.readFileSync(path.join(root, relative));
   if (hash(bytes) !== entry.sha256) throw Error('Frozen source changed for ' + id);
@@ -45,7 +46,7 @@ const sourceFiles = sourceNames.map(name => ({name, sha256: hash(startupSource.g
 const runnerSha256 = hash(JSON.stringify(sourceFiles));
 const manifest = {
   schemaVersion: 1, instanceId, startedAt, runnerSha256, sourceFiles, versions,
-  candidates: Object.fromEntries([...candidates].map(([id, v]) => [id, {path:v.path, sha256:v.sha256, geometry:v.geometry}])),
+  candidates: Object.fromEntries([...candidates].map(([id, v]) => [id, {path:v.path, sha256:v.sha256, geometry:v.geometry, ...(v.label ? {label:v.label} : {})}])),
   sourceCommit: cp.spawnSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).stdout?.trim() || null,
   node: process.version, platform: process.platform,
   protocol: JSON.parse(fs.readFileSync(path.join(__dirname, 'protocol.json'), 'utf8'))

@@ -14,5 +14,10 @@
   "grow27": {
     "sha256": "08e618fa6d05703a302f8cfc798aea6074c7ffe99805529b92149a4c8fc6e914",
     "geometry": "native"
+  },
+  "grow28": {
+    "sha256": "8c684579c7fd54462c715dd50ee166ffa91f11efb3b1c8ccc248280fa14051f1",
+    "geometry": "native",
+    "label": "可見目標的第一段接近"
   }
 }
