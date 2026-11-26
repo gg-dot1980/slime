@@ -19,5 +19,10 @@
     "sha256": "8c684579c7fd54462c715dd50ee166ffa91f11efb3b1c8ccc248280fa14051f1",
     "geometry": "native",
     "label": "可見目標的第一段接近"
+  },
+  "grow29": {
+    "sha256": "c2be01577f298c43d994bb3d433bea7b5dcfeb9d4db4409469282996c7f47e5d",
+    "geometry": "native",
+    "label": "淡白點偵察"
   }
 }
