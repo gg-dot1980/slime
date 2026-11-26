@@ -73,5 +73,10 @@
     "sha256": "27893e0d44a4b9d0aea54f73c38be16048bed47c78abe387d5845f09d22e179f",
     "geometry": "native",
     "label": "新出現的小地圖白點偵察"
+  },
+  "grow41": {
+    "sha256": "7a8aeb4d4bec0b79cf4194a374a1fb8cf5de6e91ad476f64e06ede1daf6f7f5c",
+    "geometry": "native",
+    "label": "玩家與獵物輪廓重疊時的近身追蹤"
   }
 }

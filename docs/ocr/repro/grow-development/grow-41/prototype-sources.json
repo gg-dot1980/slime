@@ -1,0 +1,22 @@
+{
+  "candidate": "Grow41",
+  "canonical": {
+    "name": "ocr-grow41.html",
+    "sha256": "7a8aeb4d4bec0b79cf4194a374a1fb8cf5de6e91ad476f64e06ede1daf6f7f5c",
+    "gitBlobSha1": "ab3aec42939557c0e3045f4b339fb6ed107ba0e8"
+  },
+  "patchFormat": "GNU unified diff. Replay in listed order with patch --batch --fuzz=0 -o OUT BASE PATCH. Exact aliases can be copied.",
+  "variants": [],
+  "supportingCode": [
+    {
+      "name": "overlap.js",
+      "sha256": "337355f67e23e4f85fd5ecde3e398ed5c7056fbf29451caa3a3a10a423c44a7a",
+      "gitBlobSha1": "72a7c9e85ec555eec0ac58f6012d4670907f723b"
+    },
+    {
+      "name": "build-candidate.cjs",
+      "sha256": "24bd3365f8020b5f0ddf82baa763a99ad0dc26b3022364abc7cef03cbc2a11b0",
+      "gitBlobSha1": "6ce7cffcb65fdebbc4df42e94f9c826e774c6604"
+    }
+  ]
+}
