@@ -93,5 +93,11 @@
     "sha256": "3c2f5b5a82d3276f0f512255fcc336910e398f27b895fc0334a55b263a8b7a6d",
     "geometry": "qhd",
     "label": "v2.22 可接觸獵物優先"
+  },
+  "grow45": {
+    "sha256": "7f2712f72d46b4bd8ec2a401c66a58f82db661eab5de33d26b355cd7edf8bdcc",
+    "geometry": "fhd",
+    "qhd": true,
+    "label": "v2.13 沿用 Grow38，v2.22 採 Grow15 規劃器"
   }
 }

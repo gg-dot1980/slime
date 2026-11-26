@@ -1,6 +1,8 @@
 # Slime OCR 測試交接索引
 
-[Grow1–44 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+[Grow1–45 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+
+[Grow45 的分版來源、決策核對與兩種寬畫面入口](repro/grow-45-public/README.md)
 
 [Grow44 的候選重建、合成測試與 QHD 原生探索入口](repro/grow-44-public/README.md)
 
