@@ -92,3 +92,23 @@ for(let i=1;i<details.length;i++){
 }
 assert.equal(mismatches.length,3);
 if(process.argv[4]) fs.writeFileSync(process.argv[4],JSON.stringify(mismatches,null,2)+'\n');
+
+// Check consecutive applied controller headings across the largest discrepancy.
+const largest=mismatches.reduce((a,b)=>a.translationError>b.translationError?a:b);
+const result=games.find(g=>g.id===largest.game);
+const group=details.filter(d=>d.game===result.id);
+const j=group.findIndex((d,i)=>i>0 && Math.abs(group[i-1].gap-d.current-largest.drop)<1e-8);
+assert(j>0);
+const periodic=rows.filter(r=>r.type==='sample' && r.id===result.id);
+const end=periodic.at(-1).snapshot.recordAt;
+const low=end-group[j-1].age*1000, high=end-group[j].age*1000;
+const trace=result.traceTail.filter(s=>s.recordAt>=low && s.recordAt<=high);
+assert.equal(trace[0].recordAt,low);
+assert.equal(trace.at(-1).recordAt,high);
+for(let i=1;i<trace.length;i++) {
+  assert.equal(trace[i].planInput.heading.first,trace[i-1].planOutput.first);
+  assert(trace[i].recordAt-trace[i-1].recordAt<150);
+}
+const sequence=trace.map(s=>({ms:Math.round(s.recordAt-low),hud:s.hud,first:s.planOutput.first,
+  prior:s.planInput.heading.first,reason:s.planOutput.reason,toast:s.planOutput.tracking46.npcToast}));
+if(process.argv[5]) fs.writeFileSync(process.argv[5],JSON.stringify(sequence,null,2)+'\n');
