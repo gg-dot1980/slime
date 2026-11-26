@@ -109,5 +109,10 @@
     "sha256": "a333fd5ba52c2cbb4c6eb17fde85f5e53c9a98924a61440fe606ccb8fca27fee",
     "geometry": "qhd",
     "label": "Grow47 v2.22 預測牆距"
+  },
+  "grow48": {
+    "sha256": "c1127a2fef754be13639f5fe96821080d4707a69b27c4dd7763b2145624b5253",
+    "geometry": "qhd",
+    "label": "Grow48 v2.22 近牆避讓"
   }
 }
