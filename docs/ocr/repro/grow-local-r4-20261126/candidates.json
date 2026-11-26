@@ -68,5 +68,10 @@
     "sha256": "42e55f8e17819100b33f1d787673c61e612f49a89dd7c648c29d79e4d556181c",
     "geometry": "native",
     "label": "跨視野追蹤與多目標路線"
+  },
+  "grow40": {
+    "sha256": "27893e0d44a4b9d0aea54f73c38be16048bed47c78abe387d5845f09d22e179f",
+    "geometry": "native",
+    "label": "新出現的小地圖白點偵察"
   }
 }

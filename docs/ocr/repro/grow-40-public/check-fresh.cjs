@@ -1,0 +1,22 @@
+'use strict';
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const source = fs.readFileSync(path.join(__dirname, 'fresh.js'), 'utf8');
+const track = new Function(source + '\nreturn trackFreshDots40;')();
+const map = marks => ({player:{x:72,y:50},width:144,height:100,
+  viewWidth:958,viewHeight:557,growMarkers:marks,threats:[],opportunities:[]});
+const white = (x,y) => ({x,y,red:false});
+const oldPoints = Array.from({length:8}, (_,i) => white(20+i*4,28));
+const initial = track(map(oldPoints), [], 65, 100);
+assert.ok(initial.every(m => !m.fresh));
+let observed = track(map([...oldPoints,white(88,53)]),initial,65,200);
+for(const now of [300,400]) observed=track(map([...oldPoints,white(88,53)]),observed,66,now);
+const stable = observed.find(m => m.x===88);
+assert.ok(stable.fresh && stable.seen===3 && stable.spawnR===65);
+const changed = track(map([...oldPoints,{x:88,y:53,red:true}]),observed,66,500);
+assert.equal(changed.find(m=>m.x===88).fresh,false);
+const near = track(map([...oldPoints,white(73,50)]),observed,66,500);
+assert.equal(near.find(m=>m.x===73).fresh,false);
+assert.deepEqual(track(null,observed,65,500),[]);
+console.log('Fresh-dot tracking synthetic checks passed.');
