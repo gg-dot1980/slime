@@ -34,5 +34,15 @@
       "e.html"
     ],
     "notMatched": []
+  },
+  {
+    "candidate": 34,
+    "variants": 10,
+    "patches": 9,
+    "code": 0,
+    "alias": [
+      "v7.html"
+    ],
+    "notMatched": []
   }
 ]

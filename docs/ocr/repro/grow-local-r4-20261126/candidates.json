@@ -40,5 +40,9 @@
   "grow33": {
     "sha256": "5caf1539b31686ca20f3169b8934fadd66708929011f9b040eca55c317536a44",
     "geometry": "native"
+  },
+  "grow34": {
+    "sha256": "bd81bb39284b62762acce3d9c84562139dd44d71e16187134c95d2f43e14ef56",
+    "geometry": "native"
   }
 }
