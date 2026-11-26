@@ -10,9 +10,9 @@
 | 環境分組 | 桌機 QHD，視窗 2560×1440、原畫布 2250×1308、DPR 1；不混用其他幾何 |
 | 已完成探索 | v2.13 2/4、v2.22 1/4 |
 | 確認狀態 | 探索未通過兩版各 2/4 門檻，獨立確認未啟動。 |
-| 結果資料截止 | 2026-11-27T07:05:42+08:00 完成 Grow46 v2.22 連續相反方向擺盪核對；新增自然局 0、新版本 0。見[擺盪核對](repro/grow-46-public/results/oscillation-audit.md)。 |
-| 唯一下一步 | 只核對死亡第 4、5 局最後三個可見秒的大型 NPC 辨識、風險值與所選方向，確認威脅是否已可見但未進入避險；與死亡第 3、11 局各取同長度終場片段對照。不先修改、不重開自然局。 |
-| 目前阻礙 | 5 個 A→B→A 擺盪窗全部在死亡第 3、11 局，但安全試算只剩 2 點，保持中間方向各 1 點變近／變遠；未涵蓋死亡第 6、7 局。此訊號不足以建立候選。 |
+| 結果資料截止 | 2026-11-27T07:41:36+08:00 完成[Grow46 畫面辨識與避險回放](repro/grow-46-public/results/frame-audit.md)，12 局 341 幀與較早 1,206 筆可受威脅樣點。新增自然開局 0、新候選 0。 |
+| 唯一下一步 | 可用 Grow48 已有原圖作安全捕食對照；在下一個已授權的自然批次同步保留終場原圖、HUD、辨識及方向，核對玩家近身重疊或裁切的大型 NPC 是否漏辨或位置估錯。Grow46 第 4、5 局無逐幀原圖，免重做本次回放。 |
+| 目前阻礙 | 死亡第 4、5 局末筆預測間距 +341、+624，均未進入逃生。僅以增加間距為由改向，在較早勝局也出現 7/57 筆，死亡局 5/85 筆。現有資料無法識別致死 NPC 或估算勝率增幅。 |
 
 來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [Grow46 進度門檻](repro/grow-46-public/results/progress-timing.md) · [Grow46 成長實現率](repro/grow-46-public/results/gain-realization.md) · [Grow46 目標連續性](repro/grow-46-public/results/target-continuity.md) · [Grow46 45° 轉向回放](repro/grow-46-public/results/turn-limit-replay.md) · [Grow46 擺盪核對](repro/grow-46-public/results/oscillation-audit.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
 
