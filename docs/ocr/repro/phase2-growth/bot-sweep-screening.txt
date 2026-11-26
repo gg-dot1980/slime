@@ -1,0 +1,10 @@
+A-default      v2.13: n8 win1 death0 med107.0 v2.22: n8 win1 death2 med183.5 | total wins 2
+B-attract12    v2.13: n8 win1 death0 med120.0 v2.22: n8 win1 death2 med176.5 | total wins 2
+C-attract3     v2.13: n8 win1 death0 med145.5 v2.22: n8 win3 death0 med191.0 | total wins 4
+D-prey16       v2.13: n8 win2 death1 med160.0 v2.22: n8 win1 death3 med133.5 | total wins 3
+E-food2        v2.13: n8 win1 death0 med118.5 v2.22: n8 win1 death4 med121.0 | total wins 2
+F-crowd2       v2.13: n8 win2 death0 med129.0 v2.22: n8 win2 death0 med181.5 | total wins 4
+G-horizon15    v2.13: n8 win4 death0 med192.0 v2.22: n8 win4 death2 med197.5 | total wins 8
+H-edible108    v2.13: n8 win2 death1 med140.0 v2.22: n8 win1 death4 med181.0 | total wins 3
+confirm-G-horizon15 v2.13: n16 win4 death1 med146.5 v2.22: n16 win3 death3 med178.0 | total wins 7
+confirm-GCF-combo v2.13: n16 win8 death0 med193.0 v2.22: n16 win3 death2 med188.5 | total wins 11
