@@ -7,3 +7,20 @@
 - 開發實戰範圍：桌機 v2.13 與測試當日最新版（目前 GitHub game.html 顯示 v2.22；尚未核對正式站）；每版體型 200、150秒內、目標至少50%。探索各4局，達門檻後獨立確認各12局。實際 viewport、Canvas、DPR、瀏覽器及版本逐批記錄。測試環境外部調整視窗，不修改預設頁面。手機不納入過關率測試。正式 OCR4 驗收另計。
 - 原遊戲會使用排行榜 API，批次測試只能在隔離同源環境（提供原遊戲、版本 API，禁止外部寫入）進行，不以修改原遊戲畫面或規則替代隔離。公開遊戲 iframe 可能正常送榜。
 - 本輪只做來源檢查：Grow-23 planner 函式文字一致、固定視野移除、iframe src 替代 srcdoc、版本 API 讀取。未執行瀏覽器、實機、語法解析或自然實戰；開局0、結果0。舊固定視野結果不可合併。未部署、未合併。尚無環境／依賴鎖定／新遊戲 hash／實際 viewport／seed／正式站一致性核實。
+
+## 2026-11-26 — 接續測試工具
+
+新增 [run-desktop.cjs](run-desktop.cjs)，固定原遊戲 Git blob（v2.13: 16d41cdf2997baf0b3af33567b201d2dfb835427；v2.22: 30af12f7608da91514711ecdbc01b57654ab2eab），以 localhost 同源服務載入原遊戲，封鎖其他網域，拒絕排行榜及其他寫入。前景 Chromium、桌機外部 viewport 預設1440×900、DPR1；不修改頁面／遊戲畫面。實際尺寸另記。每局使用全新 browser context，所有開局及結果追加寫入新 JSONL，核對釋鍵；中斷不補局。若目前正式最新版改變，必須先核對並更新固定遊戲來源，不宣稱 v2.22 永遠是最新版。
+
+在完整 Git checkout（包含原遊戲 blobs）及具有前景桌面的環境：
+
+```sh
+npm install --no-save playwright
+npx playwright install chromium
+node docs/ocr/repro/grow-24-public/run-desktop.cjs --self-test
+node docs/ocr/repro/grow-24-public/run-desktop.cjs --phase explore --output /tmp/grow24-explore.jsonl
+# 只有兩版探索各至少2/4且完整核對後才執行：
+node docs/ocr/repro/grow-24-public/run-desktop.cjs --phase confirm --explore /tmp/grow24-explore.jsonl --output /tmp/grow24-confirm.jsonl
+```
+
+本輪已在 JS 執行環境解析兩段控制器 script、執行五組合成 planner 案例（東／西食物、東方威脅、過期畫面、v2.22 190體型免疫末段），均得到預期方向／狀態；測試 runner 的10項結算分類斷言亦在 JS 環境以 mock assert 執行通過。未執行 Node／Playwright 瀏覽器端到端、沒有新自然開局。另檢查末段免疫候選變更，五組對照輸出完全一致（父版已排除免疫時的地圖紅點），因此不建立無效新策略。Git checkout 於當前容器 DNS 失敗，GitHub 連接器只可讀寫原始碼；尚未有可用完整本地測試來源。上述指令是待實機執行的可重現入口，非完成驗收。舊 Grow-23 未決局保持原紀錄。
