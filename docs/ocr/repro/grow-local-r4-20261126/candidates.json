@@ -59,5 +59,9 @@
     "sha256": "1dc6c3f77fa54dfbe0ab73b3179ccc428aac149368abad3605ffdb245fda63aa",
     "geometry": "native",
     "label": "裁切輪廓與側向觀察"
+  },
+  "grow38": {
+    "sha256": "befaf6a2c6ac1ff14596628753e509e5c15eb5bffd0e6f62f81e91b884f239ec",
+    "geometry": "fhd"
   }
 }
