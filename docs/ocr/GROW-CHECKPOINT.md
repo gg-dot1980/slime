@@ -10,10 +10,10 @@
 | 環境分組 | 桌機 QHD，視窗 2560×1440、原畫布 2250×1308、DPR 1；不混用其他幾何 |
 | 已完成探索 | v2.13 2/4、v2.22 1/4 |
 | 確認狀態 | 探索未通過兩版各 2/4 門檻，獨立確認未啟動。 |
-| 結果資料截止 | 2026-11-27T03:07:54+08:00 完成 Grow46 v2.22 體型 100–149 的追逐連續性核對；新增自然局 0。見[目標連續性](repro/grow-46-public/results/target-continuity.md)。 |
-| 唯一下一步 | 只做零開局封存畫面回放：近似同尺寸可吃 NPC 仍可見、且沒有立即威脅或近牆逃生需求時，試算一個樣點內方向最多改 45°；核對未實現樣點、死亡第 4／5 局與過關第 2 局的安全方向。兩類證據都支持才建立新版本。 |
-| 目前阻礙 | 近似同尺寸目標時，大轉向後 HUD 增加為 5/33，未大轉向為 21/41；但死亡第 4、5 局追逐實現率高仍死亡，過關第 2 局失誤多仍過關。此為局部效率訊號，不是死亡分類器，尚不足以凍結候選。 |
+| 結果資料截止 | 2026-11-27T05:03:46+08:00 完成 Grow46 v2.22 單樣點 45° 轉向限制回放；新增自然局 0、新版本 0。見[45° 轉向回放](repro/grow-46-public/results/turn-limit-replay.md)。 |
+| 唯一下一步 | 只分析封存樣點中的連續相反方向擺盪，區分必要轉向與無效折返；先核對是否能涵蓋死亡第 3／6／7／11 局而不觸及死亡第 4／5 局與過關第 2 局的成功路徑，再決定是否值得修改。不重開自然局。 |
+| 目前阻礙 | 45° 限制在 14 個安全觸發點中只讓 6 個目標投影距離變近，8 個變遠；過關第 2 局的 2 點全變差，死亡第 4、5 局完全不觸發。此改動不獲支持，未建立候選。 |
 
-來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [Grow46 進度門檻](repro/grow-46-public/results/progress-timing.md) · [Grow46 成長實現率](repro/grow-46-public/results/gain-realization.md) · [Grow46 目標連續性](repro/grow-46-public/results/target-continuity.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
+來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [Grow46 進度門檻](repro/grow-46-public/results/progress-timing.md) · [Grow46 成長實現率](repro/grow-46-public/results/gain-realization.md) · [Grow46 目標連續性](repro/grow-46-public/results/target-continuity.md) · [Grow46 45° 轉向回放](repro/grow-46-public/results/turn-limit-replay.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
 
 每階段完成後只更新本表與下一步，附當次來源；舊成績仍保留在逐版結果中。若目前候選或批次已前進，先更新索引，不照過時的下一步重新開局。
