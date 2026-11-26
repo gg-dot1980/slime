@@ -6,7 +6,7 @@
 
 ## 2026-11-26 本機接續
 
-Grow24原生視野探索已中斷：6次嘗試、5次實際遊戲、0勝、3截止、2死亡、1載入中止；剩2次未開始，不補局、不確認。完整結果及記錄限制見[本機r1](repro/grow-local-20261126/README.md)。新[r2 runner](repro/grow-local-r2-20261126/README.md)修正document身份與數字snapshot；[Grow26](repro/grow-26-public/README.md)只修白點第一段接近評分，合成40組242斷言通過，實戰待執行。Grow25仍未採用，舊Grow23未決保留。沒有GitHub Actions。
+Grow24原生視野探索已中斷：6次嘗試、5次實際遊戲、0勝、3截止、2死亡、1載入中止；剩2次未開始，不補局、不確認。完整結果及記錄限制見[本機r1](repro/grow-local-20261126/README.md)。新[r2 runner](repro/grow-local-r2-20261126/README.md)修正document身份與數字snapshot，但真實preflight遇到初始化時序問題、0自然開局；[r3](repro/grow-local-r3-20261126/README.md)再補完整就緒檢查；[Grow26](repro/grow-26-public/README.md)只修白點第一段接近評分，合成40組242斷言通過，實戰待執行。Grow25仍未採用，舊Grow23未決保留。沒有GitHub Actions。
 
 ## 全部版本
 

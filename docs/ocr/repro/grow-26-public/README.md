@@ -6,7 +6,7 @@
 
 直接父版是 [Grow-24](../grow-24-public/README.md)，其單檔來源 commit 為 `5c57270575a344a910243cf9238ab6a64e7683d0`，HTML SHA256 為 `f276dd1b6dd340c142f00027adf2ddeefc394c74db772edf814cd6f9445f6347`。
 
-[完整候選 HTML](ocr-grow26.html) SHA256：`7f6494c12a22d2e833fbec796196cef39c04157325c304e3961ec644652a2f33`；Git blob：`5f260f114ccbf2deabe322f3af6a7d28b0e5f449`。本候選的 source commit 待首次提交後補記。
+[完整候選 HTML](ocr-grow26.html) SHA256：`7f6494c12a22d2e833fbec796196cef39c04157325c304e3961ec644652a2f33`；Git blob：`5f260f114ccbf2deabe322f3af6a7d28b0e5f449`。本候選的 source commit 為 `327ac21160e835c8ebc989bcee25f691c98ad2fc`，完整HTML已從GitHub回讀一致。
 
 原規劃器列舉第一方向 0.6 秒、第二方向 1.6 秒的 64 條路徑，卻只用 2.2 秒終點評估白點接近。每 100 ms 重新規劃時，第二方向可能一直只是預測；為了讓遠期終點接近白點，第一方向反而可能先離開白點。
 
@@ -52,6 +52,6 @@ node docs/ocr/repro/grow-26-public/check-scout-progress.cjs
 
 2026-11-26 核實 GitHub main `7889f40cd86dbffd56c5fe1bfddbd9f65d3b522a` 的目前來源仍為 v2.22，以上兩檔完整內容相同；正式站版本 API 與兩版 HTML 的普通 HTTP 讀取為 403，正式部署一致性未驗證。
 
-候選須在本機同源隔離服務提供原遊戲與版本 API，拒絕排行榜及外部寫入。瀏覽器批次入口已登錄於[r2 runner](../grow-local-r2-20261126/README.md)，實際載入與啟停仍待驗證；不能把上方合成命令當作實戰命令。自然批次應先固定 source／runner hashes、桌機 viewport／DPR、順序、4 局探索與各 12 局獨立確認的門檻、截止與異常政策；所有開始與結果保留，中止／未知不補局或改列死亡。
+候選須在本機同源隔離服務提供原遊戲與版本 API，拒絕排行榜及外部寫入。瀏覽器批次入口已登錄於[r3 runner](../grow-local-r3-20261126/README.md)，r2真實preflight載入失敗、0自然開局；修正初始化時序後須重新驗證實際啟停；不能把上方合成命令當作實戰命令。自然批次應先固定 source／runner hashes、桌機 viewport／DPR、順序、4 局探索與各 12 局獨立確認的門檻、截止與異常政策；所有開始與結果保留，中止／未知不補局或改列死亡。
 
 本候選尚未執行瀏覽器啟動／停止檢查，沒有實戰時間分布、實際成長速度或過關率。正式採用需待獨立新批次；父版既有批次與原 Grow-23 未決局保持原紀錄，互不替換或合併。

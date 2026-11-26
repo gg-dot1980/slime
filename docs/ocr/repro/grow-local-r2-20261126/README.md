@@ -33,3 +33,9 @@ r2實際瀏覽器載入／啟停及新探索尚未執行，不能稱已修復所
 `node docs/ocr/repro/grow-local-r2-20261126/check-ledger.cjs`：實際71項通過（既有45＋新26）。r2強制expected/event/result文件身分一致、固定origin與版本route、唯一候選load nonce、先開局後取樣、原生開局geometry一致；setup-abort保留空本局證據且不放行gate。原r1與raw hash再次核對不變。此檢查是合成帳本，不是自然遊戲。
 
 `node docs/ocr/repro/grow-local-r2-20261126/check-harness.cjs`：擷取實際runner函式的51項assertions通過，涵蓋fresh iframe、錯URL／版本拒判、空setup-abort、snapshot完整性、UTF8 tail上限及開局後身份漂移。12次載入在這裡只驗流程，真實Browser仍待下一診斷。
+
+## 09:34 真實preflight失敗，沒有自然開局
+
+真實Chrome在12次不開局載入準備期間停止，錯誤為`Original game or visible version did not match`；沒有batch header、start或native game。最後可見原遊戲為v2.13、go已enabled。確切失敗輪次與當下事件順序未記錄，不能把它稱成兩局控制診斷已通過。
+
+獨立小型async反例以實際candidate初始化程式重現：HTML select初始空且未disabled，parent提前選v2.22沒有生效，後續loadVersions重設v2.13。這是可重現來源缺陷，仍不證明該次現場的完整事件順序。r2來源及原51／71項檢查原樣保留；[r3](../grow-local-r3-20261126/README.md)增加初始化就緒與目標option檢查，再做新preflight，不補造任何遊戲結果。

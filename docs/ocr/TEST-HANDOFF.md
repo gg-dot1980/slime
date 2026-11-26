@@ -1,5 +1,10 @@
 # Slime OCR 測試交接索引
 
+## 2026-11-26 09:34：Grow26 preflight攔下初始化時序問題
+
+Grow26來源及r2已在`327ac21160e835c8ebc989bcee25f691c98ad2fc`提交，19檔逐字回讀一致；但r2實際12次載入準備失敗，0 header／0 starts／0 native games，不能聲稱兩局控制診斷通過。錯誤與現場限制保留於[r2](repro/grow-local-r2-20261126/README.md)。最小async反例重現HTML select早於底部script就緒的空窗；[r3](repro/grow-local-r3-20261126/README.md)先等controller、change handler、初始game ready與目標option才切換。候選HTML、原遊戲、門檻均不改，須新preflight通過後才開始探索。
+
+
 ## 2026-11-26 09:13：Grow24中斷與Grow26候選
 
 [Grow24結果](repro/grow-local-20261126/grow24-exploration-summary.json) · [r1來源與異常限制](repro/grow-local-20261126/README.md) · [r2新runner](repro/grow-local-r2-20261126/README.md) · [Grow26來源](repro/grow-26-public/README.md)。原定8次，6starts／6results，其中5原生遊戲、1setup-abort、2未開始。v2.13三截止（151秒，體型172／192／158）；v2.22兩死亡（111／130秒，體型88／127），第三次候選載入逾時未開局。0勝、0未決、不補局、不啟動確認。
