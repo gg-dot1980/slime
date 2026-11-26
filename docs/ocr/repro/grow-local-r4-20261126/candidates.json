@@ -78,5 +78,9 @@
     "sha256": "7a8aeb4d4bec0b79cf4194a374a1fb8cf5de6e91ad476f64e06ede1daf6f7f5c",
     "geometry": "native",
     "label": "玩家與獵物輪廓重疊時的近身追蹤"
+  },
+  "grow42": {
+    "sha256": "1da5fc0d76d3de4a3c794776982a22c1c12249ab78943fd77f36240dc1be3763",
+    "geometry": "native"
   }
 }

@@ -84,5 +84,13 @@
     "code": 2,
     "alias": [],
     "notMatched": []
+  },
+  {
+    "candidate": 42,
+    "variants": 0,
+    "patches": 0,
+    "code": 1,
+    "alias": [],
+    "notMatched": []
   }
 ]
