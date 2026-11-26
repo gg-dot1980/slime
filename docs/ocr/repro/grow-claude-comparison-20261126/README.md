@@ -1,4 +1,9 @@
 # OCR Grow 與 Claude 的過關紀錄
+
+## Grow45 原生 QHD 更新
+
+Grow45 在 2250×1308 原生畫布上，v2.13 沿用 Grow38 規劃器，探索為 **4/4**。v2.22 改用 Grow15 規劃器，得到 **1/4**。這是 Grow38、Grow44、Grow45 三組相同 QHD 條件下，v2.22 首次觀察到勝局。每版只測四局，v2.22 尚未達到 2/4 的探索門檻，因此未啟動獨立確認。[Grow45 完整分母、規劃器與測試條件](../grow-45-public/results/README.md)
+
 截至臺北時間 2026-11-26 13:29:31。達標指原遊戲顯示過關且遊戲時間不超過 150 秒；下表按 v2.13、v2.22 分列。正式站版本 193 發布於 12:35，兩個入口分別是 Grow26 和 Claude21。Claude21 頁預設選用 Grow6。[Grow 入口](https://slime.gameson.cc/ocr-grow) · [Claude 入口](https://slime.gameson.cc/ocr-claude)
 
 **研究比較建議。** 用 Grow38 做原生寬畫面基線；它沿用 Grow24 的控制，桌機可展開遊戲區。958×557 用 Grow39 做對照，它將小地圖短期軌跡連到主畫面體型，在 v2.13 探索得 2/4、v2.22 得 0/4。Claude11 適合做 v2.22 既有過關參照，在 Claude11／21 當批有一局 141 秒。Claude22 從 Claude20 加上 1.5 秒避牆，適合檢查存活及靠牆行為，在下列窄畫布開發對照四局均活到截止。[Grow38](https://github.com/gg-dot1980/slime/blob/a05856d4540d11b1b7860ff50a06bac4d80762ca/docs/ocr/repro/grow-38-public/README.md) · [Grow39](https://github.com/gg-dot1980/slime/blob/a05856d4540d11b1b7860ff50a06bac4d80762ca/docs/ocr/repro/grow-39-public/README.md) · [Claude11／21](https://github.com/gg-dot1980/slime/blob/8f13c2062d8a3da9ec63a6a76b2577db029ca45d/docs/ocr/repro/phase1-minimap/README.md) · [Claude22 協議](https://github.com/gg-dot1980/slime/blob/8f13c2062d8a3da9ec63a6a76b2577db029ca45d/docs/ocr/repro/phase2-wall/PROTOCOL.md)
