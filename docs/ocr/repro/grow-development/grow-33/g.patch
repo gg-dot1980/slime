@@ -1,0 +1,68 @@
+--- e.html
++++ g.html
+@@ -352,5 +352,21 @@
+   const bodies=objects.filter(o=>o.npc), hazards=[], meals=[];
+   const addHazard=(x,y,R,vx=0,vy=0,pad=12)=>hazards.push({x,y,r:R,vx,vy,pad});
+-  const nearby=dots.map(project);
++  const previousMap = old?.dotTracks||[];
++  const tracks = [], owned = new Set();
++  for(const m of dots){
++    let closest=null, closestD=1.5;
++    for(const b of previousMap){
++      const d=hyp(b.mx-m.x,b.my-m.y);
++      if(!owned.has(b)&&d<closestD){closest=b;closestD=d;}
++    }
++    if(closest) owned.add(closest);
++    const age=closest?Math.max(.06,(now-closest.at)/1000):.1;
++    let vx=closest ? .90*closest.vx+.10*(m.x-closest.mx)*wx/age : 0;
++    let vy=closest ? .90*closest.vy+.10*(m.y-closest.my)*wy/age : 0;
++    const top=!m.red ? Math.min(1.12*(r+.5),(closest?.top??999)+.50*age) : 999;
++    const bottom=m.red ? Math.max(r*1.12,(closest?.bottom||0)-age) : Math.max(0,(closest?.bottom||0)-.7*age);
++    tracks.push({mx:m.x,my:m.y,at:now,top,bottom,vx:Math.max(-160,Math.min(160,vx)),vy:Math.max(-160,Math.min(160,vy))});
++  }
++  const nearby=dots.map((m,i)=>({...project(m),history:tracks[i]}));
+   const memory=(old?.visibleBodies||[]).filter(b=>now-b.at<4900);
+   function remember(x,y,body) {
+@@ -374,4 +390,8 @@
+     let uncertain=m.estimated>108 || m.estimated<45;
+     let accurate=body&&!body.clipped&&error<90;
++    if(!accurate && m.estimated>104){
++       const lower=Math.max(107,m.history.bottom);
++       R=Math.max(lower,Math.min(r*.86,(lower+Math.min(m.history.top,r*1.12))*.5));
++     }
+     if(accurate){R=body.r;uncertain=false;}
+     const history=memory.filter(b=>{const t=(now-b.at)/1000;return hyp(b.X+b.vx*t-px-m.x,b.Y+b.vy*t-py-m.y)<100+Math.min(80,t*25);})
+@@ -394,5 +414,5 @@
+     // Saturated white marker requests a closer view with no predicted meal.
+     const x=accurate?body.x:m.x,y=accurate?body.y:m.y;
+-    meals.push({npc:true,x,y,r:R,mapOnly:!accurate,uncertain,vx:accurate?body.vx:0,vy:accurate?body.vy:0});
++    meals.push({npc:true,x,y,r:R,mapOnly:!accurate,uncertain,vx:accurate?body.vx:m.history.vx,vy:accurate?body.vy:m.history.vy});
+   }
+   for(const o of bodies){
+@@ -433,5 +453,11 @@
+       if(sep<80)obstacle+=Math.max(0,(80-sep)/100);
+     }
+-    const utility=grow/obstacle/(.6+eta)*(lock?(o.mapOnly?7:3):1)*(o.mapOnly?(r<55?.15:.48):2.2)*(1+Math.min(3,neighbors)*.13);
++    const nextMeal=meals.reduce((best,a)=>{
++      if(o===a) return best;
++      const eta2=hyp(a.x-o.x,a.y-o.y)/speed;
++      if(eta2>3.6 || a.r>(r+grow)*.88)return best;
++      return Math.max(best,(Math.sqrt((r+grow)**2+.55*a.r*a.r)-(r+grow))*.65/(1+eta2));
++    },0);
++    const utility=(Math.min(grow,Math.max(1,200-r))+nextMeal*.48)/obstacle/(.6+eta)*(lock?(o.mapOnly?7:3):1)*(o.mapOnly?(r<55?.15:.48):2.2)*(1+Math.min(3,neighbors)*.13);
+     goals.push({...o,tx,ty,eta,utility,worldX:o.coasted?oldT.worldX:px+o.x,worldY:o.coasted?oldT.worldY:py+o.y,seen:o.coasted?oldT.seen:now});
+   }
+@@ -488,5 +514,5 @@
+       if(vcap>best){best=vcap;target=o;}
+     }
+-    let value=best+predictedFood*(r<60?5:1.7)+foodGain*.25+(.15+(goals.length?0:.22))*((old?.x||0)*dx+(old?.y||0)*dy)-wallPenalty-friction*4;
++    let value=best+predictedFood*(r<60?5:r>193?18:r>182?4:1.7)+foodGain*.25+(.15+(goals.length?0:.22))*((old?.x||0)*dx+(old?.y||0)*dy)-wallPenalty-friction*4;
+     choices.push({x:dx,y:dy,score:value,clearance:worst,soon,target});
+   }
+@@ -495,5 +521,5 @@
+     choices.sort((a,b)=>(b.soon*.9+b.clearance*.3+b.score*.15)-(a.soon*.9+a.clearance*.3+a.score*.15))[0];
+   return {...best,name:['東','東南','南','西南','西','西北','北','東北'][Math.round((Math.atan2(best.y,best.x)+2*Math.PI)/(Math.PI/4))%8]||'巡航',strategy:'grow-23',
+-    visibleBodies:memory.slice(-32),threats:closeHazards.length,escaping:!allowed.length,recovering:false,mapStatus:'visible',gain:best.target?.utility||0,
++    dotTracks:tracks,visibleBodies:memory.slice(-32),threats:closeHazards.length,escaping:!allowed.length,recovering:false,mapStatus:'visible',gain:best.target?.utility||0,
+     reason:allowed.length?(best.target?.mapOnly?'map-target':'visible-hunt'):'escape',observedAt:now};
+ }

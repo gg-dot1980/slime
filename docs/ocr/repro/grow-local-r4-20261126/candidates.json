@@ -36,5 +36,9 @@
   "grow32": {
     "sha256": "d4ada6b01f42fd7791dabdf121441de81c96f59d276301d907e4f03ed495f8d4",
     "geometry": "native"
+  },
+  "grow33": {
+    "sha256": "5caf1539b31686ca20f3169b8934fadd66708929011f9b040eca55c317536a44",
+    "geometry": "native"
   }
 }

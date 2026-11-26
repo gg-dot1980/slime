@@ -1,0 +1,83 @@
+--- e.html
++++ h.html
+@@ -306,4 +306,60 @@
+ }
+ 
++// Search a short sequence of keyboard turns through food and measured local prey.
++function forageRoute33(r,speed,v,objects,foods,meals,hazards,dirs,px,py,old,allowed) {
++  const rewards=meals.filter(m=>!m.mapOnly&&m.r<=r*.9).map(m=>({...m,g:.73*(Math.sqrt(r*r+.55*m.r*m.r)-r),contact:.67*(r+m.r)}));
++  for (const f of foods) rewards.push({...f,g: Math.max(.38,Math.min(13,f.r)*.035),contact:r+.42*f.r,vx:0,vy:0});
++  rewards.sort((a,b)=>Math.hypot(a.x,a.y)-Math.hypot(b.x,b.y));rewards.splice(30);
++  if(!rewards.length)return null;
++  let beam=[{x:0,y:0,vx:v.x,vy:v.y,mask:0,first:-1,gain:0,score:0,last:-1,near:10000,aim:null}];
++  const dt=.42, inertia=(1-Math.exp(-4.2*dt))/4.2, follow=1-Math.exp(-4.2*dt);
++  for(let depth=0;depth<7;depth++){
++    const next=[];
++    for(const n of beam) for(let i=0;i<8;i++){
++      const [dx,dy]=dirs[i], first=depth===0?i:n.first;
++      if(depth===0 && !allowed.some(c=>c.x===dx&&c.y===dy)) continue;
++      const x=n.x+dx*speed*(dt-inertia)+n.vx*inertia,y=n.y+dy*speed*(dt-inertia)+n.vy*inertia;
++      const vx=n.vx+(dx*speed-n.vx)*follow,vy=n.vy+(dy*speed-n.vy)*follow;
++      const t=(depth+1)*dt, sx=x-n.x,sy=y-n.y;
++      const wall=Math.min(x+px,10400-x-px,y+py,7200-y-py);
++      if(wall<Math.min(r+4,px-.5,py-.5,10400-px-.5,7200-py-.5))continue;
++      let near=n.near,risk=0,ok=true;
++      for(const h of hazards){
++        const gap=Math.hypot(h.x+h.vx*t-x,h.y+h.vy*t-y)-.72*(r+h.r)-h.pad;
++        near=Math.min(near,gap);
++        if(t<=1.27&&gap<2){ok=false;break;}
++        if(gap<110)risk+=Math.max(0,1-gap/110)**2 * (t<1.3?5:2);
++      }
++      if(!ok)continue;
++      let mask=n.mask,gain=n.gain,score=n.score-risk,aim=n.aim,vantage=0;
++      for(let k=0;k<rewards.length;k++){
++        if(mask&(1<<k))continue;
++        const o=rewards[k], a=o.x+o.vx*(t-dt)-n.x,b=o.y+o.vy*(t-dt)-n.y;
++        const ex=sx-o.vx*dt,ey=sy-o.vy*dt,d=ex*ex+ey*ey;
++        const u=d?Math.max(0,Math.min(1,(a*ex+b*ey)/d)):0;
++        if((a-ex*u)**2+(b-ey*u)**2<o.contact**2){
++          mask|=1<<k; gain+=o.g;score+=o.g/(.42+t*.6);if(!aim)aim=o;
++        }else{
++          const distance=Math.max(1,Math.hypot(a-ex,b-ey)-o.contact);
++          vantage=Math.max(vantage,o.g/(1+distance/speed*2));
++        }
++      }
++      const turn=n.last<0 ? (old?.x||0)*dx+(old?.y||0)*dy : dirs[n.last][0]*dx+dirs[n.last][1]*dy;
++      score+=.025*turn;
++      const rank=score+.22*vantage+.025*Math.hypot(x,y)/speed;
++      next.push({x,y,vx,vy,mask,first,last:i,gain,score,rank,near,aim});
++    }
++    if(!next.length) break;
++    next.sort((a,b)=>b.rank-a.rank);
++    const spread=new Set();beam=[];
++    for(const n of next){
++      const key=n.mask+','+Math.round(n.x/55)+','+Math.round(n.y/55)+','+n.last;
++      if(spread.has(key))continue;spread.add(key);beam.push(n);
++      if(beam.length>=17)break;
++    }
++  }
++  return beam.filter(n=>n.first>=0&&n.aim).sort((a,b)=>b.rank-a.rank)[0]||null;
++}
++
+ // Integrate the antialiased foreground color on the minimap's solid floor.
+ function measureFieldDots(image, w, map) {
+@@ -494,7 +550,18 @@
+   let best=allowed.length?allowed.sort((a,b)=>b.score-a.score)[0]:
+     choices.sort((a,b)=>(b.soon*.9+b.clearance*.3+b.score*.15)-(a.soon*.9+a.clearance*.3+a.score*.15))[0];
++  let forage=false;
++  if(allowed.length && (r<65 || r>191 || !goals.some(g=>!g.mapOnly&&g.eta<1.45&&g.utility>2.2))){
++    const path=forageRoute33(r,speed,v,objects,foods,meals,closeHazards,dirs,px,py,old,allowed);
++    const target=best.target;
++    const predicted=target ? (Math.sqrt(r*r+.55*target.r*target.r)-r)*.75 : 0;
++    const macroRate=target ? Math.min(200-r+.5,predicted)/(target.eta+1.2)*(target.mapOnly?.2:.9) : 0;
++    if(path && path.gain/2.94>Math.max(r<65?.25:.44,macroRate)){
++      const d=dirs[path.first];best={...choices.find(c=>c.x===d[0]&&c.y===d[1]),target:path.aim};
++      forage=true;
++    }
++  }
+   return {...best,name:['東','東南','南','西南','西','西北','北','東北'][Math.round((Math.atan2(best.y,best.x)+2*Math.PI)/(Math.PI/4))%8]||'巡航',strategy:'grow-23',
+     visibleBodies:memory.slice(-32),threats:closeHazards.length,escaping:!allowed.length,recovering:false,mapStatus:'visible',gain:best.target?.utility||0,
+-    reason:allowed.length?(best.target?.mapOnly?'map-target':'visible-hunt'):'escape',observedAt:now};
++    reason:forage?'forage-route':allowed.length?(best.target?.mapOnly?'map-target':'visible-hunt'):'escape',observedAt:now};
+ }
+ 

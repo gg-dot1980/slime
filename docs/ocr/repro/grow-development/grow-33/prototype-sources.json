@@ -1,0 +1,105 @@
+{
+  "candidate": "Grow33",
+  "canonical": {
+    "name": "ocr-grow33.html",
+    "sha256": "5caf1539b31686ca20f3169b8934fadd66708929011f9b040eca55c317536a44",
+    "gitBlobSha1": "ba862faae268406f37395a9d21a1f96b8ba07d66"
+  },
+  "patchFormat": "GNU unified diff. Replay in listed order with patch --batch --fuzz=0 -o OUT BASE PATCH. Exact aliases can be copied.",
+  "variants": [
+    {
+      "name": "a.html",
+      "sha256": "fad978823f5866a41939f947f529ab8662c2c64165165df63138a5809f062c2c",
+      "gitBlobSha1": "b6a33f199a99d805c2c58fe1bbe63dc4f9a71970",
+      "byteLength": 94579,
+      "status": "hash matched a retained offline development source",
+      "provenance": "reconstructed from retained planner module and original builder; previously recorded HTML hash verified",
+      "base": "ocr-grow33.html",
+      "patch": "a.patch",
+      "patchSha256": "8518394ab216e48c7b95c6f23f062bb8725d6447568408dbbcc3e4e006513c5e",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "b.html",
+      "sha256": "bf40cad6aff85c8c906f0f48fb08abd1c094f21e13a891b87af09b2381d83f28",
+      "gitBlobSha1": "13558ae7fdba9e23acc113d5541b72f6660ff9ba",
+      "byteLength": 95578,
+      "status": "hash matched a retained offline development source",
+      "provenance": "retained research HTML",
+      "base": "a.html",
+      "patch": "b.patch",
+      "patchSha256": "1afae67a654dc1caa51582535f2ca4a84625f1cb1b22ba1f2ca00c5bf9a3ceed",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "c.html",
+      "sha256": "939e5dfe0df8fd826cf7a04f24fa0be8a8c852c41f051345cdd779e823a6c5f2",
+      "gitBlobSha1": "97747b726529ac4a9a4d616d565642fd1a3f69e9",
+      "byteLength": 96500,
+      "status": "hash matched a retained offline development source",
+      "provenance": "reconstructed from retained planner module and original builder; previously recorded HTML hash verified",
+      "base": "b.html",
+      "patch": "c.patch",
+      "patchSha256": "a30e8ec0a3733e7b646e29a2e4776bf2d19152afc31b1673e3d1478123271d2c",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "d.html",
+      "sha256": "97f9ba559098e9f6f0cf777283ddb0881ec6f28af2e8cb0f6ca3031c5719e671",
+      "gitBlobSha1": "92ea003b021fa2172fb3767fbbe9d97800ef262f",
+      "byteLength": 96818,
+      "status": "hash matched a retained offline development source",
+      "provenance": "reconstructed from retained planner module and original builder; previously recorded HTML hash verified",
+      "base": "c.html",
+      "patch": "d.patch",
+      "patchSha256": "d98b1a189af5a6f7ebc5ed3e8405068e30654e519cdb76e778846c4586b65dc4",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "e.html",
+      "sha256": "5caf1539b31686ca20f3169b8934fadd66708929011f9b040eca55c317536a44",
+      "gitBlobSha1": "ba862faae268406f37395a9d21a1f96b8ba07d66",
+      "byteLength": 97910,
+      "status": "hash matched a retained offline development source",
+      "provenance": "retained research HTML",
+      "identicalTo": "ocr-grow33.html"
+    },
+    {
+      "name": "f.html",
+      "sha256": "5a83ae52549c4a2aa600be113f852605ff6a3b76714521caf7a9ab1c47db146b",
+      "gitBlobSha1": "0c52a6f78f7b83052623973e7c11a7e1caa0db19",
+      "byteLength": 98031,
+      "status": "hash matched a retained offline development source",
+      "provenance": "retained research HTML",
+      "base": "e.html",
+      "patch": "f.patch",
+      "patchSha256": "3d42aed3f958f56bead9e2c3da4b52868494c13eae570e59e53b56ff5d5a3de3",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "g.html",
+      "sha256": "633b7127aeba8abc1e4a030d36f21b95342ff44d07d35be2f762f155bef05545",
+      "gitBlobSha1": "1ae7e52ce8e04c366eb476208fe891e4f329824e",
+      "byteLength": 99321,
+      "status": "hash matched a retained offline development source",
+      "provenance": "retained research HTML",
+      "base": "e.html",
+      "patch": "g.patch",
+      "patchSha256": "5331280d9ffbdd170c3c61dea8344e66e034e28e1bcd86156c56d363c9d9e4d6",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "h.html",
+      "sha256": "155447715fed127e6ff55050f110529221b5ddb07797c06826a2096c9cfa638a",
+      "gitBlobSha1": "0049d14f92ebbcbc40ea6c67fe07ee32bf3a8cce",
+      "byteLength": 101435,
+      "status": "hash matched a retained offline development source",
+      "provenance": "retained research HTML",
+      "base": "e.html",
+      "patch": "h.patch",
+      "patchSha256": "c7e90ae32d4048d65361570aa12146d830ca9fc1995af1fc3ca5c4c7fd0bed60",
+      "sameScriptsAsCanonical": false
+    }
+  ],
+  "supportingCode": []
+}
