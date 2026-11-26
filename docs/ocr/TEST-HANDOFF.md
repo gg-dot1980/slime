@@ -1,5 +1,7 @@
 # Slime OCR 測試交接索引
 
+[Grow1–43 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+
 ## 2026-11-26 09:34：Grow26 preflight攔下初始化時序問題
 
 Grow26來源及r2已在`327ac21160e835c8ebc989bcee25f691c98ad2fc`提交，19檔逐字回讀一致；但r2實際12次載入準備失敗，0 header／0 starts／0 native games，不能聲稱兩局控制診斷通過。錯誤與現場限制保留於[r2](repro/grow-local-r2-20261126/README.md)。最小async反例重現HTML select早於底部script就緒的空窗；[r3](repro/grow-local-r3-20261126/README.md)先等controller、change handler、初始game ready與目標option才切換。候選HTML、原遊戲、門檻均不改，須新preflight通過後才開始探索。
