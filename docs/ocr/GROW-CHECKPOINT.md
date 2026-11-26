@@ -10,9 +10,9 @@
 | 環境分組 | 桌機 QHD，視窗 2560×1440、原畫布 2250×1308、DPR 1；不混用其他幾何 |
 | 已完成探索 | v2.13 2/4、v2.22 1/4 |
 | 確認狀態 | 探索未通過兩版各 2/4 門檻，獨立確認未啟動。 |
-| 結果資料截止 | 2026-11-26T19:23:33+08:00 核驗 |
-| 唯一下一步 | 已確認原兩局只有數值快照。用同一凍結 Grow48 接續[獨立終場取證](repro/grow-48-public/results/terminal.md)，固定診斷各 1 局、只額外擷取 v2.22 原生可見畫布。先讀既有取證帳本；不補抽、不併入探索。 |
-| 目前阻礙 | 本機 QHD 預檢、控制診斷與本階段獨立稽核均已完成。 |
+| 結果資料截止 | 2026-11-26T22:06:24+08:00 終場診斷封帳。v2.13 1/1、v2.22 0/1，另列於[終場診斷](repro/grow-48-public/results/terminal.md)。 |
+| 唯一下一步 | 用既有 v2.22 逾時、死亡與成功局驗證「反覆追逐卻沒有拉近距離」是否能辨別該換目標的時機。先在可配對的定期畫面決策測試，保留能持續追近的反例。已封帳的診斷免重開。 |
+| 目前阻礙 | 兩局舊死亡缺少原圖，本次 v2.22 在截止時仍存活。三筆粉紅獵物原圖與後段成功追近可作追逐對照。 |
 
 來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
 
