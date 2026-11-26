@@ -62,6 +62,13 @@ def stage_runtime(output):
     (stage / "results-private").symlink_to(ledger, target_is_directory=True)
     for name in FILES:
         shutil.copyfile(R4 / name, stage / name)
+    shutil.copyfile(R4 / "package.json", stage / "package.json")
+    # Keep v4's full document/geometry/preparation checks for this exact,
+    # separately named diagnostic protocol. All other ledger rules stay intact.
+    checker = (stage / "ledger.cjs").read_text()
+    checker = replace_once(checker, r"-v(\d+)$/.exec(contract?.protocolId",
+                           r"-v(\d+)-terminal-observation$/.exec(contract?.protocolId")
+    (stage / "ledger.cjs").write_text(checker)
     # Diagnostic only, one game per edition. Keep the original wall-time abort,
     # native settlement and 150-game-second deadline. This pair has no win gate.
     protocol = read(stage / "protocol.json")
@@ -148,10 +155,12 @@ def run(args, output):
                 deadline=time.monotonic()+2*manifest["protocol"]["wallTimeLimitSeconds"]+100
                 geometry_verified=False
                 while not list(ledger.glob("grow48-diagnostic-*-summary.json")):
-                    if not geometry_verified and list(ledger.glob("preflight-grow48-diagnostic*.json")):
-                        proof=read(next(ledger.glob("preflight-grow48-diagnostic*.json")))
-                        if proof["type"]=="preflight-abort":
-                            raise RuntimeError("Preflight aborted; retained evidence")
+                    proofs = [read(path) for path in ledger.glob("preflight-grow48-diagnostic*.json")]
+                    aborted = next((p for p in proofs if p["type"] == "preflight-abort"), None)
+                    if aborted:
+                        raise RuntimeError("Preflight aborted: " + aborted["error"]["message"])
+                    if not geometry_verified and proofs:
+                        proof=proofs[0]
                         dims=proof["contract"]["dimensions"]
                         assert dims["outer"]==[2560,1440] and dims["canvas"]==dims["canvasCss"]==[2250,1308]
                         assert dims["gameDpr"]==dims["deviceScaleFactor"]==1
