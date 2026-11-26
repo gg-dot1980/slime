@@ -1,0 +1,30 @@
+{
+ "warp3 v2.13": {
+  "games": 12,
+  "win150": 2,
+  "deaths": 0,
+  "sizeMedian": 136.0,
+  "npcEatsMedian": 19.0
+ },
+ "realtime v2.13 (claude-14 round)": {
+  "games": 12,
+  "win150": 4,
+  "deaths": 0,
+  "sizeMedian": 166.5,
+  "npcEatsMedian": 21.0
+ },
+ "warp3 v2.22": {
+  "games": 12,
+  "win150": 3,
+  "deaths": 4,
+  "sizeMedian": 188.0,
+  "npcEatsMedian": 19.0
+ },
+ "realtime v2.22 (claude-14 round)": {
+  "games": 12,
+  "win150": 3,
+  "deaths": 1,
+  "sizeMedian": 141.0,
+  "npcEatsMedian": 17.0
+ }
+}
