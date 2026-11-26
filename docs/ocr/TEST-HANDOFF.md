@@ -2,11 +2,11 @@
 
 [Grow1–47 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
 
-## 2026-11-26：Grow47 來源已凍結
+## 2026-11-26：Grow47 已公開，0 開局預檢被環境攔下
 
-[Grow47 完整來源及有限機制檢查](repro/grow-47-public/README.md) · [短檢查點](GROW-CHECKPOINT.md)。本次只新增此候選，檢驗 v2.22 的 1.5 秒預測牆距；v2.13 保留原規劃器。獨立來源 review 無阻塞，近牆食物／小 NPC 的收益損失反例保留。此節提交時自然 0 局；下一步是既有獨立 Chromium 測試入口的 QHD 預檢、控制診斷及固定探索／合格後確認。仍不使用 GitHub Actions。
+[Grow47 完整來源及有限機制檢查](repro/grow-47-public/README.md) · [短檢查點](GROW-CHECKPOINT.md)。本次只新增此候選，檢驗 v2.22 的 1.5 秒預測牆距；v2.13 保留原規劃器。獨立來源 review 無阻塞，近牆食物／小 NPC 的收益損失反例保留。[實際預檢與阻礙](repro/grow-47-public/results/README.md)顯示 viewport 1363×936／canvas 958×557 不符既定 QHD，停止在開局前；CLI 的獨立瀏覽器主檔亦缺失。自然仍為 0 局，沒有執行中的自然批次。來源提交 `daeb7d9a6d48a6b76de2e286731f5c70016cd589` 的 18 檔已從 GitHub 完整回讀一致。下一步僅恢復支援的 QHD 執行環境，接續同一候選的預檢、診斷及固定探索／合格後確認。仍不使用 GitHub Actions。
 
-Grow46 已結案確認 v2.13 10/12、v2.22 4/12，尚未達雙版研究門檻。原私人紀錄已取回作獨立複核；新候選不追加或替換舊分母。下面各節保留當時歷史狀態。
+Grow46 已結案確認 v2.13 10/12、v2.22 4/12，尚未達雙版研究門檻。原私人紀錄已獨立重算，79／79 檢查通過；34 次診斷及研究開局均有結果與停止紀錄。新候選不追加或替換舊分母。下面各節保留當時歷史狀態。
 
 [Grow46 的追獵條件、回放範圍與 QHD 入口](repro/grow-46-public/README.md) · [Grow46 原生 QHD 結果](repro/grow-46-public/results/README.md)
 

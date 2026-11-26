@@ -1,0 +1,75 @@
+{
+  "schema": 1,
+  "candidate": "grow47",
+  "sourceCommit": "daeb7d9a6d48a6b76de2e286731f5c70016cd589",
+  "candidateSha256": "a333fd5ba52c2cbb4c6eb17fde85f5e53c9a98924a61440fe606ccb8fca27fee",
+  "runnerSha256": "a3c269d99c7a85ac232805dac9b700ce3a0d6a718ed0e5965bbdde499f437c6c",
+  "preflightAtTaipei": "2026-11-26T16:55:45+08:00",
+  "status": "blocked-before-natural-games",
+  "reason": "wide-geometry-unsupported",
+  "requiredGeometry": {
+    "outer": [
+      2560,
+      1440
+    ],
+    "canvas": [
+      2250,
+      1308
+    ],
+    "DPR": 1
+  },
+  "observedGeometry": {
+    "outer": [
+      1363,
+      936
+    ],
+    "canvas": [
+      958,
+      557
+    ],
+    "canvasCss": [
+      958,
+      557
+    ],
+    "DPR": 1,
+    "canvasTransform": "none"
+  },
+  "counts": {
+    "preflightAborts": 1,
+    "batchHeaders": 0,
+    "starts": 0,
+    "nativeStarts": 0,
+    "diagnosticStarts": 0,
+    "explorationStarts": 0,
+    "confirmationStarts": 0
+  },
+  "plannedExplorationPerVersion": 4,
+  "plannedConfirmationPerVersion": 12,
+  "eligibleForConfirmation": false,
+  "meetsGoal": false,
+  "naturalWinRate": null,
+  "publicSourceFilesReadBackExactly": 18,
+  "previousCandidateConfirmation": {
+    "candidate": "grow46",
+    "v2.13": {
+      "wins": 10,
+      "starts": 12
+    },
+    "v2.22": {
+      "wins": 4,
+      "starts": 12
+    },
+    "recoveryAuditChecksPassed": 79
+  },
+  "limitations": [
+    "No natural Grow47 games started; null is not a measured 0% win rate.",
+    "Independent command-line browser unavailable in this executor; managed desktop geometry does not match QHD.",
+    "Synthetic mechanism checks do not establish game performance.",
+    "Grow46 outcomes remain a separate closed batch; near-wall observations are not identified death causes."
+  ],
+  "evidenceScope": {
+    "geometry": "Root CUA DOM measurements; not included as dimensions in original preflight-abort.",
+    "cli": "Root tool-output summary; full stderr was not copied.",
+    "independentReview": "Source/transport/classification/public-private consistency; no independent browser measurement or CLI rerun."
+  }
+}

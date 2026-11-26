@@ -2,13 +2,13 @@
 
 [Grow1–47 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md) · [Grow／Claude 比較及 Grow44 結果](repro/grow-claude-comparison-20261126/README.md)
 
-更新：2026-11-26（臺灣時間）。本索引列出 grow-1～grow-26 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
+更新：2026-11-26（臺灣時間）。下方歷史主表列出 grow-1～grow-26；Grow1～47 的完整來源入口見頁首逐版索引。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
 
 [Grow12～17的80局結果與重現方法](repro/grow-evaluation-20261125/README.md) · [交接索引](TEST-HANDOFF.md) · [歷史來源稽核](repro/grow-evaluation-20261125/historical-inventory.json)
 
-## 2026-11-26：Grow47 凍結，原生測試待啟動
+## 2026-11-26：Grow47 已保存，實際預檢因幾何不符停止
 
-[Grow47 完整來源、有限檢查與限制](repro/grow-47-public/README.md) · [短檢查點](GROW-CHECKPOINT.md)。只在 v2.22 原安全路徑加入 1.5 秒預測牆距扣分；v2.13 與緊急逃生來源保留。8 個公式邊界、15 個人工場景、896 條原路徑資料及 45 個其他版本完整決策已由獨立 reviewer 核對，三個降低預測捕食收益的案例保留。此刻自然遊戲 0 局；QHD 實際預檢後才啟動固定批次。Grow46 已完整確認為 v2.13 10/12、v2.22 4/12，原研究目標尚未完成。
+[Grow47 完整來源、有限檢查與限制](repro/grow-47-public/README.md) · [短檢查點](GROW-CHECKPOINT.md)。只在 v2.22 原安全路徑加入 1.5 秒預測牆距扣分；v2.13 與緊急逃生來源保留。8 個公式邊界、15 個人工場景、896 條原路徑資料及 45 個其他版本完整決策已由獨立 reviewer 核對，三個降低預測捕食收益的案例保留。[實際預檢](repro/grow-47-public/results/README.md)於台灣 16:55 被 QHD 幾何 gate 攔下：viewport 1363×936、canvas 958×557，0 自然開局。獨立 CLI 亦因當前執行器缺少瀏覽器主檔而未能導覽。候選來源 `daeb7d9a6d48a6b76de2e286731f5c70016cd589` 的 18 檔已完整回讀；恢復支援環境後續測同一候選。Grow46 已完整確認為 v2.13 10/12、v2.22 4/12，原研究目標尚未完成。
 
 ## 歷史：2026-11-26 本機接續
 
