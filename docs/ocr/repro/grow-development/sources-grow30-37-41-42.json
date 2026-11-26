@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "candidate": 30,
+    "variants": 0,
+    "patches": 0,
+    "code": 1,
+    "alias": [],
+    "notMatched": []
+  }
+]

@@ -24,5 +24,9 @@
     "sha256": "c2be01577f298c43d994bb3d433bea7b5dcfeb9d4db4409469282996c7f47e5d",
     "geometry": "native",
     "label": "淡白點偵察"
+  },
+  "grow30": {
+    "sha256": "65c556bce0ccb518963279d60d80790be254144c330397fd12b1b49bde89d44f",
+    "geometry": "native"
   }
 }
