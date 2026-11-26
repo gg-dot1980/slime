@@ -32,5 +32,9 @@
   "grow31": {
     "sha256": "c7eea92bc8b1698b457d157c5f1d102b69293af3e724cadf312a1833b38461af",
     "geometry": "native"
+  },
+  "grow32": {
+    "sha256": "d4ada6b01f42fd7791dabdf121441de81c96f59d276301d907e4f03ed495f8d4",
+    "geometry": "native"
   }
 }

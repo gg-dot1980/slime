@@ -16,5 +16,13 @@
       "v13.html"
     ],
     "notMatched": []
+  },
+  {
+    "candidate": 32,
+    "variants": 9,
+    "patches": 9,
+    "code": 1,
+    "alias": [],
+    "notMatched": []
   }
 ]
