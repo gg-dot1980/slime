@@ -1,6 +1,6 @@
 # OCR Grow 版本索引
 
-[Grow1–45 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md) · [Grow／Claude 比較及 Grow44 結果](repro/grow-claude-comparison-20261126/README.md)
+[Grow1–46 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md) · [Grow／Claude 比較及 Grow44 結果](repro/grow-claude-comparison-20261126/README.md)
 
 更新：2026-11-26（臺灣時間）。本索引列出 grow-1～grow-26 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
 

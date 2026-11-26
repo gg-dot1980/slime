@@ -99,5 +99,10 @@
     "geometry": "fhd",
     "qhd": true,
     "label": "v2.13 沿用 Grow38，v2.22 採 Grow15 規劃器"
+  },
+  "grow46": {
+    "sha256": "2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa",
+    "geometry": "qhd",
+    "label": "v2.22 連續追獵距離與第二段預測收益"
   }
 }

@@ -1,0 +1,30 @@
+{
+  "candidateSha256": "2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa",
+  "atFreeze": {
+    "naturalGameStarts": 0
+  },
+  "priorGrow45QhdReplay": {
+    "version": "v2.22",
+    "sourceNativeGames": 4,
+    "sparseSamples": 481,
+    "parentDirectionsMatched": 481,
+    "sparseStagnantSamplesAcrossThreeToastAssumptions": [
+      2,
+      3
+    ],
+    "sparseSamplesWithAnyDiscountedSafePath": 0,
+    "uniqueSparseAndTerminalObservations": 593,
+    "samplesWithAnyDiscountedSafePathIncludingTerminal": 0,
+    "samplesWithChangedFirstOrSecondDirectionIncludingTerminal": 0,
+    "secondSegmentOnlySamples": 97,
+    "withNpcNoticeAtSameOrNextTwoDisplayedSeconds": 62,
+    "withNpcNoticeAtNextOneOrTwoDisplayedSeconds": 58
+  },
+  "synthetic": {
+    "gameStarts": 0,
+    "guardFixtures": 14,
+    "completeParityDecisionsOnOtherVersions": 9,
+    "exampleDiscountedSafePaths": 3,
+    "exampleFirstDirectionChanged": true
+  }
+}
