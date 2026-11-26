@@ -82,5 +82,10 @@
   "grow42": {
     "sha256": "1da5fc0d76d3de4a3c794776982a22c1c12249ab78943fd77f36240dc1be3763",
     "geometry": "native"
+  },
+  "grow43": {
+    "sha256": "86e19c542d301da612bbfa1ec130afcac8c01ca9bfccd942d9d8c19f8274430c",
+    "geometry": "native",
+    "label": "v2.22 體型達 186 的補食與搜尋"
   }
 }
