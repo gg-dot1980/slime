@@ -17,7 +17,7 @@ node docs/ocr/repro/grow-44-public/check-contact.cjs
 
 九種人工可見輸入涵蓋可吃獵物、食物、紅色／裁切／阻擋／過遠的身體、只有白點、附近威脅及牆。v2.13 的九個完整決策都與父版相同。離線 QHD 的兩個 v2.22 固定種子對照中，Grow38 與 Grow44 均為 0/2 在 150 秒內達標，觀察到的體型與存活時間也未顯示改善。
 
-獨立桌機自然探索設定為 2560×1440 視窗、2250×1308 原生畫布、DPR 1，每版本固定四局。測試使用同源原遊戲與其可見結算。[桌機測試入口](../grow-local-r4-20261126/README.md)
+獨立桌機自然探索設定為 2560×1440 視窗、2250×1308 原生畫布、DPR 1，每版本固定四局。測試使用同源原遊戲與其可見結算。[桌機測試入口](../grow-local-r4-20261126/README.md) · [Grow44 實測與 Claude 對照彙總](../grow-claude-comparison-20261126/README.md)
 
 [完整候選](ocr-grow44.html) 的 SHA-256 為 `3c2f5b5a82d3276f0f512255fcc336910e398f27b895fc0334a55b263a8b7a6d`，父版 Grow38 為 `befaf6a2c6ac1ff14596628753e509e5c15eb5bffd0e6f62f81e91b884f239ec`。
 

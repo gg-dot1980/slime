@@ -1,6 +1,6 @@
 # Grow 研究版來源
 
-[Grow1–26 的原版提交、建置方法與 SHA-256](grow-1-26-source-index.md) · [Grow27–43 桌機實測彙總](grow-desktop-summary/README.md) · [桌機測試入口](grow-local-r4-20261126/README.md)
+[Grow1–26 的原版提交、建置方法與 SHA-256](grow-1-26-source-index.md) · [Grow27–43 桌機實測彙總](grow-desktop-summary/README.md) · [桌機測試入口](grow-local-r4-20261126/README.md) · [Grow44 與 Claude 比較](grow-claude-comparison-20261126/README.md)
 
 下表依正式編號排列。每個候選都有獨立提交，完整控制器與實驗時的凍結 HTML 逐位元相同。取該提交的來源時，先在含研究分支的本地 clone 查找完整提交標題，例如 `git log --all --format='%H %s' --grep='^OCR Grow 34:'`，再使用回傳的提交建立獨立 checkout。
 

@@ -4,7 +4,7 @@
 
 [Grow45 的分版來源、決策核對與兩種寬畫面入口](repro/grow-45-public/README.md)
 
-[Grow44 的候選重建、合成測試與 QHD 原生探索入口](repro/grow-44-public/README.md)
+[Grow44 的候選重建、合成測試與 QHD 原生探索入口](repro/grow-44-public/README.md) · [Grow／Claude 配對與自然探索結果](repro/grow-claude-comparison-20261126/README.md)
 
 ## 2026-11-26 09:34：Grow26 preflight攔下初始化時序問題
 

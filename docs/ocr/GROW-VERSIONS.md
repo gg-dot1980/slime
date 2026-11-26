@@ -1,6 +1,6 @@
 # OCR Grow 版本索引
 
-[Grow1–45 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+[Grow1–45 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md) · [Grow／Claude 比較及 Grow44 結果](repro/grow-claude-comparison-20261126/README.md)
 
 更新：2026-11-26（臺灣時間）。本索引列出 grow-1～grow-26 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
 
@@ -81,7 +81,7 @@ Grow23 直接繼承 Grow22；在父版完整確認未達雙版目標後才啟用
 
 使用原遊戲同源 iframe、原生響應式視野。開發測試限桌機 v2.13 及核對後的最新版；測試環境設定外部 viewport，不覆寫頁面。固定源碼、執行器及未驗證項目見 [Grow24](repro/grow-24-public/README.md)。舊固定視野結果不與新批次合併。
 
-## Grow27–43 各版固定提交
+## Grow27–45 各版固定提交
 
 每個提交都保存該版本的完整控制器。可用表中的 GitHub 提交檢視當版所有變更，或開啟固定的 HTML 原始碼。
 
@@ -104,3 +104,5 @@ Grow23 直接繼承 Grow22；在父版完整確認未達雙版目標後才啟用
 | Grow41 | [cee82a42f](https://github.com/gg-dot1980/slime/commit/cee82a42f8e856d0ba9971f55874291ec38d9f50) | [ocr-grow41.html](https://github.com/gg-dot1980/slime/blob/cee82a42f8e856d0ba9971f55874291ec38d9f50/docs/ocr/repro/grow-41-public/ocr-grow41.html) |
 | Grow42 | [90b755836](https://github.com/gg-dot1980/slime/commit/90b7558366f2c823e0c398106705bdde4e0c2ad9) | [ocr-grow42.html](https://github.com/gg-dot1980/slime/blob/90b7558366f2c823e0c398106705bdde4e0c2ad9/docs/ocr/repro/grow-42-public/ocr-grow42.html) |
 | Grow43 | [2874bae90](https://github.com/gg-dot1980/slime/commit/2874bae90d3f938a94c56db7a2808950fa39df01) | [ocr-grow43.html](https://github.com/gg-dot1980/slime/blob/2874bae90d3f938a94c56db7a2808950fa39df01/docs/ocr/repro/grow-43-public/ocr-grow43.html) |
+| Grow44 | [e6130a4f3](https://github.com/gg-dot1980/slime/commit/e6130a4f3a850600d0d77362bbb0e04163dba199) | [ocr-grow44.html](https://github.com/gg-dot1980/slime/blob/e6130a4f3a850600d0d77362bbb0e04163dba199/docs/ocr/repro/grow-44-public/ocr-grow44.html) |
+| Grow45 | [f84eca615](https://github.com/gg-dot1980/slime/commit/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5) | [ocr-grow45.html](https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-45-public/ocr-grow45.html) |
