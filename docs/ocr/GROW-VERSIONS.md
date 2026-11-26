@@ -1,12 +1,12 @@
 # OCR Grow 版本索引
 
-更新：2026-11-26（臺灣時間）。本索引列出 grow-1～grow-25 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
+更新：2026-11-26（臺灣時間）。本索引列出 grow-1～grow-26 的固定來源、重現入口與證據範圍。測試交接權威目標為 `test/ocr-test`；Grow1～17 先前提交與回讀狀態見 [publication.json](repro/grow-evaluation-20261125/publication.json)。
 
 [Grow12～17的80局結果與重現方法](repro/grow-evaluation-20261125/README.md) · [交接索引](TEST-HANDOFF.md) · [歷史來源稽核](repro/grow-evaluation-20261125/historical-inventory.json)
 
 ## 2026-11-26 本機接續
 
-完整GitHub clone及原遊戲hash已核實；[新的本機同源測試與嚴格帳本](repro/grow-local-20261126/README.md)已完成兩版各1局10秒控制診斷並釋鍵。Grow24固定8局探索09:01開始，結果待完整結束後追加；不使用GitHub Actions。Grow25新增感知可達性有限反例，仍是未採用候選，實戰0局。舊Grow23未決與其他歷史成績不變。
+Grow24原生視野探索已中斷：6次嘗試、5次實際遊戲、0勝、3截止、2死亡、1載入中止；剩2次未開始，不補局、不確認。完整結果及記錄限制見[本機r1](repro/grow-local-20261126/README.md)。新[r2 runner](repro/grow-local-r2-20261126/README.md)修正document身份與數字snapshot；[Grow26](repro/grow-26-public/README.md)只修白點第一段接近評分，合成40組242斷言通過，實戰待執行。Grow25仍未採用，舊Grow23未決保留。沒有GitHub Actions。
 
 ## 全部版本
 
@@ -37,6 +37,7 @@
 | grow-23 | [原型與限制](repro/grow-23-public/README.md) | [完整單檔來源](repro/grow-23-public/ocr-grow23.html) | 直接繼承 Grow22，加有條件的離牆空間偏好；13 組合成案例、64 斷言通過。探索 v2.13 4/4（0 截止、0 死亡、0 中止）、v2.22 3/4（1 截止、0 死亡、0 中止），8 個開局全部保留。探索門檻通過；原定各 12 局的獨立確認因執行環境不可用而無法繼續核對，尚未完成，不能判定達標。最後確認快照為 v2.13 2 開局／2 勝，v2.22 2 開局／1 截止／1 未決；未決保留，後續未知。探索已完成決策最大 129.0 ms；含丟棄計算最大 129.0 ms，0 次逾時。 |
 | grow-24 | [原生視野與桌機測試入口](repro/grow-24-public/README.md) | [5c572705](https://github.com/gg-dot1980/slime/commit/5c57270575a344a910243cf9238ab6a64e7683d0) | 原遊戲 iframe、移除固定視野；保留 Grow23 策略。五組合成規劃與10項分類斷言通過，實戰0局，未部署。 |
 | grow-25 | [窄視野偵察與回歸](repro/grow-25-public/README.md) | [981954a](https://github.com/gg-dot1980/slime/commit/981954a95a3a7e2245974e3475b4dbf70812b46b) | 近距離畫面外白點偵察、第一段接近評分；26組／49斷言，實戰0局。Grow24原生視野基線尚缺，未採用或部署。 |
+| grow-26 | [來源與回歸](repro/grow-26-public/README.md) | [完整單檔來源](repro/grow-26-public/ocr-grow26.html) | 直接父版Grow24；白點用0.6秒第一段接近評分，40組242斷言通過，反向取捨保留；自然實戰待新批次。 |
 
 grow-14 的 recovery 是原第 07／08 個未開局位置的續測，仍歸 grow-14，原兩個中斷保留分母；不是另起一個策略版本。Grow-17 的直接父版是 grow-15，沒有繼承 grow-16 的紅色本體上界改動。
 
@@ -77,3 +78,4 @@ Grow23 直接繼承 Grow22；在父版完整確認未達雙版目標後才啟用
 ## Grow24 原生視野接續
 
 使用原遊戲同源 iframe、原生響應式視野。開發測試限桌機 v2.13 及核對後的最新版；測試環境設定外部 viewport，不覆寫頁面。固定源碼、執行器及未驗證項目見 [Grow24](repro/grow-24-public/README.md)。舊固定視野結果不與新批次合併。
+

@@ -55,3 +55,13 @@ node docs/ocr/repro/grow-local-20261126/perception-check.cjs
 一般本機可從本目錄執行`node server.cjs --port 4173`，以前景桌機瀏覽器開啟同源根路徑。在受管Work環境必須使用支援的`sites-preview start <本目錄絕對路徑>`及其回傳URL，不自行另開伺服器或改網路權限；先確認共用預覽空閒。以頁面按鈕執行控制檢查、探索及符合gate後的確認。停止按「停止批次並釋鍵」，核對帳本與畫面，再以`sites-preview stop`關閉本次預覽。
 
 `results-private/`不納入Git。公開提供程式、合成數值fixture及摘要；私人完整事件另保存，公開目錄不是完整實戰原始證據包。Grow23的既有12starts／11finals／1未決保持原樣，沒有由本批替換。未合併、未部署正式OCR4。
+
+## 09:13 探索中斷 — 完整保留負面結果
+
+[公開彙總](grow24-exploration-summary.json)：原定8次，已記6次start、6次result；其中5次原生遊戲、1次setup-abort，剩2次未開始。v2.13三次均在可見151秒截止，體型172／192／158；v2.22兩次死亡，111秒／體型88與130秒／體型127。沒有過關、未決或補局，不能進入確認。
+
+第六次載入候選等待15006ms後逾時，沒有native-started事件或任何controller decision。r1 catch讀到上一局v2.13的暫停HUD（02:29／158），因此原validator另列abort_conflicts_with_outcome。這是舊document證據污染，不能當成本次已玩151秒。原始帳本、原summary與全部來源保持不變；獨立審計以事件身份核對此異常，27項檢查通過是對記錄一致性的核對，不是試驗通過。
+
+原始JSONL SHA256 `db8e65686019cde42f8fbeacde8a923eb980c1b63c949fbf2095a2d4805f3391`；獨立審計SHA256 `3108acc0c69a87806c5437c7c3f3f0d43d5e96a85cb06bbd2a67d80d04fca9f1`。完整私人數字帳本與審計已保存，不在GitHub上公開。導覽未完成的底層原因仍未確認。
+
+r1 snapshot省略visualR、labelSeen、dangerRadius、blocked及heading.target等實際planner欄位，所以不能完整重播原決策。下一個[r2 runner](../grow-local-r2-20261126/README.md)以新iframe和document身份核對修正取證，原r1凍結來源不被覆寫。

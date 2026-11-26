@@ -1,0 +1,6 @@
+{
+  "name": "ocr-grow-local-20261126",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": { "dev": "node server.cjs" }
+}

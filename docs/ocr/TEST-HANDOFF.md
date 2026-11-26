@@ -1,5 +1,14 @@
 # Slime OCR 測試交接索引
 
+## 2026-11-26 09:13：Grow24中斷與Grow26候選
+
+[Grow24結果](repro/grow-local-20261126/grow24-exploration-summary.json) · [r1來源與異常限制](repro/grow-local-20261126/README.md) · [r2新runner](repro/grow-local-r2-20261126/README.md) · [Grow26來源](repro/grow-26-public/README.md)。原定8次，6starts／6results，其中5原生遊戲、1setup-abort、2未開始。v2.13三截止（151秒，體型172／192／158）；v2.22兩死亡（111／130秒，體型88／127），第三次候選載入逾時未開局。0勝、0未決、不補局、不啟動確認。
+
+第6結果混入舊document HUD的r1取證缺陷已標明，原raw/summary/source不改；獨立27項核對保存完整分母與失敗。r2建立新iframe並核對document身份，記錄planner必要欄位；必須完成實際載入／停止診斷後才跑新候選。Grow26為Grow24直接子版，唯一策略改動是白點以第一段0.6秒接近評分；40組242斷言通過，不當作自然勝率。舊Grow23未決與各候選成績均分開。
+
+GitHub feature分支／Draft PR #2繼續指向test/ocr-test；原遊戲不改、不使用Actions，正式部署byte一致性仍因HTTP403未核實。此項是研究進度，非OCR4驗收或正式發布。
+
+
 ## 2026-11-26：Grow24／25來源與原生視野本機測試恢復
 
 [本機固定測試入口](repro/grow-local-20261126/README.md) · [Grow24](repro/grow-24-public/README.md) · [Grow25](repro/grow-25-public/README.md) · [Grow1～25版本索引](GROW-VERSIONS.md)。既有Draft PR #2維持指向test/ocr-test，不使用GitHub Actions。

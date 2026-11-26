@@ -1,0 +1,1170 @@
+{
+  "kind": "numeric-synthetic",
+  "cases": 40,
+  "assertions": 242,
+  "inlineScriptsParsed": 2,
+  "liveStarts": 0,
+  "rows": [
+    {
+      "version": "v2.13",
+      "case": "north scout 350",
+      "before": {
+        "direction": "南",
+        "first": 2,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.5753186188419179
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.30145834483597894
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "south scout 350",
+      "before": {
+        "direction": "北",
+        "first": 6,
+        "second": 2,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.5753186188419179
+      },
+      "after": {
+        "direction": "南",
+        "first": 2,
+        "second": 2,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.30145834483597894
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "north far 1500",
+      "before": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.3373097617709413
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.07118081933267835
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "south far 1500",
+      "before": {
+        "direction": "南",
+        "first": 2,
+        "second": 2,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.3373097617709414
+      },
+      "after": {
+        "direction": "南",
+        "first": 2,
+        "second": 2,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.07118081933267838
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "near 275 stays excluded",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "wide viewport point inside",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "visible food north",
+      "before": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0.45500000000000007,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0.36400000000000005
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0.45500000000000007,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0.36400000000000005
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "visible food cluster",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 1.3650000000000002,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0.3370370370370371
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 1.3650000000000002,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0.3370370370370371
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "visible edible NPC",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 5.235292703891773,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 4.188234163113418
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 5.235292703891773,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 4.188234163113418
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "visible moving NPC",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 5.235292703891773,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 3.610546692339154
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 5.235292703891773,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 3.610546692339154
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "visible danger with scout",
+      "before": {
+        "direction": "東南",
+        "first": 1,
+        "second": 1,
+        "gain": 0,
+        "clearance": 56.914134104082166,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東南",
+        "first": 1,
+        "second": 1,
+        "gain": 0,
+        "clearance": 56.914134104082166,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "map red corridor",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 84.3919290352467,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 84.3919290352467,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "north wall with scout",
+      "before": {
+        "direction": "南",
+        "first": 2,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.5753186188419179
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.30145834483597894
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "stale visible map",
+      "before": {
+        "direction": "等待可靠畫面",
+        "first": null,
+        "second": null,
+        "gain": 0,
+        "clearance": 0,
+        "wallOK": null,
+        "spawnWallOK": null,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": null
+      },
+      "after": {
+        "direction": "等待可靠畫面",
+        "first": null,
+        "second": null,
+        "gain": 0,
+        "clearance": 0,
+        "wallOK": null,
+        "spawnWallOK": null,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": null
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "empty valid map",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "missing map and empty view",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "inertia toward scout",
+      "before": {
+        "direction": "南",
+        "first": 2,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.6888651399068708
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.40587909438300357
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "inertia away from scout",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 5,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.46291246202027153
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.1970375952889544
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "sideways inertia",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 5,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.6223225618945594
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.29123873006209383
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.13",
+      "case": "food versus scouting tradeoff",
+      "before": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 1.4438856345728166
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0.45500000000000007,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0.5352941176470588
+      },
+      "tradeoff": true
+    },
+    {
+      "version": "v2.22",
+      "case": "north scout 350",
+      "before": {
+        "direction": "南",
+        "first": 2,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.5753186188419179
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.30145834483597894
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "south scout 350",
+      "before": {
+        "direction": "北",
+        "first": 6,
+        "second": 2,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.5753186188419179
+      },
+      "after": {
+        "direction": "南",
+        "first": 2,
+        "second": 2,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.30145834483597894
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "north far 1500",
+      "before": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.3373097617709413
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.07118081933267835
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "south far 1500",
+      "before": {
+        "direction": "南",
+        "first": 2,
+        "second": 2,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.3373097617709414
+      },
+      "after": {
+        "direction": "南",
+        "first": 2,
+        "second": 2,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.07118081933267838
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "near 275 stays excluded",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "wide viewport point inside",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "visible food north",
+      "before": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0.45500000000000007,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0.36400000000000005
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0.45500000000000007,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0.36400000000000005
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "visible food cluster",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 1.3650000000000002,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0.3370370370370371
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 1.3650000000000002,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0.3370370370370371
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "visible edible NPC",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 5.235292703891773,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 4.188234163113418
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 5.235292703891773,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 4.188234163113418
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "visible moving NPC",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 5.235292703891773,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 3.610546692339154
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 5.235292703891773,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 3.610546692339154
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "visible danger with scout",
+      "before": {
+        "direction": "東南",
+        "first": 1,
+        "second": 1,
+        "gain": 0,
+        "clearance": 56.914134104082166,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東南",
+        "first": 1,
+        "second": 1,
+        "gain": 0,
+        "clearance": 56.914134104082166,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "map red corridor",
+      "before": {
+        "direction": "東南",
+        "first": 1,
+        "second": 1,
+        "gain": 0,
+        "clearance": 47.65680318366464,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東南",
+        "first": 1,
+        "second": 1,
+        "gain": 0,
+        "clearance": 47.65680318366464,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "north wall with scout",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "stale visible map",
+      "before": {
+        "direction": "等待可靠畫面",
+        "first": null,
+        "second": null,
+        "gain": 0,
+        "clearance": 0,
+        "wallOK": null,
+        "spawnWallOK": null,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": null
+      },
+      "after": {
+        "direction": "等待可靠畫面",
+        "first": null,
+        "second": null,
+        "gain": 0,
+        "clearance": 0,
+        "wallOK": null,
+        "spawnWallOK": null,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": null
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "empty valid map",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "missing map and empty view",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 0,
+        "mapOnly": false,
+        "approach": 0
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "inertia toward scout",
+      "before": {
+        "direction": "南",
+        "first": 2,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.6888651399068708
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.40587909438300357
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "inertia away from scout",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 5,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.46291246202027153
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.1970375952889544
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "sideways inertia",
+      "before": {
+        "direction": "東",
+        "first": 0,
+        "second": 5,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.6223225618945594
+      },
+      "after": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 0.29123873006209383
+      },
+      "tradeoff": false
+    },
+    {
+      "version": "v2.22",
+      "case": "food versus scouting tradeoff",
+      "before": {
+        "direction": "北",
+        "first": 6,
+        "second": 6,
+        "gain": 0,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": true,
+        "approach": 1.4438856345728166
+      },
+      "after": {
+        "direction": "東",
+        "first": 0,
+        "second": 0,
+        "gain": 0.45500000000000007,
+        "clearance": 1000000,
+        "wallOK": true,
+        "spawnWallOK": true,
+        "scoutTargets": 1,
+        "mapOnly": false,
+        "approach": 0.5352941176470588
+      },
+      "tradeoff": true
+    }
+  ],
+  "sourceSha256": "7f6494c12a22d2e833fbec796196cef39c04157325c304e3961ec644652a2f33"
+}
