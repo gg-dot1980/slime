@@ -81,3 +81,26 @@ Grow23 直接繼承 Grow22；在父版完整確認未達雙版目標後才啟用
 
 使用原遊戲同源 iframe、原生響應式視野。開發測試限桌機 v2.13 及核對後的最新版；測試環境設定外部 viewport，不覆寫頁面。固定源碼、執行器及未驗證項目見 [Grow24](repro/grow-24-public/README.md)。舊固定視野結果不與新批次合併。
 
+## Grow27–43 各版固定提交
+
+每個提交都保存該版本的完整控制器。可用表中的 GitHub 提交檢視當版所有變更，或開啟固定的 HTML 原始碼。
+
+| 版本 | 提交 | 當版原始碼 |
+|---|---|---|
+| Grow27 | [e73f4e357](https://github.com/gg-dot1980/slime/commit/e73f4e35716762b58c6fbf7c316cdfbe2fc25feb) | [ocr-grow27.html](https://github.com/gg-dot1980/slime/blob/e73f4e35716762b58c6fbf7c316cdfbe2fc25feb/docs/ocr/repro/grow-27-public/ocr-grow27.html) |
+| Grow28 | [b90281768](https://github.com/gg-dot1980/slime/commit/b902817680fc3c585b3e4ffc9918a08a03c2077b) | [ocr-grow28.html](https://github.com/gg-dot1980/slime/blob/b902817680fc3c585b3e4ffc9918a08a03c2077b/docs/ocr/repro/grow-28-public/ocr-grow28.html) |
+| Grow29 | [702d8c4ed](https://github.com/gg-dot1980/slime/commit/702d8c4ed33fb5919d99110048c91229abb90696) | [ocr-grow29.html](https://github.com/gg-dot1980/slime/blob/702d8c4ed33fb5919d99110048c91229abb90696/docs/ocr/repro/grow-29-public/ocr-grow29.html) |
+| Grow30 | [672f28630](https://github.com/gg-dot1980/slime/commit/672f28630fedfbbc39e44600e52930cd1e5b4249) | [ocr-grow30.html](https://github.com/gg-dot1980/slime/blob/672f28630fedfbbc39e44600e52930cd1e5b4249/docs/ocr/repro/grow-30-public/ocr-grow30.html) |
+| Grow31 | [9cf5ef0cb](https://github.com/gg-dot1980/slime/commit/9cf5ef0cb8d4ae100b633d8d870f32002aea71d4) | [ocr-grow31.html](https://github.com/gg-dot1980/slime/blob/9cf5ef0cb8d4ae100b633d8d870f32002aea71d4/docs/ocr/repro/grow-31-public/ocr-grow31.html) |
+| Grow32 | [123811aaf](https://github.com/gg-dot1980/slime/commit/123811aafb82a167ae074143a85f2d00265c2a46) | [ocr-grow32.html](https://github.com/gg-dot1980/slime/blob/123811aafb82a167ae074143a85f2d00265c2a46/docs/ocr/repro/grow-32-public/ocr-grow32.html) |
+| Grow33 | [7c4d8e845](https://github.com/gg-dot1980/slime/commit/7c4d8e845e565a95b88c685e0539888831e87342) | [ocr-grow33.html](https://github.com/gg-dot1980/slime/blob/7c4d8e845e565a95b88c685e0539888831e87342/docs/ocr/repro/grow-33-public/ocr-grow33.html) |
+| Grow34 | [30f04beac](https://github.com/gg-dot1980/slime/commit/30f04beac361fdee69f51fd9cf64957221c1de60) | [ocr-grow34.html](https://github.com/gg-dot1980/slime/blob/30f04beac361fdee69f51fd9cf64957221c1de60/docs/ocr/repro/grow-34-public/ocr-grow34.html) |
+| Grow35 | [83102d8d5](https://github.com/gg-dot1980/slime/commit/83102d8d5fa23d2cf9b891ddf25a9739d2832e78) | [ocr-grow35.html](https://github.com/gg-dot1980/slime/blob/83102d8d5fa23d2cf9b891ddf25a9739d2832e78/docs/ocr/repro/grow-35-public/ocr-grow35.html) |
+| Grow36 | [1fb0ae0fd](https://github.com/gg-dot1980/slime/commit/1fb0ae0fd6b31367ab124de3ad70c0017887cd66) | [ocr-grow36.html](https://github.com/gg-dot1980/slime/blob/1fb0ae0fd6b31367ab124de3ad70c0017887cd66/docs/ocr/repro/grow-36-public/ocr-grow36.html) |
+| Grow37 | [ac805530a](https://github.com/gg-dot1980/slime/commit/ac805530a79f634bbc673e2b29a75db95d1496b7) | [ocr-grow37.html](https://github.com/gg-dot1980/slime/blob/ac805530a79f634bbc673e2b29a75db95d1496b7/docs/ocr/repro/grow-37-public/ocr-grow37.html) |
+| Grow38 | [08b090de4](https://github.com/gg-dot1980/slime/commit/08b090de49bc3cae87e2ba0e3fddfc4b9982111c) | [ocr-grow38.html](https://github.com/gg-dot1980/slime/blob/08b090de49bc3cae87e2ba0e3fddfc4b9982111c/docs/ocr/repro/grow-38-public/ocr-grow38.html) |
+| Grow39 | [2161552fc](https://github.com/gg-dot1980/slime/commit/2161552fc8f51cb3122eda089403e9715e54d864) | [ocr-grow39.html](https://github.com/gg-dot1980/slime/blob/2161552fc8f51cb3122eda089403e9715e54d864/docs/ocr/repro/grow-39-public/ocr-grow39.html) |
+| Grow40 | [45a55b000](https://github.com/gg-dot1980/slime/commit/45a55b000dbcee93cb79376ceef9302daf79f177) | [ocr-grow40.html](https://github.com/gg-dot1980/slime/blob/45a55b000dbcee93cb79376ceef9302daf79f177/docs/ocr/repro/grow-40-public/ocr-grow40.html) |
+| Grow41 | [cee82a42f](https://github.com/gg-dot1980/slime/commit/cee82a42f8e856d0ba9971f55874291ec38d9f50) | [ocr-grow41.html](https://github.com/gg-dot1980/slime/blob/cee82a42f8e856d0ba9971f55874291ec38d9f50/docs/ocr/repro/grow-41-public/ocr-grow41.html) |
+| Grow42 | [90b755836](https://github.com/gg-dot1980/slime/commit/90b7558366f2c823e0c398106705bdde4e0c2ad9) | [ocr-grow42.html](https://github.com/gg-dot1980/slime/blob/90b7558366f2c823e0c398106705bdde4e0c2ad9/docs/ocr/repro/grow-42-public/ocr-grow42.html) |
+| Grow43 | [2874bae90](https://github.com/gg-dot1980/slime/commit/2874bae90d3f938a94c56db7a2808950fa39df01) | [ocr-grow43.html](https://github.com/gg-dot1980/slime/blob/2874bae90d3f938a94c56db7a2808950fa39df01/docs/ocr/repro/grow-43-public/ocr-grow43.html) |
