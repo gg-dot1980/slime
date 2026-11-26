@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OCR Grow 本機測試 r4</title>
+<style>*{box-sizing:border-box}html,body{margin:0;height:100%;background:#101820;color:#eaf5f2;font:14px system-ui}header{height:88px;padding:9px 14px;border-bottom:1px solid #34464d;display:flex;gap:10px;align-items:center;flex-wrap:wrap}button,select,input{font:inherit;padding:7px 10px;border-radius:7px;border:1px solid #7b9e96;background:#1b3037;color:#eaf5f2}button:disabled{opacity:.4}#status{flex-basis:100%;font-size:13px}#candidate{display:block;border:0;width:100%;height:calc(100vh - 88px)}#report{position:fixed;right:12px;top:100px;max-width:390px;max-height:60vh;overflow:auto;background:#101820ee;padding:12px;z-index:100;display:none;white-space:pre-wrap}label{display:flex;gap:6px;align-items:center}.secondary{background:#293a43}#halt{background:#522e36}</style>
+<header><strong>OCR Grow · r4 固定批次</strong><label>候選<select id="candidateChoice"></select></label><button id="preflight" disabled>載入預檢（不開局）</button><button id="diagnostic" disabled>啟動兩局控制檢查</button><button id="explore" disabled>開始固定探索 8 局</button><button id="confirm" disabled>開始獨立確認 24 局</button><button id="halt" disabled>停止批次並釋鍵</button><button id="details" class="secondary">顯示帳本</button><span id="status">載入測試來源</span></header>
+<iframe id="candidate" title="候選控制器與原遊戲"></iframe><pre id="report"></pre><script src="/navigation.js"></script><script src="/visible-intake.js"></script><script src="/harness.js"></script>
+</html>

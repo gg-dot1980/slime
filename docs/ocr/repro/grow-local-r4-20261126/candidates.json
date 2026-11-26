@@ -1,0 +1,14 @@
+{
+  "grow24": {
+    "sha256": "f276dd1b6dd340c142f00027adf2ddeefc394c74db772edf814cd6f9445f6347",
+    "geometry": "native"
+  },
+  "grow25": {
+    "sha256": "2abdc689ee0e94bfc6e25170c3568dad90d0151e5e1499a7fe0b702584f348d2",
+    "geometry": "native"
+  },
+  "grow26": {
+    "sha256": "7f6494c12a22d2e833fbec796196cef39c04157325c304e3961ec644652a2f33",
+    "geometry": "native"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "id": "grow-native-local-20261126-v4",
+  "scope": "Desktop research: v2.13 and source-verified v2.22; not formal OCR4 acceptance",
+  "sourceGameBytes": "Unmodified Git blobs; live deployment equality separately recorded",
+  "targetSize": 200,
+  "deadlineGameSeconds": 150,
+  "explorationPerVersion": 4,
+  "explorationMinimumWins": 2,
+  "confirmationPerVersion": 12,
+  "confirmationMinimumWins": 6,
+  "diagnosticPerVersion": 1,
+  "diagnosticStopWallSeconds": 10,
+  "order": "v2.13 then v2.22, repeated; fixed before first start",
+  "seed": "Natural Math.random, uncontrolled and unknown; no seed selection",
+  "freshState": "New iframe element with verified expected document URL before every attempt; prior frame removed only after release verification",
+  "viewport": "Native responsive iframe; no canvas/CSS viewport override; outer/candidate/game/canvas sizes and DPR recorded and fixed per comparison",
+  "input": "Original game buttons and Arrow/Space events from candidate controller",
+  "evidence": "Visible native result overlay/title/time or visible game countdown; no hidden game state and no persisted pixels",
+  "deadline": "When remaining clock is below 02:30 and no native ending animation is running, stop; retain elapsed=300-remaining",
+  "settlement": "Ending animation stops gameplay; wait up to 5 seconds for visible native result overlay; do not misclassify the controller's normal finish as abort",
+  "wallTimeLimitSeconds": 240,
+  "failurePolicy": "Every start retained; no replacement; any abort/unknown prevents confirmation eligibility. Exploration may complete all preplanned attempts if control is safely released.",
+  "stop": "Click candidate stop, require active=false and zero held keys; if unverified, interrupt batch without replacement",
+  "recording": "Sequence-checked append-only JSONL fsync. Starts before game click. Fresh-document evidence identity; no prior-attempt HUD used as result. Bounded full numeric planner inputs/outputs; truncation explicitly flagged.",
+  "publication": "Code and sanitized aggregate status on GitHub; private raw diagnostic data is not public",
+  "goalInterpretation": "Both versions independently reach at least 6/12 within150s in a fresh complete confirmation cohort; observed sample result, no long-run statistical guarantee",
+  "diagnosticPreparationLoads": 12,
+  "preparation": "Before every batch, twelve alternating no-game loads. A standalone preflight never creates batch/start rows. Each preparation verifies candidate HTTP bytes/hash/server instance, attaches load/error listeners and src before insertion, checks real navigation HTTP proof and committed ready document. Exactly one navigation per preparation; no reload/replacement on failure; old 15-second readiness bounds retained.",
+  "preflightPreparationLoads": 12,
+  "transport": "Source probe is a separate fetch and does not establish subsequent navigation success; actual navigation must independently have matching HTTP 200/source hash, iframe load commit and ready controller/game. Private bounded metadata journal records request/finish/close/server lifecycle; underlying r3 about:blank cause remains unknown.",
+  "grow27Geometry": {
+    "canvas": [
+      958,
+      557
+    ],
+    "canvasCss": [
+      958,
+      557
+    ],
+    "dpr": 1,
+    "minimapOrigin": [
+      799,
+      70
+    ],
+    "fractionalOrigin": [
+      0,
+      0
+    ],
+    "policy": "Verify actual geometry; never force viewport, CSS or original game. Other DPR integration unverified."
+  },
+  "grow38Geometry": {
+    "cohort": "Desktop focus-mode 1920x1080, DPR1, both versions independently; separate from the native 958x557 cohorts.",
+    "originalGameRendering": "The parent frame fills the available area. The original game CSS and its bitmap size are not changed. Freeze measured canvas/iframe dimensions before games, and verify identical dimensions on every native start.",
+    "candidate": "Grow24 control and perception bytes; outer desktop layout only.",
+    "naturalGames": "Existing 8 exploration attempts and independent 24 confirmation attempts if eligible. No fixed random seeds."
+  }
+}
