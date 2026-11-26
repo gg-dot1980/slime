@@ -1,0 +1,10 @@
+match 323 miss 341 spur 463
+r/R 0-0.5: n68 miss11(full-view 5) ratio med1.02 p10 0.92 p90 1.12 clipped10 dv med15 p90 41 red0
+r/R 0.5-0.8: n69 miss19(full-view 9) ratio med1 p10 0.84 p90 1.11 clipped20 dv med26 p90 56 red0
+r/R 0.8-0.93: n12 miss4(full-view 0) ratio med1.05 p10 1.01 p90 1.13 clipped7 dv med31 p90 44 red0
+r/R 0.93-1.08: n15 miss7(full-view 2) ratio med1.02 p10 0.83 p90 1.06 clipped7 dv med35 p90 65 red0
+r/R 1.08-1.3: n14 miss13(full-view 0) ratio med1.01 p10 0.73 p90 1.04 clipped10 dv med49 p90 66 red8
+r/R 1.3-9: n145 miss287(full-view 1) ratio med0.95 p10 0.59 p90 1.1 clipped128 dv med52 p90 108 red69
+prey read non-edible 3 / 149
+threat read under 1.08 15 / 159
+spur r/R p10/50/90 0.06 0.51 1.73 clipped 260 dist/R med 3.86

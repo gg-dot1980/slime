@@ -31,7 +31,8 @@ const bot=([viewOnly,period,rule,PP])=>{const P={prey:8,food:.8,attract:6,crowd:
   const inView=s=>s.x+s.r>g.cam.x&&s.x-s.r<g.cam.x+g.vw&&s.y+s.r>g.cam.y&&s.y-s.r<g.cam.y+g.vh;
   const seen=viewOnly?slimes.map(s=>inView(s)?s:s.r>R*1.12?{x:s.x,y:s.y,r:R*1.5,vx:0,vy:0,mapRed:true}:{x:s.x,y:s.y,r:(rule==='v3'&&s.r>=45.6)?Math.min(s.r,114):(rule==='v3'?Math.min(R*.6,45):R*.6),vx:0,vy:0,mapWhite:true,sized:rule==='v3'&&s.r>=45.6}):slimes;
   // rule v3: minimap dot radius = clamp(r/38,1.2,3) carries size for 45.6<=r<=114; whites read as >=1.06R are not prey.
-  const near=seen.map(s=>({s,d:Math.hypot(s.x-p.x,s.y-p.y)})).filter(o=>o.d<2600),food=foods.filter(f=>Math.abs(f.x-p.x)<700&&Math.abs(f.y-p.y)<700);
+  // PARAMS offWhite:0 — drop off-view white minimap dots entirely (matches claude-22, which computes no white markers).
+  const near=(P.offWhite===0?seen.filter(s=>!s.mapWhite):seen).map(s=>({s,d:Math.hypot(s.x-p.x,s.y-p.y)})).filter(o=>o.d<2600),food=foods.filter(f=>Math.abs(f.x-p.x)<700&&Math.abs(f.y-p.y)<700);
   let prey=null;for(const o of near)if(R>=o.s.r*P.edible){const gain=Math.sqrt(R*R+.55*o.s.r*o.s.r)-R,v=gain/(o.d/S+1);if(!prey||v>prey.v)prey={...o,v};}
   let best=null;for(const d of DIRS){let score=0,minGap=1e9,ateNpc=new Set(),ateFood=0;
    for(let k=1;k<=K;k++){const t=k*.1,x=p.x+d.x*S*t,y=p.y+d.y*S*t;if(x<R||y<R||x>W-R||y>H-R){score-=(rule==='v2'||rule==='v3')?400:40;break;}if(rule==='v2'||rule==='v3'){const wd=Math.min(x,y,W-x,H-y)-R;if(wd<150)score-=(150-wd)*.6/(t+.3);}
