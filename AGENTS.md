@@ -19,3 +19,8 @@ OCR 文件權威分支是 `gg-dot1980/slime` 的 `test/ocr-test`。開始工作�
 ## 獨立測試與驗收入口
 
 設計／執行測試、review 測試證據或判定驗收前讀 [權威 TESTING.md](docs/ocr/TESTING.md)。測試流程或已核實命令改動時在 test/ocr-test 更新，必要時同步 main 指南及 PR 範本入口；不複製規則。固定 commit、客觀斷言、完整分母與獨立 reviewer／CI 核對；文件 PR 僅做適用檢查。
+
+## OCR Grow 接續工作
+
+依使用者已授權的研究分支接續 Grow 時，先讀 [短檢查點](docs/ocr/GROW-CHECKPOINT.md) 與 [精簡續跑流程](docs/ocr/GROW-WORKFLOW.md)，再讀有變更的適用指示及當前候選所需證據。檢查點不是即時狀態或驗收證據；以更新的凍結來源、ledger 與結果為準。此入口只調整 Grow 的工作方式，不改其他 OCR 規格、批准或發布要求。
+

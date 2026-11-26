@@ -1,5 +1,7 @@
 # OCR Grow 桌機研究批次
 
+接續研究先讀 [短檢查點](../../GROW-CHECKPOINT.md) 與 [精簡續跑流程](../../GROW-WORKFLOW.md)。既有批次優先接續；本頁的批次門檻及凍結規則維持原定要求。
+
 從本提交的 repository 根目錄執行下列命令。需要 Node.js 20 或更新版本與桌機 Chromium，相依套件使用 Node 內建模組。
 
 ```sh
@@ -14,3 +16,4 @@ node docs/ocr/repro/grow-local-r4-20261126/server.cjs --port 4173
 每局私有輸出寫入本目錄的 `results-private/`。每秒 sample 與結束時的 result 可含 `visibleIntake`，記錄可見 HUD 的吞食總數、遊戲秒及期間可讀的食物／NPC 提示與顯示的體型增量。相同提示持續顯示只記一次。同一幀中被覆寫的提示無法逐個還原，分類數是觀察下限。
 
 離線測試可在本目錄執行 `node check-harness.cjs`、`node check-ledger.cjs`、`node check-visible-intake.cjs`。測試使用合成資料。
+
