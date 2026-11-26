@@ -1,0 +1,37 @@
+--- v1.html
++++ v2.html
+@@ -695,7 +695,7 @@
+     if (d < Math.max(10,r*.5)) return;
+     const world = anchor ? {x:anchor.x+o.x,y:anchor.y+o.y} : null;
+-    const same = oldLock && world && hypot(oldLock.x-world.x,oldLock.y-world.y) < 180;
++    const same = !o.remembered && oldLock && world && hypot(oldLock.x-world.x,oldLock.y-world.y) < 160;
+     const angle = ((v.x*o.x+v.y*o.y)/Math.max(1,speed*d)+1)/2;
+-    goals.push({...o, utility: utility*(same ? 2.1 : 1)*(.95+.1*angle), world});
++    goals.push({...o, baseUtility:utility, utility: utility*(same ? 1.6 : 1)*(.95+.1*angle), world});
+   }
+   for(const o of meals) {
+@@ -726,8 +726,15 @@
+     }
+   }
++  if (anchor && oldLock && oldLock.mapOnly && oldLock.missing < 22 && !goals.some(o=>o.world && hypot(o.world.x-oldLock.x,o.world.y-oldLock.y)<150)) {
++    const x=oldLock.x-anchor.x,y=oldLock.y-anchor.y,dist=hypot(x,y);
++    const obstruction=bodies.some(b=>hypot(b.x-x,b.y-y)<Math.max(100,b.r*.8)&&!b.edible);
++    if(!obstruction && dist>Math.max(65,r+20) && dist<900)
++      addGoal({x,y,r:oldLock.r,npc:true,mapOnly:true,remembered:true,vx:0,vy:0},oldLock.value*1.65);
++  }
+   goals.sort((a,b)=>b.utility-a.utility);
+   const target31 = goals[0] || null;
+   const targets = goals.slice(0,1);
+-  const pursuit31 = target31?.world || null;
++  const pursuit31 = target31?.world ? {...target31.world,r:target31.r,mapOnly:target31.mapOnly,
++    value:target31.remembered ? oldLock.value : target31.baseUtility,missing:target31.remembered ? oldLock.missing+1 : 0} : null;
+   const reachableMeals = meals.filter(o => hypot(o.x, o.y) < speed * 2.5 + r + o.r).slice(0, 100);
+   const oldModeEscape = old.escaping === true;
+@@ -782,5 +789,6 @@
+     const walk=hypot(x,y)/(speed*steps*dt);
+     const approach=target?alignment*clamp(target.utility,1,12):0;
+-    const score=approach*2.0+gain*2.4+walk*.6+maintain*.25-risk*6-wallCost*7;
++    const foodWeight = r<50 ? 9 : r<85 ? 5 : 2;
++    const score=approach*(target?.mapOnly ? .85 : 2.3)+gain*foodWeight+walk*.9+maintain*.42-risk*8-wallCost*7;
+     paths.push({...d, first, second, score, gain: growth, discountedGain: gain,
+       approach, target, clearance, immediateGap, endGap, wallOK, wallCost, risk, spawnWallOK,

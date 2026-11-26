@@ -1,0 +1,19 @@
+--- v6.html
++++ v7.html
+@@ -733,5 +733,5 @@
+       const p=mapPoint(dot), dist=hypot(p.x,p.y);
+       if (dist<320 || dist>speed*12 || Math.abs(p.x)<(map.viewWidth||958)*.45 && Math.abs(p.y)<(map.viewHeight||557)*.45) continue;
+-      const estimate = dot.area<7 ? Math.min(r*.85, r<45?18:32) : Math.min(r*.88,38*Math.sqrt(dot.area/Math.PI));
++      const estimate = dot.area<7 ? Math.min(r*.8,22) : Math.min(r*.83,38*Math.sqrt(dot.area/Math.PI));
+       const eta=dist/speed, value=gainFor(estimate);
+       const cluster = dots.reduce((sum,m)=>sum+(m!==dot && hypot(m.x-dot.x,m.y-dot.y)<8 ? 1 : 0),0);
+@@ -802,7 +802,7 @@
+     const walk=hypot(x,y)/(speed*steps*dt);
+     const approach=target?alignment*clamp(target.utility,1,12):0;
+-    const foodWeight = r<50 ? 9 : r<85 ? 5 : 2;
++    const foodWeight = r<85 ? 7 : 3;
+     const trailCost = visits(x,y);
+-    const score=-2.6*trailCost+approach*(target?.mapOnly ? .85 : 2.3)+gain*foodWeight+walk*.9+maintain*.42-risk*8-wallCost*7;
++    const score=-1.4*trailCost+approach*(target?.mapOnly ? .85 : 2.3)+gain*foodWeight*(.7+.3*walk)+walk*.9+maintain*.42-risk*8-wallCost*7;
+     paths.push({...d, first, second, score, gain: growth, discountedGain: gain,
+       approach, target, clearance, immediateGap, endGap, wallOK, wallCost, risk, spawnWallOK,

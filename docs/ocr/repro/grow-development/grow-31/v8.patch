@@ -1,0 +1,43 @@
+--- ocr-grow31.html
++++ v8.html
+@@ -653,5 +653,5 @@
+     // 16%. A confirmed non-lethal upper bound can be tested with a reduced
+     // expected reward until a stationary, unresolved contact becomes blocked.
+-    const tryNeutral = cappedGame && !red && !o.blocked && !o.clipped && o.upper < playerLow*1.04 && o.r < r*.94;
++    const tryNeutral = !red && !o.blocked && !o.clipped && o.upper < playerLow*1.04 && o.r < r*.94;
+     if (tryNeutral && !o.edible) meals.push({...o,growth:gainFor(o.r)*.62,food:false});
+     if (o.edible) meals.push({...o, growth: gainFor(Math.min(o.r, o.upper)), food: false});
+@@ -722,5 +722,5 @@
+       dots.push(o);
+     }
+-    for (const dot of (immune ? [] : dots)) {
++    for (const dot of dots) {
+       const p=mapPoint(dot), dist=hypot(p.x,p.y);
+       if (dist<320 || dist>speed*12 || Math.abs(p.x)<(map.viewWidth||958)*.45 && Math.abs(p.y)<(map.viewHeight||557)*.45) continue;
+@@ -738,6 +738,5 @@
+   }
+   goals.sort((a,b)=>b.utility-a.utility);
+-  const localHarvest = r>=75 ? goals.find(o=>!o.mapOnly && o.growth>1.5 && hypot(o.x,o.y)<575) : null;
+-  const target31 = localHarvest || goals[0] || null;
++  const target31 = goals[0] || null;
+   const targets = goals.slice(0,1);
+   const pursuit31 = target31?.world ? {...target31.world,r:target31.r,mapOnly:target31.mapOnly,
+@@ -785,5 +784,5 @@
+         if (hypot(o.x + (o.vx || 0) * t - x, o.y + (o.vy || 0) * t - y) < contact) {
+           picked.add(i); const g = Math.min(Math.max(0, 200 - r - growth), o.growth);
+-          growth += g; gain += cappedGame ? g/(t+.5)*(k<=turnAt ? 1 : .6) : g/(t+.65)*(k<=turnAt ? 1 : .70);
++          growth += g; gain += g/(t+.5) * (k<=turnAt ? 1 : .6);
+           if(k<=turnAt) firstGain+=g;
+         }
+@@ -796,9 +795,7 @@
+     const walk=hypot(x,y)/(speed*steps*dt);
+     const approach=target?alignment*clamp(target.utility,1,12):0;
+-    const foodWeight = r<50 ? 9 : r<85 ? 5 : immune ? 12 : 2;
++    const foodWeight = r<50 ? 9 : r<85 ? 5 : 2;
+     const bend=1-d.x*dirs[second].x-d.y*dirs[second].y;
+-    const score = cappedGame ?
+-      approach*(target?.mapOnly ? .95 : 2.5)+gain*foodWeight+firstGain*1.8+walk*2+maintain*.5-bend*1.5-risk*8-wallCost*7 :
+-      approach*(target?.mapOnly ? .85 : 2.3)+gain*foodWeight+walk*.9+maintain*.42-risk*8-wallCost*7;
++    const score=approach*(target?.mapOnly ? .95 : 2.5)+gain*foodWeight+firstGain*1.8+walk*2+maintain*.5-bend*1.5-risk*8-wallCost*7;
+     paths.push({...d, first, second, score, gain: growth, discountedGain: gain,
+       approach, target, clearance, immediateGap, endGap, wallOK, wallCost, risk, spawnWallOK,

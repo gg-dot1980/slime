@@ -1,0 +1,26 @@
+--- v2.html
++++ v4.html
+@@ -720,8 +720,11 @@
+       const p=mapPoint(dot), dist=hypot(p.x,p.y);
+       if (dist<320 || dist>speed*12 || Math.abs(p.x)<(map.viewWidth||958)*.45 && Math.abs(p.y)<(map.viewHeight||557)*.45) continue;
+-      const estimate = dot.area<7 ? Math.min(r*.85, r<45?18:32) : Math.min(r*.88,38*Math.sqrt(dot.area/Math.PI));
+-      const eta=dist/speed, value=gainFor(estimate);
++      const body = dot.area < 6 ? Math.min(34, r*.78) : 38*Math.sqrt((dot.area+1)/Math.PI);
++      const uncertainSize = dot.area >= 20 || dot.area < 6;
++      if (!uncertainSize && body > r*1.12) continue;
++      const estimate = Math.min(r*.88,body);
++      const eta=dist/speed, value=gainFor(estimate) * (body>1.02*r && r<145 ? .48 : 1);
+       const cluster = dots.reduce((sum,m)=>sum+(m!==dot && hypot(m.x-dot.x,m.y-dot.y)<8 ? 1 : 0),0);
+-      addGoal({...p,r:estimate,npc:true,mapOnly:true,vx:0,vy:0}, (value+.45)*1.9*(1+Math.min(3,cluster)*.17)/(eta+.9)/(1+.5*corridorPressure(p,eta)));
++      addGoal({...p,r:estimate,npc:true,mapOnly:true,vx:0,vy:0}, (value+.45)*1.9*(1+Math.min(3,cluster)*.3)/(eta+.9)/(1+.5*corridorPressure(p,eta)));
+     }
+   }
+@@ -789,6 +792,6 @@
+     const walk=hypot(x,y)/(speed*steps*dt);
+     const approach=target?alignment*clamp(target.utility,1,12):0;
+-    const foodWeight = r<50 ? 9 : r<85 ? 5 : 2;
+-    const score=approach*(target?.mapOnly ? .85 : 2.3)+gain*foodWeight+walk*.9+maintain*.42-risk*8-wallCost*7;
++    const foodWeight = r<55 ? 9 : r<90 ? 5 : 1.2;
++    const score=approach*(target?.mapOnly ? (r<55?.85:1.25) : 3.2)+gain*foodWeight+walk*.9+maintain*.42-risk*8-wallCost*7;
+     paths.push({...d, first, second, score, gain: growth, discountedGain: gain,
+       approach, target, clearance, immediateGap, endGap, wallOK, wallCost, risk, spawnWallOK,

@@ -1,0 +1,61 @@
+--- v8.html
++++ v10.html
+@@ -650,9 +650,4 @@
+     if (red && !immune) o.upper = Math.max(o.upper, Math.min(cappedGame ? 200 : Infinity, playerHigh * 1.12));
+     o.edible = !o.clipped && !o.blocked && !red && o.upper * 1.08 <= playerLow;
+-    // The native size threshold separates an edible and a lethal contact by
+-    // 16%. A confirmed non-lethal upper bound can be tested with a reduced
+-    // expected reward until a stationary, unresolved contact becomes blocked.
+-    const tryNeutral = !red && !o.blocked && !o.clipped && o.upper < playerLow*1.04 && o.r < r*.94;
+-    if (tryNeutral && !o.edible) meals.push({...o,growth:gainFor(o.r)*.62,food:false});
+     if (o.edible) meals.push({...o, growth: gainFor(Math.min(o.r, o.upper)), food: false});
+     if (immune || o.upper < playerLow * 1.08) { if (!o.edible) neutralCount++; continue; }
+@@ -720,5 +715,5 @@
+         dots.some(m=>hypot(m.x-o.x,m.y-o.y)<2) ||
+         (map.threats||[]).some(m=>hypot(m.x-o.x,m.y-o.y)<2.1)) continue;
+-      dots.push(o);
++      dots.push({...o,x:o.x+.5,y:o.y+.5});
+     }
+     for (const dot of dots) {
+@@ -731,4 +726,18 @@
+     }
+   }
++  // Evaluate the next food on a short chain. A food lane may be more
++  // efficient than crossing empty space to inspect a low-confidence dot.
++  for(const meal of foods.slice(0,16)){
++    const dist=hypot(meal.x,meal.y), eta=Math.max(.04,(dist-r)/speed);
++    let next=0;
++    for(const other of foods.slice(0,24)){
++      if(other===meal)continue;
++      const delta=hypot(other.x-meal.x,other.y-meal.y);
++      const forward=((other.x-meal.x)*meal.x+(other.y-meal.y)*meal.y)/Math.max(1,delta*dist);
++      next=Math.max(next, .40/(.35+Math.max(0,delta-r)/speed)*(.7+.3*forward));
++    }
++    const value=(.4+.6*next)/(.4+eta)/(1+corridorPressure(meal,eta));
++    addGoal({...meal,mapOnly:false,eta},value*(r<65?1.7:.70));
++  }
+   if (anchor && oldLock && oldLock.mapOnly && oldLock.missing < 22 && !goals.some(o=>o.world && hypot(o.world.x-oldLock.x,o.world.y-oldLock.y)<150)) {
+     const x=oldLock.x-anchor.x,y=oldLock.y-anchor.y,dist=hypot(x,y);
+@@ -749,5 +758,5 @@
+   const dt = .1, follow = 1 - Math.exp(-4.2 * dt), steps = 22, turnAt = 6;
+   for (let first = 0; first < 8; first++) for (let second = 0; second < 8; second++) {
+-    let x=0,y=0,vx=v.x,vy=v.y,gain=0,growth=0,risk=0,firstGain=0;
++    let x = 0, y = 0, vx = v.x, vy = v.y, gain = 0, growth = 0, risk = 0;
+     let firstSegmentX = 0, firstSegmentY = 0;
+     let clearance = 1e6, immediateGap = 1e6, endGap = 1e6, wallOK = true, wallCost = 0, spawnWallOK = true;
+@@ -784,6 +793,5 @@
+         if (hypot(o.x + (o.vx || 0) * t - x, o.y + (o.vy || 0) * t - y) < contact) {
+           picked.add(i); const g = Math.min(Math.max(0, 200 - r - growth), o.growth);
+-          growth += g; gain += g/(t+.5) * (k<=turnAt ? 1 : .6);
+-          if(k<=turnAt) firstGain+=g;
++          growth += g; gain += g / (t + .65) * (k <= turnAt ? 1 : .70);
+         }
+       }
+@@ -796,6 +804,5 @@
+     const approach=target?alignment*clamp(target.utility,1,12):0;
+     const foodWeight = r<50 ? 9 : r<85 ? 5 : 2;
+-    const bend=1-d.x*dirs[second].x-d.y*dirs[second].y;
+-    const score=approach*(target?.mapOnly ? .95 : 2.5)+gain*foodWeight+firstGain*1.8+walk*2+maintain*.5-bend*1.5-risk*8-wallCost*7;
++    const score=approach*(target?.mapOnly ? .85 : target?.npc ? 2.3 : 1.25)+gain*foodWeight+walk*.9+maintain*.42-risk*8-wallCost*7;
+     paths.push({...d, first, second, score, gain: growth, discountedGain: gain,
+       approach, target, clearance, immediateGap, endGap, wallOK, wallCost, risk, spawnWallOK,
