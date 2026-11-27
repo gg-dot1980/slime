@@ -1,0 +1,26 @@
+{
+  "schema": 1,
+  "candidate": "grow54",
+  "parent": "grow53",
+  "experiment": "hold escape until two visible frames have clearance at least 14; recompute direction every frame and use the existing emergency ordering only while the normal path is within one player radius or has a negative endpoint gap",
+  "baseline": {"grow53DeathSamples": 211, "grow53Exact": 211},
+  "grow53Deaths": {
+    "attempts": 2,
+    "triggers": 4,
+    "forcedDecisions": 9,
+    "changedDecisions": 6,
+    "higherEndpointGap": 5,
+    "higherClearance": 3,
+    "introducedWallTrap": 0
+  },
+  "grow51WinCounterexamples": {
+    "attempts": 6,
+    "triggers": 3,
+    "forcedDecisions": 7,
+    "changedDecisions": 1,
+    "lowerPredictedGain": 0,
+    "lowerClearance": 0,
+    "introducedWallTrap": 0
+  },
+  "verdict": "supported-for-natural-exploration"
+}
