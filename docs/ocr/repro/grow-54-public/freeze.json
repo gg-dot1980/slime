@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "candidate": "grow54",
+  "parent": "grow53",
+  "sourceCommit": "bd6af4f2b6c47ecac7c105fbe9c872cf98552545",
+  "candidatePath": "docs/ocr/repro/grow-54-public/ocr-grow54.html",
+  "candidateGitBlob": "ff6b83242a640610154286e9f5d8cce12e097271",
+  "candidateSha256": "3372fbb4c9d1e42e14d2f88a1f980a68477b7856f55f58ba32e53610e77338f4",
+  "originalGames": {
+    "v2.13": {
+      "path": "src/game-v2.13.html",
+      "gitBlob": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97"
+    },
+    "v2.22": {
+      "path": "src/game.html",
+      "gitBlob": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+    }
+  },
+  "desktopQhd": {
+    "viewport": [2560, 1440],
+    "canvas": [2250, 1308],
+    "dpr": 1,
+    "locale": "zh-TW",
+    "phaseOrder": ["preflight", "diagnostic", "explore"],
+    "explorationSlots": {"v2.13": 4, "v2.22": 4},
+    "confirmationSlots": {"v2.13": 12, "v2.22": 12},
+    "explorationGate": 2,
+    "confirmationGate": 6,
+    "maxGameSeconds": 150,
+    "targetSize": 200
+  },
+  "change": {
+    "v2.13": "unchanged Grow38/Grow23 decision",
+    "v2.22": "after an escape decision with clearance <= 0, keep escape state until two consecutive visible frames have clearance >= 14; recompute direction every frame, and while held use the existing emergency ordering only when the normal path clearance is below the current player radius or its endpoint gap is negative"
+  }
+}

@@ -134,5 +134,15 @@
     "sha256": "6a0562b8bd74c38e9d49a666d870fd5e33314dfab8df1b09b4d4633ac96875b6",
     "geometry": "qhd",
     "label": "Grow52 · 正常安全間隙 14"
+  },
+  "grow53": {
+    "sha256": "2ee212a3be69555a9b04b39bc7b8f45f932f79154e075d41da37ebc18cca794c",
+    "geometry": "qhd",
+    "label": "Grow53 · 三畫面目標速度中位數"
+  },
+  "grow54": {
+    "sha256": "3372fbb4c9d1e42e14d2f88a1f980a68477b7856f55f58ba32e53610e77338f4",
+    "geometry": "qhd",
+    "label": "Grow54 · 兩畫面安全後解除逃逸"
   }
 }
