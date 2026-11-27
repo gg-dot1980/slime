@@ -12,7 +12,7 @@
 | 確認狀態 | Grow49 尚未啟動獨立確認。Grow46 的歷史獨立確認為 v2.13 10/12、v2.22 4/12。 |
 | 結果資料截止 | 2026-11-27T08:31:59+08:00 [Grow49 定位與決策回放](repro/grow-49-public/validation/visible-centers.md)。16 張完整名稱，定位誤差中位數 30.45 → 4.45 像素。Grow49 新自然開局 0。 |
 | 唯一下一步 | 查既有鎖與帳本。桌機可啟動 Chromium 後，以同一 Grow49 凍結來源和 QHD 條件執行自然預檢、控制診斷與兩版各 4 局，獨立保留同步終場原圖；雙版各達 2/4 且完整才另起各 12 局確認。 |
-| 目前阻礙 | 本地啟動器的 Chromium 執行檔缺失，官方安裝來源回應 HTTP 403。若環境未變，接續既有零開局紀錄；保留局限於同一自然局的原圖與所有反例，免重做離線回放。 |
+| 目前阻礙 | 同機 Chromium 執行檔缺失，官方下載回應 403。另測 QtWebEngine 5.15.2（Chromium 83），能讀取同源 QHD 測試畫布，但 Grow49 與 r4 均無法解析邏輯賦值語法，零開局。待同機取得相容 Chromium（現有 Playwright 對應 revision 1234）後接續預檢。 |
 
 來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [Grow46 進度門檻](repro/grow-46-public/results/progress-timing.md) · [Grow46 成長實現率](repro/grow-46-public/results/gain-realization.md) · [Grow46 目標連續性](repro/grow-46-public/results/target-continuity.md) · [Grow46 45° 轉向回放](repro/grow-46-public/results/turn-limit-replay.md) · [Grow46 擺盪核對](repro/grow-46-public/results/oscillation-audit.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
 
