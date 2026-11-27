@@ -5,17 +5,17 @@
 | 欄位 | 最近已核對的紀錄 |
 |---|---|
 | 研究分支 | `feat/grow-evaluation-20261125` |
-| 已核對來源提交 | Grow50 策略來源 `36f3372ae12210f105911907ce24d3bcbfd6fe09`，HTML Git blob `a359264beaf19e571cd1f56bd9267d3af5b39b8f`。 |
-| 候選／凍結來源 | Grow50（父版 Grow49），HTML SHA-256 `3f04d509d6bc0b8ad95865bf8f5a75f2282ad87cf2cd6737b6ed11e6e44ff8f6`。[凍結條件](repro/grow-50-public/freeze.json)。 |
-| 環境分組 | 桌機 QHD，視窗 2560×1440、原畫布 2250×1308、DPR 1；不混用其他幾何 |
-| 下一版追加測試 | Grow50 之後第一個新凍結候選另跑[模擬手機搖桿組](repro/grow-mobile-joystick/README.md)，v2.13 和 v2.22 各 4 局。兩個版本分列勝率與分母。狀態為待候選凍結。 |
-| 離線固定回歸 | Grow49 v2.22 三張死亡合併影格皆恢復硬威脅（3/3）；九張勝局免疫控制皆未誤恢復（0/9）。十二張 PNG 與十二份 sidecar 均逐檔核對雜湊，獨立覆核通過。此結果僅供候選開發，不算自然局。 |
-| 已完成探索 | Grow50 封帳，v2.13 4/4、v2.22 1/4；八局均有有效結果及釋鍵紀錄。v2.22 為 1 勝、2 死亡、1 截止。 |
-| 確認狀態 | Grow50 的 v2.22 未達 2/4，兩版獨立確認均開 0 局。Grow46 的歷史獨立確認為 v2.13 10/12、v2.22 4/12。 |
-| 結果資料截止 | 2026-11-27T17:10:27+08:00 [Grow50 選中路徑終點間隙趨勢回放](repro/grow-50-public/results/end-gap-trend-replay.md)。自然探索完整 ledger SHA-256 `35af00760ead30a2cbfe39c38ca4d52b764a73d1ac92c81f37eba8034d78e396`。 |
-| 唯一下一步 | 固定回放 Grow50 v2.22 的 5 個原選路徑負值事件，只驗證「選中路徑剛切換且 `endGap<0`」時改走最大安全間隙是否仍有足夠反應時間。逐幀核對替代路徑 `wallOK`、`clearance`、首次觸發到死亡的時間，並以第 2 局勝局作相反例；兩個死亡組與勝局都支持後才建立候選。 |
-| 回放紀錄 | Grow50 規劃器 144/144 幀精確重現。先前廣義條件會改變勝局 8 幀，故已排除。此次連續下降假說在 5 個原選負值事件前命中 0/5；其中 4/5 於事件當幀切換路徑，3/5 在約 100–113 ms 由正值跳為負值。勝局原選路徑負值為 0，但缺少等密度的成功前趨勢樣本，因此不建立新候選。 |
+| 已核對來源提交 | Grow51 策略來源 `5d709666ad2db7a6f8cbde0bc0f7702f5f98d6c2`，HTML Git blob `9a45effbf825fca960d5103e069b3c32c97737fa`。 |
+| 候選／凍結來源 | Grow51（父版 Grow50），HTML SHA-256 `5ffe0a35611299410c2f70ab20c849785783db2a9c740a38c4cacf1ac449f5f6`；凍結提交 `839af62f23102ef1e2c4a252496677b383d62673`。[凍結條件](repro/grow-51-public/freeze.json)。 |
+| 桌機環境 | QHD，視窗 2560×1440、原畫布 2250×1308、DPR 1；不混用其他幾何。 |
+| 模擬手機搖桿 | Grow51 已完成固定 4+4：v2.13 0/4（4 截止），v2.22 0/4（2 死亡、2 截止）。視窗 402×753、原畫布 384×467、DPR 1；只用可見搖桿與第二觸點加速，不含傾斜。手機組不混入桌機驗收。 |
+| 離線固定回歸 | Grow51 規劃器 144/144 幀精確重現；安全閘改變死亡回放 3 幀（第 1 局 1 幀、第 4 局 2 幀），勝局 46 幀改變 0 幀。僅供候選開發，不算自然局。 |
+| 已完成探索 | Grow51 桌機固定 4+4：v2.13 2/4、v2.22 2/4；兩版均達門檻，八局完整有效。 |
+| 獨立確認 | Grow51：v2.13 10/12（通過）；v2.22 4/12（5 死亡、3 截止，未達 6/12）。二十四局完整有效，無中止或未知。 |
+| 結果資料截止 | 2026-11-27T20:37:15+08:00。[Grow51 自然結果](repro/grow-51-public/results/README.md)；桌機探索 ledger SHA-256 `944b2f0f508ec339cc9f3c8947561ec59026e07b740eeaff1962162ef1e5c65d`，確認 ledger SHA-256 `89792611c39fd58a3fda45d54414ad93dd89bb767989ae3ee098eabf7d1b7ddc`。 |
+| 唯一下一步 | 固定回放 v2.22 確認中 14 個安全閘觸發事件，只比較「威脅仍逼近且安全間隙仍為正時，保持已選安全方向最多 1.5 秒」。須改善觸發死亡／截止組，且不破壞唯一的觸發勝局相反例，才建立 Grow52。 |
+| 診斷依據 | 安全閘在 6/12 局共觸發 14 個取樣點；觸發局為 1 勝、3 死亡、2 截止，未觸發局為 3 勝、2 死亡、1 截止。14 次中 13 次只維持一個取樣點，所有有下一取樣的事件皆立即再次改向，顯示目前閘門不具方向保持力。 |
 
-來源：[Grow50 選中路徑終點間隙趨勢回放](repro/grow-50-public/results/end-gap-trend-replay.md) · [Grow50 密集威脅／終點間隙回放](repro/grow-50-public/results/dense-gap-replay.md) · [Grow50 自然結果](repro/grow-50-public/results/natural.md) · [Grow50 說明](repro/grow-50-public/README.md) · [Grow49 自然結果](repro/grow-49-public/results/natural.md) · [Grow49 近身威脅回放](repro/grow-49-public/results/close-threat-replay.md) · [Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [精簡續跑流程](GROW-WORKFLOW.md) · [既有 runner](repro/grow-local-r4-20261126/README.md)。
+來源：[Grow51 自然結果](repro/grow-51-public/results/README.md) · [Grow51 聚合資料](repro/grow-51-public/results/aggregates.json) · [Grow51 說明](repro/grow-51-public/README.md) · [Grow51 凍結條件](repro/grow-51-public/freeze.json) · [模擬手機搖桿流程](repro/grow-mobile-joystick/README.md) · [精簡續跑流程](GROW-WORKFLOW.md)。
 
 每階段完成後只更新本表與下一步，附當次來源；舊成績仍保留在逐版結果中。若目前候選或批次已前進，先更新索引，不照過時的下一步重新開局。
