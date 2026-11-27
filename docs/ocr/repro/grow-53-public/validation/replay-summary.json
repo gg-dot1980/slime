@@ -1,0 +1,30 @@
+{
+  "schema": 1,
+  "candidate": "grow53",
+  "parent": "grow52",
+  "experiment": "three-frame-target-velocity-median",
+  "baseline": {"grow52Samples": 553, "grow52Exact": 553},
+  "grow52Failures": {
+    "attempts": 4,
+    "appliedDecisions": 19,
+    "changedDecisions": 3,
+    "higherPredictedGain": 2,
+    "lowerPredictedGain": 0,
+    "higherClearance": 2,
+    "lowerClearance": 1,
+    "introducedUnsafe": 0,
+    "baselineRouteChanges": 484,
+    "candidateRouteChanges": 484
+  },
+  "grow51WinCounterexamples": {
+    "attempts": 6,
+    "appliedDecisions": 15,
+    "changedDecisions": 1,
+    "lowerPredictedGain": 0,
+    "lowerClearance": 0,
+    "introducedUnsafe": 0,
+    "changedDecisionBaselineClearance": 17.337662956811016,
+    "changedDecisionCandidateClearance": 151.7161043126195
+  },
+  "verdict": "supported-for-natural-exploration"
+}
