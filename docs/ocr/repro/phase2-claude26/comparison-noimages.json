@@ -1,0 +1,80 @@
+{
+ "groups": {
+  "v2.13|claude-22": {
+   "games": 20,
+   "valid": 20,
+   "excluded": 0,
+   "excludedOutcomes": [],
+   "win150": 0,
+   "deaths": 0,
+   "sizeMedian": 118,
+   "sizeMedianCI95": [
+    108,
+    128
+   ],
+   "npcEatsMedian": 10.5
+  },
+  "v2.13|claude-26": {
+   "games": 20,
+   "valid": 20,
+   "excluded": 0,
+   "excludedOutcomes": [],
+   "win150": 0,
+   "deaths": 0,
+   "sizeMedian": 121,
+   "sizeMedianCI95": [
+    114,
+    142
+   ],
+   "npcEatsMedian": 10
+  },
+  "v2.22|claude-22": {
+   "games": 20,
+   "valid": 20,
+   "excluded": 0,
+   "excludedOutcomes": [],
+   "win150": 0,
+   "deaths": 3,
+   "sizeMedian": 111.5,
+   "sizeMedianCI95": [
+    99,
+    127
+   ],
+   "npcEatsMedian": 6.5
+  },
+  "v2.22|claude-26": {
+   "games": 20,
+   "valid": 20,
+   "excluded": 0,
+   "excludedOutcomes": [],
+   "win150": 0,
+   "deaths": 4,
+   "sizeMedian": 138,
+   "sizeMedianCI95": [
+    111,
+    144
+   ],
+   "npcEatsMedian": 7
+  }
+ },
+ "differences": {
+  "v2.13: claude-22 - claude-26": {
+   "medianDiff": -3,
+   "ci95": [
+    -27,
+    10
+   ],
+   "clearsA": "0/20",
+   "clearsB": "0/20"
+  },
+  "v2.22: claude-22 - claude-26": {
+   "medianDiff": -26.5,
+   "ci95": [
+    -41,
+    2
+   ],
+   "clearsA": "0/20",
+   "clearsB": "0/20"
+  }
+ }
+}
