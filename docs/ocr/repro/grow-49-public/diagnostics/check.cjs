@@ -1,0 +1,14 @@
+'use strict';
+const fs = require('node:fs');
+const vm = require('node:vm');
+const assert = require('node:assert/strict');
+const path = require('node:path');
+const html = fs.readFileSync(process.argv[2] || path.join(__dirname, '..', 'ocr-grow49.html'), 'utf8');
+const scripts = [...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)];
+assert.ok(scripts.length >= 2);
+for (const [i, s] of scripts.entries()) new vm.Script(s[1], {filename:'candidate-script-' + i});
+assert.equal(html.match(/strategy: 'grow-49'/g).length, 2);
+assert.ok(html.includes("Grow49 候選／Grow-12 舊基線"));
+assert.ok(html.includes("runStrategy==='grow-23'&&runGameVersion==='v2.22'?r:0"));
+assert.ok(html.includes("if (gameVersion === 'v2.22') return planHunt47("));
+console.log('Embedded scripts compile. Candidate identity and version dispatch verified.');

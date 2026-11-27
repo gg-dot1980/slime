@@ -24,7 +24,9 @@ def build(parent):
          "v2.13 沿用 Grow38。v2.22 以 Grow48 為基礎。大型 NPC 在畫面單邊被裁切時，若可見輪廓符合單一圓形，沿垂直於該邊的方向修正其中心。"),
     ]:
         change(old, new)
-    html = html.replace("<title>OCR Grow 48", "<title>OCR Grow 49")
+    change("Grow48 候選／Grow-12 舊基線", "Grow49 候選／Grow-12 舊基線")
+    assert html.count("strategy: 'grow-48'") == 2
+    html = html.replace("strategy: 'grow-48'", "strategy: 'grow-49'")
     change("function components(data,w,h,scale,uiMasks=[]){",
            (ROOT / "clipped-center.js").read_text() + "\nfunction components(data,w,h,scale,uiMasks=[],edgePlayerRadius=0){")
     change("&&aspect<=12&&!textLike)found.push", "&&aspect<=12&&!textLike){found.push")

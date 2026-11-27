@@ -896,7 +896,7 @@ function planHunt47(objects, r, map, speed, v, old, gameVersion, now, npcToast) 
     {x: -1, y: 0, name: '西'}, {x: -Math.SQRT1_2, y: -Math.SQRT1_2, name: '西北'},
     {x: 0, y: -1, name: '北'}, {x: Math.SQRT1_2, y: -Math.SQRT1_2, name: '東北'}
   ];
-  const stop = reason => ({x: 0, y: 0, name: '等待可靠畫面', strategy: 'grow-48',
+  const stop = reason => ({x: 0, y: 0, name: '等待可靠畫面', strategy: 'grow-49',
     mapStatus: 'lost', reason, gain: 0, clearance: 0, threats: 0, escaping: false,
     recovering: false, target: null});
   if (!Array.isArray(objects) || !finite(r) || r < 1 || !finite(speed) || speed <= 0)
@@ -1189,7 +1189,7 @@ function planHunt47(objects, r, map, speed, v, old, gameVersion, now, npcToast) 
       baselineSecond:baseline46?.second??(beforeWall47||chosen).second,
       preWallFirst:(beforeWall47||chosen).first,preWallSecond:(beforeWall47||chosen).second,
       firstChanged:!!baseline46&&baseline46.first!==(beforeWall47||chosen).first,
-      routeChanged:!!baseline46&&(baseline46.first!==(beforeWall47||chosen).first||baseline46.second!==(beforeWall47||chosen).second)}, strategy: 'grow-48', mapStatus: mapOK ? 'visible' : 'main-view',
+      routeChanged:!!baseline46&&(baseline46.first!==(beforeWall47||chosen).first||baseline46.second!==(beforeWall47||chosen).second)}, strategy: 'grow-49', mapStatus: mapOK ? 'visible' : 'main-view',
     reason: escaping ? 'escape' : immune ? 'cap200-finish' : target?.mapOnly ? 'scout-visible-dot' :
       target?.npc ? 'intercept-growth' : 'food-and-exploration',
     threats: localHazards.length, escaping, recovering, immune,
@@ -1316,7 +1316,7 @@ function loadGrowGame(){
  for(const id of ['size','time','ms'])$(id).textContent='—';$('attempt').textContent='0';$('action').textContent='等待';$('detail').textContent='';$('rank').textContent='';$('visionText').textContent='';$('vision').width=0;
  if(!expected){$('status').textContent='版本未核對，禁止開始';return;}
  $('status').textContent='正在載入 '+expected;game.title=expected+' 原遊戲';
- game.onload=()=>{if(generation!==loadGeneration)return;try{const doc=game.contentDocument;const actual=doc?.querySelector('.eyebrow')?.textContent.match(/v\d+\.\d+/)?.[0];if(actual!==expected||!doc.querySelector('canvas'))throw Error('版本或 Canvas 核對失敗');loadedVersion=actual;$('gameVersion').textContent='已載入 '+actual+' · 原遊戲 iframe';$('status').textContent=actual+' 已就緒；Grow48 候選／Grow-12 舊基線';$('go').disabled=false;}catch(e){$('status').textContent=e.message;$('go').disabled=true;}};
+ game.onload=()=>{if(generation!==loadGeneration)return;try{const doc=game.contentDocument;const actual=doc?.querySelector('.eyebrow')?.textContent.match(/v\d+\.\d+/)?.[0];if(actual!==expected||!doc.querySelector('canvas'))throw Error('版本或 Canvas 核對失敗');loadedVersion=actual;$('gameVersion').textContent='已載入 '+actual+' · 原遊戲 iframe';$('status').textContent=actual+' 已就緒；Grow49 候選／Grow-12 舊基線';$('go').disabled=false;}catch(e){$('status').textContent=e.message;$('go').disabled=true;}};
  game.src=path;
 }
 async function loadVersions(){

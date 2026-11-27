@@ -114,5 +114,10 @@
     "sha256": "c1127a2fef754be13639f5fe96821080d4707a69b27c4dd7763b2145624b5253",
     "geometry": "qhd",
     "label": "Grow48 v2.22 近牆避讓"
+  },
+  "grow49": {
+    "sha256": "85071f2d68a8320b444aa643f5dffb61cbe2523f6de5caf8cb45ba542bd5a0b6",
+    "geometry": "qhd",
+    "label": "Grow49 · 單邊裁切定位"
   }
 }

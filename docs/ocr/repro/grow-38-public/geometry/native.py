@@ -13,16 +13,18 @@ GEOMETRIES = {
 PHASES = ("preflight", "diagnostic", "explore", "confirm")
 SOURCE = "befaf6a2c6ac1ff14596628753e509e5c15eb5bffd0e6f62f81e91b884f239ec"
 
-def run(mode, port, through, chromium, candidate="grow38", locale=None):
+def run(mode, port, through, chromium, candidate="grow38", locale=None, observer=None):
     outer, expected = GEOMETRIES[mode]
     url = f"http://127.0.0.1:{port}"
     with sync_playwright() as playwright:
-        launch_args = ["--disable-dev-shm-usage"] if candidate in ("grow44", "grow45", "grow46", "grow47", "grow48") else []
+        launch_args = ["--disable-dev-shm-usage"] if candidate in ("grow44", "grow45", "grow46", "grow47", "grow48", "grow49") else []
         browser = playwright.chromium.launch(executable_path=chromium, args=launch_args)
         context_args = {"viewport": {"width": outer[0], "height": outer[1]}, "device_scale_factor": 1}
-        if locale is not None or candidate in ("grow44", "grow45", "grow46", "grow47", "grow48"):
+        if locale is not None or candidate in ("grow44", "grow45", "grow46", "grow47", "grow48", "grow49"):
             context_args["locale"] = locale or "zh-TW"
         page = browser.new_page(**context_args)
+        if observer is not None:
+            observer.attach(page, manifest_url=url)
         page.goto(url)
         page.locator("#candidateChoice:enabled").wait_for()
         manifest = page.request.get(url + "/lab/manifest").json()
@@ -61,6 +63,8 @@ def run(mode, port, through, chromium, candidate="grow38", locale=None):
                 result = page.request.get(url + "/lab/status?" + urlencode({"batchId": batch})).json()
                 print(json.dumps({"phase": phase, "complete": result["complete"], "integrityOk": result["integrityOk"],
                                   "counts": result["counts"], "meetsGoal": result["meetsGoal"]}))
+                if observer is not None:
+                    observer.after_phase(page, phase, result)
                 if not result["complete"] or not result["integrityOk"]:
                     break
                 if phase == "explore" and not result["eligibleForConfirm"]:
@@ -75,7 +79,7 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=4173)
     parser.add_argument("--through", choices=PHASES, default="preflight")
     parser.add_argument("--chromium", help="Optional installed Chromium executable")
-    parser.add_argument("--candidate", choices=("grow38", "grow44", "grow45", "grow46", "grow47", "grow48"), default="grow38")
-    parser.add_argument("--locale", help="Browser locale (Grow44/45/46/47 default to zh-TW)")
+    parser.add_argument("--candidate", choices=("grow38", "grow44", "grow45", "grow46", "grow47", "grow48", "grow49"), default="grow38")
+    parser.add_argument("--locale", help="Browser locale (Grow44–49 default to zh-TW)")
     args = parser.parse_args()
     run(args.mode, args.port, args.through, args.chromium, args.candidate, args.locale)
