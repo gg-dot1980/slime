@@ -1,0 +1,124 @@
+{
+  "candidate": "claude-29",
+  "freeze": "freeze.json",
+  "stage": "exploration",
+  "groups": {
+    "desktop-qhd": [
+      {
+        "version": "v2.13",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 0,
+        "cutoff150": 4,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          131,
+          144,
+          131,
+          163
+        ],
+        "sizeMedian": 137.5,
+        "canvas": [
+          2250,
+          1308
+        ],
+        "observer": {
+          "npcEatsMedian": 18.5,
+          "foodGainMedian": 28.3,
+          "npcGainMedian": 87.2
+        }
+      },
+      {
+        "version": "v2.22",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 0,
+        "cutoff150": 4,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          92,
+          169,
+          111,
+          175
+        ],
+        "sizeMedian": 140.0,
+        "canvas": [
+          2250,
+          1308
+        ],
+        "observer": {
+          "npcEatsMedian": 11.0,
+          "foodGainMedian": 34.5,
+          "npcGainMedian": 81.0
+        }
+      }
+    ],
+    "mobile-joystick": [
+      {
+        "version": "v2.13",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 0,
+        "cutoff150": 4,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          108,
+          71,
+          77,
+          98
+        ],
+        "sizeMedian": 87.5,
+        "canvas": [
+          384,
+          467
+        ],
+        "observer": {
+          "npcEatsMedian": 7.0,
+          "foodGainMedian": 34.7,
+          "npcGainMedian": 25.4
+        },
+        "touchMisses": 0,
+        "untrustedPointers": 0
+      },
+      {
+        "version": "v2.22",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 1,
+        "cutoff150": 3,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          68,
+          54,
+          77,
+          61
+        ],
+        "sizeMedian": 64.5,
+        "canvas": [
+          384,
+          467
+        ],
+        "observer": {
+          "npcEatsMedian": 2.5,
+          "foodGainMedian": 30.2,
+          "npcGainMedian": 6.3
+        },
+        "touchMisses": 0,
+        "untrustedPointers": 0
+      }
+    ]
+  },
+  "confirmation": "not started (desktop exploration below 2/4 on both versions)"
+}

@@ -5,13 +5,13 @@
     "branch": "ocr-claude",
     "commit": "80b1f7922aef468cfa131da23d22f87dc104d280"
   },
-  "scope": "Claude 1–28 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
+  "scope": "Claude 1–29 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
   "inventory": {
-    "naturalBatches": 22,
-    "naturalStrategyVersionGroups": 93,
+    "naturalBatches": 23,
+    "naturalStrategyVersionGroups": 97,
     "controllerDiagnosticGroups": 2,
-    "proxyBatches": 14,
-    "proxyGroups": 151,
+    "proxyBatches": 15,
+    "proxyGroups": 157,
     "perceptionReports": 10,
     "coverageGaps": 5
   },
@@ -2111,6 +2111,71 @@
           ]
         }
       ]
+    },
+    {
+      "batch": "claude-29-exploration",
+      "condition": "natural_exploration_cohorts",
+      "sourceId": "claude-29/exploration.json",
+      "conditionsSourceId": "claude-29/freeze.json",
+      "reportSourceId": "claude-29/README.md",
+      "groups": [
+        {
+          "group": "desktop-qhd",
+          "strategy": "claude-29",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 137.5,
+              "npcEatsMedian": 18.5
+            },
+            {
+              "version": "v2.22",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 140.0,
+              "npcEatsMedian": 11.0
+            }
+          ]
+        },
+        {
+          "group": "mobile-joystick",
+          "strategy": "claude-29",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 87.5,
+              "npcEatsMedian": 7.0
+            },
+            {
+              "version": "v2.22",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "sizeMedian": 64.5,
+              "npcEatsMedian": 2.5
+            }
+          ]
+        }
+      ]
     }
   ],
   "diagnosticController": [
@@ -3544,6 +3609,65 @@
         }
       ],
       "note": "W1–W4：K4 設定只加一類真實辨識誤差；L1：claude-28 決策、真實畫面辨識、量化小地圖保留視野框上的點。"
+    },
+    {
+      "batch": "claude-29-hybrid",
+      "kind": "hybrid_real_minimap",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "claude-29/README.md",
+      "conditionsSourceId": "claude-29/README.md",
+      "groups": [
+        {
+          "group": "A1-detall-c28",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 2,
+          "sizeMedian": 100
+        },
+        {
+          "group": "A1-detall-c28",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 129.5
+        },
+        {
+          "group": "A2-detall-c29",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 1,
+          "sizeMedian": 126.5
+        },
+        {
+          "group": "A2-detall-c29",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 2,
+          "sizeMedian": 126
+        },
+        {
+          "group": "N1-noise-c28-v213",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 144.5
+        },
+        {
+          "group": "N1-noise-c28-v222",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 1,
+          "sizeMedian": 143.5
+        }
+      ],
+      "note": "QHD。A1/A2：控制器完整真實辨識（detall），牆鐘計時的記憶在 3 倍速下偏長；N1：模擬小地圖加真實點大小誤差。"
     }
   ],
   "perceptionDiagnostics": [
@@ -4392,6 +4516,11 @@
         }
       },
       "note": "軌跡配對使用真實 NPC 身分。只列跨局的速度及尺寸統計，counts 段採逐局鍵故略過。"
+    },
+    {
+      "id": "claude-29-dotsize-probe",
+      "sourceId": "claude-29/dotsize-probe.json",
+      "note": "QHD 真實小地圖白點大小估計 vs 真實半徑（claude-28 執行時）"
     }
   ],
   "coverageGaps": [
@@ -4770,6 +4899,22 @@
     },
     "claude-28/freeze.json": {
       "path": "docs/ocr/repro/claude-28/freeze.json",
+      "branch": "ocr"
+    },
+    "claude-29/exploration.json": {
+      "path": "docs/ocr/repro/claude-29/exploration.json",
+      "branch": "ocr"
+    },
+    "claude-29/freeze.json": {
+      "path": "docs/ocr/repro/claude-29/freeze.json",
+      "branch": "ocr"
+    },
+    "claude-29/README.md": {
+      "path": "docs/ocr/repro/claude-29/README.md",
+      "branch": "ocr"
+    },
+    "claude-29/dotsize-probe.json": {
+      "path": "docs/ocr/repro/claude-29/dotsize-probe.json",
       "branch": "ocr"
     }
   }
