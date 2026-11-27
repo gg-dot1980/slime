@@ -1,0 +1,4 @@
+A1-detall-c28    v2.13: n8 win2 death2 med100.0 v2.22: n8 win0 death1 med129.5 | wins 2 | err 0
+A2-detall-c29    v2.13: n8 win1 death1 med126.5 v2.22: n8 win0 death2 med126.0 | wins 1 | err 0
+N1-noise-c28-v213 v2.13: n8 win3 death0 med144.5 | wins 3 | err 0
+N1-noise-c28-v222 v2.22: n8 win2 death1 med143.5 | wins 2 | err 0

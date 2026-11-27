@@ -13,7 +13,7 @@ const hwarp=Math.max(1,Number(process.env.HYBRID_WARP)||1),period=Math.max(4,Mat
 if(process.env.HYBRID_SRC)OPTS.__src=process.env.HYBRID_SRC;
 // HYBRID_NOWHITE=1: give the planner no off-view white markers (matches claude-20/22/23/24, which compute none).
 if(process.env.HYBRID_EXTRA)Object.assign(OPTS,JSON.parse(process.env.HYBRID_EXTRA));// HYBRID_EXTRA: JSON merged into the planner options (test-only screening)
-if(process.env.HYBRID_NOWHITE)OPTS.__noWhite=true;if(process.env.HYBRID_PROBE)OPTS.__probe=true;if(process.env.HYBRID_REC)OPTS.__rec=true;if(process.env.HYBRID_RIMFILTER)OPTS.__rim=true;if(process.env.HYBRID_MIX)OPTS.__mix=process.env.HYBRID_MIX.split(',');
+if(process.env.HYBRID_NOWHITE)OPTS.__noWhite=true;if(process.env.HYBRID_PROBE)OPTS.__probe=true;if(process.env.HYBRID_REC)OPTS.__rec=true;if(process.env.HYBRID_RIMFILTER)OPTS.__rim=true;if(process.env.HYBRID_MAPNOISE)OPTS.__mapNoise=true;if(process.env.HYBRID_MIX)OPTS.__mix=process.env.HYBRID_MIX.split(',');
 const browser=await chromium.launch({channel:'chrome',headless:true});
 // OCR_GEOMETRY=qhd: window 2560×1440 and the game canvas set to 2250 CSS px wide (2250×1308), the Grow QHD desktop
 // geometry. Default: window 2000×1163 with the page's own 1050×610 canvas.
@@ -40,14 +40,17 @@ const driver=([opts,period])=>{const gw=document.getElementById('game').contentW
   // px of the camera rectangle stroke removed (the stroke is drawn over the dots).
   const mw=144,mh=144*g.H/g.W,real=opts.__realMap,q2=v=>real?Math.round(v-.5)+.5:v,mp=q=>({x:q2(q.x/g.W*mw),y:q2(q.y/g.H*mh)});
   const L=g.cam.x/g.W*mw,T=g.cam.y/g.H*mh,Rr=(g.cam.x+g.vw)/g.W*mw,B=(g.cam.y+g.vh)/g.H*mh,onStroke=q=>{const x=q.x/g.W*mw,y=q.y/g.H*mh;return (Math.abs(x-L)<1.5||Math.abs(x-Rr)<1.5)&&y>T-1.5&&y<B+1.5||(Math.abs(y-T)<1.5||Math.abs(y-B)<1.5)&&x>L-1.5&&x<Rr+1.5;};
+  // HYBRID_MAPNOISE=1: real-minimap size readings (QHD probe, claude-28): rEst ≈ 0.945×true with ~8% log-normal spread,
+  // and 34% of sized dots read no size; drawn once per NPC so readings are stable over time.
+  const NZ=window.__nz=window.__nz||new WeakMap(),noisyR=q=>{if(!NZ.has(q)){const u=Math.random(),v=Math.random(),z=Math.sqrt(-2*Math.log(u+1e-9))*Math.cos(2*Math.PI*v);NZ.set(q,Math.random()<.34?null:.945*Math.exp(.08*z));}const k=NZ.get(q);return k===null?null:Math.min(q.r*k,114);};
   const off=g.slimes.filter(q=>!inView(q)&&!(real&&!opts.__keepStroke&&onStroke(q)));
   const map={x:0,y:0,width:mw,height:mh,player:mp(p),pixelRatio:1,viewWidth:g.vw,viewHeight:g.vh,visibleWalls:null,
-   threats:off.filter(q=>q.r>R*1.12).map(mp),growMarkers:[...off.filter(q=>q.r>R*1.12).map(q=>({...mp(q),red:true})),...off.filter(q=>q.r<=R*1.12&&!opts.__noWhite).map(q=>({...mp(q),red:false,rEst:q.r>=45.6?Math.min(q.r,114):null}))]};
+   threats:off.filter(q=>q.r>R*1.12).map(mp),growMarkers:[...off.filter(q=>q.r>R*1.12).map(q=>({...mp(q),red:true})),...off.filter(q=>q.r<=R*1.12&&!opts.__noWhite).map(q=>({...mp(q),red:false,rEst:q.r>=45.6?(opts.__mapNoise?noisyR(q):Math.min(q.r,114)):null}))]};
   const c=p.color,S=Math.max(92,260-(R-25)*.65)*(.72+(.2126*c[0]+.7152*c[1]+.0722*c[2])/255*.58)*1.38;
   // HYBRID_SRC: substitute the controller's REAL perception for one part. detmap = real minimap detection with true
   // on-screen objects; detview = real on-screen detection with the simulated (degraded) minimap.
   let useObjects=objects,useMap=map;
-  if(['detmap','detview','detnpc','detfood','mix'].includes(opts.__src)){const doc=gw.document,hud=Number(doc.getElementById('size')?.textContent)||25,a=window.__see(doc.querySelector('canvas'),hud,g.elapsed*1000,{x:p.vx,y:p.vy});// game-time clock: correct under HYBRID_WARP (wall clock would inflate on-screen velocities N times)
+  if(['detmap','detview','detnpc','detfood','mix','detall'].includes(opts.__src)){const doc=gw.document,hud=Number(doc.getElementById('size')?.textContent)||25,a=window.__see(doc.querySelector('canvas'),hud,g.elapsed*1000,{x:p.vx,y:p.vy});// game-time clock: correct under HYBRID_WARP (wall clock would inflate on-screen velocities N times)
    // HYBRID_RIMFILTER=1 (test-only screening): drop tiny unclipped "NPC" blobs on the player's own rim
    // (frame study: ~64% of spurious detections are r≈8 px at 0.95–1.13R from the centre, far from any true NPC).
    if(opts.__rim&&a.objects)a.objects=a.objects.filter(o=>!(o.npc&&!o.clipped&&!o.mapOnly&&o.r<=Math.min(16,R*.2)&&Math.abs(Math.hypot(o.x,o.y)/R-1.04)<=.16));
@@ -66,7 +69,8 @@ const driver=([opts,period])=>{const gw=document.getElementById('game').contentW
      const sx=t.x+p.x,sy=t.y+p.y,part=sx-t.r<g.cam.x||sy-t.r<g.cam.y||sx+t.r>g.cam.x+g.vw||sy+t.r>g.cam.y+g.vh;
      if(best){used.add(best);if(P.m.length<4000)P.m.push([rd(t.r/R),rd(best.r/t.r),best.clipped?1:0,Math.round(Math.hypot(best.vx-t.vx,best.vy-t.vy)),rd(Math.hypot(t.x,t.y)/R),part?1:0,best.isRed?1:0]);}
      else if(P.miss.length<2000)P.miss.push([rd(t.r/R),rd(Math.hypot(t.x,t.y)/R),part?1:0]);}
-    for(const d of det)if(!used.has(d)&&P.spur.length<2000)P.spur.push([rd(d.r/R),rd(Math.hypot(d.x,d.y)/R),d.clipped?1:0]);}if(opts.__src==='detmap'){if(a.map?.player)useMap=a.map;else stats.noMap=(stats.noMap||0)+1;}else if(opts.__src==='detview')useObjects=a.objects||[];
+    for(const d of det)if(!used.has(d)&&P.spur.length<2000)P.spur.push([rd(d.r/R),rd(Math.hypot(d.x,d.y)/R),d.clipped?1:0]);}if(opts.__src==='detmap'||opts.__src==='detall'){if(a.map?.player)useMap=a.map;else stats.noMap=(stats.noMap||0)+1;if(opts.__src==='detall')useObjects=a.objects||[];}// detall = the controller's full real perception (screen + minimap), driven at HYBRID_WARP
+   else if(opts.__src==='detview')useObjects=a.objects||[];
    // detnpc = detected NPCs + true foods; detfood = true NPCs + detected foods (splits the on-screen perception gap).
    else if(opts.__src==='detnpc')useObjects=[...(a.objects||[]).filter(o=>o.npc),...objects.filter(o=>!o.npc)];
    else if(opts.__src==='detfood')useObjects=[...objects.filter(o=>o.npc),...(a.objects||[]).filter(o=>!o.npc)];

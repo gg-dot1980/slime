@@ -1,0 +1,46 @@
+{
+  "probe": "scripts/probe-dotsize-qhd-ocr-claude.mjs",
+  "strategy": "claude-28",
+  "geometry": "qhd",
+  "secondsPerVersion": 140,
+  "byVersion": [
+    {
+      "version": "v2.13",
+      "markerReadings": 4987,
+      "trueSized46to112": 1336,
+      "withSize": 932,
+      "noSize": 404,
+      "rEstOverTrue": {
+        "p10": 0.849,
+        "p50": 0.945,
+        "p90": 1.057
+      },
+      "acceptedTargets": 652,
+      "acceptedUneatable": 107,
+      "acceptedLethal": 26,
+      "sizedPreyWithoutSize": 238,
+      "sizedPrey": 707,
+      "offViewSizedWhitesChecked": 1111,
+      "offViewSizedWhitesWithoutMarker": 82
+    },
+    {
+      "version": "v2.22",
+      "markerReadings": 3472,
+      "trueSized46to112": 1862,
+      "withSize": 1238,
+      "noSize": 624,
+      "rEstOverTrue": {
+        "p10": 0.851,
+        "p50": 0.946,
+        "p90": 1.041
+      },
+      "acceptedTargets": 1113,
+      "acceptedUneatable": 166,
+      "acceptedLethal": 63,
+      "sizedPreyWithoutSize": 546,
+      "sizedPrey": 1505,
+      "offViewSizedWhitesChecked": 1713,
+      "offViewSizedWhitesWithoutMarker": 101
+    }
+  ]
+}
