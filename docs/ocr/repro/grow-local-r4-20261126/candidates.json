@@ -1,0 +1,138 @@
+{
+  "grow24": {
+    "sha256": "f276dd1b6dd340c142f00027adf2ddeefc394c74db772edf814cd6f9445f6347",
+    "geometry": "native"
+  },
+  "grow25": {
+    "sha256": "2abdc689ee0e94bfc6e25170c3568dad90d0151e5e1499a7fe0b702584f348d2",
+    "geometry": "native"
+  },
+  "grow26": {
+    "sha256": "7f6494c12a22d2e833fbec796196cef39c04157325c304e3961ec644652a2f33",
+    "geometry": "native"
+  },
+  "grow27": {
+    "sha256": "08e618fa6d05703a302f8cfc798aea6074c7ffe99805529b92149a4c8fc6e914",
+    "geometry": "native"
+  },
+  "grow28": {
+    "sha256": "8c684579c7fd54462c715dd50ee166ffa91f11efb3b1c8ccc248280fa14051f1",
+    "geometry": "native",
+    "label": "可見目標的第一段接近"
+  },
+  "grow29": {
+    "sha256": "c2be01577f298c43d994bb3d433bea7b5dcfeb9d4db4409469282996c7f47e5d",
+    "geometry": "native",
+    "label": "淡白點偵察"
+  },
+  "grow30": {
+    "sha256": "65c556bce0ccb518963279d60d80790be254144c330397fd12b1b49bde89d44f",
+    "geometry": "native"
+  },
+  "grow31": {
+    "sha256": "c7eea92bc8b1698b457d157c5f1d102b69293af3e724cadf312a1833b38461af",
+    "geometry": "native"
+  },
+  "grow32": {
+    "sha256": "d4ada6b01f42fd7791dabdf121441de81c96f59d276301d907e4f03ed495f8d4",
+    "geometry": "native"
+  },
+  "grow33": {
+    "sha256": "5caf1539b31686ca20f3169b8934fadd66708929011f9b040eca55c317536a44",
+    "geometry": "native"
+  },
+  "grow34": {
+    "sha256": "bd81bb39284b62762acce3d9c84562139dd44d71e16187134c95d2f43e14ef56",
+    "geometry": "native"
+  },
+  "grow35": {
+    "sha256": "eeec42256fc85c4f56f63734c7d453280669da6080df8acdd164fc66e2733ddb",
+    "geometry": "native",
+    "label": "v2.13 採 Grow32，v2.22 採 Grow31"
+  },
+  "grow36": {
+    "sha256": "017cf13f29f941f8e7ac77ccd3e1e9103434cc2bb4bc764e215b148d3fc0885a",
+    "geometry": "native",
+    "label": "小地圖邊緣白點與沿牆路徑預測"
+  },
+  "grow37": {
+    "sha256": "1dc6c3f77fa54dfbe0ab73b3179ccc428aac149368abad3605ffdb245fda63aa",
+    "geometry": "native",
+    "label": "裁切輪廓與側向觀察"
+  },
+  "grow38": {
+    "sha256": "befaf6a2c6ac1ff14596628753e509e5c15eb5bffd0e6f62f81e91b884f239ec",
+    "geometry": "fhd",
+    "qhd": true
+  },
+  "grow39": {
+    "sha256": "42e55f8e17819100b33f1d787673c61e612f49a89dd7c648c29d79e4d556181c",
+    "geometry": "native",
+    "label": "跨視野追蹤與多目標路線"
+  },
+  "grow40": {
+    "sha256": "27893e0d44a4b9d0aea54f73c38be16048bed47c78abe387d5845f09d22e179f",
+    "geometry": "native",
+    "label": "新出現的小地圖白點偵察"
+  },
+  "grow41": {
+    "sha256": "7a8aeb4d4bec0b79cf4194a374a1fb8cf5de6e91ad476f64e06ede1daf6f7f5c",
+    "geometry": "native",
+    "label": "玩家與獵物輪廓重疊時的近身追蹤"
+  },
+  "grow42": {
+    "sha256": "1da5fc0d76d3de4a3c794776982a22c1c12249ab78943fd77f36240dc1be3763",
+    "geometry": "native"
+  },
+  "grow43": {
+    "sha256": "86e19c542d301da612bbfa1ec130afcac8c01ca9bfccd942d9d8c19f8274430c",
+    "geometry": "native",
+    "label": "v2.22 體型達 186 的補食與搜尋"
+  },
+  "grow44": {
+    "sha256": "3c2f5b5a82d3276f0f512255fcc336910e398f27b895fc0334a55b263a8b7a6d",
+    "geometry": "qhd",
+    "label": "v2.22 可接觸獵物優先"
+  },
+  "grow45": {
+    "sha256": "7f2712f72d46b4bd8ec2a401c66a58f82db661eab5de33d26b355cd7edf8bdcc",
+    "geometry": "fhd",
+    "qhd": true,
+    "label": "v2.13 沿用 Grow38，v2.22 採 Grow15 規劃器"
+  },
+  "grow46": {
+    "sha256": "2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa",
+    "geometry": "qhd",
+    "label": "v2.22 連續追獵距離與第二段預測收益"
+  },
+  "grow47": {
+    "sha256": "a333fd5ba52c2cbb4c6eb17fde85f5e53c9a98924a61440fe606ccb8fca27fee",
+    "geometry": "qhd",
+    "label": "Grow47 v2.22 預測牆距"
+  },
+  "grow48": {
+    "sha256": "c1127a2fef754be13639f5fe96821080d4707a69b27c4dd7763b2145624b5253",
+    "geometry": "qhd",
+    "label": "Grow48 v2.22 近牆避讓"
+  },
+  "grow49": {
+    "sha256": "85071f2d68a8320b444aa643f5dffb61cbe2523f6de5caf8cb45ba542bd5a0b6",
+    "geometry": "qhd",
+    "label": "Grow49 · 單邊裁切定位"
+  },
+  "grow50": {
+    "sha256": "3f04d509d6bc0b8ad95865bf8f5a75f2282ad87cf2cd6737b6ed11e6e44ff8f6",
+    "geometry": "qhd",
+    "label": "Grow50 · 重疊警告復原"
+  },
+  "grow51": {
+    "sha256": "5ffe0a35611299410c2f70ab20c849785783db2a9c740a38c4cacf1ac449f5f6",
+    "geometry": "qhd",
+    "label": "Grow51 · 切換路徑安全閘"
+  },
+  "grow52": {
+    "sha256": "6a0562b8bd74c38e9d49a666d870fd5e33314dfab8df1b09b4d4633ac96875b6",
+    "geometry": "qhd",
+    "label": "Grow52 · 正常安全間隙 14"
+  }
+}

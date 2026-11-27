@@ -1,5 +1,120 @@
 # Slime OCR 測試交接索引
 
+[Grow1–47 逐版來源、提交標題及程式雜湊](repro/grow-version-history.md) · [桌機自然批次與固定種子彙總](repro/grow-desktop-summary/README.md)
+
+## 2026-11-26：Grow47 已公開，0 開局預檢被環境攔下
+
+[Grow47 完整來源及有限機制檢查](repro/grow-47-public/README.md) · [短檢查點](GROW-CHECKPOINT.md)。本次只新增此候選，檢驗 v2.22 的 1.5 秒預測牆距；v2.13 保留原規劃器。獨立來源 review 無阻塞，近牆食物／小 NPC 的收益損失反例保留。[實際預檢與阻礙](repro/grow-47-public/results/README.md)顯示 viewport 1363×936／canvas 958×557 不符既定 QHD，停止在開局前；CLI 的獨立瀏覽器主檔亦缺失。自然仍為 0 局，沒有執行中的自然批次。來源提交 `daeb7d9a6d48a6b76de2e286731f5c70016cd589` 的 18 檔已從 GitHub 完整回讀一致。下一步僅恢復支援的 QHD 執行環境，接續同一候選的預檢、診斷及固定探索／合格後確認。仍不使用 GitHub Actions。
+
+Grow46 已結案確認 v2.13 10/12、v2.22 4/12，尚未達雙版研究門檻。原私人紀錄已獨立重算，79／79 檢查通過；34 次診斷及研究開局均有結果與停止紀錄。新候選不追加或替換舊分母。下面各節保留當時歷史狀態。
+
+[Grow46 的追獵條件、回放範圍與 QHD 入口](repro/grow-46-public/README.md) · [Grow46 原生 QHD 結果](repro/grow-46-public/results/README.md)
+
+[Grow45 的分版來源、決策核對與兩種寬畫面入口](repro/grow-45-public/README.md) · [Grow45 的原生 QHD 測試結果](repro/grow-45-public/results/README.md)
+
+[Grow44 的候選重建、合成測試與 QHD 原生探索入口](repro/grow-44-public/README.md) · [Grow／Claude 配對與自然探索結果](repro/grow-claude-comparison-20261126/README.md)
+
+## 2026-11-26 09:34：Grow26 preflight攔下初始化時序問題
+
+Grow26來源及r2已在`327ac21160e835c8ebc989bcee25f691c98ad2fc`提交，19檔逐字回讀一致；但r2實際12次載入準備失敗，0 header／0 starts／0 native games，不能聲稱兩局控制診斷通過。錯誤與現場限制保留於[r2](repro/grow-local-r2-20261126/README.md)。最小async反例重現HTML select早於底部script就緒的空窗；[r3](repro/grow-local-r3-20261126/README.md)先等controller、change handler、初始game ready與目標option才切換。候選HTML、原遊戲、門檻均不改，須新preflight通過後才開始探索。
+
+
+## 2026-11-26 09:13：Grow24中斷與Grow26候選
+
+[Grow24結果](repro/grow-local-20261126/grow24-exploration-summary.json) · [r1來源與異常限制](repro/grow-local-20261126/README.md) · [r2新runner](repro/grow-local-r2-20261126/README.md) · [Grow26來源](repro/grow-26-public/README.md)。原定8次，6starts／6results，其中5原生遊戲、1setup-abort、2未開始。v2.13三截止（151秒，體型172／192／158）；v2.22兩死亡（111／130秒，體型88／127），第三次候選載入逾時未開局。0勝、0未決、不補局、不啟動確認。
+
+第6結果混入舊document HUD的r1取證缺陷已標明，原raw/summary/source不改；獨立27項核對保存完整分母與失敗。r2建立新iframe並核對document身份，記錄planner必要欄位；必須完成實際載入／停止診斷後才跑新候選。Grow26為Grow24直接子版，唯一策略改動是白點以第一段0.6秒接近評分；40組242斷言通過，不當作自然勝率。舊Grow23未決與各候選成績均分開。
+
+GitHub feature分支／Draft PR #2繼續指向test/ocr-test；原遊戲不改、不使用Actions，正式部署byte一致性仍因HTTP403未核實。此項是研究進度，非OCR4驗收或正式發布。
+
+
+## 2026-11-26：Grow24／25來源與原生視野本機測試恢復
+
+[本機固定測試入口](repro/grow-local-20261126/README.md) · [Grow24](repro/grow-24-public/README.md) · [Grow25](repro/grow-25-public/README.md) · [Grow1～25版本索引](GROW-VERSIONS.md)。既有Draft PR #2維持指向test/ocr-test，不使用GitHub Actions。
+
+GitHub完整clone及兩個原遊戲blob驗證成功。以受管本機同源預覽及前景Chromium執行；原遊戲／候選HTML未改，Canvas依原生CSS為958×557、DPR1。先前自行啟動的未連通服務不作載入成功證據。
+
+新增嚴格帳本檢查，拒絕缺結尾、重複ID、中止冒充完整探索；來源、條件、樣本順序及可見結算原文保留。45項帳本回歸通過。兩版各1局10秒控制診斷於09:00完成，兩局均原生開局、預定停止及釋鍵成功，不計勝率。09:01開始Grow24各4局探索，未完成結果不預填；完整成績另追加。
+
+Grow25保留合成候選狀態。新增原minimap→感知→planner有限反例指出近白點可能在感知階段已被遮擋／拒判；詳見本機入口，不把合成數值當實戰優勢。
+
+當前GitHub main已核實最新版來源v2.22；正式站取檔HTTP403，部署逐byte一致性本批未驗證。Grow23舊未決仍保留；舊工作目錄未找到原始事件，不補造、不換局、不合併新舊視野成績。以下為當時歷史，包含舊文「沒有建立Grow24」的陳述。
+
+## 2026-11-25：Grow23 確認取證中斷，保留未決開局
+
+[Grow1～23 全部來源](GROW-VERSIONS.md) · [Grow23 完整程式與當前狀態](repro/grow-23-public/README.md) · [Grow22 完整確認摘要](repro/grow-22-public/README.md)。每版程式均有 GitHub 入口；本節是環境失聯後的最新狀態，下面的「確認進行中」保留為當時歷史。
+
+最後成功讀取快照：2026-11-25 18:22:35（臺灣時間）。Grow23 探索已完整完成，v2.13 4/4、v2.22 3/4（1 截止），全 8 局有結果並已釋鍵。其後確認原定兩版各 12 局，但最後只核實：
+
+| 遊戲 | 原定確認 | 已核實開局 | 已取得結果 | 已確認成功 | 已確認截止 | 未決 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| v2.13 | 12 | 2 | 2 | 2 | 0 | 0 |
+| v2.22 | 12 | 2 | 1 | 0 | 1 | 1 |
+
+第二個 v2.22 確認開局未決，仍在已開始分母；不能改寫成死亡、controller abort、截止或成功。總帳最後為 12 starts／11 finals（含探索）；後續 raw、未決局結果與停止／釋鍵、整個確認批次的結束狀態均未知。沒有產出 Grow23 完整最終審核，沒有達標判定。
+
+下一步必須先在恢復的原環境核對原始紀錄與未決局，再確認是否可接續原批次。不得重新挑局、替換未決開局、捨棄原失敗，或補造 final／batch_end。Grow23 凍結來源不變，沒有建立 Grow24。Grow22 的完整確認仍為 v2.13 5/12、v2.22 1/12；Grow21 自然實戰仍為 0。
+
+GitHub 已保存 Grow1～23 程式與現有摘要。私人原始數字紀錄原先已寫入工作區，但現在無法再驗證存取；私人證據 ZIP 尚未建立，另存原始紀錄的嘗試亦因無可用執行環境而失敗，不能宣稱完整原始證據已可下載。此公開交接仍屬程式與摘要的部分證據交接，沒有改為公開上傳原始診斷。
+
+一項診斷限制須保留：單秒樣本的離牆規則放寬旗標，只能證明有放寬；缺少完整候選路徑與普通牆約束時，不能推定當時所有碰撞安全路徑都違反離牆保留距離。這不改寫遊戲結果。
+
+線上 Grow23 實驗頁的部署服務已回報成功；環境失聯前尚未完成部署後的瀏覽器畫面核對。這不是 OCR4 正式驗收；v2.20／v2.21 本輪未驗收，手機跳過。既有 Draft PR #2 仍指向 test/ocr-test，未合併或重寫歷史。
+
+
+## 2026-11-25 18:18（臺灣時間）：Grow20–23 探索與部分證據交接
+
+本節實測數字截至 Grow23 固定 8 局探索完成；各 12 局獨立確認已開始，尚無完整確認結果。原目標仍是體型 200、可見遊戲時間 150 秒內；探索與獨立確認分開，失敗及中止不從分母移除，也不補局。
+
+| 版本 | 公開來源與摘要 | 已核對狀態 |
+| --- | --- | --- |
+| Grow20 | [完整單檔程式](repro/grow-20-public/ocr-grow20.html) · [結果摘要](repro/grow-20-public/README.md) | 固定前景探索 v2.13 2/4、v2.22 0/4；另保留 1 次環境中斷／controller abort，共 9 個嘗試。確認未開始。 |
+| Grow21 | [完整單檔程式](repro/grow-21-public/ocr-grow21.html) · [原型說明](repro/grow-21-public/README.md) | 只有合成驗證，自然實戰 0 局；未採用於 Grow22／23。 |
+| Grow22 | [完整單檔程式](repro/grow-22-public/ocr-grow22.html) · [完整結果摘要](repro/grow-22-public/README.md) | 探索 v2.13 2/4、v2.22 3/4；獨立確認 v2.13 5/12、v2.22 1/12，兩版均未達各 6/12 的樣本目標。共 32 個開局／結果完整保留。 |
+| Grow23 | [完整單檔程式](repro/grow-23-public/ocr-grow23.html) · [探索結果與限制](repro/grow-23-public/README.md) | 固定 8 局探索完成：v2.13 4/4、v2.22 3/4。探索門檻通過；各 12 局獨立確認進行中，尚未達標。 |
+
+Grow23 的完整探索結果與全部失敗類別見逐版摘要；已完成決策最大 129.0 ms，含丟棄計算最大 129.0 ms，逾時 0 次。探索通過不等於獨立確認達標，也不構成策略改善的因果證明。
+
+線上 `/ocr-grow` 已部署 Grow23 實驗頁，保留 Grow12 基線與 v2.13／v2.22 遊戲選項。這是研究實驗頁部署，並非 OCR4 正式交付或驗收；尚未宣稱原雙版本過關率目標已達成。
+
+Grow20–23 公開內容為可直接開啟的完整單檔程式與精簡結果摘要。原始逐局紀錄、批次 harness、執行環境資料與詳細數字 trace 未公開，因此本次屬**部分證據交接**，不能把公開目錄描述成包含全部私人自然實測證據的完整重現包。既有交接歷史及歷史來源仍保留，後續確認結果另行更新。
+
+本次變更位於 `feat/grow-evaluation-20261125`，透過既有 Draft PR #2 指向 `test/ocr-test`，尚未合併。僅本輪兩個遊戲版本的研究樣本有新結果；v2.20／v2.21 本輪未驗收，手機標記跳過。下一步是完整跑完 Grow23 每版 12 局確認，再按各至少 6/12 的事前研究門檻判讀，原正式 OCR4 規格維持不變。
+
+
+## 2026-11-25：Grow19 新策略與完整8局實戰
+
+[Grow19固定入口](repro/grow-19/README.md) · [全部版本](GROW-VERSIONS.md) · [原始事件](repro/grow-19/results/events.jsonl) · [獨立結果核對](repro/grow-19/checks/final-results-review.json)。以凍結Grow15為父版，唯一策略變更為v2.22的幾何拒判NPC提高半徑上界，保留原200上限；沒有疊加Grow18的hard條件。較保守估計可能漏吃獵物，負面合成案例一併保存。
+
+screen-07全部8 starts與8 final rows已保留：v2.13 3/4勝（124、130、138秒）及1次截止；v2.22 2/4勝（109、144秒）、1次截止及1次controller_abort。Wilson95%分別30.1～95.4%、15.0～85.0%。第06局在可見108秒、體型116時因單次計算239.4ms而停止，已釋放按鍵。此overrun在正常computeMs記錄前return，因此獨立auditor另合併controllerEvents計入最大值；200ms效能預算未達。不得排除該局改報2/3，亦沒有補局。
+
+雖然探索觀察比例為75%與50%，v2.22僅3個協議認可遊戲結果、未滿4個，故screen gate=false，confirm-07兩版均0 starts、比例null。235筆原始紀錄、15凍結項目、逐局身份／時間／順序與全分母經乾淨副本獨立核對一致；8/8釋鍵成功，無遺漏或未解決紀錄。自然seed未知，小樣本不等於長期勝率或正式OCR4驗收。
+
+來源及完整無像素數值按GITHUB-STORAGE v1封存；同一既有Draft PR指向test/ocr-test。沒有變更main、正式頁或既有80局與Grow18結果。下一個策略或效能修正必須使用新版本及新固定protocol，保留本批失敗。
+
+
+## 2026-11-25：Grow18 新策略與完整8局實戰
+
+[Grow18固定入口](repro/grow-18/README.md) · [全部版本](GROW-VERSIONS.md) · [原始事件](repro/grow-18/results/events.jsonl) · [逐版統計](repro/grow-18/results/evaluation-summary.json)。Grow18直接以凍結Grow15為父版，唯一策略改動是名義NPC尺寸已達致命門檻時，將它列入原硬性避碰約束；沒有帶入Grow16或Grow17改動。來源於臺灣時間14:22:18凍結，測試前70個planner檢查、25個harness檢查通過。
+
+固定screen-06全部8個starts與8個native finals已完成：v2.13 4/4過關（120、121、132、141秒；Wilson95% 51.0～100%）；v2.22 1/4過關（149秒；Wilson95% 4.6～69.9%）及3次死亡（89、119、124秒）。沒有截止、infra、中止、未知、補局或遺漏；所有final釋鍵成功，最高單次compute189.5ms。探索未通過兩版各≥2/4門檻，confirm-06兩版均未開始，不寫成0%確認勝率。此批原雙版本目標未達，不作正式OCR4驗收或因果改善聲明。
+
+來源與原始事件已由獨立Python核對程式在乾淨副本重算：225個records、14凍結檔、逐局身份／順序／可見結算／分母／釋鍵／效能全部一致，與主要統計0差異。自然seed未知，僅約1Hz數值樣本，不能還原相同軌跡或指認致死NPC。兩版公開遊戲HTML與凍結來源一致，開始前latest為v2.22；詳細證據及重建指令見逐版入口。
+
+此項接續原有Draft PR到test/ocr-test，保留原Grow1～17與80局封存，不改main、正式網站或過往結果。遠端同步狀態以本輪提交與讀回紀錄為準。
+
+
+## 2026-11-25：Grow-1～17 逐版來源與完整 80 局歸檔
+
+[全部版本索引](GROW-VERSIONS.md) · [本輪總入口](repro/grow-evaluation-20261125/README.md) · [同步／回讀狀態](repro/grow-evaluation-20261125/publication.json)。依使用者明確要求，保留已有 grow-1～6 的固定 GitHub 來源，補存 grow-7～12 的歷史來源與各版重現說明，新增 grow-13～17 的完整凍結來源、protocol、無像素事件與結果；共 17 個版本入口，沒有覆寫舊歷史。
+
+本輪實戰共 80 starts：78 原生 final、2 個有 hash 綁定 sidecar 的基礎設施中斷；全部開局保留，沒有補造 final 或換局。獨立確認：grow-15／v2.13 11/12；grow-15／v2.22 5/12；grow-16／v2.22 5/12；grow-17／v2.22 3/12。探索另列，grow-16／17 沒有新的 v2.13 樣本，原雙版本 150 秒／50% 目標未達成。
+
+此次歸檔新增實戰 0 局。Grow-7～12 乾淨重建與原合成檢查通過；新包由 102 個原檔加 10 個既有遊戲來源的本機還原，完整 112 檔與凍結原包一致，111 項 checksum 及重算統計全部匹配。遊戲 seed 未知，v2.22 是本輪開始時核實的最新版、結束重查為 403；沒有改寫上述限制。未涵蓋其他遊戲版本或正式驗收。
+
+發布基底 `46b8aa3f8207ed03bc89c84c6ed896a23bcd5601`；以 `feat/grow-evaluation-20261125` 的 Draft PR 指向 `test/ocr-test`。正式提交／回讀以 publication.json 為準；本紀錄沒有改動正式策略或部署網站。適用 GITHUB-STORAGE v1。以下既有歷史全文保留。
+
+
 ## contour-path-1 — 固定跨幀輪廓回放，未形成候選
 
 [逐版入口](repro/contour-path-1/README.md) · [完整無影像數值](repro/contour-path-1/result-noimages.json)。3局既有片段12圖、43配對檢查，31未匹配／6未知／6暫定；0個三幀大型逼近警示。PNG解碼12/12獨立雜湊核對、程式重跑數值一致。無策略改動、新增實跑0局；保留裁切及成功接觸反例。`/ocr-test` 分開標示實際辨識test-033／規劃test-026與最新未採用實驗；線上驗證狀態另見逐版 publication.json。影像僅本機，公開checkout需本機依賴才可像素重播。
@@ -568,4 +683,5 @@ r46有36筆觸發、6筆改向；牆距變化速度中位數0，估計朝牆速�
 ### test-001 · 基準
 
 2026-11-11，NUC 基準測試 1/4 成功。小樣本，尚未證明至少 50% 達標。
+
 

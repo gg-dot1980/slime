@@ -1,0 +1,4709 @@
+{
+  "schema": 1,
+  "status": "research-only; inactive proposal; no live gameplay",
+  "kind": "static-source-analysis-and-deterministic-synthetic",
+  "createdAt": "2026-11-25T06:14:14.840Z",
+  "provenance": {
+    "repo": "gg-dot1980/slime",
+    "authorityBranch": "test/ocr-test",
+    "githubPublicationBase": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+    "originalSitesSourceBase": "14c1815351b32096b325e032331b90c1f7873159",
+    "candidateOriginalGithubCommit": null,
+    "candidateSourceIdentity": "complete frozen files plus SHA256",
+    "sourceRoot": "/workspace/scratch/508360b15fc8/grow-repro-publish",
+    "inputHashes": {
+      "source/src/ocr-grow.html": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+      "source/src/game.html": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "source/src/game-v2.13.html": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "source/experiments/grow15/planner.js": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+      "source/experiments/grow15/geometry.js": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+      "source/experiments/grow15/build-lab.mjs": "d62a48bb5745babe545c94c63d4e0d658ed6afb744748a54e048e01a4a8e28ea",
+      "source/experiments/grow15/geometry.synthetic.cjs": "d916d2d8e627d4de1b17ab2176ecb13c05ff877a3cb46e05b946aaf013b53ef2",
+      "results/grow17-late-cutoff-diagnostic.json": "82215de3322fd6a1ac0f4e5364a751b2ffc1964442c274f5f56b4e4ab0363f81"
+    }
+  },
+  "environment": {
+    "node": "v24.22.3",
+    "platform": "linux",
+    "arch": "x64",
+    "osRelease": "6.18.57",
+    "execution": "Node standard libraries only; no browser/server",
+    "seed": "none; fixed synthetic cases",
+    "liveGamesStarted": 0,
+    "liveResults": null
+  },
+  "command": "node grow-next/research-perception/check-perception.cjs --write",
+  "scriptHash": "7ec9df82caac5888781c6104b8b0a797eb618db154f1df94278647ece8091d7b",
+  "singleCandidate": {
+    "suggestedName": "Grow19 research proposal",
+    "parent": "frozen Grow15",
+    "notParent": "Grow18; its hazard-classification change is not included here",
+    "active": false,
+    "exactAddedStatement": "if (cappedGame && o.geometryAccepted === 0 && finite(o.visualR) && o.visualR > 0) upper = Math.max(upper, (o.visualR + 6) / .808);",
+    "insertion": "before clipped expansion and original v2.22 upper cap",
+    "proposedPlannerHash": "516ae8cab03c6f0a8efd8615826a61a87645898adc15ca45b2f0dc6252398dac",
+    "policyScope": "v2.22, all HUD stages, geometryAccepted exactly 0 only",
+    "untouched": [
+      "v2.13 policy",
+      "accepted geometry",
+      "ordinary food",
+      "centre/radius estimates",
+      "tracking",
+      "path scoring",
+      "red bounds",
+      "hard/soft formula",
+      "immune threshold"
+    ],
+    "rationale": "Prevent a rejected metric geometry estimate from automatically inheriting a narrow outline-based error band.",
+    "constants": {
+      "completeIdealOutlineMinHalfWidthFactor": 0.808,
+      "worldUnitPadding": 6,
+      "paddingReason": "two step-3 component cells in the frozen 2000-wide capture at ratio1; deliberately chosen heuristic allowance, not an occlusion or anti-aliasing proof"
+    },
+    "expectedTradeoff": "Fewer false meals and a larger uncertain hazard envelope, but some truly edible large-outline or partially occluded NPCs are excluded; live growth and survival can both worsen.",
+    "acceptance": "Synthetic results establish behavior only; any live test needs a separately frozen protocol and full native outcomes."
+  },
+  "mechanics": {
+    "idealOutlineDerivation": "At angles0 and pi both vertices use1.01*wobble. Their sin3a/cos5a terms cancel in the left-right span; halfSpan=1.01*wobble*R>=.808R. The full unoccluded continuous polygon bbox radius V is at least this halfSpan, hence R<=V/.808 under that condition.",
+    "interpretation": "The existing visualR*.88 floor is not a physical-radius upper bound. The proposed floor is an uncertainty policy informed by the complete-outline relation, not a universally certified bound.",
+    "observabilityLimit": "clipped checks canvas/UI boundaries only. labelSeen, localReliable density/aspect and component connectivity do not certify an unoccluded body or complete circumference. An occluded compact region can still pass them.",
+    "tracking": "The previous-object match uses estimated r tolerance max(6,.2r), class and a100-unit position gate. stalled requires that match, unchanged integer HUD and d<.74*(HUD+r); blocked is only stalled>.5 and has no persistent cooldown."
+  },
+  "historicalContext": {
+    "source": "results/grow17-late-cutoff-diagnostic.json",
+    "runId": "confirm-05-04",
+    "outcome": "deadline_cutoff",
+    "finalVisible": {
+      "ending": false,
+      "settled": false,
+      "title": "",
+      "description": "",
+      "hudSize": 195,
+      "hudTime": "02:29",
+      "eaten": 219,
+      "elapsedVisible": 151
+    },
+    "stallTiming": {
+      "firstSavedHUD195": 124,
+      "lastOneSecondSample": 150,
+      "sampleSpanSeconds": 26,
+      "finalStillHUD195At": 151,
+      "spanIncludingFinalSeconds": 27,
+      "lateSavedProgress": [
+        {
+          "elapsedVisible": 126,
+          "hudSize": 195,
+          "eaten": 219
+        },
+        {
+          "elapsedVisible": 131,
+          "hudSize": 195,
+          "eaten": 219
+        },
+        {
+          "elapsedVisible": 136,
+          "hudSize": 195,
+          "eaten": 219
+        },
+        {
+          "elapsedVisible": 141,
+          "hudSize": 195,
+          "eaten": 219
+        },
+        {
+          "elapsedVisible": 146,
+          "hudSize": 195,
+          "eaten": 219
+        }
+      ],
+      "finalEaten": 219
+    },
+    "plateauBodyTargetSamples": 18,
+    "rejectedGeometrySamples": 18,
+    "estimatedAlreadyInContactSamples": [
+      {
+        "elapsedVisible": 140,
+        "hudSize": 195,
+        "r": 157.5,
+        "visualR": 157.5,
+        "originalRadius": 157.5,
+        "upper": 173.25,
+        "lower": 141.75,
+        "confidence": null,
+        "geometryAccepted": 0,
+        "localReliable": false,
+        "labelSeen": true,
+        "distance": 223.1461477541829,
+        "eta": 0.1,
+        "utility": 7.692307692307692,
+        "gain": 5,
+        "first": 0,
+        "second": 0,
+        "withinEstimatedCurrentPlannerContact": true
+      },
+      {
+        "elapsedVisible": 141,
+        "hudSize": 195,
+        "r": 135.20959623980295,
+        "visualR": 159,
+        "originalRadius": 135.20959623980295,
+        "upper": 155.4910356757734,
+        "lower": 114.92815680383251,
+        "confidence": null,
+        "geometryAccepted": 0,
+        "localReliable": false,
+        "labelSeen": false,
+        "distance": 210.09349744955335,
+        "eta": 0.1,
+        "utility": 8.69230769230769,
+        "gain": 5,
+        "first": 1,
+        "second": 1,
+        "withinEstimatedCurrentPlannerContact": true
+      },
+      {
+        "elapsedVisible": 146,
+        "hudSize": 195,
+        "r": 152.06474891811237,
+        "visualR": 162,
+        "originalRadius": 152.06474891811237,
+        "upper": 167.2712238099236,
+        "lower": 136.85827402630113,
+        "confidence": null,
+        "geometryAccepted": 0,
+        "localReliable": false,
+        "labelSeen": true,
+        "distance": 224.05498700524106,
+        "eta": 0.1,
+        "utility": 8.69230769230769,
+        "gain": 5,
+        "first": 0,
+        "second": 0,
+        "withinEstimatedCurrentPlannerContact": true
+      }
+    ],
+    "interpretation": "Prediction/outcome disagreement motivates research, but the numeric log lacks x/y, stalled/blocked, full objects and stable identity; it does not prove a specific false meal or death cause."
+  },
+  "fixtures": [
+    {
+      "id": "R96-no-highlight",
+      "spec": {
+        "R": 96,
+        "wobble": 0.8,
+        "highlights": [],
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.01794374393793,
+        "y": 135.98205625606207,
+        "r": 76.5,
+        "area": 2062,
+        "bw": 153,
+        "bh": 153,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 76.5,
+        "visualR": 76.5,
+        "originalRadius": 76.5,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R96-half-highlight",
+      "spec": {
+        "R": 96,
+        "wobble": 0.8,
+        "cut": true,
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.01794374393793,
+        "y": 135.98205625606207,
+        "r": 76.5,
+        "area": 2062,
+        "bw": 153,
+        "bh": 153,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 76.5,
+        "visualR": 76.5,
+        "originalRadius": 76.5,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R96-full-highlight",
+      "spec": {
+        "R": 96,
+        "wobble": 0.8,
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.01794374393793,
+        "y": 135.98205625606207,
+        "r": 76.5,
+        "area": 2062,
+        "bw": 153,
+        "bh": 153,
+        "clipped": false
+      },
+      "geometry": {
+        "x": 159.9692314016387,
+        "y": 134.9412432586657,
+        "r": 95.84710932201098,
+        "confidence": 0.9882575647433003
+      },
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 95.84710932201098,
+        "visualR": 76.5,
+        "originalRadius": 99.44921866646634,
+        "geometryAccepted": 1,
+        "confidence": 0.9882575647433003,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R120-no-highlight",
+      "spec": {
+        "R": 120,
+        "wobble": 0.8,
+        "highlights": [],
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.11509785647715,
+        "y": 135.88490214352285,
+        "r": 96,
+        "area": 3219,
+        "bw": 192,
+        "bh": 192,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 96,
+        "visualR": 96,
+        "originalRadius": 96,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R120-half-highlight",
+      "spec": {
+        "R": 120,
+        "wobble": 0.8,
+        "cut": true,
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.11509785647715,
+        "y": 135.88490214352285,
+        "r": 96,
+        "area": 3219,
+        "bw": 192,
+        "bh": 192,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 96,
+        "visualR": 96,
+        "originalRadius": 96,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R120-full-highlight",
+      "spec": {
+        "R": 120,
+        "wobble": 0.8,
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 161.11509785647715,
+        "y": 135.88490214352285,
+        "r": 96,
+        "area": 3219,
+        "bw": 192,
+        "bh": 192,
+        "clipped": false
+      },
+      "geometry": {
+        "x": 159.94605981419966,
+        "y": 134.93369409134598,
+        "r": 119.79619735797394,
+        "confidence": 0.9890093587415452
+      },
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 119.79619735797394,
+        "visualR": 96,
+        "originalRadius": 123.28713814302739,
+        "geometryAccepted": 1,
+        "confidence": 0.9890093587415452,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    },
+    {
+      "id": "R40-large-outline-no-highlight",
+      "spec": {
+        "R": 40,
+        "wobble": 1.15,
+        "highlights": [],
+        "text": true
+      },
+      "component": {
+        "hue": 111,
+        "x": 160.90725806451613,
+        "y": 136.09274193548387,
+        "r": 46.5,
+        "area": 744,
+        "bw": 93,
+        "bh": 93,
+        "clipped": false
+      },
+      "geometry": null,
+      "object": {
+        "x": 260,
+        "y": 0,
+        "r": 46.5,
+        "visualR": 46.5,
+        "originalRadius": 46.5,
+        "geometryAccepted": 0,
+        "confidence": null,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "clipped": false,
+        "blocked": false,
+        "isRed": false,
+        "vx": 0,
+        "vy": 0
+      }
+    }
+  ],
+  "matrix": [
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 87.17136888719851
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 87.17136888719851
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 87.17136888719851
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.59211740205001
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 58.19211740205
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 100,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 100,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 120,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 120,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 102.1039603960396,
+        "targetGeometryAccepted": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 102.1039603960396,
+        "targetGeometryAccepted": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 102.1039603960396,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 87.17136888719851
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 87.17136888719851
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 87.17136888719851
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.59211740205001
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 58.19211740205
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 100,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 100,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 11.229576386237689,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 120,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 120,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 102.1039603960396,
+        "targetGeometryAccepted": 0,
+        "gain": 9.551694328876188,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 102.1039603960396,
+        "targetGeometryAccepted": 0,
+        "gain": 6.546952788641846,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 81.855,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 76.5,
+        "targetUpper": 102.1039603960396,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.26635586552126
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.26635586552126
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.26635586552126
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.26635586552126
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.86635586552126
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.86635586552126
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.86635586552126
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.86635586552126
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 100,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 100,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 120,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 14.604615221036724,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 14.604615221036724,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 120,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 14.604615221036724,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 14.604615221036724,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 10.145187745033944,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 10.145187745033944,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 10.145187745033944,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 10.145187745033944,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R96-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 95.84710932201098,
+        "targetUpper": 102.55640697455175,
+        "targetGeometryAccepted": 1,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.14856888719852
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.14856888719852
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.14856888719852
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 55.21587977828764
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.74856888719853
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.74856888719853
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.74856888719853
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 101.29023892716711
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 100,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 100,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 86.8902389271671
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 120,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 120,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 126.23762376237623,
+        "targetGeometryAccepted": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 126.23762376237623,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.14856888719852
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.14856888719852
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 72.14856888719852
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 55.21587977828764
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.74856888719853
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.74856888719853
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 57.74856888719853
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 101.29023892716711
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 100,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 100,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 86.8902389271671
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 120,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 120,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 14.64798134699015,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 126.23762376237623,
+        "targetGeometryAccepted": 0,
+        "gain": 10.176444370290334,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.13",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-half-highlight",
+      "gameVersion": "v2.22",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 102.72,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 96,
+        "targetUpper": 126.23762376237623,
+        "targetGeometryAccepted": 0,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 53.8159784426154
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 53.8159784426154
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 60,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 53.8159784426154
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東南",
+        "clearance": 53.8159784426154
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 99.89033759149487
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 99.89033759149487
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 80,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 99.89033759149487
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 99.89033759149487
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 100,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 85.49033759149486
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 85.49033759149486
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 100,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 85.49033759149486
+      },
+      "proposed": {
+        "classification": "hard-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "南",
+        "clearance": 85.49033759149486
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 120,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 120,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 119.79619735797394,
+        "targetUpper": 128.18193117303213,
+        "targetGeometryAccepted": 1,
+        "gain": 15.548598478631163,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 119.79619735797394,
+        "targetUpper": 128.18193117303213,
+        "targetGeometryAccepted": 1,
+        "gain": 15.548598478631163,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 119.79619735797394,
+        "targetUpper": 128.18193117303213,
+        "targetGeometryAccepted": 1,
+        "gain": 15.548598478631163,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 119.79619735797394,
+        "targetUpper": 128.18193117303213,
+        "targetGeometryAccepted": 1,
+        "gain": 15.548598478631163,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.13",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 119.79619735797394,
+        "targetUpper": 128.18193117303213,
+        "targetGeometryAccepted": 1,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 119.79619735797394,
+        "targetUpper": 128.18193117303213,
+        "targetGeometryAccepted": 1,
+        "gain": 5,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R120-full-highlight",
+      "gameVersion": "v2.22",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 119.79619735797394,
+        "targetUpper": 128.18193117303213,
+        "targetGeometryAccepted": 1,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 119.79619735797394,
+        "targetUpper": 128.18193117303213,
+        "targetGeometryAccepted": 1,
+        "gain": 5,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 60,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 6.903237796403417,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 6.903237796403417,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 60,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 6.903237796403417,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 80,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 5.337172373389407,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 5.337172373389407,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 80,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 5.337172373389407,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 64.97524752475248,
+        "targetGeometryAccepted": 0,
+        "gain": 5.337172373389407,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 100,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 4.3343941411920035,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 4.3343941411920035,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 100,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 4.3343941411920035,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 64.97524752475248,
+        "targetGeometryAccepted": 0,
+        "gain": 4.3343941411920035,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 120,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 3.642651039737231,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 3.642651039737231,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 120,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 3.642651039737231,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 64.97524752475248,
+        "targetGeometryAccepted": 0,
+        "gain": 3.642651039737231,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 2.4552512410857332,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 2.4552512410857332,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 180,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 2.4552512410857332,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 64.97524752475248,
+        "targetGeometryAccepted": 0,
+        "gain": 2.4552512410857332,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.13",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 2.2693879389152443,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 2.2693879389152443,
+        "reason": "intercept-growth",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "fixture": "R40-large-outline-no-highlight",
+      "gameVersion": "v2.22",
+      "hud": 195,
+      "fixturePhysicalClass": "npc-meal",
+      "old": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 49.755,
+        "targetGeometryAccepted": 0,
+        "gain": 2.2693879389152443,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "npc-meal",
+        "eligibleNpc": 1,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 46.5,
+        "targetUpper": 64.97524752475248,
+        "targetGeometryAccepted": 0,
+        "gain": 2.2693879389152443,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": false
+    }
+  ],
+  "foodControls": [
+    {
+      "hud": 25,
+      "gameVersion": "v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 25,
+      "gameVersion": "v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 60,
+      "gameVersion": "v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 60,
+      "gameVersion": "v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 100,
+      "gameVersion": "v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 100,
+      "gameVersion": "v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 180,
+      "gameVersion": "v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 180,
+      "gameVersion": "v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 195,
+      "gameVersion": "v2.13",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "food-and-exploration",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    },
+    {
+      "hud": 195,
+      "gameVersion": "v2.22",
+      "old": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "food",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": 10,
+        "targetUpper": null,
+        "targetGeometryAccepted": 0,
+        "gain": 0.38,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "fullResultEqual": true
+    }
+  ],
+  "retainedHazardLimitation": [
+    {
+      "hud": 180,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "西",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "西",
+        "clearance": 1000000
+      }
+    },
+    {
+      "hud": 185,
+      "fixturePhysicalClass": "lethal-npc",
+      "old": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "西南",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "soft-hazard",
+        "eligibleNpc": 0,
+        "neutralNpc": 0,
+        "threats": 1,
+        "uncertainNpc": 1,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "food-and-exploration",
+        "direction": "西南",
+        "clearance": 1000000
+      }
+    },
+    {
+      "hud": 186,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      }
+    },
+    {
+      "hud": 195,
+      "fixturePhysicalClass": "neutral-npc",
+      "old": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      },
+      "proposed": {
+        "classification": "neutral-npc",
+        "eligibleNpc": 0,
+        "neutralNpc": 1,
+        "threats": 0,
+        "uncertainNpc": 0,
+        "targetRadius": null,
+        "targetUpper": null,
+        "targetGeometryAccepted": null,
+        "gain": 0,
+        "reason": "cap200-finish",
+        "direction": "東",
+        "clearance": 1000000
+      }
+    }
+  ],
+  "tracking": {
+    "statementHash": "0a4f29e4cae7192581b14046e6861fcf27fa1370eeb736d60c798e1ce624d692",
+    "threshold": 133.2,
+    "leaveAndReenter": [
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.1,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.2,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.30000000000000004,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.4,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.5,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.6,
+        "blocked": true
+      },
+      {
+        "distance": 134,
+        "hud": 100,
+        "stalled": 0,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.1,
+        "blocked": false
+      }
+    ],
+    "repeatedBoundaryJitter": [
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.1,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.2,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.30000000000000004,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.4,
+        "blocked": false
+      },
+      {
+        "distance": 134,
+        "hud": 100,
+        "stalled": 0,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.1,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.2,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.30000000000000004,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.4,
+        "blocked": false
+      },
+      {
+        "distance": 134,
+        "hud": 100,
+        "stalled": 0,
+        "blocked": false
+      }
+    ],
+    "incidentalHudGrowth": [
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.1,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.2,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.30000000000000004,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 100,
+        "stalled": 0.4,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 101,
+        "stalled": 0,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 101,
+        "stalled": 0.1,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 101,
+        "stalled": 0.2,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 101,
+        "stalled": 0.30000000000000004,
+        "blocked": false
+      },
+      {
+        "distance": 132,
+        "hud": 102,
+        "stalled": 0,
+        "blocked": false
+      }
+    ],
+    "radiusFallbackJump": {
+      "before": {
+        "r": 96,
+        "stalled": 0.6,
+        "blocked": true
+      },
+      "currentRadius": 76.5,
+      "allowedDifference": 15.3,
+      "actualDifference": 19.5,
+      "result": {
+        "x": 132,
+        "y": 0,
+        "r": 76.5,
+        "npc": true,
+        "labelSeen": true,
+        "localReliable": true,
+        "stalled": 0,
+        "blocked": false,
+        "isRed": false,
+        "clipped": false,
+        "dangerRadius": 76.5,
+        "vx": 0,
+        "vy": 0
+      }
+    }
+  },
+  "idealBounds": [
+    {
+      "phase": 0,
+      "wobble": 0.8,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 77.568,
+      "expected": 77.56800000000001
+    },
+    {
+      "phase": 0,
+      "wobble": 1,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 96.96,
+      "expected": 96.96000000000001
+    },
+    {
+      "phase": 0,
+      "wobble": 1.15,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 111.50399999999999,
+      "expected": 111.504
+    },
+    {
+      "phase": 0.7,
+      "wobble": 0.8,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 77.56800000000001,
+      "expected": 77.56800000000001
+    },
+    {
+      "phase": 0.7,
+      "wobble": 1,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 96.96000000000001,
+      "expected": 96.96000000000001
+    },
+    {
+      "phase": 0.7,
+      "wobble": 1.15,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 111.50399999999999,
+      "expected": 111.504
+    },
+    {
+      "phase": 1.3,
+      "wobble": 0.8,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 77.568,
+      "expected": 77.56800000000001
+    },
+    {
+      "phase": 1.3,
+      "wobble": 1,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 96.96,
+      "expected": 96.96000000000001
+    },
+    {
+      "phase": 1.3,
+      "wobble": 1.15,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 111.50399999999999,
+      "expected": 111.504
+    },
+    {
+      "phase": 6.1,
+      "wobble": 0.8,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 77.56800000000001,
+      "expected": 77.56800000000001
+    },
+    {
+      "phase": 6.1,
+      "wobble": 1,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 96.96000000000001,
+      "expected": 96.96000000000001
+    },
+    {
+      "phase": 6.1,
+      "wobble": 1.15,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 111.50399999999999,
+      "expected": 111.504
+    },
+    {
+      "phase": 21.7,
+      "wobble": 0.8,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 77.56800000000001,
+      "expected": 77.56800000000001
+    },
+    {
+      "phase": 21.7,
+      "wobble": 1,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 96.96000000000001,
+      "expected": 96.96000000000001
+    },
+    {
+      "phase": 21.7,
+      "wobble": 1.15,
+      "physicalRadius": 96,
+      "idealXAxisHalfSpan": 111.50399999999999,
+      "expected": 111.504
+    }
+  ],
+  "counts": {
+    "numericPlannerCases": 98,
+    "pixelAlgorithmFixtures": 7,
+    "assertions": 105,
+    "passedAssertions": 105
+  },
+  "checks": [
+    {
+      "name": "R96-no-highlight/HUD60/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD80/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD100/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD120/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD180/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/HUD195/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD60/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD80/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD100/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD120/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD180/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/HUD195/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD60/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD80/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD100/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD120/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD180/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-full-highlight/HUD195/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD60/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD80/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD100/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD120/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD180/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-no-highlight/HUD195/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD60/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD80/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD100/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD120/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD180/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-half-highlight/HUD195/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD60/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD80/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD100/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD120/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD180/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.13/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R120-full-highlight/HUD195/v2.22/accepted-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD60/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD80/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD100/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD120/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD180/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R40-large-outline-no-highlight/HUD195/v2.13-unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/geometry-rejects-but-localReliable-true",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/original-false-meal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-no-highlight/proposed-removes-false-meal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/geometry-rejects-but-localReliable-true",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/original-false-meal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "R96-half-highlight/proposed-removes-false-meal",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size25/v2.13/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size25/v2.22/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size60/v2.13/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size60/v2.22/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size100/v2.13/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size100/v2.22/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size180/v2.13/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size180/v2.22/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size195/v2.13/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary-food/size195/v2.22/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/size180/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/size185/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/size186/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "exact-R200/size195/unchanged",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "blocked-lost-on-leaving-contact",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "boundary-jitter-prevents-block",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "radius-fallback-loses-match-and-stall",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase0/wobble0.8",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase0/wobble1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase0/wobble1.15",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase0.7/wobble0.8",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase0.7/wobble1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase0.7/wobble1.15",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase1.3/wobble0.8",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase1.3/wobble1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase1.3/wobble1.15",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase6.1/wobble0.8",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase6.1/wobble1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase6.1/wobble1.15",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase21.7/wobble0.8",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase21.7/wobble1",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "ideal-x-span/phase21.7/wobble1.15",
+      "pass": true,
+      "detail": null
+    },
+    {
+      "name": "all-read-inputs-unchanged",
+      "pass": true,
+      "detail": null
+    }
+  ],
+  "limits": [
+    "Synthetic fixtures use the frozen circular-body test generator and a synthetic label, not exact browser rasterization of the game polygon/font/anti-aliasing.",
+    "Missing and half highlights model ambiguous visibility; they do not establish that an identical composite image occurred in a recorded game.",
+    "Fixture physical radii label synthetic expected outcomes only. They are never passed to either planner; controller inputs are derived pixel estimates and the supplied visible HUD.",
+    "The selected synthetic body is placed at a fixed visible relative distance260 for planner isolation, not reconstructed from a real screenshot.",
+    "No recorded images, full object frames or stable target identities are available in the historical numeric logs. Those logs cannot prove a specific culprit NPC or replay its classification.",
+    "The6-unit padding is fixed to the frozen capture/ratio assumptions and is not a universal sampling bound. It must not be silently reused at another ratio.",
+    "Occlusion and merged/split components can defeat any radius bound derived from the current bounding box alone. This proposal does not solve that observability limit.",
+    "The original soft-hazard treatment of a capped radius200 at HUD180..185 remains in this isolated proposal. It is not a substitute for the separate Grow18 hypothesis.",
+    "The tracker limitations are measured but not changed. Adding a blocked TTL alone would not fix radius-gated identity loss or repeated boundary jitter.",
+    "No win-rate, safety, precision or formal OCR4 improvement is demonstrated; no live game, server, browser, archive or GitHub mutation was performed."
+  ]
+}

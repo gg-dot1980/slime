@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "candidate": "grow53",
+  "parent": "grow52",
+  "sourceCommit": "0dcffd2b4dbf6c4b3266c419f459c572c209eae3",
+  "candidatePath": "docs/ocr/repro/grow-53-public/ocr-grow53.html",
+  "candidateGitBlob": "6062af55a49d85e72efe99c4373b777a02486c80",
+  "candidateSha256": "2ee212a3be69555a9b04b39bc7b8f45f932f79154e075d41da37ebc18cca794c",
+  "originalGames": {
+    "v2.13": {
+      "path": "src/game-v2.13.html",
+      "gitBlob": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97"
+    },
+    "v2.22": {
+      "path": "src/game.html",
+      "gitBlob": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+    }
+  },
+  "desktopQhd": {
+    "viewport": [2560, 1440],
+    "canvas": [2250, 1308],
+    "dpr": 1,
+    "locale": "zh-TW",
+    "phaseOrder": ["preflight", "diagnostic", "explore"],
+    "explorationSlots": {"v2.13": 4, "v2.22": 4},
+    "confirmationSlots": {"v2.13": 12, "v2.22": 12},
+    "explorationGate": 2,
+    "confirmationGate": 6,
+    "maxGameSeconds": 150,
+    "targetSize": 200
+  },
+  "change": {
+    "v2.13": "unchanged Grow38/Grow23 decision",
+    "v2.22": "after HUD stalls for at least 4 seconds and the same edible NPC matches three consecutive visible frames, use the component-wise median of its three velocity observations for the current decision only; do not lock the target or direction and keep the first-segment duration and clearance floor 14 unchanged"
+  }
+}

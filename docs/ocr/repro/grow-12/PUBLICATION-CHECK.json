@@ -1,0 +1,45 @@
+{
+  "kind": "publication packaging verification; not browser or gameplay",
+  "strategyVersion": "grow-12",
+  "sitesSourceCommit": "0f4a2bafc1b44fb3e29e5700410d910a2fe2faaa",
+  "sourceManifestSha256": "0781166b4d8ee453ac370f998cda254880f9f5b12da809582bc02e86b77b2c2d",
+  "node": "v24.22.3",
+  "generatedPageSha256": "1d34e8e0c1b0968dd1f7e550111e5a6425d761ef015f9fae0b0d1c4c74aa3ad6",
+  "generatedPageBytes": 317406,
+  "parsedScripts": 7,
+  "isolatedGameVersions": 4,
+  "sourceDependenciesVerified": 14,
+  "syntheticChecks": [
+    {
+      "script": "scripts/check-grow11.cjs",
+      "status": "passed",
+      "stdoutBytes": 4684,
+      "stdoutSha256": "2c0df608eb5165911a03f37b85708e78f41409ef9b1678a4bd4eaf6ad80cc6b3",
+      "stdoutArtifact": "legacy-results.json"
+    },
+    {
+      "script": "scripts/check-grow12.cjs",
+      "status": "passed",
+      "stdoutBytes": 15590,
+      "stdoutSha256": "7074ab334006521b12c998dfb91d870cfed984e297da048fa4d7704394f228b9",
+      "stdoutArtifact": "results.json"
+    }
+  ],
+  "browserRuns": 0,
+  "newGameplayStarts": 0,
+  "routeParity": "not rerun; full historical Sites routes/media are outside this capsule",
+  "recordedAtUtc": "2026-11-25T04:42:58.344491+00:00",
+  "publicationAdapterSha256": "a2c4fc304fc67481903fb2f7b4293a9763544d08a80a522e58867722b2e26bfd",
+  "commandFromRepositoryRoot": "node docs/ocr/repro/grow-7/source/reproduce.mjs 12 /tmp/slime-grow-12-repro --synthetic",
+  "syntheticDeclaredChecksOrScenarios": [
+    32,
+    42
+  ],
+  "historicalBrowserResultsRerun": false,
+  "originalLiveReadbackEquality": {
+    "byteEqual": true,
+    "bytes": 317406,
+    "sha256": "1d34e8e0c1b0968dd1f7e550111e5a6425d761ef015f9fae0b0d1c4c74aa3ad6",
+    "scope": "Compared with previously saved public response; not a new network request or gameplay."
+  }
+}

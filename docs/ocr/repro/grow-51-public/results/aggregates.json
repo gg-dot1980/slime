@@ -1,0 +1,35 @@
+{
+  "candidate": "grow51",
+  "candidateSha256": "5ffe0a35611299410c2f70ab20c849785783db2a9c740a38c4cacf1ac449f5f6",
+  "capturedTaipei": "2026-11-27T20:37:15+08:00",
+  "desktopQhd": {
+    "geometry": {"viewport": [2560, 1440], "canvas": [2250, 1308], "dpr": 1},
+    "exploration": {
+      "v2.13": {"planned": 4, "validResults": 4, "wins": 2, "deaths": 1, "deadlines": 1},
+      "v2.22": {"planned": 4, "validResults": 4, "wins": 2, "deaths": 2, "deadlines": 0}
+    },
+    "independentConfirmation": {
+      "v2.13": {"planned": 12, "validResults": 12, "wins": 10, "deaths": 1, "deadlines": 1, "passed": true},
+      "v2.22": {"planned": 12, "validResults": 12, "wins": 4, "deaths": 5, "deadlines": 3, "passed": false}
+    },
+    "ledgerSha256": {
+      "exploration": "944b2f0f508ec339cc9f3c8947561ec59026e07b740eeaff1962162ef1e5c65d",
+      "confirmation": "89792611c39fd58a3fda45d54414ad93dd89bb767989ae3ee098eabf7d1b7ddc"
+    }
+  },
+  "mobileJoystick": {
+    "geometry": {"viewport": [402, 753], "canvas": [384, 467], "dpr": 1, "touchPoints": 2},
+    "v2.13": {"planned": 4, "validResults": 4, "wins": 0, "deaths": 0, "deadlines": 4},
+    "v2.22": {"planned": 4, "validResults": 4, "wins": 0, "deaths": 2, "deadlines": 2},
+    "allSlotsSettled": true,
+    "summarySha256": "df287148d5560676c023b5cc523d27cb99052104a8642edc361a1e7ef62b1252"
+  },
+  "routeSwitchGate": {
+    "v2.22ConfirmationSamplesTriggered": 14,
+    "attemptsTriggered": 6,
+    "triggeredAttemptOutcomes": {"wins": 1, "deaths": 3, "deadlines": 2},
+    "untriggeredAttemptOutcomes": {"wins": 3, "deaths": 2, "deadlines": 1},
+    "singleSampleTriggers": 13,
+    "consecutiveTriggerPairs": 1
+  }
+}

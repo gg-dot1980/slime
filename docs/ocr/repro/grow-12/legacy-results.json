@@ -1,0 +1,256 @@
+{
+  "passed": true,
+  "cases": 32,
+  "baselineUnchanged": true,
+  "rows": [
+    {
+      "name": "below-equals-baseline",
+      "r": 25,
+      "x": -1,
+      "y": 1.2246467991473532e-16,
+      "reason": "below-90-baseline"
+    },
+    {
+      "name": "below-equals-baseline",
+      "r": 89,
+      "x": -1,
+      "y": 1.2246467991473532e-16,
+      "reason": "below-90-baseline"
+    },
+    {
+      "name": "white",
+      "r": 90,
+      "x": 1,
+      "y": 0,
+      "reason": "white-guidance",
+      "mode": "map-guide"
+    },
+    {
+      "name": "red-front",
+      "r": 90,
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "reason": "red-map-threat",
+      "mode": "local-avoid"
+    },
+    {
+      "name": "red-behind",
+      "r": 90,
+      "x": 1,
+      "y": 0,
+      "reason": "white-guidance",
+      "mode": "map-guide"
+    },
+    {
+      "name": "conflict",
+      "r": 90,
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "reason": "red-map-threat",
+      "mode": "local-avoid"
+    },
+    {
+      "name": "wall",
+      "r": 90,
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "reason": "wall",
+      "mode": "local-avoid"
+    },
+    {
+      "name": "lost",
+      "r": 90,
+      "x": 0,
+      "y": 0,
+      "reason": "missing-map"
+    },
+    {
+      "name": "stale",
+      "r": 90,
+      "x": 0,
+      "y": 0,
+      "reason": "missing-map"
+    },
+    {
+      "name": "near-white",
+      "r": 90,
+      "x": 1,
+      "y": 0,
+      "reason": "no-eligible-dot",
+      "mode": "map-guide"
+    },
+    {
+      "name": "unknown-size",
+      "r": 90,
+      "x": 1,
+      "y": 0,
+      "reason": "no-eligible-dot",
+      "mode": "map-guide"
+    },
+    {
+      "name": "no-red-main-large",
+      "r": 90,
+      "x": 1,
+      "y": 0,
+      "reason": "white-guidance",
+      "mode": "map-guide"
+    },
+    {
+      "name": "white",
+      "r": 91,
+      "x": 1,
+      "y": 0,
+      "reason": "white-guidance",
+      "mode": "map-guide"
+    },
+    {
+      "name": "red-front",
+      "r": 91,
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "reason": "red-map-threat",
+      "mode": "local-avoid"
+    },
+    {
+      "name": "red-behind",
+      "r": 91,
+      "x": 1,
+      "y": 0,
+      "reason": "white-guidance",
+      "mode": "map-guide"
+    },
+    {
+      "name": "conflict",
+      "r": 91,
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "reason": "red-map-threat",
+      "mode": "local-avoid"
+    },
+    {
+      "name": "wall",
+      "r": 91,
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "reason": "wall",
+      "mode": "local-avoid"
+    },
+    {
+      "name": "lost",
+      "r": 91,
+      "x": 0,
+      "y": 0,
+      "reason": "missing-map"
+    },
+    {
+      "name": "stale",
+      "r": 91,
+      "x": 0,
+      "y": 0,
+      "reason": "missing-map"
+    },
+    {
+      "name": "near-white",
+      "r": 91,
+      "x": 1,
+      "y": 0,
+      "reason": "no-eligible-dot",
+      "mode": "map-guide"
+    },
+    {
+      "name": "unknown-size",
+      "r": 91,
+      "x": 1,
+      "y": 0,
+      "reason": "no-eligible-dot",
+      "mode": "map-guide"
+    },
+    {
+      "name": "no-red-main-large",
+      "r": 91,
+      "x": 1,
+      "y": 0,
+      "reason": "white-guidance",
+      "mode": "map-guide"
+    },
+    {
+      "name": "white",
+      "r": 130,
+      "x": 1,
+      "y": 0,
+      "reason": "white-guidance",
+      "mode": "map-guide"
+    },
+    {
+      "name": "red-front",
+      "r": 130,
+      "x": -1,
+      "y": 1.2246467991473532e-16,
+      "reason": "red-map-threat",
+      "mode": "emergency"
+    },
+    {
+      "name": "red-behind",
+      "r": 130,
+      "x": 1,
+      "y": 0,
+      "reason": "red-map-threat",
+      "mode": "emergency"
+    },
+    {
+      "name": "conflict",
+      "r": 130,
+      "x": -1,
+      "y": 1.2246467991473532e-16,
+      "reason": "red-map-threat",
+      "mode": "emergency"
+    },
+    {
+      "name": "wall",
+      "r": 130,
+      "x": 6.123233995736766e-17,
+      "y": 1,
+      "reason": "wall",
+      "mode": "local-avoid"
+    },
+    {
+      "name": "lost",
+      "r": 130,
+      "x": 0,
+      "y": 0,
+      "reason": "missing-map"
+    },
+    {
+      "name": "stale",
+      "r": 130,
+      "x": 0,
+      "y": 0,
+      "reason": "missing-map"
+    },
+    {
+      "name": "near-white",
+      "r": 130,
+      "x": 1,
+      "y": 0,
+      "reason": "no-eligible-dot",
+      "mode": "map-guide"
+    },
+    {
+      "name": "unknown-size",
+      "r": 130,
+      "x": 1,
+      "y": 0,
+      "reason": "no-eligible-dot",
+      "mode": "map-guide"
+    },
+    {
+      "name": "no-red-main-large",
+      "r": 130,
+      "x": 1,
+      "y": 0,
+      "reason": "white-guidance",
+      "mode": "map-guide"
+    }
+  ],
+  "naturalGames": 0
+}

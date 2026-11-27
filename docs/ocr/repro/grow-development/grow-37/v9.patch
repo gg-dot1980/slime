@@ -1,0 +1,9 @@
+--- ocr-grow37.html
++++ v9.html
+@@ -1248,5 +1248,5 @@
+ }
+ 
+-let lastMap=null;function startAttempt(){if(!loadedVersion||$('go').disabled)return;stop(false);runGameVersion=loadedVersion;runStrategy=$('strategy').value;if(runStrategy==='grow-23')resetGrow23RecoveryState();challenging=true;runCount++;previous=[];lastMap=null;heading={x:1,y:0};velocity={x:0,y:0};last=performance.now();imageState=null;const b=buttons().find(b=>/^(開始遊戲|再玩一次|play|play again|繼續遊戲|resume)$/i.test(b.textContent.trim()));buttons().find(b=>/^(改用螢幕搖桿|Use joystick)$/i.test(b.textContent.trim()))?.click();b?.click();game.contentWindow.focus();active=true;$('attempt').textContent=++attempt;$('status').textContent='正在實驗（單局；原遊戲可能送榜）';const runId=epoch;setTimeout(()=>tick(runId),300);}$('go').onclick=()=>{runCount=0;startAttempt()};$('stop').onclick=()=>stop();window.addEventListener('pagehide',()=>stop(false));document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
++let lastMap=null;function startAttempt(){if(!loadedVersion||$('go').disabled)return;stop(false);runGameVersion=loadedVersion;runStrategy=$('strategy').value;if(runStrategy==='grow-23')resetGrow23RecoveryState();challenging=true;runCount++;previous=[];lastMap=null;velocity={x:0,y:0};last=performance.now();imageState=null;const b=buttons().find(b=>/^(開始遊戲|再玩一次|play|play again|繼續遊戲|resume)$/i.test(b.textContent.trim()));buttons().find(b=>/^(改用螢幕搖桿|Use joystick)$/i.test(b.textContent.trim()))?.click();b?.click();game.contentWindow.focus();active=true;$('attempt').textContent=++attempt;$('status').textContent='正在實驗（單局；原遊戲可能送榜）';const runId=epoch;setTimeout(()=>tick(runId),300);}$('go').onclick=()=>{runCount=0;startAttempt()};$('stop').onclick=()=>stop();window.addEventListener('pagehide',()=>stop(false));document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+ 
+ const gameChoice=$('gameChoice');

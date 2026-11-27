@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 1,
+  "candidate": "grow-19",
+  "protocolHash": "6164d5b844b777019450774e81702f933817dce7a0c561da117ef47a0b7e3da1",
+  "frozenAt": "2026-11-25T06:42:23.897326+00:00",
+  "rule": "Frozen19 source and exact reconstruction/test inputs. History/research reports retain their original status labels; activation and freeze record current batch provenance. Results are appended separately without changing source hashes.",
+  "files": [
+    {
+      "path": "research/check-perception.cjs",
+      "bytes": 17567,
+      "sha256": "7ec9df82caac5888781c6104b8b0a797eb618db154f1df94278647ece8091d7b"
+    },
+    {
+      "path": "research/input/grow15-build-lab.mjs",
+      "bytes": 7124,
+      "sha256": "d62a48bb5745babe545c94c63d4e0d658ed6afb744748a54e048e01a4a8e28ea"
+    },
+    {
+      "path": "research/input/grow17-late-cutoff-diagnostic.json",
+      "bytes": 34667,
+      "sha256": "82215de3322fd6a1ac0f4e5364a751b2ffc1964442c274f5f56b4e4ab0363f81"
+    },
+    {
+      "path": "source/experiments/grow15/frozen/screen-03/geometry.js",
+      "bytes": 5169,
+      "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec"
+    },
+    {
+      "path": "source/experiments/grow15/frozen/screen-03/planner.js",
+      "bytes": 15192,
+      "sha256": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e"
+    },
+    {
+      "path": "source/experiments/grow15/frozen/screen-03/source-base.html",
+      "bytes": 52177,
+      "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b"
+    },
+    {
+      "path": "source/experiments/grow15/geometry.synthetic.cjs",
+      "bytes": 2714,
+      "sha256": "d916d2d8e627d4de1b17ab2176ecb13c05ff877a3cb46e05b946aaf013b53ef2"
+    },
+    {
+      "path": "source/experiments/grow19/activation-verification.json",
+      "bytes": 1102,
+      "sha256": "42203096e5c880b528a3b7fd7635f1eb9e37b5648fad475c47cf4e0c1a0d7efc"
+    },
+    {
+      "path": "source/experiments/grow19/build-lab.mjs",
+      "bytes": 13450,
+      "sha256": "4c48594e1738a46584c1ddc9128860c2afe0bee50bc4631c5a90d12682fd6cc2"
+    },
+    {
+      "path": "source/experiments/grow19/deployed-game-verification.json",
+      "bytes": 1355,
+      "sha256": "ceda096e575b4fac800b362e9e2903004918861691009d1ecae4343defbf7400"
+    },
+    {
+      "path": "source/experiments/grow19/freeze.json",
+      "bytes": 2363,
+      "sha256": "f2938b88d792c5deda61ab2c6cd22f0d74aecdab89aa8e5f95a1b891bf7029c6"
+    },
+    {
+      "path": "source/experiments/grow19/game-isolation.mjs",
+      "bytes": 2797,
+      "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f"
+    },
+    {
+      "path": "source/experiments/grow19/geometry.js",
+      "bytes": 5169,
+      "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec"
+    },
+    {
+      "path": "source/experiments/grow19/harness-regression.mjs",
+      "bytes": 15186,
+      "sha256": "6db6b11f49457f8890fb943f182870a8bd328972e24edff0ed69ae74606fc736"
+    },
+    {
+      "path": "source/experiments/grow19/harness.js",
+      "bytes": 12439,
+      "sha256": "024d23c043268577cb0fced12e639b079fca8b3eeac9048d52a991dbed5bc854"
+    },
+    {
+      "path": "source/experiments/grow19/index.html",
+      "bytes": 233405,
+      "sha256": "7ccdef465829281411dd2055fee1101e1159e598ff04479274c4baa11d1c44a9"
+    },
+    {
+      "path": "source/experiments/grow19/manifest.json",
+      "bytes": 11515,
+      "sha256": "057c91d47a80ef4c91e24cc3daafc89e251e472dc5fd6d3d407c6c2c80bc5cc9"
+    },
+    {
+      "path": "source/experiments/grow19/parent-manifest.json",
+      "bytes": 3009,
+      "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5"
+    },
+    {
+      "path": "source/experiments/grow19/planner.js",
+      "bytes": 15763,
+      "sha256": "b75c18be0d2444e3113bcd1fec302cca86ea7bc60844773b1a8511a19e7c4ee8"
+    },
+    {
+      "path": "source/experiments/grow19/protocol.json",
+      "bytes": 11515,
+      "sha256": "057c91d47a80ef4c91e24cc3daafc89e251e472dc5fd6d3d407c6c2c80bc5cc9"
+    },
+    {
+      "path": "source/experiments/grow19/regression.cjs",
+      "bytes": 14947,
+      "sha256": "d1c7b7f6e085ff4a5c0bdc8513247e47452fa2eed6f8cd2ad52c8fac99c8f8ea"
+    },
+    {
+      "path": "source/experiments/grow19/server.mjs",
+      "bytes": 2082,
+      "sha256": "37b40da087e0ca78f9d8a3b4212aa4ad478ebd82485460a83d9de6c9bfdde8f7"
+    },
+    {
+      "path": "source/experiments/grow19/source-base.html",
+      "bytes": 52177,
+      "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b"
+    },
+    {
+      "path": "source/experiments/grow19/template-provenance.json",
+      "bytes": 2539,
+      "sha256": "89c2ac9ef296e7771b751711cf8fdf1b6e29679260962e2522a3ba7a5f8b3034"
+    },
+    {
+      "path": "source/experiments/grow19/verify-build.mjs",
+      "bytes": 8041,
+      "sha256": "c57f0c741194cc660d459f320ac0ffb1dc1b0c31d25fbeaa826a3d1f80523849"
+    },
+    {
+      "path": "source/package.json",
+      "bytes": 188,
+      "sha256": "cd514be54e51878a2a299a967ce8b5f824a711faf415ed6e6efc0096ce99c587"
+    }
+  ],
+  "omittedExistingGameSources": [
+    "source/experiments/grow19/game-v2.13.html",
+    "source/experiments/grow19/game-v2.22.html"
+  ]
+}

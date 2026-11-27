@@ -1,0 +1,811 @@
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OCR Grow · Grow-24 · 原遊戲視野候選</title><style>
+:root{color-scheme:dark;--bg:#10191d;--panel:#18272d;--line:#344a50;--ink:#eef8f5;--muted:#a8bfba;--mint:#9df0cb;--warn:#ff9b8e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.layout{max-width:1440px;margin:auto;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px}.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden}.stage{position:relative;min-height:60vh;background:#111a1f;display:grid;place-items:center}iframe{width:100%;height:min(82vh,850px);border:0;background:#111a1f}.side{padding:18px;align-self:start;position:sticky;top:16px}.side h1{font-size:21px;margin:0 0 4px}.muted{color:var(--muted);font-size:14px}.actions{display:grid;gap:9px;margin:16px 0}button{padding:12px;border:1px solid #57716f;border-radius:10px;background:#20343a;color:var(--ink);font:700 15px system-ui;cursor:pointer}button.primary{background:var(--mint);color:#10231b;border:0}button:focus-visible{outline:3px solid white;outline-offset:2px}button:disabled{opacity:.55;cursor:wait}.status{padding:12px;border:1px solid var(--line);border-radius:10px;min-height:50px}.status.ok{color:var(--mint)}.status.err{color:var(--warn)}.legend{display:grid;gap:7px;margin-top:14px;color:var(--muted);font-size:14px}.sample{position:relative;max-width:100%;max-height:82vh}.sample canvas{display:block;max-width:100%;max-height:82vh;object-fit:contain}.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay circle{fill:none;stroke-width:3;vector-effect:non-scaling-stroke}.overlay .player{stroke:var(--mint)}.overlay .npc{stroke:#ffca6e}.overlay .food{stroke:#62dce0}.overlay .route{stroke:var(--mint);stroke-width:5;vector-effect:non-scaling-stroke;marker-end:url(#arrow)}.overlay text{fill:white;font:700 13px system-ui;paint-order:stroke;stroke:#10191d;stroke-width:4px}.readout{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{padding:10px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}.metric b{display:block;color:var(--ink);font-size:20px}.decision{padding:13px;border:1px solid #45645d;border-radius:12px;background:#142522;margin-top:12px}.decision strong{font-size:19px;color:var(--mint)}.decision p{margin:5px 0 0;font-size:14px;color:var(--muted)}.how{font-size:14px;color:var(--muted);margin-top:16px}.back{color:var(--mint);font-size:14px;text-decoration:none;display:inline-block;margin-bottom:12px}@media(max-width:850px){.layout{grid-template-columns:1fr;padding:8px;gap:8px}.stage{min-height:52vh}.side{position:static}.stage iframe{height:62vh}.sample,.sample canvas{max-height:62vh}}
+.titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 4px}.titlebar h1{margin:0}.version{flex:none;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--mint);font-size:12px;font-weight:700;letter-spacing:.03em}.status{height:76px;min-height:76px;display:flex;align-items:center;overflow:auto}.decision{height:154px;display:flex;flex-direction:column;overflow:hidden}.decision strong{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.decision p{flex:1;min-height:0;overflow:auto}.url-picker{display:grid;gap:8px;margin-top:16px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#122025}.url-picker label{font-size:13px;font-weight:700}.url-picker select,.url-picker input{width:100%;min-width:0;padding:10px;border:1px solid #57716f;border-radius:9px;background:#10191d;color:var(--ink);font:inherit}.url-picker input[hidden]{display:none}.url-picker p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+@media(min-width:851px){.stage{align-self:start;min-height:0}.side{max-height:calc(100vh - 32px);overflow:auto}iframe{height:calc(100vh - 34px)}}
+@media(min-width:851px){.stage{display:block;height:calc(100vh - 34px)}}
+.release-history{max-width:1440px;margin:20px auto;padding:20px;color:var(--muted)}.release-history article{border-top:1px solid var(--line);padding:12px 0}.release-history h2,.release-history h3{color:var(--ink)}.test-banner{padding:14px 20px;background:#493c20;color:#fff3c9}.test-banner a{color:#b8ffdf}.test-title{display:block;font-size:clamp(1.35rem,5vw,1.9rem);line-height:1.25}.test-banner p{margin:.5rem 0;overflow-wrap:anywhere}.test-live-status{display:inline-block;padding:.25rem .65rem;border:1px solid #ffe19b;border-radius:.45rem;background:#2c2516;font-weight:700}@media(max-width:600px){.test-banner{padding:16px}.test-strategy{font-size:1rem}.test-banner p:last-child{font-size:.9rem}}
+select{font:inherit;padding:10px;width:100%;background:#10191d;color:#eef8f5}.experiment{max-width:1440px;margin:auto;padding:16px} .test-banner button{padding:8px}.experiment{display:none} </style>
+<header class="test-banner"><strong>OCR Grow · Grow-24 · 原遊戲視野候選</strong><p>實驗策略：在既有模型判定可避敵的路徑內，優先保留離牆空間，降低 NPC 生成位置受邊界限制的風險。目前只有合成案例，尚無自然實戰結果；目標仍為 150 秒內體型 200。</p></header><main class="layout"><section class="card stage"><iframe id="game" title="原遊戲"></iframe></section><aside class="card side"><h1>Grow-24 · 原遊戲視野</h1><p>以 Grow-22 為父版。在 v2.22 仍可能被吞食時，優先選擇保有離牆空間且通過既有避敵條件的路徑；沒有合適路徑時仍以已見敵人的避讓為先。此策略可能放棄牆邊食物，尚未實戰驗證。</p><label for="gameChoice">遊戲版本</label><select id="gameChoice"></select><p id="gameVersion" class="muted">預設 v2.13；切換會停止並清空本局。</p><label for="strategy">本局策略（開始時固定）</label><select id="strategy"><option value="grow-12">Grow-12 · 舊基線</option><option value="grow-23" selected>Grow-24 · 沿用 Grow-23 策略</option></select><p class="muted">共用辨識 test-033；使用同網域原遊戲 iframe。只讀畫面及可見 HUD；原遊戲可能提交排行榜，批次測試須在隔離環境執行。A/B 並非勝率驗收。</p><div class="actions"><button id="go" class="primary" disabled>開始單局實驗</button><button id="stop">停止並暫停</button></div><div id="status" class="status">正在載入</div><div class="readout"><div class="metric">體型<b id="size">—</b></div><div class="metric">剩餘時間<b id="time">—</b></div><div class="metric">決策耗時<b id="ms">—</b></div><div class="metric">本次嘗試<b id="attempt">0</b></div></div><div class="decision"><strong id="action">等待</strong><p id="detail"></p></div><p id="rank"></p><ol id="runs"></ol><details id="diagnostics"><summary>本機辨識診斷</summary><canvas id="vision" style="width:100%"></canvas><pre id="visionText" style="white-space:pre-wrap"></pre></details><input id="timingEnabled" type="checkbox" hidden><p class="muted">保持頁面前景。Grow-23 不送出超過 200ms 的舊決策；偶發逾時釋鍵後重讀，連續 3 次或單次超過 1000ms 則停止。手機尚未驗收。</p></aside></main><section class="experiment" id="grow-12"><h2>grow-12 · 2026-11-23</h2><p>90以上新增短期退路評分：多個近紅點或牆角時，在既有安全方向內優先保留較寬出口，避免只遠離最近紅點卻朝另一紅點移動。開闊白點場景不加此偏轉；89以下及 A 不變。只以可見資訊作靜態短期預估，非實戰勝率。</p></section><section class="experiment" id="grow-11"><h2>grow-11 · 2026-11-23</h2><p>恢復90門檻（含90）：以下原規劃，以上小地圖追明顯小白點、紅點優先避讓。保留 grow-10 視覺修正，牆與失圖防護；受控回歸，非實戰勝率。</p></section><section class="experiment" id="grow-10"><h2>grow-10 · 2026-11-23</h2><p>只修實驗遊戲小地圖視覺層：鏡頭框改中性色且先畫，NPC 點後畫，綠色玩家仍最後畫。避免鏡頭框遮掉真紅點；不憑空補紅、不改規則及物理。同向紅點才許可主畫面避障，真無紅仍不躲 NPC。受控測試非勝率。</p></section><section class="experiment" id="grow-9"><h2>grow-9 · 2026-11-22</h2><p>分開小地圖目的地與主畫面局部避障；開局生效。小地圖原前進方向有紅點，主畫面可靠近危險才允許偏轉；無紅不閃避NPC，牆獨立。這會接受未標紅但可能致命的風險。使用安全側向保持與回復餘量減少來回反向。可辨識 NPC 優先；約8秒路程外且近處有已分類小食物時先取食物，無合適 NPC 時小食物備案。固定受控回歸，完整實戰未執行；不是正式驗收。</p></section><section class="experiment" id="grow-8"><h2>grow-8 · 2026-11-22</h2><p>B 開局啟用白點追逐、紅點與已確認近體型避讓。只新增獵物接近／退出篩選：固定4秒接近、1秒離開模型；牆資訊不足或超出範圍標未知，保留原策略。預測接觸不等於吞食；不新增攔截或鎖定。受控回歸，完整實戰未執行。</p></section><section class="experiment" id="grow-7"><h2>grow-7 · 2026-11-22</h2><p>四版本綠點半徑固定3，NPC點半徑限制1.2～3（實際半徑÷38）。只以完整白點的實色面積保守估計下界；達玩家HUD加1的90%才列為接近體型威脅，紅點與牆仍避開。飽和或低信心不等於同大小，不一律全避；近綠點的小白點繼續追。僅合成／受控驗證，實戰未驗證。</p></section><section class="experiment" id="grow-6"><h2>grow-6 · 2026-11-22</h2><p>修正已分離白點距玩家6像素時遭誤刪、導致沒有目標而沿舊方向的問題。保留實際綠白接觸／重疊拒判；紅點、牆與缺圖防護不變。顯示白點追逐、紅點／牆限制、缺圖或無合格白點等決策原因。固定像素與瀏覽器案例不是自然實戰或過關率。</p></section><section class="experiment" id="grow-5"><h2>grow-5 · 2026-11-22</h2><p>修正白點進入主畫面後被配對失敗、裁切碎片或危險外觀重新當威脅。B 體型≥90以可見小地圖白／紅點主導 NPC 決策：白點追逐，紅點與牆避讓；不再依主畫面 NPC 產生避讓覆寫。缺少小地圖或玩家定位時釋放控制。此策略可能撞上實際不可吃 NPC；實戰未驗證、不保證吞食。</p></section><section class="experiment" id="grow-4"><h2>grow-4 · 2026-11-22</h2><p>依指定實驗行為：B 體型≥90，唯一確認的非紅 NPC 不再被同一物件的半徑、紅字、裁切旗標或停滯旗標重新排除／避讓；仍需小地圖正面證據與唯一歸屬。其他紅點與牆保留。非紅門檻與吞食門檻不同，這可能致死；遊戲規則未改。固定回歸非實戰勝率，未驗收。</p></section><section class="experiment" id="grow-3"><h2>grow-3 · 2026-11-22</h2><p>B 在體型 ≥90 時以可見小地圖非紅 NPC 標記追逐，不再以原 0.85／0.94 體型估計排除唯一配對目標。紅點保持威脅；不以沒有紅點推定可吃。綠色玩家、邊框、混色與模糊標記拒判。A、90 以下及隔離規則未變。合成／來源回歸不是實戰勝率，尚未驗收。</p></section><section class="experiment" id="grow-2"><h2>grow-2 · 2026-11-22</h2><p>新增與 OCR-test 相同版本及標籤，預設 v2.13。每版依原始遊戲建立無網路、無排行榜副本；切換先釋放按鍵、失效舊回呼並清空本局追蹤。grow-1 A/B 策略未變；本改版不是勝率驗收。</p></section><section class="experiment" id="grow-1"><h2>grow-1 · 2026-11-22</h2><p>新增獨立成長優先策略，不修改其他 OCR 頁。短程可達的小型 NPC 優先於一般食物；尺寸未知不追、威脅不因預期成長消失。兩秒軌跡逐步檢查可見牆界與威脅；畫面外與辨識誤差仍未知。</p><p>固定合成 A/B 與停止測試另附可重跑程式；實戰未驗證，尚無過關率證據。沒有納入威脅去重原型。</p></section><script>/* timing-2: optional local diagnostic, no network, pixels or object records retained. */
+(function(root){
+'use strict';
+function create(clock=()=>performance.now(),limit=512){
+ let enabled=false,seq=0,lastHash=null,rows=[],dropped=0;
+ function add(kind,data={}){if(!enabled)return;const row={kind,at:clock(),seq,...data};if(rows.length===limit){rows.shift();dropped++;}rows.push(row);}
+ return {
+ enable(on){enabled=!!on;if(on){seq=0;lastHash=null;rows=[];dropped=0;}},
+ capture(image,start,end){if(!enabled)return;seq++;let hash=2166136261;for(let i=0;i<image.data.length;i++)hash=Math.imul(hash^image.data[i],16777619)>>>0;
+ add('capture',{start,end,signatureChanged:lastHash===null?null:hash!==lastHash,frameIdentity:'pixel-change-only; render time unknown'});lastHash=hash;},
+ decision(d){add('decisionComplete',{requestedHeading:{x:d.x,y:d.y},signedScreenDisplacement:null,displacementStatus:'unknown; requires independent background measurement'});},
+ dispatch(type,key,send){add('dispatchBefore',{type,key});try{return send();}finally{add('dispatchAfter',{type,key,receiverAcknowledged:false});}},
+ stop(){add('stop');},
+ snapshot(){return {version:'timing-2',clock:'parent performance.now',enabled,dropped,rows:JSON.parse(JSON.stringify(rows))};}
+ };
+}
+const api={create};if(typeof module!=='undefined')module.exports=api;else root.OCRTiming=api;
+})(typeof window==='undefined'?globalThis:window);
+</script><script>(()=>{const $=id=>document.getElementById(id),game=$('game'),out=document.createElement('canvas'),ctx=out.getContext('2d',{willReadFrequently:true});const timing=window.ocrTiming=OCRTiming.create();document.getElementById('timingEnabled').onchange=e=>timing.enable(e.target.checked);let active=false,challenging=false,epoch=0,previous=[],last=0,heading={x:1,y:0},velocity={x:0,y:0},held=new Set(),attempt=0;
+function isPlayerComponent(p,radius,cx,cy){if(!radius)return false;const offset=Math.hypot(p.x-cx,p.y-cy);return offset<=radius*.65&&p.r>=radius*.45&&p.r<=radius*1.55}
+function components(data,w,h,scale,uiMasks=[]){
+ const W=Math.ceil(w/scale),H=Math.ceil(h/scale),n=W*H,mask=new Uint8Array(n),seen=new Uint8Array(n),hues=new Uint16Array(n),rgb=data.data,sqrt3=Math.sqrt(3);
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+  if(uiMasks.some(rect=>x*scale>=rect.x&&x*scale<=rect.x+rect.w&&y*scale>=rect.y&&y*scale<=rect.y+rect.h))continue;
+  const p=((y*scale)*w+x*scale)*4,r=rgb[p],g=rgb[p+1],b=rgb[p+2],max=Math.max(r,g,b),min=Math.min(r,g,b),i=y*W+x;
+  if(max>64){mask[i]=1;hues[i]=max-min<8?65535:Math.round((Math.atan2(sqrt3*(g-b),2*r-g-b)*180/Math.PI+360)%360)%360}
+ }
+ const found=[],queue=new Int32Array(n);
+ for(let i=0;i<n;i++){
+  if(!mask[i]||seen[i])continue;
+  const seedHue=hues[i],sameColor=j=>{if(seedHue===65535||hues[j]===65535)return seedHue===hues[j];const delta=Math.abs(hues[j]-seedHue);return delta<=22||delta>=338};
+  let head=0,tail=0;queue[tail++]=i;seen[i]=1;let area=0,minX=W,minY=H,maxX=0,maxY=0,sx=0,sy=0;
+  while(head<tail){
+   const q=queue[head++],x=q%W,y=(q/W)|0;area++;sx+=x;sy+=y;if(x<minX)minX=x;if(x>maxX)maxX=x;if(y<minY)minY=y;if(y>maxY)maxY=y;
+   let j;if(x>0){j=q-1;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(x+1<W){j=q+1;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(y>0){j=q-W;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(y+1<H){j=q+W;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}
+  }
+  const bw=maxX-minX+1,bh=maxY-minY+1,diam=Math.max(bw,bh)*scale,cx=(sx/area+.5)*scale,cy=(sy/area+.5)*scale;
+  const aspect=Math.max(bw,bh)/Math.min(bw,bh),density=area/(bw*bh),textLike=aspect>2.4&&density<.55;
+  if(area>=7&&diam>=9&&density>=.28&&aspect<=12&&!textLike)found.push({hue:seedHue,x:cx,y:cy,r:diam/2,area,bw:bw*scale,bh:bh*scale,clipped:minX<=1||minY<=1||maxX>=W-2||maxY>=H-2||uiMasks.some(rect=>(maxX+1)*scale>=rect.x-scale&&minX*scale<=rect.x+rect.w+scale&&(maxY+1)*scale>=rect.y-scale&&minY*scale<=rect.y+rect.h+scale)});
+ }
+ return found
+}
+function canvasUiMasks(w,h,pixelRatio=1){
+ // The supported game versions paint only the minimap into this canvas. Other HUD panels are DOM overlays and must not hide arena pixels.
+ const miniWidth=Math.min(144*pixelRatio,w*.26),miniHeight=miniWidth*9/13;
+ return [{x:w-miniWidth-27*pixelRatio,y:58*pixelRatio,w:miniWidth+27*pixelRatio,h:miniHeight+42*pixelRatio}]
+}
+function detectMinimap(image,w,h,pixelRatio=1){
+ const width=Math.min(144*pixelRatio,w*.26),height=width*9/13,x=w-width-15*pixelRatio,y=70*pixelRatio;
+ if(width<40||x<0||y+height>h)return null;
+ const data=image.data,W=Math.ceil(width),H=Math.ceil(height),red=new Uint8Array(W*H),green=new Uint8Array(W*H),seen=new Uint8Array(W*H),queue=new Int32Array(W*H),threats=[];
+ let mapBackground=0;
+ for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){
+  const px=Math.floor(x+xx),py=Math.floor(y+yy);if(px>=w||py>=h)continue;
+  const i=(py*w+px)*4,r=data[i],g=data[i+1],b=data[i+2],j=yy*W+xx;
+  if(Math.abs(r-32)<=2&&Math.abs(g-50)<=2&&Math.abs(b-56)<=2)mapBackground++;
+  red[j]=r>205&&r-g>55&&r-b>65&&g<185?1:0;
+  green[j]=r>110&&r<200&&g>190&&g-r>35&&g-b>15?1:0;
+ }
+ if(mapBackground<W*H*.25)return null;
+ // Separate red islands; overlapping dots remain one group with greater area/weight.
+ for(let i=0;i<red.length;i++)if(red[i]&&!seen[i]){
+  let head=0,tail=0,area=0,sx=0,sy=0;queue[tail++]=i;seen[i]=1;
+  while(head<tail){const j=queue[head++],xx=j%W,yy=(j/W)|0;area++;sx+=xx;sy+=yy;
+   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=xx+dx,ny=yy+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;const k=ny*W+nx;if(red[k]&&!seen[k]){seen[k]=1;queue[tail++]=k}}
+  }
+  if(area>=Math.max(2,pixelRatio*pixelRatio*1.5))threats.push({x:sx/area+.5,y:sy/area+.5,area,weight:1+Math.min(2,Math.max(0,Math.sqrt(area/Math.PI)/pixelRatio-1.2))*.4})
+ }
+ // A filled green disk identifies the player; the thin camera rectangle must not qualify.
+ const disk=[],ring=[],coreRadius=2.2*pixelRatio,outerRadius=4.4*pixelRatio;
+ for(let dy=-Math.ceil(outerRadius);dy<=Math.ceil(outerRadius);dy++)for(let dx=-Math.ceil(outerRadius);dx<=Math.ceil(outerRadius);dx++){const d=Math.hypot(dx,dy);if(d<=coreRadius)disk.push([dx,dy]);else if(d>=3.7*pixelRatio&&d<=outerRadius)ring.push([dx,dy])}
+ let player=null,best=-Infinity;
+ for(let yy=Math.ceil(coreRadius);yy<H-Math.ceil(coreRadius);yy++)for(let xx=Math.ceil(coreRadius);xx<W-Math.ceil(coreRadius);xx++)if(green[yy*W+xx]){
+  const coverage=offsets=>{let hits=0,total=0;for(const [dx,dy] of offsets){const nx=xx+dx,ny=yy+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;total++;hits+=green[ny*W+nx]}return total?hits/total:0},filled=coverage(disk),score=filled-coverage(ring)*.25;
+  if(filled>=.82&&score>best){best=score;player={x:xx+.5,y:yy+.5}}
+ }
+ const opportunities=[];const visited=new Set();for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){const i=(Math.floor(y+yy)*w+Math.floor(x+xx))*4;if(data[i]>115&&data[i+1]>140&&data[i+2]>130&&data[i+1]-data[i]<55&&Math.abs(data[i]-data[i+2])<40&&!visited.has(yy*W+xx)){let area=0,sx=0,sy=0;const todo=[[xx,yy]];while(todo.length){const [a,b]=todo.pop(),k=b*W+a;if(a<0||a>=W||b<0||b>=H||visited.has(k))continue;visited.add(k);const q=(Math.floor(y+b)*w+Math.floor(x+a))*4;if(!(data[q]>115&&data[q+1]>140&&data[q+2]>130&&data[q+1]-data[q]<55&&Math.abs(data[q]-data[q+2])<40))continue;area++;sx+=a;sy+=b;todo.push([a-1,b],[a+1,b],[a,b-1],[a,b+1]);}if(area>=Math.max(1,2*pixelRatio*pixelRatio)&&area<100*pixelRatio*pixelRatio)opportunities.push({x:sx/area,y:sy/area,area});}}return player?{x,y,width,height,pixelRatio,player,threats,opportunities}:null
+}
+function hasSlimeLabel(image,w,h,p){
+ if(p.r<6)return false;
+ const data=image.data,halfWidth=Math.min(40,p.r*.65),halfHeight=Math.min(7,p.r*.25);
+ let bright=0;
+ for(let y=Math.max(0,Math.floor(p.y-halfHeight));y<=Math.min(h-1,p.y+halfHeight);y+=2)
+  for(let x=Math.max(0,Math.floor(p.x-halfWidth));x<=Math.min(w-1,p.x+halfWidth);x+=2){
+   const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2];
+   if(Math.min(r,g,b)>200&&Math.max(r,g,b)-Math.min(r,g,b)<40)bright++;
+  }
+ return bright>=3
+}
+function hasDangerLabel(image,w,h,p,ratio){
+ let hits=0;const data=image.data;
+ for(let y=Math.max(0,Math.floor(p.y-p.r*1.35-20*ratio));y<Math.min(h,p.y-p.r*.65);y++)for(let x=Math.max(0,Math.floor(p.x-24*ratio));x<Math.min(w,p.x+24*ratio);x++){
+ const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2];if(r>225&&g>130&&g<210&&b>115&&b<200&&r-g>40&&g-b<40)hits++;
+ }return hits>=Math.max(3,5*ratio*ratio);
+}
+function highlightRadius(image,w,h,p){
+ if(p.clipped||p.r<18)return p.r;const data=image.data,colors=[];
+ for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=Math.round(p.x+p.r*.32)+dx,y=Math.round(p.y-p.r*.28)+dy;if(x<0||x>=w||y<0||y>=h)continue;const i=(y*w+x)*4;colors.push([data[i],data[i+1],data[i+2]]);}
+ if(!colors.length)return p.r;const base=[0,1,2].map(k=>colors.map(c=>c[k]).sort((a,b)=>a-b)[colors.length>>1]);let area=0,sx=0,sy=0;
+ for(let y=Math.max(0,Math.floor(p.y-p.r*.7));y<p.y-p.r*.12;y++)for(let x=Math.max(0,Math.floor(p.x-p.r*.65));x<p.x+p.r*.02;x++){if(x>=w||y>=h)continue;const i=(y*w+x)*4;if([0,1,2].every(k=>data[i+k]>base[k]+9)&&[0,1,2].reduce((n,k)=>n+data[i+k]-base[k],0)>40){area++;sx+=x+.5;sy+=y+.5;}}
+ if(area<4)return p.r;const dx=p.x-sx/area,dy=p.y-sy/area,estimate=(dx*.25+dy*.33)/(.25*.25+.33*.33),expected=Math.PI*.18*.09*estimate*estimate;
+ return estimate>p.r*.7&&estimate<p.r*1.4&&area>expected*.45&&area<expected*1.6?estimate:p.r;
+}
+let imageState=null;
+function detectVisibleWalls(image,w,h,ratio){
+ const s=4,nx=Math.ceil(w/s),ny=Math.ceil(h/s),rows=new Uint16Array(ny),cols=new Uint16Array(nx),px=image.data;
+ for(let j=0;j<ny;j++)for(let i=0;i<nx;i++){const k=((j*s)*w+i*s)*4,a=px[k],b=px[k+1],c=px[k+2];if(a>=40&&a<=95&&b>=85&&b<=150&&c>=75&&c<=140&&b-a>=30&&b-a<=60&&b-c>=5&&b-c<=20){rows[j]++;cols[i]++;}}
+ function lines(counts,opposite){const groups=[];for(let i=0;i<counts.length;i++)if(counts[i]/opposite>=.55){const x=i*s,g=groups.at(-1);if(g&&x-g.at(-1)<=s)g.push(x);else groups.push([x]);}return groups.filter(g=>g.at(-1)-g[0]<=20).map(g=>g.reduce((a,b)=>a+b,0)/g.length);}
+ const result=[null,null,null,null];for(const x of lines(cols,ny)){const k=x<w/2?0:1,v=Math.abs(x-w/2)/ratio;result[k]=result[k]===null?v:Math.min(result[k],v);}for(const y of lines(rows,nx)){const k=y<h/2?2:3,v=Math.abs(y-h/2)/ratio;result[k]=result[k]===null?v:Math.min(result[k],v);}return result.some(v=>v!==null)?result:null;
+}
+function readImage(source,radius,now,predictedVelocity=null){
+ const scale=Math.min(1,(runStrategy==='grow-23'?2000:1200)/source.width),w=Math.round(source.width*scale),h=Math.round(source.height*scale);if(!w||!h)throw Error('遊戲畫面尚未就緒');
+ if(out.width!==w)out.width=w;if(out.height!==h)out.height=h;const captureStart=performance.now();ctx.drawImage(source,0,0,w,h);window.r4capture={start:captureStart,end:performance.now(),sourceWidth:source.width,sourceHeight:source.height};const image=ctx.getImageData(0,0,w,h);timing.capture(image,captureStart,performance.now());const pixels=new Uint32Array(image.data.buffer,image.data.byteOffset,image.data.byteLength/4),ratio=w/(source.clientWidth||w);
+ const prior=imageState;let same=prior?.pixels.length===pixels.length&&prior.width===w&&prior.height===h;if(same)for(let i=0;i<pixels.length;i++)if(pixels[i]!==prior.pixels[i]){same=false;break;}if(same)return prior.analysis;
+ const map0=detectMinimap(image,w,h,ratio),visibleWalls=detectVisibleWalls(image,w,h,ratio),map=map0?{...map0,visibleWalls}:visibleWalls?{visibleWalls}:null,r=radius*ratio,rawParts=components(image,w,h,Math.max(1,Math.ceil(w/700)),canvasUiMasks(w,h,ratio)),parts=rawParts.filter(p=>!rawParts.some(q=>q!==p&&q.r>p.r*1.8&&Math.hypot(p.x-q.x,p.y-q.y)<q.r*.8&&!(p.r>=r*.98&&p.hue!==65535&&q.hue!==65535&&Math.min(Math.abs(p.hue-q.hue),360-Math.abs(p.hue-q.hue))>22&&hasSlimeLabel(image,w,h,p)))).filter(p=>!isPlayerComponent(p,r,w/2,h/2)&&p.r>4*ratio&&!(p.r<=Math.max(20*ratio,r*.48)&&Math.hypot(p.x-w/2,p.y-h/2)<r*1.2&&(p.hue===65535||!hasSlimeLabel(image,w,h,p))));
+ if(map&&(runStrategy==='grow-12'||runStrategy==='grow-23'))map.growMarkers=growMarkers(image,w,h,map);
+ if(map){map.observedAt=now;map.viewWidth=w/ratio;map.viewHeight=h/ratio;}
+ const dt=Math.max(.04,Math.min(.4,(now-(prior?.timestamp??now-100))/1000)),previous=prior?.objects||[];let camera=predictedVelocity?{...predictedVelocity}:{x:0,y:0};
+ if(!predictedVelocity&&map?.player&&prior?.analysis.map?.player){const old=prior.analysis.map;camera={x:(map.player.x/map.width-old.player.x/old.width)*10400/dt,y:(map.player.y/map.height-old.player.y/old.height)*7200/dt};}
+ const shifts=[];for(const p of parts.filter(p=>p.r<=20*ratio)){const x=(p.x-w/2)/ratio,y=(p.y-h/2)/ratio;let best=null,error=35;for(const q of previous.filter(q=>!q.npc)){const dist=Math.hypot(q.x-x-(prior.analysis.velocity.x||0)*dt,q.y-y-(prior.analysis.velocity.y||0)*dt);if(Math.abs(q.r-p.r/ratio)<3&&dist<error){error=dist;best=q;}}if(best)shifts.push({x:(best.x-x)/dt,y:(best.y-y)/dt});}
+ let measuredCamera=null;if(shifts.length>=3){const median=k=>shifts.map(p=>p[k]).sort((a,b)=>a-b)[shifts.length>>1];measuredCamera={x:median('x'),y:median('y')};camera=predictedVelocity?{x:predictedVelocity.x*.6+median('x')*.4,y:predictedVelocity.y*.6+median('y')*.4}:{x:median('x'),y:median('y')};}
+ camera.x=Math.max(-400,Math.min(400,camera.x));camera.y=Math.max(-400,Math.min(400,camera.y));const oldVelocity=prior?.analysis.velocity||{x:0,y:0},velocity=predictedVelocity?{...camera}:{x:oldVelocity.x*.75+camera.x*.25,y:oldVelocity.y*.75+camera.y*.25};
+ const used=new Set(),objects=parts.map(p=>{const visualR=p.r/ratio,labelSeen=hasSlimeLabel(image,w,h,p),npc=labelSeen||visualR>20,originalRadius=npc?highlightRadius(image,w,h,p)/ratio:visualR,geometry=runStrategy==='grow-23'&&npc?refineSlimeGeometry(image,w,h,p):null,x=((geometry?geometry.x:p.x)-w/2)/ratio,y=((geometry?geometry.y:p.y)-h/2)/ratio,r=geometry?geometry.r/ratio:originalRadius;let match=null,error=100;for(const q of previous){if(used.has(q)||q.npc!==npc||Math.abs(q.r-r)>Math.max(6,r*.2))continue;const dist=Math.hypot(q.x+(q.vx-camera.x)*dt-x,q.y+(q.vy-camera.y)*dt-y);if(dist<error){error=dist;match=q;}}if(match)used.add(match);const clamp=v=>Math.max(-200,Math.min(200,v));const stalled=npc&&Math.hypot(x,y)<(radius+r)*.74&&prior?.radius===radius?(match?.stalled||0)+dt:0;return {x,y,r,visualR,geometryAccepted:geometry?1:0,confidence:geometry?geometry.confidence:null,originalRadius,npc,labelSeen,localReliable:!p.clipped&&labelSeen&&Math.max(p.bw,p.bh)/Math.min(p.bw,p.bh)<=1.4&&p.area*Math.max(1,Math.ceil(w/700))**2/(p.bw*p.bh)>=.5,stalled,blocked:stalled>.5,isRed:npc&&hasDangerLabel(image,w,h,p,ratio),clipped:p.clipped,dangerRadius:p.clipped?r+50:r,vx:npc&&match?clamp((match.vx||0)*.65+((x-match.x)/dt+(measuredCamera?.x??camera.x))*.35):0,vy:npc&&match?clamp((match.vy||0)*.65+((y-match.y)/dt+(measuredCamera?.y??camera.y))*.35):0};});
+ const analysis={objects,map,velocity};imageState={radius,width:w,height:h,pixels,timestamp:now,objects,analysis};return analysis;
+}
+function hudSpeed(r,text){const values=/RGB\s*(\d+)\s*·\s*(\d+)\s*·\s*(\d+)/.exec(text||''),color=values?values.slice(1).map(Number):[98,218,169],brightness=(.2126*color[0]+.7152*color[1]+.0722*color[2])/255;return Math.max(92,260-Math.max(0,r-25)*.65)*(.72+brightness*.58)*1.38;}
+const dirs=Array.from({length:8},(_,i)=>({x:Math.cos(i*Math.PI/4),y:Math.sin(i*Math.PI/4),name:['東','東南','南','西南','西','西北','北','東北'][i]}));
+function planBaseline(objects,r,map,speed,v,old,splitGuard=true){
+ const meals=objects.filter(o=>!o.clipped&&!o.blocked&&(!o.npc||!o.isRed&&o.r<r*.94));
+ const estimatedWalls=map?.player?[map.player.x/map.width*10400,(1-map.player.x/map.width)*10400,map.player.y/map.height*7200,(1-map.player.y/map.height)*7200]:null,walls=map?.visibleWalls?map.visibleWalls.map((v,i)=>v??estimatedWalls?.[i]??Infinity):estimatedWalls;
+ const margin=260+.75*r,wallMeal=false,recovering=!!walls?.some(x=>x<margin);
+ let target=null,best=0;
+ for(const o of meals){if(walls){const contact=o.npc?.7*(r+o.r):r+o.r*.5,preyWall=walls.map((w,i)=>w+[o.x,-o.x,o.y,-o.y][i]);if(preyWall.some(w=>w+contact<margin))continue;}const dist=Math.hypot(o.x,o.y),gain=o.npc?.75*(Math.sqrt(r*r+.55*o.r*o.r)-r):.45,eta=Math.max(.12,(dist-(o.npc?.7*(r+o.r):r))/speed),score=gain/(eta+.4)*(o.npc?2:1)*(old.target&&old.target.npc===o.npc&&Math.hypot(old.target.x-o.x,old.target.y-o.y)<100?1.2:1);if(score>best){best=score;target=o;}}
+ if(map&&(!target||r>=140&&!target.npc))for(const dot of map.opportunities||[]){const x=(dot.x-map.player.x)/map.width*10400,y=(dot.y-map.player.y)/map.height*7200,dist=Math.hypot(x,y);if(dist<300||map.viewWidth&&Math.abs(x)<map.viewWidth*.5-40&&Math.abs(y)<map.viewHeight*.5-40)continue;const area=dot.area/(map.pixelRatio||1)**2,body=area<6?Math.min(20,r*.75):Math.min(r*.85,Math.sqrt(area/Math.PI)*38),gain=.75*(Math.sqrt(r*r+.55*body*body)-r),score=gain/(dist/speed+.7)*1.2;if(score>best){best=score;target={x,y,r:body,npc:true,mapOnly:true,vx:0,vy:0};}}
+ const lead=target?Math.min(1.2,Math.hypot(target.x,target.y)/speed):0,tx=target?target.x+target.vx*lead:old.x*speed,ty=target?target.y+target.vy*lead:old.y*speed;
+ const candidates=dirs.map(d=>{let x=0,y=0,vx=v.x,vy=v.y,clearance=1e6,risk=0,gain=0,projectedR=r;const picked=new Set();
+ for(let k=1;k<=20;k++){const t=k*.1;vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
+ for(const o of objects){if(o.clipped||o.blocked||picked.has(o)||o.npc&&(o.isRed||o.r>=projectedR*.94))continue;if(Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)<(o.npc?.7*(projectedR+o.r):projectedR+o.r*.5)){picked.add(o);const g=o.npc?.75*(Math.sqrt(projectedR*projectedR+.55*o.r*o.r)-projectedR):.45;gain+=g/(t+.3);projectedR+=g;}}
+ if(t<=1.1)for(const o of objects){if(!o.npc||picked.has(o)||!o.clipped&&!o.isRed&&o.r<projectedR*.98)continue;const body=o.clipped?o.dangerRadius:o.isRed?Math.max(o.r,r*1.1):o.r, gap=Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)-.75*(projectedR+body)-12;clearance=Math.min(clearance,gap);risk+=Math.max(0,1-gap/100)**2/11;}
+ }
+ const alignment=(d.x*tx+d.y*ty)/Math.max(1,Math.hypot(tx,ty)),inward=walls&&!wallMeal?[d.x,-d.x,d.y,-d.y].reduce((s,a,i)=>s+Math.max(0,(margin-walls[i])/margin)*a,0):0;
+ return {...d,target,clearance,risk,gain,projectedR,recovering,score:alignment*Math.max(2,best)*4+gain*4-risk*12+inward*50+(d.x*old.x+d.y*old.y)*.15};});
+ const safe=candidates.filter(d=>d.clearance>3),bounded=safe.filter(d=>!walls||walls.every((distance,i)=>distance>=margin||[d.x,-d.x,d.y,-d.y][i]>=.25)),pool=bounded.length?bounded:safe.length?safe:candidates;pool.sort((a,b)=>safe.length?b.score-a.score:b.clearance-a.clearance);return {...pool[0],escaping:!safe.length,threats:objects.filter(o=>o.npc&&(o.clipped||o.isRed||o.r>=r*.98)).length};
+}
+// grow-3: read only rendered minimap pixels; no game state or absent-marker inference.
+function growMarkers(image,w,h,map){
+ if(!map?.player||!image?.data)return [];
+ const q=map.pixelRatio||1,W=Math.ceil(map.width),H=Math.ceil(map.height),kind=new Uint8Array(W*H),seen=new Uint8Array(W*H),out=[];
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){const X=Math.floor(map.x+x),Y=Math.floor(map.y+y);if(X<0||Y<0||X>=w||Y>=h)continue;const i=(Y*w+X)*4,r=image.data[i],g=image.data[i+1],b=image.data[i+2];kind[y*W+x]=r>=240&&g>=120&&g<=158&&b>=110&&b<=150?2:r>=200&&r<=217&&g>=228&&g<=244&&b>=215&&b<=233?1:r>=140&&r<=185&&g>=220&&b>=185&&b<=224?3:0;}
+ for(let i=0;i<kind.length;i++)if((kind[i]===1||kind[i]===2)&&!seen[i]){const color=kind[i],todo=[i],points=[];seen[i]=1;while(todo.length){const k=todo.pop(),x=k%W,y=(k/W)|0;points.push([x,y]);for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const a=x+dx,b=y+dy,j=b*W+a;if(a>=0&&a<W&&b>=0&&b<H&&!seen[j]&&kind[j]===color){seen[j]=1;todo.push(j);}}}
+ const xs=points.map(p=>p[0]),ys=points.map(p=>p[1]),l=Math.min(...xs),r=Math.max(...xs),t=Math.min(...ys),b=Math.max(...ys),bw=r-l+1,bh=b-t+1,x=xs.reduce((a,b)=>a+b,0)/points.length+.5,y=ys.reduce((a,b)=>a+b,0)/points.length+.5;
+ let mixed=false;for(let Y=Math.max(0,t-1);Y<=Math.min(H-1,b+1);Y++)for(let X=Math.max(0,l-1);X<=Math.min(W-1,r+1);X++){const k=kind[Y*W+X];if(k===3||k&&k!==color)mixed=true;}
+ // A resolved white component is not rejected merely for proximity to the player.
+ // The expanded mixed-color box still rejects green/white contact and camera strokes.
+ // No food is painted here. Reject borders, text, player/camera strokes and touching colors.
+ if(l<=0||t<=0||r>=W-1||b>=H-1||points.length<Math.max(2,q*q)||bw>7*q+1||bh>7*q+1||Math.max(bw,bh)/Math.min(bw,bh)>1.8||points.length/(bw*bh)<.45||mixed||(color===2&&Math.hypot(x-map.player.x,y-map.player.y)<=6*q))continue;
+ let core=0;for(const [X,Y]of points){const i=((Math.floor(map.y)+Y)*w+Math.floor(map.x)+X)*4;if(image.data[i]===211&&image.data[i+1]===238&&image.data[i+2]===225)core++;}
+ // Exact pale core area only: antialias/tint cannot increase this lower estimate.
+ // NPC map radius = clamp(worldRadius/38,1.2,3); player marker is fixed3.
+ const sizeLower=color===1&&Math.max(bw,bh)/Math.min(bw,bh)<=1.2&&points.length/(bw*bh)>=.7?38*Math.sqrt(core*.98/Math.PI)/q:0;
+ const sizeUpper=color===1&&Math.max(bw,bh)<5*q?38*(Math.max(bw,bh)/q+1)/2:0;
+ out.push({x,y,red:color===2,area:points.length,sizeLower,sizeUpper,source:'visible-minimap'});
+ }return out;
+}
+function growMapInputs(objects,r,map){
+ const valid=Number.isFinite(map?.player?.x)&&Number.isFinite(map?.player?.y)&&map.width>0&&map.height>0&&Array.isArray(map.growMarkers);
+ if(!valid)return {objects:[],targets:[],mapStatus:'lost'};
+ // In B the visible map is authoritative for NPC policy. Body fragments,
+ // aliases, red text, radius and failed pairing must not reintroduce avoidance.
+ const markers=map.growMarkers.filter(m=>Number.isFinite(m.x)&&Number.isFinite(m.y));
+ const nearWhite=markers.filter(m=>m.red===false&&Number.isFinite(m.sizeLower)&&m.sizeLower>45.6&&m.sizeLower>=.9*(r+1));
+ const reds=[...nearWhite.map(m=>({...m,nearWhite:true})),...markers.filter(m=>m.red),...(map.threats||[]).filter(t=>Number.isFinite(t.x)&&Number.isFinite(t.y)&&!markers.some(m=>m.red&&Math.hypot(m.x-t.x,m.y-t.y)<2))];
+ const copy=objects.filter(o=>!o.npc).map(o=>({...o})),targets=[];
+ const point=m=>({x:(m.x-map.player.x)/map.width*10400,y:(m.y-map.player.y)/map.height*7200});
+ for(const m of reds)copy.push({...point(m),r:Math.max(r*1.12,114)+75,nearWhite:!!m.nearWhite,npc:true,isRed:true,clipped:false,vx:0,vy:0,mapOnly:true});
+ for(const m of markers.filter(m=>m.red===false)){
+  if(reds.some(t=>Math.hypot(m.x-t.x,m.y-t.y)<=2*(map.pixelRatio||1)))continue;
+  const o={...point(m),r:Math.min(r,60),npc:true,isRed:false,clipped:false,blocked:false,vx:0,vy:0,mapVerified:true,mapOnly:true,sizeUpper:m.sizeUpper||0};copy.push(o);targets.push(o);
+ }
+ return {objects:copy,targets,mapStatus:'visible',nearWhite:nearWhite.length};
+}
+// Visible-map-only target screen. A contact is hypothetical, never a claimed eat.
+function growExitEvidence(target,r,map,speed,v,threats){
+ const walls=map?.visibleWalls||[null,null,null,null],complete=walls.length===4&&walls.every(Number.isFinite);
+ const margin=260+.75*r,contact=.7*(r+target.r);let reached=false,attempted=false;
+ function legal(s,t){
+  if(walls.some((w,i)=>Number.isFinite(w)&&w+[s.x,-s.x,s.y,-s.y][i]<Math.min(w,margin)-1))return false;
+  return threats.every(o=>Math.hypot(o.x+(o.vx||0)*t-s.x,o.y+(o.vy||0)*t-s.y)-.75*(r+Math.max(o.r||0,r*1.1))-12>3);
+ }
+ function step(s,d){const vx=s.vx+(d.x*speed-s.vx)*.35,vy=s.vy+(d.y*speed-s.vy)*.35;return {x:s.x+vx*.1,y:s.y+vy*.1,vx,vy};}
+ for(const d of dirs){let geometric={x:0,y:0,vx:v.x,vy:v.y},inRange=false;for(let k=0;k<=40;k++){if(Math.hypot(target.x-geometric.x,target.y-geometric.y)<=contact){inRange=true;break;}geometric=step(geometric,d);}if(!inRange)continue;attempted=true;let s={x:0,y:0,vx:v.x,vy:v.y};
+  for(let k=0;k<=40;k++){
+   if(!legal(s,k*.1))break;
+   if(Math.hypot(target.x-s.x,target.y-s.y)<=contact){
+    reached=true;const startDistance=Math.hypot(target.x-s.x,target.y-s.y);
+    for(const exit of dirs){let end={...s},ok=true;
+     for(let j=1;j<=10;j++){end=step(end,exit);if(!legal(end,(k+j)*.1)){ok=false;break;}}
+     if(ok&&Math.hypot(end.x-target.x,end.y-target.y)>=startDistance+r*.5)return {state:complete?'pass':'unknown',reason:complete?'bounded-exit':'partial-walls',contactAt:k*.1,exit:{x:exit.x,y:exit.y}};
+    }break;
+   }s=step(s,d);
+  }
+ }
+ if(!attempted)return {state:'unknown',reason:'beyond-fixed-horizon'};
+ return {state:'blocked',reason:reached?'no-exit':'no-bounded-approach'};
+}
+function growLocalThreats(objects,r,speed){
+ const reliable=objects.filter(o=>o.npc&&!o.clipped&&!o.blocked&&o.localReliable===true&&Number.isFinite(o.r)&&o.r>0&&Number.isFinite(o.x)&&Number.isFinite(o.y)&&(o.isRed||o.r>=r*1.08));
+ // Coincident aliases cannot establish independent solid boundaries.
+ return reliable.filter(o=>!reliable.some(q=>q!==o&&Math.hypot(q.x-o.x,q.y-o.y)<Math.min(q.r,o.r)*.5)&&Math.hypot(o.x,o.y)<r+o.r+speed*1.1+50);
+}
+// Short visible-only escape fan; unknown walls are not claimed clear.
+function growEscapeFan(state,r,walls,speed,reds){
+ const margin=260+.75*r,allowed=[];
+ for(const d of dirs){let {x,y,vx,vy}=state,ok=true,minGap=1e6;
+  for(let j=1;j<=15;j++){vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
+   if(walls.some((w,i)=>Number.isFinite(w)&&w+[x,-x,y,-y][i]<Math.min(w,margin)-1)){ok=false;break;}
+   const gap=reds.reduce((g,o)=>Math.min(g,Math.hypot(o.x-x,o.y-y)-.75*(r+Math.max(o.r,r*1.1))-12),1e6);
+   minGap=Math.min(minGap,gap);if(gap<=20){ok=false;break;}
+  }allowed.push(ok);
+ }
+ let arc=0;for(let i=0;i<8;i++){let n=0;while(n<8&&allowed[(i+n)%8])n++;arc=Math.max(arc,n);}
+ return {count:allowed.filter(Boolean).length,arc,wallKnown:walls.filter(Number.isFinite).length};
+}
+function planGrow(objects,r,map,speed,v,old){
+ if(r<90)return {...planBaseline(objects,r,map,speed,v,old),strategy:'grow-12',reason:'below-90-baseline'};
+ if(map?.stale||Number.isFinite(map?.observedAt)&&performance.now()-map.observedAt>400)map=null;
+ const mapped=growMapInputs(objects,r,map);
+ mapped.targets=mapped.targets.filter(t=>t.sizeUpper>0&&t.sizeUpper<r*.9);
+ if(mapped.mapStatus==='lost')return {x:0,y:0,name:'小地圖遺失，釋放控制',clearance:0,gain:0,threats:0,escaping:false,strategy:'grow-12',mapStatus:'lost',reason:'missing-map'};
+ const walls=map?.visibleWalls||[],margin=260+.75*r;
+ const checks=mapped.targets.map(t=>({target:t,...growExitEvidence(t,r,map,speed,v,[])}));
+ const available=checks.filter(c=>c.state!=='blocked');
+ const poolTargets=(available.length?available:checks).map(c=>c.target);
+ const mapHazards=mapped.objects.filter(o=>o.npc&&!o.mapVerified);
+ // Minimap red/near-size only rank destinations, never local escape directions.
+ const ranked=poolTargets.map(t=>{const distance=Math.hypot(t.x,t.y),pressure=mapHazards.reduce((p,o)=>p+Math.max(0,1-Math.hypot(t.x-o.x,t.y-o.y)/Math.max(1,r+o.r+100)),0);return {t,value:1/(distance/Math.max(1,speed)+.35)/(1+pressure)};}).sort((a,b)=>b.value-a.value||a.t.x-b.t.x||a.t.y-b.t.y);
+ const food=objects.filter(o=>!o.npc&&!o.clipped&&!o.blocked&&o.r>0&&o.r<=6&&Number.isFinite(o.x)&&Number.isFinite(o.y)).sort((a,b)=>Math.hypot(a.x,a.y)-Math.hypot(b.x,b.y))[0];
+ const npcTarget=ranked[0]?.t||null;
+ const target=npcTarget&&(!food||Math.hypot(npcTarget.x,npcTarget.y)/Math.max(1,speed)<=8)?npcTarget:food||npcTarget,tx=target?target.x:old.x,ty=target?target.y:old.y,length=Math.max(1,Math.hypot(tx,ty));
+ const guide=[...dirs].sort((a,b)=>(b.x*tx+b.y*ty)-(a.x*tx+a.y*ty))[0];
+ const correspondingRed=mapped.objects.filter(o=>o.npc&&!o.mapVerified&&!o.nearWhite).some(o=>{const along=o.x*guide.x+o.y*guide.y,cross=Math.abs(o.x*guide.y-o.y*guide.x);return along>0&&cross<=along*Math.tan(Math.PI/6)+10400/map.width*(map.pixelRatio||1);});
+ const redThreats=mapped.objects.filter(o=>o.npc&&!o.mapVerified&&!o.nearWhite);
+ const threats=[...redThreats,...(correspondingRed?growLocalThreats(objects,r,speed):[])];
+ const startGap=threats.reduce((g,o)=>Math.min(g,Math.hypot(o.x,o.y)-.75*(r+Math.max(o.r,r*1.1))-12),1e6);
+ const candidates=dirs.map(d=>{let x=0,y=0,vx=v.x,vy=v.y,gap=1e6,wallOK=true,endGap=1e6;
+  for(let k=1;k<=10;k++){vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
+   if(walls.some((w,i)=>Number.isFinite(w)&&w+[x,-x,y,-y][i]<Math.min(w,margin)-1))wallOK=false;
+   endGap=threats.reduce((g,o)=>Math.min(g,Math.hypot(o.x+(o.vx||0)*k*.1-x,o.y+(o.vy||0)*k*.1-y)-.75*(r+Math.max(o.r,r*1.1))-12),1e6);gap=Math.min(gap,endGap);
+  }const redSafe=redThreats.every(o=>Math.hypot(o.x,o.y)>r+o.r+speed*2||Math.hypot(o.x-x,o.y-y)>=Math.hypot(o.x,o.y)-1);return {...d,escape:growEscapeFan({x,y,vx,vy},r,walls,speed,redThreats),wallEnd:walls.map((w,i)=>Number.isFinite(w)?w+[x,-x,y,-y][i]:null),clearance:gap,endGap,wallOK,redSafe,alignment:(d.x*tx+d.y*ty)/length};
+ });
+ const direct=candidates.find(d=>d.name===guide.name),safe=candidates.filter(d=>d.wallOK&&d.redSafe&&d.clearance>3);
+ let selected,mode='map-guide';
+ const threshold=old.mode==='local-avoid'?20:3;
+ if(direct.wallOK&&direct.redSafe&&direct.clearance>threshold)selected=direct;
+ else if(safe.length){
+  safe.sort((a,b)=>Math.round(b.alignment*1000)-Math.round(a.alignment*1000)||b.clearance-a.clearance||(b.x*old.x+b.y*old.y)-(a.x*old.x+a.y*old.y));selected=safe[0];mode='local-avoid';
+  // Keep the prior safe adjacent turn within one octant, not a locked target.
+  const prior=safe.find(d=>d.x*old.x+d.y*old.y>.99);
+  if(old.mode==='local-avoid'&&prior&&selected.alignment-prior.alignment<.3)selected=prior;
+ }else{const bounded=candidates.filter(d=>d.wallOK);selected=[...(bounded.length?bounded:candidates)].sort((a,b)=>b.endGap-a.endGap||b.clearance-a.clearance||b.alignment-a.alignment)[0];mode='emergency';}
+ // Only bias already feasible directions. Never trade immediate red/wall safety for exit count.
+ const nearX=[0,1].filter(i=>Number.isFinite(walls[i])&&walls[i]<margin+speed*2),nearY=[2,3].filter(i=>Number.isFinite(walls[i])&&walls[i]<margin+speed*2);
+ const corner=nearX.length>0&&nearY.length>0,nearReds=redThreats.filter(o=>Math.hypot(o.x,o.y)<r+o.r+speed*4);
+ if(safe.length&&(corner||nearReds.length>=2)){
+  const cornerRoom=d=>corner?Math.min(...[...nearX,...nearY].map(i=>d.wallEnd[i])):0;
+  const quality=d=>d.escape.arc*2+d.escape.count+Math.min(3,cornerRoom(d)/Math.max(1,speed));
+  const best=[...safe].sort((a,b)=>quality(b)-quality(a)||b.alignment-a.alignment)[0];
+  // A full octant of extra escape coverage or a substantial inward corner step.
+  if(best!==selected&&(best.escape.arc>=selected.escape.arc+1||corner&&cornerRoom(best)>cornerRoom(selected)+speed*.35)&&quality(best)>quality(selected)+1){selected=best;mode='escape-route';}
+ }
+ return {...selected,target,gain:0,threats:threats.length,escaping:mode==='emergency',recovering:!direct.wallOK,strategy:'grow-12',mapStatus:'visible',mode,correspondingRed,reason:mode==='escape-route'?'preserve-exit':mode==='map-guide'?(target?(target.npc?'white-guidance':'food-fallback'):'no-eligible-dot'):!direct.wallOK?'wall':(redThreats.length?'red-map-threat':'main-view-threat'),guide:{x:guide.x,y:guide.y},nearWhite:mapped.nearWhite||0,eligibleDots:mapped.targets.length,exitScreen:{pass:checks.filter(c=>c.state==='pass').length,unknown:checks.filter(c=>c.state==='unknown').length,blocked:checks.filter(c=>c.state==='blocked').length},startGap};
+}
+
+'use strict';
+
+/* Next-candidate pixel refinement. Not wired into the active grow-13 run.
+ * Input/output coordinates are image pixels, not CSS/world units.
+ * The renderer draws a white 48/255-alpha ellipse with axes .18R/.09R,
+ * angle -.5, and centre (-.25R,-.33R), independently of outline wobble.
+ * confidence is a geometric consistency score, NOT a calibrated probability.
+ * Rejects uncertain, cropped or multiple highlights; never reads game objects.
+ */
+function refineSlimeGeometry(image, w, h, p) {
+  if (!image?.data || !p || p.clipped || ![p.x,p.y,p.r,w,h].every(Number.isFinite) || p.r < 13 || w < 1 || h < 1) return null;
+  const rgb = image.data, V = p.r, alpha0 = 48/255;
+  const pixel = (x,y) => {
+    x=Math.round(x);y=Math.round(y);
+    if(x<0||y<0||x>=w||y>=h)return null;
+    const i=(y*w+x)*4;return [rgb[i],rgb[i+1],rgb[i+2]];
+  };
+  const median = a => a.sort((a,b)=>a-b)[a.length>>1];
+  const samples=[];
+  for(const [dx,dy] of [[.28,-.28],[.28,.20],[0,.40],[-.15,.35],[.40,0]])
+    for(let y=-1;y<=1;y++)for(let x=-1;x<=1;x++) {
+      const c=pixel(p.x+dx*V+x,p.y+dy*V+y);if(c)samples.push(c);
+    }
+  if(samples.length<30)return null;
+  const base=[0,1,2].map(k=>median(samples.map(c=>c[k])));
+  const sameBody=c=>Math.max(...c.map((v,k)=>Math.abs(v-base[k])))<=5;
+  const baseSupport=samples.filter(sameBody).length/samples.length;
+  if(baseSupport<.62||Math.max(...base)<55||Math.max(...base)>225)return null;
+
+  // Broad enough to tolerate a shifted component centroid, but excludes most
+  // lower-body text. Text edge pixels still have to pass full ellipse checks.
+  const x0=Math.max(0,Math.floor(p.x-.78*V)),x1=Math.min(w-1,Math.ceil(p.x+.18*V));
+  const y0=Math.max(0,Math.floor(p.y-.82*V)),y1=Math.min(h-1,Math.ceil(p.y+.08*V));
+  const W=x1-x0+1,H=y1-y0+1,N=W*H;
+  if(W<5||H<5||N>250000)return null;
+  const weights=new Float32Array(N),alphas=new Float32Array(N),seen=new Uint8Array(N),queue=new Int32Array(N);
+  const b0=base[0],b1=base[1],b2=base[2],d0=255-b0,d1=255-b1,d2=255-b2;
+  for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){
+    const j=yy*W+xx,i=((y0+yy)*w+x0+xx)*4;
+    // Scalar channels avoid two temporary arrays per ROI pixel. Keep divisions
+    // and addition order identical to the reference implementation.
+    // Most ROI pixels are unhighlighted body. These are exactly the original
+    // min/max alpha bounds, evaluated early before the other channel work.
+    const ar=(rgb[i]-b0)/d0;if(!(ar>=.025&&ar<=.30))continue;
+    const ag=(rgb[i+1]-b1)/d1;if(!(ag>=.025&&ag<=.30))continue;
+    const ab=(rgb[i+2]-b2)/d2;if(!(ab>=.025&&ab<=.30))continue;
+    const lo=Math.min(ar,ag,ab),hi=Math.max(ar,ag,ab),m=(ar+ag+ab)/3;
+    // The white label's opaque interior is rejected by the upper alpha bound.
+    if(lo>=.025&&hi<=.30&&hi-lo<=.065&&m>=.04){alphas[j]=m;weights[j]=Math.min(1.15,m/alpha0);}
+  }
+  const candidates=[];
+  for(let seed=0;seed<N;seed++){
+    if(!weights[seed]||seen[seed])continue;
+    let head=0,tail=0,sum=0,sx=0,sy=0,sxx=0,syy=0,sxy=0,aa=0,edge=false;
+    queue[tail++]=seed;seen[seed]=1;
+    while(head<tail){
+      const j=queue[head++],xx=j%W,yy=(j/W)|0,q=weights[j],x=x0+xx+.5,y=y0+yy+.5;
+      sum+=q;sx+=q*x;sy+=q*y;sxx+=q*x*x;syy+=q*y*y;sxy+=q*x*y;aa+=q*alphas[j];
+      edge ||= xx===0||yy===0||xx===W-1||yy===H-1;
+      for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){
+        const nx=xx+dx,ny=yy+dy,k=ny*W+nx;
+        if(nx>=0&&ny>=0&&nx<W&&ny<H&&!seen[k]&&weights[k]){seen[k]=1;queue[tail++]=k;}
+      }
+    }
+    if(edge||sum<8||tail<8||aa/sum<.11||aa/sum>.235)continue;
+    const hx=sx/sum,hy=sy/sum,cxx=sxx/sum-hx*hx,cyy=syy/sum-hy*hy,cxy=sxy/sum-hx*hy;
+    const disc=Math.hypot(cxx-cyy,2*cxy),l1=(cxx+cyy+disc)/2,l2=(cxx+cyy-disc)/2;
+    if(l2<=.16||l1<=l2)continue;
+    const a=2*Math.sqrt(l1),b=2*Math.sqrt(l2),axisRatio=a/b;
+    const angle=.5*Math.atan2(2*cxy,cxx-cyy);
+    const angleError=Math.abs(Math.atan2(Math.sin(2*(angle+.5)),Math.cos(2*(angle+.5)))/2);
+    const rA=a/.18,rB=b/.09,rArea=Math.sqrt(sum/(Math.PI*.18*.09));
+    const r=(rA+rB+rArea)/3,axisError=Math.abs(rA-rB)/r,areaError=Math.abs(rArea-(rA+rB)/2)/r;
+    if(axisRatio<1.65||axisRatio>2.35||angleError>.25||axisError>.20||areaError>.15||r<V*.70||r>V*1.45)continue;
+    const x=hx+.25*r,y=hy+.33*r;
+    if(Math.hypot(x-p.x,y-p.y)>V*.42)continue;
+    // A highlight from a different overlapping sprite must also agree with the
+    // proposed actor's inner body colour. Allow limited occlusion, not a shell.
+    let bodyHits=0,bodyCount=0;
+    for(let j=0;j<12;j++){
+      const t=j*Math.PI/6,c=pixel(x+Math.cos(t)*r*.56,y+Math.sin(t)*r*.56);
+      if(c){bodyCount++;if(sameBody(c))bodyHits++;}
+    }
+    const bodySupport=bodyHits/Math.max(1,bodyCount);
+    if(bodyCount<10||bodySupport<.66)continue;
+    const confidence=Math.max(0,Math.min(.99,.99-.35*axisError-.35*areaError-.20*angleError-.12*(1-baseSupport)-.12*(1-bodySupport)));
+    candidates.push({x,y,r,confidence});
+  }
+  // Two plausible highlights imply a merged/ambiguous component. Abstain.
+  return candidates.length===1?candidates[0]:null;
+}
+
+if(typeof module!=='undefined'&&module.exports)module.exports={refineSlimeGeometry};
+
+/* grow-23: visible-evidence interception and short-horizon growth planning.
+ * Inputs are the existing screenshot/HUD analysis; no game-state access.
+ * The returned direction is always an actual keyboard octant (or a stop).
+ * Integrator: on mapStatus === 'lost', release keys instead of calling move().
+ * visualR is optional: retain the already-computed outer silhouette radius
+ * in readImage to help reject an implausibly small highlight-radius estimate.
+ */
+function planGrow23(objects, r, map, speed, v, old, gameVersion) {
+  const finite = Number.isFinite;
+  const clamp = (n, lo, hi) => Math.max(lo, Math.min(hi, n));
+  const hypot = Math.hypot;
+  const dirs = [
+    {x: 1, y: 0, name: '東'}, {x: Math.SQRT1_2, y: Math.SQRT1_2, name: '東南'},
+    {x: 0, y: 1, name: '南'}, {x: -Math.SQRT1_2, y: Math.SQRT1_2, name: '西南'},
+    {x: -1, y: 0, name: '西'}, {x: -Math.SQRT1_2, y: -Math.SQRT1_2, name: '西北'},
+    {x: 0, y: -1, name: '北'}, {x: Math.SQRT1_2, y: -Math.SQRT1_2, name: '東北'}
+  ];
+  const stop = reason => ({x: 0, y: 0, name: '等待可靠畫面', strategy: 'grow-23',
+    mapStatus: 'lost', reason, gain: 0, clearance: 0, threats: 0, escaping: false,
+    recovering: false, target: null, boundAdjustedCount: 0, pairGrowthCandidates: 0, pairGrowthWitnesses: 0, localPairGrowthThreats: 0, spawnWallReserve: 0, spawnWallRelaxed: false});
+  if (!Array.isArray(objects) || !finite(r) || r < 1 || !finite(speed) || speed <= 0)
+    return stop('invalid-visible-input');
+  if (map?.stale || finite(map?.observedAt) && typeof performance !== 'undefined' &&
+      performance.now() - map.observedAt > 600) return stop('stale-visible-frame');
+  v = {x: finite(v?.x) ? clamp(v.x, -600, 600) : 0,
+    y: finite(v?.y) ? clamp(v.y, -600, 600) : 0};
+  old = old || {x: 1, y: 0};
+  const ox = finite(old.x) ? old.x : 1, oy = finite(old.y) ? old.y : 0;
+  const cappedGame = /(?:^|\/)v2\.22(?:$|[/?#])/.test(String(gameVersion || ''));
+  // HUD rounds radius. At displayed 186 the lower bound 185.5 exceeds 200/1.08.
+  const immune = cappedGame && r >= 186;
+  const playerLow = Math.max(1, r - .5), playerHigh = r + .5;
+  const mapOK = finite(map?.player?.x) && finite(map?.player?.y) && map.width > 0 && map.height > 0;
+  const pixelWorld = mapOK ? Math.max(10400 / map.width, 7200 / map.height) * (map.pixelRatio || 1) : 0;
+  const mapPoint = m => ({x: (m.x - map.player.x) / map.width * 10400,
+    y: (m.y - map.player.y) / map.height * 7200});
+  const walls = [0, 1, 2, 3].map(i => {
+    if (finite(map?.visibleWalls?.[i])) return Math.max(0, map.visibleWalls[i]);
+    if (!mapOK) return Infinity;
+    const p = map.player;
+    return [p.x / map.width * 10400, (1 - p.x / map.width) * 10400,
+      p.y / map.height * 7200, (1 - p.y / map.height) * 7200][i];
+  });
+  // v2.22 can clamp a newly spawned NPC back onto a nearby wall. This
+  // reserve prefers planned paths outside that band while vulnerable. The
+  // 200 + contact term is static geometry; 28..64 is a policy margin for
+  // movement/measurement, not a proof about unseen motion or pixels.
+  const spawnReserveActive = cappedGame && !immune;
+  const spawnWallReserve = spawnReserveActive ?
+    200 + .72 * (playerHigh + 200) + clamp(speed * .17, 28, 64) : 0;
+  const wallReserve = spawnReserveActive ? spawnWallReserve : r + Math.max(28, speed * .17);
+  const recovering = walls.some(w => w < wallReserve);
+  const source = objects.filter(o => o && finite(o.x) && finite(o.y) && finite(o.r) && o.r > 0);
+  const foods = source.filter(o => !o.npc && !o.clipped && !o.blocked && o.r <= 22)
+    .sort((a, b) => hypot(a.x, a.y) - hypot(b.x, b.y)).slice(0, 100);
+  const bodies = [];
+  let boundAdjustedCount = 0;
+  // Keep a single larger description for coincident aliases, not duplicate meals.
+  for (const o of source.filter(o => o.npc).sort((a, b) => b.r - a.r)) {
+    if (bodies.some(q => hypot(q.x - o.x, q.y - o.y) < Math.max(12, Math.min(q.r, o.r) * .32))) continue;
+    const reliable = o.localReliable === true;
+    const error = Math.max(reliable ? 1.4 : 2.5, o.r * (reliable ? .07 : o.labelSeen ? .10 : .15));
+    let lower = Math.max(1, o.r - error), upper = o.r + error;
+    if (finite(o.rUpper)) upper = Math.max(upper, o.rUpper);
+    if (finite(o.rLower)) lower = Math.min(lower, Math.max(1, o.rLower));
+    if (finite(o.visualR) && o.visualR > 0) {
+      upper = Math.max(upper, o.visualR * .88);
+      lower = Math.max(lower, o.visualR * .72);
+    }
+    const beforeFallbackUpper = upper;
+    if (cappedGame && o.geometryAccepted === 0 && finite(o.visualR) && o.visualR > 0) upper = Math.max(upper, (o.visualR + 6) / .808);
+    if (o.clipped) upper = Math.max(upper, o.dangerRadius || 0, o.r + 45);
+    if (cappedGame) { lower = Math.min(200, lower); upper = Math.min(200, upper); }
+    // Count deduplicated bodies whose effective bound increased after clipped
+    // expansion and the 200 cap, before later red-map merging/expansion.
+    if (cappedGame && upper > Math.min(200, o.clipped ?
+        Math.max(beforeFallbackUpper, o.dangerRadius || 0, o.r + 45) : beforeFallbackUpper)) boundAdjustedCount++;
+    bodies.push({...o, lower, upper, vx: finite(o.vx) ? clamp(o.vx, -200, 200) : 0,
+      vy: finite(o.vy) ? clamp(o.vy, -200, 200) : 0, mapRed: false});
+  }
+  const reds = [];
+  if (mapOK && !immune) {
+    const markers = [...(map.growMarkers || []).filter(m => m.red === true), ...(map.threats || [])];
+    for (const m of markers) {
+      if (!finite(m.x) || !finite(m.y)) continue;
+      const p = mapPoint(m);
+      if (reds.some(q => hypot(q.x - p.x, q.y - p.y) < Math.max(55, pixelWorld * 1.6))) continue;
+      const match = bodies.map(o => ({o, d: hypot(o.x - p.x, o.y - p.y)}))
+        .sort((a, b) => a.d - b.d)[0];
+      if (match && match.d < Math.max(95, pixelWorld * 1.5, match.o.upper * .7)) {
+        match.o.mapRed = true;
+        // A clipped fragment's centroid need not be the NPC centre.
+        if (match.o.clipped) { match.o.x = p.x; match.o.y = p.y; }
+        reds.push({...p, matched: true});
+      } else {
+        const areaRadius = Math.sqrt(Math.max(1, m.area || 4) / Math.PI) /
+          (map.pixelRatio || 1) * 38;
+        const body = cappedGame ? 200 : Math.max(114, r * 1.12, areaRadius) + 25;
+        reds.push({...p, matched: false, upper: body,
+          uncertainty: Math.max(20, pixelWorld * .65)});
+      }
+    }
+  }
+  // One visible-pair absorption envelope, never a hidden-state prediction.
+  // Keep original bounds intact during the pair pass: no chain/cascade growth.
+  let pairGrowthCandidates = 0, pairGrowthWitnesses = 0;
+  if (cappedGame && !immune) {
+    const reliableBodies = bodies.filter(o => o.geometryAccepted === 1 &&
+      o.localReliable === true && !o.clipped && finite(o.r) && o.r > 0);
+    for (const a of reliableBodies) {
+      let futureUpper = a.upper, witnesses = 0;
+      for (const b of reliableBodies) {
+        if (a === b || a.r < b.r * 1.08) continue;
+        const dx = b.x - a.x, dy = b.y - a.y;
+        const vx = b.vx - a.vx, vy = b.vy - a.vy;
+        const dot = dx * vx + dy * vy, velocity2 = vx * vx + vy * vy;
+        // A separating pair outside nominal contact does not qualify merely
+        // because its uncertainty disks overlap.
+        if (dot >= 0 && hypot(dx, dy) >= .72 * (a.r + b.r)) continue;
+        const t = velocity2 > 1 ? clamp(-dot / velocity2, 0, .6) : 0;
+        if (hypot(dx + vx * t, dy + vy * t) > .72 * (a.upper + b.upper)) continue;
+        const afterOneMeal = Math.min(200, a.upper + .9 *
+          (Math.sqrt(a.upper * a.upper + .55 * b.upper * b.upper) - a.upper));
+        if (afterOneMeal <= a.upper || afterOneMeal < playerLow * 1.08) continue;
+        futureUpper = Math.max(futureUpper, afterOneMeal); witnesses++;
+      }
+      if (witnesses) {
+        a.pairGrowthUpper = futureUpper;
+        pairGrowthCandidates++; pairGrowthWitnesses += witnesses;
+      }
+    }
+  }
+  const hazards = [], meals = [];
+  let neutralCount = 0, uncertainCount = 0;
+  const gainFor = body => Math.min(Math.max(0, 200 - r),
+    .75 * (Math.sqrt(r * r + .55 * body * body) - r));
+  for (const o of bodies) {
+    if (finite(o.pairGrowthUpper)) o.upper = Math.max(o.upper, o.pairGrowthUpper);
+    const red = o.isRed || o.mapRed;
+    if (red && !immune) o.upper = Math.max(o.upper, Math.min(cappedGame ? 200 : Infinity, playerHigh * 1.12));
+    o.edible = !o.clipped && !o.blocked && !red && o.upper * 1.08 <= playerLow;
+    if (o.edible) meals.push({...o, growth: gainFor(Math.min(o.r, o.upper)), food: false});
+    if (immune || o.upper < playerLow * 1.08) { if (!o.edible) neutralCount++; continue; }
+    const chance = red || o.clipped ? 1 : clamp((o.upper - playerLow * 1.08) /
+      Math.max(2, o.upper - o.lower), .12, 1);
+    const hard = red || o.clipped || finite(o.pairGrowthUpper) || chance >= .45;
+    if (!hard) uncertainCount++;
+    hazards.push({...o, hard, weight: hard ? 1 : chance * .8,
+      buffer: o.clipped ? 22 : 10, mapOnly: false});
+  }
+  for (const o of reds) if (!o.matched) hazards.push({...o, hard: true,
+    weight: .65, buffer: o.uncertainty, mapOnly: true, vx: 0, vy: 0});
+  // Unseen distant red dots cannot veto every local direction.
+  const localHazards = hazards.filter(o => hypot(o.x, o.y) <
+    .72 * (r + o.upper) + speed * 2.5 + 240)
+    .sort((a, b) => (hypot(a.x, a.y) - .72 * (r + a.upper)) -
+      (hypot(b.x, b.y) - .72 * (r + b.upper))).slice(0, 36);
+  for (const o of foods) meals.push({...o, vx: 0, vy: 0,
+    growth: Math.min(200 - r, Math.max(.38, Math.min(13, o.r) * .035)), food: true});
+  const oldTarget = old.target;
+  function intercept(o, maxTime = 6) {
+    const contact = o.npc ? .68 * (r + Math.min(o.r, o.upper || o.r)) : r + .45 * o.r;
+    for (let t = .1; t <= maxTime; t += .1) {
+      if (hypot(o.x + (o.vx || 0) * t, o.y + (o.vy || 0) * t) <=
+          contact + speed * Math.max(0, t - .12)) return t;
+    }
+    return Infinity;
+  }
+  function corridorPressure(o, eta) {
+    const tx = o.x + (o.vx || 0) * Math.min(eta, 1.5), ty = o.y + (o.vy || 0) * Math.min(eta, 1.5);
+    const len2 = tx * tx + ty * ty;
+    let p = 0;
+    for (const h of localHazards) {
+      const u = clamp((h.x * tx + h.y * ty) / Math.max(1, len2), 0, 1);
+      const gap = hypot(h.x - tx * u, h.y - ty * u) - .72 * (r + h.upper) - h.buffer;
+      if (gap < 80) p += h.weight * (gap < 0 ? 1.8 : (80 - gap) / 100);
+    }
+    return p;
+  }
+  const goals = [];
+  for (const o of meals) {
+    if (o.food) continue;
+    const eta = intercept(o);
+    if (!finite(eta) || eta > 3 && o.growth < 1.1) continue;
+    const continuity = oldTarget?.npc && !oldTarget.mapOnly &&
+      hypot(oldTarget.x - o.x, oldTarget.y - o.y) < Math.max(80, r) ? 1.13 : 1;
+    const pressure = corridorPressure(o, eta);
+    goals.push({...o, eta, utility: o.growth / (eta + .55) * continuity / (1 + pressure), mapOnly: false});
+  }
+  goals.sort((a, b) => b.utility - a.utility);
+  goals.splice(5);
+  // White dots are scouting destinations only. A body must be observed and
+  // classified before it can contribute a predicted swallow/growth reward.
+  if (mapOK) {
+    const dots = Array.isArray(map.growMarkers) ? map.growMarkers.filter(m => m.red === false) : map.opportunities || [];
+    const hw = (map.viewWidth || 1200) * .5, hh = (map.viewHeight || 700) * .5;
+    const scouts = [];
+    for (const m of dots) {
+      if (!finite(m.x) || !finite(m.y)) continue;
+      const p = mapPoint(m), distance = hypot(p.x, p.y);
+      if (distance < 300 || distance > speed * 8 + r ||
+          Math.abs(p.x) < hw * .85 && Math.abs(p.y) < hh * .85 ||
+          bodies.some(o => hypot(o.x - p.x, o.y - p.y) < Math.max(100, o.upper * .65))) continue;
+      const estimate = Math.min(r * .8, Math.sqrt(Math.max(2, m.area || 4) / Math.PI) /
+        (map.pixelRatio || 1) * 38);
+      const eta = distance / speed, pressure = corridorPressure(p, eta);
+      const utility = clamp(gainFor(estimate) * .42 / (eta + .8), .10, 1.45) / (1 + pressure);
+      scouts.push({...p, r: estimate, npc: true, mapOnly: true, vx: 0, vy: 0,
+        growth: 0, eta, utility, pursuitOnly: true});
+    }
+    scouts.sort((a, b) => b.utility - a.utility);
+    goals.push(...scouts.slice(0, 3));
+  }
+  // Include a few real food targets so an empty NPC view does not mean drifting.
+  for (const o of foods.slice(0, 12)) {
+    const eta = intercept(o, 3);
+    if (finite(eta)) goals.push({...o, npc: false, mapOnly: false, eta,
+      utility: Math.max(.38, Math.min(13, o.r) * .035) / (eta + .65)});
+  }
+  goals.sort((a, b) => b.utility - a.utility);
+  const targets = goals.slice(0, 7);
+  const reachableMeals = meals.filter(o => hypot(o.x, o.y) < speed * 2.5 + r + o.r).slice(0, 100);
+  const oldModeEscape = old.escaping === true;
+  const startHazardGap = localHazards.filter(o => o.hard).reduce((g, o) =>
+    Math.min(g, hypot(o.x, o.y) - .72 * (r + o.upper) - o.buffer), 1e6);
+  const paths = [];
+  const dt = .1, follow = 1 - Math.exp(-4.2 * dt), steps = 22, turnAt = 6;
+  for (let first = 0; first < 8; first++) for (let second = 0; second < 8; second++) {
+    let x = 0, y = 0, vx = v.x, vy = v.y, gain = 0, growth = 0, risk = 0;
+    let clearance = 1e6, immediateGap = 1e6, endGap = 1e6, wallOK = true, wallCost = 0, spawnWallOK = true;
+    const picked = new Set();
+    for (let k = 1; k <= steps; k++) {
+      const t = k * dt, d = dirs[k <= turnAt ? first : second];
+      vx += (d.x * speed - vx) * follow; vy += (d.y * speed - vy) * follow;
+      x += vx * dt; y += vy * dt;
+      const change = [x, -x, y, -y];
+      for (let i = 0; i < 4; i++) if (finite(walls[i])) {
+        const distance = walls[i] + change[i];
+        const hardFloor = Math.min(walls[i], r + 14);
+        if (distance < hardFloor - 2) wallOK = false;
+        // Already inside: do not require instantaneous exit. This extra
+        // constraint never overrides the absence of a collision-safe exit.
+        if (spawnReserveActive && distance < Math.min(walls[i], wallReserve) - 2) spawnWallOK = false;
+        wallCost += Math.max(0, (wallReserve - distance) / Math.max(40, wallReserve)) ** 2 / steps;
+      }
+      endGap = 1e6;
+      for (const h of localHazards) {
+        const hx = h.x + (h.vx || 0) * t, hy = h.y + (h.vy || 0) * t;
+        const gap = hypot(hx - x, hy - y) - .72 * (playerHigh + h.upper) - h.buffer;
+        if (h.hard) {
+          if (t <= 1.6) clearance = Math.min(clearance, gap);
+          if (t <= .6) immediateGap = Math.min(immediateGap, gap);
+          endGap = Math.min(endGap, gap);
+        }
+        risk += h.weight * Math.max(0, 1 - gap / 85) ** 2 / steps;
+      }
+      for (let i = 0; i < reachableMeals.length; i++) {
+        if (picked.has(i)) continue;
+        const o = reachableMeals[i], contact = o.food ? r + .45 * o.r : .68 * (r + o.r);
+        if (hypot(o.x + (o.vx || 0) * t - x, o.y + (o.vy || 0) * t - y) < contact) {
+          picked.add(i); const g = Math.min(Math.max(0, 200 - r - growth), o.growth);
+          growth += g; gain += g / (t + .65);
+        }
+      }
+    }
+    let approach = 0, target = null;
+    for (const o of targets) {
+      const before = hypot(o.x, o.y), after = hypot(o.x + (o.vx || 0) * 1.4 - x, o.y + (o.vy || 0) * 1.4 - y);
+      const captured = !o.mapOnly && [...picked].some(i => {
+        const meal = reachableMeals[i];
+        return !!meal.npc === !!o.npc && Math.abs(meal.x - o.x) < 1e-6 && Math.abs(meal.y - o.y) < 1e-6;
+      });
+      // Reaching a target is full progress. Scoring only the endpoint would
+      // perversely reward waiting/turning away instead of taking an early meal.
+      const progress = captured ? 1 : clamp((before - after) / Math.max(speed * .8, before), -.6, 1);
+      const value = o.utility * progress;
+      if (value > approach) { approach = value; target = o; }
+    }
+    const d = dirs[first], maintain = d.x * ox + d.y * oy;
+    const momentum = speed ? (d.x * v.x + d.y * v.y) / speed : 0;
+    // With no useful target, keep moving to reveal new food/NPCs. Do not
+    // accumulate an arbitrary search-direction preference when targets exist.
+    const explore = targets.length ? 0 : .35 * maintain + .15 * momentum;
+    const score = gain * 2 + approach * 4.2 - risk * 12 - wallCost * 7 +
+      maintain * .13 + (first === second ? .04 : 0) + explore;
+    paths.push({...d, first, second, score, gain: growth, discountedGain: gain,
+      approach, target, clearance, immediateGap, endGap, wallOK, wallCost, risk, spawnWallOK,
+      endX: x, endY: y});
+  }
+  const bounded = paths.filter(p => p.wallOK);
+  const safe = bounded.filter(p => p.clearance > (oldModeEscape ? 14 : 4));
+  const spawnSafe = spawnReserveActive ? safe.filter(p => p.spawnWallOK) : safe;
+  const spawnWallRelaxed = spawnReserveActive && !spawnSafe.length;
+  let chosen, escaping = false;
+  if (safe.length) {
+    // Prefer the spawn reserve only when at least one path also passes all
+    // existing observed-hazard safety checks. Otherwise keep those checks.
+    const pool = spawnSafe.length ? spawnSafe : safe;
+    pool.sort((a, b) => b.score - a.score || b.clearance - a.clearance);
+    chosen = pool[0];
+  } else {
+    escaping = true;
+    // A shared initial overlap must not make all paths tie and flip randomly.
+    // Favour a viable immediate trajectory, then opening distance at its end.
+    const pool = bounded.length ? bounded : paths;
+    let fx = 0, fy = 0;
+    for (const h of localHazards.filter(o => o.hard)) {
+      const distance = hypot(h.x, h.y) || 1;
+      const weight = 1 / Math.max(60, distance - .72 * (r + h.upper));
+      fx -= h.x / distance * weight; fy -= h.y / distance * weight;
+    }
+    const fl = hypot(fx, fy) || 1;
+    const escapeScore = p => clamp(p.immediateGap, -160, 120) * .7 +
+      clamp(p.endGap - startHazardGap, -500, 500) * .8 - p.wallCost * 40 +
+      (p.x * fx + p.y * fy) / fl * 22 + (p.x * ox + p.y * oy) * 6;
+    pool.sort((a, b) => escapeScore(b) - escapeScore(a) || b.score - a.score);
+    chosen = pool[0];
+  }
+  const target = chosen.target && {...chosen.target};
+  return {...chosen, target, strategy: 'grow-23', mapStatus: mapOK ? 'visible' : 'main-view',
+    reason: escaping ? 'escape' : immune ? 'cap200-finish' : target?.mapOnly ? 'scout-visible-dot' :
+      target?.npc ? 'intercept-growth' : 'food-and-exploration',
+    threats: localHazards.length, escaping, recovering, immune, boundAdjustedCount, spawnWallReserve, spawnWallRelaxed,
+    pairGrowthCandidates, pairGrowthWitnesses,
+    localPairGrowthThreats: localHazards.filter(o => finite(o.pairGrowthUpper)).length,
+    eligibleNpc: meals.filter(o => !o.food).length, neutralNpc: neutralCount,
+    uncertainNpc: uncertainCount, scoutTargets: targets.filter(o => o.mapOnly).length,
+    wallKnown: walls.filter(finite).length, projectedR: r + chosen.gain};
+}
+
+if (typeof module !== 'undefined' && module.exports) module.exports = {planGrow23};
+
+let lastVision=0;
+function showVision(analysis,r,d,now){if(!$('diagnostics').open||now-lastVision<1000)return;lastVision=now;const canvas=$('vision');canvas.width=out.width;canvas.height=out.height;const v=canvas.getContext('2d'),ratio=out.width/(game.contentDocument.querySelector('canvas').clientWidth||out.width);v.drawImage(out,0,0);v.lineWidth=2;for(const o of analysis.objects){v.strokeStyle=o.clipped||o.isRed||o.npc&&o.r>=r*.95?'#ff796e':o.npc?'#7dff9b':'#5bdbea';v.beginPath();v.arc(out.width/2+o.x*ratio,out.height/2+o.y*ratio,o.r*ratio,0,Math.PI*2);v.stroke();}v.strokeStyle='#ffffff';v.beginPath();v.moveTo(out.width/2,out.height/2);v.lineTo(out.width/2+d.x*90,out.height/2+d.y*90);v.stroke();$('visionText').textContent=JSON.stringify({target:d.target&&{radius:Math.round(d.target.r),distance:Math.round(Math.hypot(d.target.x,d.target.y)),npc:d.target.npc},map:analysis.map&&analysis.map.player,npcs:analysis.objects.filter(o=>o.npc).map(o=>({r:Math.round(o.r),x:Math.round(o.x),y:Math.round(o.y),red:o.isRed,clipped:o.clipped}))},null,1);}
+function key(type,k){const win=game.contentWindow;timing.dispatch(type,k,()=>win.dispatchEvent(new win.KeyboardEvent(type,{key:k,bubbles:true,cancelable:true})));}
+function release(){for(const k of held)key('keyup',k);held.clear();}
+function move(d){const next=new Set([' ']);if(d.x>.25)next.add('ArrowRight');if(d.x<-.25)next.add('ArrowLeft');if(d.y>.25)next.add('ArrowDown');if(d.y<-.25)next.add('ArrowUp');for(const k of held)if(!next.has(k))key('keyup',k);for(const k of next)key('keydown',k);held=next;heading=d;}
+const visible=e=>e.getClientRects().length>0,buttons=()=>[...game.contentDocument.querySelectorAll('button')].filter(visible);
+function stop(pause=true){challenging=false;epoch++;active=false;release();timing.stop();if(pause)buttons().find(b=>/^(暫停|pause)$/i.test(b.textContent.trim()))?.click();$('status').textContent='已停止';}
+let runCount=0,runStrategy='grow-12',runGameVersion=null,loadedVersion=null,loadGeneration=0;
+async function finish(runId){
+ const doc=game.contentDocument,won=/成功過關|You win/i.test(doc.getElementById('title')?.textContent||''),description=doc.getElementById('description')?.textContent||'',clock=/(?:遊玩時間|Play time)\s*(\d+):(\d+)/.exec(description),seconds=clock?Number(clock[1])*60+Number(clock[2]):null;
+ active=false;release();const reached=won&&seconds!==null&&seconds<=150;
+ const entry=document.createElement('li');entry.textContent=`第 ${attempt} 局 · ${runGameVersion} · ${runStrategy} · ${won?'過關':'失敗'} · ${clock?clock[1]+':'+clock[2]:'時間未確認'} · ${reached?'2:30 內':'未達標'}`;$('runs').append(entry);
+ $('status').textContent=reached?'本局150秒內過關；不代表正式驗收':`本局${won?'過關但未2:30 內':'失敗'}（${runCount}/5）`;
+ if(true){challenging=false;return;}
+ await new Promise(resolve=>setTimeout(resolve,3000));if(runId!==epoch||!challenging)return;startAttempt();
+}
+
+/* Grow23-only bounded stale-decision recovery. Replace the original tick with
+ * this block; call resetGrow23RecoveryState() at the start of a Grow23 attempt.
+ * Timing fields are controller-side milliseconds. tickTotalMs ends just before
+ * the observer hook; it excludes the observer's own recording/transport work.
+ */
+let grow23OverrunStreak=0,grow23RecoveryPending=false;
+function resetGrow23RecoveryState(){grow23OverrunStreak=0;grow23RecoveryPending=false;}
+function tick(runId){
+ if(!active||runId!==epoch)return;
+ const begin=performance.now(),phaseMs={setup:0,readImage:0,planner:0,recordRender:0};
+ try{
+  const doc=game.contentDocument;
+  if(doc.querySelector('#pauseScreen.open')){
+   release();doc.getElementById('resumeButton')?.click();game.contentWindow.focus();
+   $('status').textContent='已恢復暫停，重新同步控制';setTimeout(()=>tick(runId),100);return;
+  }
+  if(buttons().some(b=>/^(再玩一次|play again)$/i.test(b.textContent.trim()))||doc.querySelector('#gameEnding.visible')){finish(runId);return;}
+  const source=doc.querySelector('canvas'),hud=Number(doc.getElementById('size')?.textContent)||25,mixText=doc.getElementById('mix')?.textContent||'',speed=hudSpeed(hud,mixText),dt=Math.max(0,Math.min(.2,(begin-last)/1000)),follow=1-Math.exp(-4.2*dt);
+  if(held.size){velocity.x+=(heading.x*speed-velocity.x)*follow;velocity.y+=(heading.y*speed-velocity.y)*follow;}else velocity={x:0,y:0};
+  const readBegin=performance.now();phaseMs.setup=readBegin-begin;
+  const analysis=readImage(source,hud,begin,velocity);phaseMs.readImage=performance.now()-readBegin;
+  if(!analysis){release();$('status').textContent='等待遊戲畫面辨識';setTimeout(()=>tick(runId),65);return;}
+  const planBegin=performance.now(),objects=analysis.objects,splitGuard=true;
+  velocity=analysis.velocity;
+  const planInput=JSON.parse(JSON.stringify({objects,hud,map:analysis.map,speed,velocity,heading,splitGuard}));
+  const d=runStrategy==='grow-23'?planGrow23(objects,hud,analysis.map,speed,velocity,heading,runGameVersion):planGrow(objects,hud,analysis.map,speed,velocity,heading,splitGuard);
+  timing.decision(d);
+  const planOutput=JSON.parse(JSON.stringify(d));
+  phaseMs.planner=performance.now()-planBegin;
+  // This last age check includes both diagnostic clones and precedes every move.
+  const decisionAgeMs=performance.now()-begin;
+  if(decisionAgeMs>200){
+   if(runStrategy==='grow-23'){
+    release();grow23OverrunStreak++;grow23RecoveryPending=true;
+    imageState=null;previous=[];lastMap=null;velocity={x:0,y:0};
+    heading={x:Number.isFinite(heading?.x)?heading.x:1,y:Number.isFinite(heading?.y)?heading.y:0};
+    last=performance.now();
+    const abort=grow23OverrunStreak>=3||decisionAgeMs>1000;
+    if(abort){stop();grow23RecoveryPending=false;$('status').textContent='連續或嚴重計算逾時，已釋放控制並暫停';}
+    else{$('status').textContent='本次決策逾時已丟棄，釋放按鍵後重讀新畫面';}
+    window.ocrLabEvent?.({type:'compute_overrun',elapsedCompute:decisionAgeMs,decisionAgeMs,phaseMs:{...phaseMs},tickTotalMs:performance.now()-begin,streak:grow23OverrunStreak,action:abort?'abort':'recover',discarded:true,keysReleased:held.size===0,retryDelayMs:abort?null:100});
+    if(!abort)setTimeout(()=>tick(runId),100);
+    return;
+   }
+   stop();$('status').textContent='計算逾時，已釋放控制並暫停';
+   window.ocrLabEvent?.({type:'compute_overrun',elapsedCompute:decisionAgeMs,decisionAgeMs,phaseMs:{...phaseMs},tickTotalMs:performance.now()-begin,action:'abort',discarded:true,keysReleased:held.size===0,retryDelayMs:null});
+   return;
+  }
+  // No observer/JSON work occurs between the age guard and actual actuation.
+  if(d.mapStatus==='lost')release();else move(d);
+  const renderBegin=performance.now();
+  if(runStrategy==='grow-23'&&d.mapStatus!=='lost'){
+   const recovered=grow23RecoveryPending,priorStreak=grow23OverrunStreak;
+   resetGrow23RecoveryState();
+   if(recovered)window.ocrLabEvent?.({type:'compute_recovered',priorStreak,decisionAgeMs,freshDecisionApplied:true});
+  }
+  showVision(analysis,hud,d,begin);previous=objects;last=begin;
+  $('size').textContent=hud||'—';$('time').textContent=doc.getElementById('time')?.textContent||'—';
+  $('action').textContent=(d.escaping?'緊急脫離':d.recovering?'離開邊界／角落':'比較成長路徑')+' · '+d.name;
+  $('detail').textContent=d.mapStatus==='lost'?'小地圖／玩家位置未確認，暫停送鍵；不推測白點':`預測安全間距 ${Math.round(d.clearance)} · 成長收益 ${d.gain.toFixed(2)} · 可見威脅 ${d.threats} · ${d.reason||'legacy'} · 加速中`;
+  $('ms').textContent=(performance.now()-begin).toFixed(1)+' ms';
+  phaseMs.recordRender=performance.now()-renderBegin;
+  const tickTotalMs=performance.now()-begin;
+  window.ocrTestRecord?.({planInput,planOutput,mixText,speed,rgb:(/RGB\s*(\d+)\s*·\s*(\d+)\s*·\s*(\d+)/.exec(mixText)||[]).slice(1).map(Number),capture:{...window.r4capture},recordAt:performance.now(),ms:begin,elapsedCompute:decisionAgeMs,decisionAgeMs,tickTotalMs,phaseMs:{...phaseMs},hud,hudTime:doc.getElementById('time')?.textContent,objects:analysis.objects,map:analysis.map,velocity:analysis.velocity,direction:{x:d.x,y:d.y},target:d.target,clearance:d.clearance,gain:d.gain});
+ }catch(e){stop(false);$('status').textContent=e.message;return;}
+ setTimeout(()=>tick(runId),Math.max(0,(runStrategy==='grow-23'?100:200)-(performance.now()-begin)));
+}
+
+let lastMap=null;function startAttempt(){if(!loadedVersion||$('go').disabled)return;stop(false);runGameVersion=loadedVersion;runStrategy=$('strategy').value;if(runStrategy==='grow-23')resetGrow23RecoveryState();challenging=true;runCount++;previous=[];lastMap=null;velocity={x:0,y:0};last=performance.now();imageState=null;const b=buttons().find(b=>/^(開始遊戲|再玩一次|play|play again|繼續遊戲|resume)$/i.test(b.textContent.trim()));buttons().find(b=>/^(改用螢幕搖桿|Use joystick)$/i.test(b.textContent.trim()))?.click();b?.click();game.contentWindow.focus();active=true;$('attempt').textContent=++attempt;$('status').textContent='正在實驗（單局；原遊戲可能送榜）';const runId=epoch;setTimeout(()=>tick(runId),300);}$('go').onclick=()=>{runCount=0;startAttempt()};$('stop').onclick=()=>stop();window.addEventListener('pagehide',()=>stop(false));document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});
+
+const gameChoice=$('gameChoice');
+let versions=new Map([['/v2.13','v2.13']]);
+function loadGrowGame(){
+ stop();const generation=++loadGeneration,path=gameChoice.value,expected=versions.get(path);loadedVersion=null;$('go').disabled=true;
+ previous=[];lastMap=null;imageState=null;velocity={x:0,y:0};heading={x:1,y:0};last=0;attempt=0;runCount=0;
+ for(const id of ['size','time','ms'])$(id).textContent='—';$('attempt').textContent='0';$('action').textContent='等待';$('detail').textContent='';$('rank').textContent='';$('visionText').textContent='';$('vision').width=0;
+ if(!expected){$('status').textContent='版本未核對，禁止開始';return;}
+ $('status').textContent='正在載入 '+expected;game.title=expected+' 原遊戲';
+ game.onload=()=>{if(generation!==loadGeneration)return;try{const doc=game.contentDocument;const actual=doc?.querySelector('.eyebrow')?.textContent.match(/v\d+\.\d+/)?.[0];if(actual!==expected||!doc.querySelector('canvas'))throw Error('版本或 Canvas 核對失敗');loadedVersion=actual;$('gameVersion').textContent='已載入 '+actual+' · 原遊戲 iframe';$('status').textContent=actual+' 已就緒；Grow-24 候選／Grow-12 舊基線';$('go').disabled=false;}catch(e){$('status').textContent=e.message;$('go').disabled=true;}};
+ game.src=path;
+}
+async function loadVersions(){
+ gameChoice.disabled=true;
+ try{const response=await fetch('/api/versions',{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!response.ok)throw Error('版本清單讀取失敗');const data=await response.json();if(!Array.isArray(data.versions)||!/^v\d+\.\d+$/.test(data.currentVersion))throw Error('版本清單無效');for(const item of data.versions){if(/^v\d+\.\d+$/.test(item.version)&&item.path==='/'+item.version)versions.set(item.path,item.version);}const path=data.currentPath;if(typeof path!=='string'||!/^\/(?:v\d+\.\d+)?$/.test(path))throw Error('最新版路徑無效');versions.set(path,data.currentVersion);gameChoice.replaceChildren(...[...versions].map(([p,v])=>new Option(v+(p===path?'（最新版）':''),p)));}catch(e){gameChoice.replaceChildren(new Option('v2.13','/v2.13'));$('gameVersion').textContent='最新版未核實，僅提供 v2.13';}
+ gameChoice.value='/v2.13';gameChoice.disabled=false;loadGrowGame();
+}
+gameChoice.onchange=loadGrowGame;window.ocrLabStatus=()=>({active,held:[...held],version:runGameVersion,strategy:runStrategy});loadVersions();
+})();</script></html>

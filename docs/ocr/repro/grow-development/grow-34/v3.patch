@@ -1,0 +1,8 @@
+--- v2.html
++++ v3.html
+@@ -521,4 +521,5 @@
+   if(!String(version).includes('v2.22'))return fit;
+   const x=(fit.x-w/2)/ratio,y=(fit.y-h/2)/ratio,r=fit.r/ratio;
++  if(playerRadius<186)return null;
+   if(playerRadius>=186)return fit;
+   if(r*1.35>playerRadius || !map?.player || hasDangerLabel(image,w,h,fit,ratio) ||

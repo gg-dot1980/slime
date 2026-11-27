@@ -1,0 +1,71 @@
+{
+  "candidate": "grow51",
+  "parentCandidate": "grow50",
+  "candidateSourceCommit": "5d709666ad2db7a6f8cbde0bc0f7702f5f98d6c2",
+  "candidateGitBlob": "9a45effbf825fca960d5103e069b3c32c97737fa",
+  "candidateSha256": "5ffe0a35611299410c2f70ab20c849785783db2a9c740a38c4cacf1ac449f5f6",
+  "gameBlobs": {
+    "v2.13": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+    "v2.22": "30af12f7608da91514711ecdbc01b57654ab2eab"
+  },
+  "gameSha256": {
+    "v2.13": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+    "v2.22": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+  },
+  "desktopGeometry": {
+    "name": "qhd",
+    "viewport": [2560, 1440],
+    "canvas": [2250, 1308],
+    "deviceScaleFactor": 1
+  },
+  "mobileGeometry": {
+    "name": "portrait-joystick",
+    "viewport": [402, 753],
+    "canvas": [384, 467],
+    "deviceScaleFactor": 1
+  },
+  "protocol": "grow-native-local-20261126-v4",
+  "success": {
+    "size": 200,
+    "maximumGameSeconds": 150,
+    "requiresVisibleSuccessPanel": true
+  },
+  "desktopExploration": {
+    "plannedPerVersion": 4,
+    "minimumWinsPerVersion": 2,
+    "requiresCompleteLedger": true
+  },
+  "mobileExploration": {
+    "plannedPerVersion": 4,
+    "separateFromDesktopAcceptance": true,
+    "input": "visible joystick plus strategy-selected boost; no tilt"
+  },
+  "independentConfirmation": {
+    "plannedPerVersion": 12,
+    "minimumWinsPerVersion": 6,
+    "requiresBothDesktopExplorationPasses": true
+  },
+  "statusAtFreeze": {
+    "desktop": {
+      "v2.13": {"naturalStarts": 0, "naturalResults": 0},
+      "v2.22": {"naturalStarts": 0, "naturalResults": 0}
+    },
+    "mobile": {
+      "v2.13": {"naturalStarts": 0, "naturalResults": 0},
+      "v2.22": {"naturalStarts": 0, "naturalResults": 0}
+    }
+  },
+  "offlineFixedReplay": {
+    "purpose": "candidate development only; not natural-game acceptance",
+    "matchedPlannerFrames": "144/144",
+    "deathDecisionChanges": {"attempt1": 1, "attempt4": 2},
+    "winDecisionChanges": "0/46",
+    "minimumChangedCandidateEndGap": 33.17204950042165
+  },
+  "capture": {
+    "scope": "each version, all planned attempts",
+    "perAttemptLimitMiB": 96,
+    "diagnosticWallSeconds": 10,
+    "singleBrowser": true
+  }
+}

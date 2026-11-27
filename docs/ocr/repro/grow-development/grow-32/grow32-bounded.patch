@@ -1,0 +1,83 @@
+--- grow32-alpha.html
++++ grow32-bounded.html
+@@ -484,7 +484,36 @@
+  const immune=cap&&r>=186;
+  const threats=[],edible=[],foods=[],scouts=[];
++ const now=performance.now();
++ const px=map?.player?.x||0,py=map?.player?.y||0,sx=10400/(map?.width||144),sy=7200/(map?.height||100);
++ const previous=old?.dotTracks||[];
++ const tracks=[];
++ for(const m of map?.developmentMarkers||[]){
++    let before=null,dist=1.3;
++    for(const e of previous){if(now-e.t>2500)continue;const d=near(e.x-m.x,e.y-m.y);if(d<dist){before=e;dist=d;}}
++    const dx=(m.x-px)*sx,dy=(m.y-py)*sy;
++    const rayon=38*Math.sqrt(m.area/Math.PI);
++    // A complete unsaturated marker gives a bounded approach estimate.
++    // Near the camera stroke and the player symbol, retain only earlier intact evidence.
++    const hw=(map.viewWidth||958)/2,hh=(map.viewHeight||557)/2;
++    const crosses=Math.abs(Math.abs(dx)-hw)<280&&Math.abs(dy)<hh+240||Math.abs(Math.abs(dy)-hh)<280&&Math.abs(dx)<hw+240;
++    const bounded=!crosses&&near(dx,dy)>520&&m.area<23.2;
++    const bound=bounded?Math.max(48,rayon+11):before?.bound;
++    const measured=bounded?now:before?.measured;
++    tracks.push({x:m.x,y:m.y,t:now,bound,measured});
++ }
++ for(const oldMark of previous){
++   if(now-oldMark.t>1100||!oldMark.bound||!map?.player)continue;
++   if(tracks.some(m=>near(m.x-oldMark.x,m.y-oldMark.y)<1.65))continue;
++   const dx=(oldMark.x-px)*sx,dy=(oldMark.y-py)*sy;
++   if(Math.abs(dx)<(map.viewWidth||958)*.66&&Math.abs(dy)<(map.viewHeight||557)*.85)tracks.push(oldMark);
++ }
++ const safeTracks=tracks.filter(m=>m.bound&&now-m.measured<4000&&m.bound*1.13<r-.5&&!(map?.threats||[]).some(t=>near(t.x-m.x,t.y-m.y)<3.6));
++ let pursuit=null;
++
+  for(const o of objects){
+    const d=near(o.x,o.y);
+    if(!o.npc){if(!o.blocked&&!o.clipped)foods.push({...o,d,growth:.4});continue;}
++   const matching=safeTracks.filter(m=>near((m.x-px)*sx-o.x,(m.y-py)*sy-o.y)<Math.max(80,Math.min(150,m.bound+55)));
++   if(o.clipped&&!o.isRed&&matching.length===1&&o.r<matching[0].bound*1.55)continue;
+    const scale=o.geometryAccepted?1.04:1.12;
+    const upper=cap?Math.min(200,o.r*scale):o.r*scale;
+@@ -509,7 +538,8 @@
+    for(const m of marks){
+       const {x,y}=mapOffsets(m),d=near(x,y);
+-      if(d<160||d>speed*9+200)continue;
+-      if(Math.abs(x)<map.viewWidth*.42&&Math.abs(y)<map.viewHeight*.40)continue;
+-      if(objects.some(o=>o.npc&&near(o.x-x,o.y-y)<100))continue;
++      if(d<130||d>speed*10+200)continue;
++      const tracked=safeTracks.find(t=>near(t.x-m.x,t.y-m.y)<1.3);
++      if(!tracked&&Math.abs(x)<map.viewWidth*.42&&Math.abs(y)<map.viewHeight*.40)continue;
++      if((tracked?edible:objects).some(o=>o.npc&&near(o.x-x,o.y-y)<100))continue;
+       const markerR=sizeHint(m.area);
+       let estimate=markerR<48?Math.min(34,r*.69):Math.min(markerR,r*.91);
+@@ -517,7 +547,22 @@
+       const chance=nearEqual?.16:markerR<48&&r<45?.4:.84;
+       const growth=chance*.75*(Math.sqrt(r*r+.55*estimate*estimate)-r);
+-      scouts.push({x,y,r:estimate,d,growth,mapOnly:true,npc:true,vx:0,vy:0});
++      scouts.push({x,y,r:estimate,d,growth,mapOnly:true,npc:true,vx:0,vy:0,wx:m.x,wy:m.y});
+    }
+  }
++ // Carry only the small mapped contact that was actually selected during
++ // scouting, using stable map coordinates across the green player/camera occlusion.
++ if(mapOK){
++  const oldFocus=old?.pursuit;
++  for(const t of safeTracks){
++    const x=(t.x-px)*sx,y=(t.y-py)*sy,d=near(x,y);
++    if(d<Math.max(40,(r+t.bound)*.64)||d>speed*7)continue;
++    if(threats.some(h=>near(h.x-x,h.y-y)<.68*h.hit))continue;
++    const close=scouts.find(s=>near(s.wx-t.x,s.wy-t.y)<1.2);
++    const isOld=oldFocus&&near(t.x-oldFocus.x,t.y-oldFocus.y)<1.55;
++    const est=Math.min(t.bound-6,r*.82),val=.75*(Math.sqrt(r*r+.55*est*est)-r);
++    if(close){close.growth=Math.max(close.growth,val)*(isOld?1.85:1.15);close.verified=t;}
++    else scouts.push({x,y,r:est,d,growth:val*(isOld?1.85:1.15),mapOnly:true,npc:true,vx:0,vy:0,wx:t.x,wy:t.y,verified:t});
++  }
++ }
+  const walls=map?.visibleWalls?.slice()||[null,null,null,null];
+  if(mapOK){
+@@ -578,5 +623,6 @@
+  });
+  const best=(safe.length?safe:paths)[0],target=best.target;
+- return {...best,target,reason:!safe.length?'escape':target?.mapOnly?'scout-visible-dot':target?.npc?'intercept-growth':'food-and-exploration',gain:best.preyIncome+best.foodIncome,threats:threats.length,escaping:!safe.length,recovering:false,mapStatus:mapOK?'visible':'main-view',strategy:'grow-23'};
++ pursuit=target?.verified||null;
++ return {...best,dotTracks:tracks,pursuit,target,reason:!safe.length?'escape':target?.mapOnly?'scout-visible-dot':target?.npc?'intercept-growth':'food-and-exploration',gain:best.preyIncome+best.foodIncome,threats:threats.length,escaping:!safe.length,recovering:false,mapStatus:mapOK?'visible':'main-view',strategy:'grow-23'};
+ }
+ 

@@ -1,0 +1,241 @@
+{
+  "candidate": "Grow45",
+  "dataCutoffTaipei": "2026-11-26T13:49:28+08:00",
+  "geometry": {
+    "outer": [
+      2560,
+      1440
+    ],
+    "nativeGameCanvas": [
+      2250,
+      1308
+    ],
+    "controllerSamples": [
+      2000,
+      1163
+    ],
+    "dpr": 1
+  },
+  "environment": "桌機 Chromium Headless Shell、同源原遊戲、未固定遊戲亂數、每版交錯新局。",
+  "successRule": "原生可見成功結算、遊戲時間不超過 150 秒；每局結束時核對釋鍵。",
+  "phaseRule": "探索每版四局、均有有效原生結果且每版至少兩勝，才啟動各十二個新局的獨立確認。確認兩版各至少六勝為樣本門檻。",
+  "frozenSources": {
+    "candidate": "https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-45-public/README.md",
+    "build": "https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-45-public/build-candidate.cjs",
+    "frozenGrow15Planner": "https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-evaluation-20261125/bundle/source/experiments/grow15/frozen/screen-03/planner.js",
+    "historicalGrow15": "https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-15/README.md",
+    "historicalSetup": "https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-evaluation-20261125/README.md",
+    "previousQhd": "https://github.com/gg-dot1980/slime/blob/f64f0332fb2bc16bd3ab0b7bc4a1f563c9aee057/docs/ocr/repro/grow-claude-comparison-20261126/aggregates.json",
+    "r4": "https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-local-r4-20261126/README.md",
+    "fixedFixtures": "https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-45-public/check-planner.cjs"
+  },
+  "phases": {
+    "diagnostic": {
+      "phase": "diagnostic",
+      "hasBatchEnd": true,
+      "integrityOk": true,
+      "byVersion": {
+        "v2.13": {
+          "planned": 1,
+          "attemptStarts": 1,
+          "nativeStarts": 1,
+          "validOutcomes": 0,
+          "winsWithin150": null,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 1,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "plannedDiagnosticStops": 1
+        },
+        "v2.22": {
+          "planned": 1,
+          "attemptStarts": 1,
+          "nativeStarts": 1,
+          "validOutcomes": 0,
+          "winsWithin150": null,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 1,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "plannedDiagnosticStops": 1
+        }
+      },
+      "observedVisiblePlanner": {
+        "v2.13": {
+          "label": "grow-23",
+          "foundInRetainedSamples": true
+        },
+        "v2.22": {
+          "label": "grow-15",
+          "foundInRetainedSamples": true
+        }
+      }
+    },
+    "explore": {
+      "phase": "explore",
+      "hasBatchEnd": true,
+      "integrityOk": true,
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 4,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "winOverlayExplicitSize200": 4,
+          "winLastHudAtLeast200": 1
+        },
+        "v2.22": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 1,
+          "deaths": 1,
+          "cutoffs": 2,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0,
+          "winOverlayExplicitSize200": 1,
+          "winLastHudAtLeast200": 1
+        }
+      },
+      "observedVisiblePlanner": {
+        "v2.13": {
+          "label": "grow-23",
+          "foundInRetainedSamples": true
+        },
+        "v2.22": {
+          "label": "grow-15",
+          "foundInRetainedSamples": true
+        }
+      },
+      "eligibleForConfirmation": false
+    }
+  },
+  "comparisonQhdNativeExploration": [
+    {
+      "candidate": "Grow38",
+      "canvas": [
+        2250,
+        1308
+      ],
+      "phase": "explore",
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 4,
+          "deaths": 0,
+          "cutoffs": 0,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        },
+        "v2.22": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 0,
+          "deaths": 0,
+          "cutoffs": 4,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        }
+      }
+    },
+    {
+      "candidate": "Grow44",
+      "canvas": [
+        2250,
+        1308
+      ],
+      "phase": "explore",
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 2,
+          "deaths": 0,
+          "cutoffs": 2,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        },
+        "v2.22": {
+          "planned": 4,
+          "attemptStarts": 4,
+          "nativeStarts": 4,
+          "validOutcomes": 4,
+          "winsWithin150": 0,
+          "deaths": 1,
+          "cutoffs": 3,
+          "lateWins": 0,
+          "gameTimeouts": 0,
+          "aborts": 0,
+          "unresolved": 0,
+          "unstarted": 0,
+          "stopUnverified": 0
+        }
+      }
+    }
+  ],
+  "confirmationStarted": false,
+  "fixedInputChecks": {
+    "method": "固定可見輸入、比對完整規劃輸出",
+    "casesPerVersion": 13,
+    "matchedSourceByVersion": {
+      "v2.13": 13,
+      "v2.22": 13
+    },
+    "nativeGameStarts": 0,
+    "source": "https://github.com/gg-dot1980/slime/blob/f84eca61576479f6c1d9f0e31fc5a6f53f3a82c5/docs/ocr/repro/grow-45-public/check-planner.cjs"
+  },
+  "separateHistoricalReference": {
+    "candidate": "Grow15",
+    "version": "v2.22",
+    "phase": "independent confirmation",
+    "winsWithin150": 5,
+    "validOutcomes": 12,
+    "canvas": [
+      2000,
+      1163
+    ],
+    "minimap": "舊相容層調整繪製順序。"
+  },
+  "researchNext": "後續以 Grow45 作為 QHD v2.22 的研究基線。下一項試驗只在同一段可見追逐反覆未接觸、而且第一段也未拉近距離時，折減第二段的預期收益，並以曾成功的第二段攔截作對照。"
+}

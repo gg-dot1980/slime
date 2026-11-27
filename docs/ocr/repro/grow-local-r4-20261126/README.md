@@ -1,0 +1,21 @@
+# OCR Grow 桌機研究批次
+
+接續研究先讀 [短檢查點](../../GROW-CHECKPOINT.md) 與 [精簡續跑流程](../../GROW-WORKFLOW.md)。既有批次優先接續；本頁的批次門檻及凍結規則維持原定要求。
+
+從本提交的 repository 根目錄執行下列命令。需要 Node.js 20 或更新版本與桌機 Chromium，相依套件使用 Node 內建模組。
+
+```sh
+node docs/ocr/repro/grow-local-r4-20261126/server.cjs --check
+node docs/ocr/repro/grow-local-r4-20261126/server.cjs --port 4173
+```
+
+在桌機瀏覽器開啟終端輸出的本機網址，選擇候選。先按「載入預檢」，完成後可按「啟動兩局控制檢查」，然後開始固定 8 局探索。每版本獨立 4 局中至少 2 局在 150 遊戲秒內達體型 200，且資料完整，才會開放獨立 24 局確認，每版本門檻為 6/12。預設選本提交編號最大的候選。每批記錄實際視窗、DPR、原遊戲、候選及 runner 雜湊。
+
+`candidates.json` 是本提交的候選清單。預檢會核對每個 HTML 的 SHA-256 與兩版原始遊戲的 Git blob 身分。Grow24–26 依其原來規則固定實際 responsive 幾何。其他 native 候選使用自然產生的 958×557 畫布、DPR 1。FHD 使用 1920×1080 外層可視區、DPR 1，保留實際量得的寬畫布。Grow38 的獨立 QHD 批次和 Grow44 的 QHD 專屬批次，都需在啟動命令加上 `--geometry-mode qhd`，使用 2560×1440 可視區和 2250×1308 畫布。設定視窗後可用載入預檢核對實際幾何。命令列可依 [Grow44 說明](../grow-44-public/README.md) 指定候選與階段。
+
+每局私有輸出寫入本目錄的 `results-private/`。每秒 sample 與結束時的 result 可含 `visibleIntake`，記錄可見 HUD 的吞食總數、遊戲秒及期間可讀的食物／NPC 提示與顯示的體型增量。相同提示持續顯示只記一次。同一幀中被覆寫的提示無法逐個還原，分類數是觀察下限。
+
+受管預覽環境可對本目錄下的 `qhd/` 啟動既有預覽服務；其 `dev` 只傳入原有 `--geometry-mode qhd`，不另開第二個伺服器。既有獨立 Chromium 測試入口為 `python docs/ocr/repro/grow-38-public/geometry/native.py qhd --candidate grow47 --port 4173 --through confirm`；port 必須與預覽服務實際回傳相同，必要時用 `--chromium` 指向已安裝的測試瀏覽器。它從 0 開局預檢依序執行診斷、探索及門檻通過後的確認，不能用作中斷批次的重新開始；已有批次時先核對帳本。使用這個入口不代表實體 QHD 顯示器測試，實際瀏覽器、viewport、畫布、來源與啟動程式 hash 另存私人證據。
+
+離線測試可在本目錄執行 `node check-harness.cjs`、`node check-ledger.cjs`、`node check-visible-intake.cjs`。測試使用合成資料。
+

@@ -1,0 +1,15 @@
+const fs=require('fs'),vm=require('vm'),assert=require('assert'),cp=require('child_process');const h=fs.readFileSync('src/ocr-grow.html','utf8'),base=cp.execFileSync('git',['show','cfefdca2a748d192ac026cbd8e2796946487b765:src/ocr-grow.html'],{encoding:'utf8'}),helper=fs.readFileSync('src/ocr-grow-minimap.js','utf8'),planner=fs.readFileSync('src/ocr-grow-planner.js','utf8'),dirs=h.slice(h.indexOf('const dirs='),h.indexOf('function planBaseline('));assert(h.includes(helper));assert(h.includes(planner));assert.equal(h.slice(h.indexOf('function planBaseline('),h.indexOf('// grow-3:')),base.slice(base.indexOf('function planBaseline('),base.indexOf('// grow-3:')));
+const c={};vm.createContext(c);vm.runInContext(dirs+helper+planner+';this.run=planGrow;',c);const dot=(x,y,red=false,sizeLower=0)=>({x:72+x/10400*144,y:50+y/7200*(144*7200/10400),red,sizeLower});const white=dot(700,0),red=dot(900,0,true),back=dot(-900,0,true),side=dot(0,900,true),obj=(y,extra={})=>({x:160,y,r:60,npc:true,isRed:true,clipped:false,blocked:false,localReliable:true,vx:0,vy:0,...extra});let count=0;const rows=[];function run(name,objects=[],markers=[white],walls=null,old={x:1,y:0},r=25){const map=markers?{width:144,height:144*7200/10400,pixelRatio:1,player:{x:72,y:50},growMarkers:markers,visibleWalls:walls}:null;const d=c.run(objects,r,map,180,{x:0,y:0},old);rows.push({name,x:d.x,y:d.y,mode:d.mode,red:d.correspondingRed,reason:d.reason,clearance:d.clearance});count++;return d}
+for(const r of [25,89,90,130])assert(run('opening-'+r,[],[white],null,undefined,r).x>.99);
+assert(run('no-red-large',[obj(35)]).x>.99);assert(run('behind-red',[obj(35)],[white,back]).x>.99);assert(run('side-red',[obj(35)],[white,side]).x>.99);
+const below=run('front-red-body-below',[obj(35)],[white,red]);assert(below.y<-.5);const above=run('front-red-body-above',[obj(-35)],[white,red]);assert(above.y>.5);
+assert(run('far-body',[obj(35,{x:2000})],[white,red]).x>.99);assert(run('danger-cleared',[],[white,red],null,below).x>.99);
+for(const e of [{clipped:true},{localReliable:false},{blocked:true}])assert(run('uncertain-main',[obj(35,e)],[white,red]).x>.99);
+assert(run('overlap-alias',[obj(35),obj(36)],[white,red]).x>.99);
+assert(run('wall',[],[white],[1000,150,1000,1000]).x<.1);
+assert.equal(run('missing-map',[obj(35)],null).reason,'missing-map');
+const stable=run('stable-side',[obj(34)],[white,red],null,below);assert(stable.y<0);
+const enc=Array.from({length:8},(_,i)=>obj(80*Math.sin(i*Math.PI/4),{x:80*Math.cos(i*Math.PI/4),r:70}));assert.equal(run('no-route',enc,[white,red],[100,100,100,100]).mode,'emergency');
+const near=run('near-white-not-prey',[],[dot(500,0,false,150),dot(0,700)],null,undefined,130);assert(near.y>.9);assert(!near.correspondingRed);
+const food={x:0,y:100,r:3,npc:false,clipped:false}; assert(run('npc-before-food',[food],[dot(120,0)]).x>.99);assert(run('food-backup',[food],[]).y>.99);assert(run('npc-score-not-override',[food,obj(35)],[white,red]).y<0);
+console.log(JSON.stringify({passed:true,checks:count,rows,naturalGames:0},null,2));

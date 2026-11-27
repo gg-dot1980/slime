@@ -1,16 +1,89 @@
+import {createHash} from 'node:crypto';
+import {readFile, readdir, mkdir, writeFile, cp, rm} from 'node:fs/promises';
 import {makeGrowBundle} from './grow-games.mjs';
-import {readFile,readdir,mkdir,writeFile,cp,rm} from 'node:fs/promises';
-const html=await readFile('src/game.html','utf8'),current=html.match(/SLIME ARENA · (v[\d.]+)/)[1];
-const games={};
-for(const file of await readdir('src')){const match=file.match(/^game-(v[\d.]+)\.html$/);if(match)games[match[1]]=await readFile('src/'+file,'utf8');}
-games[current]=html;
-const versions=Object.keys(games).sort((a,b)=>b.localeCompare(a,undefined,{numeric:true})).map(version=>({version,path:'/'+version,current:version===current}));
-const manifest={currentVersion:current,currentPath:'/',versions};
-let worker=await readFile('src/worker.js','utf8');
-worker=worker.replace('__SITEMAP_XML__',JSON.stringify(await readFile('src/sitemap.xml','utf8'))).replace('__ROBOTS_TXT__',JSON.stringify(await readFile('src/robots.txt','utf8')));
-const grow=(await readFile('src/ocr-grow.html','utf8')).replace('__GROW_GAMES__',JSON.stringify(makeGrowBundle(games,current)).replaceAll('<','\\u003c'));
-worker=worker.replace('__OCR_GROW_HTML__',JSON.stringify(grow));
-for(const [token,value] of [['__GAME_HTML__',html],['__GAMES__',games],['__VERSIONS__',manifest],['__CONTROLLER_HTML__',await readFile('src/controller.html','utf8')],['__RELEASE_HTML__',await readFile('src/release.html','utf8')],['__OCR1_HTML__',await readFile('src/ocr1.html','utf8')],['__OCR_HTML__',await readFile('src/ocr.html','utf8')],['__OCR_TEST_HTML__',await readFile('src/ocr-test.html','utf8')],['__OCR3_HTML__',await readFile('src/ocr3.html','utf8')],['__OCR2_HTML__',await readFile('src/ocr2.html','utf8')]])worker=worker.replace(token,JSON.stringify(value));
-await rm('dist',{recursive:true,force:true});await mkdir('dist/server',{recursive:true});await mkdir('dist/.openai',{recursive:true});
-await writeFile('dist/server/index.js',worker);
-await cp('.openai/hosting.json','dist/.openai/hosting.json');
+
+const readText = path => readFile(path, 'utf8');
+const sha256 = text => createHash('sha256').update(text).digest('hex');
+
+// The native strategy value "grow-23" is reused across frozen revisions.
+// Update the controller, catalog and expected digest together when switching revisions.
+async function pinnedGrowController() {
+  const directory = 'docs/ocr/repro';
+  const registry = JSON.parse(await readText(directory + '/grow-local-r4-20261126/candidates.json'));
+  const expected = '85071f2d68a8320b444aa643f5dffb61cbe2523f6de5caf8cb45ba542bd5a0b6';
+  const source = await readText(directory + '/grow-49-public/ocr-grow49.html');
+  if (registry.grow49?.sha256 !== expected || sha256(source) !== expected) {
+    throw Error('Grow49 source or registry differs from the reviewed console pin');
+  }
+  return source;
+}
+
+const html = await readText('src/game.html');
+const current = html.match(/SLIME ARENA · (v[\d.]+)/)[1];
+const games = {};
+for (const file of await readdir('src')) {
+  const match = /^game-(v[\d.]+)\.html$/.exec(file);
+  if (match) games[match[1]] = await readText('src/' + file);
+}
+games[current] = html;
+const versions = Object.keys(games).sort((a, b) => b.localeCompare(a, undefined, {numeric: true}))
+  .map(version => ({version, path: '/' + version, current: version === current}));
+const manifest = {currentVersion: current, currentPath: '/', versions};
+const isolatedGames = JSON.stringify(makeGrowBundle(games, current)).replaceAll('<', '\\u003c');
+
+function embedGames(template) {
+  if (template.split('__GROW_GAMES__').length !== 2) throw Error('Expected one game bundle placeholder');
+  return template.replace('__GROW_GAMES__', () => isolatedGames);
+}
+
+// Refresh from gg-dot1980/slime’s ocr-claude branch using a reviewed commit:
+// git show <sha>:src/ocr-claude.html > src/ocr-claude.html
+// Compare scripts/build-ocr-claude.mjs and scripts/grow-games.mjs at that SHA,
+// update this pin/digest together and re-run the build and route checks.
+const claude = await readText('src/ocr-claude.html');
+// Source commit 80b1f7922aef468cfa131da23d22f87dc104d280, Git blob 8974e4ac9a8a2ce22caedc7c30d1cf5f91ddd3a8.
+if (sha256(claude) !== '400dd47bb719a59dc096680981f0745d9f2c429a7d8e6f374203131f2a57d207') {
+  throw Error('Claude source differs from the reviewed pin');
+}
+const consoleAssets = [
+  ['grow', ['text/html', await pinnedGrowController()]],
+  ['claude', ['text/html', embedGames(claude)]],
+  ['style.css', ['text/css', await readText('src/ocr-console.css')]],
+  ['catalog.js', ['text/javascript', await readText('src/ocr-console-catalog.js')]],
+  ['runtime.js', ['text/javascript', await readText('src/ocr-console-runtime.js')]]
+];
+const content = {
+  __OCR_CONSOLE_ASSETS__: consoleAssets,
+  __SITEMAP_XML__: await readText('src/sitemap.xml'),
+  __ROBOTS_TXT__: await readText('src/robots.txt'),
+  __OCR_GROW_HTML__: embedGames(await readText('src/ocr-grow.html')),
+  __GAME_HTML__: html,
+  __GAMES__: games,
+  __VERSIONS__: manifest,
+  __CONTROLLER_HTML__: await readText('src/controller.html'),
+  __RELEASE_HTML__: await readText('src/release.html'),
+  __OCR1_HTML__: await readText('src/ocr1.html'),
+  __OCR_HTML__: await readText('src/ocr.html'),
+  __OCR_TEST_HTML__: await readText('src/ocr-test.html'),
+  __OCR3_HTML__: await readText('src/ocr3.html'),
+  __OCR2_HTML__: await readText('src/ocr2.html')
+};
+
+// Insert only into the original Worker template. Native source can contain
+// dollar replacement patterns and strings that resemble other placeholders.
+const template = await readText('src/worker.js');
+const used = new Set();
+const worker = template.replace(/__[A-Z][A-Z0-9_]*__/g, token => {
+  if (!Object.hasOwn(content, token)) throw Error('Unknown Worker placeholder: ' + token);
+  used.add(token);
+  return JSON.stringify(content[token]);
+});
+for (const token of Object.keys(content)) {
+  if (!used.has(token)) throw Error('Missing Worker placeholder: ' + token);
+}
+
+await rm('dist', {recursive: true, force: true});
+await mkdir('dist/server', {recursive: true});
+await mkdir('dist/.openai', {recursive: true});
+await writeFile('dist/server/index.js', worker);
+await cp('.openai/hosting.json', 'dist/.openai/hosting.json');

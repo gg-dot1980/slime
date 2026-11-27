@@ -1,0 +1,48 @@
+[
+  {
+    "phase": "explore",
+    "candidate": "Grow48",
+    "commit": "d0514d545a042ddf2d00c3e6942e97dc2e03085e",
+    "candidateSha256": "c1127a2fef754be13639f5fe96821080d4707a69b27c4dd7763b2145624b5253",
+    "geometry": "QHD 2560x1440 / 2250x1308 DPR1",
+    "versions": {
+      "v2.13": {
+        "planned": 4,
+        "nativeStarts": 4,
+        "validResults": 4,
+        "wins": 2,
+        "deaths": 0,
+        "deadlines": 2,
+        "aborts": 0,
+        "unknown": 0,
+        "unresolved": 0,
+        "stopUnverified": 0,
+        "lateWins": 0,
+        "gameTimeouts": 0
+      },
+      "v2.22": {
+        "planned": 4,
+        "nativeStarts": 4,
+        "validResults": 4,
+        "wins": 1,
+        "deaths": 3,
+        "deadlines": 0,
+        "aborts": 0,
+        "unknown": 0,
+        "unresolved": 0,
+        "stopUnverified": 0,
+        "lateWins": 0,
+        "gameTimeouts": 0
+      }
+    },
+    "confirmedTarget": false,
+    "eligibleForConfirm": false,
+    "v222AppliedWallCounters": {
+      "applied": 3307,
+      "scored": 118,
+      "firstChanged": 46,
+      "routeChanged": 47
+    },
+    "v222GamesWithCounters": 4
+  }
+]

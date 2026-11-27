@@ -1,0 +1,55 @@
+{
+  "kind": "publication packaging verification; not browser or gameplay",
+  "strategyVersion": "grow-7",
+  "sitesSourceCommit": "c717ccca49e95c4cc6f8f4075f8586ced9632e6a",
+  "sourceManifestSha256": "dd1eb853613e0a4d989c654fe561a2608d4fda9fb8fe02edfdb93097ef5fa6b1",
+  "node": "v24.22.3",
+  "generatedPageSha256": "b21aad651aecbf43eb9ca70f1865da85ebb1e54fe0038d4a3cd4fb1a460583d5",
+  "generatedPageBytes": 309679,
+  "parsedScripts": 7,
+  "isolatedGameVersions": 4,
+  "sourceDependenciesVerified": 16,
+  "syntheticChecks": [
+    {
+      "script": "scripts/check-grow-size-bound.cjs",
+      "status": "passed",
+      "stdoutBytes": 45,
+      "stdoutSha256": "fb33d355abec5b662ea9ae6c03feb01fb479e39ddac1a61e057efb8b8bec0c4f",
+      "stdoutArtifact": "publication-checks/check-grow-size-bound.cjs.stdout.txt"
+    },
+    {
+      "script": "scripts/check-grow-close-dot.cjs",
+      "status": "passed",
+      "stdoutBytes": 661,
+      "stdoutSha256": "b0f6d15b6c0c72a38a68b8b3d7f09646cb3426a9ab141a5473d311410bbfce76",
+      "stdoutArtifact": "publication-checks/check-grow-close-dot.cjs.stdout.txt"
+    },
+    {
+      "script": "scripts/check-grow-map-authority.cjs",
+      "status": "passed",
+      "stdoutBytes": 157,
+      "stdoutSha256": "1107af74fbfa7696e6f22ff55347e4f9de5233d2b185ba18b9fc43b74d6b2d66",
+      "stdoutArtifact": "publication-checks/check-grow-map-authority.cjs.stdout.txt"
+    },
+    {
+      "script": "scripts/check-ocr-grow.cjs",
+      "status": "passed",
+      "stdoutBytes": 79,
+      "stdoutSha256": "bca50499b41abab825c871a7bc39c88e7b2e4ca279c9c159c9427b2183e708a5",
+      "stdoutArtifact": "publication-checks/check-ocr-grow.cjs.stdout.txt"
+    }
+  ],
+  "browserRuns": 0,
+  "newGameplayStarts": 0,
+  "routeParity": "not rerun; full historical Sites routes/media are outside this capsule",
+  "recordedAtUtc": "2026-11-25T04:42:58.344491+00:00",
+  "publicationAdapterSha256": "a2c4fc304fc67481903fb2f7b4293a9763544d08a80a522e58867722b2e26bfd",
+  "commandFromRepositoryRoot": "node docs/ocr/repro/grow-7/source/reproduce.mjs 7 /tmp/slime-grow-7-repro --synthetic",
+  "syntheticDeclaredChecksOrScenarios": [
+    16,
+    19,
+    31,
+    11
+  ],
+  "historicalBrowserResultsRerun": false
+}

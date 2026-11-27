@@ -1,0 +1,5 @@
+{
+  "name": "ocr-grow-qhd-preview",
+  "private": true,
+  "scripts": { "dev": "node ../server.cjs --geometry-mode qhd" }
+}

@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "createdAt": "2026-11-25T00:41:44.328Z",
+  "baseSiteCommit": "14c1815351b32096b325e032331b90c1f7873159",
+  "sourceHash": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+  "plannerHash": "ed093720354b5798769777498bfd64ae429fe23fc64f77205b6a7025ec046e24",
+  "harnessHash": "8d43cd9ff97c74fa1e8884caf5a14a4b205cdcdb65cfa92393a96d58f46ed422",
+  "buildHash": "2509e38b38569aa5a033ea8d64df83facc2ea7dd597d3edd776309ae2b972153",
+  "pageHash": "346a8b86b4b8117ec671b50525fa05d7ca6a24e783f2746be59a6833d4f3ed56",
+  "isolationHash": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+  "games": {
+    "v2.13": {
+      "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+    },
+    "v2.22": {
+      "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+    }
+  },
+  "viewport": {
+    "gameWidth": 2000,
+    "gameHeight": 1163
+  },
+  "seed": "natural Math.random; unknown",
+  "controller": "rendered canvas pixels + visible HUD only",
+  "input": "Arrow keys + Space boost",
+  "maxComputeMs": 200,
+  "concurrency": 1,
+  "screen": {
+    "id": "screen-01",
+    "order": [
+      {
+        "strategy": "grow-12",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-12",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-13",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-13",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-13",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-13",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-12",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-12",
+        "version": "v2.22"
+      }
+    ]
+  },
+  "confirmation": {
+    "id": "confirm-01",
+    "NPerVersion": 12,
+    "condition": "grow-13 screen >=1/2 on each version; frozen same candidate"
+  },
+  "protocolHash": "dfce08af3a3392914f67d33234cfb3962a52f0ee5accfc39305448ae934d0f18"
+}

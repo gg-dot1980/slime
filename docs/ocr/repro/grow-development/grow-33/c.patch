@@ -1,0 +1,49 @@
+--- b.html
++++ c.html
+@@ -369,8 +369,8 @@
+       if(!immune) addHazard(accurate?body.x:m.x,accurate?body.y:m.y,
+         Math.max(r*1.1, accurate?R: m.estimated>107 ? Math.max(145,r*1.4) : m.estimated===0?80:m.estimated+12),
+-        accurate?body.vx:0,accurate?body.vy:0,accurate?12:42);
++        accurate?body.vx:0,accurate?body.vy:0,accurate?24:58);
+       continue;
+     }
+-    if(accurate && (body.isRed || R>r*.98)){
++    if(accurate && (body.isRed || R>r*.92)){
+       if(!immune && (body.isRed||R>=r*1.035))addHazard(body.x,body.y,R+5,body.vx,body.vy);
+       continue;
+@@ -383,5 +383,5 @@
+   for(const o of bodies){
+     const associated=nearby.some(m=>hyp(m.x-o.x,m.y-o.y)<Math.max(o.r*.56,96));
+-    if(associated)continue;
++    if(associated && !o.isRed && !(o.clipped && o.r>r))continue;
+     if(!immune && (o.isRed || o.r>=r*1.03 || o.clipped&&o.r>=r*.80)){
+       addHazard(o.x,o.y,Math.max(o.r, o.isRed?r*1.12:0),o.vx,o.vy,16);
+@@ -441,5 +441,27 @@
+       if(score>best){best=score;target=o;}
+     }
+-    let value=best+foodGain*(r<64?3.5:1.0)+(.15+(goals.length?0:.22))*((old?.x||0)*dx+(old?.y||0)*dy)-wallPenalty-friction*4;
++    let predictedFood=0;
++    const path=[];
++    for(const t of [.16,.32,.50,.72,.95,1.22]){
++      const inertia=(1-Math.exp(-4.2*t))/4.2;
++      path.push({t,x:dx*speed*(t-inertia)+v.x*inertia,y:dy*speed*(t-inertia)+v.y*inertia});
++    }
++    for(const food of foods){
++      const near=path.find(p=>hyp(food.x-p.x,food.y-p.y)<r+food.r*.45);
++      if(near) predictedFood+=.4/(.35+near.t);
++    }
++    for(const o of goals){
++      if(o.mapOnly || o.eta>1.8)continue;
++      const gap0=hyp(o.x,o.y)-.70*(r+o.r);
++      let close=Infinity, when=0;
++      for(const p of path){
++        const dist=hyp(o.x+o.vx*p.t-p.x,o.y+o.vy*p.t-p.y)-.70*(r+o.r);
++        if(dist<close){close=dist;when=p.t;}
++      }
++      const gain=Math.sqrt(r*r+.55*o.r*o.r)-r;
++      const vcap=(close<0?3.1/(when+.32):Math.max(0,1-close/Math.max(40,gap0)))*gain;
++      if(vcap>best){best=vcap;target=o;}
++    }
++    let value=best+predictedFood*(r<60?5:1.7)+foodGain*.25+(.15+(goals.length?0:.22))*((old?.x||0)*dx+(old?.y||0)*dy)-wallPenalty-friction*4;
+     choices.push({x:dx,y:dy,score:value,clearance:worst,soon,target});
+   }

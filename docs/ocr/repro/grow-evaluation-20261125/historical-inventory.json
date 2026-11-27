@@ -1,0 +1,1111 @@
+{
+  "schemaVersion": 1,
+  "kind": "read-only source audit and offline publication staging",
+  "createdAtUtc": "2026-11-25T04:39:27.235778+00:00",
+  "repository": "gg-dot1980/slime",
+  "githubTargetBranch": "test/ocr-test",
+  "githubTargetBaseCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+  "checkedMainHead": "7889f40cd86dbffd56c5fe1bfddbd9f65d3b522a",
+  "mainGrowEntries": "none (root agent checked tree)",
+  "localReadOnlyRepositoryHead": "14c1815351b32096b325e032331b90c1f7873159",
+  "scope": "Grow-1 through Grow-12; stage missing historical Grow-7 through Grow-12; no source root overwrite, GitHub write, browser, game or deployment",
+  "versions": [
+    {
+      "version": "grow-1",
+      "sitesSourceCommit": "2aef57357b61ccada74736e6816a18a52b5dafc9",
+      "sitesTreeSha": "8fbfff861780e2e0187b2c1a4e22226182fdd254",
+      "sitesParentCommit": "135d9db56ef98685ecf08061e3e016a7dd371f8c",
+      "sitesCommitTime": "2026-11-22T12:54:42+08:00",
+      "controller": {
+        "sitesCommit": "2aef57357b61ccada74736e6816a18a52b5dafc9",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 34701,
+        "sha256": "0aa87bbb8ce6d6efcb53cbed0646a4f1db850aac1ba63f37165411fc458cdf50",
+        "gitBlobSha": "37512b79c46dbd08378373d87228ef17567967a3"
+      },
+      "title": "OCR Grow · grow-1 成長優先實驗",
+      "entryInTargetBase": true,
+      "publicSourceCommit": "1957d3b04a1c523afafff5a78f757bee1c759319",
+      "publicationStatusAtAudit": "public source and entry read back",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "2aef57357b61ccada74736e6816a18a52b5dafc9",
+          "sourcePath": "docs/ocr/repro/grow-1/README.md",
+          "bytes": 3085,
+          "sha256": "8e2b354727e5716cbc4960ada5356b707aee53143936bf95f4cfdcaa00dba327",
+          "gitBlobSha": "9458b13d421a21413edc8c4f264f5206d56622da"
+        },
+        {
+          "sitesCommit": "2aef57357b61ccada74736e6816a18a52b5dafc9",
+          "sourcePath": "docs/ocr/repro/grow-1/routes.json",
+          "bytes": 1449,
+          "sha256": "6a8fbf3bfc282932f08b9adb4c7b174d89123bd1c2b2d56f4ed653d0b3ac2793",
+          "gitBlobSha": "85ad620cf2e3735d3df869c67e00078da0837d2a"
+        },
+        {
+          "sitesCommit": "2aef57357b61ccada74736e6816a18a52b5dafc9",
+          "sourcePath": "docs/ocr/repro/grow-1/tests.json",
+          "bytes": 550,
+          "sha256": "706ebefee551d35112c8fbbb45353905f3e0b68e4a649b3ddf23dc9a81fa2a2b",
+          "gitBlobSha": "9bf172c660a8c8267996fe0d0ba9860cb0bc66d4"
+        }
+      ],
+      "publicControllerUrl": "https://github.com/gg-dot1980/slime/blob/1957d3b04a1c523afafff5a78f757bee1c759319/src/ocr-grow.html",
+      "publicControllerGitBlobVerified": true,
+      "publicEntryUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/docs/ocr/repro/grow-1/README.md",
+      "preserveExistingEntry": true,
+      "reproduction": "Use fixed public commit and historical README. No new snapshot is added for this version."
+    },
+    {
+      "version": "grow-2",
+      "sitesSourceCommit": "94eda4ba4f46e836a88da67aca68e1b63ba8adff",
+      "sitesTreeSha": "8fd7f497bfdc4357dd8f320b40866824ddfb64fd",
+      "sitesParentCommit": "bf1cd965c3f1ec65c27323b7cfef89d9ab7f45da",
+      "sitesCommitTime": "2026-11-22T15:01:56+08:00",
+      "controller": {
+        "sitesCommit": "94eda4ba4f46e836a88da67aca68e1b63ba8adff",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 36551,
+        "sha256": "5fe2f8833a5f67972818f69d0622067f50acfb64e47cecc8e81950d829ae8020",
+        "gitBlobSha": "5c33fc13d70db40b5b6613761e40d01aabb73163"
+      },
+      "title": "OCR Grow · grow-2 多版本成長實驗",
+      "entryInTargetBase": true,
+      "publicSourceCommit": "3cca7d0c1925edaf3edce758274c911b48097075",
+      "publicationStatusAtAudit": "public source and entry read back",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "94eda4ba4f46e836a88da67aca68e1b63ba8adff",
+          "sourcePath": "docs/ocr/repro/grow-2/README.md",
+          "bytes": 2706,
+          "sha256": "686d9232c5476fe58eb05fc34e17a1b5f174a8bcef2f21b86e00e4e03d4d2520",
+          "gitBlobSha": "e74277e50f2f22367bdeea759d881a94895baecd"
+        }
+      ],
+      "publicControllerUrl": "https://github.com/gg-dot1980/slime/blob/3cca7d0c1925edaf3edce758274c911b48097075/src/ocr-grow.html",
+      "publicControllerGitBlobVerified": true,
+      "publicEntryUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/docs/ocr/repro/grow-2/README.md",
+      "preserveExistingEntry": true,
+      "reproduction": "Use fixed public commit and historical README. No new snapshot is added for this version."
+    },
+    {
+      "version": "grow-3",
+      "sitesSourceCommit": "b63339a6089dff726eea4f2676a22823d0f7a41d",
+      "sitesTreeSha": "1e95242d31f964cb4c1f9bce05bd3600d2417e6b",
+      "sitesParentCommit": "b2b66c17e3991adc1dd69d0be349f51d9352e5c6",
+      "sitesCommitTime": "2026-11-22T23:15:15+08:00",
+      "controller": {
+        "sitesCommit": "b63339a6089dff726eea4f2676a22823d0f7a41d",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 40424,
+        "sha256": "db16c0cd9b35235b9ec4be4e0d2506ef42a8b18f607b0af73badfd305619af7b",
+        "gitBlobSha": "6c4c19185e6fa9789000f3e281311d33490417f3"
+      },
+      "title": "OCR Grow · grow-3 非紅標記追逐實驗",
+      "entryInTargetBase": true,
+      "publicSourceCommit": "b6afc96a0be8734af3d803bde7a63799eec9ead0",
+      "publicationStatusAtAudit": "public source and entry read back",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "b63339a6089dff726eea4f2676a22823d0f7a41d",
+          "sourcePath": "docs/ocr/repro/grow-3/README.md",
+          "bytes": 3084,
+          "sha256": "d24b74911615252efc0fcf1901bb5160b244b2d9bdb66b0c6922fe198165b08d",
+          "gitBlobSha": "321c2a01f733df0a54d2dbbf5fc48bcb55deee45"
+        }
+      ],
+      "publicControllerUrl": "https://github.com/gg-dot1980/slime/blob/b6afc96a0be8734af3d803bde7a63799eec9ead0/src/ocr-grow.html",
+      "publicControllerGitBlobVerified": true,
+      "publicEntryUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/docs/ocr/repro/grow-3/README.md",
+      "preserveExistingEntry": true,
+      "reproduction": "Use fixed public commit and historical README. No new snapshot is added for this version."
+    },
+    {
+      "version": "grow-4",
+      "sitesSourceCommit": "499cd8643db9ad4d59a8c61b629f7a68a88a3e21",
+      "sitesTreeSha": "b80f874fcb47b838ea15695cdbf3f298be5efc09",
+      "sitesParentCommit": "b63339a6089dff726eea4f2676a22823d0f7a41d",
+      "sitesCommitTime": "2026-11-22T23:30:56+08:00",
+      "controller": {
+        "sitesCommit": "499cd8643db9ad4d59a8c61b629f7a68a88a3e21",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 40951,
+        "sha256": "d6a80950fcdae649f26ff61b4ed2ae9d42988b583355280286c88ef7a75f76d3",
+        "gitBlobSha": "d1e854c81c947c65f80e52a426326d2d626417ee"
+      },
+      "title": "OCR Grow · grow-4 非紅視為可吃實驗",
+      "entryInTargetBase": true,
+      "publicSourceCommit": "fd8681b7cff905836019d3b6bfdb109fd5c92ad4",
+      "publicationStatusAtAudit": "public source and entry read back",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "499cd8643db9ad4d59a8c61b629f7a68a88a3e21",
+          "sourcePath": "docs/ocr/repro/grow-4/README.md",
+          "bytes": 2055,
+          "sha256": "549177309cd26d8a80fee75e4a15a609d7ffd49a34e81c8b00ad3c35fb5284e8",
+          "gitBlobSha": "d58b0a857eebb9791b751a28e277368c2efcdb70"
+        }
+      ],
+      "publicControllerUrl": "https://github.com/gg-dot1980/slime/blob/fd8681b7cff905836019d3b6bfdb109fd5c92ad4/src/ocr-grow.html",
+      "publicControllerGitBlobVerified": true,
+      "publicEntryUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/docs/ocr/repro/grow-4/README.md",
+      "preserveExistingEntry": true,
+      "reproduction": "Use fixed public commit and historical README. No new snapshot is added for this version."
+    },
+    {
+      "version": "grow-5",
+      "sitesSourceCommit": "e49021e775d639490ba6fe81afec31864b9b9882",
+      "sitesTreeSha": "3d1dc47475f5e1ca96f27ec1c04a0f82c1595f12",
+      "sitesParentCommit": "499cd8643db9ad4d59a8c61b629f7a68a88a3e21",
+      "sitesCommitTime": "2026-11-22T23:50:23+08:00",
+      "controller": {
+        "sitesCommit": "e49021e775d639490ba6fe81afec31864b9b9882",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 42071,
+        "sha256": "e93c1517e44b7108ccd3b8c4b5b469b9e7a2e74fe6d9bdfd2a36055e554db3c0",
+        "gitBlobSha": "d9c022593f85aff738a50204dee83be479e4ec4c"
+      },
+      "title": "OCR Grow · grow-5 非紅視為可吃實驗",
+      "entryInTargetBase": true,
+      "publicSourceCommit": "54771b595069550caf11c7c962683de3ffae4979",
+      "publicationStatusAtAudit": "public source and entry read back",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "e49021e775d639490ba6fe81afec31864b9b9882",
+          "sourcePath": "docs/ocr/repro/grow-5/README.md",
+          "bytes": 2732,
+          "sha256": "3412cb2deae3f628e191a2a6e2b55c024c0aad9bbe3f5ac3c65f84a0024bd236",
+          "gitBlobSha": "c4628cb76fbed81d86b8d528b0bb816f93015689"
+        },
+        {
+          "sitesCommit": "e49021e775d639490ba6fe81afec31864b9b9882",
+          "sourcePath": "docs/ocr/repro/grow-5/browser-fixture.html",
+          "bytes": 14327,
+          "sha256": "f7e2e6fbdbaf06a25e9c86fd32f07137015e92ccac79eb6bb747c2ff8bd60bef",
+          "gitBlobSha": "b44f6877121ec682f707ccb0318aad3bcde3f6c0"
+        }
+      ],
+      "publicControllerUrl": "https://github.com/gg-dot1980/slime/blob/54771b595069550caf11c7c962683de3ffae4979/src/ocr-grow.html",
+      "publicControllerGitBlobVerified": true,
+      "publicEntryUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/docs/ocr/repro/grow-5/README.md",
+      "preserveExistingEntry": true,
+      "reproduction": "Use fixed public commit and historical README. No new snapshot is added for this version."
+    },
+    {
+      "version": "grow-6",
+      "sitesSourceCommit": "8ef14bf2d4bc7ed602204bc5150d1a6fbfe36df1",
+      "sitesTreeSha": "a0b911e61622488642d09c92042662f3f11fcaf8",
+      "sitesParentCommit": "e49021e775d639490ba6fe81afec31864b9b9882",
+      "sitesCommitTime": "2026-11-23T00:13:20+08:00",
+      "controller": {
+        "sitesCommit": "8ef14bf2d4bc7ed602204bc5150d1a6fbfe36df1",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 42858,
+        "sha256": "da96a951c0c368e535321aa78bebaf0f19b3c9a1460f73a311cf33e3253feae8",
+        "gitBlobSha": "e3ab9ee70de15bfd13068fb23d9aa15ebd1fb489"
+      },
+      "title": "OCR Grow · grow-6 非紅視為可吃實驗",
+      "entryInTargetBase": true,
+      "publicSourceCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+      "publicationStatusAtAudit": "public source and entry read back",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "8ef14bf2d4bc7ed602204bc5150d1a6fbfe36df1",
+          "sourcePath": "docs/ocr/repro/grow-6/README.md",
+          "bytes": 2825,
+          "sha256": "eb4f453126eb703b0eb6207220100a9b76dadfa7ab2fcd7fd2de6b8dfbbf3661",
+          "gitBlobSha": "6c58a38c61469dd1f5925b90ac9dfe495a510cb2"
+        },
+        {
+          "sitesCommit": "8ef14bf2d4bc7ed602204bc5150d1a6fbfe36df1",
+          "sourcePath": "docs/ocr/repro/grow-6/browser-fixture.html",
+          "bytes": 15197,
+          "sha256": "fbdecf91235948e2bf6398fa3be1f6989a5548b8fa2f096b854fa83190fe0eb1",
+          "gitBlobSha": "5f8a7bdcac8b63980d22ce98fd7d91fbaf6b6744"
+        }
+      ],
+      "publicControllerUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/ocr-grow.html",
+      "publicControllerGitBlobVerified": true,
+      "publicEntryUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/docs/ocr/repro/grow-6/README.md",
+      "preserveExistingEntry": true,
+      "reproduction": "Use fixed public commit and historical README. No new snapshot is added for this version."
+    },
+    {
+      "version": "grow-7",
+      "sitesSourceCommit": "c717ccca49e95c4cc6f8f4075f8586ced9632e6a",
+      "sitesTreeSha": "ec27c2e13097f412d47f39e25b10f06effc04323",
+      "sitesParentCommit": "8ef14bf2d4bc7ed602204bc5150d1a6fbfe36df1",
+      "sitesCommitTime": "2026-11-23T00:37:37+08:00",
+      "controller": {
+        "sitesCommit": "c717ccca49e95c4cc6f8f4075f8586ced9632e6a",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 44450,
+        "sha256": "2e9c63de1a2b0c65f3f37648bf4f8e16d847b2516c8d3bd8b74b5e92fa24ed9e",
+        "gitBlobSha": "a9537b5ad558ab0cd00daf94ae5f4c3ea3d239f1"
+      },
+      "title": "OCR Grow · grow-7 非紅視為可吃實驗",
+      "entryInTargetBase": false,
+      "publicSourceCommit": null,
+      "publicationStatusAtAudit": "absent from checked test and main trees; publication pending",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "c717ccca49e95c4cc6f8f4075f8586ced9632e6a",
+          "sourcePath": "docs/ocr/repro/grow-7/README.md",
+          "bytes": 3327,
+          "sha256": "b190a01dd7ae51275357ef0541ee1e5ac3f0e2d9f1963c94446a9b6fc2d46ee2",
+          "gitBlobSha": "2f63e2ef7d548b4a3184f7295d44b92255de666c"
+        },
+        {
+          "sitesCommit": "c717ccca49e95c4cc6f8f4075f8586ced9632e6a",
+          "sourcePath": "docs/ocr/repro/grow-7/browser-fixture.html",
+          "bytes": 17190,
+          "sha256": "4ee89370583de7f2647f5eecb1bb52ddb4e2f39501a31abccd23c61ad28fe48e",
+          "gitBlobSha": "3acf3ada9796a7c52c228528fd0b6d3059586cb4"
+        }
+      ],
+      "sourceManifestPath": "docs/ocr/repro/grow-7/source/manifest.json",
+      "sourceManifestSha256": "dd1eb853613e0a4d989c654fe561a2608d4fda9fb8fe02edfdb93097ef5fa6b1",
+      "reproduction": "Use publication capsule commands in PUBLICATION.md; history README retained byte-exact.",
+      "historicalNaturalGames": 0,
+      "newGameplayInThisPublication": 0,
+      "publicationCheckStatus": "clean offline materialization, page syntax and listed original synthetic checks passed",
+      "requiredRepositoryFiles": [
+        "docs/ocr/repro/grow-7/source/scripts/check-ocr-grow.cjs",
+        "src/game-v2.13.html",
+        "docs/ocr/repro/grow-7/source/src/ocr-grow-planner.js",
+        "docs/ocr/repro/grow-7/source/src/ocr-grow.html",
+        "src/ocr-grow-game.html",
+        "src/game.html",
+        "docs/ocr/repro/grow-7/source/src/ocr-test.html",
+        "docs/ocr/repro/grow-7/source/scripts/check-grow-close-dot.cjs",
+        "docs/ocr/repro/grow-7/source/scripts/check-grow-map-authority.cjs",
+        "docs/ocr/repro/grow-7/source/scripts/grow-games.mjs",
+        "docs/ocr/repro/grow-7/source/scripts/check-grow-size-bound.cjs",
+        "docs/ocr/repro/grow-7/source/baselines/grow-4/src/ocr-grow.html",
+        "src/game-v2.21.html",
+        "docs/ocr/repro/grow-7/source/src/ocr-grow-minimap.js",
+        "docs/ocr/repro/grow-7/source/baselines/grow-5/src/ocr-grow.html",
+        "src/game-v2.20.html"
+      ],
+      "historicalReadmePreserved": true,
+      "publicationCheckPath": "docs/ocr/repro/grow-7/PUBLICATION-CHECK.json",
+      "publicationCheckSha256": "8cb41c2645389b3e36c46d11288c5d19c09f93d200b4fcbe9158cf93b5278c0d",
+      "publicationNotePath": "docs/ocr/repro/grow-7/PUBLICATION.md",
+      "syntheticDeclaredChecksOrScenarios": [
+        16,
+        19,
+        31,
+        11
+      ]
+    },
+    {
+      "version": "grow-8",
+      "sitesSourceCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sitesTreeSha": "361e1161416548fb9408630bf8764c29b75dc2f8",
+      "sitesParentCommit": "c717ccca49e95c4cc6f8f4075f8586ced9632e6a",
+      "sitesCommitTime": "2026-11-23T01:19:12+08:00",
+      "controller": {
+        "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 48036,
+        "sha256": "bac39fd092f0c25c63d1dddfba212f1da392818c57dfa8fa3fea7fa8b0beaf2e",
+        "gitBlobSha": "5ec9ecdfe8f86899cad728f9a6d2d0da78287c04"
+      },
+      "title": "OCR Grow · grow-8 接近與退路實驗",
+      "entryInTargetBase": false,
+      "publicSourceCommit": null,
+      "publicationStatusAtAudit": "absent from checked test and main trees; publication pending",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+          "sourcePath": "docs/ocr/repro/grow-8/README.md",
+          "bytes": 3846,
+          "sha256": "a6b0273307e3a3c33cfd719ceaae46c14840a0af7c8766148e488e1db63cceee",
+          "gitBlobSha": "9e4349c932a7d3b8604406995b94402da1e7b7fb"
+        },
+        {
+          "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+          "sourcePath": "docs/ocr/repro/grow-8/browser-fixture.html",
+          "bytes": 19855,
+          "sha256": "9233a9937fa59bb9879e525b2ebc2998a00d94b51c0c44d44434c735b50916bb",
+          "gitBlobSha": "3fcbdcea3e227c86b59cf2c86a6b9408fe171705"
+        },
+        {
+          "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+          "sourcePath": "docs/ocr/repro/grow-8/control-results.json",
+          "bytes": 661,
+          "sha256": "b4e4d1e2230107f4bca80ac6f56e640889d47095474264552c66bd248dd5c898",
+          "gitBlobSha": "62db45b53bb929d4f0e50250506a7ab4170a7ecc"
+        },
+        {
+          "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+          "sourcePath": "docs/ocr/repro/grow-8/results.json",
+          "bytes": 4175,
+          "sha256": "d3cdb944b9d110e7cc84fc992449702f61a6d494b973bd2d48f35a6b118fcdb0",
+          "gitBlobSha": "1cd67539fb0a724f97b0a5c19d63ce9a7ea58e21"
+        }
+      ],
+      "sourceManifestPath": "docs/ocr/repro/grow-8/source/manifest.json",
+      "sourceManifestSha256": "f6746715ab9ffaed44d3dd3e7f999f61d51d51a08b19292525d689b101ba0734",
+      "reproduction": "Use publication capsule commands in PUBLICATION.md; history README retained byte-exact.",
+      "historicalNaturalGames": 0,
+      "newGameplayInThisPublication": 0,
+      "publicationCheckStatus": "clean offline materialization, page syntax and listed original synthetic checks passed",
+      "requiredRepositoryFiles": [
+        "src/game-v2.13.html",
+        "docs/ocr/repro/grow-8/source/scripts/check-grow-exit.cjs",
+        "docs/ocr/repro/grow-7/source/src/ocr-grow-planner.js",
+        "docs/ocr/repro/grow-7/source/src/ocr-grow.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-exit.js",
+        "src/game.html",
+        "docs/ocr/repro/grow-7/source/baselines/grow-5/src/ocr-grow.html",
+        "docs/ocr/repro/grow-7/source/scripts/grow-games.mjs",
+        "src/game-v2.21.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-minimap.js",
+        "docs/ocr/repro/grow-8/source/scripts/check-grow8-controls.cjs",
+        "src/game-v2.20.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-planner.js"
+      ],
+      "historicalReadmePreserved": true,
+      "publicationCheckPath": "docs/ocr/repro/grow-8/PUBLICATION-CHECK.json",
+      "publicationCheckSha256": "8afc3cc1d086a04974113a143f5ec93203dff4ea6d492f78a1ec496b76efdd8b",
+      "publicationNotePath": "docs/ocr/repro/grow-8/PUBLICATION.md",
+      "syntheticDeclaredChecksOrScenarios": [
+        10,
+        20
+      ]
+    },
+    {
+      "version": "grow-9",
+      "sitesSourceCommit": "11dd45d6592b7b9371cc0a562083d4e199771d81",
+      "sitesTreeSha": "f8fdbd8fe00ec2b2ee3b2065c75ee9dad49b5e01",
+      "sitesParentCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sitesCommitTime": "2026-11-23T01:31:54+08:00",
+      "controller": {
+        "sitesCommit": "11dd45d6592b7b9371cc0a562083d4e199771d81",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 48727,
+        "sha256": "e27400f92cb6255e929c896daf4a494d8db1aa22e8ebe50383fd517e5272fc0b",
+        "gitBlobSha": "1f6cf1907b59a525c947994077242bb0d3f28629"
+      },
+      "title": "OCR Grow · grow-9 小地圖導引／主畫面避障",
+      "entryInTargetBase": false,
+      "publicSourceCommit": null,
+      "publicationStatusAtAudit": "absent from checked test and main trees; publication pending",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "11dd45d6592b7b9371cc0a562083d4e199771d81",
+          "sourcePath": "docs/ocr/repro/grow-9/README.md",
+          "bytes": 2635,
+          "sha256": "dad0b2a9a5ce03dcdf5e784946ff8dae924c9dc29dd055b6d950dfebca439d1a",
+          "gitBlobSha": "15710eb95ac7ed235b275874894a091ce1bb4419"
+        },
+        {
+          "sitesCommit": "11dd45d6592b7b9371cc0a562083d4e199771d81",
+          "sourcePath": "docs/ocr/repro/grow-9/browser-fixture.html",
+          "bytes": 19478,
+          "sha256": "667a0b315708e45feea432d8e7af7daf312cd06408de312b9f542ef2000ca072",
+          "gitBlobSha": "8f4caafa3e53e1f550c357ce6ab38b51cf59c1db"
+        },
+        {
+          "sitesCommit": "11dd45d6592b7b9371cc0a562083d4e199771d81",
+          "sourcePath": "docs/ocr/repro/grow-9/browser-summary.json",
+          "bytes": 265,
+          "sha256": "7c5624d0095e2609385a263c33bb910972c6e7a0f1a019e81a0764e48e4bc8f4",
+          "gitBlobSha": "14e4a67ef60fdf1471900dbea59a3c46d360f7d4"
+        },
+        {
+          "sitesCommit": "11dd45d6592b7b9371cc0a562083d4e199771d81",
+          "sourcePath": "docs/ocr/repro/grow-9/results.json",
+          "bytes": 4415,
+          "sha256": "b00830a1cc944fe4adf56d0a48382edcd0d1355e455542658769260a81125633",
+          "gitBlobSha": "0fabfd459277c8022372dc30094dc46210be6b9b"
+        }
+      ],
+      "sourceManifestPath": "docs/ocr/repro/grow-9/source/manifest.json",
+      "sourceManifestSha256": "eb9a1f68cffaa65e9dcd5adc4c8490b95fc29acacf6d4bff24cd7284024ee2e1",
+      "reproduction": "Use publication capsule commands in PUBLICATION.md; history README retained byte-exact.",
+      "historicalNaturalGames": 0,
+      "newGameplayInThisPublication": 0,
+      "publicationCheckStatus": "clean offline materialization, page syntax and listed original synthetic checks passed",
+      "requiredRepositoryFiles": [
+        "docs/ocr/repro/grow-9/source/src/ocr-grow-planner.js",
+        "docs/ocr/repro/grow-9/source/scripts/check-grow-guide.cjs",
+        "src/game-v2.13.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-minimap.js",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-exit.js",
+        "src/game.html",
+        "docs/ocr/repro/grow-7/source/scripts/grow-games.mjs",
+        "src/game-v2.21.html",
+        "docs/ocr/repro/grow-9/source/src/ocr-grow.html",
+        "src/game-v2.20.html"
+      ],
+      "historicalReadmePreserved": true,
+      "publicationCheckPath": "docs/ocr/repro/grow-9/PUBLICATION-CHECK.json",
+      "publicationCheckSha256": "b3edc2af6c42c7a6c13205d48edbe371a904418fc957e2dfa38985d7fdf8d90f",
+      "publicationNotePath": "docs/ocr/repro/grow-9/PUBLICATION.md",
+      "syntheticDeclaredChecksOrScenarios": [
+        23
+      ]
+    },
+    {
+      "version": "grow-10",
+      "sitesSourceCommit": "d210b40504172b02bfe8ffe82696b0c70be6e9c7",
+      "sitesTreeSha": "999f759d5961436e57c41962d0c67cb5de95bf7c",
+      "sitesParentCommit": "11dd45d6592b7b9371cc0a562083d4e199771d81",
+      "sitesCommitTime": "2026-11-23T12:49:21+08:00",
+      "controller": {
+        "sitesCommit": "d210b40504172b02bfe8ffe82696b0c70be6e9c7",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 49103,
+        "sha256": "e3d30e948c5186c74dca56a89cfe9bbaad7e622282530679495dcc3c20a47b00",
+        "gitBlobSha": "6c400cd345e2a7134af2f8ba797bee165a13e917"
+      },
+      "title": "OCR Grow · grow-10 小地圖導引／主畫面避障",
+      "entryInTargetBase": false,
+      "publicSourceCommit": null,
+      "publicationStatusAtAudit": "absent from checked test and main trees; publication pending",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "d210b40504172b02bfe8ffe82696b0c70be6e9c7",
+          "sourcePath": "docs/ocr/repro/grow-10/README.md",
+          "bytes": 2627,
+          "sha256": "5aa6772756e540429c6295badc2f8a8c8e0bd540a839a8d3624fc6af259bdb3d",
+          "gitBlobSha": "5ab00549d57bf29019cc380035731fa3ef646cc9"
+        },
+        {
+          "sitesCommit": "d210b40504172b02bfe8ffe82696b0c70be6e9c7",
+          "sourcePath": "docs/ocr/repro/grow-10/browser-fixture.html",
+          "bytes": 40555,
+          "sha256": "cc4e62fc624285c028fa61e7b1a3f1bfff34b71be3dab87e6db86543e90847f5",
+          "gitBlobSha": "1bc2463df90d203e34b97b0e553b1b28cf218dc1"
+        },
+        {
+          "sitesCommit": "d210b40504172b02bfe8ffe82696b0c70be6e9c7",
+          "sourcePath": "docs/ocr/repro/grow-10/browser-results.json",
+          "bytes": 24968,
+          "sha256": "a51445d1fcfb0d183a63defe9dc4338811083cc61d30f746e9a4077349672323",
+          "gitBlobSha": "79eb503aaa2f2d8939bdfbac83849547c88c0bb0"
+        },
+        {
+          "sitesCommit": "d210b40504172b02bfe8ffe82696b0c70be6e9c7",
+          "sourcePath": "docs/ocr/repro/grow-10/planner-results.json",
+          "bytes": 4415,
+          "sha256": "b00830a1cc944fe4adf56d0a48382edcd0d1355e455542658769260a81125633",
+          "gitBlobSha": "0fabfd459277c8022372dc30094dc46210be6b9b"
+        }
+      ],
+      "sourceManifestPath": "docs/ocr/repro/grow-10/source/manifest.json",
+      "sourceManifestSha256": "6bff6d4a0055d171e2097492b62b1226903d027b33ccb52dac92373cd7877ccb",
+      "reproduction": "Use publication capsule commands in PUBLICATION.md; history README retained byte-exact.",
+      "historicalNaturalGames": 0,
+      "newGameplayInThisPublication": 0,
+      "publicationCheckStatus": "clean offline materialization, page syntax and listed original synthetic checks passed",
+      "requiredRepositoryFiles": [
+        "docs/ocr/repro/grow-9/source/scripts/check-grow-guide.cjs",
+        "src/game-v2.13.html",
+        "docs/ocr/repro/grow-10/source/src/ocr-grow.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-exit.js",
+        "docs/ocr/repro/grow-10/source/scripts/make-grow10-fixture.mjs",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow.html",
+        "src/game.html",
+        "src/game-v2.21.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-minimap.js",
+        "docs/ocr/repro/grow-10/source/src/ocr-grow-planner.js",
+        "src/game-v2.20.html",
+        "docs/ocr/repro/grow-evaluation-20261125/bundle/source/scripts/grow-games.mjs"
+      ],
+      "historicalReadmePreserved": true,
+      "publicationCheckPath": "docs/ocr/repro/grow-10/PUBLICATION-CHECK.json",
+      "publicationCheckSha256": "0b250e15f61cc9fc45d13914341ba0e7e87eec6eaf350272078033f4b58ae9f8",
+      "publicationNotePath": "docs/ocr/repro/grow-10/PUBLICATION.md",
+      "syntheticDeclaredChecksOrScenarios": [
+        23
+      ]
+    },
+    {
+      "version": "grow-11",
+      "sitesSourceCommit": "9a60e39a74eef32834b0602d089fc4d665337ae3",
+      "sitesTreeSha": "5641ecf11b8fc242aec386e73a908d9feae5cbb5",
+      "sitesParentCommit": "d210b40504172b02bfe8ffe82696b0c70be6e9c7",
+      "sitesCommitTime": "2026-11-23T17:31:55+08:00",
+      "controller": {
+        "sitesCommit": "9a60e39a74eef32834b0602d089fc4d665337ae3",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 49768,
+        "sha256": "56a6278133cdf153c88b64f98b3ba14e98031ac538070e23b01d53b813a40e31",
+        "gitBlobSha": "a04e1ae66be6cd86b1b768b1f7a9bdf2fdab079b"
+      },
+      "title": "OCR Grow · grow-11 小地圖導引／主畫面避障",
+      "entryInTargetBase": false,
+      "publicSourceCommit": null,
+      "publicationStatusAtAudit": "absent from checked test and main trees; publication pending",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "9a60e39a74eef32834b0602d089fc4d665337ae3",
+          "sourcePath": "docs/ocr/repro/grow-11/README.md",
+          "bytes": 2364,
+          "sha256": "79281314b9b5f64abf212f204665862821e849c5c2b66325ed3ebc49a49b0afd",
+          "gitBlobSha": "cf9f1ec2b52fc08bf8fd807d301eaf9472cd1eb4"
+        },
+        {
+          "sitesCommit": "9a60e39a74eef32834b0602d089fc4d665337ae3",
+          "sourcePath": "docs/ocr/repro/grow-11/browser-fixture.html",
+          "bytes": 43823,
+          "sha256": "f39fe1a1a57dafc9e7d80e46ffd6aada3b8f4c6cb0a0114397c4bfb27d526ebd",
+          "gitBlobSha": "3899f7142cea539875501a6330984683b7b664c7"
+        },
+        {
+          "sitesCommit": "9a60e39a74eef32834b0602d089fc4d665337ae3",
+          "sourcePath": "docs/ocr/repro/grow-11/browser-results.json",
+          "bytes": 14499,
+          "sha256": "d899338a642f30a6720d58a6ef84dc3e20041c91a2846a5ae43bf9d1812fe2e7",
+          "gitBlobSha": "2ea16392faa33fc6cc6772969660c354f9b8dfe4"
+        },
+        {
+          "sitesCommit": "9a60e39a74eef32834b0602d089fc4d665337ae3",
+          "sourcePath": "docs/ocr/repro/grow-11/results.json",
+          "bytes": 4684,
+          "sha256": "2c0df608eb5165911a03f37b85708e78f41409ef9b1678a4bd4eaf6ad80cc6b3",
+          "gitBlobSha": "6f13c1f78268d80d4834a3b1f7dc6ea02558613f"
+        }
+      ],
+      "sourceManifestPath": "docs/ocr/repro/grow-11/source/manifest.json",
+      "sourceManifestSha256": "035d5286546c1969080e1fb485599d40ab7cafca9cee0638251bb4c36b9c1f2e",
+      "reproduction": "Use publication capsule commands in PUBLICATION.md; history README retained byte-exact.",
+      "historicalNaturalGames": 0,
+      "newGameplayInThisPublication": 0,
+      "publicationCheckStatus": "clean offline materialization, page syntax and listed original synthetic checks passed",
+      "requiredRepositoryFiles": [
+        "src/game-v2.13.html",
+        "docs/ocr/repro/grow-11/source/scripts/check-grow11.cjs",
+        "docs/ocr/repro/grow-10/source/src/ocr-grow.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-exit.js",
+        "src/game.html",
+        "docs/ocr/repro/grow-11/source/src/ocr-grow-planner.js",
+        "docs/ocr/repro/grow-11/source/scripts/make-grow11-fixture.mjs",
+        "src/game-v2.21.html",
+        "docs/ocr/repro/grow-11/source/src/ocr-grow-minimap.js",
+        "src/game-v2.20.html",
+        "docs/ocr/repro/grow-11/source/src/ocr-grow.html",
+        "docs/ocr/repro/grow-evaluation-20261125/bundle/source/scripts/grow-games.mjs"
+      ],
+      "historicalReadmePreserved": true,
+      "publicationCheckPath": "docs/ocr/repro/grow-11/PUBLICATION-CHECK.json",
+      "publicationCheckSha256": "fd33bfdd1022ead062099d3dd4e31e4cc78a476597b3130f8c58ce8301d077f6",
+      "publicationNotePath": "docs/ocr/repro/grow-11/PUBLICATION.md",
+      "syntheticDeclaredChecksOrScenarios": [
+        32
+      ]
+    },
+    {
+      "version": "grow-12",
+      "sitesSourceCommit": "0f4a2bafc1b44fb3e29e5700410d910a2fe2faaa",
+      "sitesTreeSha": "b7f98d77014a5bf5917fe94bcb9ea38e57230ce3",
+      "sitesParentCommit": "9a60e39a74eef32834b0602d089fc4d665337ae3",
+      "sitesCommitTime": "2026-11-23T18:22:50+08:00",
+      "controller": {
+        "sitesCommit": "0f4a2bafc1b44fb3e29e5700410d910a2fe2faaa",
+        "sourcePath": "src/ocr-grow.html",
+        "bytes": 52177,
+        "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+        "gitBlobSha": "99e93a673d3ed4b0e6333c46533420e5b4216e54"
+      },
+      "title": "OCR Grow · grow-12 小地圖導引／主畫面避障",
+      "entryInTargetBase": false,
+      "publicSourceCommit": null,
+      "publicationStatusAtAudit": "absent from checked test and main trees; publication pending",
+      "historicalEntryFiles": [
+        {
+          "sitesCommit": "0f4a2bafc1b44fb3e29e5700410d910a2fe2faaa",
+          "sourcePath": "docs/ocr/repro/grow-12/README.md",
+          "bytes": 3562,
+          "sha256": "5565df0b8c2aca048bbc492942bf27d7d3f51d67e5f564490ecd82e679d29a20",
+          "gitBlobSha": "338219a17e6de373f0f0476d969b156da7dd4d6e"
+        },
+        {
+          "sitesCommit": "0f4a2bafc1b44fb3e29e5700410d910a2fe2faaa",
+          "sourcePath": "docs/ocr/repro/grow-12/browser-fixture.html",
+          "bytes": 61680,
+          "sha256": "53862da93d83fcc3053abddb4a2e01d4ec5753f0fbaffa69ea0351d37d44be49",
+          "gitBlobSha": "926091cafa0bcc4794f64b1a587315ba440a15b8"
+        },
+        {
+          "sitesCommit": "0f4a2bafc1b44fb3e29e5700410d910a2fe2faaa",
+          "sourcePath": "docs/ocr/repro/grow-12/browser-results.json",
+          "bytes": 30519,
+          "sha256": "2498ef65f2353fbc0c029483a49319a528cf4d53f719b22f7314ac0fb7bfba6d",
+          "gitBlobSha": "23b932f212c6da485e013aae202b5c7eef2bb988"
+        },
+        {
+          "sitesCommit": "0f4a2bafc1b44fb3e29e5700410d910a2fe2faaa",
+          "sourcePath": "docs/ocr/repro/grow-12/legacy-results.json",
+          "bytes": 4684,
+          "sha256": "2c0df608eb5165911a03f37b85708e78f41409ef9b1678a4bd4eaf6ad80cc6b3",
+          "gitBlobSha": "6f13c1f78268d80d4834a3b1f7dc6ea02558613f"
+        },
+        {
+          "sitesCommit": "0f4a2bafc1b44fb3e29e5700410d910a2fe2faaa",
+          "sourcePath": "docs/ocr/repro/grow-12/results.json",
+          "bytes": 15590,
+          "sha256": "7074ab334006521b12c998dfb91d870cfed984e297da048fa4d7704394f228b9",
+          "gitBlobSha": "8bd571b7a3f329bfaeab488f474b9e94864a0d02"
+        }
+      ],
+      "sourceManifestPath": "docs/ocr/repro/grow-12/source/manifest.json",
+      "sourceManifestSha256": "0781166b4d8ee453ac370f998cda254880f9f5b12da809582bc02e86b77b2c2d",
+      "reproduction": "Use publication capsule commands in PUBLICATION.md; history README retained byte-exact.",
+      "historicalNaturalGames": 0,
+      "newGameplayInThisPublication": 0,
+      "publicationCheckStatus": "clean offline materialization, page syntax and listed original synthetic checks passed",
+      "requiredRepositoryFiles": [
+        "src/game-v2.13.html",
+        "docs/ocr/repro/grow-11/source/scripts/check-grow11.cjs",
+        "docs/ocr/repro/grow-12/source/scripts/make-grow12-fixture.mjs",
+        "docs/ocr/repro/grow-10/source/src/ocr-grow.html",
+        "docs/ocr/repro/grow-8/source/src/ocr-grow-exit.js",
+        "src/game.html",
+        "docs/ocr/repro/grow-evaluation-20261125/bundle/source/src/ocr-grow.html",
+        "docs/ocr/repro/grow-11/source/src/ocr-grow-planner.js",
+        "src/game-v2.21.html",
+        "docs/ocr/repro/grow-12/source/scripts/check-grow12.cjs",
+        "docs/ocr/repro/grow-11/source/src/ocr-grow-minimap.js",
+        "src/game-v2.20.html",
+        "docs/ocr/repro/grow-12/source/src/ocr-grow-planner.js",
+        "docs/ocr/repro/grow-evaluation-20261125/bundle/source/scripts/grow-games.mjs"
+      ],
+      "historicalReadmePreserved": true,
+      "separateCurrentBaseline": "The four Grow12 gameplay trials in grow-evaluation-20261125 belong to the new 2026-11-25 evaluation, not this historical Grow12 synthetic release.",
+      "publicationCheckPath": "docs/ocr/repro/grow-12/PUBLICATION-CHECK.json",
+      "publicationCheckSha256": "8e69b5367c0a4327308f7a83d0e8ff5fc38ac051ea00cf34361855880925a35b",
+      "publicationNotePath": "docs/ocr/repro/grow-12/PUBLICATION.md",
+      "syntheticDeclaredChecksOrScenarios": [
+        32,
+        42
+      ]
+    }
+  ],
+  "limitations": [
+    "Public source content was read back via GitHub for Grow1–6; their Sites controller blobs match exactly.",
+    "Absence is verified in the checked test and main trees, not an exhaustive scan of every possible branch or fork.",
+    "Sites commit IDs are provenance, not a claim those commit objects exist on public GitHub.",
+    "Grow3 README has a GitHub-specific historical source-reference note; existing public entry is retained, not overwritten by the Sites variant.",
+    "Historical synthetic counts and gameplay statistics are not merged with the current evaluation."
+  ],
+  "newGameplayStarts": 0,
+  "publicationAdapter": {
+    "path": "docs/ocr/repro/grow-7/source/reproduce.mjs",
+    "sha256": "a2c4fc304fc67481903fb2f7b4293a9763544d08a80a522e58867722b2e26bfd",
+    "purpose": "source materialization and original fixed tests; no controller changes"
+  },
+  "newPublicationVerification": {
+    "node": "v24.22.3",
+    "os": "Linux",
+    "strategiesBuilt": 6,
+    "allListedSyntheticChecksPassed": true,
+    "browserRuns": 0,
+    "gameplayStarts": 0,
+    "routeParity": "not rerun",
+    "generatedBuildsIncludedInUpload": false
+  },
+  "stagingAudit": {
+    "status": "passed",
+    "historicalEntryFilesByteExact": 23,
+    "manifestSourceReferencesVerified": 79,
+    "utf8TextFiles": 77,
+    "bytes": 926741,
+    "jsonFilesParsed": 23,
+    "newImageVideoSvgPayloads": 0,
+    "savedPixelArrays": 0,
+    "generatedDistFiles": 0,
+    "stagedPaths": [
+      {
+        "path": "docs/ocr/repro/grow-10/PUBLICATION-CHECK.json",
+        "bytes": 1289,
+        "sha256": "0b250e15f61cc9fc45d13914341ba0e7e87eec6eaf350272078033f4b58ae9f8"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/PUBLICATION.md",
+        "bytes": 5126,
+        "sha256": "6d7ce7b8598a2ddfc377acc8e9f6df240833603c83a749f51aae454a4d60670c"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/README.md",
+        "bytes": 2627,
+        "sha256": "5aa6772756e540429c6295badc2f8a8c8e0bd540a839a8d3624fc6af259bdb3d"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/browser-fixture.html",
+        "bytes": 40555,
+        "sha256": "cc4e62fc624285c028fa61e7b1a3f1bfff34b71be3dab87e6db86543e90847f5"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/browser-results.json",
+        "bytes": 24968,
+        "sha256": "a51445d1fcfb0d183a63defe9dc4338811083cc61d30f746e9a4077349672323"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/planner-results.json",
+        "bytes": 4415,
+        "sha256": "b00830a1cc944fe4adf56d0a48382edcd0d1355e455542658769260a81125633"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/source/manifest.json",
+        "bytes": 7551,
+        "sha256": "6bff6d4a0055d171e2097492b62b1226903d027b33ccb52dac92373cd7877ccb"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/source/scripts/make-grow10-fixture.mjs",
+        "bytes": 5476,
+        "sha256": "aed4fc6de56d1bb522b1e353023c207181872253eb54d6f9d19d508454e7c6f5"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/source/src/ocr-grow-planner.js",
+        "bytes": 6058,
+        "sha256": "17d525ed603935aaeaf84b323f1a8d0e1286b8b4805feb361b532e23eb896970"
+      },
+      {
+        "path": "docs/ocr/repro/grow-10/source/src/ocr-grow.html",
+        "bytes": 49103,
+        "sha256": "e3d30e948c5186c74dca56a89cfe9bbaad7e622282530679495dcc3c20a47b00"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/PUBLICATION-CHECK.json",
+        "bytes": 1277,
+        "sha256": "fd33bfdd1022ead062099d3dd4e31e4cc78a476597b3130f8c58ce8301d077f6"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/PUBLICATION.md",
+        "bytes": 5126,
+        "sha256": "840d7c40ee4c1643ad8c9ea106c69335af66247d04ce8c44d1808b53d0cb8ef4"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/README.md",
+        "bytes": 2364,
+        "sha256": "79281314b9b5f64abf212f204665862821e849c5c2b66325ed3ebc49a49b0afd"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/browser-fixture.html",
+        "bytes": 43823,
+        "sha256": "f39fe1a1a57dafc9e7d80e46ffd6aada3b8f4c6cb0a0114397c4bfb27d526ebd"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/browser-results.json",
+        "bytes": 14499,
+        "sha256": "d899338a642f30a6720d58a6ef84dc3e20041c91a2846a5ae43bf9d1812fe2e7"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/results.json",
+        "bytes": 4684,
+        "sha256": "2c0df608eb5165911a03f37b85708e78f41409ef9b1678a4bd4eaf6ad80cc6b3"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/source/manifest.json",
+        "bytes": 7538,
+        "sha256": "035d5286546c1969080e1fb485599d40ab7cafca9cee0638251bb4c36b9c1f2e"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/source/scripts/check-grow11.cjs",
+        "bytes": 2263,
+        "sha256": "6f947e448377bcd2e9ec2bf9c67b5e458374bf106f5a6f06f845202c90cd449d"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/source/scripts/make-grow11-fixture.mjs",
+        "bytes": 4732,
+        "sha256": "e2f41f3701396a01c2aa1c1b2ef0999622d54a7fd1ca3e629906b55719e1d530"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/source/src/ocr-grow-minimap.js",
+        "bytes": 4070,
+        "sha256": "f2b92c24fe9ff7fccc3a0d13e4bc55b25022a0aa77073860f2ab4df862c0cda7"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/source/src/ocr-grow-planner.js",
+        "bytes": 6629,
+        "sha256": "872874622bc8e5a7d58614e265856f1c6ff24059ebf6f24ff36564a8dd433de4"
+      },
+      {
+        "path": "docs/ocr/repro/grow-11/source/src/ocr-grow.html",
+        "bytes": 49768,
+        "sha256": "56a6278133cdf153c88b64f98b3ba14e98031ac538070e23b01d53b813a40e31"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/PUBLICATION-CHECK.json",
+        "bytes": 1801,
+        "sha256": "8e69b5367c0a4327308f7a83d0e8ff5fc38ac051ea00cf34361855880925a35b"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/PUBLICATION.md",
+        "bytes": 5713,
+        "sha256": "b4b2993e6b81673705be2113ff6139f200be0529a8b257c74c9ca0d5eac876c2"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/README.md",
+        "bytes": 3562,
+        "sha256": "5565df0b8c2aca048bbc492942bf27d7d3f51d67e5f564490ecd82e679d29a20"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/browser-fixture.html",
+        "bytes": 61680,
+        "sha256": "53862da93d83fcc3053abddb4a2e01d4ec5753f0fbaffa69ea0351d37d44be49"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/browser-results.json",
+        "bytes": 30519,
+        "sha256": "2498ef65f2353fbc0c029483a49319a528cf4d53f719b22f7314ac0fb7bfba6d"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/legacy-results.json",
+        "bytes": 4684,
+        "sha256": "2c0df608eb5165911a03f37b85708e78f41409ef9b1678a4bd4eaf6ad80cc6b3"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/results.json",
+        "bytes": 15590,
+        "sha256": "7074ab334006521b12c998dfb91d870cfed984e297da048fa4d7704394f228b9"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/source/manifest.json",
+        "bytes": 8543,
+        "sha256": "0781166b4d8ee453ac370f998cda254880f9f5b12da809582bc02e86b77b2c2d"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/source/scripts/check-grow12.cjs",
+        "bytes": 2507,
+        "sha256": "805df015321a4368269c9da7e93f86110da6f9bc30bfb6fef4ef1dd060f37392"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/source/scripts/make-grow12-fixture.mjs",
+        "bytes": 6694,
+        "sha256": "2dd672c4a3889c671d99f5e1968ba4d0876cf2641240a9c59e0a06bf24394346"
+      },
+      {
+        "path": "docs/ocr/repro/grow-12/source/src/ocr-grow-planner.js",
+        "bytes": 8544,
+        "sha256": "f8725f9e4f0c93d6ed2cc122ae32871c9ad6534091e1e396ecee9159e6204a22"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/PUBLICATION-CHECK.json",
+        "bytes": 2207,
+        "sha256": "8cb41c2645389b3e36c46d11288c5d19c09f93d200b4fcbe9158cf93b5278c0d"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/PUBLICATION.md",
+        "bytes": 5269,
+        "sha256": "b69a21d679884e2cfe4ebb054362a8c5f043dc3b998348e180cd188dade61cf9"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/README.md",
+        "bytes": 3327,
+        "sha256": "b190a01dd7ae51275357ef0541ee1e5ac3f0e2d9f1963c94446a9b6fc2d46ee2"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/browser-fixture.html",
+        "bytes": 17190,
+        "sha256": "4ee89370583de7f2647f5eecb1bb52ddb4e2f39501a31abccd23c61ad28fe48e"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/publication-checks/check-grow-close-dot.cjs.stdout.txt",
+        "bytes": 661,
+        "sha256": "b0f6d15b6c0c72a38a68b8b3d7f09646cb3426a9ab141a5473d311410bbfce76"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/publication-checks/check-grow-map-authority.cjs.stdout.txt",
+        "bytes": 157,
+        "sha256": "1107af74fbfa7696e6f22ff55347e4f9de5233d2b185ba18b9fc43b74d6b2d66"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/publication-checks/check-grow-size-bound.cjs.stdout.txt",
+        "bytes": 45,
+        "sha256": "fb33d355abec5b662ea9ae6c03feb01fb479e39ddac1a61e057efb8b8bec0c4f"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/publication-checks/check-ocr-grow.cjs.stdout.txt",
+        "bytes": 79,
+        "sha256": "bca50499b41abab825c871a7bc39c88e7b2e4ca279c9c159c9427b2183e708a5"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/baselines/grow-4/src/ocr-grow.html",
+        "bytes": 40951,
+        "sha256": "d6a80950fcdae649f26ff61b4ed2ae9d42988b583355280286c88ef7a75f76d3"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/baselines/grow-5/src/ocr-grow.html",
+        "bytes": 42071,
+        "sha256": "e93c1517e44b7108ccd3b8c4b5b469b9e7a2e74fe6d9bdfd2a36055e554db3c0"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/manifest.json",
+        "bytes": 9669,
+        "sha256": "dd1eb853613e0a4d989c654fe561a2608d4fda9fb8fe02edfdb93097ef5fa6b1"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/reproduce.mjs",
+        "bytes": 6178,
+        "sha256": "a2c4fc304fc67481903fb2f7b4293a9763544d08a80a522e58867722b2e26bfd"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/scripts/check-grow-close-dot.cjs",
+        "bytes": 4143,
+        "sha256": "4a295b61aaec1eb3bb53f0f81711d8a60bb5c087d6a7efc6ba4f3f40e976d859"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/scripts/check-grow-map-authority.cjs",
+        "bytes": 5814,
+        "sha256": "477af42a9f93265f8ea77fa31ac8c20a4a291b27d1fde3c4a7b4ae34ebcb9fe9"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/scripts/check-grow-size-bound.cjs",
+        "bytes": 1674,
+        "sha256": "d3803c5711255c3fe072a4a241fe2feceea165dd32c7b45437132d68a9c46dba"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/scripts/check-ocr-grow.cjs",
+        "bytes": 3654,
+        "sha256": "8e7994bec3d5745fd8a17c281d0d7d312469c22b1f31e36f7cc46723ad73914b"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/scripts/grow-games.mjs",
+        "bytes": 1930,
+        "sha256": "a7a5ababf99b2f7b7a50cd620da10c4fe16ab24e1166d693622bec6983b93a6b"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/src/ocr-grow-minimap.js",
+        "bytes": 3998,
+        "sha256": "b09cc2286965c90832c29badf05fcc22069de41b3c844794d2ced2e94d708db1"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/src/ocr-grow-planner.js",
+        "bytes": 3005,
+        "sha256": "e80fb73a9d965dd32d51a077e9106b4fcfaf53ef0e8a24ecfe3f79fc4a0e9e16"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/src/ocr-grow.html",
+        "bytes": 44450,
+        "sha256": "2e9c63de1a2b0c65f3f37648bf4f8e16d847b2516c8d3bd8b74b5e92fa24ed9e"
+      },
+      {
+        "path": "docs/ocr/repro/grow-7/source/src/ocr-test.html",
+        "bytes": 76492,
+        "sha256": "9e533e7b79e78083058244e16ceead4fd91998b88f870107b05ea3c16dfbd8d1"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/PUBLICATION-CHECK.json",
+        "bytes": 1539,
+        "sha256": "8afc3cc1d086a04974113a143f5ec93203dff4ea6d492f78a1ec496b76efdd8b"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/PUBLICATION.md",
+        "bytes": 5401,
+        "sha256": "46563d4bd83cc372d92e9bbad76f13f3220f66c94e315d18df5ba2d8b1135b53"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/README.md",
+        "bytes": 3846,
+        "sha256": "a6b0273307e3a3c33cfd719ceaae46c14840a0af7c8766148e488e1db63cceee"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/browser-fixture.html",
+        "bytes": 19855,
+        "sha256": "9233a9937fa59bb9879e525b2ebc2998a00d94b51c0c44d44434c735b50916bb"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/control-results.json",
+        "bytes": 661,
+        "sha256": "b4e4d1e2230107f4bca80ac6f56e640889d47095474264552c66bd248dd5c898"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/results.json",
+        "bytes": 4175,
+        "sha256": "d3cdb944b9d110e7cc84fc992449702f61a6d494b973bd2d48f35a6b118fcdb0"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/source/manifest.json",
+        "bytes": 8494,
+        "sha256": "f6746715ab9ffaed44d3dd3e7f999f61d51d51a08b19292525d689b101ba0734"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/source/scripts/check-grow-exit.cjs",
+        "bytes": 2471,
+        "sha256": "e06f379343b686d1d969c17843af2186011307d686ac1a4f287b7b1ec68f71ba"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/source/scripts/check-grow8-controls.cjs",
+        "bytes": 4266,
+        "sha256": "5078863e489f903adc675b6fc5b61a949779646240d1c439fd0557ebb226291d"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/source/src/ocr-grow-exit.js",
+        "bytes": 3149,
+        "sha256": "c62eb3c1cbdc9895ef4d4927321200f55bb6e81840d9eed1115a8f02146e2170"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/source/src/ocr-grow-minimap.js",
+        "bytes": 3957,
+        "sha256": "919cb5fe9d67b95c72cac357990de4e3e2fba4cc2df10f8d1e9851dc7bb10c7c"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/source/src/ocr-grow-planner.js",
+        "bytes": 6124,
+        "sha256": "39d15b9e386469661f07250563cb073cda9e568bcf80b2dbfac58e119c385925"
+      },
+      {
+        "path": "docs/ocr/repro/grow-8/source/src/ocr-grow.html",
+        "bytes": 48036,
+        "sha256": "bac39fd092f0c25c63d1dddfba212f1da392818c57dfa8fa3fea7fa8b0beaf2e"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/PUBLICATION-CHECK.json",
+        "bytes": 1278,
+        "sha256": "b3edc2af6c42c7a6c13205d48edbe371a904418fc957e2dfa38985d7fdf8d90f"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/PUBLICATION.md",
+        "bytes": 5123,
+        "sha256": "02800f06ee687cfb5d04b53e1fe9edd0389dde698ccb3aeb2b2d88d4c9188d2c"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/README.md",
+        "bytes": 2635,
+        "sha256": "dad0b2a9a5ce03dcdf5e784946ff8dae924c9dc29dd055b6d950dfebca439d1a"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/browser-fixture.html",
+        "bytes": 19478,
+        "sha256": "667a0b315708e45feea432d8e7af7daf312cd06408de312b9f542ef2000ca072"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/browser-summary.json",
+        "bytes": 265,
+        "sha256": "7c5624d0095e2609385a263c33bb910972c6e7a0f1a019e81a0764e48e4bc8f4"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/results.json",
+        "bytes": 4415,
+        "sha256": "b00830a1cc944fe4adf56d0a48382edcd0d1355e455542658769260a81125633"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/source/manifest.json",
+        "bytes": 7002,
+        "sha256": "eb9a1f68cffaa65e9dcd5adc4c8490b95fc29acacf6d4bff24cd7284024ee2e1"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/source/scripts/check-grow-guide.cjs",
+        "bytes": 3046,
+        "sha256": "fb4430e29aaae43777c8b5bb9e74d83e3c02c325faeaeb3bb7733ff0d66215ee"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/source/src/ocr-grow-planner.js",
+        "bytes": 6056,
+        "sha256": "eda2bd1a825635d3be1030a15548fda69d40bcadc7bdca53430781cacd9645df"
+      },
+      {
+        "path": "docs/ocr/repro/grow-9/source/src/ocr-grow.html",
+        "bytes": 48727,
+        "sha256": "e27400f92cb6255e929c896daf4a494d8db1aa22e8ebe50383fd517e5272fc0b"
+      }
+    ]
+  }
+}

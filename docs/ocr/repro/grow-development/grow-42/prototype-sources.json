@@ -1,0 +1,17 @@
+{
+  "candidate": "Grow42",
+  "canonical": {
+    "name": "ocr-grow42.html",
+    "sha256": "1da5fc0d76d3de4a3c794776982a22c1c12249ab78943fd77f36240dc1be3763",
+    "gitBlobSha1": "d3409db6146e79648055b626245cf20155591e1d"
+  },
+  "patchFormat": "GNU unified diff. Replay in listed order with patch --batch --fuzz=0 -o OUT BASE PATCH. Exact aliases can be copied.",
+  "variants": [],
+  "supportingCode": [
+    {
+      "name": "build-candidate.cjs",
+      "sha256": "140395b89024c26f9558c69d496603b4946b75f5e21e61bcb1342938efa3aee3",
+      "gitBlobSha1": "280e928dd5d901bd868ecc09073bc1138e0320ee"
+    }
+  ]
+}

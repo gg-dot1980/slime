@@ -1,0 +1,78 @@
+{
+  "schema": 1,
+  "createdAt": "2026-11-25T00:58:15.368Z",
+  "baseSiteCommit": "14c1815351b32096b325e032331b90c1f7873159",
+  "sourceHash": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+  "plannerHash": "59937f61bf7d8e820f8bdbc49863f088b72a04961a5c55611f9b43659e557e85",
+  "harnessHash": "4f3563e92a5e69a27a56fce4794a5a35fd861ecb7dc9af474add0b37fa1a769c",
+  "buildHash": "51b044afce4777a9d8c53bbbc51ae60817efcdd407aca8ef74a0cf0ba3163dbb",
+  "pageHash": "409195550d29b471c1085b7e32a46d2ce36d725231dd82b1d973725d87e1ca58",
+  "isolationHash": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+  "games": {
+    "v2.13": {
+      "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+    },
+    "v2.22": {
+      "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+    }
+  },
+  "viewport": {
+    "gameWidth": 2000,
+    "gameHeight": 1163
+  },
+  "seed": "natural Math.random; unknown",
+  "controller": "rendered canvas pixels + visible HUD only",
+  "input": "Arrow keys + Space boost",
+  "maxComputeMs": 200,
+  "concurrency": 1,
+  "perception": {
+    "maxCaptureWidth": 2000,
+    "minimap": "strict growMarkers for candidate; no permissive white fallback",
+    "plannerLogic": "same as grow-13"
+  },
+  "screen": {
+    "id": "screen-02",
+    "order": [
+      {
+        "strategy": "grow-14",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-14",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-14",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-14",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-14",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-14",
+        "version": "v2.22"
+      },
+      {
+        "strategy": "grow-14",
+        "version": "v2.13"
+      },
+      {
+        "strategy": "grow-14",
+        "version": "v2.22"
+      }
+    ]
+  },
+  "confirmation": {
+    "id": "confirm-02",
+    "NPerVersion": 12,
+    "condition": "grow-14 screen >=2/4 on each version; frozen same candidate"
+  },
+  "protocolHash": "e3237b940633b27e65685ad6ae8031aa878699c6dc4ce283679c0d8ea11836de"
+}

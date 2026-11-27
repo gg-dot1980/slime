@@ -1,0 +1,32 @@
+--- v4.html
++++ v5.html
+@@ -712,5 +712,5 @@
+       const px=mapPoint(o), hw=(map.viewWidth||958)/2, hh=(map.viewHeight||557)/2;
+       if (Math.abs(px.x)<hw+110 && Math.abs(px.y)<hh+110) continue;
+-      if (o.area<2 || o.area>55 || Math.min(o.x,o.y,map.width-o.x,map.height-o.y)<1.5 ||
++      if (o.area<1 || o.area>55 || Math.min(o.x,o.y,map.width-o.x,map.height-o.y)<1.5 ||
+         dots.some(m=>hypot(m.x-o.x,m.y-o.y)<2) ||
+         (map.threats||[]).some(m=>hypot(m.x-o.x,m.y-o.y)<2.1)) continue;
+@@ -736,5 +736,7 @@
+   }
+   goals.sort((a,b)=>b.utility-a.utility);
+-  const target31 = goals[0] || null;
++  const nearestBody=goals.filter(g=>!g.mapOnly && g.growth>1.4 && hypot(g.x,g.y)<520)
++    .sort((a,b)=>b.utility-a.utility)[0];
++  const target31=nearestBody||goals[0]||null;
+   const targets = goals.slice(0,1);
+   const pursuit31 = target31?.world ? {...target31.world,r:target31.r,mapOnly:target31.mapOnly,
+@@ -793,5 +795,5 @@
+     const approach=target?alignment*clamp(target.utility,1,12):0;
+     const foodWeight = r<55 ? 9 : r<90 ? 5 : 1.2;
+-    const score=approach*(target?.mapOnly ? (r<55?.85:1.25) : 3.2)+gain*foodWeight+walk*.9+maintain*.42-risk*8-wallCost*7;
++    const score=approach*(target?.mapOnly ? (r<55?.85:1.25) : 3.2)+gain*foodWeight+walk*1.8+maintain*.55-risk*8-wallCost*7;
+     paths.push({...d, first, second, score, gain: growth, discountedGain: gain,
+       approach, target, clearance, immediateGap, endGap, wallOK, wallCost, risk, spawnWallOK,
+@@ -799,5 +801,5 @@
+   }
+   const bounded = paths.filter(p => p.wallOK);
+-  const safe = bounded.filter(p => p.clearance > (oldModeEscape ? 14 : 4));
++  const safe = bounded.filter(p => p.clearance > (oldModeEscape ? 8 : 1));
+   const spawnSafe = spawnReserveActive ? safe.filter(p => p.spawnWallOK) : safe;
+   const spawnWallRelaxed = spawnReserveActive && !spawnSafe.length;

@@ -1,0 +1,30 @@
+--- v10.html
++++ v11.html
+@@ -697,5 +697,5 @@
+     const same = !o.remembered && oldLock && world && hypot(oldLock.x-world.x,oldLock.y-world.y) < 160;
+     const angle = ((v.x*o.x+v.y*o.y)/Math.max(1,speed*d)+1)/2;
+-    goals.push({...o, baseUtility:utility, utility: utility*(same ? 1.6 : 1)*(.95+.1*angle), world});
++    goals.push({...o, baseUtility:utility, utility: utility*(same ? (o.npc ? 2 : 1.12) : 1)*(.95+.1*angle), world});
+   }
+   for(const o of meals) {
+@@ -705,5 +705,5 @@
+     const lead = Math.min(1.2,eta);
+     addGoal({...o,x:o.x+o.vx*lead,y:o.y+o.vy*lead,mapOnly:false},
+-      Math.max(.1,o.growth)*2.9/(.45+eta)/(1+.42*corridorPressure(o,eta)));
++      Math.max(.1,o.growth)*4.4/(.45+eta)/(1+.42*corridorPressure(o,eta)));
+   }
+   if(mapOK){
+@@ -738,5 +738,5 @@
+     }
+     const value=(.4+.6*next)/(.4+eta)/(1+corridorPressure(meal,eta));
+-    addGoal({...meal,mapOnly:false,eta},value*(r<65?1.7:.70));
++    addGoal({...meal,mapOnly:false,eta},value*(r<75?4.1:1.4));
+   }
+   if (anchor && oldLock && oldLock.mapOnly && oldLock.missing < 22 && !goals.some(o=>o.world && hypot(o.world.x-oldLock.x,o.world.y-oldLock.y)<150)) {
+@@ -803,5 +803,5 @@
+     const walk=hypot(x,y)/(speed*steps*dt);
+     const approach=target?alignment*clamp(target.utility,1,12):0;
+-    const foodWeight = r<50 ? 9 : r<85 ? 5 : 2;
++    const foodWeight = r<50 ? 7 : r<85 ? 3 : 2;
+     const score=approach*(target?.mapOnly ? .85 : target?.npc ? 2.3 : 1.25)+gain*foodWeight+walk*.9+maintain*.42-risk*8-wallCost*7;
+     paths.push({...d, first, second, score, gain: growth, discountedGain: gain,

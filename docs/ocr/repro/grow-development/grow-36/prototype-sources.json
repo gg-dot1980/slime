@@ -1,0 +1,156 @@
+{
+  "candidate": "Grow36",
+  "canonical": {
+    "name": "ocr-grow36.html",
+    "sha256": "017cf13f29f941f8e7ac77ccd3e1e9103434cc2bb4bc764e215b148d3fc0885a",
+    "gitBlobSha1": "e2842198a5d24e22bdb39b0908ade1ce3560d42b"
+  },
+  "patchFormat": "GNU unified diff. Replay in listed order with patch --batch --fuzz=0 -o OUT BASE PATCH. Exact aliases can be copied.",
+  "variants": [
+    {
+      "name": "grow36-coast.html",
+      "sha256": "d0bc8e91fc0de349cbe9113dd048ff70cceb713291a935e6410191709d0839ff",
+      "gitBlobSha1": "11da3c22e97789ed766392940f975a0312b769c4",
+      "byteLength": 77312,
+      "status": "retained research source; no matching offline result asserted",
+      "provenance": "retained research HTML outside the eight tested variants",
+      "base": "ocr-grow36.html",
+      "patch": "grow36-coast.patch",
+      "patchSha256": "965afb29c6c380af56fa8ae970e75eb5e2667fd724317fa62575a4b01fb1f1b2",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-early.html",
+      "sha256": "e885f2c41efca42dcca6a9213b11d89439a104c187512d09c83d8fbfd6894529",
+      "gitBlobSha1": "8297904b6f4ae7930d7465d8f9ea90c226438b58",
+      "byteLength": 76537,
+      "status": "hash matched a retained offline development source",
+      "provenance": "verified extracted source archive member",
+      "base": "grow36-coast.html",
+      "patch": "grow36-early.patch",
+      "patchSha256": "7799d4d71111a84dc38c09309e6e2878d7fe7f86dcac569fc6e87d26d0fd6d52",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-finalWall.html",
+      "sha256": "204939c24c8778e8a1b51cbd30c36981aa77f34771a5bc8771ced8a9b4628bb7",
+      "gitBlobSha1": "5543d9b33782ee895a8e66975a895b14964e7593",
+      "byteLength": 80947,
+      "status": "hash matched a retained offline development source",
+      "provenance": "verified extracted source archive member",
+      "base": "grow36-early.html",
+      "patch": "grow36-finalWall.patch",
+      "patchSha256": "6e0c663defdd5a2c4a33d74db14bcd22ed4e4db3b380fa3495db358805cfc3da",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-finish.html",
+      "sha256": "d64aa3ff10ae038aa2301d3662da6ebfd36d47dd17a5c6440a6f324d5d5c1c39",
+      "gitBlobSha1": "a19424ffaf75194f9024185a733593addc0c9fa3",
+      "byteLength": 78335,
+      "status": "hash matched a retained offline development source",
+      "provenance": "verified extracted source archive member",
+      "base": "grow36-finalWall.html",
+      "patch": "grow36-finish.patch",
+      "patchSha256": "713c3760e3e80f4b9740a2c56753835f340cac05c2a5116ea795cd85f32f98fc",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-route.html",
+      "sha256": "b5bfd55791326c455c7dbea5ab3b778b31b253db080660249a7cb94e4a9598b0",
+      "gitBlobSha1": "1aebb0c2b88204d0205a5727402b7986eded82fc",
+      "byteLength": 77972,
+      "status": "hash matched a retained offline development source",
+      "provenance": "verified extracted source archive member",
+      "base": "grow36-early.html",
+      "patch": "grow36-route.patch",
+      "patchSha256": "b5e597824c3eb2a10706d57dffbf79658db49774ed3f2f7c820eac512daac8ca",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-stall.html",
+      "sha256": "448f73eb01f6ed8410cffd44963c74592a6cb44139365c6c92f831cf589f1503",
+      "gitBlobSha1": "474d4dafc42d738529dc356240782479c910bf42",
+      "byteLength": 79173,
+      "status": "retained research source; no matching offline result asserted",
+      "provenance": "retained research HTML outside the eight tested variants",
+      "base": "grow36-finish.html",
+      "patch": "grow36-stall.patch",
+      "patchSha256": "2f11a8f3a9c77b6d7a7668393a781a48030e27c350d6c961786684bed90de5db",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-steady.html",
+      "sha256": "948ec5fa1c8e5dfaa052e48c5a05a73f929f86a2c6eb50cdbe06719343b03caa",
+      "gitBlobSha1": "8d610b30b9cd166e4f8a56e6d0f3b2c044cb8c73",
+      "byteLength": 76262,
+      "status": "hash matched a retained offline development source",
+      "provenance": "verified extracted source archive member",
+      "base": "grow36-route.html",
+      "patch": "grow36-steady.patch",
+      "patchSha256": "544128ba505d0b3f64c4d4e52ee14fac242966edc5d4ea471386a8cbc1dee711",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-temporal.html",
+      "sha256": "5daa0b6ea119e17eab01875cfce3310d0521f60e0efffff6c83a558cc650d1fd",
+      "gitBlobSha1": "e99a0455bc95237a78ca6d700ee05d1c31f772e2",
+      "byteLength": 77952,
+      "status": "hash matched a retained offline development source",
+      "provenance": "verified extracted source archive member",
+      "base": "grow36-stall.html",
+      "patch": "grow36-temporal.patch",
+      "patchSha256": "4afe8aedcd9edcdcc37c2d7b0ca4d618d7b4d4a1f0a4d655f4dcfec715100055",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-value.html",
+      "sha256": "b1fc8d7215a31c78a3cea6ad872cb0db88673a6cef138d4cfafbe0f6c1b13c24",
+      "gitBlobSha1": "8ac6b91af799294197cbfc9711dbc178159e7359",
+      "byteLength": 78487,
+      "status": "retained research source; no matching offline result asserted",
+      "provenance": "retained research HTML outside the eight tested variants",
+      "base": "grow36-temporal.html",
+      "patch": "grow36-value.patch",
+      "patchSha256": "8ee40caf23608c48fa6ea7a003e8ebec990652491e194b20fb0868a1d433b84e",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-valueWall.html",
+      "sha256": "0b686124abdd86c9a3556cab1552c035bb5577af19768b1b396980904d36d057",
+      "gitBlobSha1": "7fa9d93a8daeeeb1166306bee38872a22dfacc38",
+      "byteLength": 81099,
+      "status": "retained research source; no matching offline result asserted",
+      "provenance": "retained research HTML outside the eight tested variants",
+      "base": "grow36-value.html",
+      "patch": "grow36-valueWall.patch",
+      "patchSha256": "adeed0c81558eaa6816c0ceb328e0094731422a78a0575ed4305b4a66d2e8728",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-wall.html",
+      "sha256": "049224d03f98a727f6029ac39e1b9d5f1dd924b308581335afbaf8843a653033",
+      "gitBlobSha1": "701ccf219c101242f8ac85264ef4151ac9b88aef",
+      "byteLength": 80564,
+      "status": "hash matched a retained offline development source",
+      "provenance": "verified extracted source archive member",
+      "base": "grow36-valueWall.html",
+      "patch": "grow36-wall.patch",
+      "patchSha256": "fc2c6dc540ccfde5e3a32174b53ce76de7bb8193257b5b4eb8efd6da474e509f",
+      "sameScriptsAsCanonical": false
+    },
+    {
+      "name": "grow36-wall32.html",
+      "sha256": "9bc49f94b9ec992cdbf0ccd5b2472c111e11d03824660c53a246827b572926a3",
+      "gitBlobSha1": "ab1e2f4b2a90d168e975812167e1a791159113e9",
+      "byteLength": 78243,
+      "status": "hash matched a retained offline development source",
+      "provenance": "verified extracted source archive member",
+      "base": "grow36-wall.html",
+      "patch": "grow36-wall32.patch",
+      "patchSha256": "d4ae4970f7fa0aae9c45e966375a421b94e66c353fd21904093a5a6c28ebd964",
+      "sameScriptsAsCanonical": true
+    }
+  ],
+  "supportingCode": []
+}

@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 1,
+  "kind": "historical source capsule; no new gameplay",
+  "strategyVersion": "grow-8",
+  "sitesSourceCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+  "githubTargetBaseCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+  "runtime": "Node 24 built-ins; no npm install",
+  "materialize": {
+    "src/ocr-grow.html": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "src/ocr-grow.html",
+      "bytes": 48036,
+      "sha256": "bac39fd092f0c25c63d1dddfba212f1da392818c57dfa8fa3fea7fa8b0beaf2e",
+      "gitBlobSha": "5ec9ecdfe8f86899cad728f9a6d2d0da78287c04",
+      "repositoryPath": "docs/ocr/repro/grow-8/source/src/ocr-grow.html",
+      "origin": "byte-exact Sites git snapshot"
+    },
+    "src/ocr-grow-minimap.js": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "src/ocr-grow-minimap.js",
+      "bytes": 3957,
+      "sha256": "919cb5fe9d67b95c72cac357990de4e3e2fba4cc2df10f8d1e9851dc7bb10c7c",
+      "gitBlobSha": "824ca060727a0457226eee3ba1898218e71263aa",
+      "repositoryPath": "docs/ocr/repro/grow-8/source/src/ocr-grow-minimap.js",
+      "origin": "byte-exact Sites git snapshot"
+    },
+    "src/ocr-grow-planner.js": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "src/ocr-grow-planner.js",
+      "bytes": 6124,
+      "sha256": "39d15b9e386469661f07250563cb073cda9e568bcf80b2dbfac58e119c385925",
+      "gitBlobSha": "3b0a69c96581acc5ec614d39efc2e8d8005fd7f5",
+      "repositoryPath": "docs/ocr/repro/grow-8/source/src/ocr-grow-planner.js",
+      "origin": "byte-exact Sites git snapshot"
+    },
+    "scripts/grow-games.mjs": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "scripts/grow-games.mjs",
+      "bytes": 1930,
+      "sha256": "a7a5ababf99b2f7b7a50cd620da10c4fe16ab24e1166d693622bec6983b93a6b",
+      "gitBlobSha": "2a8890d9213e3355befc6cdd122caad67681bbf2",
+      "repositoryPath": "docs/ocr/repro/grow-7/source/scripts/grow-games.mjs",
+      "origin": "byte-exact Sites git snapshot"
+    },
+    "src/game.html": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "src/game.html",
+      "bytes": 52422,
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "gitBlobSha": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "repositoryPath": "src/game.html",
+      "origin": "existing GitHub file",
+      "githubPinnedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+      "githubUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game.html"
+    },
+    "src/game-v2.13.html": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "src/game-v2.13.html",
+      "bytes": 51125,
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "gitBlobSha": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "repositoryPath": "src/game-v2.13.html",
+      "origin": "existing GitHub file",
+      "githubPinnedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+      "githubUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.13.html"
+    },
+    "src/game-v2.20.html": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "src/game-v2.20.html",
+      "bytes": 51524,
+      "sha256": "b0138f16e42d83c16ab3c9ca2ed1ac37892a106cf54552d75bcc410b50cffeea",
+      "gitBlobSha": "668808a4538304331bd267eb87d9f7e13938cdd5",
+      "repositoryPath": "src/game-v2.20.html",
+      "origin": "existing GitHub file",
+      "githubPinnedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+      "githubUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.20.html"
+    },
+    "src/game-v2.21.html": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "src/game-v2.21.html",
+      "bytes": 52412,
+      "sha256": "a155543125b08fb3402143e7f8bfb2778d82b8892b36179c0536568592be81a7",
+      "gitBlobSha": "39d251fdb9a0edbb42260cdf316c35b6e33eb26b",
+      "repositoryPath": "src/game-v2.21.html",
+      "origin": "existing GitHub file",
+      "githubPinnedCommit": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+      "githubUrl": "https://github.com/gg-dot1980/slime/blob/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601/src/game-v2.21.html"
+    },
+    "src/ocr-grow-exit.js": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "src/ocr-grow-exit.js",
+      "bytes": 3149,
+      "sha256": "c62eb3c1cbdc9895ef4d4927321200f55bb6e81840d9eed1115a8f02146e2170",
+      "gitBlobSha": "8042959eeb871c221461c8621f67b6f21c0063e1",
+      "repositoryPath": "docs/ocr/repro/grow-8/source/src/ocr-grow-exit.js",
+      "origin": "byte-exact Sites git snapshot"
+    },
+    "scripts/check-grow-exit.cjs": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "scripts/check-grow-exit.cjs",
+      "bytes": 2471,
+      "sha256": "e06f379343b686d1d969c17843af2186011307d686ac1a4f287b7b1ec68f71ba",
+      "gitBlobSha": "8c51f9572e1cf63367302aa5ca2932b9218c849c",
+      "repositoryPath": "docs/ocr/repro/grow-8/source/scripts/check-grow-exit.cjs",
+      "origin": "byte-exact Sites git snapshot"
+    },
+    "scripts/check-grow8-controls.cjs": {
+      "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+      "sourcePath": "scripts/check-grow8-controls.cjs",
+      "bytes": 4266,
+      "sha256": "5078863e489f903adc675b6fc5b61a949779646240d1c439fd0557ebb226291d",
+      "gitBlobSha": "2ea677333a645a6cdfaac6f3ccd97324d914087b",
+      "repositoryPath": "docs/ocr/repro/grow-8/source/scripts/check-grow8-controls.cjs",
+      "origin": "byte-exact Sites git snapshot"
+    }
+  },
+  "gitShow": {
+    "c717ccca49e95c4cc6f8f4075f8586ced9632e6a:src/ocr-grow.html": {
+      "sitesCommit": "c717ccca49e95c4cc6f8f4075f8586ced9632e6a",
+      "sourcePath": "src/ocr-grow.html",
+      "bytes": 44450,
+      "sha256": "2e9c63de1a2b0c65f3f37648bf4f8e16d847b2516c8d3bd8b74b5e92fa24ed9e",
+      "gitBlobSha": "a9537b5ad558ab0cd00daf94ae5f4c3ea3d239f1",
+      "repositoryPath": "docs/ocr/repro/grow-7/source/src/ocr-grow.html",
+      "origin": "byte-exact Sites git snapshot"
+    },
+    "c717ccca49e95c4cc6f8f4075f8586ced9632e6a:src/ocr-grow-planner.js": {
+      "sitesCommit": "c717ccca49e95c4cc6f8f4075f8586ced9632e6a",
+      "sourcePath": "src/ocr-grow-planner.js",
+      "bytes": 3005,
+      "sha256": "e80fb73a9d965dd32d51a077e9106b4fcfaf53ef0e8a24ecfe3f79fc4a0e9e16",
+      "gitBlobSha": "79918e9fbee04967ba61e21e2374e0f57d87e392",
+      "repositoryPath": "docs/ocr/repro/grow-7/source/src/ocr-grow-planner.js",
+      "origin": "byte-exact Sites git snapshot"
+    },
+    "e49021e775d639490ba6fe81afec31864b9b9882:src/ocr-grow.html": {
+      "sitesCommit": "e49021e775d639490ba6fe81afec31864b9b9882",
+      "sourcePath": "src/ocr-grow.html",
+      "bytes": 42071,
+      "sha256": "e93c1517e44b7108ccd3b8c4b5b469b9e7a2e74fe6d9bdfd2a36055e554db3c0",
+      "gitBlobSha": "d9c022593f85aff738a50204dee83be479e4ec4c",
+      "repositoryPath": "docs/ocr/repro/grow-7/source/baselines/grow-5/src/ocr-grow.html",
+      "origin": "byte-exact Sites git snapshot"
+    }
+  },
+  "syntheticChecks": [
+    "scripts/check-grow-exit.cjs",
+    "scripts/check-grow8-controls.cjs"
+  ],
+  "historicalFixturePath": "docs/ocr/repro/grow-8/browser-fixture.html",
+  "fixtureGeneratorSources": [],
+  "originalFullSiteBuild": {
+    "sitesCommit": "cfefdca2a748d192ac026cbd8e2796946487b765",
+    "sourcePath": "scripts/build.mjs",
+    "bytes": 2175,
+    "sha256": "31ffe82e1b2c792fc1adbf1f5796102b8252283244bfeccd2008ca1f0fdceb10",
+    "gitBlobSha": "70aae415a0f44b8dbe5184b1c10e7f7eae61fe4f"
+  },
+  "limitations": [
+    "The original full-Site build/route parity commands also need unrelated routes, media and Sites git history; they are not reconstructed here.",
+    "The new packaging runner generates only the unchanged OCR Grow HTML with four isolated games, and supplies fixed file snapshots for original git-show test dependencies.",
+    "Historical game seeds are unknown; original browser observations are preserved, not rerun.",
+    "No screenshots, saved pixel arrays, videos, game runtime state or generated deployment artifacts are included.",
+    "Current publication/readback status is owned by the parent publication record, not by the historical README."
+  ]
+}

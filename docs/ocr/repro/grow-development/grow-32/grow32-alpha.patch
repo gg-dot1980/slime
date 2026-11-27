@@ -1,0 +1,95 @@
+--- ocr-grow32.html
++++ grow32-alpha.html
+@@ -1,3 +1,3 @@
+-<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OCR Grow · Grow-32 · 小地圖獵物追蹤候選</title><style>
++<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OCR Grow · Grow-28 · 可見目標接近候選</title><style>
+ :root{color-scheme:dark;--bg:#10191d;--panel:#18272d;--line:#344a50;--ink:#eef8f5;--muted:#a8bfba;--mint:#9df0cb;--warn:#ff9b8e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.layout{max-width:1440px;margin:auto;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px}.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden}.stage{position:relative;min-height:60vh;background:#111a1f;display:grid;place-items:center}iframe{width:100%;height:min(82vh,850px);border:0;background:#111a1f}.side{padding:18px;align-self:start;position:sticky;top:16px}.side h1{font-size:21px;margin:0 0 4px}.muted{color:var(--muted);font-size:14px}.actions{display:grid;gap:9px;margin:16px 0}button{padding:12px;border:1px solid #57716f;border-radius:10px;background:#20343a;color:var(--ink);font:700 15px system-ui;cursor:pointer}button.primary{background:var(--mint);color:#10231b;border:0}button:focus-visible{outline:3px solid white;outline-offset:2px}button:disabled{opacity:.55;cursor:wait}.status{padding:12px;border:1px solid var(--line);border-radius:10px;min-height:50px}.status.ok{color:var(--mint)}.status.err{color:var(--warn)}.legend{display:grid;gap:7px;margin-top:14px;color:var(--muted);font-size:14px}.sample{position:relative;max-width:100%;max-height:82vh}.sample canvas{display:block;max-width:100%;max-height:82vh;object-fit:contain}.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay circle{fill:none;stroke-width:3;vector-effect:non-scaling-stroke}.overlay .player{stroke:var(--mint)}.overlay .npc{stroke:#ffca6e}.overlay .food{stroke:#62dce0}.overlay .route{stroke:var(--mint);stroke-width:5;vector-effect:non-scaling-stroke;marker-end:url(#arrow)}.overlay text{fill:white;font:700 13px system-ui;paint-order:stroke;stroke:#10191d;stroke-width:4px}.readout{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{padding:10px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}.metric b{display:block;color:var(--ink);font-size:20px}.decision{padding:13px;border:1px solid #45645d;border-radius:12px;background:#142522;margin-top:12px}.decision strong{font-size:19px;color:var(--mint)}.decision p{margin:5px 0 0;font-size:14px;color:var(--muted)}.how{font-size:14px;color:var(--muted);margin-top:16px}.back{color:var(--mint);font-size:14px;text-decoration:none;display:inline-block;margin-bottom:12px}@media(max-width:850px){.layout{grid-template-columns:1fr;padding:8px;gap:8px}.stage{min-height:52vh}.side{position:static}.stage iframe{height:62vh}.sample,.sample canvas{max-height:62vh}}
+ .titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 4px}.titlebar h1{margin:0}.version{flex:none;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--mint);font-size:12px;font-weight:700;letter-spacing:.03em}.status{height:76px;min-height:76px;display:flex;align-items:center;overflow:auto}.decision{height:154px;display:flex;flex-direction:column;overflow:hidden}.decision strong{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.decision p{flex:1;min-height:0;overflow:auto}.url-picker{display:grid;gap:8px;margin-top:16px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#122025}.url-picker label{font-size:13px;font-weight:700}.url-picker select,.url-picker input{width:100%;min-width:0;padding:10px;border:1px solid #57716f;border-radius:9px;background:#10191d;color:var(--ink);font:inherit}.url-picker input[hidden]{display:none}.url-picker p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+@@ -6,5 +6,5 @@
+ .release-history{max-width:1440px;margin:20px auto;padding:20px;color:var(--muted)}.release-history article{border-top:1px solid var(--line);padding:12px 0}.release-history h2,.release-history h3{color:var(--ink)}.test-banner{padding:14px 20px;background:#493c20;color:#fff3c9}.test-banner a{color:#b8ffdf}.test-title{display:block;font-size:clamp(1.35rem,5vw,1.9rem);line-height:1.25}.test-banner p{margin:.5rem 0;overflow-wrap:anywhere}.test-live-status{display:inline-block;padding:.25rem .65rem;border:1px solid #ffe19b;border-radius:.45rem;background:#2c2516;font-weight:700}@media(max-width:600px){.test-banner{padding:16px}.test-strategy{font-size:1rem}.test-banner p:last-child{font-size:.9rem}}
+ select{font:inherit;padding:10px;width:100%;background:#10191d;color:#eef8f5}.experiment{max-width:1440px;margin:auto;padding:16px} .test-banner button{padding:8px}.experiment{display:none} </style>
+-<header class="test-banner"><strong>OCR Grow · Grow-32 · 小地圖獵物追蹤候選</strong><p>利用畫面上的小地圖標記估計獵物大小。靠近相機框時，短暫保留前幾拍的位置與尺寸，再從主畫面確認追逐方向。</p></header><main class="layout"><section class="card stage"><iframe id="game" title="原遊戲"></iframe></section><aside class="card side"><h1>Grow-32 · 小地圖獵物追蹤</h1><p>桌機開發候選。比較八個方向的可見食物、NPC、紅點與牆界，並追蹤小地圖上尺寸可判定的白點。</p><label for="gameChoice">遊戲版本</label><select id="gameChoice"></select><p id="gameVersion" class="muted">預設 v2.13；切換會停止並清空本局。</p><label for="strategy">本局策略（開始時固定）</label><select id="strategy"><option value="grow-12">Grow-12 · 舊基線</option><option value="grow-23" selected>Grow-32 · 小地圖獵物追蹤候選</option></select><p class="muted">以原生桌機 958×557 畫布與 DPR 1 測試。使用可見畫布、HUD 與原遊戲鍵盤輸入。</p><div class="actions"><button id="go" class="primary" disabled>開始單局實驗</button><button id="stop">停止並暫停</button></div><div id="status" class="status">正在載入</div><div class="readout"><div class="metric">體型<b id="size">—</b></div><div class="metric">剩餘時間<b id="time">—</b></div><div class="metric">決策耗時<b id="ms">—</b></div><div class="metric">本次嘗試<b id="attempt">0</b></div></div><div class="decision"><strong id="action">等待</strong><p id="detail"></p></div><p id="rank"></p><ol id="runs"></ol><details id="diagnostics"><summary>本機辨識診斷</summary><canvas id="vision" style="width:100%"></canvas><pre id="visionText" style="white-space:pre-wrap"></pre></details><input id="timingEnabled" type="checkbox" hidden><p class="muted">保持頁面前景。Grow-32 不送出超過 200ms 的舊決策；偶發逾時釋鍵後重讀，連續 3 次或單次超過 1000ms 則停止。手機尚未驗收。</p></aside></main><section class="experiment" id="grow-12"><h2>grow-12 · 2026-11-23</h2><p>90以上新增短期退路評分：多個近紅點或牆角時，在既有安全方向內優先保留較寬出口，避免只遠離最近紅點卻朝另一紅點移動。開闊白點場景不加此偏轉；89以下及 A 不變。只以可見資訊作靜態短期預估，非實戰勝率。</p></section><section class="experiment" id="grow-11"><h2>grow-11 · 2026-11-23</h2><p>恢復90門檻（含90）：以下原規劃，以上小地圖追明顯小白點、紅點優先避讓。保留 grow-10 視覺修正，牆與失圖防護；受控回歸，非實戰勝率。</p></section><section class="experiment" id="grow-10"><h2>grow-10 · 2026-11-23</h2><p>只修實驗遊戲小地圖視覺層：鏡頭框改中性色且先畫，NPC 點後畫，綠色玩家仍最後畫。避免鏡頭框遮掉真紅點；不憑空補紅、不改規則及物理。同向紅點才許可主畫面避障，真無紅仍不躲 NPC。受控測試非勝率。</p></section><section class="experiment" id="grow-9"><h2>grow-9 · 2026-11-22</h2><p>分開小地圖目的地與主畫面局部避障；開局生效。小地圖原前進方向有紅點，主畫面可靠近危險才允許偏轉；無紅不閃避NPC，牆獨立。這會接受未標紅但可能致命的風險。使用安全側向保持與回復餘量減少來回反向。可辨識 NPC 優先；約8秒路程外且近處有已分類小食物時先取食物，無合適 NPC 時小食物備案。固定受控回歸，完整實戰未執行；不是正式驗收。</p></section><section class="experiment" id="grow-8"><h2>grow-8 · 2026-11-22</h2><p>B 開局啟用白點追逐、紅點與已確認近體型避讓。只新增獵物接近／退出篩選：固定4秒接近、1秒離開模型；牆資訊不足或超出範圍標未知，保留原策略。預測接觸不等於吞食；不新增攔截或鎖定。受控回歸，完整實戰未執行。</p></section><section class="experiment" id="grow-7"><h2>grow-7 · 2026-11-22</h2><p>四版本綠點半徑固定3，NPC點半徑限制1.2～3（實際半徑÷38）。只以完整白點的實色面積保守估計下界；達玩家HUD加1的90%才列為接近體型威脅，紅點與牆仍避開。飽和或低信心不等於同大小，不一律全避；近綠點的小白點繼續追。僅合成／受控驗證，實戰未驗證。</p></section><section class="experiment" id="grow-6"><h2>grow-6 · 2026-11-22</h2><p>修正已分離白點距玩家6像素時遭誤刪、導致沒有目標而沿舊方向的問題。保留實際綠白接觸／重疊拒判；紅點、牆與缺圖防護不變。顯示白點追逐、紅點／牆限制、缺圖或無合格白點等決策原因。固定像素與瀏覽器案例不是自然實戰或過關率。</p></section><section class="experiment" id="grow-5"><h2>grow-5 · 2026-11-22</h2><p>修正白點進入主畫面後被配對失敗、裁切碎片或危險外觀重新當威脅。B 體型≥90以可見小地圖白／紅點主導 NPC 決策：白點追逐，紅點與牆避讓；不再依主畫面 NPC 產生避讓覆寫。缺少小地圖或玩家定位時釋放控制。此策略可能撞上實際不可吃 NPC；實戰未驗證、不保證吞食。</p></section><section class="experiment" id="grow-4"><h2>grow-4 · 2026-11-22</h2><p>依指定實驗行為：B 體型≥90，唯一確認的非紅 NPC 不再被同一物件的半徑、紅字、裁切旗標或停滯旗標重新排除／避讓；仍需小地圖正面證據與唯一歸屬。其他紅點與牆保留。非紅門檻與吞食門檻不同，這可能致死；遊戲規則未改。固定回歸非實戰勝率，未驗收。</p></section><section class="experiment" id="grow-3"><h2>grow-3 · 2026-11-22</h2><p>B 在體型 ≥90 時以可見小地圖非紅 NPC 標記追逐，不再以原 0.85／0.94 體型估計排除唯一配對目標。紅點保持威脅；不以沒有紅點推定可吃。綠色玩家、邊框、混色與模糊標記拒判。A、90 以下及隔離規則未變。合成／來源回歸不是實戰勝率，尚未驗收。</p></section><section class="experiment" id="grow-2"><h2>grow-2 · 2026-11-22</h2><p>新增與 OCR-test 相同版本及標籤，預設 v2.13。每版依原始遊戲建立無網路、無排行榜副本；切換先釋放按鍵、失效舊回呼並清空本局追蹤。grow-1 A/B 策略未變；本改版不是勝率驗收。</p></section><section class="experiment" id="grow-1"><h2>grow-1 · 2026-11-22</h2><p>新增獨立成長優先策略，不修改其他 OCR 頁。短程可達的小型 NPC 優先於一般食物；尺寸未知不追、威脅不因預期成長消失。兩秒軌跡逐步檢查可見牆界與威脅；畫面外與辨識誤差仍未知。</p><p>固定合成 A/B 與停止測試另附可重跑程式；實戰未驗證，尚無過關率證據。沒有納入威脅去重原型。</p></section><script>/* timing-2: optional local diagnostic, no network, pixels or object records retained. */
++<header class="test-banner"><strong>OCR Grow · Grow-28 · 可見目標接近候選</strong><p>直接沿用 Grow27，只有未預測捕獲的可見目標改以第一段 0.6 秒評估接近。小地圖偵察與完整路徑捕獲收益維持；未來捕獲仍可能誘發第一段反向。自然實戰 0，目標仍為 150 秒內體型 200。</p></header><main class="layout"><section class="card stage"><iframe id="game" title="原遊戲"></iframe></section><aside class="card side"><h1>Grow-28 · 可見目標接近</h1><p>直接以 Grow27 為父版，保留其綠色玩家定位；只調整未預測捕獲的可見食物／NPC 接近評分。原有安全條件不改，但選中路徑可能更靠近危險。沒有加入 Grow26 偵察變更；合成案例不代表勝率。自然測試仍限 958×557、DPR1、整數小地圖原點。</p><label for="gameChoice">遊戲版本</label><select id="gameChoice"></select><p id="gameVersion" class="muted">預設 v2.13；切換會停止並清空本局。</p><label for="strategy">本局策略（開始時固定）</label><select id="strategy"><option value="grow-12">Grow-12 · 舊基線</option><option value="grow-23" selected>Grow-28 · 可見目標接近候選</option></select><p class="muted">Grow27 小地圖定位；Grow28 可見目標接近評分。使用同網域原遊戲 iframe。只讀畫面及可見 HUD；原遊戲可能提交排行榜，批次測試須在隔離環境執行。A/B 並非勝率驗收。</p><div class="actions"><button id="go" class="primary" disabled>開始單局實驗</button><button id="stop">停止並暫停</button></div><div id="status" class="status">正在載入</div><div class="readout"><div class="metric">體型<b id="size">—</b></div><div class="metric">剩餘時間<b id="time">—</b></div><div class="metric">決策耗時<b id="ms">—</b></div><div class="metric">本次嘗試<b id="attempt">0</b></div></div><div class="decision"><strong id="action">等待</strong><p id="detail"></p></div><p id="rank"></p><ol id="runs"></ol><details id="diagnostics"><summary>本機辨識診斷</summary><canvas id="vision" style="width:100%"></canvas><pre id="visionText" style="white-space:pre-wrap"></pre></details><input id="timingEnabled" type="checkbox" hidden><p class="muted">保持頁面前景。Grow-28 不送出超過 200ms 的舊決策；偶發逾時釋鍵後重讀，連續 3 次或單次超過 1000ms 則停止。手機尚未驗收。</p></aside></main><section class="experiment" id="grow-12"><h2>grow-12 · 2026-11-23</h2><p>90以上新增短期退路評分：多個近紅點或牆角時，在既有安全方向內優先保留較寬出口，避免只遠離最近紅點卻朝另一紅點移動。開闊白點場景不加此偏轉；89以下及 A 不變。只以可見資訊作靜態短期預估，非實戰勝率。</p></section><section class="experiment" id="grow-11"><h2>grow-11 · 2026-11-23</h2><p>恢復90門檻（含90）：以下原規劃，以上小地圖追明顯小白點、紅點優先避讓。保留 grow-10 視覺修正，牆與失圖防護；受控回歸，非實戰勝率。</p></section><section class="experiment" id="grow-10"><h2>grow-10 · 2026-11-23</h2><p>只修實驗遊戲小地圖視覺層：鏡頭框改中性色且先畫，NPC 點後畫，綠色玩家仍最後畫。避免鏡頭框遮掉真紅點；不憑空補紅、不改規則及物理。同向紅點才許可主畫面避障，真無紅仍不躲 NPC。受控測試非勝率。</p></section><section class="experiment" id="grow-9"><h2>grow-9 · 2026-11-22</h2><p>分開小地圖目的地與主畫面局部避障；開局生效。小地圖原前進方向有紅點，主畫面可靠近危險才允許偏轉；無紅不閃避NPC，牆獨立。這會接受未標紅但可能致命的風險。使用安全側向保持與回復餘量減少來回反向。可辨識 NPC 優先；約8秒路程外且近處有已分類小食物時先取食物，無合適 NPC 時小食物備案。固定受控回歸，完整實戰未執行；不是正式驗收。</p></section><section class="experiment" id="grow-8"><h2>grow-8 · 2026-11-22</h2><p>B 開局啟用白點追逐、紅點與已確認近體型避讓。只新增獵物接近／退出篩選：固定4秒接近、1秒離開模型；牆資訊不足或超出範圍標未知，保留原策略。預測接觸不等於吞食；不新增攔截或鎖定。受控回歸，完整實戰未執行。</p></section><section class="experiment" id="grow-7"><h2>grow-7 · 2026-11-22</h2><p>四版本綠點半徑固定3，NPC點半徑限制1.2～3（實際半徑÷38）。只以完整白點的實色面積保守估計下界；達玩家HUD加1的90%才列為接近體型威脅，紅點與牆仍避開。飽和或低信心不等於同大小，不一律全避；近綠點的小白點繼續追。僅合成／受控驗證，實戰未驗證。</p></section><section class="experiment" id="grow-6"><h2>grow-6 · 2026-11-22</h2><p>修正已分離白點距玩家6像素時遭誤刪、導致沒有目標而沿舊方向的問題。保留實際綠白接觸／重疊拒判；紅點、牆與缺圖防護不變。顯示白點追逐、紅點／牆限制、缺圖或無合格白點等決策原因。固定像素與瀏覽器案例不是自然實戰或過關率。</p></section><section class="experiment" id="grow-5"><h2>grow-5 · 2026-11-22</h2><p>修正白點進入主畫面後被配對失敗、裁切碎片或危險外觀重新當威脅。B 體型≥90以可見小地圖白／紅點主導 NPC 決策：白點追逐，紅點與牆避讓；不再依主畫面 NPC 產生避讓覆寫。缺少小地圖或玩家定位時釋放控制。此策略可能撞上實際不可吃 NPC；實戰未驗證、不保證吞食。</p></section><section class="experiment" id="grow-4"><h2>grow-4 · 2026-11-22</h2><p>依指定實驗行為：B 體型≥90，唯一確認的非紅 NPC 不再被同一物件的半徑、紅字、裁切旗標或停滯旗標重新排除／避讓；仍需小地圖正面證據與唯一歸屬。其他紅點與牆保留。非紅門檻與吞食門檻不同，這可能致死；遊戲規則未改。固定回歸非實戰勝率，未驗收。</p></section><section class="experiment" id="grow-3"><h2>grow-3 · 2026-11-22</h2><p>B 在體型 ≥90 時以可見小地圖非紅 NPC 標記追逐，不再以原 0.85／0.94 體型估計排除唯一配對目標。紅點保持威脅；不以沒有紅點推定可吃。綠色玩家、邊框、混色與模糊標記拒判。A、90 以下及隔離規則未變。合成／來源回歸不是實戰勝率，尚未驗收。</p></section><section class="experiment" id="grow-2"><h2>grow-2 · 2026-11-22</h2><p>新增與 OCR-test 相同版本及標籤，預設 v2.13。每版依原始遊戲建立無網路、無排行榜副本；切換先釋放按鍵、失效舊回呼並清空本局追蹤。grow-1 A/B 策略未變；本改版不是勝率驗收。</p></section><section class="experiment" id="grow-1"><h2>grow-1 · 2026-11-22</h2><p>新增獨立成長優先策略，不修改其他 OCR 頁。短程可達的小型 NPC 優先於一般食物；尺寸未知不追、威脅不因預期成長消失。兩秒軌跡逐步檢查可見牆界與威脅；畫面外與辨識誤差仍未知。</p><p>固定合成 A/B 與停止測試另附可重跑程式；實戰未驗證，尚無過關率證據。沒有納入威脅去重原型。</p></section><script>/* timing-2: optional local diagnostic, no network, pixels or object records retained. */
+ (function(root){
+ 'use strict';
+@@ -484,36 +484,7 @@
+  const immune=cap&&r>=186;
+  const threats=[],edible=[],foods=[],scouts=[];
+- const now=performance.now();
+- const px=map?.player?.x||0,py=map?.player?.y||0,sx=10400/(map?.width||144),sy=7200/(map?.height||100);
+- const previous=old?.dotTracks||[];
+- const tracks=[];
+- for(const m of map?.developmentMarkers||[]){
+-    let before=null,dist=1.3;
+-    for(const e of previous){if(now-e.t>2500)continue;const d=near(e.x-m.x,e.y-m.y);if(d<dist){before=e;dist=d;}}
+-    const dx=(m.x-px)*sx,dy=(m.y-py)*sy;
+-    const rayon=38*Math.sqrt(m.area/Math.PI);
+-    // A complete unsaturated marker gives a bounded approach estimate.
+-    // Near the camera stroke and the player symbol, retain only earlier intact evidence.
+-    const hw=(map.viewWidth||958)/2,hh=(map.viewHeight||557)/2;
+-    const crosses=Math.abs(Math.abs(dx)-hw)<280&&Math.abs(dy)<hh+240||Math.abs(Math.abs(dy)-hh)<280&&Math.abs(dx)<hw+240;
+-    const bounded=!crosses&&near(dx,dy)>520&&m.area<23.2;
+-    const bound=bounded?Math.max(48,rayon+11):before?.bound;
+-    const measured=bounded?now:before?.measured;
+-    tracks.push({x:m.x,y:m.y,t:now,bound,measured});
+- }
+- for(const oldMark of previous){
+-   if(now-oldMark.t>1100||!oldMark.bound||!map?.player)continue;
+-   if(tracks.some(m=>near(m.x-oldMark.x,m.y-oldMark.y)<1.65))continue;
+-   const dx=(oldMark.x-px)*sx,dy=(oldMark.y-py)*sy;
+-   if(Math.abs(dx)<(map.viewWidth||958)*.66&&Math.abs(dy)<(map.viewHeight||557)*.85)tracks.push(oldMark);
+- }
+- const safeTracks=tracks.filter(m=>m.bound&&now-m.measured<4000&&m.bound*1.13<r-.5&&!(map?.threats||[]).some(t=>near(t.x-m.x,t.y-m.y)<3.6));
+- let pursuit=null;
+-
+  for(const o of objects){
+    const d=near(o.x,o.y);
+    if(!o.npc){if(!o.blocked&&!o.clipped)foods.push({...o,d,growth:.4});continue;}
+-   const matching=safeTracks.filter(m=>near((m.x-px)*sx-o.x,(m.y-py)*sy-o.y)<Math.max(80,Math.min(150,m.bound+55)));
+-   if(o.clipped&&!o.isRed&&matching.length===1&&o.r<matching[0].bound*1.55)continue;
+    const scale=o.geometryAccepted?1.04:1.12;
+    const upper=cap?Math.min(200,o.r*scale):o.r*scale;
+@@ -538,8 +509,7 @@
+    for(const m of marks){
+       const {x,y}=mapOffsets(m),d=near(x,y);
+-      if(d<130||d>speed*10+200)continue;
+-      const tracked=safeTracks.find(t=>near(t.x-m.x,t.y-m.y)<1.3);
+-      if(!tracked&&Math.abs(x)<map.viewWidth*.42&&Math.abs(y)<map.viewHeight*.40)continue;
+-      if((tracked?edible:objects).some(o=>o.npc&&near(o.x-x,o.y-y)<100))continue;
++      if(d<160||d>speed*9+200)continue;
++      if(Math.abs(x)<map.viewWidth*.42&&Math.abs(y)<map.viewHeight*.40)continue;
++      if(objects.some(o=>o.npc&&near(o.x-x,o.y-y)<100))continue;
+       const markerR=sizeHint(m.area);
+       let estimate=markerR<48?Math.min(34,r*.69):Math.min(markerR,r*.91);
+@@ -547,22 +517,7 @@
+       const chance=nearEqual?.16:markerR<48&&r<45?.4:.84;
+       const growth=chance*.75*(Math.sqrt(r*r+.55*estimate*estimate)-r);
+-      scouts.push({x,y,r:estimate,d,growth,mapOnly:true,npc:true,vx:0,vy:0,wx:m.x,wy:m.y});
++      scouts.push({x,y,r:estimate,d,growth,mapOnly:true,npc:true,vx:0,vy:0});
+    }
+  }
+- // Carry only the small mapped contact that was actually selected during
+- // scouting, using stable map coordinates across the green player/camera occlusion.
+- if(mapOK){
+-  const oldFocus=old?.pursuit;
+-  for(const t of safeTracks){
+-    const x=(t.x-px)*sx,y=(t.y-py)*sy,d=near(x,y);
+-    if(d<Math.max(40,(r+t.bound)*.64)||d>speed*7)continue;
+-    if(threats.some(h=>near(h.x-x,h.y-y)<.68*h.hit))continue;
+-    const close=scouts.find(s=>near(s.wx-t.x,s.wy-t.y)<1.2);
+-    const isOld=oldFocus&&near(t.x-oldFocus.x,t.y-oldFocus.y)<1.55;
+-    const est=Math.min(t.bound-6,r*.82),val=.75*(Math.sqrt(r*r+.55*est*est)-r);
+-    if(close){close.growth=Math.max(close.growth,val)*(isOld?1.85:1.15);close.verified=t;}
+-    else scouts.push({x,y,r:est,d,growth:val*(isOld?1.85:1.15),mapOnly:true,npc:true,vx:0,vy:0,wx:t.x,wy:t.y,verified:t});
+-  }
+- }
+  const walls=map?.visibleWalls?.slice()||[null,null,null,null];
+  if(mapOK){
+@@ -623,6 +578,5 @@
+  });
+  const best=(safe.length?safe:paths)[0],target=best.target;
+- pursuit=target?.verified||null;
+- return {...best,dotTracks:tracks,pursuit,target,reason:!safe.length?'escape':target?.mapOnly?'scout-visible-dot':target?.npc?'intercept-growth':'food-and-exploration',gain:best.preyIncome+best.foodIncome,threats:threats.length,escaping:!safe.length,recovering:false,mapStatus:mapOK?'visible':'main-view',strategy:'grow-23'};
++ return {...best,target,reason:!safe.length?'escape':target?.mapOnly?'scout-visible-dot':target?.npc?'intercept-growth':'food-and-exploration',gain:best.preyIncome+best.foodIncome,threats:threats.length,escaping:!safe.length,recovering:false,mapStatus:mapOK?'visible':'main-view',strategy:'grow-23'};
+ }
+ 

@@ -1,0 +1,56 @@
+{
+  "checkedAt": "2026-11-25T06:10:48.443775+00:00",
+  "siteVersion": 187,
+  "siteSourceCommit": "61dfeccef7486619b8822e99d47ffabe5fdea75f",
+  "requests": [
+    {
+      "name": "versions.json",
+      "url": "https://slime.gameson.cc/api/versions",
+      "ok": true,
+      "bytes": 264,
+      "sha256": "658d5bde5be4bac0bdc17476ba4a04fc66634b8dff4e61b381ebf6d01aaaae94"
+    },
+    {
+      "name": "game-v2.13.html",
+      "url": "https://slime.gameson.cc/v2.13",
+      "ok": true,
+      "bytes": 51125,
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "matchesFrozenGame": true
+    },
+    {
+      "name": "game-v2.22.html",
+      "url": "https://slime.gameson.cc/v2.22",
+      "ok": true,
+      "bytes": 52422,
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "matchesFrozenGame": true
+    }
+  ],
+  "api": {
+    "currentVersion": "v2.22",
+    "currentPath": "/",
+    "versions": [
+      {
+        "version": "v2.22",
+        "path": "/v2.22",
+        "current": true
+      },
+      {
+        "version": "v2.21",
+        "path": "/v2.21",
+        "current": false
+      },
+      {
+        "version": "v2.20",
+        "path": "/v2.20",
+        "current": false
+      },
+      {
+        "version": "v2.13",
+        "path": "/v2.13",
+        "current": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+--- v18.html
++++ v19.html
+@@ -811,5 +811,5 @@
+       nearApproach=Math.max(nearApproach,progress*quality);
+     }
+-    const precision=nearApproach*(r<70?3.2:1.6);
++    const precision=nearApproach*(r<70?6:3.8)-bend*.8;
+     const score = precision + (cappedGame ?
+       approach*(target?.mapOnly ? .95 : 2.5)+gain*foodWeight+firstGain*1.8+walk*2+maintain*.5-bend*1.5-risk*8-wallCost*7 :

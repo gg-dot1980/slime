@@ -1,0 +1,67 @@
+{
+  "candidate": "grow49",
+  "candidateSourceCommit": "18e8ee62f411a0bc388dc858ee08b1cfe51ad4b3",
+  "candidateGitBlob": "8de3a9e34f196e5ffac279270da4009f5c9d9d4c",
+  "candidateSha256": "85071f2d68a8320b444aa643f5dffb61cbe2523f6de5caf8cb45ba542bd5a0b6",
+  "gameBlobs": {
+    "v2.13": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+    "v2.22": "30af12f7608da91514711ecdbc01b57654ab2eab"
+  },
+  "geometry": {
+    "name": "qhd",
+    "viewport": [
+      2560,
+      1440
+    ],
+    "canvas": [
+      2250,
+      1308
+    ],
+    "deviceScaleFactor": 1
+  },
+  "protocol": "grow-native-local-20261126-v4",
+  "success": {
+    "size": 200,
+    "maximumGameSeconds": 150,
+    "requiresVisibleSuccessPanel": true
+  },
+  "exploration": {
+    "plannedPerVersion": 4,
+    "minimumWinsPerVersion": 2,
+    "requiresCompleteLedger": true
+  },
+  "independentConfirmation": {
+    "plannedPerVersion": 12,
+    "minimumWinsPerVersion": 6,
+    "requiresBothExplorationPasses": true
+  },
+  "statusAtFreeze": {
+    "v2.13": {
+      "naturalStarts": 0,
+      "naturalResults": 0
+    },
+    "v2.22": {
+      "naturalStarts": 0,
+      "naturalResults": 0
+    }
+  },
+  "runnerSha256": "db36aba9f02d3626f113d460c951e369621c078cae33f4c10d056b65e9381fcc",
+  "capture": {
+    "scope": "each version, all planned attempts",
+    "perAttemptLimitMiB": 96,
+    "diagnosticWallSeconds": 10,
+    "phaseOrder": [
+      "preflight",
+      "diagnostic",
+      "explore",
+      "confirm-if-eligible"
+    ],
+    "singleBrowser": true
+  },
+  "observerSha256": {
+    "observed.py": "a703d32faa70e5454cb181e9c8c2077a0da937e1b189e631e7a8da065d5f8d89",
+    "capture_store.py": "49e22f39c626049772bfff7e79b622a03d1cb8e17db1f47d2dd4d3e94550b247",
+    "observer.js": "e47363bead19683d08d163aadd8ba29bcd61253b34c6214b433dea8aacf6324e"
+  },
+  "geometryDriverSha256": "3a9fe1f082edcc296b0e3e6aabd67fe529e6f0cba18b20fedf82052d9ae4643c"
+}

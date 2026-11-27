@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "candidate": "grow47",
+  "baseCommit": "2656aa027277090b16bb7eea62d155d0ab271114",
+  "researchBranch": "feat/grow-evaluation-20261125",
+  "parent": {
+    "candidate": "grow46",
+    "sourceCommit": "818ffad5f986182ba5b1a950432eb281ccc6e0cd",
+    "sha256": "2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa"
+  },
+  "upstream": {
+    "repo": "gg-dot1980/slime",
+    "commit": "8f13c2062d8a3da9ec63a6a76b2577db029ca45d",
+    "path": "src/ocr-claude.html",
+    "gitBlob": "afb2f1709b8dff32e3b7b29792f9f787db472204",
+    "excerptLines": [
+      351,
+      370
+    ],
+    "protocolCommit": "0b2cb500a6eab5ce569bc19c6a8581902c04672d",
+    "mapExcerptLines": [
+      296,
+      301
+    ]
+  },
+  "files": {
+    "ocr-grow47.html": {
+      "bytes": 104995,
+      "sha256": "a333fd5ba52c2cbb4c6eb17fde85f5e53c9a98924a61440fe606ccb8fca27fee"
+    },
+    "build-candidate.cjs": {
+      "bytes": 6506,
+      "sha256": "b06d58fca1e455b17e00911203f13a11bc1db9d6e69bf50872b6ac9bb2584474"
+    },
+    "wall-score.js": {
+      "bytes": 1024,
+      "sha256": "17f6cd1f7bc6f87037f84cf523df6752ec7bd2ad26b9e4f95249287b14ad0cda"
+    },
+    "fixtures.cjs": {
+      "bytes": 2278,
+      "sha256": "171d5b20e87607325c484d1c951433029fdd03a2fdc5ae03de474e72f43b13fa"
+    },
+    "check-planner.cjs": {
+      "bytes": 8071,
+      "sha256": "e3d3d1eb24714cacc233d839a37a4dc640335b38bffab8d3e33f21b762b49376"
+    },
+    "claude22-wall-source.txt": {
+      "bytes": 2518,
+      "sha256": "e09a8f049cbfc180be61cad463ff82b62b0c787bab00a782e22aba386ecd0de5"
+    },
+    "mechanism-results.json": {
+      "bytes": 53314,
+      "sha256": "ab2601f9d5f77b5ba118aa8db90fce37cfd679073f7f0e36d7bb0f35b0414e77"
+    },
+    "README.md": {
+      "bytes": 10270,
+      "sha256": "4cd4ac4ab1c74555e6da727d5333ca8257f892f1de0052b7ce671e0105ce1694"
+    },
+    "claude22-map-source.txt": {
+      "bytes": 524,
+      "sha256": "2166b45effdfaecc27c70e619f2dceddefa82382feee53908e03a97af919d074"
+    }
+  },
+  "games": {
+    "src/game-v2.13.html": {
+      "bytes": 51125,
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97"
+    },
+    "src/game.html": {
+      "bytes": 52422,
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+    }
+  },
+  "expectedGeometry": {
+    "cohort": "qhd",
+    "outer": [
+      2560,
+      1440
+    ],
+    "nativeCanvas": [
+      2250,
+      1308
+    ],
+    "analysis": [
+      2000,
+      1163
+    ],
+    "DPR": 1,
+    "actualPreflight": "not-run"
+  },
+  "validation": {
+    "kind": "synthetic-controller-mechanism",
+    "runtime": "v24.22.3",
+    "naturalStarts": 0,
+    "browserStarts": 0,
+    "serverStarts": 0,
+    "formulaCases": 8,
+    "plannerCases": 15,
+    "pathComparisons": 896,
+    "nonV222FullDecisionComparisons": 45
+  },
+  "developmentHistory": [
+    {
+      "plannerCases": 14,
+      "firstChanged": 7,
+      "lowerPredictedGain": 2
+    },
+    {
+      "added": "near-wall-small-npc",
+      "reason": "explicit edible-NPC opportunity-cost counterexample",
+      "priorCasesRetained": 14,
+      "controllerParametersChanged": false,
+      "candidateHtmlChanged": false
+    }
+  ],
+  "limitations": [
+    "Synthetic inputs are development data, not independent holdout or game results.",
+    "Wall-score weight is copied without rescaling to Grow reward units; three fixed scenes lose projected gain.",
+    "Only existing safe-path scores change; emergency ranking is unchanged.",
+    "Map-derived wall estimates can disagree with the visibleWalls-first hard gate.",
+    "QHD actual preflight, control diagnostic, exploration and independent confirmation are not run."
+  ]
+}

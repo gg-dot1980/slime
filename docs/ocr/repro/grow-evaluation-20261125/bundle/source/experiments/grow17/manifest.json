@@ -1,0 +1,177 @@
+{
+  "schema": 1,
+  "candidate": "grow-17",
+  "createdAt": "2026-11-25T03:23:28.396Z",
+  "baseSiteCommit": "14c1815351b32096b325e032331b90c1f7873159",
+  "parentCandidate": "grow-15",
+  "parentProtocolHash": "c380f2eab1f1f722273d8f04103681ac3dd90baa02e617b2065b8706dc1de346",
+  "parentPlannerHash": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+  "parentManifestHash": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5",
+  "sourceHash": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+  "geometryHash": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+  "plannerHash": "f2c8f104324fa8fb616a1e783020fe456817742e94bc2d896aa803586fbd8df4",
+  "harnessHash": "b4739a723f05f1981fab5d24829f3f19ab0fc8d2ca854faea74450b6d4f0c3c9",
+  "buildHash": "c2d4d064e19069408203846a26b84962bc41d1f04fd95a8be32390ed382ca42e",
+  "pageHash": "69a97b8eddd4f3fc3611e1c8738a523772b147e20208154fc15e5b145cc5fca4",
+  "isolationHash": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+  "games": {
+    "v2.13": {
+      "sourceHash": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97",
+      "isolatedHash": "6b2cb0df57472c0a5064a6f6154eef22d9c3638affe9ace637a25e7414f4823a"
+    },
+    "v2.22": {
+      "sourceHash": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14",
+      "isolatedHash": "df6904418ef921c6eb30bceb16008c2d03042716a18840a0604f1306df967cd8"
+    }
+  },
+  "viewport": {
+    "gameWidth": 2000,
+    "gameHeight": 1163
+  },
+  "seed": "natural Math.random; unknown",
+  "controller": "rendered canvas pixels + visible HUD only",
+  "input": "Arrow keys + Space boost",
+  "maxComputeMs": 200,
+  "concurrency": 1,
+  "policyChange": {
+    "version": "v2.22",
+    "condition": "existing immune branch: HUD >=186",
+    "exactDiff": "scout generation guard if (mapOK) becomes if (mapOK && !immune)",
+    "effect": "omit mapOnly scout goals with growth:0 and pursuitOnly:true; retain real meals and original fallback exploration",
+    "unchanged": "all other Grow15 planner bytes, original red bounds, perception, geometry, NPC classification, velocity forecast, growth score, immunity threshold",
+    "plannerFunction": "planGrow15 and diagnostic strategy retained deliberately for exact output comparison",
+    "hypothesis": "removing zero-growth scout approach utility may improve late completion; may reduce discovery of distant resources; no causal claim"
+  },
+  "reusedVersionPolicy": {
+    "version": "v2.13",
+    "candidate": "grow-15",
+    "protocolHash": "c380f2eab1f1f722273d8f04103681ac3dd90baa02e617b2065b8706dc1de346",
+    "plannerHash": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+    "evidenceBatch": "confirm-03",
+    "wins": 11,
+    "nativeFinals": 12,
+    "condition": "unchanged v2.13 outputs and byte-identical shared inputs; no grow17 v2.13 samples"
+  },
+  "activationPrerequisite": {
+    "candidate": "grow-16",
+    "batch": "confirm-04",
+    "version": "v2.22",
+    "protocolHash": "62ab303656b41620f370a5141fd3ba7783cbd37db2011f7b33b5eee98c8f5d37",
+    "completedNativeFinals": 12,
+    "nativeOutcomes": [
+      "win_le150",
+      "win_late",
+      "death",
+      "deadline_cutoff"
+    ],
+    "winsStrictlyLessThan": 6,
+    "enforcement": "operator must verify the complete fixed Grow16 batch before activation; partial results never authorize activation"
+  },
+  "perception": {
+    "maxCaptureWidth": 2000,
+    "minimap": "strict growMarkers for candidate; no permissive white fallback",
+    "plannerLogic": "only v2.22 immune mapOnly scout guard differs from frozen Grow15",
+    "geometry": "frozen geometry.js; accepted pixel centre AND radius converted by capture ratio; null preserves original; NPCs only",
+    "confidence": "geometric consistency score, not probability",
+    "numericDiagnostics": [
+      "geometryAccepted",
+      "confidence",
+      "originalRadius",
+      "geometryAcceptedCount",
+      "geometryNpcCount",
+      "geometryConfidenceMean"
+    ]
+  },
+  "screen": {
+    "id": "screen-05",
+    "versions": [
+      "v2.22"
+    ],
+    "NPerVersion": 4,
+    "nativeOutcomes": [
+      "win_le150",
+      "win_late",
+      "death",
+      "deadline_cutoff"
+    ],
+    "requireUniqueRunIds": true,
+    "order": [
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      }
+    ]
+  },
+  "confirmation": {
+    "id": "confirm-05",
+    "versions": [
+      "v2.22"
+    ],
+    "NPerVersion": 12,
+    "order": [
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      },
+      {
+        "version": "v2.22",
+        "strategy": "grow-17"
+      }
+    ],
+    "condition": "screen-05 has exactly four unique native finals and >=2 wins; frozen same candidate; 12 new v2.22 starts"
+  },
+  "denominatorPolicy": "retain every start and outcome including interruptions; interruption does not count as a native final or permit gate passage; no automatic replacements or pooling",
+  "protocolHash": "fa7d155b5504aeb98650f710f1944fe8d943a1dd5361672237df64ca3e293cb5"
+}

@@ -1,0 +1,20 @@
+ const cands=dirs.map(d=>{let x=0,y=0,vx=v.x,vy=v.y,score=0,gain=0,minGap=1e9,wallOK=true,wallHit=false;const ate=new Set(),fed=new Set();
+  // claude-13 (opts.v2): rule v2 of the view-restricted test bot (2.5 s rollout, crowd penalty at the 1.5 s point, hard
+  // walls from the minimap player position). Bot v2 reached 3/6 on v2.22 vs 4/15 for v0.
+  let ex=null,ey=null;
+  for(let k=1;k<=(opts.v2?25:15);k++){const t=k*.1;vx+=(d.x*S-vx)*.35;vy+=(d.y*S-vy)*.35;x+=vx*.1;y+=vy*.1;if(k===15){ex=x;ey=y;}
+   if((opts.v2||opts.wallOnly)&&worldPos){const wd=Math.min(worldPos.x+x,worldPos.y+y,10400-worldPos.x-x,7200-worldPos.y-y)-r;if(wd<0){score-=400;break;}if(wd<150)score-=(150-wd)*.6/(t+.3);}
+   if(walls)walls.forEach((w,i)=>{if(Number.isFinite(w)){const left=w+[x,-x,y,-y][i];if(left<Math.min(w,margin)-1)wallOK=false;if(left<r*.2)wallHit=true;}});
+   for(const o of lethal){const gap=Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)-(r+o.R)*.72;if(gap<minGap)minGap=gap;}
+   for(const o of prey)if(!ate.has(o)&&Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)<(r+o.r)*.72){ate.add(o);const gv=(Math.sqrt(r*r+.55*o.r*o.r)-r)*8/(t+.3);score+=gv;gain+=gv;}
+   for(const o of food)if(!fed.has(o)&&Math.hypot(o.x-x,o.y-y)<r+(o.r||9)*.55){fed.add(o);score+=.8/(t+.3);gain+=.8/(t+.3);}}
+  // claude-22 (opts.wallOnly): the wall part of rule v2 alone (no crowd penalty, 1.5 s horizon). claude-11-family
+  // controllers die on v2.22 about half the time; the test bot's deaths were mostly pinned against a wall.
+  if(opts.wallOnly&&!opts.v2&&ex!==null&&worldPos){const wd=Math.min(worldPos.x+ex,worldPos.y+ey,10400-worldPos.x-ex,7200-worldPos.y-ey)-r;if(wd<600)score-=(600-wd)*.04;}
+  if(opts.v2&&ex!==null){let crowd=0;for(const o of lethal){const dd=Math.max(120,Math.hypot(o.x+o.vx*1.5-ex,o.y+o.vy*1.5-ey)-o.R);crowd+=(o.R/r)*(250/dd)**2;}score-=crowd*6;
+   if(worldPos){const wd=Math.min(worldPos.x+ex,worldPos.y+ey,10400-worldPos.x-ex,7200-worldPos.y-ey)-r;if(wd<600)score-=(600-wd)*.04;}}
+  if(opts.safe){if(minGap<60)score-=400+(60-minGap)*5;else if(minGap<200)score-=(200-minGap)*.8;}else if(minGap<40)score-=400+(40-minGap)*5;else if(minGap<160)score-=(160-minGap)*.4;
+  if(best)score+=(d.x*best.x+d.y*best.y)/Math.max(1,best.d)*best.val*6;
+  if(wallHit)score-=40;score+=(d.x*old.x+d.y*old.y)*.15;
+  return {...d,score,gain,risk:Math.max(0,160-minGap),clearance:minGap,wallOK,recovering:wallHit,ateN:ate.size};});
+ const pool=cands.some(c=>c.wallOK)?cands.filter(c=>c.wallOK):cands;pool.sort((a,b)=>b.score-a.score);const pick=pool[0];

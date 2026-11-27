@@ -1,0 +1,669 @@
+{
+  "schema": 1,
+  "kind": "pure planner and stop contract; no gameplay",
+  "pass": true,
+  "cases": 70,
+  "baselineSha256": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+  "plannerSha256": "fd77baecfd7002a66aee693527f88f6a666a072c18fe7802819bad98d2a63046",
+  "controllerSha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+  "regressionSha256": "2ce093b81e0097a32e201b59903118350c5eee8f8983a35a7ec3e457bb1af9df",
+  "normalizedSourceExactlyParent": true,
+  "changedFirstHeadingsIn18PromotionScenes": 10,
+  "liveGames": 0,
+  "browserRuns": 0,
+  "limitations": [
+    "Synthetic detector-level observations are not saved-pixel replay.",
+    "No complete recorded planner inputs exist in the final numeric logs; no natural-game decisions were replayed.",
+    "Geometry, radius intervals, scouting, gains, tracking, hazard range and scoring weights remain the parent policy.",
+    "The real release function is checked with an in-memory key sink; browser focus and dispatch remain an integration check."
+  ],
+  "rows": [
+    {
+      "name": "nominal-200-hud-180-distance-320",
+      "type": "promoted",
+      "hud": 180,
+      "distance": 320,
+      "oldFirst": 3,
+      "newFirst": 4,
+      "oldSecond": 3,
+      "newSecond": 4,
+      "oldClearance": 1000000,
+      "newClearance": 43.242016783883855,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-180-distance-400",
+      "type": "promoted",
+      "hud": 180,
+      "distance": 400,
+      "oldFirst": 2,
+      "newFirst": 2,
+      "oldSecond": 1,
+      "newSecond": 1,
+      "oldClearance": 1000000,
+      "newClearance": 88.34540228280412,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-180-distance-500",
+      "type": "promoted",
+      "hud": 180,
+      "distance": 500,
+      "oldFirst": 1,
+      "newFirst": 1,
+      "oldSecond": 1,
+      "newSecond": 1,
+      "oldClearance": 1000000,
+      "newClearance": 74.27685121643594,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-181-distance-320",
+      "type": "promoted",
+      "hud": 181,
+      "distance": 320,
+      "oldFirst": 3,
+      "newFirst": 4,
+      "oldSecond": 3,
+      "newSecond": 4,
+      "oldClearance": 1000000,
+      "newClearance": 42.52201678388383,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-181-distance-400",
+      "type": "promoted",
+      "hud": 181,
+      "distance": 400,
+      "oldFirst": 2,
+      "newFirst": 2,
+      "oldSecond": 1,
+      "newSecond": 1,
+      "oldClearance": 1000000,
+      "newClearance": 87.62540228280409,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-181-distance-500",
+      "type": "promoted",
+      "hud": 181,
+      "distance": 500,
+      "oldFirst": 1,
+      "newFirst": 1,
+      "oldSecond": 1,
+      "newSecond": 1,
+      "oldClearance": 1000000,
+      "newClearance": 73.55685121643592,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-182-distance-320",
+      "type": "promoted",
+      "hud": 182,
+      "distance": 320,
+      "oldFirst": 3,
+      "newFirst": 4,
+      "oldSecond": 3,
+      "newSecond": 4,
+      "oldClearance": 1000000,
+      "newClearance": 41.80201678388386,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-182-distance-400",
+      "type": "promoted",
+      "hud": 182,
+      "distance": 400,
+      "oldFirst": 2,
+      "newFirst": 2,
+      "oldSecond": 1,
+      "newSecond": 1,
+      "oldClearance": 1000000,
+      "newClearance": 86.90540228280412,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-182-distance-500",
+      "type": "promoted",
+      "hud": 182,
+      "distance": 500,
+      "oldFirst": 1,
+      "newFirst": 0,
+      "oldSecond": 1,
+      "newSecond": 2,
+      "oldClearance": 1000000,
+      "newClearance": 98.9295260912707,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-183-distance-320",
+      "type": "promoted",
+      "hud": 183,
+      "distance": 320,
+      "oldFirst": 3,
+      "newFirst": 4,
+      "oldSecond": 3,
+      "newSecond": 4,
+      "oldClearance": 1000000,
+      "newClearance": 41.08201678388383,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-183-distance-400",
+      "type": "promoted",
+      "hud": 183,
+      "distance": 400,
+      "oldFirst": 2,
+      "newFirst": 2,
+      "oldSecond": 1,
+      "newSecond": 1,
+      "oldClearance": 1000000,
+      "newClearance": 86.18540228280409,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-183-distance-500",
+      "type": "promoted",
+      "hud": 183,
+      "distance": 500,
+      "oldFirst": 1,
+      "newFirst": 0,
+      "oldSecond": 1,
+      "newSecond": 2,
+      "oldClearance": 1000000,
+      "newClearance": 98.20952609127067,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-184-distance-320",
+      "type": "promoted",
+      "hud": 184,
+      "distance": 320,
+      "oldFirst": 2,
+      "newFirst": 4,
+      "oldSecond": 2,
+      "newSecond": 4,
+      "oldClearance": 1000000,
+      "newClearance": 40.36201678388386,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-184-distance-400",
+      "type": "promoted",
+      "hud": 184,
+      "distance": 400,
+      "oldFirst": 2,
+      "newFirst": 2,
+      "oldSecond": 1,
+      "newSecond": 1,
+      "oldClearance": 1000000,
+      "newClearance": 85.46540228280412,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-184-distance-500",
+      "type": "promoted",
+      "hud": 184,
+      "distance": 500,
+      "oldFirst": 1,
+      "newFirst": 0,
+      "oldSecond": 1,
+      "newSecond": 2,
+      "oldClearance": 1000000,
+      "newClearance": 97.4895260912707,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-185-distance-320",
+      "type": "promoted",
+      "hud": 185,
+      "distance": 320,
+      "oldFirst": 2,
+      "newFirst": 4,
+      "oldSecond": 2,
+      "newSecond": 4,
+      "oldClearance": 1000000,
+      "newClearance": 39.64201678388383,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-185-distance-400",
+      "type": "promoted",
+      "hud": 185,
+      "distance": 400,
+      "oldFirst": 2,
+      "newFirst": 2,
+      "oldSecond": 1,
+      "newSecond": 1,
+      "oldClearance": 1000000,
+      "newClearance": 84.7454022828041,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "nominal-200-hud-185-distance-500",
+      "type": "promoted",
+      "hud": 185,
+      "distance": 500,
+      "oldFirst": 1,
+      "newFirst": 0,
+      "oldSecond": 1,
+      "newSecond": 2,
+      "oldClearance": 1000000,
+      "newClearance": 96.76952609127068,
+      "oldUncertain": 1,
+      "hard": 1,
+      "soft": 0,
+      "promoted": 1
+    },
+    {
+      "name": "just-below-nominal-lethal",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "at-nominal-lethal-inclusive",
+      "type": "promoted",
+      "threshold": 196.02,
+      "clearance": 86.90540228280412
+    },
+    {
+      "name": "nominal-190-below-lethal-hud-180",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "nominal-190-below-lethal-hud-181",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "nominal-190-below-lethal-hud-182",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "nominal-190-below-lethal-hud-183",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "nominal-190-below-lethal-hud-184",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "nominal-190-below-lethal-hud-185",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "v222-existing-classification-25-15",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-25-25",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "v222-existing-classification-25-200",
+      "type": "full-output-unchanged",
+      "clearance": 64.62859974439627,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-90-54",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-90-90",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-90-200",
+      "type": "full-output-unchanged",
+      "clearance": 99.82427847447238,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-150-90",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-150-150",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-150-200",
+      "type": "full-output-unchanged",
+      "clearance": 56.62427847447239,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-175-105",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-175-175",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-175-200",
+      "type": "full-output-unchanged",
+      "clearance": 54.48276984068991,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-179-107.39999999999999",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-179-179",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v222-existing-classification-179-200",
+      "type": "full-output-unchanged",
+      "clearance": 127.93429557577241,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v213-25-13.750000000000002",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-25-25",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 1
+    },
+    {
+      "name": "v213-25-32.5",
+      "type": "full-output-unchanged",
+      "clearance": 183.59059974439626,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v213-90-49.50000000000001",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-90-90",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-90-117",
+      "type": "full-output-unchanged",
+      "clearance": 153.68747847447239,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v213-179-98.45",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-179-179",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-179-232.70000000000002",
+      "type": "full-output-unchanged",
+      "clearance": 92.6622155757724,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v213-182-100.10000000000001",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-182-182",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-182-236.6",
+      "type": "full-output-unchanged",
+      "clearance": 87.4976555757724,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v213-186-102.30000000000001",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-186-186",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-186-241.8",
+      "type": "full-output-unchanged",
+      "clearance": 80.6115755757724,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "v213-195-107.25000000000001",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-195-195",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "v213-195-253.5",
+      "type": "full-output-unchanged",
+      "clearance": 65.11789557577242,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "immune-186-scout-false",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "immune-186-scout-true",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "immune-190-scout-false",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "immune-190-scout-true",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "immune-195-scout-false",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "immune-195-scout-true",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "already-hard-red",
+      "type": "full-output-unchanged",
+      "clearance": 91.97302982498175,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "already-hard-clipped",
+      "type": "full-output-unchanged",
+      "clearance": 306.784305667201,
+      "hard": 1,
+      "soft": 0
+    },
+    {
+      "name": "wall-recovery",
+      "type": "full-output-unchanged",
+      "clearance": 1000000,
+      "hard": 0,
+      "soft": 0
+    },
+    {
+      "name": "over-600ms-release",
+      "type": "release-contract",
+      "keysReleased": 3
+    },
+    {
+      "name": "explicit-stale-release",
+      "type": "release-contract",
+      "keysReleased": 3
+    }
+  ]
+}

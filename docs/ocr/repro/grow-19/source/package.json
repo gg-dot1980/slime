@@ -1,0 +1,6 @@
+{
+  "name": "slime-grow19-reproduction",
+  "private": true,
+  "type": "module",
+  "description": "Publication layout descriptor only; no external dependencies and no automatic scripts."
+}

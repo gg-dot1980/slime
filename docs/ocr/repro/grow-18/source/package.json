@@ -1,0 +1,6 @@
+{
+  "name": "grow-18-frozen-reproduction",
+  "private": true,
+  "type": "module",
+  "description": "Minimal Node standard-library package; rebuild through ../rebuild-frozen.mjs to preserve the frozen protocol timestamp."
+}

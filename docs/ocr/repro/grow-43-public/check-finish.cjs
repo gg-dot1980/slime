@@ -1,0 +1,20 @@
+'use strict';
+const fs=require('node:fs'),path=require('node:path'),assert=require('node:assert/strict');
+const directory=__dirname,body=fs.readFileSync(path.join(directory,'endgame.js'),'utf8');
+const forage=new Function(body+'\nreturn forageFinish43;')();
+const sx=10400/144,sy=7200/(144*7200/10400);
+const map=(now,x=5200,y=3600)=>({width:144,height:144*7200/10400,player:{x:x/sx,y:y/sy},observedAt:now,growMarkers:[],dots39:[]});
+const dot=(m,x,y,red=false)=>({x:m.player.x+x/sx,y:m.player.y+y/sy,area:29,scaleLow:105,scaleHigh:0,red});
+const food=(x,y,r=12)=>({x,y,r,npc:false,clipped:false,blocked:false});
+const results=[];
+function test(name,fn){fn();results.push(name);}
+test('missing map and empty visible map',()=>{assert.equal(forage([],null,190,230,null),null);assert.equal(forage([],map(1000),190,230,null).target,null);});
+test('single saturated dot supplies no goal',()=>{const m=map(1000);m.dots39=[dot(m,720,0)];assert.equal(forage([],m,190,230,null).target,null);});
+test('duplicate and red marks cannot become a white pair',()=>{const m=map(1000);m.dots39=[dot(m,720,0),dot(m,1050,0,true)];m.growMarkers=[dot(m,730,4)];assert.equal(forage([],m,190,230,null).target,null);});
+test('group is an exploration point, never a quantified meal',()=>{const m=map(1000);m.dots39=[dot(m,720,0),dot(m,1120,0)];const t=forage([],m,190,230,null).target;assert.equal(t.finish43Kind,'group');assert.equal(t.estimatedFoodGain,0);assert.equal(t.npc,false);assert(t.visibleWhiteMembers>=2);});
+test('food contacts count distinct visible foods and their own capped increments',()=>{const m=map(1000);const t=forage([food(300,30),food(360,32,13)],m,199,230,null).target;assert.equal(t.finish43Kind,'food');assert.equal(t.visibleFood,2);assert(Math.abs(t.estimatedFoodGain-(12+13)*.035)<1e-8);});
+test('unreachable food behind the wall cannot supply a goal',()=>{const m=map(1000,5200,6970);assert.equal(forage([food(225,300)],m,190,230,null).target,null);});
+test('a clamped destination can collect food within pickup radius',()=>{const m=map(1000,5200,6923);const t=forage([food(-311,204,11)],m,190,230,null).target;assert(t&&t.y<204);assert(Math.hypot(-311-t.x,204-t.y)<190+.45*11);});
+test('no-progress feeding attempt is suppressed and later expires',()=>{let m=map(1000),pr=forage([food(300,30)],m,190,230,null).memory;for(const t of [1800,2600]){m=map(t);pr=forage([food(300,30)],m,190,230,pr).memory;}assert.equal(pr.active,null);assert.equal(pr.bans.length,1);assert.equal(forage([food(300,30)],map(2700),190,230,pr).target,null);assert(forage([food(300,30)],map(9500),190,230,pr).target);});
+test('a stalled white group stops supplying the same waypoint',()=>{let pr=null,chosen;for(const t of [1000,1900,2700]){const m=map(t);m.dots39=[dot(m,720,0),dot(m,1120,0)];chosen=forage([],m,190,230,pr);pr=chosen.memory;}assert.equal(chosen.target,null);assert(pr.bans.length>0);});
+console.log(JSON.stringify({passed:results.length,cases:results},null,2));

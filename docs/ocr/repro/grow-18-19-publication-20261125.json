@@ -1,0 +1,874 @@
+{
+  "schemaVersion": 1,
+  "kind": "grow18-grow19-remote-publication-verification",
+  "verifiedAtUTC": "2026-11-25 07:54:05 UTC",
+  "repository": "gg-dot1980/slime",
+  "branch": "feat/grow-evaluation-20261125",
+  "pullRequest": 2,
+  "sourceCommit": "50517fc92bb4d5d8f447c361557effbe3484d444",
+  "sourceParent": "0f450e7682c2ac97181e1dae9fd35f67c1454e1d",
+  "sourceTree": "7047a76e2044ffbfd66280366c11ce8751ecd5ee",
+  "verification": {
+    "manifestFiles": 94,
+    "manifestBytes": 4889996,
+    "uniqueBlobs": 85,
+    "allPathsModesAndBlobShasMatch": true,
+    "allUtf8BlobContentsReadBackAndEqual": true,
+    "commitParentAndTreeVerified": true,
+    "branchRefVerifiedAtReadback": true,
+    "diffPathsExactlyMatch": true,
+    "unchangedOtherBlobPaths": 684,
+    "unexpectedPaths": [],
+    "failures": []
+  },
+  "scope": {
+    "grow18Files": 40,
+    "grow19Files": 52,
+    "indexFiles": 2,
+    "allChangedPathsUnder": "docs/ocr/",
+    "newGameStarts": 16,
+    "priorArchivedGameStarts": 80,
+    "totalArchivedGameStarts": 96,
+    "productionDeployment": false,
+    "merged": false,
+    "formalAcceptance": false
+  },
+  "results": [
+    {
+      "strategy": "grow-18",
+      "phase": "screen-06",
+      "version": "v2.13",
+      "starts": 4,
+      "nativeFinals": 4,
+      "winsLe150": 4,
+      "deaths": 0,
+      "deadlineCutoffs": 0,
+      "controllerAborts": 0
+    },
+    {
+      "strategy": "grow-18",
+      "phase": "screen-06",
+      "version": "v2.22",
+      "starts": 4,
+      "nativeFinals": 4,
+      "winsLe150": 1,
+      "deaths": 3,
+      "deadlineCutoffs": 0,
+      "controllerAborts": 0
+    },
+    {
+      "strategy": "grow-19",
+      "phase": "screen-07",
+      "version": "v2.13",
+      "starts": 4,
+      "nativeFinals": 4,
+      "winsLe150": 3,
+      "deaths": 0,
+      "deadlineCutoffs": 1,
+      "controllerAborts": 0
+    },
+    {
+      "strategy": "grow-19",
+      "phase": "screen-07",
+      "version": "v2.22",
+      "starts": 4,
+      "nativeFinals": 3,
+      "winsLe150": 2,
+      "deaths": 0,
+      "deadlineCutoffs": 1,
+      "controllerAborts": 1
+    }
+  ],
+  "confirmation": {
+    "grow18": {
+      "starts": 0,
+      "status": "notrun_gate_failed"
+    },
+    "grow19": {
+      "starts": 0,
+      "status": "notrun_gate_failed"
+    },
+    "rates": null
+  },
+  "performance": {
+    "grow18MaxMs": 189.5,
+    "grow19MaxMs": 239.39999999850988,
+    "grow19BudgetMs": 200,
+    "grow19BudgetPassed": false,
+    "overrunIncludedFromControllerEvents": true
+  },
+  "review": {
+    "independentFinalAudits": true,
+    "publicationManifestAndLinkAuditPassed": true,
+    "indexUniqueRelativeTargets": 110,
+    "brokenOrUnverifiedLinks": 0,
+    "humanApprovalClaimed": false
+  },
+  "ciObservation": {
+    "commit": "50517fc92bb4d5d8f447c361557effbe3484d444",
+    "returnedStatuses": [],
+    "returnedPullRequestWorkflowRuns": [],
+    "ciPassClaimed": false,
+    "scope": "Connector status endpoint and first page of pull-request workflow runs; empty results do not establish CI success."
+  },
+  "files": [
+    {
+      "path": "docs/ocr/repro/grow-18/.gitignore",
+      "bytes": 226,
+      "sha256": "cdf871547d5873d188b368ac5ee278bf5b63f40710864e51ce28a6f998c676b3",
+      "gitBlobSha": "32ac276d93d33c8c36801d4772d5429e13a4242d",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/CHECKSUMS.sha256",
+      "bytes": 3864,
+      "sha256": "5235d3c157093a12568fab654231480cd8faf4ca6feb66e3ed351b2f3f3b1a91",
+      "gitBlobSha": "91625adfd94aac2770324d6479b4228028c750e2",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/README.md",
+      "bytes": 14034,
+      "sha256": "7f4deebb60dc74e05b22e4d923372a91019cdeac371939c017d8617e5e46475e",
+      "gitBlobSha": "145177e2d24a41fcd8a2bd5c998473384fdd2272",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/build-verification.json",
+      "bytes": 1052,
+      "sha256": "c9d51366b63d024af5bf0aab60d8af5342e910782b30c9f6ccb9a5855920d33d",
+      "gitBlobSha": "4df6e2d4c0f5f6d7be93208073294931370e6273",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/clean-reconstruction.json",
+      "bytes": 1124,
+      "sha256": "650a74bc559ddb9fc5921bf40a2f8ddfaabacbf41ae9ff2cb0c2143c9f5e8bc6",
+      "gitBlobSha": "b6afc8c4f3f6700b6a9a0bbf366556dd72f58477",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/final-results-review.json",
+      "bytes": 26109,
+      "sha256": "8ea889c23f2dd1e0a8c2172159811a4129752e0afe6baedb086eb8afe82dba4e",
+      "gitBlobSha": "1a35c30df35d9b87c2c91af7c8be2536f45797a8",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/harness-regression.json",
+      "bytes": 4552,
+      "sha256": "f33e1a97aba414bc93ed14dab724a0fcb84738e48b5a0e3b63dcec546feb3949",
+      "gitBlobSha": "8bd0a7b88901f89304a35bb881b107aaac432edf",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/planner-regression-result.json",
+      "bytes": 15830,
+      "sha256": "3388e82d38349336cd78c470560e19fdc591a68efc2f648321e6ef0f67954349",
+      "gitBlobSha": "63460bcabd9636a0c35530a65141a0a24269dd36",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/preflight-review.json",
+      "bytes": 12968,
+      "sha256": "0d57f4bd8966c974067bb1e8c0e8bbba402428b6439aeb476f92a0e58d58921b",
+      "gitBlobSha": "45b3794bde5780ca9032ab3b3160cc9a8f2df87f",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/publication-audit.json",
+      "bytes": 4270,
+      "sha256": "16a0299ac35f3a97060b232090a5c40c807b678cab5ba57cfda69ff9b23c93c7",
+      "gitBlobSha": "6b31d20677a9cbb53657d97255b09c557c847db3",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/publication-utilities.json",
+      "bytes": 2753,
+      "sha256": "be77b3d9d293f3e5db35c11e74c356cc62a9a3573bfe889bb2fa2fc803776539",
+      "gitBlobSha": "b1d14b006836f0f41124d181ea9dab9d2b2bf955",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/checks/publication-wrapper-review.json",
+      "bytes": 2005,
+      "sha256": "cdf58154548c402b96a2cc4d8dc0cb35a606bc27847c4f52341865c31b4dc1e9",
+      "gitBlobSha": "233455a6bdcb7227ebcab5f8b232e279cb1e8069",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/game-source-dependencies.json",
+      "bytes": 1361,
+      "sha256": "050f599c5ea126152bce5b26d1451c23cdaf7076fc82f495be33c592fa70483e",
+      "gitBlobSha": "9488c5be7dec9759c4f826936ebfe508da70b818",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/materialize-game-sources.mjs",
+      "bytes": 2741,
+      "sha256": "9f0ba20b5ddd7f3c24d9bcff8ee3a6714654780e456b50507e337146cf14b866",
+      "gitBlobSha": "8fc1e48a67292fc429e41dbe7806cbcc54d2560c",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/rebuild-frozen.mjs",
+      "bytes": 6480,
+      "sha256": "92618a5f28d2c1d5d6796aa23a31696f5bad5a0d9411d6e9279946777eed99ec",
+      "gitBlobSha": "34205c1143c24248cd4bf0c2b6d10feb2336128a",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/research/research-evidence.json",
+      "bytes": 433483,
+      "sha256": "3e1cfc8aa412561f31a54c0c907f3a40a5979299aa9d5877b1d375a9a7c0e6f6",
+      "gitBlobSha": "707b42e6e9b1644229ee377b164d3f11d0ecbf68",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/research/research-strategy.json",
+      "bytes": 59446,
+      "sha256": "6f314e2d5d4ca90b149235ffa6186a9b02d20107cf533bc827037335001d0ab9",
+      "gitBlobSha": "a4f83d13f8f1389ee770cf4e9ed74a5de5f856ec",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/results/evaluation-summary.json",
+      "bytes": 7685,
+      "sha256": "1c61f6d50b38a8474e0283cf250900a376f6e53d07ca936a4e0140f53111d423",
+      "gitBlobSha": "baa826e7656c2c5713085a1f69e97f7b2c11caee",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/results/events.jsonl",
+      "bytes": 1363891,
+      "sha256": "8e421add4428ecb0167e581013914003c7bb0657b85c2d4bdc3c601cefd03cc6",
+      "gitBlobSha": "83751cdc702e114d6173651ddf4e0692d6cc4b54",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/results/status.json",
+      "bytes": 2670,
+      "sha256": "e25999cc5cfed5d0d4e1e792d447808e5802d72dddbdca1b70a741f4b88e3fc7",
+      "gitBlobSha": "36b84659eaa1c5b1268ad8d36dd07e214d15575e",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/build-lab.mjs",
+      "bytes": 10764,
+      "sha256": "06e95f68981661602a3c44783e09f22c4e0374a91ecc2525c15ffb7db47e5732",
+      "gitBlobSha": "7d5a54e2c1c0b041bb9f31cfc079e2a25b1c234f",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/deployed-game-verification.json",
+      "bytes": 1356,
+      "sha256": "831729fa1f040e972111efda74b266907c06e2700c496b68a81b2b0e550052b3",
+      "gitBlobSha": "6e20f148e6674b0b02971e3fada0bd6c5f23dfc6",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/freeze.json",
+      "bytes": 2212,
+      "sha256": "e3fad6c4e517a6b5326fdc50986fe95c5e50e8ab2146b6d816b58aac3993f4c5",
+      "gitBlobSha": "54f38bde736c8364a07b5eed6810290171980529",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/game-isolation.mjs",
+      "bytes": 2797,
+      "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+      "gitBlobSha": "fb8c352a5223f85ff8eb7cd834eedef6f4c68623",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/geometry.js",
+      "bytes": 5169,
+      "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+      "gitBlobSha": "050911ecd24603341e1f68125c331b9c730529c0",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/harness-regression.mjs",
+      "bytes": 15186,
+      "sha256": "7d114c20b0aba8b7e374bfbe048b0d0288cd0a7807e7b483ab484f0c7a670ddd",
+      "gitBlobSha": "8c78140979b0aa18501f97dd7cee287ca7f8d0a8",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/harness.js",
+      "bytes": 12537,
+      "sha256": "5f14752c9fd880083990ceb606f1507ab2bafe00781d6ceeaca6d7e8b9824039",
+      "gitBlobSha": "9a2d9944e3bb55d504ff088857b4ee673d0607e2",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/index.html",
+      "bytes": 233222,
+      "sha256": "6168d5e93b942af212037b5cfb15628cb28ad3b40a5b9b42de7e13bdf2ce2461",
+      "gitBlobSha": "55b28fe01f2679f5cff7ef4521714b8cd3a05fed",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/manifest.json",
+      "bytes": 8859,
+      "sha256": "0b9c7b9e3bc993633a85595d8eaf56381b1958f8fefd4bc04e4f077af584d174",
+      "gitBlobSha": "5d817d0029da40c7b537682e76ac167393ee1ba0",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/parent-manifest.json",
+      "bytes": 3009,
+      "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5",
+      "gitBlobSha": "cf162547977a83b8b5b575f46eefe9f0fc6ef72e",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/planner.js",
+      "bytes": 15718,
+      "sha256": "fd77baecfd7002a66aee693527f88f6a666a072c18fe7802819bad98d2a63046",
+      "gitBlobSha": "cc2e7b18de5508f9c682dca23bfd493fbd84d012",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/planner.regression.mjs",
+      "bytes": 10467,
+      "sha256": "2ce093b81e0097a32e201b59903118350c5eee8f8983a35a7ec3e457bb1af9df",
+      "gitBlobSha": "a338e83e5c8180587a1baeea075196abe89e8f2f",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/protocol.json",
+      "bytes": 8859,
+      "sha256": "0b9c7b9e3bc993633a85595d8eaf56381b1958f8fefd4bc04e4f077af584d174",
+      "gitBlobSha": "5d817d0029da40c7b537682e76ac167393ee1ba0",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/server.mjs",
+      "bytes": 2082,
+      "sha256": "916b0adf18dfe8d1856249fd74b2feb77461a3fa0632ab1914b6974d1dbbf12b",
+      "gitBlobSha": "eeb60a2c6a6190d93afe754d5ae306bdb7b01cb6",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/experiments/grow18/source-base.html",
+      "bytes": 52177,
+      "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+      "gitBlobSha": "99e93a673d3ed4b0e6333c46533420e5b4216e54",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/package.json",
+      "bytes": 223,
+      "sha256": "ff59e3d7340ba6552f41efbe3e1b8487223d85eac81259b25e65e6554bc1a60a",
+      "gitBlobSha": "e7509202129ca2772f71212e96d20469b1f0212b",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source/parent/grow15-planner.js",
+      "bytes": 15192,
+      "sha256": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+      "gitBlobSha": "9d531499ad39a8a7054c3d451529723d407f1a7e",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/source-checksums.json",
+      "bytes": 4673,
+      "sha256": "965c1b331f834d1040b3a7a9917cf006df419b4599a80e410af48cfcfba206da",
+      "gitBlobSha": "00ee15ca9dd87ae04bfbc5636f62971fe1aca677",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/tools/audit-round.py",
+      "bytes": 24850,
+      "sha256": "2d0883aa242fd0d4d862cb8ff64b4e10743c0d8ad9b652eb862d220dcf97babc",
+      "gitBlobSha": "7e28c6bae5ad9c4e955f93921ca8e5b0bb6ff956",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-18/tools/summarize-round.mjs",
+      "bytes": 6690,
+      "sha256": "bd6ec5682305715cec4ce8621769ffd3774019d0eec10a93ee3187f0722415c0",
+      "gitBlobSha": "b82fcd0838ba4ed3b5452fa680d6ba6b801f2777",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/.gitignore",
+      "bytes": 244,
+      "sha256": "cdd1d9753165962de7d39348f89a0282beff2f1cbb4098a948b7c893de15a496",
+      "gitBlobSha": "08be9e41be077d5757e4f254ae13ad60e7e63551",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/CHECKSUMS.sha256",
+      "bytes": 5189,
+      "sha256": "c141f721ae7ae0a405de48e63c03151a37bf1c04ff7739d5d9397de938c26392",
+      "gitBlobSha": "6560b09f515fbae7d83a3271822e9d386ca76e9f",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/README.md",
+      "bytes": 18319,
+      "sha256": "911da1d5401d51ae42c07e5f09f651138b1bf64180e4d2e7423b7176e5e507e0",
+      "gitBlobSha": "d81ecab373d5e10efc5b74717cb854e403bcd638",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/build-verification.json",
+      "bytes": 5306,
+      "sha256": "29e7325a7982e136cb9c850d0d68b42d8267b68efe202e66ea9eca560ba1f47c",
+      "gitBlobSha": "82d53630958b6173d895a901dae0fc6ebed6500b",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/clean-reconstruction.json",
+      "bytes": 1534,
+      "sha256": "ada59e9728b2292f6f412817daa40e6d1cf0098d70be3b42b272d0e4bab6b748",
+      "gitBlobSha": "1ae4aafb1f7c6046aad94e92ce147346b5465de5",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/clean-regression-verification.json",
+      "bytes": 1443,
+      "sha256": "3502d6c4ff87b6975579953faa633c6e95cf46587d3611553aad82bb2b569572",
+      "gitBlobSha": "a0b1cb3b1caa05776d4fdeee07c93d25e553e535",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/final-results-review.json",
+      "bytes": 30790,
+      "sha256": "3bd94dcc7c6a299a1fa9e5da8d4d51bfb3fc3daf130420c2ee7fc9ad825e1a8d",
+      "gitBlobSha": "6ceea9fc33373743cbb805c8169b46853ec5495d",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/harness-regression.json",
+      "bytes": 4552,
+      "sha256": "516af0bd3433d01d603dbbadf5ae50773bc31d58114ec31c39d0556dd3324c14",
+      "gitBlobSha": "95710c11786d4da40e2cbb74611a85de92671bed",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/preflight-review.json",
+      "bytes": 4037,
+      "sha256": "2bbadb7ef6195398593d07246e3d0242885fa82caaae1e01c2121f5c83a5011f",
+      "gitBlobSha": "7bbb8c8db061c01347408baaf55486bb28f34dd7",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/publication-audit.json",
+      "bytes": 5714,
+      "sha256": "32179b614794be8ab81a808f4b131f832829b7c28e9e75894c324c45016a5235",
+      "gitBlobSha": "de071db51dece0c101f0439852a69232d0028e2c",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/publication-wrapper-review.json",
+      "bytes": 2035,
+      "sha256": "dd83f426e0d4531dfd4026e5332f33df7ed6d73e3d2c457b1b3b3ee334801d24",
+      "gitBlobSha": "bd60d3e5fb318c0d0f02a575e415dba59f29b2b8",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/regression-result.json",
+      "bytes": 156753,
+      "sha256": "97c167574acee2c7227c532ea40f57755dc7fd864a82fe737f8d577e223ce108",
+      "gitBlobSha": "e9a06e1029bd8d8ed156e5ab74ee4d0ad9d91d15",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/checks/standby-history-comparison.json",
+      "bytes": 1037,
+      "sha256": "208b437c36b683e0679be0dde60e62a5af7730123ef84f651458d2a85d953a4c",
+      "gitBlobSha": "dc1c28ce02ab02c34cd824e7e74f6765c67dd0eb",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/game-source-dependencies.json",
+      "bytes": 1361,
+      "sha256": "3ebc3feada02d34d381544ca86f1afc8902025d094577a9e8be07365b233ec18",
+      "gitBlobSha": "1382338ba0bc42504071e6d66b00a0a4fca06568",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/history/NOTES-standby.md",
+      "bytes": 8959,
+      "sha256": "37205266e831cd17ed043bdf58680f656a11a82cacbe166a2e522189cd02c70b",
+      "gitBlobSha": "047f65d84f4d359efb1e9c1a80fff06038d87139",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/history/standby-inventory.json",
+      "bytes": 4466,
+      "sha256": "98d125e46b9a5e77b35989419f462b6fa49a692a94cb8301be53e65c0012dfa2",
+      "gitBlobSha": "a0baac82c0d8131a5aec53142e3705f6f9e245e6",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/materialize-game-sources.mjs",
+      "bytes": 2741,
+      "sha256": "eb8fb8976fcd8bb3baffac957c5a77020e867b78eea6600b997f5cddafdc94b0",
+      "gitBlobSha": "2042ba87749281b9d523051188bfba215b03d7cb",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/rebuild-frozen.mjs",
+      "bytes": 10800,
+      "sha256": "22c8a4d8c4ec532a74ab837f8848e58a4c32c8e191fa303478a87d39ce58cf6e",
+      "gitBlobSha": "e3eb638a533ce7acff473483198d0e8372096f32",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/research/README-original.md",
+      "bytes": 8639,
+      "sha256": "0d5c454dd98fd35edcf868436538778cca2582c8e3b31be35f08c221a7d0fb82",
+      "gitBlobSha": "2c858d1b1b0a1079813c11ebcbb44a7e546e9f8f",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/research/check-perception.cjs",
+      "bytes": 17567,
+      "sha256": "7ec9df82caac5888781c6104b8b0a797eb618db154f1df94278647ece8091d7b",
+      "gitBlobSha": "0a8ac044e0dee0d4e2f729fc70813bb500c1b795",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/research/input/grow15-build-lab.mjs",
+      "bytes": 7124,
+      "sha256": "d62a48bb5745babe545c94c63d4e0d658ed6afb744748a54e048e01a4a8e28ea",
+      "gitBlobSha": "e740c8db1d7588604e1527fce6527f4d16015fa0",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/research/input/grow17-late-cutoff-diagnostic.json",
+      "bytes": 34667,
+      "sha256": "82215de3322fd6a1ac0f4e5364a751b2ffc1964442c274f5f56b4e4ab0363f81",
+      "gitBlobSha": "fea867337dd6cbbe15d54f903b859c0104aa0392",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/research/research-perception.json",
+      "bytes": 126241,
+      "sha256": "a3df57cd8b3446ab4bd0eb107e0cfab4103cd7c993293439f6086c260c774f63",
+      "gitBlobSha": "f76f37cba41be9b833016560d96ea0d5bf8f8da9",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/research-inputs.json",
+      "bytes": 3006,
+      "sha256": "62ebaa0972975021b6835e41392f596df8ff4c4c0278e397f3e6aeca07e9caae",
+      "gitBlobSha": "413699af80481509359ef5d7516d063c64fa4d60",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/results/evaluation-summary.json",
+      "bytes": 7991,
+      "sha256": "41a67ead6486733f80753c290e62fabe3f3471a290c6d4edbc4436e0ee1937e6",
+      "gitBlobSha": "b783c4a8a6c756a6bfe602af4a2ab00eeb6e3f68",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/results/events.jsonl",
+      "bytes": 1394519,
+      "sha256": "6917cac99395ae97690a3a634f171de656c884bcb932f6af499e4237b970331e",
+      "gitBlobSha": "f5c3537cee12ba075aa812c901e038249c18fec9",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/results/status.json",
+      "bytes": 2742,
+      "sha256": "8898728fb6a010dcb7c2a64df4057eb1ef23edec78ff9cd970c02ff2d2efdb7c",
+      "gitBlobSha": "7d90e30080d64ef04ee80b2d4fa10d5d0a3b2385",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow15/frozen/screen-03/geometry.js",
+      "bytes": 5169,
+      "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+      "gitBlobSha": "050911ecd24603341e1f68125c331b9c730529c0",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow15/frozen/screen-03/planner.js",
+      "bytes": 15192,
+      "sha256": "e89d6a8cb0201a8caf0314c023e16f37f63396dd44615bf4dcdc823077e0fd0e",
+      "gitBlobSha": "9d531499ad39a8a7054c3d451529723d407f1a7e",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow15/frozen/screen-03/source-base.html",
+      "bytes": 52177,
+      "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+      "gitBlobSha": "99e93a673d3ed4b0e6333c46533420e5b4216e54",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow15/geometry.synthetic.cjs",
+      "bytes": 2714,
+      "sha256": "d916d2d8e627d4de1b17ab2176ecb13c05ff877a3cb46e05b946aaf013b53ef2",
+      "gitBlobSha": "51266e2b67290d12714df73992c3f9f7235d21c0",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/activation-verification.json",
+      "bytes": 1102,
+      "sha256": "42203096e5c880b528a3b7fd7635f1eb9e37b5648fad475c47cf4e0c1a0d7efc",
+      "gitBlobSha": "2b636f615a12d32ebc3e2b39056b1d1a30158df5",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/build-lab.mjs",
+      "bytes": 13450,
+      "sha256": "4c48594e1738a46584c1ddc9128860c2afe0bee50bc4631c5a90d12682fd6cc2",
+      "gitBlobSha": "e276202c3736c860658307eeb380275a23868052",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/deployed-game-verification.json",
+      "bytes": 1355,
+      "sha256": "ceda096e575b4fac800b362e9e2903004918861691009d1ecae4343defbf7400",
+      "gitBlobSha": "8bcf85a10aa14978803c1fbe1c0f28298ce644b8",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/freeze.json",
+      "bytes": 2363,
+      "sha256": "f2938b88d792c5deda61ab2c6cd22f0d74aecdab89aa8e5f95a1b891bf7029c6",
+      "gitBlobSha": "805683e46aab34c3f4dfae3386c1c2dc0e3a7d27",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/game-isolation.mjs",
+      "bytes": 2797,
+      "sha256": "00908ab8787f32be3f732f98b56d0f6e432f2ebfef4ae64cecebb1697ca3122f",
+      "gitBlobSha": "fb8c352a5223f85ff8eb7cd834eedef6f4c68623",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/geometry.js",
+      "bytes": 5169,
+      "sha256": "f229b10be76816bdaec554b49a204dad8d77d4765d61dae168a5075d1d3033ec",
+      "gitBlobSha": "050911ecd24603341e1f68125c331b9c730529c0",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/harness-regression.mjs",
+      "bytes": 15186,
+      "sha256": "6db6b11f49457f8890fb943f182870a8bd328972e24edff0ed69ae74606fc736",
+      "gitBlobSha": "fecc8dec9bfc39ecde89eb98e7201c8eb916c0fc",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/harness.js",
+      "bytes": 12439,
+      "sha256": "024d23c043268577cb0fced12e639b079fca8b3eeac9048d52a991dbed5bc854",
+      "gitBlobSha": "59cd195f7c1433d9a4be374cdc752e9a6d76533e",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/index.html",
+      "bytes": 233405,
+      "sha256": "7ccdef465829281411dd2055fee1101e1159e598ff04479274c4baa11d1c44a9",
+      "gitBlobSha": "387d1bfb4bce22f4e2ee8d81faf14761264c2054",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/manifest.json",
+      "bytes": 11515,
+      "sha256": "057c91d47a80ef4c91e24cc3daafc89e251e472dc5fd6d3d407c6c2c80bc5cc9",
+      "gitBlobSha": "44d79be7f43ee9b1b045787d5a7c82bf6f75ed9f",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/parent-manifest.json",
+      "bytes": 3009,
+      "sha256": "6d0aa94bcf9e241091e466c3b4aca710e8a02de5b4debbc94058ba9549fc59e5",
+      "gitBlobSha": "cf162547977a83b8b5b575f46eefe9f0fc6ef72e",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/planner.js",
+      "bytes": 15763,
+      "sha256": "b75c18be0d2444e3113bcd1fec302cca86ea7bc60844773b1a8511a19e7c4ee8",
+      "gitBlobSha": "ed19c44e5a81113e026b7623b33561cdb8b26d90",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/protocol.json",
+      "bytes": 11515,
+      "sha256": "057c91d47a80ef4c91e24cc3daafc89e251e472dc5fd6d3d407c6c2c80bc5cc9",
+      "gitBlobSha": "44d79be7f43ee9b1b045787d5a7c82bf6f75ed9f",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/regression.cjs",
+      "bytes": 14947,
+      "sha256": "d1c7b7f6e085ff4a5c0bdc8513247e47452fa2eed6f8cd2ad52c8fac99c8f8ea",
+      "gitBlobSha": "0e9766eaa5eef5c9d71ff7828c62ba190098db55",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/server.mjs",
+      "bytes": 2082,
+      "sha256": "37b40da087e0ca78f9d8a3b4212aa4ad478ebd82485460a83d9de6c9bfdde8f7",
+      "gitBlobSha": "9ac50e45be7825adae9a299b98358c0c9c7fde33",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/source-base.html",
+      "bytes": 52177,
+      "sha256": "e9d818294509cca36ccc41826c8138008705d313c99ba4cc28e21bd427dc1a6b",
+      "gitBlobSha": "99e93a673d3ed4b0e6333c46533420e5b4216e54",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/template-provenance.json",
+      "bytes": 2539,
+      "sha256": "89c2ac9ef296e7771b751711cf8fdf1b6e29679260962e2522a3ba7a5f8b3034",
+      "gitBlobSha": "3d1bbfa6b187f327c6b3c0e27e492bbff35599f7",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/experiments/grow19/verify-build.mjs",
+      "bytes": 8041,
+      "sha256": "c57f0c741194cc660d459f320ac0ffb1dc1b0c31d25fbeaa826a3d1f80523849",
+      "gitBlobSha": "7337b35b4d5a1a833af80e179b76ab5594afd3b1",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source/package.json",
+      "bytes": 188,
+      "sha256": "cd514be54e51878a2a299a967ce8b5f824a711faf415ed6e6efc0096ce99c587",
+      "gitBlobSha": "82ffb22fd0247800303b0374098a078adfb32a6b",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/source-checksums.json",
+      "bytes": 5215,
+      "sha256": "1ebe3ca7a7e13b0c45a0ed1784a841c985c8c1a43cb5fae7435dfb4db99cbf11",
+      "gitBlobSha": "6012f87afdebf3b21ed2ad03fc3ad066dc0271c4",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/repro/grow-19/tools/audit-round19.py",
+      "bytes": 29431,
+      "sha256": "67e83467fff8eb420941f595fc8bde34cc6a19844cccf3b2585622c20c5e501a",
+      "gitBlobSha": "68707ad7625c3fe9bc2d43c0749c4eb1e1a04627",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/GROW-VERSIONS.md",
+      "bytes": 8223,
+      "sha256": "18c1afea81fa911e5ec14ed6871459c38f3801356c29f2aa9733ff0e7a07a4d5",
+      "gitBlobSha": "ea20853750790bcd55ff72b7d9618c82e8c50b02",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    },
+    {
+      "path": "docs/ocr/TEST-HANDOFF.md",
+      "bytes": 92471,
+      "sha256": "d0c61119159c5a68e3eb646a6a45443d08d29d9d74a0d28669ad51609c415fa9",
+      "gitBlobSha": "e8ed8f181b9804b71c401daeca45c0138d68e817",
+      "mode": "100644",
+      "remoteContentReadbackMatched": true
+    }
+  ],
+  "limits": [
+    "All started trials remain in their original denominators.",
+    "Both confirmation phases were not started; their success rates are null.",
+    "Small unseeded exploration samples do not establish a stable success rate or causal improvement.",
+    "The publication receipt is separate from and does not change either candidate's frozen source or raw events."
+  ]
+}

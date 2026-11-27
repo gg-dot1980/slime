@@ -1,0 +1,4251 @@
+{
+  "schemaVersion": 1,
+  "kind": "fixed hand-constructed numeric fixtures; no natural snapshots",
+  "nativeGeometryReference": {
+    "canvas": [
+      958,
+      557
+    ],
+    "dpr": 1
+  },
+  "cases": [
+    {
+      "id": "01-v2.13-food-west-clear",
+      "name": "food-west-clear",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 360,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "01-v2.22-food-west-clear",
+      "name": "food-west-clear",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 360,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "02-v2.13-food-west-hazard-90",
+      "name": "food-west-hazard-90",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -360,
+            "y": -150,
+            "r": 90,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 90,
+            "originalRadius": 90,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 90,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 360,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "02-v2.22-food-west-hazard-90",
+      "name": "food-west-hazard-90",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -360,
+            "y": -150,
+            "r": 90,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 90,
+            "originalRadius": 90,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 90,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 360,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "03-v2.13-food-west-hazard-110",
+      "name": "food-west-hazard-110",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -360,
+            "y": -150,
+            "r": 110,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 110,
+            "originalRadius": 110,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 110,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 360,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "03-v2.22-food-west-hazard-110",
+      "name": "food-west-hazard-110",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -360,
+            "y": -150,
+            "r": 110,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 110,
+            "originalRadius": 110,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 110,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 360,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "04-v2.13-food-east-mirrored-hazard",
+      "name": "food-east-mirrored-hazard",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 360,
+            "y": -120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 360,
+            "y": 150,
+            "r": 110,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 110,
+            "originalRadius": 110,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 110,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 360,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": -1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "04-v2.22-food-east-mirrored-hazard",
+      "name": "food-east-mirrored-hazard",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 360,
+            "y": -120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 360,
+            "y": 150,
+            "r": 110,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 110,
+            "originalRadius": 110,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 110,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 360,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": -1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "05-v2.13-visible-npc-south-wall",
+      "name": "visible-npc-south-wall",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -390,
+            "y": 210,
+            "r": 45,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 45,
+            "originalRadius": 45,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 45,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 96.57692307692308
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            6975,
+            225
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 350,
+        "velocity": {
+          "x": -100,
+          "y": 30
+        },
+        "heading": {
+          "x": -1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "05-v2.22-visible-npc-south-wall",
+      "name": "visible-npc-south-wall",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -390,
+            "y": 210,
+            "r": 45,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 45,
+            "originalRadius": 45,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 45,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 96.57692307692308
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            6975,
+            225
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 350,
+        "velocity": {
+          "x": -100,
+          "y": 30
+        },
+        "heading": {
+          "x": -1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "06-v2.13-visible-moving-npc-and-danger",
+      "name": "visible-moving-npc-and-danger",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 40,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 40,
+            "originalRadius": 40,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 40,
+            "vx": -80,
+            "vy": 20
+          },
+          {
+            "x": -320,
+            "y": -130,
+            "r": 115,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 115,
+            "originalRadius": 115,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 115,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 80,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 320,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "06-v2.22-visible-moving-npc-and-danger",
+      "name": "visible-moving-npc-and-danger",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 40,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 40,
+            "originalRadius": 40,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 40,
+            "vx": -80,
+            "vy": 20
+          },
+          {
+            "x": -320,
+            "y": -130,
+            "r": 115,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 115,
+            "originalRadius": 115,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 115,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 80,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 320,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "07-v2.13-visible-close-edible-npc",
+      "name": "visible-close-edible-npc",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 220,
+            "y": 0,
+            "r": 50,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 50,
+            "originalRadius": 50,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 50,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "07-v2.22-visible-close-edible-npc",
+      "name": "visible-close-edible-npc",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 220,
+            "y": 0,
+            "r": 50,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 50,
+            "originalRadius": 50,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 50,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "08-v2.13-visible-neutral-npc",
+      "name": "visible-neutral-npc",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 240,
+            "y": 0,
+            "r": 67,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 67,
+            "originalRadius": 67,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 67,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "08-v2.22-visible-neutral-npc",
+      "name": "visible-neutral-npc",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 240,
+            "y": 0,
+            "r": 67,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 67,
+            "originalRadius": 67,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 67,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "09-v2.13-future-food-capture-full-inertia",
+      "name": "future-food-capture-full-inertia",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -150,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 300,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "09-v2.22-future-food-capture-full-inertia",
+      "name": "future-food-capture-full-inertia",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -150,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 300,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "10-v2.13-future-food-capture-half-inertia",
+      "name": "future-food-capture-half-inertia",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -150,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 150,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "10-v2.22-future-food-capture-half-inertia",
+      "name": "future-food-capture-half-inertia",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -150,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 150,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "11-v2.13-future-npc-capture-full-inertia",
+      "name": "future-npc-capture-full-inertia",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -160,
+            "y": 0,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 300,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "11-v2.22-future-npc-capture-full-inertia",
+      "name": "future-npc-capture-full-inertia",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -160,
+            "y": 0,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 300,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "12-v2.13-two-food-target-switch",
+      "name": "two-food-target-switch",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -140,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 240,
+            "y": 100,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "12-v2.22-two-food-target-switch",
+      "name": "two-food-target-switch",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -140,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 240,
+            "y": 100,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "13-v2.13-food-cluster",
+      "name": "food-cluster",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 200,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 240,
+            "y": 20,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 280,
+            "y": -20,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "13-v2.22-food-cluster",
+      "name": "food-cluster",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 200,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 240,
+            "y": 20,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 280,
+            "y": -20,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "14-v2.13-empty-visible-map",
+      "name": "empty-visible-map",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "14-v2.22-empty-visible-map",
+      "name": "empty-visible-map",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "15-v2.13-missing-map-empty-view",
+      "name": "missing-map-empty-view",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [],
+        "hud": 95,
+        "map": null,
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "15-v2.22-missing-map-empty-view",
+      "name": "missing-map-empty-view",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [],
+        "hud": 95,
+        "map": null,
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "16-v2.13-explicit-stale-map",
+      "name": "explicit-stale-map",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -200,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": [],
+          "stale": true
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "16-v2.22-explicit-stale-map",
+      "name": "explicit-stale-map",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -200,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": [],
+          "stale": true
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "17-v2.13-aged-map-601ms",
+      "name": "aged-map-601ms",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -220,
+            "y": 0,
+            "r": 40,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 40,
+            "originalRadius": 40,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 40,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 399,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "17-v2.22-aged-map-601ms",
+      "name": "aged-map-601ms",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -220,
+            "y": 0,
+            "r": 40,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 40,
+            "originalRadius": 40,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 40,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 399,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "18-v2.13-aged-map-exact-600ms",
+      "name": "aged-map-exact-600ms",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -200,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 400,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "18-v2.22-aged-map-exact-600ms",
+      "name": "aged-map-exact-600ms",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -200,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 400,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "19-v2.13-map-only-north-350",
+      "name": "map-only-north-350",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [
+            {
+              "x": 72,
+              "y": 45,
+              "area": 4,
+              "red": false
+            }
+          ],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "19-v2.22-map-only-north-350",
+      "name": "map-only-north-350",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [
+            {
+              "x": 72,
+              "y": 45,
+              "area": 4,
+              "red": false
+            }
+          ],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "20-v2.13-map-only-south-350",
+      "name": "map-only-south-350",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [
+            {
+              "x": 72,
+              "y": 54.69230769230769,
+              "area": 4,
+              "red": false
+            }
+          ],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "20-v2.22-map-only-south-350",
+      "name": "map-only-south-350",
+      "expectCompleteUnchanged": true,
+      "clock": 1000,
+      "input": {
+        "objects": [],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [
+            {
+              "x": 72,
+              "y": 54.69230769230769,
+              "area": 4,
+              "red": false
+            }
+          ],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "21-v2.13-map-only-far-and-food",
+      "name": "map-only-far-and-food",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [
+            {
+              "x": 72,
+              "y": 33.23076923076923,
+              "area": 16,
+              "red": false
+            }
+          ],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "21-v2.22-map-only-far-and-food",
+      "name": "map-only-far-and-food",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [
+            {
+              "x": 72,
+              "y": 33.23076923076923,
+              "area": 16,
+              "red": false
+            }
+          ],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "22-v2.13-west-wall-visible-food",
+      "name": "west-wall-visible-food",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -80,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 240,
+            "y": 30,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 1.6615384615384616,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            120,
+            10280,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "22-v2.22-west-wall-visible-food",
+      "name": "west-wall-visible-food",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -80,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 240,
+            "y": 30,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 1.6615384615384616,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            120,
+            10280,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "23-v2.13-corner-food-and-npc",
+      "name": "corner-food-and-npc",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 80,
+            "y": 60,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 250,
+            "y": 80,
+            "r": 40,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 40,
+            "originalRadius": 40,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 40,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 1.2461538461538462,
+            "y": 1.2461538461538462
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            90,
+            10310,
+            90,
+            7110
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "23-v2.22-corner-food-and-npc",
+      "name": "corner-food-and-npc",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 80,
+            "y": 60,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 250,
+            "y": 80,
+            "r": 40,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 40,
+            "originalRadius": 40,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 40,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 1.2461538461538462,
+            "y": 1.2461538461538462
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            90,
+            10310,
+            90,
+            7110
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "24-v2.13-forced-escape-overlap",
+      "name": "forced-escape-overlap",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 60,
+            "y": 0,
+            "r": 160,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 160,
+            "originalRadius": 160,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 160,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -250,
+            "y": 50,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "24-v2.22-forced-escape-overlap",
+      "name": "forced-escape-overlap",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 60,
+            "y": 0,
+            "r": 160,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 160,
+            "originalRadius": 160,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 160,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -250,
+            "y": 50,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "25-v2.13-narrow-safe-corridor",
+      "name": "narrow-safe-corridor",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 250,
+            "y": -100,
+            "r": 125,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 125,
+            "originalRadius": 125,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 125,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 250,
+            "y": 100,
+            "r": 125,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 125,
+            "originalRadius": 125,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 125,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -300,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "25-v2.22-narrow-safe-corridor",
+      "name": "narrow-safe-corridor",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 250,
+            "y": -100,
+            "r": 125,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 125,
+            "originalRadius": 125,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 125,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 250,
+            "y": 100,
+            "r": 125,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 125,
+            "originalRadius": 125,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 125,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -300,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 70,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "26-v2.13-version-immune-switch",
+      "name": "version-immune-switch",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 230,
+            "y": 0,
+            "r": 200,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 200,
+            "originalRadius": 200,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 200,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -250,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 190,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "26-v2.22-version-immune-switch",
+      "name": "version-immune-switch",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": 230,
+            "y": 0,
+            "r": 200,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 200,
+            "originalRadius": 200,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": true,
+            "dangerRadius": 200,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": -250,
+            "y": 0,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 190,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "27-v2.13-visible-npc-continuity-left",
+      "name": "visible-npc-continuity-left",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -260,
+            "y": 40,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 260,
+            "y": -40,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 80,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": -1,
+          "y": 0,
+          "target": {
+            "x": -250,
+            "y": 40,
+            "r": 30,
+            "npc": true,
+            "mapOnly": false
+          }
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "27-v2.22-visible-npc-continuity-left",
+      "name": "visible-npc-continuity-left",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -260,
+            "y": 40,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 260,
+            "y": -40,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 80,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": -1,
+          "y": 0,
+          "target": {
+            "x": -250,
+            "y": 40,
+            "r": 30,
+            "npc": true,
+            "mapOnly": false
+          }
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "28-v2.13-visible-npc-continuity-right",
+      "name": "visible-npc-continuity-right",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -260,
+            "y": 40,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 260,
+            "y": -40,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 80,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0,
+          "target": {
+            "x": 250,
+            "y": -40,
+            "r": 30,
+            "npc": true,
+            "mapOnly": false
+          }
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "28-v2.22-visible-npc-continuity-right",
+      "name": "visible-npc-continuity-right",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -260,
+            "y": 40,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 260,
+            "y": -40,
+            "r": 30,
+            "npc": true,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 30,
+            "originalRadius": 30,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 30,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 80,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0,
+          "target": {
+            "x": 250,
+            "y": -40,
+            "r": 30,
+            "npc": true,
+            "mapOnly": false
+          }
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "29-v2.13-sideways-inertia-visible-food",
+      "name": "sideways-inertia-visible-food",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": -250
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "29-v2.22-sideways-inertia-visible-food",
+      "name": "sideways-inertia-visible-food",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -360,
+            "y": 120,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 40,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": -250
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    },
+    {
+      "id": "30-v2.13-clipped-and-blocked-npc-exclusions",
+      "name": "clipped-and-blocked-npc-exclusions",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -280,
+            "y": 80,
+            "r": 45,
+            "npc": true,
+            "clipped": true,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 45,
+            "originalRadius": 45,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 100,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 250,
+            "y": 80,
+            "r": 40,
+            "npc": true,
+            "clipped": false,
+            "blocked": true,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 40,
+            "originalRadius": 40,
+            "confidence": 0.9,
+            "stalled": 1,
+            "isRed": false,
+            "dangerRadius": 40,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 0,
+            "y": -160,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.13"
+      }
+    },
+    {
+      "id": "30-v2.22-clipped-and-blocked-npc-exclusions",
+      "name": "clipped-and-blocked-npc-exclusions",
+      "expectCompleteUnchanged": false,
+      "clock": 1000,
+      "input": {
+        "objects": [
+          {
+            "x": -280,
+            "y": 80,
+            "r": 45,
+            "npc": true,
+            "clipped": true,
+            "blocked": false,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 45,
+            "originalRadius": 45,
+            "confidence": 0.9,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 100,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 250,
+            "y": 80,
+            "r": 40,
+            "npc": true,
+            "clipped": false,
+            "blocked": true,
+            "labelSeen": true,
+            "localReliable": true,
+            "geometryAccepted": 1,
+            "visualR": 40,
+            "originalRadius": 40,
+            "confidence": 0.9,
+            "stalled": 1,
+            "isRed": false,
+            "dangerRadius": 40,
+            "vx": 0,
+            "vy": 0
+          },
+          {
+            "x": 0,
+            "y": -160,
+            "r": 10,
+            "npc": false,
+            "clipped": false,
+            "blocked": false,
+            "labelSeen": false,
+            "localReliable": false,
+            "geometryAccepted": 0,
+            "visualR": 10,
+            "originalRadius": 10,
+            "confidence": null,
+            "stalled": 0,
+            "isRed": false,
+            "dangerRadius": 10,
+            "vx": 0,
+            "vy": 0
+          }
+        ],
+        "hud": 95,
+        "map": {
+          "player": {
+            "x": 72,
+            "y": 49.84615384615385
+          },
+          "width": 144,
+          "height": 99.6923076923077,
+          "pixelRatio": 1,
+          "viewWidth": 958,
+          "viewHeight": 557,
+          "observedAt": 1000,
+          "visibleWalls": [
+            5200,
+            5200,
+            3600,
+            3600
+          ],
+          "growMarkers": [],
+          "threats": [],
+          "opportunities": []
+        },
+        "speed": 300,
+        "velocity": {
+          "x": 0,
+          "y": 0
+        },
+        "heading": {
+          "x": 1,
+          "y": 0
+        },
+        "splitGuard": true,
+        "gameVersion": "v2.22"
+      }
+    }
+  ]
+}

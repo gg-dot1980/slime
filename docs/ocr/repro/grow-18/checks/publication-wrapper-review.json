@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "kind": "Independent bounded source review of publication helpers",
+  "recordedAt": "2026-11-25T06:40:36.201322+00:00",
+  "reviewer": "/root/claude_strategy",
+  "provenance": "Review conclusion delivered to /root/grow_strategy in the shared agent message; this record is a faithful local transcription, not a separate executable test.",
+  "status": "no_blocker_found",
+  "method": "read-only source inspection; reviewer did not execute tests, launch browser/server/game, or modify files",
+  "files": [
+    {
+      "file": "materialize-game-sources.mjs",
+      "sha256": "9f0ba20b5ddd7f3c24d9bcff8ee3a6714654780e456b50507e337146cf14b866"
+    },
+    {
+      "file": "rebuild-frozen.mjs",
+      "sha256": "92618a5f28d2c1d5d6796aa23a31696f5bad5a0d9411d6e9279946777eed99ec"
+    }
+  ],
+  "findings": [
+    "Materializer restricts source and runtime paths with allowlists and verifies byte length, SHA-256 and Git blob before writes.",
+    "All sources and existing destinations are checked before any write; differing destinations are rejected and new writes use exclusive creation.",
+    "Rebuild requires a nonexistent fresh output directory, checks source-checksums and manifest/freeze/protocol identity, runs original build only inside the new output, then validates every freeze file byte length/hash and exact manifest/protocol bytes.",
+    "The fixed Date preload is passed only to the single build child; subsequent checks receive no --import; the preload is not placed in HTML/server/game and does not change Math.random.",
+    "The documented repo-root command can restore the two dependency files from existing root/src pinned bytes."
+  ],
+  "limits": [
+    "This reviewer assessed helper mechanics only. Clean rebuild and utility execution evidence was produced separately by /root/grow_strategy in checks/clean-reconstruction.json and checks/publication-utilities.json.",
+    "No gameplay improvement, live result, or browser behavior is inferred from this review."
+  ]
+}

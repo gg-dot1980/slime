@@ -1,0 +1,29 @@
+--- ocr-grow34.html
++++ v1.html
+@@ -222,5 +222,5 @@
+  let measuredCamera=null;if(shifts.length>=3){const median=k=>shifts.map(p=>p[k]).sort((a,b)=>a-b)[shifts.length>>1];measuredCamera={x:median('x'),y:median('y')};camera=predictedVelocity?{x:predictedVelocity.x*.6+median('x')*.4,y:predictedVelocity.y*.6+median('y')*.4}:{x:median('x'),y:median('y')};}
+  camera.x=Math.max(-400,Math.min(400,camera.x));camera.y=Math.max(-400,Math.min(400,camera.y));const oldVelocity=prior?.analysis.velocity||{x:0,y:0},velocity=predictedVelocity?{...camera}:{x:oldVelocity.x*.75+camera.x*.25,y:oldVelocity.y*.75+camera.y*.25};
+- const used=new Set(),objects=parts.map(p=>{const visualR=p.r/ratio,labelSeen=hasSlimeLabel(image,w,h,p),npc=labelSeen||visualR>20,originalRadius=npc?highlightRadius(image,w,h,p)/ratio:visualR,geometry=runStrategy==='grow-23'&&npc?(p.clipped && radius>=95?observeClipped34(image,w,h,p,ratio,radius,map,previous,runGameVersion):refineSlimeGeometry(image,w,h,p)):null,x=((geometry?geometry.x:p.x)-w/2)/ratio,y=((geometry?geometry.y:p.y)-h/2)/ratio,r=geometry?geometry.r/ratio:originalRadius;let match=null,error=100;for(const q of previous){if(used.has(q)||q.npc!==npc||Math.abs(q.r-r)>Math.max(6,r*.2))continue;const dist=Math.hypot(q.x+(q.vx-camera.x)*dt-x,q.y+(q.vy-camera.y)*dt-y);if(dist<error){error=dist;match=q;}}if(match)used.add(match);const clamp=v=>Math.max(-200,Math.min(200,v));const stalled=npc&&Math.hypot(x,y)<(radius+r)*.74&&prior?.radius===radius?(match?.stalled||0)+dt:0;return {x,y,r,visualR,geometryAccepted:geometry?1:0,confidence:geometry?geometry.confidence:null,originalRadius,npc,labelSeen,localReliable:geometry?.clippedFit===true||!p.clipped&&labelSeen&&Math.max(p.bw,p.bh)/Math.min(p.bw,p.bh)<=1.4&&p.area*Math.max(1,Math.ceil(w/700))**2/(p.bw*p.bh)>=.5,stalled,blocked:stalled>.5,isRed:npc&&(hasDangerLabel(image,w,h,p,ratio)||geometry?.clippedFit===true&&hasDangerLabel(image,w,h,geometry,ratio)),clipped:p.clipped&&!geometry?.clippedFit,clippedGeometry:geometry?.clippedFit===true,dangerRadius:p.clipped?r+50:r,vx:npc&&match?clamp((match.vx||0)*.65+((x-match.x)/dt+(measuredCamera?.x??camera.x))*.35):0,vy:npc&&match?clamp((match.vy||0)*.65+((y-match.y)/dt+(measuredCamera?.y??camera.y))*.35):0};});
++ const used=new Set(),objects=parts.map(p=>{const visualR=p.r/ratio,labelSeen=hasSlimeLabel(image,w,h,p),npc=labelSeen||visualR>20,originalRadius=npc?highlightRadius(image,w,h,p)/ratio:visualR,geometry=runStrategy==='grow-23'&&npc?(p.clipped && radius>=95?refineClipped34(image,w,h,p,canvasUiMasks(w,h,ratio)):refineSlimeGeometry(image,w,h,p)):null,x=((geometry?geometry.x:p.x)-w/2)/ratio,y=((geometry?geometry.y:p.y)-h/2)/ratio,r=geometry?geometry.r/ratio:originalRadius;let match=null,error=100;for(const q of previous){if(used.has(q)||q.npc!==npc||Math.abs(q.r-r)>Math.max(6,r*.2))continue;const dist=Math.hypot(q.x+(q.vx-camera.x)*dt-x,q.y+(q.vy-camera.y)*dt-y);if(dist<error){error=dist;match=q;}}if(match)used.add(match);const clamp=v=>Math.max(-200,Math.min(200,v));const stalled=npc&&Math.hypot(x,y)<(radius+r)*.74&&prior?.radius===radius?(match?.stalled||0)+dt:0;return {x,y,r,visualR,geometryAccepted:geometry?1:0,confidence:geometry?geometry.confidence:null,originalRadius,npc,labelSeen,localReliable:geometry?.clippedFit===true||!p.clipped&&labelSeen&&Math.max(p.bw,p.bh)/Math.min(p.bw,p.bh)<=1.4&&p.area*Math.max(1,Math.ceil(w/700))**2/(p.bw*p.bh)>=.5,stalled,blocked:stalled>.5,isRed:npc&&(hasDangerLabel(image,w,h,p,ratio)||geometry?.clippedFit&&hasDangerLabel(image,w,h,geometry,ratio)),clipped:p.clipped&&!geometry?.clippedFit,clippedGeometry:geometry?.clippedFit===true,dangerRadius:p.clipped?r+50:r,vx:npc&&match?clamp((match.vx||0)*.65+((x-match.x)/dt+(measuredCamera?.x??camera.x))*.35):0,vy:npc&&match?clamp((match.vy||0)*.65+((y-match.y)/dt+(measuredCamera?.y??camera.y))*.35):0};});
+  const analysis={objects,map,velocity};imageState={radius,width:w,height:h,pixels,timestamp:now,objects,analysis};return analysis;
+ }
+@@ -516,19 +516,4 @@
+ }
+ 
+-function observeClipped34(image,w,h,p,ratio,playerRadius,map,previous,version) {
+-  const fit=refineClipped34(image,w,h,p,canvasUiMasks(w,h,ratio));
+-  if(!fit)return null;
+-  if(!String(version).includes('v2.22'))return fit;
+-  const x=(fit.x-w/2)/ratio,y=(fit.y-h/2)/ratio,r=fit.r/ratio;
+-  if(playerRadius>=186)return fit;
+-  if(r*1.35>playerRadius || !map?.player || hasDangerLabel(image,w,h,fit,ratio) ||
+-      hasDangerLabel(image,w,h,p,ratio))return null;
+-  const gap=m=>Math.hypot((m.x-map.player.x)/map.width*10400-x,(m.y-map.player.y)/map.height*7200-y);
+-  if((map.threats||[]).some(m=>gap(m)<Math.max(140,r+65)))return null;
+-  const knownWhite=(map.growMarkers||[]).some(m=>!m.red&&gap(m)<90);
+-  const prior=previous.some(o=>o.npc&&!o.isRed&&!o.blocked&&!o.clipped&&
+-    Math.abs(o.r-r)<Math.max(5,r*.10)&&Math.hypot(o.x-x,o.y-y)<85);
+-  return prior&&knownWhite ? fit : null;
+-}
+ function refineSlimeGeometry(image, w, h, p) {
+   if (!image?.data || !p || p.clipped || ![p.x,p.y,p.r,w,h].every(Number.isFinite) || p.r < 13 || w < 1 || h < 1) return null;
