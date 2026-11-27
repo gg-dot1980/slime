@@ -1,0 +1,29 @@
+{
+  "candidate": "grow52",
+  "candidateSha256": "6a0562b8bd74c38e9d49a666d870fd5e33314dfab8df1b09b4d4633ac96875b6",
+  "capturedTaipei": "2026-11-27T21:36:49+08:00",
+  "desktopQhd": {
+    "geometry": {"viewport": [2560, 1440], "canvas": [2250, 1308], "dpr": 1},
+    "exploration": {
+      "v2.13": {"planned": 4, "validResults": 4, "wins": 1, "deaths": 1, "deadlines": 2, "passed": false},
+      "v2.22": {"planned": 4, "validResults": 4, "wins": 0, "deaths": 1, "deadlines": 3, "passed": false}
+    },
+    "independentConfirmationStarted": false,
+    "ledgerSha256": "94a806c96bd53086f666aeec8cdf21b390c8a62e8a750b1448a150de5f077566"
+  },
+  "v2.22TerminalSize": {
+    "deadlines": [187, 150, 164],
+    "death": {"gameSecond": 121, "size": 167}
+  },
+  "thresholdCounterfactual": {
+    "samples": 553,
+    "grow52ExactMatches": 553,
+    "changedDecisions": 2,
+    "changedOutcomes": {"deadlines": 2, "deaths": 0, "wins": 0},
+    "bothRaisedRoutesLowerGain": true
+  },
+  "interceptStalls": [
+    {"size": 146, "samples": 13, "spanSeconds": 12.5, "routeChanges": 10},
+    {"size": 117, "samples": 15, "spanSeconds": 14.6, "routeChanges": 14}
+  ]
+}
