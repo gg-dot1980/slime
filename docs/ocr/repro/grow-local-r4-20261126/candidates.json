@@ -144,5 +144,10 @@
     "sha256": "3372fbb4c9d1e42e14d2f88a1f980a68477b7856f55f58ba32e53610e77338f4",
     "geometry": "qhd",
     "label": "Grow54 · 兩畫面安全後解除逃逸"
+  },
+  "grow55": {
+    "sha256": "089f8b8e1dad3b1a7696c5b941d3783154c1b680c2f53eeaf3c114024b4327a4",
+    "geometry": "qhd",
+    "label": "Grow55 · 立即間隙優先逃逸"
   }
 }

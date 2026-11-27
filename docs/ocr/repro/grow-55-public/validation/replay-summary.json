@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "candidate": "grow55",
+  "parent": "grow54",
+  "experiment": "while Grow54 escape hold is active and every bounded path has negative 0.6-second immediate gap, sort by immediate gap first and 2.2-second endpoint gap second",
+  "baseline": {
+    "snapshots": 1077,
+    "exactRouteAndMode": 1076,
+    "preExistingMismatch": "one Grow51 win snapshot; Grow54 and Grow55 replay choose the same route there"
+  },
+  "grow54DeathTails": {
+    "attempts": 2,
+    "eligibleDecisions": 8,
+    "changedDecisions": 6,
+    "higherImmediateGap": 6,
+    "lowerImmediateGap": 0,
+    "lowerEndpointGap": 6,
+    "lowerSixteenTenthSecondClearance": 4,
+    "lowerPredictedGain": 0,
+    "introducedWallTrap": 0
+  },
+  "counterexamples": {
+    "grow54WinAttempts": 1,
+    "grow54Size194DeadlineAttempts": 1,
+    "grow51WinAttempts": 6,
+    "eligibleDecisions": 0,
+    "changedDecisions": 0,
+    "lowerPredictedGain": 0,
+    "lowerClearance": 0,
+    "introducedWallTrap": 0
+  },
+  "verdict": "supported-for-natural-exploration"
+}
