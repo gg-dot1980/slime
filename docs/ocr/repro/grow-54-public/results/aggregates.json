@@ -1,0 +1,26 @@
+{
+  "candidate": "grow54",
+  "candidateSha256": "3372fbb4c9d1e42e14d2f88a1f980a68477b7856f55f58ba32e53610e77338f4",
+  "capturedTaipei": "2026-11-28T05:27:06+08:00",
+  "desktopQhd": {
+    "geometry": {"viewport": [2560, 1440], "canvas": [2250, 1308], "dpr": 1},
+    "exploration": {
+      "v2.13": {"planned": 4, "validResults": 4, "wins": 4, "deaths": 0, "deadlines": 0, "passed": true},
+      "v2.22": {"planned": 4, "validResults": 4, "wins": 1, "deaths": 2, "deadlines": 1, "passed": false}
+    },
+    "independentConfirmationStarted": false,
+    "ledgerSha256": "9e3a55d225833a3252f68523614378031d69bd83cc6a93dd6c93f6268a0c7560"
+  },
+  "v2.22Terminal": [
+    {"outcome": "death", "gameSecond": 120, "size": 141},
+    {"outcome": "win", "gameSecond": 144, "visiblePreSettlementSize": 196},
+    {"outcome": "deadline", "gameSecond": 151, "size": 194},
+    {"outcome": "death", "gameSecond": 71, "size": 106}
+  ],
+  "deathTailObservation": {
+    "deathAttempts": 2,
+    "endedWithEscapeHoldActive": 2,
+    "lastFourImmediateGap": [[-51.2, -61.6, -61.7, -84.6], [-56.9, -66.9, -113.7, -149.3]],
+    "lastEndpointGapPositive": 2
+  }
+}
