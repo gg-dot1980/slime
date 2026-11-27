@@ -1,4 +1,4 @@
-"""Run canonical Grow49 QHD phases with a private, bounded visual observer."""
+"""Run canonical Grow49 or Grow50 QHD phases with a bounded visual observer."""
 import argparse
 from contextlib import contextmanager
 import fcntl
@@ -27,6 +27,7 @@ RESULTS = R4 / "results-private"
 VERSIONS = ("v2.13", "v2.22")
 GAME_BLOBS = ("16d41cdf2997baf0b3af33567b201d2dfb835427", "30af12f7608da91514711ecdbc01b57654ab2eab")
 PHASES = ("diagnostic", "explore", "confirm")
+CANDIDATE = "grow49"
 BASELINE = "grow49-observer-diagnostic-baseline.json"
 
 
@@ -181,7 +182,7 @@ def read_readiness(bundle, report, rows, identity):
 def diagnostic_baseline(results, create=False):
     path = results / BASELINE
     if not path.exists() and create:
-        legacy = {ledger.name: digest(ledger) for ledger in results.glob("grow49-diagnostic-*.jsonl")
+        legacy = {ledger.name: digest(ledger) for ledger in results.glob(f"{CANDIDATE}-diagnostic-*.jsonl")
                   if not ledger.with_name(ledger.stem + "-capture-readiness").exists()}
         with tempfile.TemporaryDirectory(dir=results) as scratch:
             staged = Path(scratch) / BASELINE
@@ -194,7 +195,7 @@ def diagnostic_baseline(results, create=False):
         raise RuntimeError("Invalid native-only diagnostic baseline")
     for name, sha in legacy.items():
         ledger = results / name
-        if (ledger.parent != results or not ledger.match("grow49-diagnostic-*.jsonl") or
+        if (ledger.parent != results or not ledger.match(f"{CANDIDATE}-diagnostic-*.jsonl") or
                 not ledger.is_file() or digest(ledger) != sha):
             raise RuntimeError(f"Missing or changed baseline diagnostic: {name}")
     return legacy
@@ -204,12 +205,12 @@ def existing(results, candidate_sha, expected_runner, identity):
     sealed = {}
     failed = []
     legacy = diagnostic_baseline(results)
-    for bundle in results.glob("grow49-diagnostic-*-capture-readiness"):
+    for bundle in results.glob(f"{CANDIDATE}-diagnostic-*-capture-readiness"):
         if not bundle.with_name(bundle.name.removesuffix("-capture-readiness") + ".jsonl").is_file():
             raise RuntimeError(f"Capture readiness evidence lacks its native ledger: {bundle.name}")
     for phase in PHASES:
-        ledgers = sorted(results.glob(f"grow49-{phase}-*.jsonl"))
-        for receipt in results.glob(f"grow49-{phase}-*-contract.json"):
+        ledgers = sorted(results.glob(f"{CANDIDATE}-{phase}-*.jsonl"))
+        for receipt in results.glob(f"{CANDIDATE}-{phase}-*-contract.json"):
             expected_ledger = receipt.with_name(receipt.name.removesuffix("-contract.json") + ".jsonl")
             if not expected_ledger.exists():
                 raise RuntimeError(f"Prior {phase} reservation lacks its ledger: {receipt.name}; no restart")
@@ -220,7 +221,7 @@ def existing(results, candidate_sha, expected_runner, identity):
             report = json.loads(summary_path.read_bytes())
             header, rows = sealed_rows(path, report, phase)
             contract = header["contract"]
-            if (header["phase"] != phase or contract["candidate"] != "grow49" or
+            if (header["phase"] != phase or contract["candidate"] != CANDIDATE or
                     contract["candidateSha256"] != candidate_sha or contract["runnerSha256"] != expected_runner or
                     contract["protocolId"] != "grow-native-local-20261126-v4" or contract["candidateGeometry"] != "qhd"):
                 raise RuntimeError(f"Prior {phase} contract differs: {path.name}; inspect before proceeding")
@@ -311,10 +312,11 @@ def server(port, output):
 
 
 def run(args, output):
-    html = HERE.parent / "ocr-grow49.html"
+    number = CANDIDATE.removeprefix("grow")
+    html = REPRO / f"grow-{number}-public" / f"ocr-grow{number}.html"
     cand_hash = digest(html)
     checked = json.loads(subprocess.check_output(["node", "server.cjs", "--geometry-mode", "qhd", "--check"], cwd=R4))
-    if (checked["candidates"]["grow49"]["sha256"] != cand_hash or
+    if (checked["candidates"][CANDIDATE]["sha256"] != cand_hash or
             tuple(v["blob"] for v in checked["versions"]) != GAME_BLOBS):
         raise RuntimeError("Frozen candidate or original game blob differs")
     # Tie runtime bytes to the actual repository snapshot, including original r4
@@ -331,7 +333,7 @@ def run(args, output):
             raise RuntimeError(f"Working and committed source differ: {rel}")
     identity = capture_identity(args, output)
     found = existing(RESULTS, cand_hash, checked["runnerSha256"], identity)
-    write(output / "prior-diagnostics.json", [p.stem for p in sorted(RESULTS.glob("grow49-diagnostic-*.jsonl"))])
+    write(output / "prior-diagnostics.json", [p.stem for p in sorted(RESULTS.glob(f"{CANDIDATE}-diagnostic-*.jsonl"))])
     write(output / "prior-phases.json", {p:r["batchId"] for p,r in found.items()})
     if "confirm" in found or "explore" in found:
         if "confirm" in found:
@@ -360,12 +362,12 @@ def run(args, output):
             if manifest["runnerSha256"] != checked["runnerSha256"] or manifest["candidates"] != checked["candidates"]:
                 raise RuntimeError("Served local manifest differs from source checks")
             if manifest.get("sourceCommit") != head:
-                raise RuntimeError("Run from the committed Grow49 checkout")
+                raise RuntimeError(f"Run from the committed {CANDIDATE} checkout")
             write(output / "freeze.json", {"phaseLimit":args.through, "candidateSha256":cand_hash,
                     "manifest":manifest, "driverSha256":digest(NATIVE), "observerSha256":digest(HERE/"observer.js"),
                     "captureStoreSha256":digest(HERE/"capture_store.py"), "observedDriverSha256":digest(Path(__file__)),
                     "perAttemptMiB":args.mib_per_attempt})
-            native.run("qhd", args.port, args.through, args.chromium, "grow49", "zh-TW", observer)
+            native.run("qhd", args.port, args.through, args.chromium, CANDIDATE, "zh-TW", observer)
     finally:
         write(output / "retention.json", sink.close())
         # Include open, completed and zero-start artifacts even when startup or a phase failed.
@@ -388,9 +390,12 @@ if __name__ == "__main__":
     parser.add_argument("--chromium", help="Installed Chromium executable")
     parser.add_argument("--port", type=int, default=4173)
     parser.add_argument("--mib-per-attempt", type=int, default=96)
+    parser.add_argument("--candidate", choices=("grow49", "grow50"), default="grow49")
     parser.add_argument("--through", choices=("preflight","diagnostic","confirm"), default="preflight",
                         help="confirm keeps eligible exploration and confirmation in one page")
     args = parser.parse_args()
+    CANDIDATE = args.candidate
+    BASELINE = f"{CANDIDATE}-observer-diagnostic-baseline.json"
     os.umask(0o077)
     with args.lock.open("a") as lock:
         fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
