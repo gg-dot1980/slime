@@ -32,6 +32,25 @@ Claude22 使用 1.5 秒預測避牆。早先與 Claude20 同批實測時，v2.22
 
 本批以 Linux 無頭 Chrome、實際速度、2000×1163 外窗與 DPR 1 執行。兩策略逐局交錯，每個版本各開四十局，八十局均有效。Claude26 相對 Claude22 的體型中位數差為 v2.13 +3（95% 信賴區間 −10 至 +27）、v2.22 +26.5（−2 至 +41）。兩區間都含零，依事前決策規則保留 Claude22。歷史上 Claude11 在另一批 v2.22 曾於 141 秒過關，該批為 1/20。[Claude26 結果 JSON](https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-claude26/comparison-noimages.json) · [Claude11／21 對照](https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase1-minimap/README.md)
 
+### Claude27 與畫面外白點
+
+[資訊拆解](repro/claude-phase2-information/README.md)用參考機器人比較不同資訊：只看畫面與小地圖時，v2.13、v2.22 各過關 5/10、2/10；若另外知道畫面外白點的真實大小，升到 7/10、7/10。小地圖點的半徑只在 NPC 半徑 45.6～114 時看得出大小。機器人改成只追看得出大小的白點後為 7/10、5/10（3 倍速篩選）。
+
+據此做成的 Claude27 在實速成對比較中兩版都顯著較差：
+
+| 版本 | 策略 | 150 秒內過關／有效局 | 死亡 | 終場體型中位數 |
+|---|---|---:|---:|---:|
+| v2.13 | Claude22 | 0/20 | 0 | 123 |
+| v2.13 | Claude27 | 0/20 | 1 | 92.5 |
+| v2.22 | Claude22 | 0/20 | 6 | 110.5 |
+| v2.22 | Claude27 | 0/20 | 1 | 88 |
+
+Claude22 − Claude27 的中位數差：v2.13 +30.5（95% CI 12～48）、v2.22 +22.5（3～34）。混合工具顯示兩個原因：
+- Claude27 會追 0.93～1.06R 吃不到的白點。改成只追 ≤0.909R 後，完美畫面下 v2.22 升到 3/8。
+- 改用真實畫面辨識後，這個優勢就消失了。
+
+[Claude27 紀錄](repro/claude-27/README.md) · [事前協議](repro/claude-27/PROTOCOL.md)
+
 ## 同一起始條件下如何比較
 
 公開對照使用相同原遊戲、初始種子與 2250×1308 畫布，各策略每版兩局。Grow38 在 v2.13、v2.22 分別為 **2/2、1/2**，明選的 Claude22 則為 **0/2、0/2**。兩者仍使用各自的取樣解析度，遊戲由虛擬時鐘驅動。這組測試適合重現同一開局下的路線差異。Grow46、Grow49 和 Claude22／26 的自然批次使用不同畫面設定與開局，仍缺這四個策略在相同原生條件下的直接比較。[同種子比較與重現方法](https://github.com/gg-dot1980/slime/blob/47d1495979dcf304e2d45c12f356f569040c9e94/docs/ocr/repro/grow-claude-comparison-20261126/README.md)

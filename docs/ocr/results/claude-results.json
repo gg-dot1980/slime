@@ -5,13 +5,13 @@
     "branch": "ocr-claude",
     "commit": "80b1f7922aef468cfa131da23d22f87dc104d280"
   },
-  "scope": "Claude 1–26 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
+  "scope": "Claude 1–27 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
   "inventory": {
-    "naturalBatches": 20,
-    "naturalStrategyVersionGroups": 85,
+    "naturalBatches": 21,
+    "naturalStrategyVersionGroups": 89,
     "controllerDiagnosticGroups": 2,
-    "proxyBatches": 11,
-    "proxyGroups": 121,
+    "proxyBatches": 13,
+    "proxyGroups": 141,
     "perceptionReports": 10,
     "coverageGaps": 5
   },
@@ -1915,6 +1915,109 @@
           ]
         }
       ]
+    },
+    {
+      "batch": "claude-27",
+      "condition": "natural_interleaved",
+      "sourceId": "claude-27/comparison.json",
+      "conditionsSourceId": "claude-27/PROTOCOL.md",
+      "reportSourceId": "claude-27/README.md",
+      "groups": [
+        {
+          "group": "claude-22",
+          "strategy": "claude-22",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 123,
+              "sizeMedianCI95": [
+                112,
+                132
+              ],
+              "npcEatsMedian": 11.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 6,
+              "sizeMedian": 110.5,
+              "sizeMedianCI95": [
+                96,
+                120
+              ],
+              "npcEatsMedian": 6
+            }
+          ]
+        },
+        {
+          "group": "claude-27",
+          "strategy": "claude-27",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "sizeMedian": 92.5,
+              "sizeMedianCI95": [
+                79,
+                110
+              ],
+              "npcEatsMedian": 10.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "sizeMedian": 88,
+              "sizeMedianCI95": [
+                80,
+                102
+              ],
+              "npcEatsMedian": 6
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-22",
+          "subtrahend": "claude-27",
+          "difference": 30.5,
+          "ci95": [
+            12,
+            48
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-22",
+          "subtrahend": "claude-27",
+          "difference": 22.5,
+          "ci95": [
+            3,
+            34
+          ]
+        }
+      ]
     }
   ],
   "diagnosticController": [
@@ -3075,6 +3178,188 @@
         }
       ],
       "note": "參考機器人規則 v3（預測 1.5 秒、吸引力 3、擁擠度 2）。X-full 為全知；Y 系列只看畫面＋小地圖，另加指定的畫面外真實資訊；Z 系列為視野「固定 2000」。"
+    },
+    {
+      "batch": "claude-27-bot",
+      "kind": "reference_bot_unknown_white",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "claude-27/README.md",
+      "conditionsSourceId": "claude-27/README.md",
+      "groups": [
+        {
+          "group": "U1-skip",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 7,
+          "deaths": 0,
+          "sizeMedian": 202
+        },
+        {
+          "group": "U1-skip",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 5,
+          "deaths": 1,
+          "sizeMedian": 197.5
+        },
+        {
+          "group": "U2-skipSmall",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 5,
+          "deaths": 0,
+          "sizeMedian": 198.5
+        },
+        {
+          "group": "U2-skipSmall",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 1,
+          "deaths": 3,
+          "sizeMedian": 175.5
+        },
+        {
+          "group": "U3-skipCap",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 167
+        },
+        {
+          "group": "U3-skipCap",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 5,
+          "deaths": 4,
+          "sizeMedian": 189.5
+        },
+        {
+          "group": "U4-f04",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 3,
+          "deaths": 1,
+          "sizeMedian": 192
+        },
+        {
+          "group": "U4-f04",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 195.5
+        },
+        {
+          "group": "U5-skipQ-v2.13",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 6,
+          "deaths": 0,
+          "sizeMedian": 200.5
+        },
+        {
+          "group": "U5-skipQ-v2.22",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 3,
+          "deaths": 1,
+          "sizeMedian": 182
+        }
+      ],
+      "note": "只看畫面＋小地圖的參考機器人（規則 v3，預測 1.5 秒、吸引力 3、擁擠度 2）；U5 另把畫面外位置量化到小地圖像素。"
+    },
+    {
+      "batch": "claude-27-hybrid",
+      "kind": "hybrid_white_hunt",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "claude-27/README.md",
+      "conditionsSourceId": "claude-27/README.md",
+      "groups": [
+        {
+          "group": "K1-c27true",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 109
+        },
+        {
+          "group": "K1-c27true",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 3,
+          "sizeMedian": 125.5
+        },
+        {
+          "group": "K2-c27true-a3",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 149.5
+        },
+        {
+          "group": "K2-c27true-a3",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 151.5
+        },
+        {
+          "group": "K3-c27-we091-a3",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 4,
+          "deaths": 0,
+          "sizeMedian": 199.5
+        },
+        {
+          "group": "K3-c27-we091-a3",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 3,
+          "sizeMedian": 163.5
+        },
+        {
+          "group": "K4-c27-we091",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 4,
+          "deaths": 0,
+          "sizeMedian": 198
+        },
+        {
+          "group": "K4-c27-we091",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 3,
+          "deaths": 1,
+          "sizeMedian": 196.5
+        },
+        {
+          "group": "K5-det-we091-v213",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 2,
+          "sizeMedian": 107
+        },
+        {
+          "group": "K5-det-we091-v222",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 2,
+          "sizeMedian": 96.5
+        }
+      ],
+      "note": "claude-22 決策加 dotSize/unkSkip（K1–K4 完美畫面內資訊、K5 真實畫面辨識），模擬小地圖（量化與視野框遮蔽）。K3–K5 加 whiteEdible 0.909。"
     }
   ],
   "perceptionDiagnostics": [
@@ -4278,6 +4563,18 @@
     "claude-phase2-information/README.md": {
       "url": "https://github.com/gg-dot1980/slime/blob/31d076eb52f5997a05fc23c0e8a76c14d9942a9e/docs/ocr/repro/phase2-information/README.md",
       "blobSha": "5f4abab6141a85743c2bfea73f209dbba6a99149"
+    },
+    "claude-27/comparison.json": {
+      "path": "docs/ocr/repro/claude-27/comparison.json",
+      "branch": "ocr"
+    },
+    "claude-27/PROTOCOL.md": {
+      "path": "docs/ocr/repro/claude-27/PROTOCOL.md",
+      "branch": "ocr"
+    },
+    "claude-27/README.md": {
+      "path": "docs/ocr/repro/claude-27/README.md",
+      "branch": "ocr"
     }
   }
 }

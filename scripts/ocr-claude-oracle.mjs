@@ -40,6 +40,10 @@ const bot=([viewOnly,period,rule,PP])=>{const P={prey:8,food:.8,attract:6,crowd:
   // PARAMS unk (strategy study; off-view whites whose minimap dot carries no size): 'skip' drops 1.2 px dots (r<45.6)
   // and saturated 3 px dots (r>114); 'skipSmall' drops only 1.2 px dots; 'skipCap' only 3 px dots; a number f sets
   // the 1.2 px dot estimate to min(f*R,45). Uses only what the minimap shows.
+  // PARAMS mapQ:1 — off-view positions rounded to minimap pixel centres (144 px wide map, ≈72 world px), as the
+  // real minimap reads them; the player's own map position is rounded the same way.
+  const qz=(v,W2)=>{const k=W2/144;return (Math.floor(v/k)+.5)*k;},pq=P.mapQ?{x:p.x-qz(p.x,W)+0,y:p.y-qz(p.y,W)}:null;
+  if(P.mapQ)for(let i=0;i<seen.length;i++){const o=seen[i];if(o.mapWhite||o.mapRed)seen[i]={...o,x:qz(o.x,W)+pq.x,y:qz(o.y,W)+pq.y};}
   const unkSeen=P.unk===undefined?seen:seen.flatMap(o=>{if(!o.mapWhite)return [o];const small=!o.sized,cap=!!o.cap;
    if(P.unk==='skip'&&(small||cap)||P.unk==='skipSmall'&&small||P.unk==='skipCap'&&cap)return [];if(typeof P.unk==='number'&&small)return [{...o,r:Math.min(R*P.unk,45)}];return [o];});
   // rule v3: minimap dot radius = clamp(r/38,1.2,3) carries size for 45.6<=r<=114; whites read as >=1.06R are not prey.

@@ -2,3 +2,11 @@ U1-skip          v2.13: n10 win7 death0 med202.0 v2.22: n10 win5 death1 med197.5
 U2-skipSmall     v2.13: n10 win5 death0 med198.5 v2.22: n10 win1 death3 med175.5 | wins 6 | err 0
 U3-skipCap       v2.13: n10 win3 death0 med167.0 v2.22: n10 win5 death4 med189.5 | wins 8 | err 0
 U4-f04           v2.13: n10 win3 death1 med192.0 v2.22: n10 win3 death0 med195.5 | wins 6 | err 0
+U5-skipQ-v2.13   v2.13: n10 win6 death0 med200.5 | wins 6 | err 0
+U5-skipQ-v2.22   v2.22: n10 win3 death1 med182.0 | wins 3 | err 0
+K1-c27true       v2.13: n8 win0 death0 med109.0 v2.22: n8 win0 death3 med125.5 | wins 0 | err 0
+K2-c27true-a3    v2.13: n8 win1 death0 med149.5 v2.22: n8 win0 death1 med151.5 | wins 1 | err 0
+K3-c27-we091-a3  v2.13: n8 win4 death0 med199.5 v2.22: n8 win2 death3 med163.5 | wins 6 | err 0
+K4-c27-we091     v2.13: n8 win4 death0 med198.0 v2.22: n8 win3 death1 med196.5 | wins 7 | err 0
+K5-det-we091-v213 v2.13: n8 win0 death2 med107.0 | wins 0 | err 0
+K5-det-we091-v222 v2.22: n8 win0 death2 med96.5 | wins 0 | err 0
