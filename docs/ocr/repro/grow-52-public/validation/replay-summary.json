@@ -1,0 +1,44 @@
+{
+  "schema": 1,
+  "parent": "grow51",
+  "parentSha256": "5ffe0a35611299410c2f70ab20c849785783db2a9c740a38c4cacf1ac449f5f6",
+  "rejectedHold15s": {
+    "confirmationLedger": {
+      "samples": 1399,
+      "exactRouteReplays": 1399,
+      "originalTriggers": 14,
+      "replayedTriggers": 14,
+      "failingAttemptsChanged": 2,
+      "winningAttemptsChanged": 1
+    },
+    "retainedTerminalSidecars": {
+      "samples": 506,
+      "exactRouteReplays": 506,
+      "originalTriggers": 14,
+      "replayedTriggers": 14,
+      "failingAttemptsChanged": 0,
+      "winningAttemptsChanged": 0
+    },
+    "accepted": false
+  },
+  "normalClearanceFloor14": {
+    "confirmationLedger": {
+      "samples": 1399,
+      "exactParentReplays": 1399,
+      "changedSamples": 7,
+      "changedOutcomes": {"death": 3, "deadline": 4, "win": 0},
+      "changedAttempts": {"death": 3, "deadline": 1, "win": 0}
+    },
+    "retainedTerminalSidecars": {
+      "samples": 506,
+      "exactParentReplays": 506,
+      "changedSamples": 11,
+      "changedOutcomes": {"death": 11, "deadline": 0, "win": 0},
+      "changedAttempts": {"death": 4, "deadline": 0, "win": 0},
+      "improvedClearanceSamples": 9,
+      "lowerRiskSamples": 9
+    },
+    "acceptedForNaturalExploration": true
+  },
+  "note": "Offline replay is candidate-development evidence only and is not counted as a natural game. Raw ledgers, retained frames and sidecars remain private."
+}
