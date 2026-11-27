@@ -119,5 +119,10 @@
     "sha256": "85071f2d68a8320b444aa643f5dffb61cbe2523f6de5caf8cb45ba542bd5a0b6",
     "geometry": "qhd",
     "label": "Grow49 · 單邊裁切定位"
+  },
+  "grow50": {
+    "sha256": "3f04d509d6bc0b8ad95865bf8f5a75f2282ad87cf2cd6737b6ed11e6e44ff8f6",
+    "geometry": "qhd",
+    "label": "Grow50 · 重疊警告復原"
   }
 }

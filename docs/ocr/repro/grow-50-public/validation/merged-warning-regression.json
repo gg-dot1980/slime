@@ -1,0 +1,32 @@
+{
+  "candidate": "grow50",
+  "candidateSha256": "3f04d509d6bc0b8ad95865bf8f5a75f2282ad87cf2cd6737b6ed11e6e44ff8f6",
+  "source": "retained visible QHD PNGs; raw files and per-frame hashes remain private",
+  "cases": {
+    "mergedDeathFrames": {
+      "planned": 3,
+      "recoveredHardThreats": 3
+    },
+    "immuneVictoryControls": {
+      "planned": 9,
+      "falseRecoveries": 0
+    }
+  },
+  "pixelCheckTimingMs": {
+    "environment": "independent offline exact-QHD replay in Node.js",
+    "median": 17.1,
+    "maximum": 22.6
+  },
+  "integrity": {
+    "replayScriptSha256": "897690e7b4fbfde18b46a88fd2e6eabdaa2f9dc19968a64c9399588dee8cdbe2",
+    "pngsVerifiedAgainstPrivateManifest": 12,
+    "sidecarsVerifiedAgainstPrivateManifest": 12,
+    "hudReadFromVerifiedSidecars": true,
+    "independentReview": "pass"
+  },
+  "naturalStatus": {
+    "v2.13": "0/4 opened",
+    "v2.22": "0/4 opened"
+  },
+  "claimLimit": "This is a fixed recognition regression, not a win-rate result."
+}
