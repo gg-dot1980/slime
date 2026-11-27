@@ -78,7 +78,7 @@ Claude 的迭代從食物與小地圖目標選擇，延伸到貼邊物件大小�
 
 | 版本或實驗 | 策略變更或研究問題 | 控制台狀態 | 來源與證據 |
 | --- | --- | --- | --- |
-| Claude28 | 在 Claude27 只追 0.909R 以下白點，切邊物件配對看得出大小的白點，並保留被視野框蓋住的點。 | 可選 `claude-28` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/4831ccedaa3e9ef2b196350f68cda474493c99a4/src/ocr-claude.html) · [篩選紀錄](repro/claude-28/README.md) |
+| Claude28 | 在 Claude27 只追 0.909R 以下白點，切邊物件配對看得出大小的白點，並保留被視野框蓋住的點。 | 可選 `claude-28` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/4831ccedaa3e9ef2b196350f68cda474493c99a4/src/ocr-claude.html) · [篩選與探索紀錄](repro/claude-28/README.md)：QHD 桌機 0/4、0/4，手機 0/4、0/4 |
 | Claude27 | 在 Claude25 加入小地圖點大小估計，只追看得出大小的畫面外白點。 | 可選 `claude-27` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/8fa978f06c94673f1e957eee49bd0dd56ac945d2/src/ocr-claude.html) · [比較與驗證紀錄](repro/claude-27/README.md) · [資訊拆解](repro/claude-phase2-information/README.md) |
 | Claude26 | 沿用 Claude22 路線，修正邊緣假物件、危險記憶與碎片合併。 | 可選 `claude-26` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/8b905f6b9164cd4ca3e7806b275c0a06ab6a5263/src/ocr-claude.html) · [比較與驗證紀錄](https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-claude26/README.md) |
 | Claude25 | 將白點標記加入 Claude22 | 可選 `claude-25` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/41fa3caa5229640098be0c5bf840ebaf814a5bc6/src/ocr-claude.html) · [比較與驗證紀錄](https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-markers/README.md) |

@@ -703,7 +703,7 @@
       sourceUrl: blob("4831ccedaa3e9ef2b196350f68cda474493c99a4", "src/ocr-claude.html"),
       archiveUrl: tree("ocr", "docs/ocr/repro/claude-28"),
       evidenceUrl: blob("ocr", "docs/ocr/repro/claude-28/hybrid-screening-summary.txt"),
-      evidence: "只有 3 倍速混合工具篩選：v2.13 體型中位 103、v2.22 130.5（每版 8 局），未做實速比較，沒有採用。",
+      evidence: "凍結後自然探索：QHD 桌機 v2.13 0/4、v2.22 0/4（體型中位 136.5、130），手機搖桿 v2.13 0/4、v2.22 0/4；未開確認。",
       strategyValue: "claude-28",
     },
     {

@@ -7,8 +7,8 @@
   },
   "scope": "Claude 1–28 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
   "inventory": {
-    "naturalBatches": 21,
-    "naturalStrategyVersionGroups": 89,
+    "naturalBatches": 22,
+    "naturalStrategyVersionGroups": 93,
     "controllerDiagnosticGroups": 2,
     "proxyBatches": 14,
     "proxyGroups": 151,
@@ -99,6 +99,38 @@
       "scoreUnit": "object / detection / frame observation, depending on metric",
       "timing": "not_applicable",
       "formalAcceptance": false
+    },
+    "natural_exploration_cohorts": {
+      "workflow": "docs/ocr/CLAUDE-WORKFLOW.md",
+      "desktop": {
+        "viewport": [
+          2560,
+          1440
+        ],
+        "canvas": [
+          2250,
+          1308
+        ],
+        "dpr": 1,
+        "input": "keyboard"
+      },
+      "mobile": {
+        "viewport": [
+          402,
+          753
+        ],
+        "canvas": [
+          384,
+          467
+        ],
+        "dpr": 1,
+        "input": "trusted CDP touch: joystick + boost"
+      },
+      "speed": "realtime",
+      "observer": true,
+      "oneBrowserAtATime": true,
+      "formalAcceptance": false,
+      "timing": "displayed_game_seconds"
     }
   },
   "naturalBatches": [
@@ -2015,6 +2047,67 @@
           "ci95": [
             3,
             34
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "claude-28-exploration",
+      "condition": "natural_exploration_cohorts",
+      "sourceId": "claude-28/exploration.json",
+      "conditionsSourceId": "claude-28/freeze.json",
+      "reportSourceId": "claude-28/README.md",
+      "groups": [
+        {
+          "group": "desktop-qhd",
+          "strategy": "claude-28",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 136.5
+            },
+            {
+              "version": "v2.22",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "sizeMedian": 130.0
+            }
+          ]
+        },
+        {
+          "group": "mobile-joystick",
+          "strategy": "claude-28",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 63.0
+            },
+            {
+              "version": "v2.22",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 95.0
+            }
           ]
         }
       ]
@@ -4669,6 +4762,14 @@
     },
     "claude-28/README.md": {
       "path": "docs/ocr/repro/claude-28/README.md",
+      "branch": "ocr"
+    },
+    "claude-28/exploration.json": {
+      "path": "docs/ocr/repro/claude-28/exploration.json",
+      "branch": "ocr"
+    },
+    "claude-28/freeze.json": {
+      "path": "docs/ocr/repro/claude-28/freeze.json",
       "branch": "ocr"
     }
   }

@@ -1,0 +1,100 @@
+{
+  "candidate": "claude-28",
+  "freeze": "freeze.json",
+  "stage": "exploration",
+  "groups": {
+    "desktop-qhd": [
+      {
+        "version": "v2.13",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 0,
+        "cutoff150": 4,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          195,
+          107,
+          166,
+          89
+        ],
+        "sizeMedian": 136.5,
+        "canvas": [
+          2250,
+          1308
+        ]
+      },
+      {
+        "version": "v2.22",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 1,
+        "cutoff150": 3,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          140,
+          164,
+          120,
+          90
+        ],
+        "sizeMedian": 130.0,
+        "canvas": [
+          2250,
+          1308
+        ]
+      }
+    ],
+    "mobile-joystick": [
+      {
+        "version": "v2.13",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 0,
+        "cutoff150": 4,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          68,
+          65,
+          60,
+          61
+        ],
+        "sizeMedian": 63.0,
+        "canvas": [
+          384,
+          467
+        ]
+      },
+      {
+        "version": "v2.22",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 0,
+        "cutoff150": 4,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          60,
+          96,
+          94,
+          96
+        ],
+        "sizeMedian": 95.0,
+        "canvas": [
+          384,
+          467
+        ]
+      }
+    ]
+  },
+  "confirmation": "not started (desktop exploration below 2/4 on both versions)"
+}
