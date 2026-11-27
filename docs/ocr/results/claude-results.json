@@ -10,8 +10,8 @@
     "naturalBatches": 20,
     "naturalStrategyVersionGroups": 85,
     "controllerDiagnosticGroups": 2,
-    "proxyBatches": 9,
-    "proxyGroups": 91,
+    "proxyBatches": 11,
+    "proxyGroups": 121,
     "perceptionReports": 10,
     "coverageGaps": 5
   },
@@ -2813,6 +2813,268 @@
         }
       ],
       "note": "本段只公布體型與部分死亡數，H2b＋S0 基準重用先前批次。"
+    },
+    {
+      "batch": "phase2-information-planner",
+      "kind": "hybrid_planner_screen",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "claude-phase2-information/README.md",
+      "conditionsSourceId": "claude-phase2-information/README.md",
+      "groups": [
+        {
+          "group": "D1-ms100",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 177.5
+        },
+        {
+          "group": "D1-ms100",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 1,
+          "sizeMedian": 132.5
+        },
+        {
+          "group": "D2-attract3",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 4,
+          "deaths": 1,
+          "sizeMedian": 182
+        },
+        {
+          "group": "D2-attract3",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 1,
+          "sizeMedian": 163
+        },
+        {
+          "group": "D3-v2",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 109.5
+        },
+        {
+          "group": "D3-v2",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 2,
+          "sizeMedian": 181
+        },
+        {
+          "group": "D4-crowdLight",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 4,
+          "deaths": 0,
+          "sizeMedian": 193.5
+        },
+        {
+          "group": "D4-crowdLight",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 1,
+          "sizeMedian": 145
+        }
+      ],
+      "note": "Claude22 決策＋完美畫面內資訊＋真實小地圖（無白點）。基準 H1 重用 phase2-perception。"
+    },
+    {
+      "batch": "phase2-information-bot",
+      "kind": "reference_bot_information",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "claude-phase2-information/README.md",
+      "conditionsSourceId": "claude-phase2-information/README.md",
+      "groups": [
+        {
+          "group": "X-full-v2.13",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 8,
+          "deaths": 0,
+          "sizeMedian": 202
+        },
+        {
+          "group": "X-full-v2.22",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 6,
+          "deaths": 2,
+          "sizeMedian": 200
+        },
+        {
+          "group": "Y0-view",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 5,
+          "deaths": 0,
+          "sizeMedian": 198
+        },
+        {
+          "group": "Y0-view",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 2,
+          "deaths": 1,
+          "sizeMedian": 184.5
+        },
+        {
+          "group": "Y1-offR",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 9,
+          "deaths": 0,
+          "sizeMedian": 206.5
+        },
+        {
+          "group": "Y1-offR",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 6,
+          "deaths": 1,
+          "sizeMedian": 200
+        },
+        {
+          "group": "Y2-offV",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 137
+        },
+        {
+          "group": "Y2-offV",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 2,
+          "deaths": 3,
+          "sizeMedian": 183
+        },
+        {
+          "group": "Y3-offRV",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 6,
+          "deaths": 0,
+          "sizeMedian": 202
+        },
+        {
+          "group": "Y3-offRV",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 7,
+          "deaths": 1,
+          "sizeMedian": 200
+        },
+        {
+          "group": "Y4-offRred",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 142.5
+        },
+        {
+          "group": "Y4-offRred",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 2,
+          "deaths": 1,
+          "sizeMedian": 187
+        },
+        {
+          "group": "Y5-offRwhite",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 7,
+          "deaths": 0,
+          "sizeMedian": 209.5
+        },
+        {
+          "group": "Y5-offRwhite",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 7,
+          "deaths": 2,
+          "sizeMedian": 200
+        },
+        {
+          "group": "Y6-mem10",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 5,
+          "deaths": 1,
+          "sizeMedian": 198.5
+        },
+        {
+          "group": "Y6-mem10",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 4,
+          "deaths": 4,
+          "sizeMedian": 192.5
+        },
+        {
+          "group": "Y7-mem60",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 7,
+          "deaths": 1,
+          "sizeMedian": 200
+        },
+        {
+          "group": "Y7-mem60",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 3,
+          "deaths": 1,
+          "sizeMedian": 191.5
+        },
+        {
+          "group": "Z0-wide-view",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 4,
+          "deaths": 0,
+          "sizeMedian": 176
+        },
+        {
+          "group": "Z0-wide-view",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 2,
+          "deaths": 4,
+          "sizeMedian": 187
+        },
+        {
+          "group": "Z1-wide-nowhite",
+          "version": "v2.13",
+          "games": 10,
+          "publishedWin150": 5,
+          "deaths": 0,
+          "sizeMedian": 198.5
+        },
+        {
+          "group": "Z1-wide-nowhite",
+          "version": "v2.22",
+          "games": 10,
+          "publishedWin150": 4,
+          "deaths": 2,
+          "sizeMedian": 178
+        }
+      ],
+      "note": "參考機器人規則 v3（預測 1.5 秒、吸引力 3、擁擠度 2）。X-full 為全知；Y 系列只看畫面＋小地圖，另加指定的畫面外真實資訊；Z 系列為視野「固定 2000」。"
     }
   ],
   "perceptionDiagnostics": [
@@ -4012,6 +4274,10 @@
     "scripts/summarize-ocr-claude.mjs": {
       "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/scripts/summarize-ocr-claude.mjs",
       "blobSha": "d6bb49d95e912f0c8ef4b6ceaf703f5550867568"
+    },
+    "claude-phase2-information/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/31d076eb52f5997a05fc23c0e8a76c14d9942a9e/docs/ocr/repro/phase2-information/README.md",
+      "blobSha": "5f4abab6141a85743c2bfea73f209dbba6a99149"
     }
   }
 }

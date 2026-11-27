@@ -1,0 +1,16 @@
+D1-ms100         v2.13: n8 win3 death0 med177.5 v2.22: n8 win1 death1 med132.5 | wins 4 | err 0
+D2-attract3      v2.13: n8 win4 death1 med182.0 v2.22: n8 win2 death1 med163.0 | wins 6 | err 0
+D3-v2            v2.13: n8 win0 death0 med109.5 v2.22: n8 win2 death2 med181.0 | wins 2 | err 0
+D4-crowdLight    v2.13: n8 win4 death0 med193.5 v2.22: n8 win1 death1 med145.0 | wins 5 | err 0
+X-full-v2.13     v2.13: n10 win8 death0 med202.0 | wins 8 | err 0
+X-full-v2.22     v2.22: n10 win6 death2 med200.0 | wins 6 | err 0
+Y0-view          v2.13: n10 win5 death0 med198.0 v2.22: n10 win2 death1 med184.5 | wins 7 | err 0
+Y1-offR          v2.13: n10 win9 death0 med206.5 v2.22: n10 win6 death1 med200.0 | wins 15 | err 0
+Y2-offV          v2.13: n10 win3 death0 med137.0 v2.22: n10 win2 death3 med183.0 | wins 5 | err 0
+Y3-offRV         v2.13: n10 win6 death0 med202.0 v2.22: n10 win7 death1 med200.0 | wins 13 | err 0
+Y4-offRred       v2.13: n10 win3 death0 med142.5 v2.22: n10 win2 death1 med187.0 | wins 5 | err 0
+Y5-offRwhite     v2.13: n10 win7 death0 med209.5 v2.22: n10 win7 death2 med200.0 | wins 14 | err 0
+Y6-mem10         v2.13: n10 win5 death1 med198.5 v2.22: n10 win4 death4 med192.5 | wins 9 | err 0
+Y7-mem60         v2.13: n10 win7 death1 med200.0 v2.22: n10 win3 death1 med191.5 | wins 10 | err 0
+Z0-wide-view     v2.13: n10 win4 death0 med176.0 v2.22: n10 win2 death4 med187.0 | wins 6 | err 0
+Z1-wide-nowhite  v2.13: n10 win5 death0 med198.5 v2.22: n10 win4 death2 med178.0 | wins 9 | err 0

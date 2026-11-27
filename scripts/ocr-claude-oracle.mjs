@@ -29,10 +29,22 @@ const bot=([viewOnly,period,rule,PP])=>{const P={prey:8,food:.8,attract:6,crowd:
   // ORACLE_VIEW=1: only what the screen shows — exact data inside the camera view; outside it, minimap-like
   // position + red(>1.12R)/white class only (no radius, no velocity). Off-view whites attract but never count as eaten.
   const inView=s=>s.x+s.r>g.cam.x&&s.x-s.r<g.cam.x+g.vw&&s.y+s.r>g.cam.y&&s.y-s.r<g.cam.y+g.vh;
-  const seen=viewOnly?slimes.map(s=>inView(s)?s:s.r>R*1.12?{x:s.x,y:s.y,r:R*1.5,vx:0,vy:0,mapRed:true}:{x:s.x,y:s.y,r:(rule==='v3'&&s.r>=45.6)?Math.min(s.r,114):(rule==='v3'?Math.min(R*.6,45):R*.6),vx:0,vy:0,mapWhite:true,sized:rule==='v3'&&s.r>=45.6}):slimes;
+  // PARAMS offR:1|'red'|'white' / offV:1 (decomposition; 'red'/'white' = true radius only for that minimap class): off-view slimes keep their TRUE radius / TRUE velocity (positions are exact
+  // in view-only mode already). Classification for the planner then follows the true radius.
+  // PARAMS offMem:T (seconds): off-view whites keep the radius measured when last seen IN VIEW within T s (a tracker that
+  // follows a body from the screen onto its minimap dot); others use the minimap reading. Counts go to stats.mem.
+  if(P.offMem){window.__seenAt=window.__seenAt||new WeakMap();for(const s of slimes)if(inView(s))window.__seenAt.set(s,{t:g.elapsed,r:s.r});}
+  const memR=s=>{if(!P.offMem)return null;const m=window.__seenAt.get(s);stats.mem=stats.mem||{hit:0,miss:0};if(m&&g.elapsed-m.t<=P.offMem){stats.mem.hit++;return m.r;}stats.mem.miss++;return null;};
+  const offTrue=s=>{const mr=s.r<=R*1.12?memR(s):null,tr=P.offR===1||P.offR==='red'&&s.r>R*1.12||P.offR==='white'&&s.r<=R*1.12||mr!==null;return {x:s.x,y:s.y,r:mr!==null?mr:tr?s.r:(s.r>R*1.12?R*1.5:(rule==='v3'&&s.r>=45.6)?Math.min(s.r,114):(rule==='v3'?Math.min(R*.6,45):R*.6)),vx:P.offV?s.vx:0,vy:P.offV?s.vy:0,mapWhite:!tr&&s.r<=R*1.12,mapRed:!tr&&s.r>R*1.12};};
+  const seen=viewOnly&&(P.offR||P.offV||P.offMem)?slimes.map(s=>inView(s)?s:offTrue(s)):viewOnly?slimes.map(s=>inView(s)?s:s.r>R*1.12?{x:s.x,y:s.y,r:R*1.5,vx:0,vy:0,mapRed:true}:{x:s.x,y:s.y,r:(rule==='v3'&&s.r>=45.6)?Math.min(s.r,114):(rule==='v3'?Math.min(R*.6,45):R*.6),vx:0,vy:0,mapWhite:true,sized:rule==='v3'&&s.r>=45.6,cap:rule==='v3'&&s.r>114}):slimes;
+  // PARAMS unk (strategy study; off-view whites whose minimap dot carries no size): 'skip' drops 1.2 px dots (r<45.6)
+  // and saturated 3 px dots (r>114); 'skipSmall' drops only 1.2 px dots; 'skipCap' only 3 px dots; a number f sets
+  // the 1.2 px dot estimate to min(f*R,45). Uses only what the minimap shows.
+  const unkSeen=P.unk===undefined?seen:seen.flatMap(o=>{if(!o.mapWhite)return [o];const small=!o.sized,cap=!!o.cap;
+   if(P.unk==='skip'&&(small||cap)||P.unk==='skipSmall'&&small||P.unk==='skipCap'&&cap)return [];if(typeof P.unk==='number'&&small)return [{...o,r:Math.min(R*P.unk,45)}];return [o];});
   // rule v3: minimap dot radius = clamp(r/38,1.2,3) carries size for 45.6<=r<=114; whites read as >=1.06R are not prey.
   // PARAMS offWhite:0 — drop off-view white minimap dots entirely (matches claude-22, which computes no white markers).
-  const near=(P.offWhite===0?seen.filter(s=>!s.mapWhite):seen).map(s=>({s,d:Math.hypot(s.x-p.x,s.y-p.y)})).filter(o=>o.d<2600),food=foods.filter(f=>Math.abs(f.x-p.x)<700&&Math.abs(f.y-p.y)<700);
+  const near=(P.offWhite===0?unkSeen.filter(s=>!s.mapWhite):unkSeen).map(s=>({s,d:Math.hypot(s.x-p.x,s.y-p.y)})).filter(o=>o.d<2600),food=foods.filter(f=>Math.abs(f.x-p.x)<700&&Math.abs(f.y-p.y)<700);
   let prey=null;for(const o of near)if(R>=o.s.r*P.edible){const gain=Math.sqrt(R*R+.55*o.s.r*o.s.r)-R,v=gain/(o.d/S+1);if(!prey||v>prey.v)prey={...o,v};}
   let best=null;for(const d of DIRS){let score=0,minGap=1e9,ateNpc=new Set(),ateFood=0;
    for(let k=1;k<=K;k++){const t=k*.1,x=p.x+d.x*S*t,y=p.y+d.y*S*t;if(x<R||y<R||x>W-R||y>H-R){score-=(rule==='v2'||rule==='v3')?400:40;break;}if(rule==='v2'||rule==='v3'){const wd=Math.min(x,y,W-x,H-y)-R;if(wd<150)score-=(150-wd)*.6/(t+.3);}
@@ -53,7 +65,9 @@ let index=0;
 for(const version of order){index++;const page=await ctx.newPage(),started=Date.now(),row={label,index,version,outcome:'unknown',samples:[]};
  try{await page.goto(url);await page.selectOption('#gameChoice','/'+version);
   await page.waitForFunction(v=>document.getElementById('gameVersion').textContent.includes(v),version,{timeout:30000});await page.waitForTimeout(1500);
-  const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);const warp=Math.max(1,Number(process.env.ORACLE_WARP)||1),period=Math.max(4,Math.round((Number(process.env.ORACLE_MS)||50)/warp));const PP=process.env.ORACLE_PARAMS?JSON.parse(process.env.ORACLE_PARAMS):null;row.params=PP;row.bot=await f.evaluate(bot,[!!process.env.ORACLE_VIEW,period,process.env.ORACLE_RULE||'v0',PP]);row.rule=process.env.ORACLE_RULE||'v0';row.viewOnly=!!process.env.ORACLE_VIEW;row.periodMs=period;row.warp=warp;row.warp=warp;
+  // ORACLE_VIEWSCALE=wide: the controller page's existing 視野「固定 2000」 option (game canvas 2000 CSS px wide).
+  if(process.env.ORACLE_VIEWSCALE){await page.selectOption('#viewScale',process.env.ORACLE_VIEWSCALE);await page.waitForTimeout(800);}
+  const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);const warp=Math.max(1,Number(process.env.ORACLE_WARP)||1),period=Math.max(4,Math.round((Number(process.env.ORACLE_MS)||50)/warp));const PP=process.env.ORACLE_PARAMS?JSON.parse(process.env.ORACLE_PARAMS):null;row.params=PP;row.bot=await f.evaluate(bot,[!!process.env.ORACLE_VIEW,period,process.env.ORACLE_RULE||'v0',PP]);row.rule=process.env.ORACLE_RULE||'v0';row.viewScale=process.env.ORACLE_VIEWSCALE||'1';row.viewOnly=!!process.env.ORACLE_VIEW;row.periodMs=period;row.warp=warp;row.warp=warp;
   for(;;){await page.waitForTimeout(Math.round(1000/warp));const s=await f.evaluate(()=>{const g=window.__dbg();return {t:g.elapsed,r:g.player.r,running:g.running,title:document.getElementById('title')?.textContent||''};});
    if(!row.samples.length||s.t-row.samples.at(-1)[0]>=10)row.samples.push([Math.round(s.t),Math.round(s.r)]);
    if(s.r>=200||(!s.running&&s.t>1)){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome=s.r>=200?(s.t<=150?'win<=150':'win>150'):'death';break;}

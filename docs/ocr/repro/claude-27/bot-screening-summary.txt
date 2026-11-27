@@ -1,0 +1,4 @@
+U1-skip          v2.13: n10 win7 death0 med202.0 v2.22: n10 win5 death1 med197.5 | wins 12 | err 0
+U2-skipSmall     v2.13: n10 win5 death0 med198.5 v2.22: n10 win1 death3 med175.5 | wins 6 | err 0
+U3-skipCap       v2.13: n10 win3 death0 med167.0 v2.22: n10 win5 death4 med189.5 | wins 8 | err 0
+U4-f04           v2.13: n10 win3 death1 med192.0 v2.22: n10 win3 death0 med195.5 | wins 6 | err 0

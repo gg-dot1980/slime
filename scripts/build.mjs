@@ -37,13 +37,12 @@ function embedGames(template) {
   return template.replace('__GROW_GAMES__', () => isolatedGames);
 }
 
-// Refresh from gg-dot1980/slime’s ocr-claude branch using a reviewed commit:
-// git show <sha>:src/ocr-claude.html > src/ocr-claude.html
-// Compare scripts/build-ocr-claude.mjs and scripts/grow-games.mjs at that SHA,
-// update this pin/digest together and re-run the build and route checks.
+// Claude strategy updates are made on this ocr branch since 2026-11-27 (claude-27 onward); before that the source
+// came from gg-dot1980/slime’s ocr-claude branch (80b1f79). Update this pin/digest together with
+// src/ocr-claude.html and re-run the build and route checks.
 const claude = await readText('src/ocr-claude.html');
-// Source commit 80b1f7922aef468cfa131da23d22f87dc104d280, Git blob 8974e4ac9a8a2ce22caedc7c30d1cf5f91ddd3a8.
-if (sha256(claude) !== '400dd47bb719a59dc096680981f0745d9f2c429a7d8e6f374203131f2a57d207') {
+// claude-27 on the ocr branch (based on ocr-claude 80b1f79), Git blob 61859c35c4ba43d5e50f1e9e77ef3ee96d799272.
+if (sha256(claude) !== '9be1133f6da9bec1378bf36063f747e63d8ee0ad1f811f0f61998512fc51c6ec') {
   throw Error('Claude source differs from the reviewed pin');
 }
 const shell = await readText('src/ocr.html');
