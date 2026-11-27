@@ -1,8 +1,8 @@
 # OCR 策略與實驗索引
 
-本索引整理 173 筆版本、實驗與研究紀錄。從「控制台狀態」可查出哪些策略能在該家族的原生選單切換，哪些會隨家族載入。「歷史資料」可查閱原始碼、修訂或驗證紀錄。證據中的局數、截止時間及畫面尺寸屬於各自的實驗批次。
+本索引整理 174 筆版本、實驗與研究紀錄。從「控制台狀態」可查出哪些策略能在該家族的原生選單切換，哪些會隨家族載入。「歷史資料」可查閱原始碼、修訂或驗證紀錄。證據中的局數、截止時間及畫面尺寸屬於各自的實驗批次。
 
-[OCR1、OCR2、OCR3](#ocr1ocr2ocr3)（5） · [Grow](#grow)（49） · [Claude](#claude)（29） · [測試版修訂](#測試版修訂)（43） · [研究輪次](#研究輪次)（44） · [診斷工具與回放](#診斷工具與回放)（3）
+[OCR1、OCR2、OCR3](#ocr1ocr2ocr3)（5） · [Grow](#grow)（49） · [Claude](#claude)（30） · [測試版修訂](#測試版修訂)（43） · [研究輪次](#研究輪次)（44） · [診斷工具與回放](#診斷工具與回放)（3）
 
 ## OCR1、OCR2、OCR3
 
@@ -74,10 +74,11 @@ Grow 從小地圖紅白點追避，逐步加入接觸後退路、鏡頭定位及
 
 ## Claude
 
-Claude 的迭代從食物與小地圖目標選擇，延伸到貼邊物件大小、危險記憶、碎片合併與避牆。此家族可逐版切換 Claude1 至 Claude29，控制台預設 Claude26。原生選單另有 grow-6 和 test-026 兩個比較基準。Claude22 和 Claude26、Claude27 的成對比較在兩個遊戲版本皆無過關，依協議保留 Claude22；Claude27 兩版都顯著較差。
+Claude 的迭代從食物與小地圖目標選擇，延伸到貼邊物件大小、危險記憶、碎片合併與避牆。此家族可逐版切換 Claude1 至 Claude30，控制台預設 Claude26。原生選單另有 grow-6 和 test-026 兩個比較基準。Claude22 和 Claude26、Claude27 的成對比較在兩個遊戲版本皆無過關，依協議保留 Claude22；Claude27 兩版都顯著較差。
 
 | 版本或實驗 | 策略變更或研究問題 | 控制台狀態 | 來源與證據 |
 | --- | --- | --- | --- |
+| Claude30 | 沿用 Claude29，每 100ms 決策一次。 | 可選 `claude-30` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/cbfd29a71433820d1df7b6f4cfd4f978922f9929/src/ocr-claude.html) · [量測與探索紀錄](repro/claude-30/README.md)：QHD 桌機 0/4、0/4，手機 0/4、0/4 |
 | Claude29 | 在 Claude28 修正小地圖點大小偏差，並不追紅點旁的白點。 | 可選 `claude-29` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/81ca47339067c18b04ff83ee2d85f7d8a83038fe/src/ocr-claude.html) · [量測與探索紀錄](repro/claude-29/README.md)：QHD 桌機 0/4、0/4，手機 0/4、0/4 |
 | Claude28 | 在 Claude27 只追 0.909R 以下白點，切邊物件配對看得出大小的白點，並保留被視野框蓋住的點。 | 可選 `claude-28` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/4831ccedaa3e9ef2b196350f68cda474493c99a4/src/ocr-claude.html) · [篩選與探索紀錄](repro/claude-28/README.md)：QHD 桌機 0/4、0/4，手機 0/4、0/4 |
 | Claude27 | 在 Claude25 加入小地圖點大小估計，只追看得出大小的畫面外白點。 | 可選 `claude-27` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/8fa978f06c94673f1e957eee49bd0dd56ac945d2/src/ocr-claude.html) · [比較與驗證紀錄](repro/claude-27/README.md) · [資訊拆解](repro/claude-phase2-information/README.md) |
