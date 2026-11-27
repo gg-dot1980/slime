@@ -4,3 +4,5 @@ W3-size          v2.13: n8 win2 death1 med157.5 v2.22: n8 win0 death4 med121.0 |
 W4-clip          v2.13: n8 win0 death0 med104.5 v2.22: n8 win0 death3 med112.5 | wins 0 | err 0
 L1-c28det-quant-v213 v2.13: n8 win1 death1 med103.0 | wins 1 | err 0
 L1-c28det-quant-v222 v2.22: n8 win0 death2 med130.5 | wins 0 | err 0
+Q1-qhd-c22       v2.13: n8 win0 death0 med124.0 v2.22: n8 win0 death3 med127.0 | wins 0 | err 0
+Q2-qhd-c28       v2.13: n8 win1 death0 med149.0 v2.22: n8 win3 death2 med194.5 | wins 4 | err 0

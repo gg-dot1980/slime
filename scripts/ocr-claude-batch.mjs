@@ -12,7 +12,37 @@ const versions=versionList.split(','),n=Number(perVersion);
 const strategies=(process.env.STRATEGIES||process.env.STRATEGY||'').split(',').filter(Boolean);
 const order=[];for(let i=0;i<n;i++)for(const v of versions)for(const st of (strategies.length?strategies:[null]))order.push([v,st]);
 const browser=await chromium.launch({channel:'chrome',headless:true});
-const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
+// OCR_GEOMETRY=qhd: window 2560×1440 and the game canvas set to 2250 CSS px wide (2250×1308), the Grow QHD desktop
+// geometry. Default: window 2000×1163 with the page's own 1050×610 canvas.
+// OCR_GEOMETRY=mobile: the Grow mobile joystick cohort (d283cb8): portrait window 402×753, touch, DPR 1, native
+// 384×467 canvas. The controller's key output is captured by scripts/ocr-claude-touch-bridge.js inside the game frame
+// and replayed as trusted CDP touches: one contact on the visible joystick, a second on the boost button.
+const MOBILE=process.env.OCR_GEOMETRY==='mobile';
+const QHD=process.env.OCR_GEOMETRY==='qhd',VIEWPORT=QHD?{width:2560,height:1440}:MOBILE?{width:402,height:753}:{width:2000,height:1163};
+const applyGeometry=async page=>{if(!QHD)return null;await page.evaluate(()=>{const g=document.getElementById('game');document.documentElement.style.setProperty('--view-scale',2250/g.parentElement.clientWidth);});await page.waitForTimeout(700);
+ const f=await (await page.$('#game')).contentFrame();return f.evaluate(()=>{const c=document.querySelector('canvas').getBoundingClientRect();return [Math.round(c.width),Math.round(c.height)];});};
+const ctx=await browser.newContext({viewport:VIEWPORT,deviceScaleFactor:1,hasTouch:MOBILE});
+const {fileURLToPath}=await import('node:url');
+if(MOBILE)await ctx.addInitScript({path:fileURLToPath(new URL('./ocr-claude-touch-bridge.js',import.meta.url))});
+const TOUCH_GEOMETRY=([x,y])=>{const frame=document.querySelector('#game'),win=frame?.contentWindow,doc=frame?.contentDocument;
+ if(!doc||!win.__growTouchBridge)throw Error('Touch bridge missing from #game');const r=frame.getBoundingClientRect(),left=r.left+frame.clientLeft,top=r.top+frame.clientTop;
+ const point=(id,dx,dy)=>{const el=doc.getElementById(id),b=el.getBoundingClientRect(),dist=Math.hypot(dx,dy)||1,rad=Math.min(b.width,b.height)*.36,px=b.left+b.width/2+dx/dist*rad,py=b.top+b.height/2+dy/dist*rad;
+  return {x:left+px,y:top+py,hit:b.width>0&&document.elementFromPoint(left+px,top+py)===frame&&el.contains(doc.elementFromPoint(px,py))};};
+ return {joy:point('joy',x,y),boost:point('boost',0,0)};};
+// Port of grow-mobile-joystick/touch.py TouchAdapter (apply the latest completed chord; touchEnd lists released ids).
+const touchAdapter=async page=>{const cdp=await ctx.newCDPSession(page);await cdp.send('Emulation.setTouchEmulationEnabled',{enabled:true,maxTouchPoints:2});
+ let contacts={},sends={touchStart:0,touchMove:0,touchEnd:0,touchCancel:0},misses=0,stopped=false;
+ const send=(type,points)=>{sends[type]++;return cdp.send('Input.dispatchTouchEvent',{type,touchPoints:points});};
+ const end=async(cancel=false)=>{if(Object.keys(contacts).length){await send(cancel?'touchCancel':'touchEnd',[]);contacts={};}};
+ const apply=async st=>{if(!(st.x||st.y||st.boost))return end();const m=await page.evaluate(TOUCH_GEOMETRY,[st.x,st.y]),desired={};
+  for(const [name,id,want] of [['joy',1,st.x||st.y],['boost',2,st.boost]]){if(!want)continue;if(!m[name].hit){misses++;continue;}desired[name]={x:m[name].x,y:m[name].y,id};}
+  const removed=Object.keys(contacts).filter(k=>!desired[k]);if(removed.length){await send('touchEnd',removed.map(k=>contacts[k]));for(const k of removed)delete contacts[k];}
+  const remaining={};for(const k of Object.keys(contacts))remaining[k]=desired[k];if(JSON.stringify(remaining)!==JSON.stringify(contacts)&&Object.keys(remaining).length){await send('touchMove',Object.values(remaining));contacts=remaining;}
+  if(Object.keys(desired).sort().join()!==Object.keys(contacts).sort().join()){await send('touchStart',Object.values(desired));contacts=desired;}};
+ const loop=(async()=>{while(!stopped){try{const b=await page.evaluate(()=>document.querySelector('#game')?.contentWindow?.__growTouchBridge?.read());
+   if(b&&b.changes.length){if(b.changes.slice(0,-1).some(c=>!(c.x||c.y||c.boost)))await end();await apply(b.changes.at(-1));}}catch(e){}
+  await new Promise(r=>setTimeout(r,30));}})();
+ return {async stop(){stopped=true;await loop;try{await end(true);}catch{}const audit=await page.evaluate(()=>document.querySelector('#game')?.contentWindow?.__growTouchBridge?.snapshot()).catch(()=>null);return {sends,misses,audit};}};};
 // Numeric-only decision ring via the controller's existing ocrTestRecord hook (no pixels kept).
 await ctx.addInitScript(()=>{const ring=[];window.ocrClaudeRing=ring;window.ocrTestRecord=r=>{const o=r.planOutput||{},npcs=(r.objects||[]).filter(x=>x.npc);const near=npcs.map(x=>({d:Math.round(Math.hypot(x.x,x.y)),r:Math.round(x.r),red:!!x.isRed,clip:!!x.clipped})).sort((a,b)=>a.d-b.d).slice(0,3);ring.push({t:r.hudTime,hud:r.hud,dir:o.name,clr:Math.round(o.clearance),thr:o.threats,esc:!!o.escaping,rsn:o.reason||null,ms:Math.round(r.elapsedCompute),near});if(ring.length>15)ring.shift();
  // Perception sampling (OBSERVE only): every 10th decision keep the controller's NPC detections next to the true
@@ -59,7 +89,10 @@ for(const [version,strategyChoice] of order){
   await page.waitForFunction(v=>document.getElementById('gameVersion').textContent.includes(v)&&!document.getElementById('go').disabled,version,{timeout:30000});
   if(strategyChoice)await page.selectOption('#strategy',strategyChoice);
   row.strategy=await page.$eval('#strategy',s=>s.value);
+  row.geometry=process.env.OCR_GEOMETRY||'standard';row.canvas=await applyGeometry(page);
+  if(MOBILE){row.canvas=await (await gameFrame(page)).evaluate(()=>{const c=document.querySelector('canvas').getBoundingClientRect();return [Math.round(c.width),Math.round(c.height)];});row.__touch=await touchAdapter(page);}
   await page.click('#go');
+  if(MOBILE)await page.evaluate(()=>document.getElementById('game').scrollIntoView({block:'end'}));
   let observed=false;
   for(;;){
    await page.waitForTimeout(1000);
@@ -80,6 +113,7 @@ for(const [version,strategyChoice] of order){
    if(Date.now()-started>420000){row.outcome='wall-timeout';row.status=s.status;row.action=s.action;row.gameLeft=s.left;break;}
   }
  }catch(e){row.outcome='infra-error';row.error=String(e).slice(0,300);}
+ if(row.__touch){row.touch=await row.__touch.stop();delete row.__touch;}
  row.wallSeconds=Math.round((Date.now()-started)/1000);delete row.__lastLeft;delete row.__lastMove;
  await appendFile(out,JSON.stringify(row)+'\n');console.log(index,version,row.strategy,row.outcome,row.gameSeconds,row.size);
  await page.close();

@@ -10,7 +10,12 @@ const {chromium}=req('playwright');
 const [url,out,versionList,perVersion,label='oracle']=process.argv.slice(2);
 const versions=versionList.split(','),n=Number(perVersion),order=[];for(let i=0;i<n;i++)for(const v of versions)order.push(v);
 const browser=await chromium.launch({channel:'chrome',headless:true});
-const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
+// OCR_GEOMETRY=qhd: window 2560×1440 and the game canvas set to 2250 CSS px wide (2250×1308), the Grow QHD desktop
+// geometry. Default: window 2000×1163 with the page's own 1050×610 canvas.
+const QHD=process.env.OCR_GEOMETRY==='qhd',VIEWPORT=QHD?{width:2560,height:1440}:{width:2000,height:1163};
+const applyGeometry=async page=>{if(!QHD)return null;await page.evaluate(()=>{const g=document.getElementById('game');document.documentElement.style.setProperty('--view-scale',2250/g.parentElement.clientWidth);});await page.waitForTimeout(700);
+ const f=await (await page.$('#game')).contentFrame();return f.evaluate(()=>{const c=document.querySelector('canvas').getBoundingClientRect();return [Math.round(c.width),Math.round(c.height)];});};
+const ctx=await browser.newContext({viewport:VIEWPORT,deviceScaleFactor:1});
 await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fetch(),body=await res.text(),anchor="(()=>{'use strict';";
  // ORACLE_WARP=N (test-only time acceleration): N update(dt) sub-steps per animation frame with the game's own dt,
  // so collision granularity is unchanged; bot and observer intervals are divided by N to keep decisions per game second.
@@ -71,7 +76,7 @@ for(const version of order){index++;const page=await ctx.newPage(),started=Date.
   await page.waitForFunction(v=>document.getElementById('gameVersion').textContent.includes(v),version,{timeout:30000});await page.waitForTimeout(1500);
   // ORACLE_VIEWSCALE=wide: the controller page's existing 視野「固定 2000」 option (game canvas 2000 CSS px wide).
   if(process.env.ORACLE_VIEWSCALE){await page.selectOption('#viewScale',process.env.ORACLE_VIEWSCALE);await page.waitForTimeout(800);}
-  const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);const warp=Math.max(1,Number(process.env.ORACLE_WARP)||1),period=Math.max(4,Math.round((Number(process.env.ORACLE_MS)||50)/warp));const PP=process.env.ORACLE_PARAMS?JSON.parse(process.env.ORACLE_PARAMS):null;row.params=PP;row.bot=await f.evaluate(bot,[!!process.env.ORACLE_VIEW,period,process.env.ORACLE_RULE||'v0',PP]);row.rule=process.env.ORACLE_RULE||'v0';row.viewScale=process.env.ORACLE_VIEWSCALE||'1';row.viewOnly=!!process.env.ORACLE_VIEW;row.periodMs=period;row.warp=warp;row.warp=warp;
+  row.geometry=process.env.OCR_GEOMETRY||'standard';row.canvas=await applyGeometry(page);const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);const warp=Math.max(1,Number(process.env.ORACLE_WARP)||1),period=Math.max(4,Math.round((Number(process.env.ORACLE_MS)||50)/warp));const PP=process.env.ORACLE_PARAMS?JSON.parse(process.env.ORACLE_PARAMS):null;row.params=PP;row.bot=await f.evaluate(bot,[!!process.env.ORACLE_VIEW,period,process.env.ORACLE_RULE||'v0',PP]);row.rule=process.env.ORACLE_RULE||'v0';row.viewScale=process.env.ORACLE_VIEWSCALE||'1';row.viewOnly=!!process.env.ORACLE_VIEW;row.periodMs=period;row.warp=warp;row.warp=warp;
   for(;;){await page.waitForTimeout(Math.round(1000/warp));const s=await f.evaluate(()=>{const g=window.__dbg();return {t:g.elapsed,r:g.player.r,running:g.running,title:document.getElementById('title')?.textContent||''};});
    if(!row.samples.length||s.t-row.samples.at(-1)[0]>=10)row.samples.push([Math.round(s.t),Math.round(s.r)]);
    if(s.r>=200||(!s.running&&s.t>1)){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome=s.r>=200?(s.t<=150?'win<=150':'win>150'):'death';break;}

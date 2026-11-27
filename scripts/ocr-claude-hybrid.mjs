@@ -15,7 +15,12 @@ if(process.env.HYBRID_SRC)OPTS.__src=process.env.HYBRID_SRC;
 if(process.env.HYBRID_EXTRA)Object.assign(OPTS,JSON.parse(process.env.HYBRID_EXTRA));// HYBRID_EXTRA: JSON merged into the planner options (test-only screening)
 if(process.env.HYBRID_NOWHITE)OPTS.__noWhite=true;if(process.env.HYBRID_PROBE)OPTS.__probe=true;if(process.env.HYBRID_REC)OPTS.__rec=true;if(process.env.HYBRID_RIMFILTER)OPTS.__rim=true;if(process.env.HYBRID_MIX)OPTS.__mix=process.env.HYBRID_MIX.split(',');
 const browser=await chromium.launch({channel:'chrome',headless:true});
-const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
+// OCR_GEOMETRY=qhd: window 2560×1440 and the game canvas set to 2250 CSS px wide (2250×1308), the Grow QHD desktop
+// geometry. Default: window 2000×1163 with the page's own 1050×610 canvas.
+const QHD=process.env.OCR_GEOMETRY==='qhd',VIEWPORT=QHD?{width:2560,height:1440}:{width:2000,height:1163};
+const applyGeometry=async page=>{if(!QHD)return null;await page.evaluate(()=>{const g=document.getElementById('game');document.documentElement.style.setProperty('--view-scale',2250/g.parentElement.clientWidth);});await page.waitForTimeout(700);
+ const f=await (await page.$('#game')).contentFrame();return f.evaluate(()=>{const c=document.querySelector('canvas').getBoundingClientRect();return [Math.round(c.width),Math.round(c.height)];});};
+const ctx=await browser.newContext({viewport:VIEWPORT,deviceScaleFactor:1});
 await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fetch(),body=await res.text(),anchor="(()=>{'use strict';";
  // HYBRID_WARP=N: same test-only time acceleration as the bot (N update(dt) sub-steps per frame); driver and poll
  // intervals are divided by N.
@@ -84,7 +89,7 @@ let index=0;
 for(const version of order){index++;const page=await ctx.newPage(),started=Date.now(),row={label,index,version,opts:process.env.HYBRID_OPTS||'claude-14',map:process.env.HYBRID_MAP||'exact',src:process.env.HYBRID_SRC||'true',noWhite:!!process.env.HYBRID_NOWHITE,mix:process.env.HYBRID_MIX||null,extra:process.env.HYBRID_EXTRA||null,rim:!!process.env.HYBRID_RIMFILTER,periodMs:period,warp:hwarp,outcome:'unknown',samples:[]};
  try{await page.goto(url);await page.selectOption('#gameChoice','/'+version);
   await page.waitForFunction(v=>document.getElementById('gameVersion').textContent.includes(v),version,{timeout:30000});await page.waitForTimeout(1500);
-  const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);if(process.env.HYBRID_SRC)await page.evaluate(v=>window.__setStrat(v),process.env.HYBRID_STRAT||'claude-16');row.driver=await page.evaluate(driver,[OPTS,period]);
+  row.geometry=process.env.OCR_GEOMETRY||'standard';row.canvas=await applyGeometry(page);const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);if(process.env.HYBRID_SRC)await page.evaluate(v=>window.__setStrat(v),process.env.HYBRID_STRAT||'claude-16');row.driver=await page.evaluate(driver,[OPTS,period]);
   for(;;){await page.waitForTimeout(Math.round(1000/hwarp));const s=await f.evaluate(()=>{const g=window.__dbg();return {t:g.elapsed,r:g.player.r,running:g.running};});
    if(!row.samples.length||s.t-row.samples.at(-1)[0]>=10)row.samples.push([Math.round(s.t),Math.round(s.r)]);
    if(s.r>=200||(!s.running&&s.t>1)){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome=s.r>=200?(s.t<=150?'win<=150':'win>150'):'death';break;}
