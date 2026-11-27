@@ -1,4 +1,4 @@
-"""Run canonical Grow52 QHD phases with a bounded visual observer."""
+"""Run canonical Grow53 QHD phases with a bounded visual observer."""
 import argparse
 from contextlib import contextmanager
 import fcntl
@@ -352,7 +352,7 @@ def run(args, output):
     before = set(RESULTS.iterdir())
     if args.through != "preflight" and "diagnostic" not in found:
         diagnostic_baseline(RESULTS, create=True)
-    spec = importlib.util.spec_from_file_location("grow52_native", NATIVE)
+    spec = importlib.util.spec_from_file_location("grow53_native", NATIVE)
     native = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(native)
     sink = CaptureStore(output, args.mib_per_attempt)
@@ -390,7 +390,7 @@ if __name__ == "__main__":
     parser.add_argument("--chromium", help="Installed Chromium executable")
     parser.add_argument("--port", type=int, default=4173)
     parser.add_argument("--mib-per-attempt", type=int, default=96)
-    parser.add_argument("--candidate", choices=("grow52",), default="grow52")
+    parser.add_argument("--candidate", choices=("grow53",), default="grow53")
     parser.add_argument("--through", choices=("preflight","diagnostic","confirm"), default="preflight",
                         help="confirm keeps eligible exploration and confirmation in one page")
     args = parser.parse_args()
