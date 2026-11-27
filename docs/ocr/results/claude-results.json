@@ -5,13 +5,13 @@
     "branch": "ocr-claude",
     "commit": "80b1f7922aef468cfa131da23d22f87dc104d280"
   },
-  "scope": "Claude 1–27 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
+  "scope": "Claude 1–28 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
   "inventory": {
     "naturalBatches": 21,
     "naturalStrategyVersionGroups": 89,
     "controllerDiagnosticGroups": 2,
-    "proxyBatches": 13,
-    "proxyGroups": 141,
+    "proxyBatches": 14,
+    "proxyGroups": 151,
     "perceptionReports": 10,
     "coverageGaps": 5
   },
@@ -3360,6 +3360,97 @@
         }
       ],
       "note": "claude-22 決策加 dotSize/unkSkip（K1–K4 完美畫面內資訊、K5 真實畫面辨識），模擬小地圖（量化與視野框遮蔽）。K3–K5 加 whiteEdible 0.909。"
+    },
+    {
+      "batch": "claude-28-hybrid",
+      "kind": "hybrid_error_class_and_candidate",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "claude-28/README.md",
+      "conditionsSourceId": "claude-28/README.md",
+      "groups": [
+        {
+          "group": "W1-spur",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 158.5
+        },
+        {
+          "group": "W1-spur",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 162
+        },
+        {
+          "group": "W2-miss",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 155.5
+        },
+        {
+          "group": "W2-miss",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 2,
+          "sizeMedian": 146.5
+        },
+        {
+          "group": "W3-size",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 1,
+          "sizeMedian": 157.5
+        },
+        {
+          "group": "W3-size",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 4,
+          "sizeMedian": 121
+        },
+        {
+          "group": "W4-clip",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 104.5
+        },
+        {
+          "group": "W4-clip",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 3,
+          "sizeMedian": 112.5
+        },
+        {
+          "group": "L1-c28det-quant-v213",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 1,
+          "sizeMedian": 103
+        },
+        {
+          "group": "L1-c28det-quant-v222",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 2,
+          "sizeMedian": 130.5
+        }
+      ],
+      "note": "W1–W4：K4 設定只加一類真實辨識誤差；L1：claude-28 決策、真實畫面辨識、量化小地圖保留視野框上的點。"
     }
   ],
   "perceptionDiagnostics": [
@@ -4574,6 +4665,10 @@
     },
     "claude-27/README.md": {
       "path": "docs/ocr/repro/claude-27/README.md",
+      "branch": "ocr"
+    },
+    "claude-28/README.md": {
+      "path": "docs/ocr/repro/claude-28/README.md",
       "branch": "ocr"
     }
   }

@@ -51,6 +51,8 @@ Claude22 − Claude27 的中位數差：v2.13 +30.5（95% CI 12～48）、v2.22 
 
 [Claude27 紀錄](repro/claude-27/README.md) · [事前協議](repro/claude-27/PROTOCOL.md)
 
+混合工具一次只加入一類辨識誤差時，「被畫面邊緣切掉的物件」單獨就抵銷了追白點的效果：v2.13 體型中位 104.5，v2.22 為 112.5。依此做的 Claude28 只做了篩選（v2.13 103、v2.22 130.5，每版 8 局），未進入實速比較。[Claude28 篩選](repro/claude-28/README.md)
+
 ## 同一起始條件下如何比較
 
 公開對照使用相同原遊戲、初始種子與 2250×1308 畫布，各策略每版兩局。Grow38 在 v2.13、v2.22 分別為 **2/2、1/2**，明選的 Claude22 則為 **0/2、0/2**。兩者仍使用各自的取樣解析度，遊戲由虛擬時鐘驅動。這組測試適合重現同一開局下的路線差異。Grow46、Grow49 和 Claude22／26 的自然批次使用不同畫面設定與開局，仍缺這四個策略在相同原生條件下的直接比較。[同種子比較與重現方法](https://github.com/gg-dot1980/slime/blob/47d1495979dcf304e2d45c12f356f569040c9e94/docs/ocr/repro/grow-claude-comparison-20261126/README.md)
