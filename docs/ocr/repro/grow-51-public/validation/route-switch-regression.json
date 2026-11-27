@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "sourceCandidate": "Grow50",
+  "sourceCandidateSha256": "3f04d509d6bc0b8ad95865bf8f5a75f2282ad87cf2cd6737b6ed11e6e44ff8f6",
+  "gameVersion": "v2.22",
+  "exactReplay": {"matched": 144, "total": 144},
+  "selectedNegativeEvents": 5,
+  "routeSwitchEvents": 4,
+  "routeSwitchEventsWithPositiveSafeAlternative": 3,
+  "deathAttemptsCovered": [1, 4],
+  "firstSignalSecondsBeforeDeath": {"attempt1": 2.5641, "attempt4": 6.4601},
+  "winSelectedNegativeEvents": 0,
+  "naturalAcceptanceSample": false
+}
