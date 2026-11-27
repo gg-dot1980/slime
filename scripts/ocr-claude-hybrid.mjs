@@ -9,7 +9,8 @@ const {chromium}=req('playwright');
 const [url,out,versionList,perVersion,label='hybrid']=process.argv.slice(2);
 const versions=versionList.split(','),n=Number(perVersion),order=[];for(let i=0;i<n;i++)for(const v of versions)order.push(v);
 const OPTS={'claude-11':{clipWhite:true,clipRedClear:6,segment:true,safe:true},'claude-14':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true},'claude-15':{clipWhite:true,clipRedClear:6,segment:true,safe:true,segFirst:true,memory:true,dotSize:true,v2:true},'claude-15b':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true},'claude-16':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true},'claude-18':{clipWhite:true,clipRedClear:6,segment:true,safe:false,segFirst:true,memory:true,dotSize:true,v2:true,sizeMem:true,cluster:true},'claude-22':{clipWhite:true,clipRedClear:6,segment:true,safe:true,fit:true,wallOnly:true},'claude-24':{clipWhite:true,clipRedClear:6,segment:true,safe:true,fit:true,wallOnly:true,attract:3},'claude-5':{}}[process.env.HYBRID_OPTS||'claude-14'];
-const hwarp=Math.max(1,Number(process.env.HYBRID_WARP)||1),period=Math.max(4,Math.round((Number(process.env.HYBRID_MS)||200)/hwarp));if(process.env.HYBRID_MAP==='real')OPTS.__realMap=true;if(process.env.HYBRID_SRC)OPTS.__src=process.env.HYBRID_SRC;
+const hwarp=Math.max(1,Number(process.env.HYBRID_WARP)||1),period=Math.max(4,Math.round((Number(process.env.HYBRID_MS)||200)/hwarp));if(process.env.HYBRID_MAP==='real'||process.env.HYBRID_MAP==='quant')OPTS.__realMap=true;if(process.env.HYBRID_MAP==='quant')OPTS.__keepStroke=true;// quant: positions rounded to map px, stroke dots kept (≈ stroke memory)
+if(process.env.HYBRID_SRC)OPTS.__src=process.env.HYBRID_SRC;
 // HYBRID_NOWHITE=1: give the planner no off-view white markers (matches claude-20/22/23/24, which compute none).
 if(process.env.HYBRID_EXTRA)Object.assign(OPTS,JSON.parse(process.env.HYBRID_EXTRA));// HYBRID_EXTRA: JSON merged into the planner options (test-only screening)
 if(process.env.HYBRID_NOWHITE)OPTS.__noWhite=true;if(process.env.HYBRID_PROBE)OPTS.__probe=true;if(process.env.HYBRID_REC)OPTS.__rec=true;if(process.env.HYBRID_RIMFILTER)OPTS.__rim=true;if(process.env.HYBRID_MIX)OPTS.__mix=process.env.HYBRID_MIX.split(',');
@@ -34,7 +35,7 @@ const driver=([opts,period])=>{const gw=document.getElementById('game').contentW
   // px of the camera rectangle stroke removed (the stroke is drawn over the dots).
   const mw=144,mh=144*g.H/g.W,real=opts.__realMap,q2=v=>real?Math.round(v-.5)+.5:v,mp=q=>({x:q2(q.x/g.W*mw),y:q2(q.y/g.H*mh)});
   const L=g.cam.x/g.W*mw,T=g.cam.y/g.H*mh,Rr=(g.cam.x+g.vw)/g.W*mw,B=(g.cam.y+g.vh)/g.H*mh,onStroke=q=>{const x=q.x/g.W*mw,y=q.y/g.H*mh;return (Math.abs(x-L)<1.5||Math.abs(x-Rr)<1.5)&&y>T-1.5&&y<B+1.5||(Math.abs(y-T)<1.5||Math.abs(y-B)<1.5)&&x>L-1.5&&x<Rr+1.5;};
-  const off=g.slimes.filter(q=>!inView(q)&&!(real&&onStroke(q)));
+  const off=g.slimes.filter(q=>!inView(q)&&!(real&&!opts.__keepStroke&&onStroke(q)));
   const map={x:0,y:0,width:mw,height:mh,player:mp(p),pixelRatio:1,viewWidth:g.vw,viewHeight:g.vh,visibleWalls:null,
    threats:off.filter(q=>q.r>R*1.12).map(mp),growMarkers:[...off.filter(q=>q.r>R*1.12).map(q=>({...mp(q),red:true})),...off.filter(q=>q.r<=R*1.12&&!opts.__noWhite).map(q=>({...mp(q),red:false,rEst:q.r>=45.6?Math.min(q.r,114):null}))]};
   const c=p.color,S=Math.max(92,260-(R-25)*.65)*(.72+(.2126*c[0]+.7152*c[1]+.0722*c[2])/255*.58)*1.38;

@@ -1,0 +1,61 @@
+# claude-28：只追 ≤0.909R 的白點、切邊物件配對看得出大小的白點、視野框記憶（v2.13 與最新版 v2.22）
+
+2026-11-27（台灣時間）。分支 `ocr`，接續 [claude-27](../claude-27/README.md)。只有 3 倍速混合工具篩選，沒有實際速度測試，不是驗收。**沒有採用，維持 claude-22。**
+
+## 1. 真實辨識下，追白點為什麼失敗（[hybrid-screening-summary.txt](hybrid-screening-summary.txt)，每版 8 局）
+
+設定：claude-27 決策＋`whiteEdible` 0.909（即 [claude-27 README](../claude-27/README.md) 的 K4）、模擬小地圖。每組只加入一類真實辨識誤差（`HYBRID_SRC=mix`）。
+
+| 加入的誤差 | v2.13 過關／死亡／體型中位 | v2.22 過關／死亡／體型中位 |
+|---|---|---|
+| 無（K4，完美畫面） | 4／0／198 | 3／1／196.5 |
+| 多餘偵測（W1） | 2／0／158.5 | 3／0／162 |
+| 漏偵測（W2） | 2／0／155.5 | 1／2／146.5 |
+| 尺寸（W3） | 2／1／157.5 | 0／4／121 |
+| **切邊欄位**（W4：切邊旗標、弧形估計、危險半徑） | **0／0／104.5** | **0／3／112.5** |
+| 全部（K5，真實辨識） | 0／2／107 | 0／2／96.5 |
+
+**切邊處理單獨就把效果全部抵銷**：
+- 往畫面外追白點時，目標進入畫面的那一刻是被切邊的，於是被當成危險。
+- 這時它在小地圖上的點也被視野框蓋住，所以「切邊物件＋白點＝目標」的規則找不到對應的白點。
+
+## 2. claude-28 候選
+
+claude-27 加上：
+- `whiteEdible` 0.909：畫面外白點只追估計 ≤0.909R 的。
+- `clipWhiteSized`：切邊物件附近要有看得出大小、≤0.909R 的白點，才改判為目標，目標大小用該點的估計。
+- 視野框記憶（`rememberStrokeDots`，同 claude-15）：被視野框蓋住的點保留 1.5 秒。
+
+混合工具篩選（真實畫面辨識，模擬小地圖量化但保留視野框上的點，`HYBRID_MAP=quant`，近似視野框記憶）：
+
+| | v2.13 過關／死亡／體型中位 | v2.22 過關／死亡／體型中位 |
+|---|---|---|
+| 基準：claude-22 決策、不追白點（[H2b＋S0](https://github.com/gg-dot1980/slime/blob/31d076eb52f5997a05fc23c0e8a76c14d9942a9e/docs/ocr/repro/phase2-perception/README.md)，16 局） | 0／0／111.5 | 0／6／106 |
+| claude-27＋whiteEdible（K5） | 0／2／107 | 0／2／96.5 |
+| **claude-28（L1）** | 1／1／103 | 0／2／130.5 |
+
+v2.13 沒有改善，v2.22 只是方向上較好。依「篩選沒有改善就不做實速比較」的原則，claude-28 不進入實際速度測試，**沒有採用**。它仍留在選單，方便重現。
+
+## 結論與下一步
+
+- 參考機器人只看畫面＋小地圖，就能讓兩個版本都 ≥50%（[claude-27](../claude-27/README.md) U1）。
+- 控制器做不到，主要卡在**被畫面邊緣切掉的物件怎麼判斷**：追畫面外目標時，目標進畫面的那一刻幾乎都是切邊的。
+- 下一個候選應該在白點進入畫面之前就追蹤它的身分：
+  1. 白點的位置換算到畫面座標。
+  2. 白點消失、同一位置出現切邊物件時，沿用白點的大小判斷。
+  3. 不必等到它完全露出才決定能不能吃。
+
+## 工具
+
+- `scripts/ocr-claude-hybrid.mjs`：`HYBRID_MAP=quant`（位置量化，但保留視野框上的點）。
+- `scripts/check-ocr-claude.cjs`：claude-28 的合成檢查（97 項通過）。
+
+## 重現
+
+```bash
+npm run build && npm run dev
+PLAYWRIGHT_DIR=<dir> HYBRID_OPTS=claude-22 HYBRID_MAP=real HYBRID_WARP=3 HYBRID_SRC=mix HYBRID_MIX=clip HYBRID_STRAT=claude-22 HYBRID_EXTRA='{"dotSize":true,"unkSkip":true,"whiteEdible":0.909}' node scripts/ocr-claude-hybrid.mjs http://localhost:4173/ocr-gui-design/claude/ w4.jsonl v2.13,v2.22 8 W4-clip
+PLAYWRIGHT_DIR=<dir> HYBRID_OPTS=claude-22 HYBRID_MAP=quant HYBRID_WARP=3 HYBRID_SRC=detview HYBRID_STRAT=claude-22 HYBRID_EXTRA='{"dotSize":true,"unkSkip":true,"whiteEdible":0.909,"clipWhiteSized":true}' node scripts/ocr-claude-hybrid.mjs http://localhost:4173/ocr-gui-design/claude/ l1.jsonl v2.13 8 L1
+```
+
+雲端 Linux、Chrome for Testing 153 無頭模式、視窗 2000×1163、DPR 1。逐局原檔依本分支規則不收錄。

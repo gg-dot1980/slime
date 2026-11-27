@@ -1,0 +1,6 @@
+W1-spur          v2.13: n8 win2 death0 med158.5 v2.22: n8 win3 death0 med162.0 | wins 5 | err 0
+W2-miss          v2.13: n8 win2 death0 med155.5 v2.22: n8 win1 death2 med146.5 | wins 3 | err 0
+W3-size          v2.13: n8 win2 death1 med157.5 v2.22: n8 win0 death4 med121.0 | wins 2 | err 0
+W4-clip          v2.13: n8 win0 death0 med104.5 v2.22: n8 win0 death3 med112.5 | wins 0 | err 0
+L1-c28det-quant-v213 v2.13: n8 win1 death1 med103.0 | wins 1 | err 0
+L1-c28det-quant-v222 v2.22: n8 win0 death2 med130.5 | wins 0 | err 0

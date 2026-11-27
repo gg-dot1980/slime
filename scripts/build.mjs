@@ -41,8 +41,8 @@ function embedGames(template) {
 // came from gg-dot1980/slime’s ocr-claude branch (80b1f79). Update this pin/digest together with
 // src/ocr-claude.html and re-run the build and route checks.
 const claude = await readText('src/ocr-claude.html');
-// claude-27 on the ocr branch (based on ocr-claude 80b1f79), Git blob 6721d283e97ff81bc6852a2b222fba80b943b0d5.
-if (sha256(claude) !== '8b7f2960b1d66d21ebed584155d39bdfa73c49d67c8583b35cf85847d9820d7c') {
+// claude-28 on the ocr branch (based on ocr-claude 80b1f79), Git blob 69571ede0aac96f298596afb8ba3fe5e77eea2e0.
+if (sha256(claude) !== '62d07ada030b74a355ffc2e1835f199d414a3d1cc5a888c164e859cfaeaee014') {
   throw Error('Claude source differs from the reviewed pin');
 }
 const shell = await readText('src/ocr.html');
