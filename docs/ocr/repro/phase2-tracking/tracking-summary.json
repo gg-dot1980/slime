@@ -1,0 +1,372 @@
+{
+ "velocity": {
+  "controller-now": {
+   "n": 964,
+   "err1.5s_med_px": 36.588,
+   "err1.5s_p90_px": 79.875,
+   "angle_med_deg": 16.792,
+   "angle_over45_pct": 20.3
+  },
+  "zero-velocity": {
+   "n": 964,
+   "err1.5s_med_px": 67.98,
+   "err1.5s_p90_px": 112.781,
+   "angle_med_deg": null,
+   "angle_over45_pct": null
+  },
+  "5fps-N2(0.4s)": {
+   "n": 804,
+   "err1.5s_med_px": 44.006,
+   "err1.5s_p90_px": 95.966,
+   "angle_med_deg": 18.578,
+   "angle_over45_pct": 20.3
+  },
+  "5fps-N3(0.6s)": {
+   "n": 808,
+   "err1.5s_med_px": 38.852,
+   "err1.5s_p90_px": 80.016,
+   "angle_med_deg": 16.841,
+   "angle_over45_pct": 17.7
+  },
+  "5fps-N4(0.8s)": {
+   "n": 814,
+   "err1.5s_med_px": 38.181,
+   "err1.5s_p90_px": 76.661,
+   "angle_med_deg": 15.836,
+   "angle_over45_pct": 18.6
+  },
+  "5fps-N5(1.0s)": {
+   "n": 816,
+   "err1.5s_med_px": 38.834,
+   "err1.5s_p90_px": 77.099,
+   "angle_med_deg": 15.897,
+   "angle_over45_pct": 20.2
+  },
+  "5fps-N6(1.2s)": {
+   "n": 818,
+   "err1.5s_med_px": 38.99,
+   "err1.5s_p90_px": 78.002,
+   "angle_med_deg": 16.771,
+   "angle_over45_pct": 21.1
+  },
+  "5fps-N8(1.6s)": {
+   "n": 820,
+   "err1.5s_med_px": 39.195,
+   "err1.5s_p90_px": 81.662,
+   "angle_med_deg": 17.773,
+   "angle_over45_pct": 23.0
+  },
+  "5fps-N10(2.0s)": {
+   "n": 821,
+   "err1.5s_med_px": 40.774,
+   "err1.5s_p90_px": 84.323,
+   "angle_med_deg": 18.932,
+   "angle_over45_pct": 23.7
+  },
+  "5fps-N12(2.4s)": {
+   "n": 823,
+   "err1.5s_med_px": 42.51,
+   "err1.5s_p90_px": 86.142,
+   "angle_med_deg": 20.307,
+   "angle_over45_pct": 24.6
+  },
+  "5fps-N15(3.0s)": {
+   "n": 826,
+   "err1.5s_med_px": 43.399,
+   "err1.5s_p90_px": 88.212,
+   "angle_med_deg": 20.455,
+   "angle_over45_pct": 23.3
+  },
+  "10fps-N2(0.2s)": {
+   "n": 876,
+   "err1.5s_med_px": 89.451,
+   "err1.5s_p90_px": 159.14,
+   "angle_med_deg": 39.832,
+   "angle_over45_pct": 45.5
+  },
+  "10fps-N3(0.3s)": {
+   "n": 880,
+   "err1.5s_med_px": 47.704,
+   "err1.5s_p90_px": 108.576,
+   "angle_med_deg": 20.063,
+   "angle_over45_pct": 23.9
+  },
+  "10fps-N4(0.4s)": {
+   "n": 880,
+   "err1.5s_med_px": 46.481,
+   "err1.5s_p90_px": 102.359,
+   "angle_med_deg": 20.307,
+   "angle_over45_pct": 21.8
+  },
+  "10fps-N5(0.5s)": {
+   "n": 882,
+   "err1.5s_med_px": 42.591,
+   "err1.5s_p90_px": 95.028,
+   "angle_med_deg": 19.027,
+   "angle_over45_pct": 22.1
+  },
+  "10fps-N6(0.6s)": {
+   "n": 883,
+   "err1.5s_med_px": 41.511,
+   "err1.5s_p90_px": 91.845,
+   "angle_med_deg": 18.226,
+   "angle_over45_pct": 23.3
+  },
+  "10fps-N8(0.8s)": {
+   "n": 884,
+   "err1.5s_med_px": 41.775,
+   "err1.5s_p90_px": 87.609,
+   "angle_med_deg": 18.116,
+   "angle_over45_pct": 23.8
+  },
+  "10fps-N10(1.0s)": {
+   "n": 885,
+   "err1.5s_med_px": 42.55,
+   "err1.5s_p90_px": 87.266,
+   "angle_med_deg": 18.072,
+   "angle_over45_pct": 25.4
+  },
+  "10fps-N12(1.2s)": {
+   "n": 887,
+   "err1.5s_med_px": 42.55,
+   "err1.5s_p90_px": 88.866,
+   "angle_med_deg": 18.637,
+   "angle_over45_pct": 26.6
+  },
+  "10fps-N15(1.5s)": {
+   "n": 888,
+   "err1.5s_med_px": 43.435,
+   "err1.5s_p90_px": 91.386,
+   "angle_med_deg": 19.456,
+   "angle_over45_pct": 27.8
+  }
+ },
+ "size": {
+  "single": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.048,
+    "abs_err_p90": 0.153,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.5
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.154,
+    "abs_err_p90": 0.505,
+    "threat_read_below_1.08_pct": 10.0,
+    "prey_read_not_edible_pct": 5.9
+   }
+  },
+  "10fps-median3": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.046,
+    "abs_err_p90": 0.145,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.4
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.153,
+    "abs_err_p90": 0.505,
+    "threat_read_below_1.08_pct": 9.9,
+    "prey_read_not_edible_pct": 5.5
+   }
+  },
+  "10fps-median5": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.046,
+    "abs_err_p90": 0.145,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.153,
+    "abs_err_p90": 0.505,
+    "threat_read_below_1.08_pct": 9.8,
+    "prey_read_not_edible_pct": 5.1
+   }
+  },
+  "10fps-median10": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.045,
+    "abs_err_p90": 0.142,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.151,
+    "abs_err_p90": 0.505,
+    "threat_read_below_1.08_pct": 9.7,
+    "prey_read_not_edible_pct": 5.1
+   }
+  },
+  "10fps-median15": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.044,
+    "abs_err_p90": 0.142,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.15,
+    "abs_err_p90": 0.506,
+    "threat_read_below_1.08_pct": 9.6,
+    "prey_read_not_edible_pct": 5.1
+   }
+  },
+  "10fps-median30": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.04,
+    "abs_err_p90": 0.137,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.147,
+    "abs_err_p90": 0.508,
+    "threat_read_below_1.08_pct": 9.2,
+    "prey_read_not_edible_pct": 5.1
+   }
+  },
+  "5fps-median3": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.046,
+    "abs_err_p90": 0.145,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.153,
+    "abs_err_p90": 0.505,
+    "threat_read_below_1.08_pct": 9.8,
+    "prey_read_not_edible_pct": 5.3
+   }
+  },
+  "5fps-median5": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.045,
+    "abs_err_p90": 0.145,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.151,
+    "abs_err_p90": 0.505,
+    "threat_read_below_1.08_pct": 9.7,
+    "prey_read_not_edible_pct": 5.1
+   }
+  },
+  "5fps-median10": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.042,
+    "abs_err_p90": 0.144,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.149,
+    "abs_err_p90": 0.505,
+    "threat_read_below_1.08_pct": 9.3,
+    "prey_read_not_edible_pct": 5.1
+   }
+  },
+  "5fps-median15": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.04,
+    "abs_err_p90": 0.142,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.147,
+    "abs_err_p90": 0.505,
+    "threat_read_below_1.08_pct": 9.0,
+    "prey_read_not_edible_pct": 5.1
+   }
+  },
+  "5fps-median30": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.039,
+    "abs_err_p90": 0.138,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.144,
+    "abs_err_p90": 0.498,
+    "threat_read_below_1.08_pct": 8.3,
+    "prey_read_not_edible_pct": 5.1
+   }
+  },
+  "memory5s-median5": {
+   "unclipped": {
+    "n": 1990,
+    "abs_err_med": 0.046,
+    "abs_err_p90": 0.145,
+    "threat_read_below_1.08_pct": 0.3,
+    "prey_read_not_edible_pct": 0.3
+   },
+   "clipped": {
+    "n": 8110,
+    "abs_err_med": 0.145,
+    "abs_err_p90": 0.504,
+    "threat_read_below_1.08_pct": 8.7,
+    "prey_read_not_edible_pct": 5.1
+   }
+  }
+ },
+ "counts": {
+  "v2.13#1": {
+   "frames": 1499,
+   "matched": 1870
+  },
+  "v2.13#2": {
+   "frames": 1499,
+   "matched": 915
+  },
+  "v2.13#3": {
+   "frames": 1491,
+   "matched": 1364
+  },
+  "v2.13#4": {
+   "frames": 1493,
+   "matched": 1268
+  },
+  "v2.22#1": {
+   "frames": 1502,
+   "matched": 878
+  },
+  "v2.22#2": {
+   "frames": 1499,
+   "matched": 1320
+  },
+  "v2.22#3": {
+   "frames": 1212,
+   "matched": 1528
+  },
+  "v2.22#4": {
+   "frames": 840,
+   "matched": 957
+  }
+ }
+}

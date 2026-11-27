@@ -12,7 +12,7 @@ const OPTS={'claude-11':{clipWhite:true,clipRedClear:6,segment:true,safe:true},'
 const hwarp=Math.max(1,Number(process.env.HYBRID_WARP)||1),period=Math.max(4,Math.round((Number(process.env.HYBRID_MS)||200)/hwarp));if(process.env.HYBRID_MAP==='real')OPTS.__realMap=true;if(process.env.HYBRID_SRC)OPTS.__src=process.env.HYBRID_SRC;
 // HYBRID_NOWHITE=1: give the planner no off-view white markers (matches claude-20/22/23/24, which compute none).
 if(process.env.HYBRID_EXTRA)Object.assign(OPTS,JSON.parse(process.env.HYBRID_EXTRA));// HYBRID_EXTRA: JSON merged into the planner options (test-only screening)
-if(process.env.HYBRID_NOWHITE)OPTS.__noWhite=true;if(process.env.HYBRID_PROBE)OPTS.__probe=true;if(process.env.HYBRID_MIX)OPTS.__mix=process.env.HYBRID_MIX.split(',');
+if(process.env.HYBRID_NOWHITE)OPTS.__noWhite=true;if(process.env.HYBRID_PROBE)OPTS.__probe=true;if(process.env.HYBRID_REC)OPTS.__rec=true;if(process.env.HYBRID_RIMFILTER)OPTS.__rim=true;if(process.env.HYBRID_MIX)OPTS.__mix=process.env.HYBRID_MIX.split(',');
 const browser=await chromium.launch({channel:'chrome',headless:true});
 const ctx=await browser.newContext({viewport:{width:2000,height:1163},deviceScaleFactor:1});
 await ctx.route(u=>u.href.startsWith(url),async route=>{const res=await route.fetch(),body=await res.text(),anchor="(()=>{'use strict';";
@@ -42,7 +42,17 @@ const driver=([opts,period])=>{const gw=document.getElementById('game').contentW
   // on-screen objects; detview = real on-screen detection with the simulated (degraded) minimap.
   let useObjects=objects,useMap=map;
   if(['detmap','detview','detnpc','detfood','mix'].includes(opts.__src)){const doc=gw.document,hud=Number(doc.getElementById('size')?.textContent)||25,a=window.__see(doc.querySelector('canvas'),hud,g.elapsed*1000,{x:p.vx,y:p.vy});// game-time clock: correct under HYBRID_WARP (wall clock would inflate on-screen velocities N times)
+   // HYBRID_RIMFILTER=1 (test-only screening): drop tiny unclipped "NPC" blobs on the player's own rim
+   // (frame study: ~64% of spurious detections are r≈8 px at 0.95–1.13R from the centre, far from any true NPC).
+   if(opts.__rim&&a.objects)a.objects=a.objects.filter(o=>!(o.npc&&!o.clipped&&!o.mapOnly&&o.r<=Math.min(16,R*.2)&&Math.abs(Math.hypot(o.x,o.y)/R-1.04)<=.16));
    stats.seen=(stats.seen||0)+1;
+   // HYBRID_REC=1: per-frame record for offline tracking studies — game time, true player, the controller's own
+   // player-velocity estimate, detected on-screen NPCs, and true NPCs within 1.3x the view (stable ids). Relative coords.
+   if(opts.__rec){const R2=window.__rec=window.__rec||{frames:[]},ids=window.__ids=window.__ids||new WeakMap(),rd=v=>Math.round(v*10)/10;let nid=window.__nid||0;
+    const id=q=>{if(!ids.has(q))ids.set(q,++nid);return ids.get(q);},mx=g.vw*.65,my=g.vh*.65,cx=g.cam.x+g.vw/2,cy=g.cam.y+g.vh/2;
+    R2.frames.push({t:Math.round(g.elapsed*1000),p:[rd(p.x),rd(p.y),rd(p.r),rd(p.vx),rd(p.vy)],cam:[rd(g.cam.x),rd(g.cam.y),g.vw,g.vh],ev:a.velocity?[rd(a.velocity.x),rd(a.velocity.y)]:null,
+     det:(a.objects||[]).filter(o=>o.npc&&!o.mapOnly).map(o=>[rd(o.x),rd(o.y),rd(o.r),o.clipped?1:0,rd(o.vx||0),rd(o.vy||0),o.seg&&Number.isFinite(o.seg.r)?rd(o.seg.r):null,o.fit&&Number.isFinite(o.fit.r)?rd(o.fit.r):null,o.isRed?1:0]),
+     tru:g.slimes.filter(q=>Math.abs(q.x-cx)<mx+q.r&&Math.abs(q.y-cy)<my+q.r).map(q=>[id(q),rd(q.x-p.x),rd(q.y-p.y),rd(q.r),rd(q.vx),rd(q.vy),inView(q)?1:0])});window.__nid=nid;}
    // HYBRID_PROBE=1: match detected on-screen NPCs to true ones (nearest centre within max(40,0.6r)) and record
    // [trueR/R, detR/trueR, clipped, |dv| px/s, dist/R] for matches, true misses [r/R, dist/R, partly off-view], and spurious detections [r/R, dist/R].
    if(opts.__probe&&stats.seen%3===0){const P=stats.probe=stats.probe||{m:[],miss:[],spur:[]},det=(a.objects||[]).filter(o=>o.npc),tru=objects.filter(o=>o.npc),used=new Set(),rd=v=>Math.round(v*100)/100;
@@ -70,7 +80,7 @@ const driver=([opts,period])=>{const gw=document.getElementById('game').contentW
   for(const k of ['ArrowRight','ArrowLeft','ArrowDown','ArrowUp'])g.keys.delete(k);if(d.x>.38)g.keys.add('ArrowRight');if(d.x<-.38)g.keys.add('ArrowLeft');if(d.y>.38)g.keys.add('ArrowDown');if(d.y<-.38)g.keys.add('ArrowUp');
  }catch(e){stats.err=String(e).slice(0,200);}},period);return 'installed';};
 let index=0;
-for(const version of order){index++;const page=await ctx.newPage(),started=Date.now(),row={label,index,version,opts:process.env.HYBRID_OPTS||'claude-14',map:process.env.HYBRID_MAP||'exact',src:process.env.HYBRID_SRC||'true',noWhite:!!process.env.HYBRID_NOWHITE,mix:process.env.HYBRID_MIX||null,extra:process.env.HYBRID_EXTRA||null,periodMs:period,warp:hwarp,outcome:'unknown',samples:[]};
+for(const version of order){index++;const page=await ctx.newPage(),started=Date.now(),row={label,index,version,opts:process.env.HYBRID_OPTS||'claude-14',map:process.env.HYBRID_MAP||'exact',src:process.env.HYBRID_SRC||'true',noWhite:!!process.env.HYBRID_NOWHITE,mix:process.env.HYBRID_MIX||null,extra:process.env.HYBRID_EXTRA||null,rim:!!process.env.HYBRID_RIMFILTER,periodMs:period,warp:hwarp,outcome:'unknown',samples:[]};
  try{await page.goto(url);await page.selectOption('#gameChoice','/'+version);
   await page.waitForFunction(v=>document.getElementById('gameVersion').textContent.includes(v),version,{timeout:30000});await page.waitForTimeout(1500);
   const f=await (await page.$('#game')).contentFrame();await f.click('#start');await page.waitForTimeout(500);if(process.env.HYBRID_SRC)await page.evaluate(v=>window.__setStrat(v),process.env.HYBRID_STRAT||'claude-16');row.driver=await page.evaluate(driver,[OPTS,period]);
@@ -80,6 +90,7 @@ for(const version of order){index++;const page=await ctx.newPage(),started=Date.
    if(s.t>150){row.gameSeconds=Math.round(s.t);row.size=Math.round(s.r);row.outcome='cutoff150';break;}
    if(Date.now()-started>300000){row.outcome='wall-timeout';break;}}
   row.hybrid=await page.evaluate(()=>{clearInterval(window.__hyTimer);return window.__hy;});
+  if(process.env.HYBRID_REC){const rec=await page.evaluate(()=>window.__rec||null);if(rec)await appendFile(out.replace(/\.jsonl$/,'')+'-frames.jsonl',JSON.stringify({label,index,version,frames:rec.frames})+'\n');}
  }catch(e){row.outcome='infra-error';row.error=String(e).slice(0,300);}
  await appendFile(out,JSON.stringify(row)+'\n');console.log(index,version,row.outcome,row.gameSeconds,row.size,row.hybrid?.eats?.length,row.hybrid?.err||'');await page.close();}
 await browser.close();
