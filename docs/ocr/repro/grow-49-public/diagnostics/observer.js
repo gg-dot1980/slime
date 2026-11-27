@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   if (self !== top || location.protocol !== 'http:' || location.hostname !== '127.0.0.1' || location.pathname !== '/') return;
-  const candidatePath = '/candidate/grow49';
+  const candidatePath = /^\/candidate\/grow(?:49|50)$/;
   const gamePath = /^\/v2\.(13|22)$/;
   const maxPending = 3; // One decision, with room for an ending and its result.
 
@@ -39,10 +39,10 @@
       const status = window.growLocalStatus?.();
       const ctx = status?.current;
       if (!ctx || !status.active || typeof ctx.id !== 'string') return;
-      const identity = /^(grow49-(?:diagnostic|explore|confirm)-\d+)\/(v2\.(?:13|22))\/([1-9]\d*)$/.exec(ctx.id);
-      if (!identity || identity[1] !== status.batchId || identity[2] !== ctx.version) return;
+      const identity = /^((grow(?:49|50))-(?:diagnostic|explore|confirm)-\d+)\/(v2\.(?:13|22))\/([1-9]\d*)$/.exec(ctx.id);
+      if (!identity || identity[1] !== status.batchId || identity[3] !== ctx.version) return;
       const candidate = document.getElementById('candidate')?.contentDocument;
-      if (candidate?.location.pathname !== candidatePath || !doc ||
+      if (candidate?.location.pathname !== '/candidate/' + identity[2] || !doc ||
           candidate.getElementById('game')?.contentDocument !== doc || doc.location.pathname !== '/' + ctx.version) return;
       const terminal = kind === 'ending' || kind === 'result';
       if (!terminal && kind !== 'decision') return;
@@ -145,7 +145,7 @@
     return true;
   }
   function watchCandidate(doc) {
-    if (doc.location.pathname !== candidatePath) return false;
+    if (!candidatePath.test(doc.location.pathname)) return false;
     const win = doc.defaultView;
     function wrap(fn) {
       if (typeof fn !== 'function') return fn;
