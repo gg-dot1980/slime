@@ -11,8 +11,8 @@
 | 已完成探索 | Grow49 封帳，v2.13 4/4、v2.22 1/4。Grow48 為 v2.13 2/4、v2.22 1/4。 |
 | 確認狀態 | Grow49 在 v2.22 未達 2/4，兩版獨立確認均開 0 局。Grow46 歷史獨立確認為 v2.13 10/12、v2.22 4/12。 |
 | 結果資料截止 | 2026-11-27T10:07:26+08:00 [Grow49 自然探索](repro/grow-49-public/results/natural.md)。8 局均有結算及釋鍵紀錄，4 局控制診斷另計。 |
-| 唯一下一步 | 離線回放 v2.22 三局死亡前的連續主畫面、小地圖及規劃器輸入，核對近身或重疊的大型 NPC 是否漏辨或低估，並檢查較早是否存在安全轉向。 |
-| 目前阻礙 | v2.22 三局死亡前最後一筆決策均回報威脅但未啟動逃生。吞食者身分、預測間距是否高估及當時可行退路仍待核對。 |
+| 唯一下一步 | 將 v2.22 危險標籤仍可見、玩家和 NPC 被合併濾除的片段固定成離線回歸案例。測試能否依可見名字及危險標籤保留該 NPC，並用勝局的重疊輪廓檢查誤報。此步通過再評估候選；已完成的四局末段回放沿用。 |
+| 回放紀錄 | [Grow49 近身威脅回放](repro/grow-49-public/results/close-threat-replay.md)。三個死亡及一個勝局共 149 筆留存決策皆已由凍結規劃器重現。推演轉向仍受路徑誤差與其他威脅影響。 |
 
 來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [Grow46 進度門檻](repro/grow-46-public/results/progress-timing.md) · [Grow46 成長實現率](repro/grow-46-public/results/gain-realization.md) · [Grow46 目標連續性](repro/grow-46-public/results/target-continuity.md) · [Grow46 45° 轉向回放](repro/grow-46-public/results/turn-limit-replay.md) · [Grow46 擺盪核對](repro/grow-46-public/results/oscillation-audit.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
 
