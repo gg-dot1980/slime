@@ -124,5 +124,15 @@
     "sha256": "3f04d509d6bc0b8ad95865bf8f5a75f2282ad87cf2cd6737b6ed11e6e44ff8f6",
     "geometry": "qhd",
     "label": "Grow50 · 重疊警告復原"
+  },
+  "grow51": {
+    "sha256": "5ffe0a35611299410c2f70ab20c849785783db2a9c740a38c4cacf1ac449f5f6",
+    "geometry": "qhd",
+    "label": "Grow51 · 切換路徑安全閘"
+  },
+  "grow52": {
+    "sha256": "6a0562b8bd74c38e9d49a666d870fd5e33314dfab8df1b09b4d4633ac96875b6",
+    "geometry": "qhd",
+    "label": "Grow52 · 正常安全間隙 14"
   }
 }
