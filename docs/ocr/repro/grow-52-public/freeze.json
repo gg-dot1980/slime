@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "candidate": "grow52",
+  "parent": "grow51",
+  "sourceCommit": "b32d3ea7d2a6c7346485c01600d2d8aca50d0263",
+  "candidatePath": "docs/ocr/repro/grow-52-public/ocr-grow52.html",
+  "candidateGitBlob": "5c53b0096fb749402aa04403f56046aa031f542d",
+  "candidateSha256": "6a0562b8bd74c38e9d49a666d870fd5e33314dfab8df1b09b4d4633ac96875b6",
+  "originalGames": {
+    "v2.13": {
+      "path": "src/game-v2.13.html",
+      "gitBlob": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97"
+    },
+    "v2.22": {
+      "path": "src/game.html",
+      "gitBlob": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+    }
+  },
+  "desktopQhd": {
+    "viewport": [2560, 1440],
+    "canvas": [2250, 1308],
+    "dpr": 1,
+    "locale": "zh-TW",
+    "phaseOrder": ["preflight", "diagnostic", "explore"],
+    "explorationSlots": {"v2.13": 4, "v2.22": 4},
+    "confirmationSlots": {"v2.13": 12, "v2.22": 12},
+    "explorationGate": 2,
+    "confirmationGate": 6,
+    "maxGameSeconds": 150,
+    "targetSize": 200
+  },
+  "change": {
+    "v2.13": "unchanged Grow38/Grow23 decision",
+    "v2.22": "normal safe-path clearance floor 4 to 14; existing escape and Grow51 route-switch gap gate unchanged"
+  }
+}
