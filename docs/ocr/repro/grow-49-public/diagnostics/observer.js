@@ -1,8 +1,7 @@
-// Optional private evidence collector. Install in every document before navigation.
-// The top page owns pending pixels and bindings so replacement game frames can disappear.
+// The top page observes committed same-origin frames and owns queued pixels across navigation.
 (() => {
   'use strict';
-  if (location.protocol !== 'http:' || location.hostname !== '127.0.0.1') return;
+  if (self !== top || location.protocol !== 'http:' || location.hostname !== '127.0.0.1' || location.pathname !== '/') return;
   const candidatePath = '/candidate/grow49';
   const gamePath = /^\/v2\.(13|22)$/;
   const maxPending = 3; // One decision, with room for an ending and its result.
@@ -114,42 +113,56 @@
         attempts:Object.fromEntries([...attempts].map(([id, a]) => [id, {...a}])), errors:errors.slice()})
     };
   }
-  if (self === top) {
-    if (location.pathname === '/') installTop();
-    return;
-  }
-  if (location.pathname === candidatePath) {
-    let receiver;
-    Object.defineProperty(window, 'ocrTestRecord', {
-      configurable:true, enumerable:true, get:() => receiver,
-      set(fn) {
-        receiver = typeof fn !== 'function' ? fn : function (...args) {
-          const result = fn.apply(this, args);
-          try { top.grow49Observer?.capture('decision', document.getElementById('game')?.contentDocument, args[0]); }
-          catch { /* Observation must never stop an applied native decision. */ }
-          return result;
-        };
-      }
-    });
-    return;
-  }
-  if (gamePath.test(location.pathname)) {
-    function attach() {
-      function check() {
-        try {
-          const flags = overlays(document);
-          if (flags.endingVisible) top.grow49Observer?.capture('ending', document, null);
-          if (flags.resultVisible) top.grow49Observer?.capture('result', document, null);
-        } catch { /* Detached or superseded documents do not control gameplay. */ }
-      }
-      const observer = new MutationObserver(check);
-      for (const id of ['gameEnding', 'overlay']) {
-        const element = document.getElementById(id);
-        if (element) observer.observe(element, {attributes:true, attributeFilter:['class']});
-      }
-      check();
+  // Chromium may run a child init script while the candidate URL is still about:blank.
+  // r4 waits for the committed iframe load before assigning its native record callback.
+  // Capture that load from the parent document, including target game replacements.
+  function watchFrame(parent, id, attach) {
+    const seen = new WeakSet();
+    function inspect(frame) {
+      if (!frame || frame !== parent.getElementById(id)) return;
+      const child = frame.contentDocument;
+      if (!child || seen.has(child)) return;
+      if (attach(child)) seen.add(child);
     }
-    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', attach, {once:true});
-    else attach();
+    parent.addEventListener('load', event => inspect(event.target), true);
+    inspect(parent.getElementById(id));
   }
+  function watchGame(doc) {
+    if (!gamePath.test(doc.location.pathname) || doc.readyState === 'loading') return false;
+    function check() {
+      try {
+        const flags = overlays(doc);
+        if (flags.endingVisible) window.grow49Observer.capture('ending', doc, null);
+        if (flags.resultVisible) window.grow49Observer.capture('result', doc, null);
+      } catch { /* Detached or superseded documents do not control gameplay. */ }
+    }
+    const observer = new MutationObserver(check);
+    for (const id of ['gameEnding', 'overlay']) {
+      const element = doc.getElementById(id);
+      if (element) observer.observe(element, {attributes:true, attributeFilter:['class']});
+    }
+    check();
+    return true;
+  }
+  function watchCandidate(doc) {
+    if (doc.location.pathname !== candidatePath) return false;
+    const win = doc.defaultView;
+    function wrap(fn) {
+      if (typeof fn !== 'function') return fn;
+      return function (...args) {
+        const result = fn.apply(this, args);
+        try { window.grow49Observer.capture('decision', doc.getElementById('game')?.contentDocument, args[0]); }
+        catch { /* Observation must never stop an applied native decision. */ }
+        return result;
+      };
+    }
+    let receiver = wrap(win.ocrTestRecord);
+    Object.defineProperty(win, 'ocrTestRecord', {
+      configurable:true, enumerable:true, get:() => receiver, set:fn => { receiver = wrap(fn); }
+    });
+    watchFrame(doc, 'game', watchGame);
+    return true;
+  }
+  installTop();
+  watchFrame(document, 'candidate', watchCandidate);
 })();

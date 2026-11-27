@@ -3,16 +3,20 @@ import argparse
 from contextlib import contextmanager
 import fcntl
 import hashlib
+import importlib.metadata
 import importlib.util
 import json
 import os
 from pathlib import Path
 import shutil
+import struct
 import subprocess
+import tempfile
 import time
 import urllib.request
+import zlib
 
-from capture_store import CaptureStore
+from capture_store import CaptureStore, FREE_FLOOR, MAX_PNG
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parents[4]
@@ -23,6 +27,7 @@ RESULTS = R4 / "results-private"
 VERSIONS = ("v2.13", "v2.22")
 GAME_BLOBS = ("16d41cdf2997baf0b3af33567b201d2dfb835427", "30af12f7608da91514711ecdbc01b57654ab2eab")
 PHASES = ("diagnostic", "explore", "confirm")
+BASELINE = "grow49-observer-diagnostic-baseline.json"
 
 
 def digest(path):
@@ -43,8 +48,165 @@ def diagnostic_ok(rows):
                     or (r["outcome"] == "manual-abort" and r.get("diagnosticStop") and (r.get("wallMs") or 0) >= 10_000)) for r in results)
 
 
-def existing(results, candidate_sha, expected_runner):
+def capture_identity(args, output):
+    chromium = shutil.which(args.chromium) if args.chromium else None
+    return {
+        "source": {p.name: digest(p) for p in (HERE / "observer.js", HERE / "capture_store.py", Path(__file__), NATIVE)},
+        "environment": {
+            "chromiumExecutable": digest(Path(chromium)) if chromium else (args.chromium or "playwright-default"),
+            "playwright": importlib.metadata.version("playwright"),
+            "perAttemptMiB": args.mib_per_attempt,
+            "captureSpaceAvailable": shutil.disk_usage(output).free >= FREE_FLOOR + MAX_PNG,
+        },
+    }
+
+
+def sealed_rows(path, report, phase):
+    if (report.get("batchId") != path.stem or report.get("phase") != phase or
+            report.get("complete") is not True or report.get("integrityOk") is not True or
+            report.get("rawSha256") != digest(path)):
+        raise RuntimeError(f"Prior {phase} cohort is incomplete or inconsistent: {path.name}; no restart")
+    with path.open() as stream:
+        header = json.loads(stream.readline())
+        rows = [json.loads(line) for line in stream] if phase == "diagnostic" else []
+    if header.get("batchId") != path.stem or header.get("phase") != phase:
+        raise RuntimeError(f"Prior {phase} ledger identity differs: {path.name}")
+    if phase == "diagnostic":
+        ids = [(v, f"{path.stem}/{v}/1") for v in VERSIONS]
+        if (any([(row.get("version"), row.get("id")) for row in rows if row.get("type") == kind] != ids
+                for kind in ("start", "result")) or not diagnostic_ok(rows)):
+            raise RuntimeError(f"Prior diagnostic has failed starts or unverified releases: {path.name}; no restart")
+    return header, rows
+
+
+def native_snapshots(rows, attempt):
+    snapshots = []
+    for row in rows:
+        if row.get("id") == attempt:
+            if row["type"] == "sample":
+                snapshots.append(row["snapshot"])
+            elif row["type"] == "result":
+                snapshots.extend(row.get("traceTail", []))
+    return snapshots
+
+
+def valid_qhd_png(path):
+    if path.stat().st_size > MAX_PNG:
+        return False
+    with path.open("rb") as stream:
+        if stream.read(8) != b"\x89PNG\r\n\x1a\n":
+            return False
+        pixels = False
+        first = True
+        while chunk := stream.read(8):
+            if len(chunk) != 8:
+                return False
+            size, kind = struct.unpack(">I4s", chunk)
+            if size > MAX_PNG:
+                return False
+            data = stream.read(size)
+            if len(data) != size or stream.read(4) != struct.pack(">I", zlib.crc32(data, zlib.crc32(kind))):
+                return False
+            if first and (kind != b"IHDR" or size != 13 or struct.unpack(">II", data[:8]) != (2250, 1308)):
+                return False
+            first = False
+            if kind == b"IDAT" and size:
+                pixels = True
+            if kind == b"IEND":
+                return size == 0 and pixels and not stream.read(1)
+    return False
+
+
+def linked_decision(png, sidecar, attempt, snapshots):
+    meta = json.loads(sidecar.read_bytes())
+    snap = meta.get("decisionSnapshot")
+    return (meta.get("id") == attempt and meta.get("version") == attempt.split("/")[1] and
+            meta.get("kind") == "decision" and type(meta.get("index")) is int and meta["index"] > 0 and
+            (meta.get("width"), meta.get("height")) == (2250, 1308) and isinstance(snap, dict) and
+            isinstance(meta.get("recordAt"), (int, float)) and isinstance(meta.get("decisionStart"), (int, float)) and
+            meta["recordAt"] == snap.get("recordAt") and meta["decisionStart"] == snap.get("decisionStartedAt") and
+            snap in snapshots and valid_qhd_png(png))
+
+
+def save_readiness(root, report, rows, sink, identity, drained):
+    batch = report["batchId"]
+    target = root / (batch + "-capture-readiness")
+    with tempfile.TemporaryDirectory(dir=root) as scratch:
+        bundle = Path(scratch) / "bundle"
+        bundle.mkdir()
+        receipt = {"schema": 1, "batchId": batch, "ledgerSha256": report["rawSha256"],
+                   "identity": identity, "ready": False, "evidence": {}}
+        for version in VERSIONS:
+            attempt = f"{batch}/{version}/1"
+            snapshots = native_snapshots(rows, attempt)
+            for frame in sink.cases.get(attempt, {}).get("retained", {}).values():
+                png, sidecar = frame["png"], frame["json"]
+                if not linked_decision(png, sidecar, attempt, snapshots):
+                    continue
+                for source, ext in ((png, ".png"), (sidecar, ".json")):
+                    shutil.copyfile(source, bundle / (version + ext))
+                receipt["evidence"][version] = {"png": digest(png), "json": digest(sidecar)}
+                break
+        receipt["ready"] = drained and list(receipt["evidence"]) == list(VERSIONS)
+        write(bundle / "receipt.json", receipt)
+        (bundle / "receipt.sha256").write_text(digest(bundle / "receipt.json") + "\n")
+        bundle.rename(target)
+    if not receipt["ready"]:
+        raise RuntimeError(f"Diagnostic capture readiness failed for {batch}; native attempts and captured evidence retained")
+
+
+def read_readiness(bundle, report, rows, identity):
+    try:
+        path = bundle / "receipt.json"
+        if digest(path) != (bundle / "receipt.sha256").read_text().strip():
+            raise ValueError("receipt checksum mismatch")
+        receipt = json.loads(path.read_bytes())
+        evidence = receipt["evidence"]
+        if (receipt["schema"] != 1 or receipt["batchId"] != report["batchId"] or
+                receipt["ledgerSha256"] != report["rawSha256"] or type(receipt["ready"]) is not bool or
+                not isinstance(receipt["identity"], dict) or set(evidence) - set(VERSIONS) or
+                (receipt["ready"] and set(evidence) != set(VERSIONS))):
+            raise ValueError("receipt identity, status or evidence list mismatch")
+        for version, hashes in evidence.items():
+            png, sidecar = bundle / (version + ".png"), bundle / (version + ".json")
+            attempt = f"{report['batchId']}/{version}/1"
+            if (hashes != {"png": digest(png), "json": digest(sidecar)} or
+                    not linked_decision(png, sidecar, attempt, native_snapshots(rows, attempt))):
+                raise ValueError(f"evidence mismatch for {version}")
+    except (OSError, KeyError, TypeError, ValueError) as error:
+        raise RuntimeError(f"Invalid capture readiness evidence for {report['batchId']}: {error}") from error
+    return receipt["ready"] if receipt["identity"] == identity else None
+
+
+def diagnostic_baseline(results, create=False):
+    path = results / BASELINE
+    if not path.exists() and create:
+        legacy = {ledger.name: digest(ledger) for ledger in results.glob("grow49-diagnostic-*.jsonl")
+                  if not ledger.with_name(ledger.stem + "-capture-readiness").exists()}
+        with tempfile.TemporaryDirectory(dir=results) as scratch:
+            staged = Path(scratch) / BASELINE
+            write(staged, legacy)
+            os.link(staged, path)  # Publish once, before a repaired diagnostic can start.
+    if not path.exists():
+        return None
+    legacy = json.loads(path.read_bytes())
+    if not isinstance(legacy, dict):
+        raise RuntimeError("Invalid native-only diagnostic baseline")
+    for name, sha in legacy.items():
+        ledger = results / name
+        if (ledger.parent != results or not ledger.match("grow49-diagnostic-*.jsonl") or
+                not ledger.is_file() or digest(ledger) != sha):
+            raise RuntimeError(f"Missing or changed baseline diagnostic: {name}")
+    return legacy
+
+
+def existing(results, candidate_sha, expected_runner, identity):
     sealed = {}
+    failed = []
+    legacy = diagnostic_baseline(results)
+    for bundle in results.glob("grow49-diagnostic-*-capture-readiness"):
+        if not bundle.with_name(bundle.name.removesuffix("-capture-readiness") + ".jsonl").is_file():
+            raise RuntimeError(f"Capture readiness evidence lacks its native ledger: {bundle.name}")
     for phase in PHASES:
         ledgers = sorted(results.glob(f"grow49-{phase}-*.jsonl"))
         for receipt in results.glob(f"grow49-{phase}-*-contract.json"):
@@ -56,29 +218,37 @@ def existing(results, candidate_sha, expected_runner):
             if not summary_path.exists():
                 raise RuntimeError(f"Prior {phase} ledger is still open or interrupted: {path.name}; no restart")
             report = json.loads(summary_path.read_bytes())
-            if not report["complete"] or not report["integrityOk"] or report["rawSha256"] != digest(path):
-                raise RuntimeError(f"Prior {phase} cohort is incomplete or inconsistent: {path.name}; no restart")
-            with path.open() as stream:
-                header = json.loads(stream.readline())
-                rows = [json.loads(s) for s in stream] if phase == "diagnostic" else []
+            header, rows = sealed_rows(path, report, phase)
             contract = header["contract"]
             if (header["phase"] != phase or contract["candidate"] != "grow49" or
                     contract["candidateSha256"] != candidate_sha or contract["runnerSha256"] != expected_runner or
                     contract["protocolId"] != "grow-native-local-20261126-v4" or contract["candidateGeometry"] != "qhd"):
                 raise RuntimeError(f"Prior {phase} contract differs: {path.name}; inspect before proceeding")
+            if phase == "diagnostic":
+                bundle = results / (path.stem + "-capture-readiness")
+                if not bundle.exists():
+                    if legacy is not None and path.name not in legacy:
+                        raise RuntimeError(f"Diagnostic sealed without capture readiness evidence: {path.name}; inspect before proceeding")
+                    continue  # A pre-repair native-only diagnostic remains in the ledger.
+                ready = read_readiness(bundle, report, rows, identity)
+                if ready is not True:
+                    if ready is False:
+                        failed.append(path.stem)
+                    continue
             if phase in sealed:
                 raise RuntimeError(f"Multiple sealed {phase} cohorts; inspect their identity before proceeding")
-            if phase == "diagnostic" and not diagnostic_ok(rows):
-                raise RuntimeError(f"Prior diagnostic has failed starts or unverified releases: {path.name}; no restart")
             sealed[phase] = report
+    if failed and not ({"explore", "confirm"} & sealed.keys()):
+        raise RuntimeError(f"A diagnostic already failed capture readiness under these conditions: {', '.join(failed)}")
     return sealed
 
 
 class Observer:
-    def __init__(self, output, sink, skip_diagnostic):
+    def __init__(self, output, sink, skip_diagnostic, identity):
         self.output = output
         self.sink = sink
         self.skip_diagnostic = skip_diagnostic
+        self.identity = identity
         self.page = None
 
     def attach(self, page, manifest_url):
@@ -105,13 +275,10 @@ class Observer:
                 pass
         write(self.output / f"{phase}-capture-stats.json", stats)
         if phase == "diagnostic":
-            if "coverageError" in stats:
-                raise RuntimeError("Diagnostic capture did not drain; both native attempts retained")
             raw = RESULTS / (report["batchId"] + ".jsonl")
-            rows = [json.loads(line) for line in raw.read_bytes().splitlines()]
-            expected = [r["id"] for r in rows if r.get("type") == "start"]
-            if not diagnostic_ok(rows) or not all(self.sink.cases.get(key, {}).get("retained") for key in expected):
-                raise RuntimeError("Diagnostic failed native start/release or image readiness; retained both attempts")
+            _, rows = sealed_rows(raw, report, phase)
+            drained = "coverageError" not in stats and stats.get("pending") == 0
+            save_readiness(RESULTS, report, rows, self.sink, self.identity, drained)
 
 
 @contextmanager
@@ -162,7 +329,9 @@ def run(args, output):
         actual = subprocess.check_output(["git", "hash-object", str(path)], cwd=ROOT, text=True).strip()
         if actual != committed:
             raise RuntimeError(f"Working and committed source differ: {rel}")
-    found = existing(RESULTS, cand_hash, checked["runnerSha256"])
+    identity = capture_identity(args, output)
+    found = existing(RESULTS, cand_hash, checked["runnerSha256"], identity)
+    write(output / "prior-diagnostics.json", [p.stem for p in sorted(RESULTS.glob("grow49-diagnostic-*.jsonl"))])
     write(output / "prior-phases.json", {p:r["batchId"] for p,r in found.items()})
     if "confirm" in found or "explore" in found:
         if "confirm" in found:
@@ -179,11 +348,13 @@ def run(args, output):
         return
     RESULTS.mkdir(exist_ok=True)
     before = set(RESULTS.iterdir())
+    if args.through != "preflight" and "diagnostic" not in found:
+        diagnostic_baseline(RESULTS, create=True)
     spec = importlib.util.spec_from_file_location("grow49_native", NATIVE)
     native = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(native)
     sink = CaptureStore(output, args.mib_per_attempt)
-    observer = Observer(output, sink, "diagnostic" in found)
+    observer = Observer(output, sink, "diagnostic" in found, identity)
     try:
         with server(args.port, output) as manifest:
             if manifest["runnerSha256"] != checked["runnerSha256"] or manifest["candidates"] != checked["candidates"]:
@@ -200,9 +371,14 @@ def run(args, output):
         # Include open, completed and zero-start artifacts even when startup or a phase failed.
         saved = output / "ledger"
         saved.mkdir()
-        for path in sorted(set(RESULTS.iterdir()) - before):
+        changed = set(RESULTS.iterdir()) - before
+        if (RESULTS / BASELINE).is_file():
+            changed.add(RESULTS / BASELINE)
+        for path in sorted(changed):
             if path.is_file():
                 shutil.copy2(path, saved / path.name)
+            elif path.name.endswith("-capture-readiness") and path.is_dir():
+                shutil.copytree(path, saved / path.name)
 
 
 if __name__ == "__main__":

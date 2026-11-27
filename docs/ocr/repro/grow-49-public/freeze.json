@@ -59,9 +59,9 @@
     "singleBrowser": true
   },
   "observerSha256": {
-    "observed.py": "5a12fb47bab6e993027149e270d54635139440a6c4d42661d55cd4d25296f058",
+    "observed.py": "a703d32faa70e5454cb181e9c8c2077a0da937e1b189e631e7a8da065d5f8d89",
     "capture_store.py": "49e22f39c626049772bfff7e79b622a03d1cb8e17db1f47d2dd4d3e94550b247",
-    "observer.js": "4a2734f839fd194d51d1b198efd4c680d044eba3f78aed05795bf86e090c5efa"
+    "observer.js": "e47363bead19683d08d163aadd8ba29bcd61253b34c6214b433dea8aacf6324e"
   },
   "geometryDriverSha256": "3a9fe1f082edcc296b0e3e6aabd67fe529e6f0cba18b20fedf82052d9ae4643c"
 }

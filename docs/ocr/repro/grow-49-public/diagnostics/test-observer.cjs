@@ -9,7 +9,7 @@ const source = fs.readFileSync(path.join(__dirname, 'observer.js'), 'utf8');
 function realm(pathname, top) {
   const location = {protocol:'http:', hostname:'127.0.0.1', pathname};
   const nodes = new Map();
-  const doc = {location, readyState:'complete', getElementById:id => nodes.get(id)};
+  const doc = {location, addEventListener() {}, readyState:'complete', getElementById:id => nodes.get(id)};
   const win = {location, document:doc, getComputedStyle:() => ({display:'block', visibility:'visible', opacity:'1'})};
   Object.assign(win, {window:win, self:win, top:top || win});
   doc.defaultView = win;
@@ -32,7 +32,7 @@ async function test() {
   game.nodes.set('overlay', {ownerDocument:game.doc, getClientRects:() => result ? [1] : []});
   for (const [id, s] of Object.entries({size:'100', time:'02:57', start:'開始遊戲', title:'過關', description:'體型 200', gameEnding:'', endingTitle:'最後一秒！'}))
     game.nodes.set(id, {textContent:s});
-  game.win.MutationObserver = class {
+  host.win.MutationObserver = class {
     constructor(fn) { callbacks.push(fn); }
     observe() {}
   };

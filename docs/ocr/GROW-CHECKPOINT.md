@@ -10,9 +10,9 @@
 | 環境分組 | 桌機 QHD，視窗 2560×1440、原畫布 2250×1308、DPR 1；不混用其他幾何 |
 | 已完成探索 | Grow49 兩版均已開 0／預定 4。上一候選 Grow48 的封帳結果為 v2.13 2/4、v2.22 1/4。 |
 | 確認狀態 | Grow49 尚未啟動獨立確認。Grow46 的歷史獨立確認為 v2.13 10/12、v2.22 4/12。 |
-| 結果資料截止 | 2026-11-27T08:31:59+08:00 [Grow49 定位與決策回放](repro/grow-49-public/validation/visible-centers.md)。16 張完整名稱，定位誤差中位數 30.45 → 4.45 像素。Grow49 新自然開局 0。 |
-| 唯一下一步 | 待同機執行環境允許 Chromium 建立程序間通訊（IPC）socket，再核對鎖與帳本，以凍結 Grow49 和原 QHD 條件接續預檢、控制診斷、兩版各 4 局及同步終場原圖保存。雙版各達 2/4 且紀錄完整才另起各 12 局確認。條件未變時免重試啟動。 |
-| 目前阻礙 | Linux x64 Chrome for Testing 151.0.7922.34 可執行 `--version`。既有 runner 已啟動本機伺服器，但 Playwright 在建立頁面前中止。空白頁測試重現 `process_singleton_posix.cc:297` 的 `socket()` 錯誤 `EPERM`。本環境無法提升權限，本次原生開局 0。 |
+| 結果資料截止 | 2026-11-27T09:39:34+08:00 [首次 QHD 控制診斷](repro/grow-49-public/results/diagnostic.md)。兩版各已開、封帳及釋鍵 1 局，各保留 0 張。 |
+| 唯一下一步 | 沿用既有鎖與逐局帳本，以修正的觀察器執行兩版各一局取證診斷。先核對兩局同步決策原圖，再進入各 4 局探索。雙版各達 2/4 且紀錄完整才另起各 12 局確認。 |
+| 目前阻礙 | 桌機 QHD 已可用 Headless Shell 啟動。首次控制診斷完成，每版 r4 記錄 98 次決策，觀察器收到 0 次。修正後仍須以兩版原生局驗證留圖。 |
 
 來源：[Grow48 原生結果](repro/grow-48-public/results/natural.md) · [Grow47 原生結果](repro/grow-47-public/results/natural.md) · [Grow47 實際預檢及阻礙](repro/grow-47-public/results/README.md) · [Grow47 來源與有限檢查](repro/grow-47-public/README.md) · [Grow46 確認結果](repro/grow-46-public/results/README.md) · [Grow46 進度門檻](repro/grow-46-public/results/progress-timing.md) · [Grow46 成長實現率](repro/grow-46-public/results/gain-realization.md) · [Grow46 目標連續性](repro/grow-46-public/results/target-continuity.md) · [Grow46 45° 轉向回放](repro/grow-46-public/results/turn-limit-replay.md) · [Grow46 擺盪核對](repro/grow-46-public/results/oscillation-audit.md) · [固定提交的 Grow46 探索彙總](https://github.com/gg-dot1980/slime/blob/25d668f620c72ca3f0e401ea87627859a1a8e75a/docs/ocr/repro/grow-46-public/results/README.md)。後續最新內容由 [Grow46 結果入口](repro/grow-46-public/results/README.md)及相應私人原始紀錄核對；[精簡續跑流程](GROW-WORKFLOW.md)、[既有 runner](repro/grow-local-r4-20261126/README.md)。
 
