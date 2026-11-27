@@ -1,0 +1,30 @@
+{
+  "candidate": "grow53",
+  "candidateSha256": "2ee212a3be69555a9b04b39bc7b8f45f932f79154e075d41da37ebc18cca794c",
+  "capturedTaipei": "2026-11-28T03:36:26+08:00",
+  "desktopQhd": {
+    "geometry": {"viewport": [2560, 1440], "canvas": [2250, 1308], "dpr": 1},
+    "exploration": {
+      "v2.13": {"planned": 4, "validResults": 4, "wins": 4, "deaths": 0, "deadlines": 0, "passed": true},
+      "v2.22": {"planned": 4, "validResults": 4, "wins": 0, "deaths": 2, "deadlines": 2, "passed": false}
+    },
+    "independentConfirmationStarted": false,
+    "ledgerSha256": "a0ee2901fdc09b2df87ae25b8806fad51e78e6ed8fac1bd2d8c51df203fa2b03"
+  },
+  "v2.22Terminal": [
+    {"outcome": "death", "gameSecond": 138, "size": 177},
+    {"outcome": "death", "gameSecond": 79, "size": 101},
+    {"outcome": "deadline", "gameSecond": 151, "size": 154},
+    {"outcome": "deadline", "gameSecond": 151, "size": 177}
+  ],
+  "velocityMedian53": {
+    "appliedByAttempt": [5, 9, 3, 12],
+    "totalApplied": 29,
+    "wins": 0
+  },
+  "deathTailObservation": {
+    "deathAttempts": 2,
+    "negativeClearanceEscapeFrames": 2,
+    "nextVisibleFrameDroppedEscape": 2
+  }
+}
