@@ -27,8 +27,8 @@ RESULTS = R4 / "results-private"
 VERSIONS = ("v2.13", "v2.22")
 GAME_BLOBS = ("16d41cdf2997baf0b3af33567b201d2dfb835427", "30af12f7608da91514711ecdbc01b57654ab2eab")
 PHASES = ("diagnostic", "explore", "confirm")
-CANDIDATE = "grow52"
-BASELINE = "grow52-observer-diagnostic-baseline.json"
+CANDIDATE = "grow53"
+BASELINE = "grow53-observer-diagnostic-baseline.json"
 
 
 def digest(path):
