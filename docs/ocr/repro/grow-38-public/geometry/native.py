@@ -17,10 +17,10 @@ def run(mode, port, through, chromium, candidate="grow38", locale=None, observer
     outer, expected = GEOMETRIES[mode]
     url = f"http://127.0.0.1:{port}"
     with sync_playwright() as playwright:
-        launch_args = ["--disable-dev-shm-usage"] if candidate in ("grow44", "grow45", "grow46", "grow47", "grow48", "grow49", "grow50") else []
+        launch_args = ["--disable-dev-shm-usage"] if candidate in ("grow44", "grow45", "grow46", "grow47", "grow48", "grow49", "grow50", "grow51", "grow52") else []
         browser = playwright.chromium.launch(executable_path=chromium, args=launch_args)
         context_args = {"viewport": {"width": outer[0], "height": outer[1]}, "device_scale_factor": 1}
-        if locale is not None or candidate in ("grow44", "grow45", "grow46", "grow47", "grow48", "grow49", "grow50"):
+        if locale is not None or candidate in ("grow44", "grow45", "grow46", "grow47", "grow48", "grow49", "grow50", "grow51", "grow52"):
             context_args["locale"] = locale or "zh-TW"
         page = browser.new_page(**context_args)
         if observer is not None:
@@ -81,7 +81,7 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=4173)
     parser.add_argument("--through", choices=PHASES, default="preflight")
     parser.add_argument("--chromium", help="Optional installed Chromium executable")
-    parser.add_argument("--candidate", choices=("grow38", "grow44", "grow45", "grow46", "grow47", "grow48", "grow49", "grow50"), default="grow38")
+    parser.add_argument("--candidate", choices=("grow38", "grow44", "grow45", "grow46", "grow47", "grow48", "grow49", "grow50", "grow51", "grow52"), default="grow38")
     parser.add_argument("--locale", help="Browser locale (Grow44–50 default to zh-TW)")
     args = parser.parse_args()
     run(args.mode, args.port, args.through, args.chromium, args.candidate, args.locale)
