@@ -9,7 +9,7 @@ import re
 import shutil
 import struct
 
-ID = re.compile(r"grow52-(diagnostic|explore|confirm)-[0-9]+/(v2\.13|v2\.22)/([1-9][0-9]*)\Z")
+ID = re.compile(r"grow53-(diagnostic|explore|confirm)-[0-9]+/(v2\.13|v2\.22)/([1-9][0-9]*)\Z")
 MAX_PNG = 12_000_000
 FREE_FLOOR = 128 * 1024 * 1024
 
