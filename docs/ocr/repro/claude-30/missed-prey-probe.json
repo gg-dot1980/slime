@@ -1,0 +1,99 @@
+{
+  "probe": "scripts/probe-missed-prey-ocr-claude.mjs",
+  "strategy": "claude-29",
+  "geometry": "qhd",
+  "games": "2 per version, 145 s each",
+  "computeMsQhd": {
+    "p50": 15,
+    "p90": 21,
+    "p99": 37,
+    "max": 50,
+    "decisions": 299,
+    "version": "v2.22",
+    "seconds": 60
+  },
+  "byVersion": [
+    {
+      "version": "v2.13",
+      "decisionsWithVisibleLargePrey": 840,
+      "reasons": {
+        "chased": {
+          "count": 561,
+          "truePreyOverR_median": 0.77,
+          "fullyVisible": 535
+        },
+        "chose-other": {
+          "count": 33,
+          "truePreyOverR_median": 0.56,
+          "fullyVisible": 33
+        },
+        "chose-white": {
+          "count": 21,
+          "truePreyOverR_median": 0.62,
+          "fullyVisible": 21
+        },
+        "clipped": {
+          "count": 63,
+          "truePreyOverR_median": 0.89,
+          "fullyVisible": 4
+        },
+        "food": {
+          "count": 1,
+          "truePreyOverR_median": 0.86,
+          "fullyVisible": 1
+        },
+        "size-over": {
+          "count": 48,
+          "truePreyOverR_median": 0.9,
+          "fullyVisible": 48
+        },
+        "undetected": {
+          "count": 113,
+          "truePreyOverR_median": 0.49,
+          "fullyVisible": 107
+        }
+      }
+    },
+    {
+      "version": "v2.22",
+      "decisionsWithVisibleLargePrey": 776,
+      "reasons": {
+        "chased": {
+          "count": 544,
+          "truePreyOverR_median": 0.74,
+          "fullyVisible": 502
+        },
+        "chose-other": {
+          "count": 16,
+          "truePreyOverR_median": 0.6950000000000001,
+          "fullyVisible": 16
+        },
+        "chose-white": {
+          "count": 24,
+          "truePreyOverR_median": 0.54,
+          "fullyVisible": 24
+        },
+        "clipped": {
+          "count": 64,
+          "truePreyOverR_median": 0.765,
+          "fullyVisible": 5
+        },
+        "food": {
+          "count": 1,
+          "truePreyOverR_median": 0.7,
+          "fullyVisible": 1
+        },
+        "size-over": {
+          "count": 26,
+          "truePreyOverR_median": 0.87,
+          "fullyVisible": 26
+        },
+        "undetected": {
+          "count": 101,
+          "truePreyOverR_median": 0.66,
+          "fullyVisible": 54
+        }
+      }
+    }
+  ]
+}
