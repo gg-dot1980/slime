@@ -40,6 +40,8 @@ def run(mode, port, through, chromium, candidate="grow38", locale=None, observer
         page.select_option("#candidateChoice", candidate)
         page.bring_to_front()
         for phase in PHASES:
+            if observer is not None and phase == "diagnostic" and observer.skip_diagnostic:
+                continue
             control = page.locator("#" + phase)
             if not control.is_enabled():
                 print("Phase unavailable:", phase)
