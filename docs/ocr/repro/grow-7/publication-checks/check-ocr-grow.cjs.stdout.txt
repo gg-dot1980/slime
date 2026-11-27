@@ -1,2 +1,0 @@
-{"growthGrid":9,"directionChanges":0}
-{"checks":11,"passed":true,"newGames":0}

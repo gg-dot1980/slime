@@ -1,6 +1,20 @@
 # OCR 控制台 GUI 指南
 
-`/ocr` 是桌機操作入口。操作者應能在同一畫面選好遊戲和策略、開始一局，並同時看見遊戲、目前的動作及其原因。調查辨識或查閱舊版本時，再展開相應工具。
+`/ocr-gui-design` 是可直接開啟的獨立實驗室。這個研究分支的 `/ocr` 也提供同一套桌機介面。操作者應能在同一畫面選好遊戲和策略、開始一局，並同時看見遊戲、目前的動作及其原因。調查辨識或查閱舊版本時，再展開相應工具。
+
+## 原始碼與本機啟動
+
+| 維護內容 | 儲存庫檔案 |
+| --- | --- |
+| 畫面結構與樣式 | [src/ocr.html](../../src/ocr.html)、[src/ocr-console.css](../../src/ocr-console.css) |
+| 啟停、版本切換、原生控制器讀值及操作紀錄 | [src/ocr-console-runtime.js](../../src/ocr-console-runtime.js) |
+| 六個系列、策略修訂及公開證據連結 | [src/ocr-console-catalog.js](../../src/ocr-console-catalog.js) |
+| 獨立入口的資源網址 | [src/ocr-gui-design/routes.mjs](../../src/ocr-gui-design/routes.mjs)。建置時為共用 HTML 與目錄產生獨立網址。 |
+| 原生來源固定、建置與 HTTP 路由 | [scripts/build.mjs](../../scripts/build.mjs)、[src/worker.js](../../src/worker.js) |
+
+從儲存庫根目錄執行 `npm run build`、`node scripts/check-ocr-index.mjs`，再用 `npm run dev` 啟動本機預覽，開啟 `http://localhost:4173/ocr-gui-design`。按 Ctrl+C 可關閉預覽。建置會產生包含控制器與遊戲的 `dist/server/index.js`。
+
+獨立入口從 `/ocr-gui-design/` 讀取 `style.css`、`catalog.js` 和 `runtime.js`。Grow、Claude 與測試版原生頁位於同一前綴下的 `grow`、`claude`、`test`。其餘三個系列直接載入 `/ocr1`、`/ocr2`、`/ocr3`。兩個入口共用原生控制器與歷史資料。
 
 ## 版面與操作
 
@@ -46,9 +60,9 @@
 
 ## 介面驗收
 
-在儲存庫根目錄執行 `npm run build`、`node scripts/check-ocr-index.mjs`。以 `npm run dev` 啟動本機預覽後開啟 `/ocr` 進行以下操作。
+完成本機建置與路由檢查後，在 `/ocr-gui-design` 進行以下操作，並抽查原入口 `/ocr`。
 
-- [ ] 從 `/ocr` 直接開啟，確認桌面首屏能選遊戲與策略，看見遊戲、主要決策與啟停操作。縮至手機寬度時逐區可讀，操控區沒有整頁橫向溢出。
+- [ ] 從實驗室網址直接開啟，確認桌面首屏能選遊戲與策略，看見遊戲、主要決策與啟停操作。縮至手機寬度時逐區可讀，操控區沒有整頁橫向溢出。
 - [ ] 每個家族至少核對一組原生遊戲與策略。沒有複數選項或某項讀值的來源，依其實際能力顯示。
 - [ ] 啟動一局，比對原生 HUD、動作／理由及方向鍵。停止、切至背景、運行中換家族／遊戲／策略後，都確認舊鍵已放開、舊狀態已清除。
 - [ ] 先後以不同設定開始兩次，核對「本頁實驗紀錄」保留兩筆及各自的停止原因。重新整理後應顯示空狀態，所有策略的公開修訂仍可查閱。

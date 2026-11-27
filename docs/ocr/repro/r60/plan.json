@@ -1,7 +1,0 @@
-{
-  "hypothesis": "Requiring one prior compatible food observation under both recorded camera estimates prevents intermittent food target switches; keep NPC/risks and predicted path gains unchanged.",
-  "association": "existing100px matching range,max(6,r*.2)radius;bothcameraestimates;only>=3measuredshifts,dt<=.4,and exact prior timestamp. Not physical identity truth.",
-  "batch": "fixed A then B,one v2.20 desktop each,150HUDseconds/210wallseconds/3stale/800rows;no replacements",
-  "limits": "test exploratory,not acceptance;some modeled margin reductions;randomseedsunknown",
-  "images": "localonly"
-}

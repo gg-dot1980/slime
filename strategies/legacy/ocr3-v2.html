@@ -1,0 +1,146 @@
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>OCR3 成長路徑控制</title><style>
+:root{color-scheme:dark;--bg:#10191d;--panel:#18272d;--line:#344a50;--ink:#eef8f5;--muted:#a8bfba;--mint:#9df0cb;--warn:#ff9b8e}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}.layout{max-width:1440px;margin:auto;padding:16px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px}.card{border:1px solid var(--line);border-radius:16px;background:var(--panel);overflow:hidden}.stage{position:relative;min-height:60vh;background:#111a1f;display:grid;place-items:center}iframe{width:100%;height:min(82vh,850px);border:0;background:#111a1f}.side{padding:18px;align-self:start;position:sticky;top:16px}.side h1{font-size:21px;margin:0 0 4px}.muted{color:var(--muted);font-size:14px}.actions{display:grid;gap:9px;margin:16px 0}button{padding:12px;border:1px solid #57716f;border-radius:10px;background:#20343a;color:var(--ink);font:700 15px system-ui;cursor:pointer}button.primary{background:var(--mint);color:#10231b;border:0}button:focus-visible{outline:3px solid white;outline-offset:2px}button:disabled{opacity:.55;cursor:wait}.status{padding:12px;border:1px solid var(--line);border-radius:10px;min-height:50px}.status.ok{color:var(--mint)}.status.err{color:var(--warn)}.legend{display:grid;gap:7px;margin-top:14px;color:var(--muted);font-size:14px}.sample{position:relative;max-width:100%;max-height:82vh}.sample canvas{display:block;max-width:100%;max-height:82vh;object-fit:contain}.overlay{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}.overlay circle{fill:none;stroke-width:3;vector-effect:non-scaling-stroke}.overlay .player{stroke:var(--mint)}.overlay .npc{stroke:#ffca6e}.overlay .food{stroke:#62dce0}.overlay .route{stroke:var(--mint);stroke-width:5;vector-effect:non-scaling-stroke;marker-end:url(#arrow)}.overlay text{fill:white;font:700 13px system-ui;paint-order:stroke;stroke:#10191d;stroke-width:4px}.readout{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:14px 0}.metric{padding:10px;border:1px solid var(--line);border-radius:10px;color:var(--muted);font-size:13px}.metric b{display:block;color:var(--ink);font-size:20px}.decision{padding:13px;border:1px solid #45645d;border-radius:12px;background:#142522;margin-top:12px}.decision strong{font-size:19px;color:var(--mint)}.decision p{margin:5px 0 0;font-size:14px;color:var(--muted)}.how{font-size:14px;color:var(--muted);margin-top:16px}.back{color:var(--mint);font-size:14px;text-decoration:none;display:inline-block;margin-bottom:12px}@media(max-width:850px){.layout{grid-template-columns:1fr;padding:8px;gap:8px}.stage{min-height:52vh}.side{position:static}.stage iframe{height:62vh}.sample,.sample canvas{max-height:62vh}}
+.titlebar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 4px}.titlebar h1{margin:0}.version{flex:none;padding:3px 8px;border:1px solid var(--line);border-radius:999px;color:var(--mint);font-size:12px;font-weight:700;letter-spacing:.03em}.status{height:76px;min-height:76px;display:flex;align-items:center;overflow:auto}.decision{height:154px;display:flex;flex-direction:column;overflow:hidden}.decision strong{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden}.decision p{flex:1;min-height:0;overflow:auto}.url-picker{display:grid;gap:8px;margin-top:16px;padding:12px;border:1px solid var(--line);border-radius:12px;background:#122025}.url-picker label{font-size:13px;font-weight:700}.url-picker select,.url-picker input{width:100%;min-width:0;padding:10px;border:1px solid #57716f;border-radius:9px;background:#10191d;color:var(--ink);font:inherit}.url-picker input[hidden]{display:none}.url-picker p{margin:0;color:var(--muted);font-size:12px;line-height:1.5}
+@media(min-width:851px){.stage{align-self:start;min-height:0}.side{max-height:calc(100vh - 32px);overflow:auto}iframe{height:calc(100vh - 34px)}}
+@media(min-width:851px){.stage{display:block;height:calc(100vh - 34px)}.stage iframe{width:calc(100% * var(--view-scale,1));height:calc((100vh - 34px) * var(--view-scale,1));transform:scale(calc(1 / var(--view-scale,1)));transform-origin:top left}}
+</style><main class="layout"><section class="card stage"><iframe id="game" src="/v2.13" title="Slime"></iframe></section><aside class="card side"><a class="back" href="/ocr">所有 OCR</a><h1>OCR3 · 成長路徑控制</h1><span class="version">v2</span><p class="muted">目標：最快達到 200。只讀取畫面與可見 HUD，以方向鍵和加速遊玩。</p><div class="url-picker"><label for="gameChoice">遊戲版本或網址</label><select id="gameChoice" disabled><option value="/">正在讀取版本…</option></select><span id="versionStatus" role="status"></span><input id="customUrl" type="url" inputmode="url" placeholder="https://slime.gameson.cc/遊戲路徑" aria-label="自訂遊戲網址" hidden><button id="loadGame" class="primary">載入遊戲</button><p>載入後再開始遊戲或自動控制。自訂網址需與 OCR3 頁面同網域，瀏覽器才允許讀取畫面及送出控制鍵。</p></div><label for="viewScale">遊戲視野</label><select id="viewScale"><option value="1">標準</option><option value="2">廣視野 2 倍</option><option value="2.5">廣視野 2.5 倍</option><option value="wide" selected>廣視野（固定 2000）</option></select><div class="actions"><button id="go" class="primary" disabled>開始連續挑戰</button><button id="stop">停止並暫停</button></div><div id="status" class="status">等待遊戲載入</div><div class="readout"><div class="metric">體型<b id="size">—</b></div><div class="metric">剩餘時間<b id="time">—</b></div><div class="metric">決策耗時<b id="ms">—</b></div><div class="metric">本次嘗試<b id="attempt">0</b></div></div><div class="decision"><strong id="action">等待</strong><p id="detail"></p></div><p class="how">按預估成長量與抵達時間選擇食物或 NPC，沿八個方向比較短期碰撞風險，並保留邊界空間。進入邊界保留區後優先往內脫困。分析遊戲截圖畫素與可見 HUD，追蹤小地圖位置和體型，尋找可吞食史萊姆。全程加速。以遊戲結算時間低於 1:50 為目標，每輪最多 5 局；達標即停止。成績以本局結算畫面判定，不使用歷史排名。請保持頁面在前景，按停止會取消重試。</p><p id="rank" class="muted"></p><details id="diagnostics"><summary>辨識診斷</summary><canvas id="vision" style="width:100%"></canvas><pre id="visionText" style="white-space:pre-wrap;font-size:11px"></pre></details><h2 style="font-size:16px">本輪測試紀錄</h2><ol id="runs" style="font-size:13px;padding-left:20px"></ol></aside></main><script>(()=>{const $=id=>document.getElementById(id),game=$('game'),out=document.createElement('canvas'),ctx=out.getContext('2d',{willReadFrequently:true});let active=false,challenging=false,epoch=0,previous=[],last=0,heading={x:1,y:0},velocity={x:0,y:0},held=new Set(),attempt=0;
+function isPlayerComponent(p,radius,cx,cy){if(!radius)return false;const offset=Math.hypot(p.x-cx,p.y-cy);return offset<=radius*.65&&p.r>=radius*.45&&p.r<=radius*1.55}
+function components(data,w,h,scale,uiMasks=[]){
+ const W=Math.ceil(w/scale),H=Math.ceil(h/scale),n=W*H,mask=new Uint8Array(n),seen=new Uint8Array(n),hues=new Uint16Array(n),rgb=data.data,sqrt3=Math.sqrt(3);
+ for(let y=0;y<H;y++)for(let x=0;x<W;x++){
+  if(uiMasks.some(rect=>x*scale>=rect.x&&x*scale<=rect.x+rect.w&&y*scale>=rect.y&&y*scale<=rect.y+rect.h))continue;
+  const p=((y*scale)*w+x*scale)*4,r=rgb[p],g=rgb[p+1],b=rgb[p+2],max=Math.max(r,g,b),min=Math.min(r,g,b),i=y*W+x;
+  if(max>64){mask[i]=1;hues[i]=max-min<8?65535:Math.round((Math.atan2(sqrt3*(g-b),2*r-g-b)*180/Math.PI+360)%360)%360}
+ }
+ const found=[],queue=new Int32Array(n);
+ for(let i=0;i<n;i++){
+  if(!mask[i]||seen[i])continue;
+  const seedHue=hues[i],sameColor=j=>{if(seedHue===65535||hues[j]===65535)return seedHue===hues[j];const delta=Math.abs(hues[j]-seedHue);return delta<=22||delta>=338};
+  let head=0,tail=0;queue[tail++]=i;seen[i]=1;let area=0,minX=W,minY=H,maxX=0,maxY=0,sx=0,sy=0;
+  while(head<tail){
+   const q=queue[head++],x=q%W,y=(q/W)|0;area++;sx+=x;sy+=y;if(x<minX)minX=x;if(x>maxX)maxX=x;if(y<minY)minY=y;if(y>maxY)maxY=y;
+   let j;if(x>0){j=q-1;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(x+1<W){j=q+1;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(y>0){j=q-W;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}if(y+1<H){j=q+W;if(mask[j]&&!seen[j]&&sameColor(j)){seen[j]=1;queue[tail++]=j}}
+  }
+  const bw=maxX-minX+1,bh=maxY-minY+1,diam=Math.max(bw,bh)*scale,cx=(sx/area+.5)*scale,cy=(sy/area+.5)*scale;
+  const aspect=Math.max(bw,bh)/Math.min(bw,bh),density=area/(bw*bh),textLike=aspect>2.4&&density<.55;
+  if(area>=7&&diam>=9&&density>=.28&&aspect<=12&&!textLike)found.push({hue:seedHue,x:cx,y:cy,r:diam/2,area,bw:bw*scale,bh:bh*scale,clipped:minX<=1||minY<=1||maxX>=W-2||maxY>=H-2||uiMasks.some(rect=>(maxX+1)*scale>=rect.x-scale&&minX*scale<=rect.x+rect.w+scale&&(maxY+1)*scale>=rect.y-scale&&minY*scale<=rect.y+rect.h+scale)});
+ }
+ return found
+}
+function canvasUiMasks(w,h,pixelRatio=1){
+ // The supported game versions paint only the minimap into this canvas. Other HUD panels are DOM overlays and must not hide arena pixels.
+ const miniWidth=Math.min(144*pixelRatio,w*.26),miniHeight=miniWidth*9/13;
+ return [{x:w-miniWidth-27*pixelRatio,y:58*pixelRatio,w:miniWidth+27*pixelRatio,h:miniHeight+42*pixelRatio}]
+}
+function detectMinimap(image,w,h,pixelRatio=1){
+ const width=Math.min(144*pixelRatio,w*.26),height=width*9/13,x=w-width-15*pixelRatio,y=70*pixelRatio;
+ if(width<40||x<0||y+height>h)return null;
+ const data=image.data,W=Math.ceil(width),H=Math.ceil(height),red=new Uint8Array(W*H),green=new Uint8Array(W*H),seen=new Uint8Array(W*H),queue=new Int32Array(W*H),threats=[];
+ let mapBackground=0;
+ for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){
+  const px=Math.floor(x+xx),py=Math.floor(y+yy);if(px>=w||py>=h)continue;
+  const i=(py*w+px)*4,r=data[i],g=data[i+1],b=data[i+2],j=yy*W+xx;
+  if(Math.abs(r-32)<=2&&Math.abs(g-50)<=2&&Math.abs(b-56)<=2)mapBackground++;
+  red[j]=r>205&&r-g>55&&r-b>65&&g<185?1:0;
+  green[j]=r>110&&r<200&&g>190&&g-r>35&&g-b>15?1:0;
+ }
+ if(mapBackground<W*H*.25)return null;
+ // Separate red islands; overlapping dots remain one group with greater area/weight.
+ for(let i=0;i<red.length;i++)if(red[i]&&!seen[i]){
+  let head=0,tail=0,area=0,sx=0,sy=0;queue[tail++]=i;seen[i]=1;
+  while(head<tail){const j=queue[head++],xx=j%W,yy=(j/W)|0;area++;sx+=xx;sy+=yy;
+   for(let dy=-1;dy<=1;dy++)for(let dx=-1;dx<=1;dx++){const nx=xx+dx,ny=yy+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;const k=ny*W+nx;if(red[k]&&!seen[k]){seen[k]=1;queue[tail++]=k}}
+  }
+  if(area>=Math.max(2,pixelRatio*pixelRatio*1.5))threats.push({x:sx/area+.5,y:sy/area+.5,area,weight:1+Math.min(2,Math.max(0,Math.sqrt(area/Math.PI)/pixelRatio-1.2))*.4})
+ }
+ // A filled green disk identifies the player; the thin camera rectangle must not qualify.
+ const disk=[],ring=[],coreRadius=2.2*pixelRatio,outerRadius=4.4*pixelRatio;
+ for(let dy=-Math.ceil(outerRadius);dy<=Math.ceil(outerRadius);dy++)for(let dx=-Math.ceil(outerRadius);dx<=Math.ceil(outerRadius);dx++){const d=Math.hypot(dx,dy);if(d<=coreRadius)disk.push([dx,dy]);else if(d>=3.7*pixelRatio&&d<=outerRadius)ring.push([dx,dy])}
+ let player=null,best=-Infinity;
+ for(let yy=Math.ceil(coreRadius);yy<H-Math.ceil(coreRadius);yy++)for(let xx=Math.ceil(coreRadius);xx<W-Math.ceil(coreRadius);xx++)if(green[yy*W+xx]){
+  const coverage=offsets=>{let hits=0,total=0;for(const [dx,dy] of offsets){const nx=xx+dx,ny=yy+dy;if(nx<0||nx>=W||ny<0||ny>=H)continue;total++;hits+=green[ny*W+nx]}return total?hits/total:0},filled=coverage(disk),score=filled-coverage(ring)*.25;
+  if(filled>=.82&&score>best){best=score;player={x:xx+.5,y:yy+.5}}
+ }
+ const opportunities=[];const visited=new Set();for(let yy=0;yy<H;yy++)for(let xx=0;xx<W;xx++){const i=(Math.floor(y+yy)*w+Math.floor(x+xx))*4;if(data[i]>115&&data[i+1]>140&&data[i+2]>130&&data[i+1]-data[i]<55&&Math.abs(data[i]-data[i+2])<40&&!visited.has(yy*W+xx)){let area=0,sx=0,sy=0;const todo=[[xx,yy]];while(todo.length){const [a,b]=todo.pop(),k=b*W+a;if(a<0||a>=W||b<0||b>=H||visited.has(k))continue;visited.add(k);const q=(Math.floor(y+b)*w+Math.floor(x+a))*4;if(!(data[q]>115&&data[q+1]>140&&data[q+2]>130&&data[q+1]-data[q]<55&&Math.abs(data[q]-data[q+2])<40))continue;area++;sx+=a;sy+=b;todo.push([a-1,b],[a+1,b],[a,b-1],[a,b+1]);}if(area>=Math.max(1,2*pixelRatio*pixelRatio)&&area<100*pixelRatio*pixelRatio)opportunities.push({x:sx/area,y:sy/area,area});}}return player?{x,y,width,height,pixelRatio,player,threats,opportunities}:null
+}
+function hasSlimeLabel(image,w,h,p){
+ if(p.r<6)return false;
+ const data=image.data,halfWidth=Math.min(40,p.r*.65),halfHeight=Math.min(7,p.r*.25);
+ let bright=0;
+ for(let y=Math.max(0,Math.floor(p.y-halfHeight));y<=Math.min(h-1,p.y+halfHeight);y+=2)
+  for(let x=Math.max(0,Math.floor(p.x-halfWidth));x<=Math.min(w-1,p.x+halfWidth);x+=2){
+   const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2];
+   if(Math.min(r,g,b)>200&&Math.max(r,g,b)-Math.min(r,g,b)<40)bright++;
+  }
+ return bright>=3
+}
+function hasDangerLabel(image,w,h,p,ratio){
+ let hits=0;const data=image.data;
+ for(let y=Math.max(0,Math.floor(p.y-p.r*1.35-20*ratio));y<Math.min(h,p.y-p.r*.65);y++)for(let x=Math.max(0,Math.floor(p.x-24*ratio));x<Math.min(w,p.x+24*ratio);x++){
+ const i=(y*w+x)*4,r=data[i],g=data[i+1],b=data[i+2];if(r>225&&g>130&&g<210&&b>115&&b<200&&r-g>40&&g-b<40)hits++;
+ }return hits>=Math.max(3,5*ratio*ratio);
+}
+function highlightRadius(image,w,h,p){
+ if(p.clipped||p.r<18)return p.r;const data=image.data,colors=[];
+ for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){const x=Math.round(p.x+p.r*.32)+dx,y=Math.round(p.y-p.r*.28)+dy;if(x<0||x>=w||y<0||y>=h)continue;const i=(y*w+x)*4;colors.push([data[i],data[i+1],data[i+2]]);}
+ if(!colors.length)return p.r;const base=[0,1,2].map(k=>colors.map(c=>c[k]).sort((a,b)=>a-b)[colors.length>>1]);let area=0,sx=0,sy=0;
+ for(let y=Math.max(0,Math.floor(p.y-p.r*.7));y<p.y-p.r*.12;y++)for(let x=Math.max(0,Math.floor(p.x-p.r*.65));x<p.x+p.r*.02;x++){if(x>=w||y>=h)continue;const i=(y*w+x)*4;if([0,1,2].every(k=>data[i+k]>base[k]+9)&&[0,1,2].reduce((n,k)=>n+data[i+k]-base[k],0)>40){area++;sx+=x+.5;sy+=y+.5;}}
+ if(area<4)return p.r;const dx=p.x-sx/area,dy=p.y-sy/area,estimate=(dx*.25+dy*.33)/(.25*.25+.33*.33),expected=Math.PI*.18*.09*estimate*estimate;
+ return estimate>p.r*.7&&estimate<p.r*1.4&&area>expected*.45&&area<expected*1.6?estimate:p.r;
+}
+let imageState=null;
+function readImage(source,radius,now,predictedVelocity=null){
+ const scale=Math.min(1,1200/source.width),w=Math.round(source.width*scale),h=Math.round(source.height*scale);if(!w||!h)throw Error('遊戲畫面尚未就緒');
+ if(out.width!==w)out.width=w;if(out.height!==h)out.height=h;ctx.drawImage(source,0,0,w,h);const image=ctx.getImageData(0,0,w,h),pixels=new Uint32Array(image.data.buffer,image.data.byteOffset,image.data.byteLength/4),ratio=w/(source.clientWidth||w);
+ const prior=imageState;let same=prior?.pixels.length===pixels.length&&prior.width===w&&prior.height===h;if(same)for(let i=0;i<pixels.length;i++)if(pixels[i]!==prior.pixels[i]){same=false;break;}if(same)return prior.analysis;
+ const map=detectMinimap(image,w,h,ratio),r=radius*ratio,rawParts=components(image,w,h,Math.max(1,Math.ceil(w/700)),canvasUiMasks(w,h,ratio)),parts=rawParts.filter(p=>!rawParts.some(q=>q!==p&&q.r>p.r*1.8&&Math.hypot(p.x-q.x,p.y-q.y)<q.r*.8)).filter(p=>!isPlayerComponent(p,r,w/2,h/2)&&p.r>4*ratio&&!(p.r<=Math.max(20*ratio,r*.48)&&Math.hypot(p.x-w/2,p.y-h/2)<r*1.2&&(p.hue===65535||!hasSlimeLabel(image,w,h,p))));
+ if(map){map.viewWidth=w/ratio;map.viewHeight=h/ratio;}
+ const dt=Math.max(.04,Math.min(.4,(now-(prior?.timestamp??now-100))/1000)),previous=prior?.objects||[];let camera=predictedVelocity?{...predictedVelocity}:{x:0,y:0};
+ if(!predictedVelocity&&map&&prior?.analysis.map){const old=prior.analysis.map;camera={x:(map.player.x/map.width-old.player.x/old.width)*10400/dt,y:(map.player.y/map.height-old.player.y/old.height)*7200/dt};}
+ const shifts=[];for(const p of parts.filter(p=>p.r<=20*ratio)){const x=(p.x-w/2)/ratio,y=(p.y-h/2)/ratio;let best=null,error=35;for(const q of previous.filter(q=>!q.npc)){const dist=Math.hypot(q.x-x-(prior.analysis.velocity.x||0)*dt,q.y-y-(prior.analysis.velocity.y||0)*dt);if(Math.abs(q.r-p.r/ratio)<3&&dist<error){error=dist;best=q;}}if(best)shifts.push({x:(best.x-x)/dt,y:(best.y-y)/dt});}
+ if(shifts.length>=3){const median=k=>shifts.map(p=>p[k]).sort((a,b)=>a-b)[shifts.length>>1];camera=predictedVelocity?{x:predictedVelocity.x*.6+median('x')*.4,y:predictedVelocity.y*.6+median('y')*.4}:{x:median('x'),y:median('y')};}
+ camera.x=Math.max(-400,Math.min(400,camera.x));camera.y=Math.max(-400,Math.min(400,camera.y));const oldVelocity=prior?.analysis.velocity||{x:0,y:0},velocity=predictedVelocity?{...camera}:{x:oldVelocity.x*.75+camera.x*.25,y:oldVelocity.y*.75+camera.y*.25};
+ const used=new Set(),objects=parts.map(p=>{const x=(p.x-w/2)/ratio,y=(p.y-h/2)/ratio,visualR=p.r/ratio,npc=hasSlimeLabel(image,w,h,p)||visualR>20,r=npc?highlightRadius(image,w,h,p)/ratio:visualR;let match=null,error=100;for(const q of previous){if(used.has(q)||q.npc!==npc||Math.abs(q.r-r)>Math.max(6,r*.2))continue;const dist=Math.hypot(q.x+(q.vx-camera.x)*dt-x,q.y+(q.vy-camera.y)*dt-y);if(dist<error){error=dist;match=q;}}if(match)used.add(match);const clamp=v=>Math.max(-200,Math.min(200,v));const stalled=npc&&Math.hypot(x,y)<(radius+r)*.74&&prior?.radius===radius?(match?.stalled||0)+dt:0;return {x,y,r,npc,stalled,blocked:stalled>.5,isRed:npc&&hasDangerLabel(image,w,h,p,ratio),clipped:p.clipped,dangerRadius:p.clipped?r+50:r,vx:npc&&match?clamp((match.vx||0)*.65+((x-match.x)/dt+camera.x)*.35):0,vy:npc&&match?clamp((match.vy||0)*.65+((y-match.y)/dt+camera.y)*.35):0};});
+ const analysis={objects,map,velocity};imageState={radius,width:w,height:h,pixels:new Uint32Array(pixels),timestamp:now,objects,analysis};return analysis;
+}
+function hudSpeed(r,text){const values=/RGB\s*(\d+)\s*·\s*(\d+)\s*·\s*(\d+)/.exec(text||''),color=values?values.slice(1).map(Number):[98,218,169],brightness=(.2126*color[0]+.7152*color[1]+.0722*color[2])/255;return Math.max(92,260-Math.max(0,r-25)*.65)*(.72+brightness*.58)*1.38;}
+const dirs=Array.from({length:8},(_,i)=>({x:Math.cos(i*Math.PI/4),y:Math.sin(i*Math.PI/4),name:['東','東南','南','西南','西','西北','北','東北'][i]}));
+function plan(objects,r,map,speed,v,old,splitGuard=true){
+ const meals=objects.filter(o=>!o.clipped&&!o.blocked&&(!o.npc||!o.isRed&&o.r<r*.91));
+ const walls=map?[map.player.x/map.width*10400,(1-map.player.x/map.width)*10400,map.player.y/map.height*7200,(1-map.player.y/map.height)*7200]:null;
+ const margin=r+90,wallMeal=meals.some(o=>o.npc&&Math.hypot(o.x,o.y)<speed*2),recovering=!wallMeal&&walls?.some(x=>x<margin);
+ let target=null,best=0;
+ for(const o of meals){const dist=Math.hypot(o.x,o.y),gain=o.npc?.75*(Math.sqrt(r*r+.55*o.r*o.r)-r):.45,eta=Math.max(.12,(dist-(o.npc?.7*(r+o.r):r))/speed),score=gain/(eta+.4)*(o.npc?2:1)*(old.target&&old.target.npc===o.npc&&Math.hypot(old.target.x-o.x,old.target.y-o.y)<100?1.2:1);if(score>best){best=score;target=o;}}
+ if(map&&(!target||r>=140&&!target.npc))for(const dot of map.opportunities||[]){const x=(dot.x-map.player.x)/map.width*10400,y=(dot.y-map.player.y)/map.height*7200,dist=Math.hypot(x,y);if(dist<300||map.viewWidth&&Math.abs(x)<map.viewWidth*.5-40&&Math.abs(y)<map.viewHeight*.5-40)continue;const area=dot.area/(map.pixelRatio||1)**2,body=area<6?Math.min(20,r*.75):Math.min(r*.85,Math.sqrt(area/Math.PI)*38),gain=.75*(Math.sqrt(r*r+.55*body*body)-r),score=gain/(dist/speed+.7)*1.2;if(score>best){best=score;target={x,y,r:body,npc:true,mapOnly:true,vx:0,vy:0};}}
+ const lead=target?Math.min(1.2,Math.hypot(target.x,target.y)/speed):0,tx=target?target.x+target.vx*lead:old.x*speed,ty=target?target.y+target.vy*lead:old.y*speed;
+ const candidates=dirs.map(d=>{let x=0,y=0,vx=v.x,vy=v.y,clearance=1e6,risk=0,gain=0,projectedR=r;const picked=new Set();
+ for(let k=1;k<=20;k++){const t=k*.1;vx+=(d.x*speed-vx)*.35;vy+=(d.y*speed-vy)*.35;x+=vx*.1;y+=vy*.1;
+ for(const o of objects){if(o.clipped||o.blocked||picked.has(o)||o.npc&&(o.isRed||o.r>=projectedR*.91))continue;if(Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)<(o.npc?.7*(projectedR+o.r):projectedR+o.r*.5)){picked.add(o);const g=o.npc?.75*(Math.sqrt(projectedR*projectedR+.55*o.r*o.r)-projectedR):.45;gain+=g/(t+.3);projectedR+=g;}}
+ if(t<=1.1)for(const o of objects){if(!o.npc||picked.has(o)||!o.clipped&&!o.isRed&&o.r<projectedR*.98)continue;const body=o.clipped?o.dangerRadius:o.isRed?Math.max(o.r,r*1.1):o.r, gap=Math.hypot(o.x+o.vx*t-x,o.y+o.vy*t-y)-.75*(projectedR+body)-12;clearance=Math.min(clearance,gap);risk+=Math.max(0,1-gap/100)**2/11;}
+ }
+ const alignment=(d.x*tx+d.y*ty)/Math.max(1,Math.hypot(tx,ty)),inward=walls&&!wallMeal?[d.x,-d.x,d.y,-d.y].reduce((s,a,i)=>s+Math.max(0,(margin-walls[i])/margin)*a,0):0;
+ return {...d,target,clearance,risk,gain,projectedR,recovering,score:alignment*Math.max(2,best)*4+gain*4-risk*12+inward*50+(d.x*old.x+d.y*old.y)*.15};});
+ const safe=candidates.filter(d=>d.clearance>3),pool=safe.length?safe:candidates;pool.sort((a,b)=>safe.length?b.score-a.score:b.clearance-a.clearance);return {...pool[0],escaping:!safe.length,threats:objects.filter(o=>o.npc&&(o.clipped||o.isRed||o.r>=r*.98)).length};
+}
+let lastVision=0;
+function showVision(analysis,r,d,now){if(!$('diagnostics').open||now-lastVision<1000)return;lastVision=now;const canvas=$('vision');canvas.width=out.width;canvas.height=out.height;const v=canvas.getContext('2d'),ratio=out.width/(game.contentDocument.querySelector('canvas').clientWidth||out.width);v.drawImage(out,0,0);v.lineWidth=2;for(const o of analysis.objects){v.strokeStyle=o.clipped||o.isRed||o.npc&&o.r>=r*.95?'#ff796e':o.npc?'#7dff9b':'#5bdbea';v.beginPath();v.arc(out.width/2+o.x*ratio,out.height/2+o.y*ratio,o.r*ratio,0,Math.PI*2);v.stroke();}v.strokeStyle='#ffffff';v.beginPath();v.moveTo(out.width/2,out.height/2);v.lineTo(out.width/2+d.x*90,out.height/2+d.y*90);v.stroke();$('visionText').textContent=JSON.stringify({target:d.target&&{radius:Math.round(d.target.r),distance:Math.round(Math.hypot(d.target.x,d.target.y)),npc:d.target.npc},map:analysis.map&&analysis.map.player,npcs:analysis.objects.filter(o=>o.npc).map(o=>({r:Math.round(o.r),x:Math.round(o.x),y:Math.round(o.y),red:o.isRed,clipped:o.clipped}))},null,1);}
+function key(type,k){const win=game.contentWindow;win.dispatchEvent(new win.KeyboardEvent(type,{key:k,bubbles:true,cancelable:true}));}
+function release(){for(const k of held)key('keyup',k);held.clear();}
+function move(d){const next=new Set([' ']);if(d.x>.25)next.add('ArrowRight');if(d.x<-.25)next.add('ArrowLeft');if(d.y>.25)next.add('ArrowDown');if(d.y<-.25)next.add('ArrowUp');for(const k of held)if(!next.has(k))key('keyup',k);for(const k of next)key('keydown',k);held=next;heading=d;}
+const visible=e=>e.getClientRects().length>0,buttons=()=>[...game.contentDocument.querySelectorAll('button')].filter(visible);
+function stop(pause=true){challenging=false;epoch++;active=false;release();if(pause)buttons().find(b=>/^(暫停|pause)$/i.test(b.textContent.trim()))?.click();$('status').textContent='已停止';}
+let runCount=0;
+async function finish(runId){
+ const doc=game.contentDocument,won=/成功過關|You win/i.test(doc.getElementById('title')?.textContent||''),description=doc.getElementById('description')?.textContent||'',clock=/(?:遊玩時間|Play time)\s*(\d+):(\d+)/.exec(description),seconds=clock?Number(clock[1])*60+Number(clock[2]):null;
+ active=false;release();const reached=won&&seconds!==null&&seconds<110;
+ const entry=document.createElement('li');entry.textContent=`第 ${attempt} 局 · ${new URL(game.src).pathname} · ${won?'過關':'失敗'} · ${clock?clock[1]+':'+clock[2]:'時間未確認'} · ${reached?'低於 1:50':'未達標'}`;$('runs').append(entry);
+ $('status').textContent=reached?'已達標：實際過關時間低於 1:50':`本局${won?'過關但未低於 1:50':'失敗'}（${runCount}/5）`;
+ if(reached||runCount>=5){challenging=false;return;}
+ await new Promise(resolve=>setTimeout(resolve,3000));if(runId!==epoch||!challenging)return;startAttempt();
+}
+
+function tick(runId){if(!active||runId!==epoch)return;const begin=performance.now();try{const doc=game.contentDocument;if(doc.querySelector('#pauseScreen.open')){release();doc.getElementById('resumeButton')?.click();game.contentWindow.focus();$('status').textContent='已恢復暫停，重新同步控制';setTimeout(()=>tick(runId),100);return;}if(buttons().some(b=>/^(再玩一次|play again)$/i.test(b.textContent.trim()))||doc.querySelector('#gameEnding.visible')){finish(runId);return;}const source=doc.querySelector('canvas'),hud=Number(doc.getElementById('size')?.textContent)||25,speed=hudSpeed(hud,doc.getElementById('mix')?.textContent),dt=Math.max(0,Math.min(.2,(begin-last)/1000)),follow=1-Math.exp(-4.2*dt);if(held.size){velocity.x+=(heading.x*speed-velocity.x)*follow;velocity.y+=(heading.y*speed-velocity.y)*follow;}else velocity={x:0,y:0};const analysis=readImage(source,hud,begin,velocity);if(!analysis){release();$('status').textContent='等待遊戲畫面辨識';setTimeout(()=>tick(runId),65);return;}const objects=analysis.objects;const splitGuard=new URL(game.src,location.href).pathname!=='/v2.13';velocity=analysis.velocity;const d=plan(objects,hud,analysis.map,speed,velocity,heading,splitGuard);move(d);showVision(analysis,hud,d,begin);previous=objects;last=begin;$('size').textContent=hud||'—';$('time').textContent=doc.getElementById('time')?.textContent||'—';$('action').textContent=(d.escaping?'緊急脫離':d.recovering?'離開邊界／角落':'比較成長路徑')+' · '+d.name;$('detail').textContent=`預測安全間距 ${Math.round(d.clearance)} · 成長收益 ${d.gain.toFixed(2)} · 可見威脅 ${d.threats} · 加速中`;$('ms').textContent=(performance.now()-begin).toFixed(1)+' ms';}catch(e){stop(false);$('status').textContent=e.message;return;}setTimeout(()=>tick(runId),Math.max(0,200-(performance.now()-begin)));}
+let lastMap=null;function startAttempt(){stop(false);challenging=true;runCount++;previous=[];lastMap=null;velocity={x:0,y:0};last=performance.now();imageState=null;const b=buttons().find(b=>/^(開始遊戲|再玩一次|play|play again|繼續遊戲|resume)$/i.test(b.textContent.trim()));buttons().find(b=>/^(改用螢幕搖桿|Use joystick)$/i.test(b.textContent.trim()))?.click();b?.click();game.contentWindow.focus();active=true;$('attempt').textContent=++attempt;$('status').textContent='正在挑戰（本輪最多 5 局）';const runId=epoch;setTimeout(()=>tick(runId),300);}$('go').onclick=()=>{runCount=0;startAttempt()};$('stop').onclick=()=>stop();window.addEventListener('pagehide',()=>stop(false));document.addEventListener('visibilitychange',()=>{if(document.hidden)stop();});const gameChoice=$('gameChoice'),customUrl=$('customUrl');gameChoice.onchange=()=>{customUrl.hidden=gameChoice.value!=='custom';};$('loadGame').onclick=()=>{const raw=gameChoice.value==='custom'?customUrl.value.trim():gameChoice.value;let target;try{target=new URL(raw,location.href);if(!raw||!['http:','https:'].includes(target.protocol))throw Error('請輸入有效的 HTTP 或 HTTPS 遊戲網址');if(target.origin!==location.origin)throw Error('遊戲網址必須與 OCR3 同網域');if(['/ocr','/ocr2','/ocr3','/ocr.html','/ocr2.html','/ocr3.html'].includes(target.pathname.replace(/\/$/,'')))throw Error('請選擇遊戲頁面，不能載入控制器');}catch(e){$('status').textContent=e.message;return;}stop(false);$('go').disabled=true;attempt=0;$('attempt').textContent=0;$('rank').textContent='';$('status').textContent='正在載入所選遊戲';game.src=target.href;};game.onload=()=>{$('go').disabled=false;$('status').textContent='已載入，按開始連續挑戰';};async function loadGameVersions(){const select=document.getElementById('gameChoice'),load=document.getElementById('loadGame'),custom=document.getElementById('customUrl');const preferred=new URL(document.getElementById('game').src,location.href).pathname;select.disabled=true;load.disabled=true;try{const response=await fetch('/api/versions',{cache:'no-store',signal:AbortSignal.timeout(12000)});if(!response.ok)throw Error('版本清單讀取失敗');const data=await response.json();if(!Array.isArray(data.versions)||!data.versions.length||!data.currentVersion)throw Error('版本清單無效');const options=[new Option('目前版本（'+data.currentVersion+'）',data.currentPath)];for(const item of data.versions){if(typeof item.version!=='string'||typeof item.path!=='string'||!item.path.startsWith('/'))throw Error('版本清單無效');options.push(new Option(item.version+(item.current?'（目前版本）':''),item.path));}options.push(new Option('自行輸入網址','custom'));select.replaceChildren(...options);select.value=options.some(option=>option.value===preferred)?preferred:data.currentPath;custom.hidden=true;}catch(error){select.replaceChildren(new Option('目前版本（首頁）','/'),new Option('自行輸入網址','custom'));document.getElementById('versionStatus').textContent='版本清單讀取失敗，仍可載入首頁或自行輸入網址。';}finally{select.disabled=false;load.disabled=false;}}
+function setViewport(){const choice=$('viewScale').value,scale=choice==='wide'?2000/game.parentElement.clientWidth:Number(choice);document.documentElement.style.setProperty('--view-scale',scale);}$('viewScale').onchange=()=>{stop();setViewport();};window.addEventListener('resize',()=>{if($('viewScale').value==='wide')setViewport();});
+setViewport();loadGameVersions();
+})();</script></html>

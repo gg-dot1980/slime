@@ -1,0 +1,4017 @@
+{
+  "schemaVersion": 1,
+  "source": {
+    "repository": "gg-dot1980/slime",
+    "branch": "ocr-claude",
+    "commit": "80b1f7922aef468cfa131da23d22f87dc104d280"
+  },
+  "scope": "Claude 1–26 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
+  "inventory": {
+    "naturalBatches": 20,
+    "naturalStrategyVersionGroups": 85,
+    "controllerDiagnosticGroups": 2,
+    "proxyBatches": 9,
+    "proxyGroups": 91,
+    "perceptionReports": 10,
+    "coverageGaps": 5
+  },
+  "readingGuide": {
+    "sampleIdentity": "batch 與 group 區分原始批次、重跑、候選及對照。正式成對試驗在同一版逐局交錯，遊戲未以同一亂數種子配對。跨批對照、既有樣本的轉引以及混合工具不可累加。",
+    "sampleSizes": "games 為起跑局數。正式比較另列 valid 與 excluded，過關數對應 valid。早期 byVersion 保留來源公布的 other 數。",
+    "clock": "timing 用於查詢 timingDefinitions。publishedWin150 使用來源的分類。confirmedGameTimeWin150 只在遊戲時間門檻能從公開彙總與報告確認時填入。自然局的真實牆鐘 150 秒內過關數一律未知。",
+    "size": "sizeMedian 是試驗結束體型中位數。正式比較對過關記 200，死亡記死亡時體型，截止記當時體型。CI 來自該批拔靴估計。",
+    "missing": "未出現的欄位表示來源沒有提供該層級的彙總。null 表示未知。來源與版本目錄以 sources 查詢。"
+  },
+  "timingDefinitions": {
+    "displayed_game_seconds": {
+      "basis": "畫面結算標題及顯示遊玩時間（mm:ss），顯示值為遊戲 elapsed 向下取整到秒。仍存活且讀到遊戲時間超過 150 秒時列 cutoff150。",
+      "nominalThresholdSeconds": 150,
+      "strictSubsecondBoundary": "顯示 02:30 可能包含 150.000 至 150.999… 秒。就收錄的有效自然樣本而言，唯一正數批次的公開報告確認該勝局早於邊界，故可核對真實遊戲時間 ≤150 秒。",
+      "wallClockThresholdVerified": false,
+      "sourceIds": [
+        "scripts/ocr-claude-batch.mjs",
+        "src/game-v2.13.html",
+        "src/game-v2.20.html",
+        "src/game-v2.21.html",
+        "src/game.html",
+        "phase1-minimap/README.md"
+      ]
+    },
+    "instrumented_game_elapsed": {
+      "basis": "參考機器人或混合工具直接比較遊戲引擎 elapsed ≤150，並以體型 ≥200 判定成功。倍速屬實驗條件。",
+      "nominalThresholdSeconds": 150,
+      "wallClockThresholdVerified": false,
+      "sourceIds": [
+        "scripts/ocr-claude-oracle.mjs",
+        "scripts/ocr-claude-hybrid.mjs"
+      ]
+    },
+    "not_applicable": {
+      "basis": "辨識率、軌跡估計或診斷事件。",
+      "nominalThresholdSeconds": null,
+      "wallClockThresholdVerified": false
+    }
+  },
+  "conditions": {
+    "natural_early": {
+      "platform": "Linux 6.18 cloud, Chrome for Testing 153.0.8010.12 headless, Playwright 1.63.0, Node 22.23.5",
+      "viewport": [
+        2000,
+        1163
+      ],
+      "dpr": 1,
+      "fieldOfView": "standard",
+      "gameSeed": null,
+      "formalAcceptance": false,
+      "timing": "displayed_game_seconds",
+      "sourceIds": [
+        "claude-1/README.md",
+        "scripts/summarize-ocr-claude.mjs"
+      ]
+    },
+    "natural_interleaved": {
+      "platform": "Linux cloud, Chrome for Testing headless, Playwright",
+      "viewport": [
+        2000,
+        1163
+      ],
+      "dpr": 1,
+      "fieldOfView": "standard",
+      "speed": "realtime",
+      "observer": true,
+      "interleavedWithinVersion": true,
+      "gameSeed": null,
+      "bootstrapSeed": 12345,
+      "formalAcceptance": false,
+      "timing": "displayed_game_seconds",
+      "sourceIds": [
+        "phase0/PROTOCOL.md",
+        "scripts/compare-ocr-claude.mjs"
+      ]
+    },
+    "reference_or_hybrid": {
+      "productionController": false,
+      "usesGameState": true,
+      "timing": "instrumented_game_elapsed",
+      "formalAcceptance": false
+    },
+    "perception_diagnostic": {
+      "scoreUnit": "object / detection / frame observation, depending on metric",
+      "timing": "not_applicable",
+      "formalAcceptance": false
+    }
+  },
+  "naturalBatches": [
+    {
+      "batch": "claude-1",
+      "condition": "natural_early",
+      "sourceId": "claude-1/summary-noimages.json",
+      "conditionsSourceId": "claude-1/README.md",
+      "groups": [
+        {
+          "group": "baseline-grow6",
+          "strategy": "grow-6",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 2,
+              "other": 0
+            },
+            {
+              "version": "v2.20",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.21",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 1,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 58,
+            "medianSize120Alive": 98,
+            "medianDeathSecond": 108
+          }
+        },
+        {
+          "group": "claude-1",
+          "strategy": "claude-1",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 3,
+              "other": 0
+            },
+            {
+              "version": "v2.20",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.21",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 1,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 59,
+            "medianSize120Alive": 85,
+            "medianDeathSecond": 92
+          }
+        },
+        {
+          "group": "claude-2",
+          "strategy": "claude-2",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 1,
+              "other": 0
+            },
+            {
+              "version": "v2.20",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.21",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 3,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 54,
+            "medianSize120Alive": 81,
+            "medianDeathSecond": 110
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-3",
+      "condition": "natural_early",
+      "sourceId": "claude-3/summary-noimages.json",
+      "conditionsSourceId": "claude-3/README.md",
+      "groups": [
+        {
+          "group": "grow-6-observed",
+          "strategy": "grow-6",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 2,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 1,
+              "other": 0
+            },
+            {
+              "version": "v2.20",
+              "games": 2,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.21",
+              "games": 2,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 2,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 0,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 8,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 63,
+            "medianSize120Alive": 101,
+            "medianDeathSecond": 96,
+            "medianNpcEats": 5,
+            "medianNpcGain": 17,
+            "medianFoodGain": 51
+          }
+        },
+        {
+          "group": "claude-3",
+          "strategy": "claude-3",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 3,
+              "other": 0
+            },
+            {
+              "version": "v2.20",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.21",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 3,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 51,
+            "medianSize120Alive": 65,
+            "medianDeathSecond": 108,
+            "medianNpcEats": 6,
+            "medianNpcGain": 24,
+            "medianFoodGain": 29
+          }
+        },
+        {
+          "group": "claude-4",
+          "strategy": "claude-4",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 3,
+              "other": 0
+            },
+            {
+              "version": "v2.20",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 0,
+              "other": 0
+            },
+            {
+              "version": "v2.21",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 1,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 3,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 47,
+            "medianSize120Alive": 65,
+            "medianDeathSecond": 108,
+            "medianNpcEats": 5,
+            "medianNpcGain": 13,
+            "medianFoodGain": 36
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-5",
+      "condition": "natural_early",
+      "sourceId": "claude-5/summary-noimages.json",
+      "conditionsSourceId": "claude-5/README.md",
+      "groups": [
+        {
+          "group": "claude-5",
+          "strategy": "claude-5",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 6,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 48,
+            "medianSize120Alive": 74,
+            "medianDeathSecond": 128,
+            "medianNpcEats": 11,
+            "medianNpcGain": 34,
+            "medianFoodGain": 28
+          }
+        },
+        {
+          "group": "claude-6",
+          "strategy": "claude-6",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 6,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 48,
+            "medianSize120Alive": 68,
+            "medianDeathSecond": 76,
+            "medianNpcEats": 6,
+            "medianNpcGain": 23,
+            "medianFoodGain": 30
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-7",
+      "condition": "natural_early",
+      "sourceId": "claude-7/summary-noimages.json",
+      "conditionsSourceId": "claude-7/README.md",
+      "groups": [
+        {
+          "group": "claude-7",
+          "strategy": "claude-7",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 3,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 3,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 2,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 6,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 53,
+            "medianSize120Alive": 63,
+            "medianDeathSecond": 140,
+            "medianNpcEats": 5,
+            "medianNpcGain": 20,
+            "medianFoodGain": 31
+          }
+        },
+        {
+          "group": "claude-8",
+          "strategy": "claude-8",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 3,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 43,
+            "medianSize120Alive": 63,
+            "medianDeathSecond": 101,
+            "medianNpcEats": 11,
+            "medianNpcGain": 31,
+            "medianFoodGain": 13
+          }
+        },
+        {
+          "group": "claude-9",
+          "strategy": "claude-9",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 4,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 49,
+            "medianSize120Alive": 78,
+            "medianDeathSecond": 105,
+            "medianNpcEats": 12,
+            "medianNpcGain": 47,
+            "medianFoodGain": 17
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-10",
+      "condition": "natural_early",
+      "sourceId": "claude-10/summary-noimages.json",
+      "conditionsSourceId": "claude-10/README.md",
+      "groups": [
+        {
+          "group": "claude-10",
+          "strategy": "claude-10",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 6,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 4,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 49,
+            "medianSize120Alive": 69,
+            "medianDeathSecond": 129,
+            "medianNpcEats": 14,
+            "medianNpcGain": 55,
+            "medianFoodGain": 13
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-11",
+      "condition": "natural_early",
+      "sourceId": "claude-11/summary-noimages.json",
+      "conditionsSourceId": "claude-11/README.md",
+      "groups": [
+        {
+          "group": "claude-11",
+          "strategy": "claude-11",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 41,
+            "medianSize120Alive": 79,
+            "medianDeathSecond": 140,
+            "medianNpcEats": 16,
+            "medianNpcGain": 57,
+            "medianFoodGain": 21
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-12",
+      "condition": "natural_early",
+      "sourceId": "claude-12/summary-noimages.json",
+      "conditionsSourceId": "claude-12/README.md",
+      "groups": [
+        {
+          "group": "claude-12",
+          "strategy": "claude-12",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 9,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 9,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 9,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 4,
+              "cutoff150": 5,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 18,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 46,
+            "medianSize120Alive": 71,
+            "medianDeathSecond": 105,
+            "medianNpcEats": 12,
+            "medianNpcGain": 38,
+            "medianFoodGain": 19
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-13",
+      "condition": "natural_early",
+      "sourceId": "claude-13/summary-noimages.json",
+      "conditionsSourceId": "claude-13/README.md",
+      "groups": [
+        {
+          "group": "claude-13",
+          "strategy": "claude-13",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 6,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 4,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 43,
+            "medianSize120Alive": 64,
+            "medianDeathSecond": 72,
+            "medianNpcEats": 11,
+            "medianNpcGain": 35,
+            "medianFoodGain": 19
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-14",
+      "condition": "natural_early",
+      "sourceId": "claude-14/summary-noimages.json",
+      "conditionsSourceId": "claude-14/README.md",
+      "groups": [
+        {
+          "group": "claude-14",
+          "strategy": "claude-14",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 12,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 11,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 12,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "cutoff150": 9,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 24,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 45,
+            "medianSize120Alive": 61,
+            "medianDeathSecond": 144,
+            "medianNpcEats": 11,
+            "medianNpcGain": 35,
+            "medianFoodGain": 16
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-16",
+      "condition": "natural_early",
+      "sourceId": "claude-16/summary-noimages.json",
+      "conditionsSourceId": "claude-16/README.md",
+      "groups": [
+        {
+          "group": "claude-16",
+          "strategy": "claude-16",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 6,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 44,
+            "medianSize120Alive": 57,
+            "medianDeathSecond": 96,
+            "medianNpcEats": 7,
+            "medianNpcGain": 19,
+            "medianFoodGain": 15
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-18",
+      "condition": "natural_early",
+      "sourceId": "claude-18/summary-noimages.json",
+      "conditionsSourceId": "claude-18/README.md",
+      "groups": [
+        {
+          "group": "claude-17",
+          "strategy": "claude-17",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "cutoff150": 5,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 43,
+            "medianSize120Alive": 59,
+            "medianDeathSecond": 149,
+            "medianNpcEats": 8,
+            "medianNpcGain": 28,
+            "medianFoodGain": 16
+          }
+        },
+        {
+          "group": "claude-18",
+          "strategy": "claude-18",
+          "byVersion": [
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 6,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 6,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 37,
+            "medianSize120Alive": 61,
+            "medianDeathSecond": null,
+            "medianNpcEats": 9,
+            "medianNpcGain": 34,
+            "medianFoodGain": 14
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-19",
+      "condition": "natural_early",
+      "sourceId": "claude-19/summary-noimages.json",
+      "conditionsSourceId": "claude-19/README.md",
+      "groups": [
+        {
+          "group": "claude-19",
+          "strategy": "claude-19",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 6,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 4,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 35,
+            "medianSize120Alive": 54,
+            "medianDeathSecond": 139,
+            "medianNpcEats": 7,
+            "medianNpcGain": 21,
+            "medianFoodGain": 12
+          }
+        },
+        {
+          "group": "claude-11-rerun",
+          "strategy": "claude-11",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "cutoff150": 6,
+              "other": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 6,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "cutoff150": 4,
+              "other": 0
+            }
+          ],
+          "allVersions": {
+            "games": 12,
+            "winLate": 0,
+            "timeout300": 0,
+            "controllerStop": 0,
+            "infra": 0,
+            "unknown": 0,
+            "medianSize60": 47,
+            "medianSize120Alive": 66,
+            "medianDeathSecond": 95,
+            "medianNpcEats": 12,
+            "medianNpcGain": 42,
+            "medianFoodGain": 15
+          }
+        }
+      ]
+    },
+    {
+      "batch": "phase0",
+      "condition": "natural_interleaved",
+      "sourceId": "phase0/comparison-noimages.json",
+      "conditionsSourceId": "phase0/PROTOCOL.md",
+      "reportSourceId": "phase0/README.md",
+      "groups": [
+        {
+          "group": "claude-11",
+          "strategy": "claude-11",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "sizeMedian": 71,
+              "sizeMedianCI95": [
+                60,
+                95
+              ],
+              "npcEatsMedian": 11.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 10,
+              "sizeMedian": 91,
+              "sizeMedianCI95": [
+                80,
+                113
+              ],
+              "npcEatsMedian": 11.5
+            }
+          ]
+        },
+        {
+          "group": "claude-16",
+          "strategy": "claude-16",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "sizeMedian": 57,
+              "sizeMedianCI95": [
+                51,
+                59
+              ],
+              "npcEatsMedian": 7
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "sizeMedian": 72.5,
+              "sizeMedianCI95": [
+                67,
+                83
+              ],
+              "npcEatsMedian": 8.5
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-11",
+          "subtrahend": "claude-16",
+          "difference": 14,
+          "ci95": [
+            3,
+            39
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-11",
+          "subtrahend": "claude-16",
+          "difference": 18.5,
+          "ci95": [
+            2,
+            41
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "phase1-fit",
+      "condition": "natural_interleaved",
+      "sourceId": "phase1-fit/comparison-noimages.json",
+      "conditionsSourceId": "phase1-fit/PROTOCOL.md",
+      "reportSourceId": "phase1-fit/README.md",
+      "groups": [
+        {
+          "group": "claude-11",
+          "strategy": "claude-11",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 80,
+              "sizeMedianCI95": [
+                72,
+                97
+              ],
+              "npcEatsMedian": 12.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 7,
+              "sizeMedian": 85.5,
+              "sizeMedianCI95": [
+                73,
+                103
+              ],
+              "npcEatsMedian": 11
+            }
+          ]
+        },
+        {
+          "group": "claude-20",
+          "strategy": "claude-20",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 4,
+              "sizeMedian": 100,
+              "sizeMedianCI95": [
+                92,
+                109
+              ],
+              "npcEatsMedian": 8.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 19,
+              "excluded": 1,
+              "excludedReasonCounts": {
+                "controller-stop": 1
+              },
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 8,
+              "sizeMedian": 97,
+              "sizeMedianCI95": [
+                87,
+                113
+              ],
+              "npcEatsMedian": 5
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-11",
+          "subtrahend": "claude-20",
+          "difference": -20,
+          "ci95": [
+            -34,
+            2
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-11",
+          "subtrahend": "claude-20",
+          "difference": -11.5,
+          "ci95": [
+            -30,
+            9
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "phase1-minimap",
+      "condition": "natural_interleaved",
+      "sourceId": "phase1-minimap/comparison-noimages.json",
+      "conditionsSourceId": "phase1-minimap/PROTOCOL.md",
+      "reportSourceId": "phase1-minimap/README.md",
+      "groups": [
+        {
+          "group": "claude-11",
+          "strategy": "claude-11",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "sizeMedian": 74.5,
+              "sizeMedianCI95": [
+                60,
+                99
+              ],
+              "npcEatsMedian": 12.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 1,
+              "confirmedGameTimeWin150": 1,
+              "deaths": 8,
+              "sizeMedian": 77,
+              "sizeMedianCI95": [
+                70,
+                108
+              ],
+              "npcEatsMedian": 11.5
+            }
+          ]
+        },
+        {
+          "group": "claude-21",
+          "strategy": "claude-21",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "sizeMedian": 93.5,
+              "sizeMedianCI95": [
+                77,
+                115
+              ],
+              "npcEatsMedian": 13
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 11,
+              "sizeMedian": 89.5,
+              "sizeMedianCI95": [
+                75,
+                102
+              ],
+              "npcEatsMedian": 11.5
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-11",
+          "subtrahend": "claude-21",
+          "difference": -19,
+          "ci95": [
+            -48,
+            10
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-11",
+          "subtrahend": "claude-21",
+          "difference": -12.5,
+          "ci95": [
+            -27,
+            25
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "phase2-wall",
+      "condition": "natural_interleaved",
+      "sourceId": "phase2-wall/comparison-noimages.json",
+      "conditionsSourceId": "phase2-wall/PROTOCOL.md",
+      "reportSourceId": "phase2-wall/README.md",
+      "groups": [
+        {
+          "group": "claude-20",
+          "strategy": "claude-20",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "sizeMedian": 116,
+              "sizeMedianCI95": [
+                109,
+                142
+              ],
+              "npcEatsMedian": 13
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 11,
+              "sizeMedian": 95,
+              "sizeMedianCI95": [
+                72,
+                113
+              ],
+              "npcEatsMedian": 6
+            }
+          ]
+        },
+        {
+          "group": "claude-22",
+          "strategy": "claude-22",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 118,
+              "sizeMedianCI95": [
+                109,
+                128
+              ],
+              "npcEatsMedian": 12.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 6,
+              "sizeMedian": 105.5,
+              "sizeMedianCI95": [
+                91,
+                125
+              ],
+              "npcEatsMedian": 7
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-20",
+          "subtrahend": "claude-22",
+          "difference": -2,
+          "ci95": [
+            -14,
+            27
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-20",
+          "subtrahend": "claude-22",
+          "difference": -10.5,
+          "ci95": [
+            -38,
+            14
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "phase2-crowd",
+      "condition": "natural_interleaved",
+      "sourceId": "phase2-crowd/comparison-noimages.json",
+      "conditionsSourceId": "phase2-crowd/PROTOCOL.md",
+      "reportSourceId": "phase2-crowd/README.md",
+      "groups": [
+        {
+          "group": "claude-22",
+          "strategy": "claude-22",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 105.5,
+              "sizeMedianCI95": [
+                92,
+                139
+              ],
+              "npcEatsMedian": 8.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 4,
+              "sizeMedian": 112.5,
+              "sizeMedianCI95": [
+                93,
+                122
+              ],
+              "npcEatsMedian": 7
+            }
+          ]
+        },
+        {
+          "group": "claude-23",
+          "strategy": "claude-23",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 105.5,
+              "sizeMedianCI95": [
+                93,
+                122
+              ],
+              "npcEatsMedian": 10
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 4,
+              "sizeMedian": 111.5,
+              "sizeMedianCI95": [
+                96,
+                139
+              ],
+              "npcEatsMedian": 5.5
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-22",
+          "subtrahend": "claude-23",
+          "difference": 0,
+          "ci95": [
+            -25,
+            39
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-22",
+          "subtrahend": "claude-23",
+          "difference": 1,
+          "ci95": [
+            -34,
+            22
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "phase2-growth",
+      "condition": "natural_interleaved",
+      "sourceId": "phase2-growth/comparison-noimages.json",
+      "conditionsSourceId": "phase2-growth/PROTOCOL.md",
+      "reportSourceId": "phase2-growth/README.md",
+      "groups": [
+        {
+          "group": "claude-22",
+          "strategy": "claude-22",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "sizeMedian": 122,
+              "sizeMedianCI95": [
+                100,
+                128
+              ],
+              "npcEatsMedian": 11
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "sizeMedian": 105.5,
+              "sizeMedianCI95": [
+                94,
+                112
+              ],
+              "npcEatsMedian": 5.5
+            }
+          ]
+        },
+        {
+          "group": "claude-24",
+          "strategy": "claude-24",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 139.5,
+              "sizeMedianCI95": [
+                114,
+                148
+              ],
+              "npcEatsMedian": 11
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 5,
+              "sizeMedian": 101,
+              "sizeMedianCI95": [
+                92,
+                119
+              ],
+              "npcEatsMedian": 6
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-22",
+          "subtrahend": "claude-24",
+          "difference": -17.5,
+          "ci95": [
+            -42,
+            9
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-22",
+          "subtrahend": "claude-24",
+          "difference": 4.5,
+          "ci95": [
+            -19,
+            16
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "phase2-markers",
+      "condition": "natural_interleaved",
+      "sourceId": "phase2-markers/comparison-noimages.json",
+      "conditionsSourceId": "phase2-markers/PROTOCOL.md",
+      "reportSourceId": "phase2-markers/README.md",
+      "groups": [
+        {
+          "group": "claude-22",
+          "strategy": "claude-22",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "sizeMedian": 117,
+              "sizeMedianCI95": [
+                96,
+                124
+              ],
+              "npcEatsMedian": 9.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 5,
+              "sizeMedian": 117.5,
+              "sizeMedianCI95": [
+                90,
+                124
+              ],
+              "npcEatsMedian": 6
+            }
+          ]
+        },
+        {
+          "group": "claude-25",
+          "strategy": "claude-25",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 19,
+              "excluded": 1,
+              "excludedReasonCounts": {
+                "controller-stop": 1
+              },
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 69,
+              "sizeMedianCI95": [
+                63,
+                99
+              ],
+              "npcEatsMedian": 13
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 5,
+              "sizeMedian": 98.5,
+              "sizeMedianCI95": [
+                83,
+                113
+              ],
+              "npcEatsMedian": 13.5
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-22",
+          "subtrahend": "claude-25",
+          "difference": 48,
+          "ci95": [
+            15,
+            58
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-22",
+          "subtrahend": "claude-25",
+          "difference": 19,
+          "ci95": [
+            -12,
+            39
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "phase2-claude26",
+      "condition": "natural_interleaved",
+      "sourceId": "phase2-claude26/comparison-noimages.json",
+      "conditionsSourceId": "phase2-claude26/PROTOCOL.md",
+      "reportSourceId": "phase2-claude26/README.md",
+      "groups": [
+        {
+          "group": "claude-22",
+          "strategy": "claude-22",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 118,
+              "sizeMedianCI95": [
+                108,
+                128
+              ],
+              "npcEatsMedian": 10.5
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 3,
+              "sizeMedian": 111.5,
+              "sizeMedianCI95": [
+                99,
+                127
+              ],
+              "npcEatsMedian": 6.5
+            }
+          ]
+        },
+        {
+          "group": "claude-26",
+          "strategy": "claude-26",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 121,
+              "sizeMedianCI95": [
+                114,
+                142
+              ],
+              "npcEatsMedian": 10
+            },
+            {
+              "version": "v2.22",
+              "games": 20,
+              "valid": 20,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 4,
+              "sizeMedian": 138,
+              "sizeMedianCI95": [
+                111,
+                144
+              ],
+              "npcEatsMedian": 7
+            }
+          ]
+        }
+      ],
+      "sizeMedianDifferences": [
+        {
+          "version": "v2.13",
+          "minuend": "claude-22",
+          "subtrahend": "claude-26",
+          "difference": -3,
+          "ci95": [
+            -27,
+            10
+          ]
+        },
+        {
+          "version": "v2.22",
+          "minuend": "claude-22",
+          "subtrahend": "claude-26",
+          "difference": -26.5,
+          "ci95": [
+            -41,
+            2
+          ]
+        }
+      ]
+    }
+  ],
+  "diagnosticController": [
+    {
+      "batch": "claude-7",
+      "group": "agree-c6",
+      "strategy": "claude-6",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "games": 2,
+          "publishedWin150": 0,
+          "confirmedGameTimeWin150": 0,
+          "deaths": 0,
+          "cutoff150": 2,
+          "other": 0
+        },
+        {
+          "version": "v2.22",
+          "games": 2,
+          "publishedWin150": 0,
+          "confirmedGameTimeWin150": 0,
+          "deaths": 0,
+          "cutoff150": 2,
+          "other": 0
+        }
+      ],
+      "allVersions": {
+        "games": 4,
+        "winLate": 0,
+        "timeout300": 0,
+        "controllerStop": 0,
+        "infra": 0,
+        "unknown": 0,
+        "medianSize60": 53,
+        "medianSize120Alive": 73,
+        "medianDeathSecond": null,
+        "medianNpcEats": 8,
+        "medianNpcGain": 27,
+        "medianFoodGain": 28
+      },
+      "condition": "natural_early",
+      "purpose": "Claude-6 真實控制器在同局進行決策比對；與主試驗組分列。",
+      "sourceId": "claude-7/summary-noimages.json",
+      "conditionsSourceId": "claude-7/README.md"
+    },
+    {
+      "batch": "claude-19",
+      "group": "stall",
+      "version": "v2.13",
+      "games": 1,
+      "condition": "natural_early",
+      "purpose": "觀察器停滯重現；不列入策略批次。",
+      "sourceId": "claude-19/summary-noimages.json",
+      "conditionsSourceId": "claude-19/README.md"
+    }
+  ],
+  "proxyRuns": [
+    {
+      "batch": "claude-3",
+      "kind": "oracle",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 1,
+      "sourceId": "claude-3/oracle-summary-noimages.json",
+      "conditionsSourceId": "claude-3/README.md",
+      "groups": [
+        {
+          "group": "oracle-full",
+          "versionsCovered": [
+            "v2.13",
+            "v2.20",
+            "v2.21",
+            "v2.22"
+          ],
+          "games": 12,
+          "publishedWin150": 4,
+          "deaths": 8,
+          "cutoff150": 0
+        },
+        {
+          "group": "oracle-view",
+          "versionsCovered": [
+            "v2.13",
+            "v2.20",
+            "v2.21",
+            "v2.22"
+          ],
+          "games": 12,
+          "publishedWin150": 0,
+          "deaths": 8,
+          "cutoff150": 4
+        }
+      ],
+      "note": "完整版直接讀取完整遊戲狀態，受限版保留準確視窗內資訊及視窗外的小地圖訊號。"
+    },
+    {
+      "batch": "claude-13",
+      "kind": "restricted_oracle_rules",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 1,
+      "sourceId": "claude-13/bot-rules-summary-noimages.json",
+      "conditionsSourceId": "claude-13/README.md",
+      "groups": [
+        {
+          "group": "v0",
+          "version": "v2.13",
+          "games": 9,
+          "publishedWin150": 0,
+          "deaths": 1
+        },
+        {
+          "group": "v0",
+          "version": "v2.22",
+          "games": 15,
+          "publishedWin150": 4,
+          "deaths": 6
+        },
+        {
+          "group": "v1",
+          "version": "v2.13",
+          "games": 6,
+          "publishedWin150": 0,
+          "deaths": 1
+        },
+        {
+          "group": "v1",
+          "version": "v2.22",
+          "games": 12,
+          "publishedWin150": 3,
+          "deaths": 4
+        },
+        {
+          "group": "v2",
+          "version": "v2.13",
+          "games": 12,
+          "publishedWin150": 1,
+          "deaths": 0
+        },
+        {
+          "group": "v2",
+          "version": "v2.22",
+          "games": 12,
+          "publishedWin150": 3,
+          "deaths": 2
+        }
+      ]
+    },
+    {
+      "batch": "hybrid-1",
+      "kind": "hybrid_input_comparison",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 1,
+      "sourceId": "hybrid-1/README.md",
+      "conditionsSourceId": "hybrid-1/README.md",
+      "groups": [
+        {
+          "group": "exact-map",
+          "version": "v2.13",
+          "games": 6,
+          "deaths": 1,
+          "publishedWin150": 0,
+          "npcEatsMedian": 18
+        },
+        {
+          "group": "exact-map",
+          "version": "v2.22",
+          "games": 6,
+          "deaths": 4,
+          "publishedWin150": 1,
+          "npcEatsMedian": 16
+        },
+        {
+          "group": "degraded-map",
+          "version": "v2.13",
+          "games": 6,
+          "deaths": 3,
+          "publishedWin150": 1,
+          "npcEatsMedian": 14.5
+        },
+        {
+          "group": "degraded-map",
+          "version": "v2.22",
+          "games": 6,
+          "deaths": 1,
+          "publishedWin150": 0,
+          "npcEatsMedian": 13.5
+        }
+      ],
+      "note": "Claude-14 的決策函式獲得真實畫面內資訊；比較小地圖是否模擬點位量化與遮擋。"
+    },
+    {
+      "batch": "claude-16",
+      "kind": "hybrid_rules",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 1,
+      "sourceId": "claude-16/README.md",
+      "conditionsSourceId": "claude-16/README.md",
+      "groups": [
+        {
+          "group": "claude-15",
+          "versionsCovered": [
+            "v2.13",
+            "v2.22"
+          ],
+          "games": 12,
+          "deaths": 0,
+          "note": "報告提供兩版體型範圍，均低於目標 200。",
+          "publishedWin150": null
+        },
+        {
+          "group": "claude-16",
+          "version": "v2.13",
+          "games": 6,
+          "deaths": 0,
+          "publishedWin150": 2
+        },
+        {
+          "group": "claude-16",
+          "version": "v2.22",
+          "games": 6,
+          "deaths": 0,
+          "publishedWin150": 1
+        }
+      ],
+      "note": "控制器決策＋完美的畫面內資訊，模擬小地圖損失。"
+    },
+    {
+      "batch": "claude-18",
+      "kind": "hybrid_input_substitution",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 1,
+      "sourceId": "claude-18/README.md",
+      "conditionsSourceId": "claude-18/README.md",
+      "groups": [
+        {
+          "group": "detmap",
+          "version": "v2.13",
+          "games": 6,
+          "sizeMedian": 64,
+          "npcEatsMedian": 7.5,
+          "foodGainMedian": 13.5,
+          "publishedWin150": null
+        },
+        {
+          "group": "detmap",
+          "version": "v2.22",
+          "games": 6,
+          "sizeMedian": 110.5,
+          "npcEatsMedian": 12.5,
+          "foodGainMedian": 19,
+          "publishedWin150": null
+        },
+        {
+          "group": "detview",
+          "version": "v2.13",
+          "games": 6,
+          "sizeMedian": 76.5,
+          "npcEatsMedian": 9.5,
+          "foodGainMedian": 17,
+          "publishedWin150": null
+        },
+        {
+          "group": "detview",
+          "version": "v2.22",
+          "games": 6,
+          "sizeMedian": 66.5,
+          "npcEatsMedian": 7,
+          "foodGainMedian": 16.5,
+          "publishedWin150": null
+        }
+      ],
+      "note": "Claude-16 決策。detmap 換入真實小地圖辨識，detview 換入真實畫面辨識。原表基準重用 claude-16 混合工具，不重列。"
+    },
+    {
+      "batch": "phase2-growth",
+      "kind": "oracle_speed_calibration",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": null,
+      "sourceId": "phase2-growth/warp-validation-noimages.json",
+      "conditionsSourceId": "phase2-growth/README.md",
+      "groups": [
+        {
+          "group": "warp3 v2.13",
+          "version": "v2.13",
+          "speedMultiplier": 3,
+          "games": 12,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 136,
+          "npcEatsMedian": 19
+        },
+        {
+          "group": "realtime v2.13 (claude-14 round)",
+          "version": "v2.13",
+          "speedMultiplier": 1,
+          "games": 12,
+          "publishedWin150": 4,
+          "deaths": 0,
+          "sizeMedian": 166.5,
+          "npcEatsMedian": 21
+        },
+        {
+          "group": "warp3 v2.22",
+          "version": "v2.22",
+          "speedMultiplier": 3,
+          "games": 12,
+          "publishedWin150": 3,
+          "deaths": 4,
+          "sizeMedian": 188,
+          "npcEatsMedian": 19
+        },
+        {
+          "group": "realtime v2.22 (claude-14 round)",
+          "version": "v2.22",
+          "speedMultiplier": 1,
+          "games": 12,
+          "publishedWin150": 3,
+          "deaths": 1,
+          "sizeMedian": 141,
+          "npcEatsMedian": 17
+        }
+      ],
+      "note": "即時兩組來自 claude-14 輪的 v3 參考機器人資料。"
+    },
+    {
+      "batch": "phase2-growth",
+      "kind": "restricted_oracle_parameter_screen",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "phase2-growth/bot-sweep-screening.txt",
+      "conditionsSourceId": "phase2-growth/README.md",
+      "groups": [
+        {
+          "group": "A-default",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 107
+        },
+        {
+          "group": "A-default",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 2,
+          "sizeMedian": 183.5
+        },
+        {
+          "group": "B-attract12",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 120
+        },
+        {
+          "group": "B-attract12",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 2,
+          "sizeMedian": 176.5
+        },
+        {
+          "group": "C-attract3",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 145.5
+        },
+        {
+          "group": "C-attract3",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 191
+        },
+        {
+          "group": "D-prey16",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 1,
+          "sizeMedian": 160
+        },
+        {
+          "group": "D-prey16",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 3,
+          "sizeMedian": 133.5
+        },
+        {
+          "group": "E-food2",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 118.5
+        },
+        {
+          "group": "E-food2",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 4,
+          "sizeMedian": 121
+        },
+        {
+          "group": "F-crowd2",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 129
+        },
+        {
+          "group": "F-crowd2",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 181.5
+        },
+        {
+          "group": "G-horizon15",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 4,
+          "deaths": 0,
+          "sizeMedian": 192
+        },
+        {
+          "group": "G-horizon15",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 4,
+          "deaths": 2,
+          "sizeMedian": 197.5
+        },
+        {
+          "group": "H-edible108",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 1,
+          "sizeMedian": 140
+        },
+        {
+          "group": "H-edible108",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 4,
+          "sizeMedian": 181
+        },
+        {
+          "group": "confirm-G-horizon15",
+          "version": "v2.13",
+          "games": 16,
+          "publishedWin150": 4,
+          "deaths": 1,
+          "sizeMedian": 146.5
+        },
+        {
+          "group": "confirm-G-horizon15",
+          "version": "v2.22",
+          "games": 16,
+          "publishedWin150": 3,
+          "deaths": 3,
+          "sizeMedian": 178
+        },
+        {
+          "group": "confirm-GCF-combo",
+          "version": "v2.13",
+          "games": 16,
+          "publishedWin150": 8,
+          "deaths": 0,
+          "sizeMedian": 193
+        },
+        {
+          "group": "confirm-GCF-combo",
+          "version": "v2.22",
+          "games": 16,
+          "publishedWin150": 3,
+          "deaths": 2,
+          "sizeMedian": 188.5
+        }
+      ],
+      "note": "v3 參考機器人，每個候選按版本分別篩選，確認批次另有組名。"
+    },
+    {
+      "batch": "phase2-perception",
+      "kind": "restricted_oracle_and_hybrid_screen",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "phase2-perception/screening-summary.txt",
+      "conditionsSourceId": "phase2-perception/README.md",
+      "groups": [
+        {
+          "group": "W0-GCF",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 165
+        },
+        {
+          "group": "W0-GCF",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 4,
+          "deaths": 0,
+          "sizeMedian": 184.5
+        },
+        {
+          "group": "W1-horizon25",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 146.5
+        },
+        {
+          "group": "W1-horizon25",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 3,
+          "sizeMedian": 147.5
+        },
+        {
+          "group": "W2-food2",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 143
+        },
+        {
+          "group": "W2-food2",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 187
+        },
+        {
+          "group": "W3-prey16",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 5,
+          "deaths": 0,
+          "sizeMedian": 200
+        },
+        {
+          "group": "W3-prey16",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 149
+        },
+        {
+          "group": "W4-attract6",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 139.5
+        },
+        {
+          "group": "W4-attract6",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 172
+        },
+        {
+          "group": "W5-crowd6",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 3,
+          "deaths": 0,
+          "sizeMedian": 179.5
+        },
+        {
+          "group": "W5-crowd6",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 118.5
+        },
+        {
+          "group": "W6-ms200",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 169.5
+        },
+        {
+          "group": "W6-ms200",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 3,
+          "sizeMedian": 162
+        },
+        {
+          "group": "H1-c22-true",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 4,
+          "deaths": 0,
+          "sizeMedian": 197
+        },
+        {
+          "group": "H1-c22-true",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 160
+        },
+        {
+          "group": "H2b-c22-detview",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 114.5
+        },
+        {
+          "group": "H2b-c22-detview",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 3,
+          "sizeMedian": 124
+        },
+        {
+          "group": "H3b-c22-detnpc",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 152
+        },
+        {
+          "group": "H3b-c22-detnpc",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 100
+        },
+        {
+          "group": "H4-c22-detfood",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 175.5
+        },
+        {
+          "group": "H4-c22-detfood",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 1,
+          "sizeMedian": 162
+        },
+        {
+          "group": "H6-probe",
+          "version": "v2.13",
+          "games": 2,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 143.5
+        },
+        {
+          "group": "H6-probe",
+          "version": "v2.22",
+          "games": 2,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 156.5
+        },
+        {
+          "group": "M1-spur",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 1,
+          "deaths": 0,
+          "sizeMedian": 151
+        },
+        {
+          "group": "M1-spur",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 3,
+          "deaths": 3,
+          "sizeMedian": 133
+        },
+        {
+          "group": "M2-miss",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 167.5
+        },
+        {
+          "group": "M2-miss",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 142
+        },
+        {
+          "group": "M3-size",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 137.5
+        },
+        {
+          "group": "M3-size",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 4,
+          "sizeMedian": 124.5
+        },
+        {
+          "group": "M4-pos",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 117
+        },
+        {
+          "group": "M4-pos",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 2,
+          "sizeMedian": 141.5
+        },
+        {
+          "group": "M5-clip",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 146.5
+        },
+        {
+          "group": "M5-clip",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 136.5
+        },
+        {
+          "group": "M6-vel",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 2,
+          "deaths": 0,
+          "sizeMedian": 150
+        },
+        {
+          "group": "M6-vel",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 137.5
+        },
+        {
+          "group": "S0-base2",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 99.5
+        },
+        {
+          "group": "S0-base2",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 3,
+          "sizeMedian": 102
+        },
+        {
+          "group": "S1-segPrey",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 98
+        },
+        {
+          "group": "S1-segPrey",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 116
+        },
+        {
+          "group": "S2-segOnly",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 117.5
+        },
+        {
+          "group": "S2-segOnly",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 117
+        },
+        {
+          "group": "S3-both",
+          "version": "v2.13",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 0,
+          "sizeMedian": 123
+        },
+        {
+          "group": "S3-both",
+          "version": "v2.22",
+          "games": 8,
+          "publishedWin150": 0,
+          "deaths": 1,
+          "sizeMedian": 108
+        }
+      ],
+      "note": "W 字首為不追視窗外白點的參考機器人。H、M、S 字首為 Claude-22 決策的混合工具。H6 為診斷探測。"
+    },
+    {
+      "batch": "phase2-tracking",
+      "kind": "hybrid_filter_screen",
+      "condition": "reference_or_hybrid",
+      "speedMultiplier": 3,
+      "sourceId": "phase2-tracking/README.md",
+      "conditionsSourceId": "phase2-tracking/README.md",
+      "groups": [
+        {
+          "group": "F1",
+          "version": "v2.13",
+          "games": 8,
+          "sizeMedian": 124.5,
+          "publishedWin150": null
+        },
+        {
+          "group": "F1",
+          "version": "v2.22",
+          "games": 8,
+          "sizeMedian": 120.5,
+          "deaths": 2,
+          "publishedWin150": null
+        },
+        {
+          "group": "F2",
+          "version": "v2.13",
+          "games": 8,
+          "sizeMedian": 129,
+          "publishedWin150": null
+        },
+        {
+          "group": "F2",
+          "version": "v2.22",
+          "games": 8,
+          "sizeMedian": 123.5,
+          "deaths": 1,
+          "publishedWin150": null
+        }
+      ],
+      "note": "本段只公布體型與部分死亡數，H2b＋S0 基準重用先前批次。"
+    }
+  ],
+  "perceptionDiagnostics": [
+    {
+      "batch": "claude-5",
+      "strategy": "claude-5",
+      "condition": "perception_diagnostic",
+      "sourceId": "claude-5/perception-claude5-noimages.json",
+      "conditionsSourceId": "claude-5/README.md",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "samples": 450,
+          "lethalSeenSafe": 0,
+          "falsePrey": 2,
+          "preyCalled": 69,
+          "missedPrey": 72,
+          "ghost": 249,
+          "detTotal": 581,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.08,
+          "positionErrorMedian": 15.13,
+          "positionScaleMedian": 0.98,
+          "trueByClass": {
+            "prey": 139,
+            "neutral": 49,
+            "lethal": 378
+          },
+          "detectedByClass": {
+            "prey": 105,
+            "neutral": 39,
+            "lethal": 188
+          }
+        },
+        {
+          "version": "v2.22",
+          "samples": 439,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 48,
+          "missedPrey": 36,
+          "ghost": 341,
+          "detTotal": 697,
+          "radiusRatioMedian": 1.02,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.06,
+          "positionErrorMedian": 23.19,
+          "positionScaleMedian": 0.97,
+          "trueByClass": {
+            "prey": 84,
+            "neutral": 27,
+            "lethal": 593
+          },
+          "detectedByClass": {
+            "prey": 73,
+            "neutral": 17,
+            "lethal": 266
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-5",
+      "strategy": "claude-6",
+      "condition": "perception_diagnostic",
+      "sourceId": "claude-5/perception-claude6-noimages.json",
+      "conditionsSourceId": "claude-5/README.md",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "samples": 450,
+          "lethalSeenSafe": 0,
+          "falsePrey": 1,
+          "preyCalled": 73,
+          "missedPrey": 53,
+          "ghost": 296,
+          "detTotal": 618,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.08,
+          "positionErrorMedian": 10.44,
+          "positionScaleMedian": 0.98,
+          "trueByClass": {
+            "prey": 125,
+            "neutral": 38,
+            "lethal": 452
+          },
+          "detectedByClass": {
+            "prey": 102,
+            "neutral": 28,
+            "lethal": 192
+          }
+        },
+        {
+          "version": "v2.22",
+          "samples": 413,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 36,
+          "missedPrey": 34,
+          "ghost": 296,
+          "detTotal": 619,
+          "radiusRatioMedian": 1.04,
+          "radiusRatioP10": 1.03,
+          "radiusRatioP90": 1.08,
+          "positionErrorMedian": 31.05,
+          "positionScaleMedian": 0.95,
+          "trueByClass": {
+            "prey": 70,
+            "neutral": 6,
+            "lethal": 527
+          },
+          "detectedByClass": {
+            "prey": 62,
+            "neutral": 4,
+            "lethal": 257
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-7",
+      "strategy": "claude-9",
+      "condition": "perception_diagnostic",
+      "sourceId": "claude-7/perception-claude9-noimages.json",
+      "conditionsSourceId": "claude-7/README.md",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "samples": 444,
+          "lethalSeenSafe": 0,
+          "falsePrey": 3,
+          "preyCalled": 123,
+          "missedPrey": 125,
+          "ghost": 297,
+          "detTotal": 803,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 0.96,
+          "radiusRatioP90": 1.07,
+          "positionErrorMedian": 6,
+          "positionScaleMedian": 0.99,
+          "trueByClass": {
+            "prey": 245,
+            "neutral": 108,
+            "lethal": 449
+          },
+          "detectedByClass": {
+            "prey": 196,
+            "neutral": 93,
+            "lethal": 217
+          }
+        },
+        {
+          "version": "v2.22",
+          "samples": 399,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 64,
+          "missedPrey": 57,
+          "ghost": 403,
+          "detTotal": 877,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.07,
+          "positionErrorMedian": 14.56,
+          "positionScaleMedian": 0.98,
+          "trueByClass": {
+            "prey": 121,
+            "neutral": 19,
+            "lethal": 785
+          },
+          "detectedByClass": {
+            "prey": 104,
+            "neutral": 16,
+            "lethal": 354
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-10",
+      "strategy": "claude-10",
+      "condition": "perception_diagnostic",
+      "sourceId": "claude-10/perception-noimages.json",
+      "conditionsSourceId": "claude-10/README.md",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "samples": 450,
+          "lethalSeenSafe": 0,
+          "falsePrey": 1,
+          "preyCalled": 150,
+          "missedPrey": 112,
+          "ghost": 322,
+          "detTotal": 876,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.08,
+          "positionErrorMedian": 5.1,
+          "positionScaleMedian": 0.99,
+          "trueByClass": {
+            "prey": 261,
+            "neutral": 60,
+            "lethal": 529
+          },
+          "detectedByClass": {
+            "prey": 223,
+            "neutral": 52,
+            "lethal": 279
+          }
+        },
+        {
+          "version": "v2.22",
+          "samples": 418,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 59,
+          "missedPrey": 32,
+          "ghost": 402,
+          "detTotal": 822,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1.01,
+          "radiusRatioP90": 1.05,
+          "positionErrorMedian": 20.02,
+          "positionScaleMedian": 0.97,
+          "trueByClass": {
+            "prey": 91,
+            "neutral": 48,
+            "lethal": 686
+          },
+          "detectedByClass": {
+            "prey": 83,
+            "neutral": 42,
+            "lethal": 295
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-11",
+      "strategy": "claude-11",
+      "condition": "perception_diagnostic",
+      "sourceId": "claude-11/perception-noimages.json",
+      "conditionsSourceId": "claude-11/README.md",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "samples": 444,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 88,
+          "missedPrey": 64,
+          "ghost": 317,
+          "detTotal": 794,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.06,
+          "positionErrorMedian": 12,
+          "positionScaleMedian": 0.98,
+          "trueByClass": {
+            "prey": 152,
+            "neutral": 72,
+            "lethal": 586
+          },
+          "detectedByClass": {
+            "prey": 122,
+            "neutral": 66,
+            "lethal": 289
+          }
+        },
+        {
+          "version": "v2.22",
+          "samples": 445,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 80,
+          "missedPrey": 68,
+          "ghost": 394,
+          "detTotal": 815,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.09,
+          "positionErrorMedian": 16,
+          "positionScaleMedian": 0.98,
+          "trueByClass": {
+            "prey": 148,
+            "neutral": 30,
+            "lethal": 601
+          },
+          "detectedByClass": {
+            "prey": 127,
+            "neutral": 25,
+            "lethal": 269
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-12",
+      "strategy": "claude-12",
+      "condition": "perception_diagnostic",
+      "sourceId": "claude-12/perception-noimages.json",
+      "conditionsSourceId": "claude-12/README.md",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "samples": 675,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 234,
+          "missedPrey": 137,
+          "ghost": 390,
+          "detTotal": 1125,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.08,
+          "positionErrorMedian": 7,
+          "positionScaleMedian": 0.99,
+          "trueByClass": {
+            "prey": 371,
+            "neutral": 94,
+            "lethal": 661
+          },
+          "detectedByClass": {
+            "prey": 327,
+            "neutral": 74,
+            "lethal": 334
+          }
+        },
+        {
+          "version": "v2.22",
+          "samples": 573,
+          "lethalSeenSafe": 1,
+          "falsePrey": 1,
+          "preyCalled": 99,
+          "missedPrey": 77,
+          "ghost": 504,
+          "detTotal": 1031,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.07,
+          "positionErrorMedian": 23.09,
+          "positionScaleMedian": 0.97,
+          "trueByClass": {
+            "prey": 175,
+            "neutral": 47,
+            "lethal": 838
+          },
+          "detectedByClass": {
+            "prey": 152,
+            "neutral": 28,
+            "lethal": 347
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-14",
+      "strategy": "claude-14",
+      "condition": "perception_diagnostic",
+      "sourceId": "claude-14/perception-noimages.json",
+      "conditionsSourceId": "claude-14/README.md",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "samples": 855,
+          "lethalSeenSafe": 1,
+          "falsePrey": 3,
+          "preyCalled": 232,
+          "missedPrey": 137,
+          "ghost": 534,
+          "detTotal": 1385,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.08,
+          "positionErrorMedian": 8.49,
+          "positionScaleMedian": 0.99,
+          "trueByClass": {
+            "prey": 366,
+            "neutral": 111,
+            "lethal": 961
+          },
+          "detectedByClass": {
+            "prey": 314,
+            "neutral": 89,
+            "lethal": 448
+          }
+        },
+        {
+          "version": "v2.22",
+          "samples": 882,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 128,
+          "missedPrey": 105,
+          "ghost": 770,
+          "detTotal": 1521,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.06,
+          "positionErrorMedian": 24.04,
+          "positionScaleMedian": 0.96,
+          "trueByClass": {
+            "prey": 233,
+            "neutral": 71,
+            "lethal": 1242
+          },
+          "detectedByClass": {
+            "prey": 196,
+            "neutral": 50,
+            "lethal": 505
+          }
+        }
+      ]
+    },
+    {
+      "batch": "claude-16",
+      "strategy": "claude-16",
+      "condition": "perception_diagnostic",
+      "sourceId": "claude-16/perception-noimages.json",
+      "conditionsSourceId": "claude-16/README.md",
+      "byVersion": [
+        {
+          "version": "v2.13",
+          "samples": 450,
+          "lethalSeenSafe": 0,
+          "falsePrey": 1,
+          "preyCalled": 87,
+          "missedPrey": 33,
+          "ghost": 268,
+          "detTotal": 534,
+          "radiusRatioMedian": 1.03,
+          "radiusRatioP10": 1,
+          "radiusRatioP90": 1.08,
+          "positionErrorMedian": 6.08,
+          "positionScaleMedian": 0.99,
+          "trueByClass": {
+            "prey": 119,
+            "neutral": 36,
+            "lethal": 397
+          },
+          "detectedByClass": {
+            "prey": 99,
+            "neutral": 33,
+            "lethal": 134
+          }
+        },
+        {
+          "version": "v2.22",
+          "samples": 422,
+          "lethalSeenSafe": 0,
+          "falsePrey": 0,
+          "preyCalled": 68,
+          "missedPrey": 55,
+          "ghost": 289,
+          "detTotal": 528,
+          "radiusRatioMedian": 1.04,
+          "radiusRatioP10": 1.02,
+          "radiusRatioP90": 1.09,
+          "positionErrorMedian": 14.04,
+          "positionScaleMedian": 0.99,
+          "trueByClass": {
+            "prey": 123,
+            "neutral": 24,
+            "lethal": 383
+          },
+          "detectedByClass": {
+            "prey": 112,
+            "neutral": 15,
+            "lethal": 112
+          }
+        }
+      ]
+    },
+    {
+      "batch": "phase2-perception",
+      "kind": "corrected_npc_probe",
+      "condition": "perception_diagnostic",
+      "sourceId": "phase2-perception/npc-probe-summary.txt",
+      "conditionsSourceId": "phase2-perception/README.md",
+      "versionsCovered": [
+        "v2.13",
+        "v2.22"
+      ],
+      "games": 4,
+      "matched": 323,
+      "missed": 341,
+      "spurious": 463,
+      "threatsBelowThreshold": {
+        "count": 15,
+        "denominator": 159
+      },
+      "preyTreatedAsInedible": {
+        "count": 3,
+        "denominator": 149
+      }
+    },
+    {
+      "batch": "phase2-tracking",
+      "kind": "offline_tracking_error",
+      "condition": "perception_diagnostic",
+      "sourceId": "phase2-tracking/tracking-summary.json",
+      "conditionsSourceId": "phase2-tracking/README.md",
+      "versionsCovered": [
+        "v2.13",
+        "v2.22"
+      ],
+      "gamesPerVersion": 4,
+      "framesTotal": 11700,
+      "speedMultiplier": 2,
+      "velocity": {
+        "controller-now": {
+          "n": 964,
+          "err1.5s_med_px": 36.588,
+          "err1.5s_p90_px": 79.875,
+          "angle_med_deg": 16.792,
+          "angle_over45_pct": 20.3
+        },
+        "zero-velocity": {
+          "n": 964,
+          "err1.5s_med_px": 67.98,
+          "err1.5s_p90_px": 112.781,
+          "angle_med_deg": null,
+          "angle_over45_pct": null
+        },
+        "5fps-N2(0.4s)": {
+          "n": 804,
+          "err1.5s_med_px": 44.006,
+          "err1.5s_p90_px": 95.966,
+          "angle_med_deg": 18.578,
+          "angle_over45_pct": 20.3
+        },
+        "5fps-N3(0.6s)": {
+          "n": 808,
+          "err1.5s_med_px": 38.852,
+          "err1.5s_p90_px": 80.016,
+          "angle_med_deg": 16.841,
+          "angle_over45_pct": 17.7
+        },
+        "5fps-N4(0.8s)": {
+          "n": 814,
+          "err1.5s_med_px": 38.181,
+          "err1.5s_p90_px": 76.661,
+          "angle_med_deg": 15.836,
+          "angle_over45_pct": 18.6
+        },
+        "5fps-N5(1.0s)": {
+          "n": 816,
+          "err1.5s_med_px": 38.834,
+          "err1.5s_p90_px": 77.099,
+          "angle_med_deg": 15.897,
+          "angle_over45_pct": 20.2
+        },
+        "5fps-N6(1.2s)": {
+          "n": 818,
+          "err1.5s_med_px": 38.99,
+          "err1.5s_p90_px": 78.002,
+          "angle_med_deg": 16.771,
+          "angle_over45_pct": 21.1
+        },
+        "5fps-N8(1.6s)": {
+          "n": 820,
+          "err1.5s_med_px": 39.195,
+          "err1.5s_p90_px": 81.662,
+          "angle_med_deg": 17.773,
+          "angle_over45_pct": 23
+        },
+        "5fps-N10(2.0s)": {
+          "n": 821,
+          "err1.5s_med_px": 40.774,
+          "err1.5s_p90_px": 84.323,
+          "angle_med_deg": 18.932,
+          "angle_over45_pct": 23.7
+        },
+        "5fps-N12(2.4s)": {
+          "n": 823,
+          "err1.5s_med_px": 42.51,
+          "err1.5s_p90_px": 86.142,
+          "angle_med_deg": 20.307,
+          "angle_over45_pct": 24.6
+        },
+        "5fps-N15(3.0s)": {
+          "n": 826,
+          "err1.5s_med_px": 43.399,
+          "err1.5s_p90_px": 88.212,
+          "angle_med_deg": 20.455,
+          "angle_over45_pct": 23.3
+        },
+        "10fps-N2(0.2s)": {
+          "n": 876,
+          "err1.5s_med_px": 89.451,
+          "err1.5s_p90_px": 159.14,
+          "angle_med_deg": 39.832,
+          "angle_over45_pct": 45.5
+        },
+        "10fps-N3(0.3s)": {
+          "n": 880,
+          "err1.5s_med_px": 47.704,
+          "err1.5s_p90_px": 108.576,
+          "angle_med_deg": 20.063,
+          "angle_over45_pct": 23.9
+        },
+        "10fps-N4(0.4s)": {
+          "n": 880,
+          "err1.5s_med_px": 46.481,
+          "err1.5s_p90_px": 102.359,
+          "angle_med_deg": 20.307,
+          "angle_over45_pct": 21.8
+        },
+        "10fps-N5(0.5s)": {
+          "n": 882,
+          "err1.5s_med_px": 42.591,
+          "err1.5s_p90_px": 95.028,
+          "angle_med_deg": 19.027,
+          "angle_over45_pct": 22.1
+        },
+        "10fps-N6(0.6s)": {
+          "n": 883,
+          "err1.5s_med_px": 41.511,
+          "err1.5s_p90_px": 91.845,
+          "angle_med_deg": 18.226,
+          "angle_over45_pct": 23.3
+        },
+        "10fps-N8(0.8s)": {
+          "n": 884,
+          "err1.5s_med_px": 41.775,
+          "err1.5s_p90_px": 87.609,
+          "angle_med_deg": 18.116,
+          "angle_over45_pct": 23.8
+        },
+        "10fps-N10(1.0s)": {
+          "n": 885,
+          "err1.5s_med_px": 42.55,
+          "err1.5s_p90_px": 87.266,
+          "angle_med_deg": 18.072,
+          "angle_over45_pct": 25.4
+        },
+        "10fps-N12(1.2s)": {
+          "n": 887,
+          "err1.5s_med_px": 42.55,
+          "err1.5s_p90_px": 88.866,
+          "angle_med_deg": 18.637,
+          "angle_over45_pct": 26.6
+        },
+        "10fps-N15(1.5s)": {
+          "n": 888,
+          "err1.5s_med_px": 43.435,
+          "err1.5s_p90_px": 91.386,
+          "angle_med_deg": 19.456,
+          "angle_over45_pct": 27.8
+        }
+      },
+      "size": {
+        "single": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.048,
+            "abs_err_p90": 0.153,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.5
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.154,
+            "abs_err_p90": 0.505,
+            "threat_read_below_1.08_pct": 10,
+            "prey_read_not_edible_pct": 5.9
+          }
+        },
+        "10fps-median3": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.046,
+            "abs_err_p90": 0.145,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.4
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.153,
+            "abs_err_p90": 0.505,
+            "threat_read_below_1.08_pct": 9.9,
+            "prey_read_not_edible_pct": 5.5
+          }
+        },
+        "10fps-median5": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.046,
+            "abs_err_p90": 0.145,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.153,
+            "abs_err_p90": 0.505,
+            "threat_read_below_1.08_pct": 9.8,
+            "prey_read_not_edible_pct": 5.1
+          }
+        },
+        "10fps-median10": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.045,
+            "abs_err_p90": 0.142,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.151,
+            "abs_err_p90": 0.505,
+            "threat_read_below_1.08_pct": 9.7,
+            "prey_read_not_edible_pct": 5.1
+          }
+        },
+        "10fps-median15": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.044,
+            "abs_err_p90": 0.142,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.15,
+            "abs_err_p90": 0.506,
+            "threat_read_below_1.08_pct": 9.6,
+            "prey_read_not_edible_pct": 5.1
+          }
+        },
+        "10fps-median30": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.04,
+            "abs_err_p90": 0.137,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.147,
+            "abs_err_p90": 0.508,
+            "threat_read_below_1.08_pct": 9.2,
+            "prey_read_not_edible_pct": 5.1
+          }
+        },
+        "5fps-median3": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.046,
+            "abs_err_p90": 0.145,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.153,
+            "abs_err_p90": 0.505,
+            "threat_read_below_1.08_pct": 9.8,
+            "prey_read_not_edible_pct": 5.3
+          }
+        },
+        "5fps-median5": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.045,
+            "abs_err_p90": 0.145,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.151,
+            "abs_err_p90": 0.505,
+            "threat_read_below_1.08_pct": 9.7,
+            "prey_read_not_edible_pct": 5.1
+          }
+        },
+        "5fps-median10": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.042,
+            "abs_err_p90": 0.144,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.149,
+            "abs_err_p90": 0.505,
+            "threat_read_below_1.08_pct": 9.3,
+            "prey_read_not_edible_pct": 5.1
+          }
+        },
+        "5fps-median15": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.04,
+            "abs_err_p90": 0.142,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.147,
+            "abs_err_p90": 0.505,
+            "threat_read_below_1.08_pct": 9,
+            "prey_read_not_edible_pct": 5.1
+          }
+        },
+        "5fps-median30": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.039,
+            "abs_err_p90": 0.138,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.144,
+            "abs_err_p90": 0.498,
+            "threat_read_below_1.08_pct": 8.3,
+            "prey_read_not_edible_pct": 5.1
+          }
+        },
+        "memory5s-median5": {
+          "unclipped": {
+            "n": 1990,
+            "abs_err_med": 0.046,
+            "abs_err_p90": 0.145,
+            "threat_read_below_1.08_pct": 0.3,
+            "prey_read_not_edible_pct": 0.3
+          },
+          "clipped": {
+            "n": 8110,
+            "abs_err_med": 0.145,
+            "abs_err_p90": 0.504,
+            "threat_read_below_1.08_pct": 8.7,
+            "prey_read_not_edible_pct": 5.1
+          }
+        }
+      },
+      "note": "軌跡配對使用真實 NPC 身分。只列跨局的速度及尺寸統計，counts 段採逐局鍵故略過。"
+    }
+  ],
+  "coverageGaps": [
+    {
+      "strategy": "claude-15",
+      "kind": "no_published_natural_aggregate",
+      "note": "claude-16 的報告涵蓋 15 規則的混合工具。本快照含 Claude-15 選項，公開控制器彙總沒有 Claude-15 自然局。",
+      "sourceIds": [
+        "claude-16/README.md",
+        "claude-16/summary-noimages.json",
+        "src/ocr-claude.html"
+      ]
+    },
+    {
+      "strategy": "claude-18",
+      "version": "v2.13",
+      "kind": "no_published_natural_aggregate",
+      "note": "claude-18 的直接公開彙總只列 v2.22。",
+      "sourceIds": [
+        "claude-18/summary-noimages.json"
+      ]
+    },
+    {
+      "strategy": "claude-19",
+      "kind": "unpreserved_incomplete_batches",
+      "note": "修正前兩個不完整批次未保存；公開報告記錄一次批次出現三次 wall-timeout，另一次出現兩次 controller-error。表中的 Claude-19 對應修正後批次。",
+      "sourceIds": [
+        "claude-19/README.md"
+      ]
+    },
+    {
+      "strategy": "oracle-full / oracle-view",
+      "kind": "per_version_rows_not_aggregate",
+      "note": "早期 oracle-summary 的 byVersion 內含逐局陣列，只列驗證過的跨版本彙總。",
+      "sourceIds": [
+        "claude-3/oracle-summary-noimages.json"
+      ]
+    },
+    {
+      "batch": "phase2-perception",
+      "kind": "invalidated_diagnostic",
+      "note": "早期三倍速 detview/detnpc 使用牆鐘推估速度，該輪已作廢；收錄的篩選取自校正後公開彙總。",
+      "sourceIds": [
+        "phase2-perception/README.md"
+      ]
+    }
+  ],
+  "sources": {
+    "scripts/ocr-claude-batch.mjs": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/scripts/ocr-claude-batch.mjs",
+      "blobSha": "0733c3d945b2211c5881e8ffb3c45abf0afb0b84"
+    },
+    "src/game-v2.13.html": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/src/game-v2.13.html",
+      "blobSha": "16d41cdf2997baf0b3af33567b201d2dfb835427"
+    },
+    "src/game-v2.20.html": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/src/game-v2.20.html",
+      "blobSha": "668808a4538304331bd267eb87d9f7e13938cdd5"
+    },
+    "src/game-v2.21.html": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/src/game-v2.21.html",
+      "blobSha": "39d251fdb9a0edbb42260cdf316c35b6e33eb26b"
+    },
+    "src/game.html": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/src/game.html",
+      "blobSha": "30af12f7608da91514711ecdbc01b57654ab2eab"
+    },
+    "phase1-minimap/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase1-minimap/README.md",
+      "blobSha": "1f4c0b4697126baec25bc49c7e76d6d11fc36d80"
+    },
+    "scripts/ocr-claude-oracle.mjs": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/scripts/ocr-claude-oracle.mjs",
+      "blobSha": "aaad0f94f6b6d6eee617d5c86c78fbed4826d13a"
+    },
+    "scripts/ocr-claude-hybrid.mjs": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/scripts/ocr-claude-hybrid.mjs",
+      "blobSha": "5c5bf34b00566c65dd362200fb71dd757da5dff6"
+    },
+    "claude-1/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-1/README.md",
+      "blobSha": "2f71edd4daed8ec270a21eae22eae5b286dae1eb"
+    },
+    "phase0/PROTOCOL.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase0/PROTOCOL.md",
+      "blobSha": "619329db3e3fab99be0db0843556d8437e60b23c"
+    },
+    "scripts/compare-ocr-claude.mjs": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/scripts/compare-ocr-claude.mjs",
+      "blobSha": "0c6122eca4abbec747d6f4815684e7a82cfcb3b5"
+    },
+    "claude-1/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-1/summary-noimages.json",
+      "blobSha": "6640790bb69490d1076bce760bd3af520faa8c99"
+    },
+    "claude-3/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-3/summary-noimages.json",
+      "blobSha": "a9f899a9e06d93e0c7b6102311dcdbb989796a40"
+    },
+    "claude-3/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-3/README.md",
+      "blobSha": "2305e8e103a02475c1463c6e3c4af957a619a6d8"
+    },
+    "claude-5/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-5/summary-noimages.json",
+      "blobSha": "6ef62eb5b50e04eec05767dc6b50e9071f92a7b8"
+    },
+    "claude-5/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-5/README.md",
+      "blobSha": "9235525f6daf6f2ce085ef8a2fac42de415cd579"
+    },
+    "claude-7/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-7/summary-noimages.json",
+      "blobSha": "a521586fc10567233b8c0a87e1bb1ecde963f024"
+    },
+    "claude-7/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-7/README.md",
+      "blobSha": "9ed744dcee65eec9c16fcd9eef706a704a3cc2e2"
+    },
+    "claude-10/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-10/summary-noimages.json",
+      "blobSha": "6f1da85fdff47b6f434e86d565f1480223104349"
+    },
+    "claude-10/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-10/README.md",
+      "blobSha": "41715d36ad0ed7e1f93edec1f8bd7be9de868eb2"
+    },
+    "claude-11/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-11/summary-noimages.json",
+      "blobSha": "3993b9e040ac70908ab3c53263eeddf6b7af9f72"
+    },
+    "claude-11/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-11/README.md",
+      "blobSha": "23b720bbf8e275fe9fe4ca9da89bc8c92e0e68ad"
+    },
+    "claude-12/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-12/summary-noimages.json",
+      "blobSha": "1b061b1a614bc4e40947fcfd6937beaacba3b986"
+    },
+    "claude-12/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-12/README.md",
+      "blobSha": "dbba8dcc33aae68abfc2b6d06397ec1d1a5d322f"
+    },
+    "claude-13/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-13/summary-noimages.json",
+      "blobSha": "5e05f2f289e9c06726a68cdd5485a710c0bcd746"
+    },
+    "claude-13/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-13/README.md",
+      "blobSha": "6cd7bd6a79fc232efe8690aa639b9792cd31a24b"
+    },
+    "claude-14/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-14/summary-noimages.json",
+      "blobSha": "ca608330d828bf56e6e0f4d4b03bf240fc4b0867"
+    },
+    "claude-14/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-14/README.md",
+      "blobSha": "dd462f3fe25f6daf4a08413561396d01dde2396c"
+    },
+    "claude-16/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-16/summary-noimages.json",
+      "blobSha": "7905a87ef2547c7b0286b294bcb5d8bd2a9e7e7d"
+    },
+    "claude-16/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-16/README.md",
+      "blobSha": "42084a9cdb3c528a620a3928f135bc5fe54e60b0"
+    },
+    "claude-18/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-18/summary-noimages.json",
+      "blobSha": "b1be71d354f567015ec72c73e22311ef6303e529"
+    },
+    "claude-18/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-18/README.md",
+      "blobSha": "077bccccbc105495478226e227f33a27e7b3c874"
+    },
+    "claude-19/summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-19/summary-noimages.json",
+      "blobSha": "2f363a84a59e353013e9415b88da695ac279fc18"
+    },
+    "claude-19/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-19/README.md",
+      "blobSha": "271b916b8d1e3aa3efc13f5d943a6e505bfa1540"
+    },
+    "phase0/comparison-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase0/comparison-noimages.json",
+      "blobSha": "5a4f9a86e36cb4d13347e88d46c7cc56207733bc"
+    },
+    "phase0/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase0/README.md",
+      "blobSha": "b72235542a0d6483fa054f2d6f42479da371f12c"
+    },
+    "phase1-fit/comparison-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase1-fit/comparison-noimages.json",
+      "blobSha": "ded752449085513080a53b83b9a5345fa91d11d1"
+    },
+    "phase1-fit/PROTOCOL.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase1-fit/PROTOCOL.md",
+      "blobSha": "d7621fce262ade587ef0eeb484baf81037b2ab34"
+    },
+    "phase1-fit/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase1-fit/README.md",
+      "blobSha": "91dbdc033190bb24775d33900241de40ddda0d93"
+    },
+    "phase1-minimap/comparison-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase1-minimap/comparison-noimages.json",
+      "blobSha": "8a3046e299af9084ffc306155045f110017b8eed"
+    },
+    "phase1-minimap/PROTOCOL.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase1-minimap/PROTOCOL.md",
+      "blobSha": "71a37c56762952ec6eee71f382ef0105002f8c58"
+    },
+    "phase2-wall/comparison-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-wall/comparison-noimages.json",
+      "blobSha": "285692dfea92ff2838950bfc4f1401b20a20933b"
+    },
+    "phase2-wall/PROTOCOL.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-wall/PROTOCOL.md",
+      "blobSha": "c4bb486eb61650a5482efa96b0f349b5ccb8c64a"
+    },
+    "phase2-wall/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-wall/README.md",
+      "blobSha": "c1c64ae1b61585b02dd771e6a09ac18f3d2976de"
+    },
+    "phase2-crowd/comparison-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-crowd/comparison-noimages.json",
+      "blobSha": "c4b94ba5a087022223f811a61fafedee21515683"
+    },
+    "phase2-crowd/PROTOCOL.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-crowd/PROTOCOL.md",
+      "blobSha": "ac7d9a372a823ff5972fa6ce2e551d086343f9db"
+    },
+    "phase2-crowd/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-crowd/README.md",
+      "blobSha": "a62ff1a4f1839c3e3144533792b5b759a324e113"
+    },
+    "phase2-growth/comparison-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-growth/comparison-noimages.json",
+      "blobSha": "5caf580dda5ce93e236c6fbc6e9638418ffd017a"
+    },
+    "phase2-growth/PROTOCOL.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-growth/PROTOCOL.md",
+      "blobSha": "3ac18d9fed14651259e1aac4eaa659b4cac2ed79"
+    },
+    "phase2-growth/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-growth/README.md",
+      "blobSha": "de6d5a930a912799311ad62e490236a8e16a617b"
+    },
+    "phase2-markers/comparison-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-markers/comparison-noimages.json",
+      "blobSha": "70769a6cc9446ed5a5171588cc84762e3a66206a"
+    },
+    "phase2-markers/PROTOCOL.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-markers/PROTOCOL.md",
+      "blobSha": "9f44fd62d074547dec7ef450d8edd5f2afa3c84e"
+    },
+    "phase2-markers/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-markers/README.md",
+      "blobSha": "75b6c93c7fcedb587bb65be6ff94e10b7680a522"
+    },
+    "phase2-claude26/comparison-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-claude26/comparison-noimages.json",
+      "blobSha": "825153314af22ee77c25040c17a4dee8d5d80943"
+    },
+    "phase2-claude26/PROTOCOL.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-claude26/PROTOCOL.md",
+      "blobSha": "2d5e6fc689370be6dc7cf7a5621ef427eee68bc5"
+    },
+    "phase2-claude26/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-claude26/README.md",
+      "blobSha": "0e3ab6d7412e4645b1029be6428fbd8b69b078b8"
+    },
+    "src/ocr-claude.html": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/src/ocr-claude.html",
+      "blobSha": "8974e4ac9a8a2ce22caedc7c30d1cf5f91ddd3a8"
+    },
+    "claude-3/oracle-summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-3/oracle-summary-noimages.json",
+      "blobSha": "d7155143e9c46bd6c1265092ef27954608c4ddef"
+    },
+    "phase2-perception/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-perception/README.md",
+      "blobSha": "62d065ef2f024414e62a62a433b737bebc5b6216"
+    },
+    "claude-13/bot-rules-summary-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-13/bot-rules-summary-noimages.json",
+      "blobSha": "5d85a88dc7e579af7bcd3eb896431ad529ad0e37"
+    },
+    "hybrid-1/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/hybrid-1/README.md",
+      "blobSha": "bc1b7fa3c65b45e34e7499d65b1fa125a6fbbff6"
+    },
+    "phase2-growth/warp-validation-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-growth/warp-validation-noimages.json",
+      "blobSha": "a132dbc924acde0fb08d41397c3827e044b43bef"
+    },
+    "phase2-growth/bot-sweep-screening.txt": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-growth/bot-sweep-screening.txt",
+      "blobSha": "3070349857808615478d012662777b481a37dff5"
+    },
+    "phase2-perception/screening-summary.txt": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-perception/screening-summary.txt",
+      "blobSha": "68901cfeb6e5d57c20134e67bc7193e4d6fd2e1f"
+    },
+    "phase2-tracking/README.md": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-tracking/README.md",
+      "blobSha": "10748b08babb4fdeefdcdae9ff1ea7f557d75272"
+    },
+    "claude-5/perception-claude5-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-5/perception-claude5-noimages.json",
+      "blobSha": "780eb01c609c82049d2d4667e3399f657c34ac0b"
+    },
+    "claude-5/perception-claude6-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-5/perception-claude6-noimages.json",
+      "blobSha": "30f6f190a1f1cf11629ef6c3891a6b059c945280"
+    },
+    "claude-7/perception-claude9-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-7/perception-claude9-noimages.json",
+      "blobSha": "d24251ed6439a5bc5be07a35f1cedf77bb927a02"
+    },
+    "claude-10/perception-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-10/perception-noimages.json",
+      "blobSha": "ba48214a006234610c0a18b662f15ffa621602da"
+    },
+    "claude-11/perception-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-11/perception-noimages.json",
+      "blobSha": "41702fa07aa60c5db938d785591d2a5e5758a883"
+    },
+    "claude-12/perception-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-12/perception-noimages.json",
+      "blobSha": "4c146b6a621e411bdd183d428c9cec778dd2a639"
+    },
+    "claude-14/perception-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-14/perception-noimages.json",
+      "blobSha": "5a7d6790a6a4a945d94619f78f7710163e52af57"
+    },
+    "claude-16/perception-noimages.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/claude-16/perception-noimages.json",
+      "blobSha": "9f6624792866f37ed83cc91417b347da54416144"
+    },
+    "phase2-perception/npc-probe-summary.txt": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-perception/npc-probe-summary.txt",
+      "blobSha": "bbe02df14c057435eb0fe5920358808ecb509738"
+    },
+    "phase2-tracking/tracking-summary.json": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/docs/ocr/repro/phase2-tracking/tracking-summary.json",
+      "blobSha": "c2c3774de006444635256aa71b5043ab39115820"
+    },
+    "scripts/summarize-ocr-claude.mjs": {
+      "url": "https://github.com/gg-dot1980/slime/blob/80b1f7922aef468cfa131da23d22f87dc104d280/scripts/summarize-ocr-claude.mjs",
+      "blobSha": "d6bb49d95e912f0c8ef4b6ceaf703f5550867568"
+    }
+  }
+}

@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import {readFile} from 'node:fs/promises';
-import {Script} from 'node:vm';
+import {Script, runInNewContext} from 'node:vm';
 import {makeGrowBundle} from './grow-games.mjs';
 import worker from '../dist/server/index.js';
 
@@ -71,4 +71,42 @@ const registry = JSON.parse(await read('docs/ocr/repro/grow-local-r4-20261126/ca
 const candidate = await read('docs/ocr/repro/grow-49-public/ocr-grow49.html');
 assert.equal(digest(candidate), registry.grow49.sha256);
 for (const path of ['/ocr-console/grow', '/ocr-console/grow/']) assert.equal(await sourceAt(path), candidate, path);
-console.log('PASS console and asset routes, native controller bytes, isolated bundles, game versions and original OCR logic');
+
+const design = '/ocr-gui-design';
+const designShell = await sourceAt(design);
+assert.equal(await sourceAt(design + '/'), designShell);
+assert.equal(designShell.replaceAll(design + '/', '/ocr-console/'), shell);
+for (const [asset, mime] of [['style.css', 'text/css'], ['runtime.js', 'text/javascript'], ['catalog.js', 'text/javascript']]) {
+  const path = design + '/' + asset;
+  assert(designShell.includes('"' + path + '"'), 'Missing standalone asset ' + path);
+  const content = await sourceAt(path, mime);
+  if (asset !== 'catalog.js') assert.equal(content, await sourceAt('/ocr-console/' + asset, mime));
+}
+
+async function catalogAt(path) {
+  const context = {window: {}};
+  runInNewContext(await sourceAt(path, 'text/javascript'), context);
+  return JSON.parse(JSON.stringify(context.window.OCR_CONSOLE_CATALOG));
+}
+const originalCatalog = await catalogAt('/ocr-console/catalog.js');
+const designCatalog = await catalogAt(design + '/catalog.js');
+const designRoutes = {grow: design + '/grow', claude: design + '/claude', test: design + '/test'};
+assert.deepEqual(designCatalog.history, originalCatalog.history);
+assert.deepEqual(designCatalog.families, originalCatalog.families.map(family => ({
+  ...family, route: designRoutes[family.id] ?? family.route
+})));
+for (const [id, path] of Object.entries(designRoutes)) {
+  const original = originalCatalog.families.find(family => family.id === id);
+  assert.equal(await sourceAt(path), await sourceAt(original.route), 'Native source ' + id);
+}
+
+for (const path of [design, design + '/', ...['style.css', 'runtime.js', 'catalog.js', 'grow', 'claude', 'test'].map(key => design + '/' + key)]) {
+  const head = await get(path, 'HEAD');
+  assert.equal(head.status, 200, path);
+  assert.equal(await head.text(), '', path);
+  const post = await get(path, 'POST');
+  assert.equal(post.status, 405, path);
+  assert.equal(post.headers.get('Allow'), 'GET, HEAD', path);
+}
+assert.equal((await get(design + '/missing.js')).status, 404);
+console.log('PASS both OCR entries, public assets, native controller bytes, strategy catalog, isolated bundles, game versions and original OCR logic');

@@ -1,9 +1,0 @@
---- arc-certified.html
-+++ v2.html
-@@ -951,5 +951,5 @@
-   goals.sort((a,b)=>b.utility-a.utility);
-   const localHarvest = r>=75 ? goals.find(o=>!o.mapOnly && o.growth>1.5 && hypot(o.x,o.y)<575) : null;
--  const target31 = localHarvest || goals[0] || null;
-+  const target31 = localHarvest || (probes37[0]?.utility>(goals[0]?.utility||0)*.5?probes37[0]:null) || goals[0] || null;
-   const targets = goals.slice(0,1);
-   const pursuit31 = target31?.world ? {...target31.world,r:target31.r,mapOnly:target31.mapOnly,

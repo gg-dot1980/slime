@@ -1,7 +1,0 @@
-{
-  "recordType": "completion_version_read_attempt",
-  "recordedAtUtc": "2026-11-25T04:09:28.550011+00:00",
-  "url": "https://slime.gameson.cc/api/versions",
-  "outcome": "HTTP 403 Forbidden",
-  "consequence": "End-of-run live version was not revalidated. The latest-version designation refers to the prior successful initial response saved in live-version-verification.json; actual tested game sources remain fixed by hashes."
-}

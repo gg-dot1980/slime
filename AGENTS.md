@@ -1,26 +1,7 @@
-# Slime / OCR project instructions
+# OCR 整合分支
 
-OCR 文件權威分支是 `gg-dot1980/slime` 的 `test/ocr-test`。開始工作先記錄 repo、目前 branch、base commit；檢查適用的更近層指示。使用者本次明確授權優先於本文件。
+這個分支依使用者授權保存 OCR 策略程式、GUI 與公開測試彙總。改版時一起核對[策略索引](docs/ocr/STRATEGIES.md)、[GUI 指南](docs/ocr/GUI-GUIDELINE.md)及相應的分版結果。保留固定來源、測試條件、分母與歷史限制。私人逐局原檔、截圖、還原包與憑證只存私人紀錄。
 
-| 文件 | 何時讀 | 何時更新 |
-|---|---|---|
-| [OCR 規格](docs/ocr/SPEC.md) | 改策略、設計測試、判定驗收或考慮發布前 | 使用者確認目標／範圍／條件變更，或核實受支援遊戲版本變更時；未知標 TBD |
-| [GitHub 存放規則](docs/ocr/GITHUB-STORAGE.md) | 保存／上傳測試材料或交接前 | 規則改動時，同一提交更新版本、理由、生效點及目錄／索引／遷移；遵循權威文件 |
-| [測試交接索引](docs/ocr/TEST-HANDOFF.md) | 接手、續跑、查最新結果或失敗證據前 | 每個可交接版本完成時，連結逐版入口並記錄已驗證結果、缺口與下一步；保留歷史 |
+原始規格、存放規則和獨立驗收流程由測試分支維護。[OCR 規格](https://github.com/gg-dot1980/slime/blob/test/ocr-test/docs/ocr/SPEC.md) · [GitHub 存放規則](https://github.com/gg-dot1980/slime/blob/test/ocr-test/docs/ocr/GITHUB-STORAGE.md) · [驗收流程](https://github.com/gg-dot1980/slime/blob/test/ocr-test/docs/ocr/TESTING.md) · [協作指南](https://github.com/gg-dot1980/slime/blob/main/CONTRIBUTING.md)
 
-只在 `test/ocr-test` 更新 OCR 規格、存放規則與測試成果。main 為正式來源分支、test/demo 為示範分支；這兩支的三份文件僅為導引，勿在此寫入測試成果或複製權威全文。變更入口時同步必要導引，避免連結失效。
-
-影像、影片、影格、像素／內嵌影像日誌及秘密不上 GitHub。測試紀錄提交不等於網站部署或正式驗收；OCR4 未通過規格不得發布。純文件任務不修改程式、站點、部署設定或已保存測試資料；不合併整個測試分支、不強制推送。遭拒停止該操作、保存精確待同步範圍，不繞過核准。
-
-## 人／AI 協作導引
-
-開分支、PR 或 review 前讀 [main 的 CONTRIBUTING.md](https://github.com/gg-dot1980/slime/blob/main/CONTRIBUTING.md) 及 [main 的 Code Review Rules](https://github.com/gg-dot1980/slime/blob/main/AGENTS.md#code-review-rules)。此處只連結權威指南，不複製全文；保留上方 OCR 三文件入口。流程修改在 main 維護，這些連結必要時同步。建議關卡不表示權限／CI 已啟用。
-
-## 獨立測試與驗收入口
-
-設計／執行測試、review 測試證據或判定驗收前讀 [權威 TESTING.md](docs/ocr/TESTING.md)。測試流程或已核實命令改動時在 test/ocr-test 更新，必要時同步 main 指南及 PR 範本入口；不複製規則。固定 commit、客觀斷言、完整分母與獨立 reviewer／CI 核對；文件 PR 僅做適用檢查。
-
-## OCR Grow 接續工作
-
-依使用者已授權的研究分支接續 Grow 時，先讀 [短檢查點](docs/ocr/GROW-CHECKPOINT.md) 與 [精簡續跑流程](docs/ocr/GROW-WORKFLOW.md)，再讀有變更的適用指示及當前候選所需證據。檢查點不是即時狀態或驗收證據；以更新的凍結來源、ledger 與結果為準。此入口只調整 Grow 的工作方式，不改其他 OCR 規格、批准或發布要求。
-
+執行 Grow 私人研究時依研究分支的最新 ledger、凍結來源及短檢查點接續。[研究檢查點](https://github.com/gg-dot1980/slime/blob/feat/grow-evaluation-20261125/docs/ocr/GROW-CHECKPOINT.md)

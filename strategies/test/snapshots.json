@@ -1,0 +1,278 @@
+{
+  "repository": "gg-dot1980/slime",
+  "branch": "test/ocr-test",
+  "checkedAtHead": "46b8aa3f8207ed03bc89c84c6ed896a23bcd5601",
+  "path": "src/ocr-test.html",
+  "verification": "Each snapshot was retrieved at its own commit. Its Git blob SHA-1 was recomputed from the original bytes. The sha256 field hashes the unmodified file bytes.",
+  "snapshots": [
+    {
+      "id": "test-007",
+      "label": "邊界保護",
+      "commit": "99234cd9f4024dd73e345335a68cd54cf09d06a9",
+      "blob": "95011ba4bb09872de964203e671569661de0dd6c",
+      "path": "src/ocr-test.html",
+      "bytes": 33910,
+      "sha256": "eab64fbcad982384e3f6f0ae101ad4a8aca309feabf55cbec75d94590f30370c",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-008",
+      "label": "追逐路徑預測",
+      "commit": "cf5eea493985a1923fcec5f092b9d82cc44e5fc3",
+      "blob": "366966767581e70a4e26e5b7fb841aaa198fb7d9",
+      "path": "src/ocr-test.html",
+      "bytes": 34875,
+      "sha256": "42e8e1a617297b83a5921a9a59faaca8bda571cb99dce339232632e9395c42d5",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-009",
+      "label": "目標持續性",
+      "commit": "dd75895f641d8da7018d003f2199dcb13cb76a75",
+      "blob": "0909260c29f3333d77f50f6240f2b4e59e4882ca",
+      "path": "src/ocr-test.html",
+      "bytes": 35128,
+      "sha256": "2af65c8bc27908c1b6325fe3c3a93c4feb93f77f9c707a7746c6da5d08b1f106",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-010",
+      "label": "區間相機補償",
+      "commit": "a2c946ffda36e676b7db91390539d0507edac58a",
+      "blob": "a203e4ce2d346557f7bc1016fd1e2f5aed0c3da8",
+      "path": "src/ocr-test.html",
+      "bytes": 35864,
+      "sha256": "3c1b8224d3fbdb5410492e52b49710ee8c2da90154f74497167c73a205910b02",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-011",
+      "label": "提前探索NPC",
+      "commit": "c1157b5ea0a27a1b1cb0c697429c648670f7ecb5",
+      "blob": "87cc5840480d1674ef207928e42efc077360511d",
+      "path": "src/ocr-test.html",
+      "bytes": 36548,
+      "sha256": "dbbecfd79603e68d1bf6deb33afd64a727781044ad66bf322aaa8c65213fd5a0",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-012",
+      "label": "小地圖尺寸不確定性",
+      "commit": "d9ddd8d83d25a951bd669f1e1d325d9b74218fed",
+      "blob": "900a68e0b953ca40215d80bc141a78e3ae8ac4fa",
+      "path": "src/ocr-test.html",
+      "bytes": 37273,
+      "sha256": "d65ec77a69e37b808f92bdd683b246efc5789c83b402ab52c9139916aae9ca7a",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-013",
+      "label": "有界資訊探查",
+      "commit": "402a16f36f9ef7bf1c52d0aedecb4b6e250fd29c",
+      "blob": "8ddfd38d2c2be1b944f726288dfa222297483a41",
+      "path": "src/ocr-test.html",
+      "bytes": 39862,
+      "sha256": "748f1925fcf284bdaa93d813e12626365edf712cb2a8010fee1f085c5ee0f214",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-014",
+      "label": "邊界距離消融",
+      "commit": "c718a3c9de4c092d0177203b84c70fedfc1372fa",
+      "blob": "858a9cc26827744d45d9b1b8421c92955b978b71",
+      "path": "src/ocr-test.html",
+      "bytes": 38759,
+      "sha256": "028deb33200bb69bdd4b3d13168123f4208801cbcc4aeb02b793550f0d9cf4dd",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-015",
+      "label": "獨立位移共識",
+      "commit": "f1b85dbe17422ec39d96aae47be7688db559d029",
+      "blob": "e215afb110bbeb2f902bfa373de2f121e3a4a843",
+      "path": "src/ocr-test.html",
+      "bytes": 40796,
+      "sha256": "8222a4288891b62aef04ab084266505f3822d859ce63bd32f943113e956a5657",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-016",
+      "label": "牆邊切向移動",
+      "commit": "a704e45d8fc0785550d4fba3216d652b2992b694",
+      "blob": "9390463cbe2a26cc44be3637caad480853c7619c",
+      "path": "src/ocr-test.html",
+      "bytes": 40085,
+      "sha256": "108e4b0cebda40ba343541fc1bff12633e4f416fd60356bfc97167a64a114b4b",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-017",
+      "label": "玩家輪廓誤判修正",
+      "commit": "b89c065beafdcf9bf791fcfcf3c93beeec3adc04",
+      "blob": "0d55abf2f349da98fd242b87cbc84fe9645e9ba6",
+      "path": "src/ocr-test.html",
+      "bytes": 40579,
+      "sha256": "dcbdc20aac5531d34b1129af7e9bdd2efacca2157b9c87e9981c40eb8a952f22",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-018",
+      "label": "合規接觸替代方向",
+      "commit": "c47e91484aebc0f9b823889b234e9e669449b5ee",
+      "blob": "becc9a9c7b4cde521061531c8eca75ae52f85382",
+      "path": "src/ocr-test.html",
+      "bytes": 41480,
+      "sha256": "3333a1ae5914e3d6c702354b1758771566decefc099875479133703be27de74a",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-019",
+      "label": "有界短動作保持",
+      "commit": "982deff112f6fe7f5a9c51315d7855a4bcff2b55",
+      "blob": "cc5282b0d4c646f077a9ef0b0219eadb1f16ecd9",
+      "path": "src/ocr-test.html",
+      "bytes": 42448,
+      "sha256": "dbd083ef4549633d023f1875d3f8dfc3f3ca67532b6970363f51e3238d4a3228",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-020",
+      "label": "牆邊雙門檻",
+      "commit": "b41195b8abd5aee0a2addc7db225284976a8c89b",
+      "blob": "cc9575eea7a8730db05324061f40b877840fde1e",
+      "path": "src/ocr-test.html",
+      "bytes": 42127,
+      "sha256": "26b6bc12d216f43b3639f235b10d6d12381df14b1c425c143fc291a263139d66",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-021",
+      "label": "目標牆邊可行性",
+      "commit": "8cdaa51d86489a78147837dd470a305ea5677352",
+      "blob": "0b17715044a650d7b009b3d97085b72f70dce2b6",
+      "path": "src/ocr-test.html",
+      "bytes": 42502,
+      "sha256": "5b40379318104e4449174ad5a2d4dafd35e9e140081b2474eba6ea205099b098",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-022",
+      "label": "食物目標牆邊可行性",
+      "commit": "b5c6d609be015a72be310dab0527247076418ea8",
+      "blob": "fb35382c2300633956afccf90f16d2072fde5bc5",
+      "path": "src/ocr-test.html",
+      "bytes": 43060,
+      "sha256": "99a4411374d12b3bf7ffa09a309b862ca329a36d83522bb8ade2113c32fa53f8",
+      "kind": "controller_snapshot",
+      "note": "原始 test-022 食物牆邊可行性變更。此檔採用當時 110 秒門檻，180 秒驗收另存為 test-022-180s。"
+    },
+    {
+      "id": "test-022-180s",
+      "label": "三分鐘驗收所聯結的 test-022 規劃器",
+      "commit": "3ee0999ee67055ee793b378d25c6a00d061d3f2b",
+      "blob": "c1eca534e1376ca28a83a63f3cebda4da3f18c17",
+      "path": "src/ocr-test.html",
+      "bytes": 44292,
+      "sha256": "db5535ab384a138549e7bbabf20f8bdbd6d0c932f0d4a377c02fb9fd7524cc46",
+      "kind": "test022_180s_acceptance_variant"
+    },
+    {
+      "id": "test-023",
+      "label": "OCR4候選",
+      "commit": "935b22ea176d3799dfb631c7df3157c2ad852270",
+      "blob": "ede9137e2519e8af36e55bc4c673b909b99d7abb",
+      "path": "src/ocr-test.html",
+      "bytes": 44802,
+      "sha256": "4c03a1ac25ed207cb4d0bd861082fc451f563b769d3e3605bb304612604ec632",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-024",
+      "label": "風險時窗與收益時窗一致",
+      "commit": "0a92cdb141de361851fba96ed797ba2ca3598ee9",
+      "blob": "7d624d0da86823504836da4099966ddd811a9e48",
+      "path": "src/ocr-test.html",
+      "bytes": 45921,
+      "sha256": "8e9966fc41ea961cde2b2f93151ebfdb1e0e36f959e64f689c2d53c18a8c44eb",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-025",
+      "label": "小地圖危險群聚評分",
+      "commit": "039fac1c4bf40ed99fcf3924223f722798d923b8",
+      "blob": "080b2ff0e20dfebcf18441c45ca1ab2e5b64a561",
+      "path": "src/ocr-test.html",
+      "bytes": 46973,
+      "sha256": "abd93c2161af554d8afadf4432dde2cc1a5fc7fa1330e74414d995ee76c1cb34",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-026",
+      "label": "可吞食尺寸判斷校準",
+      "commit": "277913d77a543f1943f1eb918816b7f4e000dc1e",
+      "blob": "052981687163a79fc4a856f4e2987f279f22fc9d",
+      "path": "src/ocr-test.html",
+      "bytes": 47734,
+      "sha256": "499a46469130795af51c8b63533ac62723152985caad3aaa11f31081a16421e5",
+      "kind": "controller_snapshot"
+    },
+    {
+      "id": "test-027",
+      "label": "可重播記錄與桌機測試狀態",
+      "commit": "309f5326d02991547f2dcab822b08dccb21b0ce8",
+      "blob": "1ea6c99b5b9d622d572c82024335eae7829191e1",
+      "path": "src/ocr-test.html",
+      "bytes": 51106,
+      "sha256": "c79a1661c68216f67eab11b2cc2b03dcff3d548863d681774ec59aad151a14b9",
+      "kind": "diagnostic_recorder"
+    },
+    {
+      "id": "test-033",
+      "label": "重疊近身威脅辨識修正",
+      "commit": "e37b734f9160d84440a4c548155b40a551234282",
+      "blob": "8e19fbf5c6f6afd7153928a1ebe9d8b1fdb166f4",
+      "path": "src/ocr-test.html",
+      "bytes": 57072,
+      "sha256": "6ae2d2f2490129231e9d532aa86d9143cd1c545c955426c0138fc137e88aa41b",
+      "kind": "perception_with_test026_planner"
+    }
+  ],
+  "gaps": [
+    {
+      "id": "test-028",
+      "label": "擁擠時優先間距",
+      "status": "report_only_on_public_page",
+      "pageCommit": "8543796e6068a2ca56442c7b5718ceb072ff4c62",
+      "pageBlob": "c63aa0701f883552b66fbd0926c64fa04a1fb763"
+    },
+    {
+      "id": "test-029",
+      "label": "避險退出遲滯探索",
+      "status": "report_only_on_public_page",
+      "pageCommit": "ecdc9db4233a276e3384b9e7702a04886fbf5af9",
+      "pageBlob": "9d056a8b9cdd6867b07c5eda3064258631bd91f3"
+    },
+    {
+      "id": "test-030",
+      "label": "同幀輪廓漏判假設被否證",
+      "status": "report_only_on_public_page",
+      "pageCommit": "86e57f416f181d473d0717bfc045bb42e9d0c602",
+      "pageBlob": "9797ba8661772c7f6eb468d4759ed7b26344d76c"
+    },
+    {
+      "id": "test-031",
+      "label": "決策同源影像診斷",
+      "status": "report_only_on_public_page",
+      "pageCommit": "837be7ec6e7129134302e8afe0941cc725534f63",
+      "pageBlob": "990837a16f7b7ea380487b958718b423118775a7"
+    },
+    {
+      "id": "test-032",
+      "label": "退牆與 NPC 間距對照",
+      "status": "report_only_on_public_page",
+      "pageCommit": "e0b9a125a1686dcc0070b96a0175892c72ab8435",
+      "pageBlob": "ca52b7a66e84c3682156d6e36cda17aa6c23dd6b"
+    }
+  ],
+  "gapNote": "At the cited commits for test-028 to test-032, the main controller script is byte-identical to the previous public page. The second script changes only a diagnostic export version string. The page reports each experiment, but does not contain that experiment's separate candidate implementation."
+}

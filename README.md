@@ -1,73 +1,33 @@
-# Slime Arena + OCR
+# Slime OCR
 
-Experimental branch `test/ocr-test` for https://slime.gameson.cc/ocr-test.
-See [branch scope and promotion rules](docs/TEST-BRANCH.md).
+`ocr` 分支集中維護遊戲實驗室、六個 OCR 系列的控制器、策略版本與公開測試彙總。可先開啟[策略與實驗索引](docs/ocr/STRATEGIES.md)查一個版本，再進入對應的來源、測試條件和結果。
 
-Initial source snapshot: Sites release **103**, source commit
-`085fe894ec1c7de21b3cf842ed44ec4f121c640e` (2026-11-12 import).
+| 要找的內容 | 入口 |
+| --- | --- |
+| 開啟實驗室 | [已發布的 /ocr-gui-design](https://slime.gameson.cc/ocr-gui-design) · [這個分支的路由程式](src/ocr-gui-design/routes.mjs) · [共用介面](src/ocr.html) |
+| 修改 GUI、增加策略選項或診斷 | [GUI 設計與驗收指南](docs/ocr/GUI-GUIDELINE.md) · [即時判斷](src/ocr-console-runtime.js) · [策略目錄](src/ocr-console-catalog.js) |
+| 查某個策略或測試輪次 | [170 筆策略與實驗紀錄](docs/ocr/STRATEGIES.md) · [封存原始碼及來源](strategies/README.md) |
+| 查 Grow 與 Claude 各版的過關局數、分母、條件 | [策略比較與測試結果](docs/ocr/GROW-CLAUDE.md) · [分組彙總檔](docs/ocr/results/) |
+| 查 OCR1、OCR2、OCR3、OCR4 候選與測試版 | [舊版策略與驗證紀錄](docs/ocr/LEGACY-TESTS.md) · [test-008 至 test-020 的原始 patch](patches/) |
 
-## Run
+## 本機使用
 
-Node.js 22+ is recommended. The game/Worker build needs only Node built-ins:
+在已安裝 Node.js 22 或更新版本的電腦執行以下命令。建置與預覽使用 Node 內建模組。
 
 ```sh
+git clone --single-branch --branch ocr https://github.com/gg-dot1980/slime.git
+cd slime
 npm run build
-npm run dev
-# open http://localhost:4173
-```
-
-The lightweight preview deliberately disables score APIs. For a local D1-enabled
-Worker use [database setup](docs/DATABASE.md). `npm ci` installs the pinned Drizzle
-dependencies when schema generation is required. No production database is included.
-
-## Routes
-
-- `/`: current game v2.22; `/v2.13`, `/v2.20`, `/v2.21`, `/v2.22`: available versions.
-- `/release`, `/controller.html`
-- `/ocr`: controller index; `/ocr1`, `/ocr2`, `/ocr3`: existing controllers.
-- `/ocr-test`: experimental controller; see the page's newest-first release history for current version and evidence. Not accepted for promotion.
-- `/api/versions`, `/api/profile`, `/api/runs`, `/api/scores`, `/api/leaderboard`.
-
-The existing Worker also accepts documented trailing-slash / `.html` aliases and
-returns the current game for unknown non-API paths. See `src/worker.js` for exact routing.
-
-## Verification
-
-```sh
 node scripts/check-ocr-index.mjs
-node scripts/check-ocr3-result.cjs
-python3 scripts/init-local-db.py /tmp/slime-test.sqlite
+npm run dev
 ```
 
-Further regression/simulation scripts are retained under `scripts/`. Some require
-`@napi-rs/canvas` and system fonts, which were not pinned in the original lockfile.
-They are historical harnesses, not proof of the current browser win rate. Install
-and pin those dependencies in a dedicated future testing patch before claiming
-full reproducibility. See `docs/VALIDATION.md` for actual import checks.
+開啟 `http://localhost:4173/ocr-gui-design`，選擇遊戲、策略系列及策略版本，再按「開始實驗」。本機也保留 `/ocr`、四個原遊戲版本與各原生控制器。可執行版本依控制器選單提供；只有史料的版本可從索引查閱。
 
-## Patch tracking
+## 如何解讀成績
 
-Keep ongoing OCR experimental changes on `test/ocr-test`; use independent feature branches for other changes (`game/...`, `db/...`) and
-one meaningful commit per independently testable patch. Record hypothesis,
-parameters, fixed sample, results/failures and evidence in its PR/changelog.
-OCR candidates go to `/ocr-test`; list changes newest first at the bottom of that
-page. Promote to `/ocr3` only after the agreed fixed-batch result verifies at least
-50% qualifying clears within 3:00 (updated 2026-11-13). Historical 1:50 results retain their original criteria. A single clear is not a win-rate claim.
+Grow 的桌機研究以 150 遊戲秒內達體型 200 為勝。每版先跑獨立的四局探索，v2.13 與 v2.22 都至少 2/4 且紀錄完整才各開十二局獨立確認，每版需達 6/12。歷史 OCR3 的 180 秒測試、Claude 的不同視野、固定種子、回放與 GUI 操作驗證各自列出。資料缺口及未開局另列於對應實驗。
 
-GitHub is source tracking only: pushing here does **not** deploy the live Site.
-No CI/auto-deploy is configured by this import. Future releases must record their
-GitHub commit and Sites version explicitly. No new schedules were created.
+## 來源與更新
 
-## Provenance and boundaries
-
-This is a sanitized baseline, not 103 recreated commits. `docs/source-history.tsv`
-records the 103 real upstream source commit IDs/timestamps/subjects; their objects
-are not imported. Source file hashes are in `docs/source-provenance.json`.
-Existing HTML and Worker logic are unchanged. Hosting project identity is replaced
-by a placeholder. Rebuild `dist/`; old tar archives, runtime state, raw evidence,
-private machine paths and production player data are excluded.
-
-All routes and public frontend assets present in the current source are included.
-Earlier deleted files, NUC-only experiment artifacts, and screenshots referenced
-by historical reports are not included. Public code does not imply a new open-source
-license grant; see `THIRD_PARTY_NOTICES.md`.
+此版整合固定的 [Grow 與 GUI](https://github.com/gg-dot1980/slime/tree/47d1495979dcf304e2d45c12f356f569040c9e94)、[Claude](https://github.com/gg-dot1980/slime/tree/80b1f7922aef468cfa131da23d22f87dc104d280) 與[歷代測試](https://github.com/gg-dot1980/slime/tree/46b8aa3f8207ed03bc89c84c6ed896a23bcd5601)，對照 Sites 第 198 版的獨立入口。各候選的原始 commit 與檔案路徑保留在索引。新增實驗彙總時請附策略、遊戲版、視野、階段、完整分母及證據連結。逐局原檔、影像和還原包保存在私人研究紀錄。

@@ -1,0 +1,15 @@
+{
+  "candidate": "Grow49",
+  "strategySha256": "85071f2d68a8320b444aa643f5dffb61cbe2523f6de5caf8cb45ba542bd5a0b6",
+  "source": "https://github.com/gg-dot1980/slime/blob/0ec23d98966f04e88aa9c54ec1c5a409597669e9/docs/ocr/repro/grow-49-public/results/natural.md",
+  "stage": "natural-exploration",
+  "window": [2560, 1440],
+  "canvas": [2250, 1308],
+  "dpr": 1,
+  "maximumGameSeconds": 150,
+  "requiredSize": 200,
+  "byGameVersion": {
+    "v2.13": {"planned": 4, "started": 4, "valid": 4, "wins": 4, "deaths": 0, "timeouts": 0, "aborted": 0, "unresolved": 0, "confirmationStarts": 0},
+    "v2.22": {"planned": 4, "started": 4, "valid": 4, "wins": 1, "deaths": 3, "timeouts": 0, "aborted": 0, "unresolved": 0, "confirmationStarts": 0}
+  }
+}
