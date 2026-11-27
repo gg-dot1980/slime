@@ -2,7 +2,7 @@
 (() => {
   'use strict';
   if (self !== top || location.protocol !== 'http:' || location.hostname !== '127.0.0.1' || location.pathname !== '/') return;
-  const candidatePath = /^\/candidate\/grow52$/;
+  const candidatePath = /^\/candidate\/grow53$/;
   const gamePath = /^\/v2\.(13|22)$/;
   const maxPending = 3; // One decision, with room for an ending and its result.
 
@@ -39,7 +39,7 @@
       const status = window.growLocalStatus?.();
       const ctx = status?.current;
       if (!ctx || !status.active || typeof ctx.id !== 'string') return;
-      const identity = /^((grow52)-(?:diagnostic|explore|confirm)-\d+)\/(v2\.(?:13|22))\/([1-9]\d*)$/.exec(ctx.id);
+      const identity = /^((grow53)-(?:diagnostic|explore|confirm)-\d+)\/(v2\.(?:13|22))\/([1-9]\d*)$/.exec(ctx.id);
       if (!identity || identity[1] !== status.batchId || identity[3] !== ctx.version) return;
       const candidate = document.getElementById('candidate')?.contentDocument;
       if (candidate?.location.pathname !== '/candidate/' + identity[2] || !doc ||
