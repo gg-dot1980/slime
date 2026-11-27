@@ -1,0 +1,98 @@
+{
+  "date": "2026-11-27 (Asia/Taipei)",
+  "harness": {
+    "repo": "gg-dot1980/slime",
+    "commit": "d283cb8510d4b4653b6704d7652b4b4943e80e58",
+    "server": "docs/ocr/repro/grow-local-r4-20261126/server.cjs --geometry-mode qhd",
+    "runner": "docs/ocr/repro/grow-38-public/geometry/native.py qhd --through explore",
+    "chromium": "Chrome for Testing 153.0.8010.12",
+    "viewport": [
+      2560,
+      1440
+    ],
+    "canvas": [
+      2250,
+      1308
+    ],
+    "dpr": 1
+  },
+  "cells": {
+    "grow46": {
+      "description": "Grow46 unchanged: Grow recognition (2000 px, refineSlimeGeometry) + Grow46 planner",
+      "source": "gg-dot1980/slime 0ec23d98 docs/ocr/repro/grow-46-public/ocr-grow46.html",
+      "sha256": "2d1e128ecd0efd976a3578158f62ea2d1875105bd4f77d247dcf4c90ca5b87aa",
+      "batchId": "grow46-explore-20261127150322955",
+      "rawSha256": "2c78eedebaf92943e0162dff3c0f50859b0a8b479e2d83d01d0af71a39159bb0",
+      "integrityOk": true,
+      "complete": true,
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "starts": 4,
+          "validResults": 4,
+          "wins": 3,
+          "deaths": 0,
+          "deadlines": 1,
+          "aborts": 0,
+          "unknown": 0,
+          "winSeconds": [
+            122,
+            140,
+            112
+          ]
+        },
+        "v2.22": {
+          "planned": 4,
+          "starts": 4,
+          "validResults": 4,
+          "wins": 2,
+          "deaths": 2,
+          "deadlines": 0,
+          "aborts": 0,
+          "unknown": 0,
+          "winSeconds": [
+            96,
+            131
+          ]
+        }
+      }
+    },
+    "grow91": {
+      "description": "Grow46 planner on Claude-level recognition",
+      "source": "Grow46 with two edits: readImage scale 1200 px (as Claude) and refineSlimeGeometry disabled",
+      "sha256": "fdfdd60a0633857429b50457b12a44b1d0393386816c41b8bdb00ea91decc629",
+      "batchId": "grow91-explore-20261127153028765",
+      "rawSha256": "c912800c1f208a2df71837f44069ecf3c83eedef1eadececa59d3a3162e86dac",
+      "integrityOk": true,
+      "complete": true,
+      "byVersion": {
+        "v2.13": {
+          "planned": 4,
+          "starts": 4,
+          "validResults": 4,
+          "wins": 1,
+          "deaths": 0,
+          "deadlines": 3,
+          "aborts": 0,
+          "unknown": 0,
+          "winSeconds": [
+            128
+          ]
+        },
+        "v2.22": {
+          "planned": 4,
+          "starts": 4,
+          "validResults": 4,
+          "wins": 1,
+          "deaths": 2,
+          "deadlines": 1,
+          "aborts": 0,
+          "unknown": 0,
+          "winSeconds": [
+            128
+          ]
+        }
+      }
+    }
+  }
+}

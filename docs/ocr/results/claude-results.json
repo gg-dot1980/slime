@@ -7,8 +7,8 @@
   },
   "scope": "Claude 1–30 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
   "inventory": {
-    "naturalBatches": 24,
-    "naturalStrategyVersionGroups": 101,
+    "naturalBatches": 25,
+    "naturalStrategyVersionGroups": 105,
     "controllerDiagnosticGroups": 2,
     "proxyBatches": 15,
     "proxyGroups": 157,
@@ -2237,6 +2237,63 @@
               "deaths": 0,
               "sizeMedian": 83.0,
               "npcEatsMedian": 4.5
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "claude-31-factorial",
+      "condition": "natural_exploration_grow_harness",
+      "sourceId": "claude-31-factorial/summary.json",
+      "conditionsSourceId": "claude-31-factorial/README.md",
+      "reportSourceId": "claude-31-factorial/README.md",
+      "groups": [
+        {
+          "group": "grow46",
+          "strategy": "grow46",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 3,
+              "confirmedGameTimeWin150": 3,
+              "deaths": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 2,
+              "confirmedGameTimeWin150": 2,
+              "deaths": 2
+            }
+          ]
+        },
+        {
+          "group": "grow91",
+          "strategy": "grow91",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 1,
+              "confirmedGameTimeWin150": 1,
+              "deaths": 0
+            },
+            {
+              "version": "v2.22",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 1,
+              "confirmedGameTimeWin150": 1,
+              "deaths": 2
             }
           ]
         }
@@ -4996,6 +5053,14 @@
     },
     "claude-30/missed-prey-probe.json": {
       "path": "docs/ocr/repro/claude-30/missed-prey-probe.json",
+      "branch": "ocr"
+    },
+    "claude-31-factorial/summary.json": {
+      "path": "docs/ocr/repro/claude-31-factorial/summary.json",
+      "branch": "ocr"
+    },
+    "claude-31-factorial/README.md": {
+      "path": "docs/ocr/repro/claude-31-factorial/README.md",
       "branch": "ocr"
     }
   }

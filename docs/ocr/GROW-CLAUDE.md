@@ -64,6 +64,8 @@ Claude29 修正小地圖點大小的偏差（真實估計約偏小 5%），並�
 
 Claude30 沿用 Claude29，每 100ms 決策一次（QHD 計算時間中位 15ms）。QHD 桌機 0/4、0/4，體型中位 116、129.5；手機 0/4、0/4。Claude27～30 實戰都沒有過關。[Claude30 紀錄](repro/claude-30/README.md)
 
+在本環境用 Grow 研究的原生 QHD 測試台校準：Grow46 為 v2.13 3/4、v2.22 2/4。讓 Grow46 決策改吃 Claude 層級辨識（讀圖 1200px、無幾何修正）後降到 1/4、1/4。辨識與決策都有差距。[校準與拆解](repro/claude-31-factorial/README.md)
+
 ## 同一起始條件下如何比較
 
 公開對照使用相同原遊戲、初始種子與 2250×1308 畫布，各策略每版兩局。Grow38 在 v2.13、v2.22 分別為 **2/2、1/2**，明選的 Claude22 則為 **0/2、0/2**。兩者仍使用各自的取樣解析度，遊戲由虛擬時鐘驅動。這組測試適合重現同一開局下的路線差異。Grow46、Grow49 和 Claude22／26 的自然批次使用不同畫面設定與開局，仍缺這四個策略在相同原生條件下的直接比較。[同種子比較與重現方法](https://github.com/gg-dot1980/slime/blob/47d1495979dcf304e2d45c12f356f569040c9e94/docs/ocr/repro/grow-claude-comparison-20261126/README.md)
