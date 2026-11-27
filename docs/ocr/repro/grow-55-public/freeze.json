@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "candidate": "grow55",
+  "parent": "grow54",
+  "sourceCommit": "f471ad478cea50a27119c97f68bf83b405dc53f5",
+  "candidatePath": "docs/ocr/repro/grow-55-public/ocr-grow55.html",
+  "candidateGitBlob": "03b4cd98ce1b581d62efaa602a71d909ba91b2cb",
+  "candidateSha256": "089f8b8e1dad3b1a7696c5b941d3783154c1b680c2f53eeaf3c114024b4327a4",
+  "originalGames": {
+    "v2.13": {
+      "path": "src/game-v2.13.html",
+      "gitBlob": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+      "sha256": "94944ef137412e93817754791c64cf7803a94f25222a8922fe8aa6936ea46d97"
+    },
+    "v2.22": {
+      "path": "src/game.html",
+      "gitBlob": "30af12f7608da91514711ecdbc01b57654ab2eab",
+      "sha256": "d0349b70c0be4666142f0ed880adb1b1636bcd6d7bf32a13d0d90246899c6d14"
+    }
+  },
+  "desktopQhd": {
+    "viewport": [2560, 1440],
+    "canvas": [2250, 1308],
+    "dpr": 1,
+    "locale": "zh-TW",
+    "phaseOrder": ["preflight", "diagnostic", "explore"],
+    "explorationSlots": {"v2.13": 4, "v2.22": 4},
+    "confirmationSlots": {"v2.13": 12, "v2.22": 12},
+    "explorationGate": 2,
+    "confirmationGate": 6,
+    "maxGameSeconds": 150,
+    "targetSize": 200
+  },
+  "change": {
+    "v2.13": "unchanged Grow38/Grow23 decision",
+    "v2.22": "only while Grow54 escape hold is active and every bounded path has a negative 0.6-second immediate gap, choose maximum immediate gap first, then maximum 2.2-second endpoint gap; all other choices remain Grow54"
+  }
+}
