@@ -1,8 +1,8 @@
 # OCR 策略與實驗索引
 
-本索引整理 180 筆版本、實驗與研究紀錄。從「控制台狀態」可查出哪些策略能在該家族的原生選單切換，哪些會隨家族載入。「歷史資料」可查閱原始碼、修訂或驗證紀錄。證據中的局數、截止時間及畫面尺寸屬於各自的實驗批次。
+本索引整理 181 筆版本、實驗與研究紀錄。從「控制台狀態」可查出哪些策略能在該家族的原生選單切換，哪些會隨家族載入。「歷史資料」可查閱原始碼、修訂或驗證紀錄。證據中的局數、截止時間及畫面尺寸屬於各自的實驗批次。
 
-[OCR1、OCR2、OCR3](#ocr1ocr2ocr3)（5） · [Grow](#grow)（49） · [Claude](#claude)（36） · [測試版修訂](#測試版修訂)（43） · [研究輪次](#研究輪次)（44） · [診斷工具與回放](#診斷工具與回放)（3）
+[OCR1、OCR2、OCR3](#ocr1ocr2ocr3)（5） · [Grow](#grow)（49） · [Claude](#claude)（37） · [測試版修訂](#測試版修訂)（43） · [研究輪次](#研究輪次)（44） · [診斷工具與回放](#診斷工具與回放)（3）
 
 ## OCR1、OCR2、OCR3
 
@@ -74,10 +74,11 @@ Grow 從小地圖紅白點追避，逐步加入接觸後退路、鏡頭定位及
 
 ## Claude
 
-Claude 的迭代從食物與小地圖目標選擇，延伸到貼邊物件大小、危險記憶、碎片合併與避牆。此家族可逐版切換 Claude1 至 Claude36，控制台預設 Claude26。原生選單另有 grow-6 和 test-026 兩個比較基準。Claude22 和 Claude26、Claude27 的成對比較在兩個遊戲版本皆無過關，依協議保留 Claude22；Claude27 兩版都顯著較差。
+Claude 的迭代從食物與小地圖目標選擇，延伸到貼邊物件大小、危險記憶、碎片合併與避牆。此家族可逐版切換 Claude1 至 Claude37，控制台預設 Claude26。原生選單另有 grow-6 和 test-026 兩個比較基準。Claude22 和 Claude26、Claude27 的成對比較在兩個遊戲版本皆無過關，依協議保留 Claude22；Claude27 兩版都顯著較差。
 
 | 版本或實驗 | 策略變更或研究問題 | 控制台狀態 | 來源與證據 |
 | --- | --- | --- | --- |
+| Claude37 | 在 Claude36 加入單次計算逾時的丟棄重讀。QHD 3/4、0/4，手機 0/4、0/4 | 可選 `claude-37` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/b2e107a62f316352f10890df579382faa7ebbf05/src/ocr-claude.html) · [探索紀錄](repro/claude-37/README.md) |
 | Claude36 | 以 Claude34 為基礎，兩版都在送給規劃器的牆距中多留 120px。QHD 2/4、1/4（中止 1），手機 0/4、0/4 | 可選 `claude-36` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/07b0817e57f8dea4927b5333ad91dde2733e953a/src/ocr-claude.html) · [探索紀錄](repro/claude-36/README.md) |
 | Claude35 | 在 Claude34 的 v2.22 中，對大型 NPC 保留更大間距，並暫時記住剛消失的大型 NPC。QHD 1/4、2/4，手機 0/4、0/4 | 可選 `claude-35` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/893ad96c865292ad7ef4d95651c7dd47a95565e3/src/ocr-claude.html) · [探索紀錄](repro/claude-35/README.md) |
 | Claude34 | 在 Claude33 的 v2.22 後期，把大小接近的畫面內 NPC 一律當成危險。QHD 探索 2/4、3/4，確認 8/12、4/12，手機 0/4、0/4 | 可選 `claude-34` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/4366269d4dcba13f4087b5c7412c45f8f8aa6c23/src/ocr-claude.html) · [探索紀錄](repro/claude-34/README.md) |

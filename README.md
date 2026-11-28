@@ -6,7 +6,7 @@
 | --- | --- |
 | 開啟實驗室 | [已發布的 /ocr-gui-design](https://slime.gameson.cc/ocr-gui-design) · [這個分支的路由程式](src/ocr-gui-design/routes.mjs) · [共用介面](src/ocr.html) |
 | 修改 GUI、增加策略選項或診斷 | [GUI 設計與驗收指南](docs/ocr/GUI-GUIDELINE.md) · [即時判斷](src/ocr-console-runtime.js) · [策略目錄](src/ocr-console-catalog.js) |
-| 查某個策略或測試輪次 | [180 筆策略與實驗紀錄](docs/ocr/STRATEGIES.md) · [封存原始碼及來源](strategies/README.md) |
+| 查某個策略或測試輪次 | [181 筆策略與實驗紀錄](docs/ocr/STRATEGIES.md) · [封存原始碼及來源](strategies/README.md) |
 | 查 Grow 與 Claude 各版的過關局數、分母、條件 | [策略比較與測試結果](docs/ocr/GROW-CLAUDE.md) · [分組彙總檔](docs/ocr/results/) |
 | 接續 Claude 測試（凍結、QHD 桌機 4+4 探索、12+12 確認、手機搖桿組） | [Claude 續測流程](docs/ocr/CLAUDE-WORKFLOW.md) |
 | 查 OCR1、OCR2、OCR3、OCR4 候選與測試版 | [舊版策略與驗證紀錄](docs/ocr/LEGACY-TESTS.md) · [test-008 至 test-020 的原始 patch](patches/) |

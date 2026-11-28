@@ -78,6 +78,8 @@ Claude35 在 v2.22 對大型 NPC 保留更大間距與 1.5 秒殘影：QHD 桌�
 
 Claude36 以 Claude34 為基礎，牆距多留 120px：QHD 桌機 v2.13 2/4、v2.22 1/4（1 局開局計算逾時中止），16 局 0 死亡，體型中位 194.5、179.5；手機 0/4、0/4。[Claude36 紀錄](repro/claude-36/README.md)
 
+Claude37 在 Claude36 加入單次計算逾時的丟棄重讀：QHD 桌機 v2.13 3/4、v2.22 0/4；手機 0/4、0/4。Claude34～37 在 v2.22 累計 10/28（36%）。[Claude37 紀錄](repro/claude-37/README.md)
+
 ## 同一起始條件下如何比較
 
 公開對照使用相同原遊戲、初始種子與 2250×1308 畫布，各策略每版兩局。Grow38 在 v2.13、v2.22 分別為 **2/2、1/2**，明選的 Claude22 則為 **0/2、0/2**。兩者仍使用各自的取樣解析度，遊戲由虛擬時鐘驅動。這組測試適合重現同一開局下的路線差異。Grow46、Grow49 和 Claude22／26 的自然批次使用不同畫面設定與開局，仍缺這四個策略在相同原生條件下的直接比較。[同種子比較與重現方法](https://github.com/gg-dot1980/slime/blob/47d1495979dcf304e2d45c12f356f569040c9e94/docs/ocr/repro/grow-claude-comparison-20261126/README.md)
