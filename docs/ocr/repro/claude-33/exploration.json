@@ -1,0 +1,140 @@
+{
+  "candidate": "claude-33",
+  "freeze": "freeze.json",
+  "stage": "exploration",
+  "groups": {
+    "desktop-qhd": [
+      {
+        "version": "v2.13",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 4,
+        "deaths": 0,
+        "cutoff150": 0,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          185,
+          191,
+          191,
+          200
+        ],
+        "sizeMedian": 191.0,
+        "winSeconds": [
+          143,
+          128,
+          133,
+          121
+        ],
+        "canvas": [
+          2250,
+          1308
+        ],
+        "observer": {
+          "npcEatsMedian": 21.5,
+          "foodGainMedian": 60.9,
+          "npcGainMedian": 117.7,
+          "killerRatios": []
+        }
+      },
+      {
+        "version": "v2.22",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 2,
+        "cutoff150": 2,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          135,
+          198,
+          171,
+          183
+        ],
+        "sizeMedian": 177.0,
+        "winSeconds": [],
+        "canvas": [
+          2250,
+          1308
+        ],
+        "observer": {
+          "npcEatsMedian": 11.5,
+          "foodGainMedian": 62.1,
+          "npcGainMedian": 94.1,
+          "killerRatios": [
+            1.17,
+            1.09
+          ]
+        }
+      }
+    ],
+    "mobile-joystick": [
+      {
+        "version": "v2.13",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 0,
+        "cutoff150": 4,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          100,
+          75,
+          78,
+          90
+        ],
+        "sizeMedian": 84.0,
+        "winSeconds": [],
+        "canvas": [
+          384,
+          467
+        ],
+        "observer": {
+          "npcEatsMedian": 5.0,
+          "foodGainMedian": 48.3,
+          "npcGainMedian": 10.7,
+          "killerRatios": []
+        },
+        "touchMisses": 0
+      },
+      {
+        "version": "v2.22",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 1,
+        "cutoff150": 3,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          68,
+          89,
+          85,
+          78
+        ],
+        "sizeMedian": 81.5,
+        "winSeconds": [],
+        "canvas": [
+          384,
+          467
+        ],
+        "observer": {
+          "npcEatsMedian": 3.0,
+          "foodGainMedian": 43.4,
+          "npcGainMedian": 10.1,
+          "killerRatios": [
+            2.71
+          ]
+        },
+        "touchMisses": 2
+      }
+    ]
+  },
+  "confirmation": "not started (desktop v2.22 0/4)"
+}

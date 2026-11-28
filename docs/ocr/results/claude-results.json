@@ -5,10 +5,10 @@
     "branch": "ocr-claude",
     "commit": "80b1f7922aef468cfa131da23d22f87dc104d280"
   },
-  "scope": "Claude 1–32 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
+  "scope": "Claude 1–33 的公開 OCR 控制器分批彙總、8 個成對比較，以及另列的測試工具與觀察器彙總。每組結果屬於一個批次與一個遊戲版本。 檔案的範圍為 claude-*、phase* 及直接使用 Claude 決策的 hybrid-1；R 系列與其他前代計畫另行記錄。",
   "inventory": {
-    "naturalBatches": 27,
-    "naturalStrategyVersionGroups": 113,
+    "naturalBatches": 28,
+    "naturalStrategyVersionGroups": 117,
     "controllerDiagnosticGroups": 2,
     "proxyBatches": 15,
     "proxyGroups": 157,
@@ -2423,6 +2423,71 @@
               "confirmedGameTimeWin150": 0,
               "deaths": 1,
               "sizeMedian": 70.5,
+              "npcEatsMedian": 3.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "batch": "claude-33-exploration",
+      "condition": "natural_exploration_cohorts",
+      "sourceId": "claude-33/exploration.json",
+      "conditionsSourceId": "claude-33/freeze.json",
+      "reportSourceId": "claude-33/README.md",
+      "groups": [
+        {
+          "group": "desktop-qhd",
+          "strategy": "claude-33",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 4,
+              "confirmedGameTimeWin150": 4,
+              "deaths": 0,
+              "sizeMedian": 191.0,
+              "npcEatsMedian": 21.5
+            },
+            {
+              "version": "v2.22",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 2,
+              "sizeMedian": 177.0,
+              "npcEatsMedian": 11.5
+            }
+          ]
+        },
+        {
+          "group": "mobile-joystick",
+          "strategy": "claude-33",
+          "byVersion": [
+            {
+              "version": "v2.13",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 0,
+              "sizeMedian": 84.0,
+              "npcEatsMedian": 5.0
+            },
+            {
+              "version": "v2.22",
+              "games": 4,
+              "valid": 4,
+              "excluded": 0,
+              "publishedWin150": 0,
+              "confirmedGameTimeWin150": 0,
+              "deaths": 1,
+              "sizeMedian": 81.5,
               "npcEatsMedian": 3.0
             }
           ]
@@ -5215,6 +5280,18 @@
     },
     "claude-32/README.md": {
       "path": "docs/ocr/repro/claude-32/README.md",
+      "branch": "ocr"
+    },
+    "claude-33/exploration.json": {
+      "path": "docs/ocr/repro/claude-33/exploration.json",
+      "branch": "ocr"
+    },
+    "claude-33/freeze.json": {
+      "path": "docs/ocr/repro/claude-33/freeze.json",
+      "branch": "ocr"
+    },
+    "claude-33/README.md": {
+      "path": "docs/ocr/repro/claude-33/README.md",
       "branch": "ocr"
     }
   }

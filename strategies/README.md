@@ -1,6 +1,6 @@
 # 歷代策略原始碼
 
-本頁的 104 筆對照涵蓋 Grow1–49、Claude1–32 及 23 個已核實的測試版快照。一個版本可能沿用同一份控制器，以策略選項區別；同一 test-022 的兩種時限分開保存。六個系列目前可用的策略與封存狀態，請查[完整索引](../docs/ocr/STRATEGIES.md)。
+本頁的 105 筆對照涵蓋 Grow1–49、Claude1–33 及 23 個已核實的測試版快照。一個版本可能沿用同一份控制器，以策略選項區別；同一 test-022 的兩種時限分開保存。六個系列目前可用的策略與封存狀態，請查[完整索引](../docs/ocr/STRATEGIES.md)。
 
 - Grow1–6 與 Claude 歷代檔案保留固定提交時的原始 HTML。Grow7–12 保留來源清單及元件，Grow13–19 保留當時的建置或實驗來源，Grow20–49 保留候選 HTML。早期模板需要各自提交中的建置步驟，點原始提交即可查當版環境。
 - 測試版連同兩種 test-022 時限共核對 23 個 HTML 快照，逐檔位元組數、SHA-256 與查無可核實控制器的版本見[測試版檔案清單](test/snapshots.json)。[原始 patch](../patches/)可用來比較 test-008–020 的策略變更。
@@ -40,6 +40,7 @@
 | claude-30 | [檔案](../strategies/claude/claude-30.html) | [cbfd29a71](https://github.com/gg-dot1980/slime/blob/cbfd29a71433820d1df7b6f4cfd4f978922f9929/src/ocr-claude.html) | `13c8b9bf0603c173ae1e7607e39378bc509886c1` |
 | claude-31 | [檔案](../strategies/claude/claude-31.html) | [fdd64bd1d](https://github.com/gg-dot1980/slime/blob/fdd64bd1d7a5620b78373ae86552ba83b3c61a5f/src/ocr-claude.html) | `ab0424800df68613e12247e1fd99f3a8b4dd2a0e` |
 | claude-32 | [檔案](../strategies/claude/claude-32.html) | [58840103c](https://github.com/gg-dot1980/slime/blob/58840103c355ad5fea842ef1abddccfe917bb496/src/ocr-claude.html) | `6f7b4e92676b7542cd7a9f745c0f915da04cdab2` |
+| claude-33 | [檔案](../strategies/claude/claude-33.html) | [97dbb7d38](https://github.com/gg-dot1980/slime/blob/97dbb7d3844e30dee12ee31391be6448151a1baf/src/ocr-claude.html) | `fe39775762d0cb55d70d5ba4f131475cc8c92760` |
 | grow-1 | [檔案](../strategies/grow/grow-1.html) | [a117959d0](https://github.com/gg-dot1980/slime/blob/a117959d09317aa61268c7df6bd185e027d2c76a/src/ocr-grow.html) | `37512b79c46dbd08378373d87228ef17567967a3` |
 | grow-2 | [檔案](../strategies/grow/grow-2.html) | [3cca7d0c1](https://github.com/gg-dot1980/slime/blob/3cca7d0c1925edaf3edce758274c911b48097075/src/ocr-grow.html) | `5c33fc13d70db40b5b6613761e40d01aabb73163` |
 | grow-3 | [檔案](../strategies/grow/grow-3.html) | [b6afc96a0](https://github.com/gg-dot1980/slime/blob/b6afc96a0be8734af3d803bde7a63799eec9ead0/src/ocr-grow.html) | `6c4c19185e6fa9789000f3e281311d33490417f3` |
