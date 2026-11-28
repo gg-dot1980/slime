@@ -6,6 +6,16 @@
 
 兩份都是 d283cb8。Claude 的策略與紀錄都放在 `ocr` 分支。本文不修改正式 OCR4 規格與驗收。
 
+## 目前狀態（2026-11-28）
+
+**Claude 線暫停**（使用者同意）。
+
+- Claude27～31 依本流程凍結並探索，QHD 桌機與手機組都是 0 勝，都沒有開確認。
+- 同一測試台的校準與拆解（[claude-31-factorial](repro/claude-31-factorial/README.md)、[claude-31](repro/claude-31/README.md)）顯示：Claude 的辨識補到 Grow46 的水準後仍 0 勝，所以瓶頸在 Claude 的決策方法。
+- 目前最接近目標的是 Grow46：v2.13 已達門檻，弱點在 v2.22。後續研究交給 Grow 研究分支，分工先和 Grow 研究方協調。
+
+若要重啟 Claude 線，下一個候選應該把 Grow46 的決策（`planGrow46` 及其依賴）移到 Claude 頁面，再沿用本流程。
+
 ## 固定研究條件
 
 - **頁面**：本分支 `npm run build` 後由 `npm run dev` 提供的 `/ocr-gui-design/claude/`，載入原遊戲 v2.13 與 v2.22（Git blob 見 freeze.json）。

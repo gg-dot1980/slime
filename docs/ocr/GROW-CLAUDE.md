@@ -68,6 +68,8 @@ Claude30 沿用 Claude29，每 100ms 決策一次（QHD 計算時間中位 15ms�
 
 Claude31 把辨識補到 Grow46 的水準（讀圖 2000px、幾何修正），決策沿用 Claude29：QHD 桌機 0/4、0/4，體型中位 130.5、145；手機 0/4、0/4。現在的瓶頸主要在 Claude 的決策。[Claude31 紀錄](repro/claude-31/README.md)
 
+2026-11-28 起 Claude 線暫停，後續以 Grow 研究為主（見 [Claude 續測流程](CLAUDE-WORKFLOW.md)的目前狀態）。
+
 ## 同一起始條件下如何比較
 
 公開對照使用相同原遊戲、初始種子與 2250×1308 畫布，各策略每版兩局。Grow38 在 v2.13、v2.22 分別為 **2/2、1/2**，明選的 Claude22 則為 **0/2、0/2**。兩者仍使用各自的取樣解析度，遊戲由虛擬時鐘驅動。這組測試適合重現同一開局下的路線差異。Grow46、Grow49 和 Claude22／26 的自然批次使用不同畫面設定與開局，仍缺這四個策略在相同原生條件下的直接比較。[同種子比較與重現方法](https://github.com/gg-dot1980/slime/blob/47d1495979dcf304e2d45c12f356f569040c9e94/docs/ocr/repro/grow-claude-comparison-20261126/README.md)
