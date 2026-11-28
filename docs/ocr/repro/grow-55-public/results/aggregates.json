@@ -1,0 +1,28 @@
+{
+  "candidate": "grow55",
+  "candidateSha256": "089f8b8e1dad3b1a7696c5b941d3783154c1b680c2f53eeaf3c114024b4327a4",
+  "capturedTaipei": "2026-11-28T08:25:36+08:00",
+  "desktopQhd": {
+    "geometry": {"viewport": [2560, 1440], "canvas": [2250, 1308], "dpr": 1},
+    "exploration": {
+      "batchId": "grow55-explore-20261127231701533",
+      "v2.13": {"planned": 4, "validResults": 4, "wins": 3, "deaths": 0, "deadlines": 1, "aborts": 0, "unknown": 0, "unresolved": 0, "stopUnverified": 0, "passed": true},
+      "v2.22": {"planned": 4, "validResults": 4, "wins": 2, "deaths": 1, "deadlines": 1, "aborts": 0, "unknown": 0, "unresolved": 0, "stopUnverified": 0, "passed": true},
+      "complete": true,
+      "integrityOk": true,
+      "eligibleForConfirmation": true,
+      "ledgerSha256": "ac908d6f0cc5bfdcd5d32bf10f20877a42cabbe9a59d6724907e2eda62a9d847"
+    },
+    "independentConfirmation": {
+      "batchId": "grow55-confirm-20261127233428276",
+      "v2.13": {"planned": 12, "validResults": 12, "wins": 10, "deaths": 0, "deadlines": 2, "aborts": 0, "unknown": 0, "unresolved": 0, "stopUnverified": 0, "passed": true},
+      "v2.22": {"planned": 12, "validResults": 12, "wins": 6, "deaths": 3, "deadlines": 3, "aborts": 0, "unknown": 0, "unresolved": 0, "stopUnverified": 0, "passed": true},
+      "complete": true,
+      "integrityOk": true,
+      "meetsGoal": true,
+      "ledgerSha256": "33c32fa36ea1ad0b4e667f1ba51d99a3b1b8500abd713df1e1f647eda1aed4e0"
+    },
+    "formalTotals": {"planned": 32, "validResults": 32, "wins": 21, "deaths": 4, "deadlines": 7, "aborts": 0, "unknown": 0, "unresolved": 0, "stopUnverified": 0},
+    "meetsGoal": true
+  }
+}
