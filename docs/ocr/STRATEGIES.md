@@ -1,8 +1,8 @@
 # OCR 策略與實驗索引
 
-本索引整理 177 筆版本、實驗與研究紀錄。從「控制台狀態」可查出哪些策略能在該家族的原生選單切換，哪些會隨家族載入。「歷史資料」可查閱原始碼、修訂或驗證紀錄。證據中的局數、截止時間及畫面尺寸屬於各自的實驗批次。
+本索引整理 178 筆版本、實驗與研究紀錄。從「控制台狀態」可查出哪些策略能在該家族的原生選單切換，哪些會隨家族載入。「歷史資料」可查閱原始碼、修訂或驗證紀錄。證據中的局數、截止時間及畫面尺寸屬於各自的實驗批次。
 
-[OCR1、OCR2、OCR3](#ocr1ocr2ocr3)（5） · [Grow](#grow)（49） · [Claude](#claude)（33） · [測試版修訂](#測試版修訂)（43） · [研究輪次](#研究輪次)（44） · [診斷工具與回放](#診斷工具與回放)（3）
+[OCR1、OCR2、OCR3](#ocr1ocr2ocr3)（5） · [Grow](#grow)（49） · [Claude](#claude)（34） · [測試版修訂](#測試版修訂)（43） · [研究輪次](#研究輪次)（44） · [診斷工具與回放](#診斷工具與回放)（3）
 
 ## OCR1、OCR2、OCR3
 
@@ -74,10 +74,11 @@ Grow 從小地圖紅白點追避，逐步加入接觸後退路、鏡頭定位及
 
 ## Claude
 
-Claude 的迭代從食物與小地圖目標選擇，延伸到貼邊物件大小、危險記憶、碎片合併與避牆。此家族可逐版切換 Claude1 至 Claude33，控制台預設 Claude26。原生選單另有 grow-6 和 test-026 兩個比較基準。Claude22 和 Claude26、Claude27 的成對比較在兩個遊戲版本皆無過關，依協議保留 Claude22；Claude27 兩版都顯著較差。
+Claude 的迭代從食物與小地圖目標選擇，延伸到貼邊物件大小、危險記憶、碎片合併與避牆。此家族可逐版切換 Claude1 至 Claude34，控制台預設 Claude26。原生選單另有 grow-6 和 test-026 兩個比較基準。Claude22 和 Claude26、Claude27 的成對比較在兩個遊戲版本皆無過關，依協議保留 Claude22；Claude27 兩版都顯著較差。
 
 | 版本或實驗 | 策略變更或研究問題 | 控制台狀態 | 來源與證據 |
 | --- | --- | --- | --- |
+| Claude34 | 在 Claude33 的 v2.22 後期，把大小接近的畫面內 NPC 一律當成危險。QHD 探索 2/4、3/4，確認 8/12、4/12，手機 0/4、0/4 | 可選 `claude-34` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/4366269d4dcba13f4087b5c7412c45f8f8aa6c23/src/ocr-claude.html) · [探索紀錄](repro/claude-34/README.md) |
 | Claude33 | 在 Claude32 的 v2.22 規劃器中，把看得出大小的畫面外小白點當成額外獵物。QHD 桌機 4/4、0/4，手機 0/4、0/4 | 可選 `claude-33` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/97dbb7d3844e30dee12ee31391be6448151a1baf/src/ocr-claude.html) · [探索紀錄](repro/claude-33/README.md) |
 | Claude32 | 以 Claude31 的辨識搭配原樣移植的 Grow46 規劃器與小地圖標記。 | 可選 `claude-32` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/58840103c355ad5fea842ef1abddccfe917bb496/src/ocr-claude.html) · [探索紀錄](repro/claude-32/README.md)：QHD 桌機 4/4、1/4，手機 0/4、0/4 |
 | Claude31 | 沿用 Claude29 決策，QHD 讀圖改為 2000px，並加入 Grow46 的 NPC 幾何修正。 | 可選 `claude-31` | [控制器原碼](https://github.com/gg-dot1980/slime/blob/fdd64bd1d7a5620b78373ae86552ba83b3c61a5f/src/ocr-claude.html) · [探索紀錄](repro/claude-31/README.md)：QHD 桌機 0/4、0/4，手機 0/4、0/4 · [校準與拆解](repro/claude-31-factorial/README.md) |
