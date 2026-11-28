@@ -68,7 +68,7 @@ Claude30 沿用 Claude29，每 100ms 決策一次（QHD 計算時間中位 15ms�
 
 Claude31 把辨識補到 Grow46 的水準（讀圖 2000px、幾何修正），決策沿用 Claude29：QHD 桌機 0/4、0/4，體型中位 130.5、145；手機 0/4、0/4。現在的瓶頸主要在 Claude 的決策。[Claude31 紀錄](repro/claude-31/README.md)
 
-2026-11-28 起 Claude 線暫停，後續以 Grow 研究為主（見 [Claude 續測流程](CLAUDE-WORKFLOW.md)的目前狀態）。
+2026-11-28 使用者要求重啟 Claude 線，從有潛力的做法產生 Claude 自己的版本。Claude32 把 Grow46 的規劃器原樣移植到 Claude 頁面（Claude31 辨識）：QHD 桌機 v2.13 4/4、v2.22 1/4；手機 0/4、0/4。這是第一個在 Claude 頁面上過關的版本。[Claude32 紀錄](repro/claude-32/README.md)
 
 ## 同一起始條件下如何比較
 

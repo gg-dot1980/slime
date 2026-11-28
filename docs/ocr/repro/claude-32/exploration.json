@@ -1,0 +1,135 @@
+{
+  "candidate": "claude-32",
+  "freeze": "freeze.json",
+  "stage": "exploration",
+  "groups": {
+    "desktop-qhd": [
+      {
+        "version": "v2.13",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 4,
+        "deaths": 0,
+        "cutoff150": 0,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          200,
+          200,
+          196,
+          200
+        ],
+        "sizeMedian": 200.0,
+        "winSeconds": [
+          108,
+          103,
+          143,
+          146
+        ],
+        "canvas": [
+          2250,
+          1308
+        ],
+        "observer": {
+          "npcEatsMedian": 18.5,
+          "foodGainMedian": 76.5,
+          "npcGainMedian": 102.4
+        }
+      },
+      {
+        "version": "v2.22",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 1,
+        "deaths": 1,
+        "cutoff150": 2,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          119,
+          113,
+          181,
+          158
+        ],
+        "sizeMedian": 138.5,
+        "winSeconds": [
+          105
+        ],
+        "canvas": [
+          2250,
+          1308
+        ],
+        "observer": {
+          "npcEatsMedian": 11.5,
+          "foodGainMedian": 52.4,
+          "npcGainMedian": 61.4
+        }
+      }
+    ],
+    "mobile-joystick": [
+      {
+        "version": "v2.13",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 1,
+        "cutoff150": 3,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          99,
+          91,
+          71,
+          114
+        ],
+        "sizeMedian": 95.0,
+        "winSeconds": [],
+        "canvas": [
+          384,
+          467
+        ],
+        "observer": {
+          "npcEatsMedian": 7.0,
+          "foodGainMedian": 46.2,
+          "npcGainMedian": 17.7
+        },
+        "touchMisses": 0,
+        "untrustedPointers": 0
+      },
+      {
+        "version": "v2.22",
+        "planned": 4,
+        "started": 4,
+        "valid": 4,
+        "win150": 0,
+        "deaths": 1,
+        "cutoff150": 3,
+        "aborted": 0,
+        "unknown": 0,
+        "sizes": [
+          109,
+          73,
+          68,
+          62
+        ],
+        "sizeMedian": 70.5,
+        "winSeconds": [],
+        "canvas": [
+          384,
+          467
+        ],
+        "observer": {
+          "npcEatsMedian": 3.0,
+          "foodGainMedian": 39.1,
+          "npcGainMedian": 6.7
+        },
+        "touchMisses": 0,
+        "untrustedPointers": 0
+      }
+    ]
+  },
+  "confirmation": "not started (desktop v2.22 1/4 is below 2/4; v2.13 4/4)"
+}
