@@ -1,0 +1,51 @@
+{
+  "candidate": "claude-31",
+  "strategyValue": "claude-31",
+  "sourceCommit": "fdd64bd",
+  "sourcePath": "src/ocr-claude.html",
+  "sourceSha256": "3a4ff3d07f023f596b05a40ce4424ad0c7b9cab058cfcba86c4bc6f2ffffef8b",
+  "sourceGitBlob": "ab0424800df68613e12247e1fd99f3a8b4dd2a0e",
+  "servedAs": "npm run build + npm run dev, /ocr-gui-design/claude/",
+  "gameBlobs": {
+    "v2.13": "16d41cdf2997baf0b3af33567b201d2dfb835427",
+    "v2.22": "30af12f7608da91514711ecdbc01b57654ab2eab"
+  },
+  "groups": {
+    "desktop-qhd": {
+      "window": [
+        2560,
+        1440
+      ],
+      "canvas": [
+        2250,
+        1308
+      ],
+      "dpr": 1,
+      "input": "keyboard",
+      "runner": "OCR_GEOMETRY=qhd scripts/ocr-claude-batch.mjs"
+    },
+    "mobile-joystick": {
+      "window": [
+        402,
+        753
+      ],
+      "canvas": [
+        384,
+        467
+      ],
+      "dpr": 1,
+      "input": "touch joystick + second-contact boost",
+      "runner": "OCR_GEOMETRY=mobile scripts/ocr-claude-batch.mjs"
+    }
+  },
+  "frozenAt": "2026-11-27 (Asia/Taipei)",
+  "computeMsQhd": {
+    "p50": 29,
+    "p90": 34,
+    "p99": 56,
+    "max": 74,
+    "decisions": 300,
+    "version": "v2.22",
+    "seconds": 60
+  }
+}
